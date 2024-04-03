@@ -44,3 +44,9 @@ for more details.
    Contribution to MCUXpresso SDK <CONTRIBUTING.md>
    API Reference Manual <drivers/index.rst>
    Avaiable Development Boards <Boards/index.rst>
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Build And Configuration System:
+
+   Meta Build System (CMake+KConfig) <build_system/meta_build_system.md>
