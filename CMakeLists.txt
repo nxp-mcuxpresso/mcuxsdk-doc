@@ -79,6 +79,7 @@ endfunction()
 # Doxygen (standalone)
 
 set(DOXY_OUT ${CMAKE_CURRENT_BINARY_DIR}/doxygen)
+message(STATUS "DOXY_OUT: ${DOXY_OUT}")
 set(DOXYFILE_IN ${CMAKE_CURRENT_LIST_DIR}/Doxyfile_lib_PDF_RM_Drivers)
 set(DOXYFILE_OUT ${CMAKE_CURRENT_BINARY_DIR}/sdk.doxyfile)
 
@@ -120,7 +121,7 @@ add_doc_target(
 set_target_properties(
   html html-nodeps
   PROPERTIES
-    ADDITIONAL_CLEAN_FILES "${DOCS_SRC_DIR};${DOCS_HTML_DIR};${DOCS_DOCTREE_DIR}"
+    ADDITIONAL_CLEAN_FILES "${DOCS_HTML_DIR};${DOCS_DOCTREE_DIR}"
 )
 
 
@@ -148,7 +149,7 @@ add_doc_target(
 set_target_properties(
   latex latex-nodeps
   PROPERTIES
-    ADDITIONAL_CLEAN_FILES "${DOCS_SRC_DIR};${DOCS_LATEX_DIR};${DOCS_DOCTREE_DIR}"
+    ADDITIONAL_CLEAN_FILES "${DOCS_LATEX_DIR};${DOCS_DOCTREE_DIR}"
 )
 
 if(LATEX_PDFLATEX_FOUND AND LATEXMK)

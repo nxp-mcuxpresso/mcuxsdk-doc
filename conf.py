@@ -26,7 +26,7 @@ args = get_parser().parse_args()
 DOC_BASE = Path(__file__).absolute().parents[0]
 SDK_BASE = Path(__file__).absolute().parents[1]
 print(SDK_BASE)
-DOC_BUILD = Path(args.outputdir).resolve()
+DOC_BUILD = Path(args.outputdir).resolve().parents[0]
 # sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, DOC_BASE)
 sys.path.insert(0, str(DOC_BASE / "_extensions"))
@@ -101,6 +101,7 @@ doxyrunner_fmt = True
 doxyrunner_fmt_vars = {"SDK_BASE": str(SDK_BASE)}
 doxyrunner_outdir_var = "DOXY_OUT"
 
+print(f"doxygen runner configuration: {doxyrunner_outdir}")
 # Breathe Configuration
 breathe_projects = {"Drivers": str(doxyrunner_outdir / "xml")}
 breathe_default_project = "Drivers"
