@@ -28,7 +28,9 @@ import re
 from typing import Optional
 
 from sphinx.application import Sphinx
+from sphinx.util import logging
 
+logger = logging.getLogger(__name__)
 
 __version__ = "0.1.0"
 
@@ -44,19 +46,44 @@ def vcs_link_get_url(app: Sphinx, pagename: str) -> Optional[str]:
         VCS URL if applicable, None otherwise.
     """
 
-    if not os.path.isfile(app.env.project.doc2path(pagename)):
+    if not os.path.isfile(app.env.doc2path(pagename)):
         return None
 
     for exclude in app.config.vcs_link_exclude:
         if re.match(exclude, pagename):
             return None
 
-    return "/".join(
-        [
-            app.config.vcs_link_base_url,
-            app.env.project.doc2path(pagename, basedir=False),
-        ]
-    )
+    found_prefix = ""
+    pagepath = app.env.project.doc2path(pagename, basedir=False).replace("\\","/")
+    for pattern, prefix in app.config.vcs_link_prefixes.items():
+        if re.match(pattern, pagepath):
+            found_prefix = prefix
+            break
+
+    if found_prefix is None:
+        return None
+
+    if "boards" in found_prefix:
+        return "/".join(
+            [
+                found_prefix,
+                pagepath.replace("boards/","").replace("Boards/",""),
+            ]
+        )
+    elif "examples" in found_prefix:
+        return "/".join(
+            [
+                found_prefix,
+                pagepath.replace("examples/",""),
+            ]
+        )
+    else:
+        return "/".join(
+            [
+                found_prefix,
+                pagepath,
+            ]
+        )
 
 def vcs_link_get_open_issue_url(app: Sphinx, pagename: str) -> Optional[str]:
     """Link to open a new Github issue regarding "pagename" with title, body, and
@@ -117,7 +144,7 @@ def add_jinja_filter(app: Sphinx):
     )
 
 def setup(app: Sphinx):
-    app.add_config_value("vcs_link_base_url", "", "")
+    app.add_config_value("vcs_link_prefixes", {}, "")
     app.add_config_value("vcs_link_exclude", [], "")
 
     app.connect("builder-inited", add_jinja_filter)

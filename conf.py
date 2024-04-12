@@ -35,11 +35,35 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'mcuxsdk'
-copyright = '2021,2024, susan'
-author = 'susan'
+copyright = '2021,2024, NXP'
+author = 'NXP'
+
+# parse version from 'VERSION' file
+with open(SDK_BASE / "VERSION") as f:
+    m = re.match(
+        (
+            r"^CURRENT_YEAR\s*=\s*(\d+)$\n"
+            + r"^VERSION_MAJOR\s*=\s*(\d+)$\n"
+            + r"^VERSION_MINOR\s*=\s*(\d+)$\n"
+            + r"^PATCHLEVEL\s*=\s*(\d+)$\n"
+            + r"^EXTRAVERSION\s*=\s*(.*)$"
+        ),
+        f.read(),
+        re.MULTILINE,
+    )
+
+    if not m:
+        sys.stderr.write("Warning: Could not extract SDK version\n")
+        version = "Unknown"
+    else:
+        year, major, minor, patch, extra = m.groups(1)
+        version = ".".join((year, major, minor, patch))
+        if extra:
+            version += "-" + extra
+
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = version
 
 
 # -- General configuration ---------------------------------------------------
@@ -58,9 +82,16 @@ extensions = [
 "myst_parser",
 "breathe",
 "doxyrunner",
+"external_content"
 #"warnings_filter"
 # 'exhale'
 ]
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.readme': 'markdown',
+    '.md': 'markdown',
+}
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -166,9 +197,47 @@ html_split_index = True
 html_show_sourcelink = False
 html_show_sphinx = False
 
+is_release = tags.has("release")  # pylint: disable=undefined-variable
+reference_prefix = DOC_BUILD
+if tags.has("publish"):  # pylint: disable=undefined-variable
+    reference_prefix = f"/{version}" if is_release else "/latest"
+docs_title = "Docs / {}".format(version if is_release else "Latest")
 html_context = {
+    "show_license": True,
+    "docs_title": docs_title,
+    "is_release": is_release,
+    "current_version": version,
+    "versions": (
+        ("latest", "/"),
+        ("24.3.0.0", "/24.3.0.0/"),
+        ("24.3.1.0", "/24.3.1.0/"),
+    ),
     "display_vcs_link": True,
+    "reference_links": {
+        "API Reference Manual": f"{reference_prefix}/doxygen/html/index.html",
+    },
 }
 # -- Options for vcs_link ------------------------------------------
+vcs_link_prefixes = {
+    "examples/.*readme": "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-examples/browse",
+    "boards/.*readme": "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse",
+    "Boards/.*readme": "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse",
+    ".*": "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-doc/browse",
+}
 
-vcs_link_base_url = "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-doc/browse"
+#vcs_link_base_url = "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-doc/browse"
+
+# -- Options for zephyr.external_content ----------------------------------
+
+external_content_contents = [
+    (SDK_BASE / "docs", "[!_]*"),
+    (SDK_BASE, "examples/index.rst"),
+    (SDK_BASE, "examples/*/index.rst"),
+    (SDK_BASE, "examples/*/**/index.rst"),
+    (SDK_BASE, "examples/**/**/*.readme"),
+    (SDK_BASE, "examples/**/**/**/*.readme"),
+    (SDK_BASE, "boards/**/**/*.readme"),
+    (SDK_BASE, "boards/**/**/**/*.readme"),
+]
+external_content_keep = [
+]

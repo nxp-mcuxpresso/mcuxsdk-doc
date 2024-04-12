@@ -42,6 +42,7 @@ for more details.
    MCUXpresso SDK Brief Introduction <README.md>
    Getting Started with MCUXpresso SDK <Getting_Started.md>
    Contribution to MCUXpresso SDK <CONTRIBUTING.md>
+   Demos and Examples <examples/index.rst>
    API Reference Manual <drivers/index.rst>
    Avaiable Development Boards <Boards/index.rst>
 

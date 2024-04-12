@@ -44,7 +44,7 @@ set(SPHINX_ENV
 set(DOCS_CFG_DIR ${CMAKE_CURRENT_LIST_DIR})
 set(DOCS_DOCTREE_DIR ${CMAKE_CURRENT_BINARY_DIR}/doctrees)
 set(DOCS_BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR})
-set(DOCS_SRC_DIR ${CMAKE_CURRENT_LIST_DIR})
+set(DOCS_SRC_DIR ${CMAKE_CURRENT_BINARY_DIR}/src)
 set(DOCS_HTML_DIR ${CMAKE_CURRENT_BINARY_DIR}/html)
 set(DOCS_LINKCHECK_DIR ${CMAKE_CURRENT_BINARY_DIR}/linkcheck)
 set(DOCS_LATEX_DIR ${CMAKE_CURRENT_BINARY_DIR}/latex)
@@ -54,6 +54,8 @@ if(WIN32)
 else()
   set(SEP :)
 endif()
+
+file(MAKE_DIRECTORY ${DOCS_SRC_DIR})
 
 #-------------------------------------------------------------------------------
 # Functions
@@ -121,7 +123,7 @@ add_doc_target(
 set_target_properties(
   html html-nodeps
   PROPERTIES
-    ADDITIONAL_CLEAN_FILES "${DOCS_HTML_DIR};${DOCS_DOCTREE_DIR}"
+    ADDITIONAL_CLEAN_FILES "${DOCS_SRC_DIR};${DOCS_HTML_DIR};${DOCS_DOCTREE_DIR}"
 )
 
 

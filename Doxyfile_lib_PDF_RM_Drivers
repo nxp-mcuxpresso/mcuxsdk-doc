@@ -735,14 +735,23 @@ WARN_LOGFILE           =
 
 INPUT                  = @SDK_BASE@/docs/_doxygen/mainpage.md \
                          @SDK_BASE@/drivers/dma \
+                         @SDK_BASE@/drivers/dma/doxygen \
                          @SDK_BASE@/drivers/edma \
+                         @SDK_BASE@/drivers/edma/doxygen \
                          @SDK_BASE@/drivers/flash \
+                         @SDK_BASE@/drivers/flash/doxygen \
                          @SDK_BASE@/drivers/gpio \
+                         @SDK_BASE@/drivers/gpio/doxygen \
                          @SDK_BASE@/drivers/lpspi \
+                         @SDK_BASE@/drivers/lpspi/doxygen \
                          @SDK_BASE@/drivers/lpuart \
+                         @SDK_BASE@/drivers/lpuart/doxygen \
                          @SDK_BASE@/drivers/port \
+                         @SDK_BASE@/drivers/port/doxygen \
                          @SDK_BASE@/drivers/smc \
-                         @SDK_BASE@/drivers/uart
+                         @SDK_BASE@/drivers/smc/doxygen \
+                         @SDK_BASE@/drivers/uart \
+                         @SDK_BASE@/drivers/uart/doxygen
 
 # If the value of the INPUT tag contains directories, you can use the
 # FILE_PATTERNS tag to specify one or more wildcard patterns (like *.cpp and
