@@ -44,6 +44,7 @@ for more details.
    Contribution to MCUXpresso SDK <CONTRIBUTING.md>
    Demos and Examples <examples/index.rst>
    API Reference Manual <drivers/index.rst>
+   Middleware <middleware/index.rst>
    Avaiable Development Boards <Boards/index.rst>
 
 .. toctree::

@@ -188,7 +188,7 @@ html_theme_options = {
 }
 html_baseurl = "https://docs.zephyrproject.org/latest/"
 html_title = "MCUXpresso SDK Documentation"
-html_logo = str(DOC_BASE / "_static" / "images" / "fs_logo.gif")
+html_logo = str(DOC_BASE / "_static" / "images" / "nxp_logo_small.png")
 html_favicon = str(DOC_BASE / "_static" / "images" / "nxp_logo_small.png")
 html_static_path = [str(DOC_BASE / "_static")]
 html_last_updated_fmt = "%b %d, %Y"
@@ -222,6 +222,7 @@ vcs_link_prefixes = {
     "examples/.*readme": "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-examples/browse",
     "boards/.*readme": "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse",
     "Boards/.*readme": "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse",
+    "middleware/mcuboot_opensource/.*md": "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-mcuboot/browse",
     ".*": "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-doc/browse",
 }
 
@@ -238,6 +239,7 @@ external_content_contents = [
     (SDK_BASE, "examples/**/**/**/*.readme"),
     (SDK_BASE, "boards/**/**/*.readme"),
     (SDK_BASE, "boards/**/**/**/*.readme"),
+    (SDK_BASE, "middleware/mcuboot_opensource/docs/*.md"),
 ]
 external_content_keep = [
 ]

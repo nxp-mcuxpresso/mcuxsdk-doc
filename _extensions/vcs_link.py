@@ -77,6 +77,13 @@ def vcs_link_get_url(app: Sphinx, pagename: str) -> Optional[str]:
                 pagepath.replace("examples/",""),
             ]
         )
+    elif "mcuboot" in found_prefix:
+        return "/".join(
+            [
+                found_prefix,
+                pagepath.replace("middleware/mcuboot_opensource/",""),
+            ]
+        )
     else:
         return "/".join(
             [
