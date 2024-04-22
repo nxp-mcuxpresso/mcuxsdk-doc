@@ -196,6 +196,8 @@ html_domain_indices = False
 html_split_index = True
 html_show_sourcelink = False
 html_show_sphinx = False
+docgen_branch = os.getenv("DOCGEN_BRANCH")
+docgen_rev = os.getenv("DOCGEN_REV")
 
 is_release = tags.has("release")  # pylint: disable=undefined-variable
 reference_prefix = DOC_BUILD
@@ -207,6 +209,8 @@ html_context = {
     "docs_title": docs_title,
     "is_release": is_release,
     "current_version": version,
+    "branch_info": docgen_branch,
+    "rev_info": docgen_rev,
     "versions": (
         ("latest", "/"),
         ("24.3.0.0", "/24.3.0.0/"),
