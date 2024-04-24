@@ -9,6 +9,7 @@ We greatly welcome and highly appreciate for your contribution. You could freely
   * [Commit Guidelines](#commit-guidelines)
   * [Contribution Workflow](#contribution-workflow)
   * [Contributing New Components](#contributing-new-components)
+  * [Documentation Generation](#documentation-generation)
 
 
 ## Code of Conduct
@@ -180,3 +181,51 @@ If you want to contribute your code back to our project, need to follow the pull
 ## Contributing New Components
 If you want to contribute new components, please send an email to [project maintainer](susan.su@nxp.com) to communicate your idea first. If the new component has a different license other than BSD-3-Clause, you need to prepare a description for the license information in the email description for us to decide whether the contribution will pollute the project. Description for the new license need to follow the component entry in [SW-Content-Register.txt](SW-Content-Register.txt).
 
+## Documentation Generation
+This section instructs how a developer/contributor do documentation generation for MCUXpresso SDK project on your local system. We use same process to create the online documentation with the sources in this project.
+
+### Documentation Overview
+The MCUXpresso SDK online documentation referenced the documentation framework from [Zephyr](https://github.com/zephyrproject-rtos/zephyr) project. The project uses the [Sphinx](https://www.sphinx-doc.org/en/master/) to create standalone HTML pages or pdf documentation with input sources in .rst or .md format. A developer/contributor could generate the the HTML pages or pdf file in your local system and view it in a web browser.
+
+The documentation sources are consist of:
+
+- RestructuredText(.rst) source files mainly to generate the tree.
+- Markdown(.md, .readme) sources in docs/, boards/, examples/, middleware/ folder which describes majority of the content, using markdown because we have some existing documentation sources written in markdown and developers are more familiar with it.
+- Driver API header/dox files which fed to doxygen for API reference manual generation.
+
+Below picture shows the framework. We used the popular sphinx_rtd_theme for HTML site creation, the breathe extension is used to bridge the doxygen generated xml files to sphinx. The following section will describe the environment set up and  steps for documentation generation.
+
+![Documentation Sources](Contributing/documentation_overview.png)
+
+### Environment Setup
+
+***Firstly, ensure all your code is up-to-date, run `west update_repo`.*** You could refer to the guide in [repo setup](manifest_int/readme.md)
+
+The documentation environment setup steps could refer to [Zephyr Installing the documentation processors](https://docs.zephyrproject.org/latest/contribute/documentation/generation.html#installing-the-documentation-processors) with below notices:
+
+1. No need to install zephyr. But if you do not have below tools installed, refer to [Zephyr Getting Start Guide](https://docs.zephyrproject.org/latest/develop/getting_started/index.html#install-dependencies) to install them:
+    - Python version >= 3.8
+    - Cmake
+    - Ninja
+2. For the required python dependencies, install from the requirements.txt under the docs/ folder.
+
+```bash
+
+# Note: you can add option '--default-timeout=1000' if you meet connection issue.
+pip install -r mcu-sdk-3.0/docs/requirements.txt
+```
+3. Install make for windows using choco, other OS has make installed by default. Ensure you are running command in administrator mode.
+```cmd
+choco install make
+```
+
+### Documentation Generation
+Assume you have the MCUXpresso SDK repos up to date, you could navigate to docs/ folder where the sphinx configuration file locates and where the Makefile prepared. Then, with below command to generate the html content locally:
+```cmd
+make html
+```
+You can also generate the pdf documentation with below command:
+```cmd
+make pdf
+```
+Currently the whole process should takes no more than 5 minutes. There are some warnings in the documentation generation process, it's OK because we are still in prototype phase.
