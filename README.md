@@ -1,7 +1,7 @@
 # MCUXpresso SDK: mcux-sdk
-MCUXpresso SDK is a comprehensive software enablement package designed to simplify and accelerate application development with Arm® Cortex®-M-based devices from NXP, including its general purpose, crossover and Bluetooth™-enabled MCUs. This project provides an alternative way for user to achieve the source code of MCUXpresso SDK besides SDK builder and MCUXpresso IDE.
+MCUXpresso SDK is a comprehensive software enablement package designed to simplify and accelerate application development with Arm® Cortex®-M-based devices from NXP, including its general purpose, crossover, and Bluetooth™-enabled MCUs. This project provides an alternative way for a user to achieve the source code of MCUXpresso SDK besides the SDK builder and the MCUXpresso IDE.
 
-The whole MCUXpresso SDK delivery is composed of separate project deliveries. The idea we split the whole SDK delivery to separate projects is inspired by [Zephyr](https://github.com/zephyrproject-rtos/zephyr), and the projects are planned as below:
+The complete MCUXpresso SDK delivery is composed of separate project deliveries. The idea we split the whole SDK delivery to separate projects is inspired by [Zephyr](https://github.com/zephyrproject-rtos/zephyr), and the projects are planned as below:
 * Fundamental project for device/board enablement with shared drivers and components.
 * RTOS projects
 * Middleware projects
