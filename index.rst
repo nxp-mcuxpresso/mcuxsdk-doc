@@ -7,7 +7,7 @@ MCUXpresso SDK Documentation
 ############################
 
 
-**Welcome to the MCUXpresso SDK Project's documentation**
+**Welcome to the MCUXpresso SDK Project documentation**
 
 For information about the changes and additions for releases, please
 consult the published :ref:`mcux-sdk_release_notes` documentation.
