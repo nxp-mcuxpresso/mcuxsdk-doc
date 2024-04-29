@@ -1,6 +1,6 @@
-# Meta Build System
+# CMake Based Build System
 
-## Prequisites
+## Environment Setup
 
 ***Firstly, ensure all your code is up-to-date, run `west update_repo`.***
 To isolate your development environment, suggest use python venv.
@@ -41,13 +41,29 @@ pip install -U kconfiglib
 
 3. Run
 
+   Inside Kconfig files, there are board/device variables inside, so it cannot be directly run, so Kconfig shall be run inside whole cmake process.
+
+   1. Run cmake configuration
+
 ```bash
-guiconfig
+west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
 ```
 
-You can get the Kconfig GUI and do configuration.
+​	You can ignore "--cmake-only", then the projecrt will be built.
 
-For the time being, the Kconfig flow is still under development, so the output .config is just placed inside mcu-sdk-3.0 repo without being put into cmake configuration.  You can open it and reference.
+​	2. Run guiconfig target
+
+```bash
+west built -t guiconfig
+```
+
+​	Then you will get the Kconfig GUI launched, like
+
+​	           ![](./_doc/kconfig_gui.png)
+
+You can select/deselect and modify to do reconfiguration and remember to save.
+
+After you save and close, you can directly run "west build" to do the build.
 
 ## West Extension Commands
 
@@ -171,9 +187,36 @@ To import the sdk in mcuxpresso, you have to add `mcu-sdk-3.0` repo in SDK searc
 We now have two major limitations with the manifest and project.xml generated from meta build system:
 
 1. No support for MCUXpresso 'New Project Wizard'
-We cannot generate component and dependency information in sdk manifest, but you can use kconfig to get similiar experience.
+  We cannot generate component and dependency information in sdk manifest, but you can use kconfig to get similiar experience.
 
 2. Cannot import standalone project
-MCUXpresso will not copy all sources for include path only if they are explicitly recorded in manifest. So you have to untick the `Copy sources` option.
+  MCUXpresso will not copy all sources for include path only if they are explicitly recorded in manifest. So you have to untick the `Copy sources` option.
 
 ![mcux_import_project](./_doc/mcux_import_project.png)
+
+## Multi Project Solution Build
+
+## Overview
+
+### CMake
+
+### Kconfig
+
+### IDE.yml
+
+## CMake Data
+
+### Component
+
+### Project Segment
+
+### Project
+
+## CMake Configuration Process Flow
+
+
+
+
+
+
+

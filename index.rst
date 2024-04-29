@@ -49,6 +49,8 @@ for more details.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Build And Configuration System:
+   :caption: Build And Configuration System
 
-   Meta Build System (CMake+KConfig) <build_system/meta_build_system.md>
+   Build System Based On CMake <build_system/Build_System_Based_On_CMake.md>
+   Configuration System Based On Kconfig <build_system/Configuration_System_Based_On_Kconfig.md>
+   Frequently Asked Questions <build_system/Frequently_Asked_Questions.md>
