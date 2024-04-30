@@ -118,6 +118,59 @@ west build -b evkmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcor
 
 Remember to use "--config" to specify build target which is different from SDKGENv3.
 
+### Sysbuild(System build)
+
+To support multicore project building, we ported Sysbuild from Zephyr. Sysbuild is a higher-level build system that can be used to combine multiple other build systems together.For more details, please refer to document [Sysbuild (System build) — Zephyr Project Documentation](https://docs.zephyrproject.org/latest/build/sysbuild/index.html#sysbuild-zephyr-application).
+
+You can build all projects by adding "--sysbuild" for main application. For example:
+
+```
+west build -b evkmimxrt1170 --sysbuild .\examples\demo_apps\hello_world -Dcore_id=cm7 --config flexspi_nor_debug -p always
+```
+
+To include sub projects into building system, you must prepare "sysbuild.cmake" into main application folder. Sub projects are added by "ExternalZephyrProject_Add" command. For example:
+
+```cmake
+# demo_apps/hello_world/sysbuild.cmake
+
+ExternalZephyrProject_Add(
+        APPLICATION freertos_hello
+        SOURCE_DIR  ${APP_DIR}/../../rtos/freertos/freertos-kernel/freertos_hello
+        board ${SB_CONFIG_secondary_board}
+        core_id ${SB_CONFIG_secondary_core_id}
+        config ${SB_CONFIG_secondary_config}
+        toolchain ${SB_CONFIG_secondary_toolchain}
+)
+
+# Let's build the main application first
+add_dependencies(freertos_hello ${DEFAULT_IMAGE})
+```
+
+The variables in sysbuild.cmake can be defined inside the file. In practice, however, it is more common to set these variables automatically via kconfig to support multiple platforms in a more flexible way. For example, you can prepare a Kconfig.sysbuild in main application folder:
+
+```
+# demo_apps/hello_world/Kconfig.sysbuild
+
+config secondary_board
+    string
+    default "evkmimxrt1170" if $(board) = "evkmimxrt1170"
+    default "lpcxpresso55s69" if $(board) = "lpcxpresso55s69"
+
+config secondary_core_id
+    string
+    default "cm4" if $(board) = "evkmimxrt1170" && $(core_id) = "cm7"
+    default "cm33_core1" if $(board) = "lpcxpresso55s69" && $(core_id) = "cm33_core0"
+
+config secondary_config
+    string
+    default "debug" if $(config) = "debug"
+    default "debug" if $(config) = "flexspi_nor_debug"
+
+config secondary_toolchain
+    string
+    default "$(toolchain)"
+```
+
 ### Flash
 
 As we do not have a FRDM-K64F with JLink or other runners for test, we only ensure flash/debug commands can work for linkserver. Please install linkserver and add it to your PATH firstly.
