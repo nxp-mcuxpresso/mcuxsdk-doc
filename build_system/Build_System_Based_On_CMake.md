@@ -2,6 +2,8 @@
 
 ## Environment Setup
 
+### Repos Setup
+
 ***Firstly, ensure all your code is up-to-date, run `west update_repo`.***
 To isolate your development environment, suggest use python venv.
 In sdk-next workspace root directory, create and activate a virtual environment:
@@ -28,6 +30,21 @@ pip install -r mcu-sdk-3.0/scripts/requirements.txt
 
 Following build, flash and debug commands are refered from zephyr's official one. So you can find the full documentation here: <https://docs.zephyrproject.org/latest/develop/west/build-flash-debug.html>
 Most of native zephyr's west build features are reserved.
+
+### Toolchain Setup
+
+Build system supports IAR,MDK,Armgcc, MCUXpresso IDE and Zephyr SDK to build.
+
+For IAR, MDK Armgcc and Zephyr, you need to set environment varaibles to specify the toolchain installation so that build system can find it. 
+
+Here are the toolchain environment variable table
+
+| Toolchain | Environment variable   | Cmd Line Argument           |
+| --------- | ---------------------- | :-------------------------- |
+| IAR       | IAR_DIR                | --toolchain iar             |
+| MDK       | MDK_DIR                | --toolchain mdk             |
+| Armgcc    | ARMGCC_DIR             | --toolchain armgcc(default) |
+| Zephyr    | ZEPHYR_SDK_INSTALL_DIR | --toolchain zephyr          |
 
 ## Kconfig
 
@@ -66,12 +83,6 @@ You can select/deselect and modify to do reconfiguration and remember to save.
 After you save and close, you can directly run "west build" to do the build.
 
 ## West Extension Commands
-
-### Toolchain
-
-Currently, like the build system in sdk-2.x, you have to setup toolchain installation directory in environment varaibles, like `IAR_PATH`, `ARMGCC_PATH` and `MDK_PATH`.
-
-We also support use the modified toolchain/compiler from zephyr sdk. If you followed the zephyr-sdk guide [here](https://docs.zephyrproject.org/latest/develop/toolchains/zephyr_sdk.html#zephyr-sdk-installation), you can use `--toolchain zephyr` with `west build` command in the following chapter to tell meta build system call compiler from it.
 
 ### Build
 
