@@ -1,0 +1,161 @@
+# pattern 1: Simple allOf with sub anyOf
+componentA:
+  allOf:
+    - component1
+    - component2
+    - anyOf:
+      - component3
+      - component4
+
+# pattern 2: start with allOf, 1 level
+componentB:
+  dependency:
+    allOf:
+    - component1
+    - component2
+    - anyOf:
+      - component3
+      - component4
+    - anyOf:
+      - component5
+      - component6
+    - core:
+      - cm33
+      - cm33f
+    - device:
+      - MK64F12
+      - MK63F12
+
+# pattern 3: start with allOf, 2 levels, anyOf/allOf
+componentC:
+  dependency:
+    allOf:
+    - component1
+    - component2
+    - compiler:
+      - iar
+      - mdk
+    - anyOf:
+        - allOf:
+          - component3
+          - component4
+          - device:
+            - MK64F12
+            - MK63F12
+        - allOf:
+          - component5
+          - component6
+          - device:
+            - LPC54005
+            - LPC54016
+            - LPC54018
+            - LPC54018M
+            - LPC54628
+
+# pattern 4: start with allOf, 2 levels, anyOf/anyOf
+componentD:
+  dependency:
+    allOf:
+    - component1
+    - component2
+    - not: component8
+    - compiler:
+      - iar
+      - mdk
+    - anyOf:
+      - anyOf:
+        - component3
+        - component4
+      - anyOf:
+        - component5
+        - component6
+      - component7
+
+# pattern 5: start with anyOf, 1 level
+componentE:
+  dependency:
+    anyOf:
+    - allOf:
+      - component1
+      - component2
+      - core:
+        - cm4
+        - cm4f
+      - device:
+        - MK64F12
+        - MK63F12
+    - allOf:
+      - component3
+      - component4
+
+# pattern 6: start allOf, 1 level, with not
+componentF:
+  dependency:
+    allOf:
+    - component1
+    - not: 
+        device:
+        - MK64F12
+        - MK63F12
+
+# pattern 7: start anyOf, 1 level, with not
+componentG:
+  dependency:
+    anyOf:
+    - allOf:
+      - component1
+      - device:
+        - MK64F12
+        - MK63F12
+    - allOf:
+      - component2
+      - not:
+          device:
+          - MK64F12
+          - MK63F12    
+
+
+# pattern unsupported: with a misc item as individual branch.
+# componentG:
+#   dependency:
+#     allOf:
+#     - component1
+#     - anyOf:
+#         - allOf:
+#           - component2
+#           - device:
+#             - MK64F12
+#             - MK63F12
+#         - device:
+#           - LPC54005
+#           - LPC54016
+#           - LPC54018
+#           - LPC54018M
+#           - LPC54628
+
+# componentX:
+#   dependency:
+#     anyOf:
+#       - component1
+#       - board:
+#           - frdmk64f
+#           - evkmimxrt1170
+#   dependency:
+#     allOf:
+#     - middleware.mbedtls.port.els
+#     - component.els_pkc
+#     - middleware.mbedtls.els_pkc.config
+#     - anyOf:
+#         - allOf:
+#           - driver.trng
+#           - device:
+#             - RW610
+#             - RW612
+#         - device:
+#           - LPC55S36
+#           - MCXN235
+#           - MCXN236
+#           - MCXN546
+#           - MCXN547
+#           - MCXN946
+#           - MCXN947
