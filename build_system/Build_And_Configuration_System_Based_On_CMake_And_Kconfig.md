@@ -1597,6 +1597,10 @@ For component selection and configuration, you can use different level prj.conf 
 
 ## IDE Generation
 
+The meta build system supports project definition files generation for specific IDE. Currently only IAR and MDK are supported. 
+
+![](./_doc/gui_project.gif)
+
 ## System Build
 
 ## Scripts And Tools
