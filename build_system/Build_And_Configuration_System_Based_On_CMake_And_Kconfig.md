@@ -1597,9 +1597,33 @@ For component selection and configuration, you can use different level prj.conf 
 
 ## IDE Generation
 
-The meta build system supports project definition files generation for specific IDE. Currently only IAR and MDK are supported. 
+CMake is a text-oriented tool that uses the command-line, for many developers, especially those who are used to working on Windows operating system, this is not a great experience for coding and debugging. Therefore the meta build system supports GUI project generation for specific IDE.  
+
+It's quiet easy for you to generate a GUI project, only "-t guiproject" is required for west command. It tells CMake to run guiproject target to generate project files.
+
+If you are running a pristine build, please specify board/examples/toolchain/core_id on the command line. For example:
+
+```bash
+west build -b evkmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug -p always -t guiproject
+```
+
+If you have run this command, there is a simpler and faster command:
+
+```
+west build -t guiproject
+```
+
+After the command runs, the project files are generated into the compilation directory. You can find it in command line, for example:
 
 ![](./_doc/gui_project.gif)
+
+> [!NOTE]
+>
+> Currently only IAR and MDK are supported, but we will support other toolchains in the future.
+>
+> Currently the generation script is ported from SDK Generator which use Ruby language. During the official release phase we will change to python to reduce the effort of configuring development environment.
+
+
 
 ## System Build
 
