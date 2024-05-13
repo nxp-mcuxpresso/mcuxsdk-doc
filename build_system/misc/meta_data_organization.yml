@@ -1,0 +1,190 @@
+devices:
+  Kinetis: Device socs sery
+    MK63F12:
+      Kconfig: Device software Kconfig, mainly specify board specific component and project segment dependency
+      Kconfig.chip: Device hardware Kconfig related to device and core
+      CMakeLists.txt: Device specific contents like components and settings, usually, just load mainset cmakelist
+      driver:
+        CMakeLists.txt: Device specific drivers
+        Kconfig: Device specific drivers Kconfig
+      prj.conf: Device specific components selection and configuration
+    MK64F12:
+      Kconfig: Device software Kconfig, mainly specify board specific component and project segment dependency
+      Kconfig.chip: Device hardware Kconfig related to device and core
+      CMakeLists.txt: Device specific contents like components and settings
+      driver:
+        CMakeLists.txt: Device specific drivers
+        Kconfig: Device specific drivers Kconfig
+      prj.conf: Device specific components selection and configuration     
+    prj.conf: Components selection and configuration by all Kinetis series
+  RT:
+    MIMXRT1175:
+      cm4:
+        driver:
+          CMakeLists.txt: Device core specific drivers
+        Kconfig: Device core software Kconfig, mainly specify board specific component and project segment dependency
+        Kconfig.chip: Device core hardware Kconfig related to device and core
+        setting.cmake: Device core specific data and settings
+        variable.cmake: Device core specific variables
+        prj.conf: Device core specific components selection and configuration
+      cm7: # just like core cm4 
+        driver:
+          CMakeLists.txt:
+        Kconfig:
+        Kconfig.chip:
+        setting.cmake:
+        variable.cmake:
+        prj.conf:
+      CMakeLists.txt: Device specific contents like components and settings, usually, just load mainset cmakelist
+      driver:
+        CMakeLists.txt: Device specific drivers
+      Kconfig: Device 
+      Kconfig.chip: Device software Kconfig, mainly specify board specific component and project segment dependency
+      prj.conf: Device specific components selection and configuration
+    MIMXRT1176:
+      cm4:
+        driver:
+          CMakeLists.txt: Device core specific drivers
+        Kconfig: Device core software Kconfig, mainly specify board specific component and project segment dependency
+        Kconfig.chip: Device core hardware Kconfig related to device and core
+        setting.cmake: Device core specific data and settings
+        variable.cmake: Device core specific variables
+        prj.conf: Device core specific components selection and configuration
+      cm7: # just like core cm4 
+        driver:
+          CMakeLists.txt:
+        Kconfig:
+        Kconfig.chip:
+        setting.cmake:
+        variable.cmake:
+        prj.conf:
+      CMakeLists.txt: Device specific contents like components and settings
+      driver:
+        CMakeLists.txt: Device specific drivers
+      Kconfig: Device 
+      Kconfig.chip: Device software Kconfig, mainly specify board specific component and project segment dependency
+      prj.conf: Device specific components selection and configuration
+    prj.conf: Components selection and configuration by all RT series
+  prj.conf: Components selection and configuration by all devices
+
+boards:
+  frdmk64f: # A single core device board
+    CMakeLists.txt: Board specific contents like components and settings
+    Kconfig: Board software Kconfig, mainly specify board specific component and project segment dependency
+    prj.conf: Board specific components selection and configuration
+    <category>_example_list.yml: Board example list like sdk_example_list, freertos_example_list, etc
+    variable.cmake: Board variables
+    demo_apps:
+      hello_world:
+        reconfig.cmake: Board example reconfig, mainly replace, remove some default board settings
+        prj.conf: Board example specific component selection and configuration
+      reconfig.cmake: Board example category reconfig, mainly replace, remove some default settings
+      prj.conf: Board example category specific component selection and configuration
+    rtos_examples: # like above demo_apps
+      freertos_hello:
+        reconfig.cmake:
+        prj.conf:
+      reconfig.cmake:
+      prj.conf:
+  evkmimxrt1170: # A multicore device board
+    cm4: Core specific contents folder 
+      <category>_example_list.yml: Board core specific example list
+      Kconfig: Board core software Kconfig, mainly specify board core specific component and project segment dependency
+      Kconfig.chip: Board core software Kconfig related to core
+      prj.conf: Board core specific components selection and configuration
+      setting.cmake: Board core specific data and settings
+      variable.cmake: Board core specific variables
+    cm7: # Just like above cm4 core
+      <category>_example_list.yml:
+      Kconfig:
+      Kconfig.chip:
+      prj.conf: 
+      setting.cmake:
+      variable.cmake:
+    CMakeLists.txt: Board specific contents like components and settings
+    Kconfig: Board software Kconfig, mainly specify board specific component and project segment dependency
+    prj.conf: Board specific components selection and configuration
+    variable.cmake: Board variables
+    demo_apps:
+      reconfig.cmake:  Board example category reconfig, mainly replace, remove some default board settings
+      hello_world:
+        cm4:
+          reconfig.cmake: Board core specific example reconfig, mainly replace, remove some default board settings
+          prj.conf: Board core example specific components selection and configuration
+        cm7:
+          reconfig.cmake:
+          prj.conf:
+        reconfig.cmake: Board example category reconfig, mainly replace, remove some default board settings
+        prj.conf: Board example category specific component selection and configuration
+  prj.conf: components selection and configuration by all boards
+  
+examples:
+  demo_apps: 
+    prj.conf: Component selection and configuration for all examples under demo_apps
+    hello_world: 
+      Kconfig: hello_world example Kconfig
+      CMakeLists.txt: hello world example CMakeLists.txt
+      prj.conf: hello world example component selection and configuration
+  rtos_examples: 
+    prj.conf: Component selection and configuration for all examples under rtos_examples
+    freertos_hello:
+      Kconfig: freertos_hello example Kconfig
+      CMakeLists.txt: freertos_hello example CMakeLists.txt
+      prj.conf: freertos hello example component selection and configuration
+  prj.conf: all examples shared component selection and configuration
+
+drivers:
+  clock:
+    CMakeLists.txt:
+    Kconfig:
+  common:
+    CMakeLists.txt:
+    Kconfig:
+  <other drivers>:
+    CMakeLists.txt:
+    Kconfig:
+  Kconfig: load all driver Kconfig
+
+components:
+  serial_manager:
+    CMakeLists.txt:
+    Kconfig:
+  <other components>:
+    CMakeLists.txt:
+    Kconfig:    
+  Kconfig: load all components Kconfig
+
+CMSIS:
+  CMakeLists.txt:
+  Kconfig:
+
+RTOS:
+  freertos:
+    freertos-kernel:
+      CMakeLists.txt:
+      Kconfig:
+
+cmake:
+  data:
+    arch:
+      core_<core>.cmake:
+      core_<fpu>.cmake:
+      cpu_define_multicore.cmake:
+      cpu_define.cmake:
+      Kconfig:
+    configuration:
+      common.cmake:
+      Kinetis.cmake:
+    driver:
+      board.cmake:  board specific drivers
+      device.cmake: device specific drivers
+      Kconfig:
+    misc:
+    module:
+      common.cmake: common project segment like board, pinmux, clock
+      Kconfig:
+    target:
+      flash.cmake:
+      flexspi_nor.cmake:
+      IDE_flexspi_nor.yml: IDE related build target data
+      Kconfig:

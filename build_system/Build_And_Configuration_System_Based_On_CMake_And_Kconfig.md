@@ -1,5 +1,3 @@
-# CMake Based Build System
-
 ## Environment Setup
 
 ### Repos Setup
@@ -71,7 +69,7 @@ west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
 ​	2. Run guiconfig target
 
 ```bash
-west built -t guiconfig
+west build -t guiconfig
 ```
 
 ​	Then you will get the Kconfig GUI launched, like
@@ -270,6 +268,20 @@ enable/disable, customization. You can interact with Kconfig via a curses or gra
 build process.
 
 [CMake](https://cmake.org/) which is cross platform not only manages the software build process based on Kconfig result, but also integrate many useful functionalities like IDE project generation. 
+
+## Acronyms and Abbreviations
+
+| Acronym or Term | Definition   |
+| :-------------: | ------------ |
+|       BS        | Build system |
+|                 |              |
+|                 |              |
+|                 |              |
+|                 |              |
+|                 |              |
+|                 |              |
+|                 |              |
+|                 |              |
 
 ## Toolchains Beyond GCC
 
@@ -1050,7 +1062,9 @@ Here are summarized frequently used dependency patterns.
 
 ### Variables
 
-Variable mechanism is introduced to facilitate data record. For example, with a "board" variable in the source, the following project segment can be shared by all boards
+Variable mechanism is introduced to facilitate data record in both cmake and Kconfig for MCUXpresso base SDK.
+
+For example, in cmake with a "board" variable in the source, one copy of the following project segment can be shared by all boards without any duplication.
 
 ```cmake
 if (CONFIG_MCUX_PRJSEG_module.board.suite)
@@ -1063,11 +1077,241 @@ if (CONFIG_MCUX_PRJSEG_module.board.suite)
 endif()
 ```
 
-We can categorize variables into cmake variable and Kconfig variable
+In Kconfig, the same "board" variable can set the board Kconfig path for all boards.
+
+```
+rsource "${board}/Kconfig"
+```
+
+There are some required variables which must be provided for each build to make the cmake configuration process run passed. Besides, customized variables are allowed for some software data recorded.
+
+#### Required Variables
+
+There are some required variables which shall be defined in advance to make the build process workable. These variables are generally related to hardware related information.
+
+In the build system, all these required variables can be defined in CMake, but to enable the switch across device parts in run time in Kconfig, most hardware related variables are moved into Kconfig.
+
+Here is the cmake stored variable table:
+
+| Variable Name        | Explanation               | Acquisition                              | Used in           | Usage                                    |
+| -------------------- | ------------------------- | ---------------------------------------- | ----------------- | ---------------------------------------- |
+| SdkRootDirPath       | SDK root directory        | Automatically set by BS                  | CMake             | Secify sdk root path like "include(${SdkRootDirPath}/devices/common/device_header.cmake)" |
+| board                | board name, like frdmk64f | Provided in cmdline argument, also need to record it in board variable cmake | CMake and Kconfig | Specify the target board, like "BASE_PATH \$\{SdkRootDirPath}/boards/${board}" |
+| device               | device name, like MK64F12 | Device variable cmake                    | CMake and Kconfig | Specify the target device, like  "\$\{SdkRootDirPath}/devices/\$\{soc_series}/${device}" |
+| core_id              | Core id, like cm33_core0  | Device variable cmake. This is only required for multicore device. | Kconfig           | Specify the core_id, like "rsource "${core_id}/Kconfig".<br />This is only needed for multiple core device Kconfig. |
+| core_id_suffix_name  | Core id suffix name       | Device variable cmake                    | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project name, in multicore device, it is may called hello_world_cm4 and hello_world_cm7 while in single core device, it is may called hello_world, then "hello_world${core_id_suffix_name}" can work for all cases. For cm4 core, it can be "\_cm4", for cm7 core, it can be "_cm7", for single core, it can be "" |
+| multicore_foldername | multicore folder name     | Device variable cmake                    | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project root, in multicore device evkmimxrt1170, it is boards/evkmimxrt1170/demo_apps/hello_world/cm4 and boards/evkmimxrt1170/demo_apps/hello_world/cm7 while in single core board frdmk64f, it is boards/frdmk64f/demo_apps/hello_world, then "boards/evkmimxrt1170/demo_apps/hello_world/${multicore_foldername}" can work for all cases. For cm4 core, it can be "cm4", for cm7 core, it can be "cm7", for single core, it can be "." |
+| soc_series           | soc series                | Soc series cmake                         | CMake             | Specify the soc series, like "BASE_PATH \$\{SdkRootDirPath}/devices/\$\{soc_series}/${device}" |
+
+Here is the Kconfig stored variable table:
+
+| Variable Name                       | Explanation                              | Acquisition     | Used in | Usage |
+| ----------------------------------- | ---------------------------------------- | --------------- | ------- | ----- |
+| MCUX_HW_CORE                        | Core                                     | Kconfig process | CMake   |       |
+| MCUX_HW_CORE_ID                     | Core id                                  | Kconfig process | CMake   |       |
+| MCUX_HW_DEVICE_CORE                 | device core. For single core, it is the device like MK64F12. For multicore, it is device+core like  MIMXRT1176\_cm4 or  MIMXRT1176\_cm7 | Kconfig process | CMake   |       |
+| MCUX_HW_FPU                         | fpu                                      | Kconfig process | CMake   |       |
+| MCUX_HW_FPU_TYPE                    | fpu type.                                | Kconfig process | CMake   |       |
+| MCUX_HW_DEVICE_ID                   | Device id like  MK64FN1M0xxx12           | Kconfig process | CMake   |       |
+| MCUX_HW_DEVICE_PART                 | Device part like  MK64FN1M0VDC12         | Kconfig process | CMake   |       |
+| MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX | NPI provided device default linker file name prefix, like "LINKER devices/\$\{soc_series}/\$\{device}/gcc/\$\{MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld", for MK64F12, it is devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld | Kconfig process | CMake   |       |
+| MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER   | IAR IDE project device identifier        | Kconfig process | CMake   |       |
+| MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER   | MDK IDE project device identifier        | Kconfig process | CMake   |       |
+
+Basically, all type string Kconfig symbol can be regarded as variable and used in cmake. 
+
+#### Customized Variables
+
+#### Tips For Variable Usage
+
+- Variable value replacement is invisible in cmake process, to avoid potential issues, please minimize the usage of variable. 
+- To make Kconfig integratable for other Kconfig system, please don't use variables in Kconfig data other than "rsource".
 
 ### Board Data
 
+Here is the board data composition, located inside "boards" folder.
+
+```yaml
+boards:
+  frdmk64f: # A single core device board
+    CMakeLists.txt: Board specific contents like components and settings
+    Kconfig: Board software Kconfig, mainly specify board specific component and project segment dependency
+    Kconfig.chip: Board hardware Kconfig related to device and core
+    prj.conf: Board specific components selection and configuration
+    <category>_example_list.yml: Board example list like sdk_example_list, freertos_example_list, etc
+    variable.cmake: Board variables
+    demo_apps:
+      hello_world:
+        reconfig.cmake: Board example reconfig, mainly replace, remove some default board settings
+        prj.conf: Board example specific component selection and configuration
+      reconfig.cmake: Board example category reconfig, mainly replace, remove some default settings
+      prj.conf: Board example category specific component selection and configuration
+    rtos_examples: # like above demo_apps
+      freertos_hello:
+        reconfig.cmake:
+        prj.conf:
+      reconfig.cmake:
+      prj.conf:
+  evkmimxrt1170: # A multicore device board
+    cm4: Core specific contents folder 
+      <category>_example_list.yml: Board core specific example list
+      Kconfig: Board core software Kconfig, mainly specify board core specific component and project segment dependency
+      Kconfig.chip: Board core software Kconfig related to core
+      prj.conf: Board core specific components selection and configuration
+      setting.cmake: Board core specific data and settings
+      variable.cmake: Board core specific variables
+    cm7: # Just like above cm4 core
+      <category>_example_list.yml:
+      Kconfig:
+      Kconfig.chip:
+      prj.conf: 
+      setting.cmake:
+      variable.cmake:
+    CMakeLists.txt: Board specific contents like components and settings
+    Kconfig: Board software Kconfig, mainly specify board specific component and project segment dependency
+    Kconfig.chip: Board hardware Kconfig related to device
+    prj.conf: Board specific components selection and configuration
+    variable.cmake: Board variables
+    demo_apps:
+      reconfig.cmake:  Board example category reconfig, mainly replace, remove some default board settings
+      hello_world:
+        cm4:
+          reconfig.cmake: Board core specific example reconfig, mainly replace, remove some default board settings
+          prj.conf: Board core example specific components selection and configuration
+        cm7:
+          reconfig.cmake:
+          prj.conf:
+        reconfig.cmake: Board example category reconfig, mainly replace, remove some default board settings
+        prj.conf: Board example category specific component selection and configuration
+  prj.conf: components selection and configuration by all boards
+```
+
 ### Device Data
+
+Here is the device data composition, located inside "devices"
+
+```yaml
+devices:
+  Kinetis: Device socs sery
+    MK63F12:
+      Kconfig: Device software Kconfig, mainly specify board specific component and project segment dependency
+      Kconfig.chip: Device hardware Kconfig related to device and core
+      CMakeLists.txt: Device specific contents like components and settings, usually, just load mainset cmakelist
+      driver:
+        CMakeLists.txt: Device specific drivers
+        Kconfig: Device specific drivers Kconfig
+      prj.conf: Device specific components selection and configuration
+    MK64F12:
+      Kconfig: Device software Kconfig, mainly specify board specific component and project segment dependency
+      Kconfig.chip: Device hardware Kconfig related to device and core
+      CMakeLists.txt: Device specific contents like components and settings
+      driver:
+        CMakeLists.txt: Device specific drivers
+        Kconfig: Device specific drivers Kconfig
+      prj.conf: Device specific components selection and configuration     
+    prj.conf: Components selection and configuration by all Kinetis series
+  RT:
+    MIMXRT1175:
+      cm4:
+        driver:
+          CMakeLists.txt: Device core specific drivers
+        Kconfig: Device core software Kconfig, mainly specify board specific component and project segment dependency
+        Kconfig.chip: Device core hardware Kconfig related to device and core
+        setting.cmake: Device core specific data and settings
+        variable.cmake: Device core specific variables
+        prj.conf: Device core specific components selection and configuration
+      cm7: # just like core cm4 
+        driver:
+          CMakeLists.txt:
+        Kconfig:
+        Kconfig.chip:
+        setting.cmake:
+        variable.cmake:
+        prj.conf:
+      CMakeLists.txt: Device specific contents like components and settings, usually, just load mainset cmakelist
+      driver:
+        CMakeLists.txt: Device specific drivers
+      Kconfig: Device 
+      Kconfig.chip: Device software Kconfig, mainly specify board specific component and project segment dependency
+      prj.conf: Device specific components selection and configuration
+    MIMXRT1176:
+      cm4:
+        driver:
+          CMakeLists.txt: Device core specific drivers
+        Kconfig: Device core software Kconfig, mainly specify board specific component and project segment dependency
+        Kconfig.chip: Device core hardware Kconfig related to device and core
+        setting.cmake: Device core specific data and settings
+        variable.cmake: Device core specific variables
+        prj.conf: Device core specific components selection and configuration
+      cm7: # just like core cm4 
+        driver:
+          CMakeLists.txt:
+        Kconfig:
+        Kconfig.chip:
+        setting.cmake:
+        variable.cmake:
+        prj.conf:
+      CMakeLists.txt: Device specific contents like components and settings
+      driver:
+        CMakeLists.txt: Device specific drivers
+      Kconfig: Device 
+      Kconfig.chip: Device software Kconfig, mainly specify board specific component and project segment dependency
+      prj.conf: Device specific components selection and configuration
+    prj.conf: Components selection and configuration by all RT series
+  prj.conf: Components selection and configuration by all devices
+```
+
+### Example Data
+
+Here is the example data composition, located inside "examples" folder
+
+```yaml
+examples:
+  demo_apps: 
+    prj.conf: Component selection and configuration for all examples under demo_apps
+    hello_world: 
+      Kconfig: hello_world example Kconfig
+      CMakeLists.txt: hello world example CMakeLists.txt
+      prj.conf: hello world example component selection and configuration
+  rtos_examples: 
+    prj.conf: Component selection and configuration for all examples under rtos_examples
+    freertos_hello:
+      Kconfig: freertos_hello example Kconfig
+      CMakeLists.txt: freertos_hello example CMakeLists.txt
+      prj.conf: freertos hello example component selection and configuration
+  prj.conf: all examples shared component selection and configuration
+```
+
+### Driver Data
+
+Here is driver data composition located in "drivers" folder
+
+```yaml
+drivers:
+  clock:
+    CMakeLists.txt:
+    Kconfig:
+  common:
+    CMakeLists.txt:
+    Kconfig:
+  <other drivers>:
+    CMakeLists.txt:
+    Kconfig:
+  Kconfig: load all driver Kconfig
+```
+
+### Component Data
+
+```yaml
+components:
+  serial_manager:
+    CMakeLists.txt:
+    Kconfig:
+  <other components>:
+    CMakeLists.txt:
+    Kconfig:    
+  Kconfig: load all components Kconfig
+```
 
 ### Customization
 
@@ -1075,19 +1319,23 @@ We can categorize variables into cmake variable and Kconfig variable
 
 #### prj.conf
 
-### Project Data Load
-
-### Overview Diagram
+### Data Process Flow
 
 ## Kconfig Process
 
 ## CMake Configuration Process Flow
+
+
 
 ## IDE Generation
 
 ## System Build
 
 ## Scripts And Tools
+
+## Integrated Into Other Build System
+
+## Integrate Other Build System
 
 
 
