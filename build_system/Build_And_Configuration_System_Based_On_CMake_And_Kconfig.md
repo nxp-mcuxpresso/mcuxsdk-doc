@@ -1586,37 +1586,34 @@ After the command runs, the project files are generated into the compilation dir
 
 Sysbuild is a higher-level build system that can be used to combine multiple other build systems together.It's ported from [Sysbuild (System build) — Zephyr Project](https://docs.zephyrproject.org/latest/build/sysbuild/index.html#sysbuild-zephyr-application). For meta build system, it's mainly used for multi-image build.
 
-To include sub projects into building system, you must prepare "sysbuild.cmake" into main application folder. Sub projects are added by "ExternalZephyrProject_Add" command. For example:
+### Sysbuild files
+
+To include sub projects into building system, you must prepare "sysbuild.cmake" into main application folder. Sub projects can be located anywhere, which are imported by "ExternalZephyrProject_Add" command inside sysbuild.cmake. For example:
 
 ```cmake
-# demo_apps/hello_world/sysbuild.cmake
+# examples/middleware/multicore/multicore_examples/hello_world/primary/sysbuild.cmake
 
 ExternalZephyrProject_Add(
-        APPLICATION freertos_hello
-        SOURCE_DIR  ${APP_DIR}/../../rtos/freertos/freertos-kernel/freertos_hello
+        APPLICATION hello_world_secondary_core
+        SOURCE_DIR  ${APP_DIR}/../secondary
         board ${SB_CONFIG_secondary_board}
         core_id ${SB_CONFIG_secondary_core_id}
         config ${SB_CONFIG_secondary_config}
         toolchain ${SB_CONFIG_secondary_toolchain}
 )
 
-# Let's build the main application first
-add_dependencies(freertos_hello ${DEFAULT_IMAGE})
+# Let's build the secondary application first
+add_dependencies(${DEFAULT_IMAGE} hello_world_secondary_core)
 ```
 
 The build order can by set by "add_dependencies [add_dependencies](https://cmake.org/cmake/help/latest/command/add_dependencies.html#add-dependencies) function in sysbuild.cmake.
 
-The variables in sysbuild.cmake can be defined inside the file. Or you can pass them with west command. For example:
-
-```
-west build -b evkmimxrt1170 --sysbuild ./examples/middleware/multicore/multicore_examples/hello_world/primary -Dcore_id=cm7  --config flexspi_nor_debug --toolchain=armgcc -p always -DSB_CONFIG_secondary_boar
-d=evkmimxrt1170 -DSB_CONFIG_secondary_core_id=cm4 -DSB_CONFIG_secondary_config=debug -DSB_CONFIG_secondary_toolchain=armgcc
-```
+The variables in sysbuild.cmake can be defined inside the file. Or you can pass them with west command. 
 
 In practice, however, it is more common to set these variables automatically via kconfig to support multiple platforms in a more flexible way. For example, you can prepare a Kconfig.sysbuild in main application folder:
 
 ```
-# demo_apps/hello_world/Kconfig.sysbuild
+# examples/middleware/multicore/multicore_examples/hello_world/primary/Kconfig.sysbuild
 
 config secondary_board
     string
@@ -1637,15 +1634,131 @@ config secondary_toolchain
     default "$(toolchain)"
 ```
 
+One thing to emphasize is that, sysbuild is only used to organize how individual images are compiled, but in reality, how images are included is set by the project's own cmakelsist.txt. For example, you must import the secondary core binary in primary core image CMakeLists.txt:
+
+```cmake
+# mcu-sdk-3.0/examples/middleware/multicore/multicore_examples/hello_world/secondary/CMakeLists.txt
+mcux_convert_binary(
+        TOOLCHAINS armgcc mdk iar
+        BINARY ${APPLICATION_BINARY_DIR}/core1_image.bin
+)
+# mcu-sdk-3.0/examples/middleware/multicore/multicore_examples/hello_world/primary/CMakeLists.txt
+mcux_add_iar_configuration(
+        LD "--image_input=${APPLICATION_BINARY_DIR}/../hello_world_secondary_core/core1_image.bin,_core1_image,__core1_image,4 "
+)
+```
+
+### Build command
+
+To enable sysbuild, only "--sysbuild" is needed when you run the main application
+
+```
+west build -b evkmimxrt1170 --sysbuild ./examples/middleware/multicore/multicore_examples/hello_world/primary -Dcore_id=cm7  --config flexspi_nor_debug --toolchain=armgcc -p always
+```
+
 You can find build information from terminal:
 
 ![](./_doc/sysbuild.gif)
+
+### Kconfig
+
+The sysbuild projects can be configured with kconfig, just like a normal project in the meta build system. The only different is the target name, for main application, they're menuconfig or guiconfig, for sub project, you must add project name prefix to differ each target. For example:
+
+```
+west build -t guiconfig
+west build -t hello_world_secondary_core_guiconfig
+```
+
+
 
 ## Scripts And Tools
 
 ## Integrated Into Other Build System
 
-## Integrate Other Build System
+The meta build system can be integrate into other build system which is based on CMake. In principle, the meta build system use customized CMake function and configured by Kconfig, so that it requires you to: 
 
+1. Include sdk-next/mcu-sdk-3.0/cmake/extension/function.cmake
+2. Load necessary CMakeLists.txt files for source code
+3. Involve kconfig file into your project
 
+Let's say if you want to use drivers from meta build system, you need to prepare:
 
+1. Kconfig file
+
+   The Kconfig file determines which drivers are available on which devices, it will load drivers kconfig and device kconfig file, for example, if you're working on zephyr, the kconfig file should contain content at least:
+
+   ```
+   source "$(ZEPHYR_HAL_NXP_MODULE_DIR)/mcux/mcux-sdk/drivers/Kconfig"
+   source "$(ZEPHYR_HAL_NXP_MODULE_DIR)/mcux/mcux-sdk/devices/common/Kconfig.common"
+   source "$(ZEPHYR_HAL_NXP_MODULE_DIR)/mcux/mcux-sdk/CMSIS/Kconfig"
+
+   if $(BOARD_IDENTIFIER) = "/mimxrt1176/cm7"
+   source "$(ZEPHYR_HAL_NXP_MODULE_DIR)/mcux/mcux-sdk/devices/RT/MIMXRT1176/Kconfig.chip"
+   source "$(ZEPHYR_HAL_NXP_MODULE_DIR)/mcux/mcux-sdk/devices/RT/MIMXRT1176/cm7/Kconfig.chip"
+   endif
+   ```
+
+   ​
+
+2. CMakeLists.txt
+
+   In meta build system, some variables are used, so that you must set them before loading any CMakeLists.txt,  if you're working on zephyr, for example:
+
+   ```
+   include(${CMAKE_CURRENT_LIST_DIR}/../cmake/extension/function.cmake)
+
+   set(MCUX_SDK_PROJECT_NAME ${ZEPHYR_CURRENT_LIBRARY})
+
+   enable_language(C ASM)
+
+   # The varaibles below should be set in zephyr's build system, list here for reference
+   set(soc_series RT)
+   set(device MIMXRT1176)
+   set(SdkRootDirPath ${CMAKE_CURRENT_LIST_DIR}/..)
+   set(core_id cm7)
+   set(MCUX_HW_CORE cm7f)
+   set(MCUX_HW_FPU_TYPE fpv5_dp)
+
+   # load device CMakeLists.txt
+   mcux_add_cmakelists(${ZEPHYR_HAL_NXP_MODULE_DIR}/mcux/mcux-sdk/devices/${soc_series}/${device})
+   # Load all drivers CMakeList.txt
+   mcux_load_all_cmakelists_in_directory(${ZEPHYR_HAL_NXP_MODULE_DIR}/mcux/mcux-sdk/drivers)
+   ```
+
+   Note:  This section is still being evaluated and will be refined subsequently
+
+## Integrate Other CMake build system
+
+The meta build system is based on CMake, theoretically, it supports the integration of other third-party software based on the CMake compilation system. 
+
+There are two ways for this requirement:
+
+1. If the other software want to  use assembler/compiler/linker flags provided by meta build system, you can just import software CMakeLists.txt by [add_subdirectory](https://cmake.org/cmake/help/latest/command/add_subdirectory.html#add-subdirectory) function.  Let's say you have a code that will be compiled into library, the source code is added into a CMake target called "my_library":
+
+   ```
+   add_library(my_library STATIC ${SOURCE_FILES})
+   ```
+
+   In meta build system project, you can import "my_library" and link it in project CMakeLists.txt:
+
+   ```
+   add_subdirectory(path/to/my_library ${CMAKE_CURRENT_BINARY_DIR}/mylib)
+   target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE my_library)
+   ```
+
+2. If the other software is a standalone project which has separated configuration, it can be imported by sysbuild.
+
+   For example, you can provide a sysbuild.cmake:
+
+   ```
+   ExternalZephyrProject_Add(
+           APPLICATION my_library
+           SOURCE_DIR  path/to/my_library
+           CMAKE_ARGS -DCMAKE_BUILD_TYPE=debug -DCMAKE_TOOLCHAIN_FILE=path/to/toolchain.cmake
+   )
+
+   # Let's build the secondary application first
+   add_dependencies(${DEFAULT_IMAGE} my_library)
+   ```
+
+   ​
