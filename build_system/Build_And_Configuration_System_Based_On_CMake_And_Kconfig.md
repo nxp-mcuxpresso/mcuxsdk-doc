@@ -1,3 +1,5 @@
+# CMake And Kconfig Based Build And Configuration System
+
 ## Environment Setup
 
 ### Repos Setup
@@ -260,42 +262,40 @@ We now have two major limitations with the manifest and project.xml generated fr
 
 ## Overview
 
-MCUXpresso SDK build system is based on CMake and Kconfig. 
+MCUXpresso SDK build and configuration system is based on CMake and Kconfig. 
 
 [Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html) is a selection-based configuration system originally developed for the Linux kernel which now found
-more and more use in other projects beyond the Linux kernel. In MCUXpresso SDK, Kconfig is used to config the build in run time. This includes component selection with dependency resolve, component configuration with feature
-enable/disable, customization. You can interact with Kconfig via a curses or graphical menu interface, usually invoked by running "west build -t guiconfig" after you have already run passed the cmake configuration process. In this interface, the user selects the options and features desired, and saves a configuration file, which is then used as an input to the
+more and more use in other projects beyond the Linux kernel. In MCUXpresso SDK, Kconfig is used to config the build in run time which includes component selection with dependency resolve, component configuration with feature
+enable, disable and customization. 
+
+You can interact with Kconfig via a curses or graphical menu interface, usually invoked by running "west build -t guiconfig" after you have already run passed the CMake configuration process. In this interface, the user selects the options and features desired, and saves a configuration file, which is then used as an input to the
 build process.
 
-[CMake](https://cmake.org/) which is cross platform not only manages the software build process based on Kconfig result, but also integrate many useful functionalities like IDE project generation. 
+[CMake](https://cmake.org/) which is cross platform not only manages the software build process based on Kconfig result. 
+
+Beyond traditional CMake generation, MCUXpresso build system also integrates some useful functionalities like IDE project generation. 
 
 ## Acronyms and Abbreviations
 
-| Acronym or Term | Definition   |
-| :-------------: | ------------ |
-|       BS        | Build system |
-|                 |              |
-|                 |              |
-|                 |              |
-|                 |              |
-|                 |              |
-|                 |              |
-|                 |              |
-|                 |              |
+| Acronym or Term | Definition                      |
+| :-------------: | ------------------------------- |
+|       BS        | Build system                    |
+|       BCS       | Build and configuration system  |
+|       BCP       | Build and configuration process |
 
 ## Toolchains Beyond GCC
 
 MCUXpresso SDK supports all mainstream toolchains in the embedded world beyond traditional armgcc. 
 
-The toolchain list supported by our build system is IAR, MDK, Xcc, Xclang and Zephyr. The cmake toolchain setting files are placed in \<mcu-sdk-3.0>/cmake/toolchain folder. All toolchain files generally follow the same structure and loaded through \<mcu-sdk-3.0>/cmake/toolchain.cmake. The configuration variable is "CONFIG_TOOLCHAIN".
+The toolchain list supported by our build system is IAR, MDK, Xcc, Xclang and Zephyr. The CMake toolchain setting files are placed in \<mcu-sdk-3.0>/cmake/toolchain folder. All toolchain files generally follow the same structure and loaded through \<mcu-sdk-3.0>/cmake/toolchain.cmake. The CMake variable for toolchain is "CONFIG_TOOLCHAIN" which is used to cmdline to specify the toolchain to build.
 
 If you need to enable new toolchain, please follow the existing toolchain file pattern and place it there.
 
 ## CMake Extension
 
-MCUXpresso SDK is a comprehensive product including hundred of boards and devices, thousands of components, drivers and examples. The CMake extension can greatly reduce data adding efforts. 
+MCUXpresso SDK is a comprehensive product including hundred of boards and devices, thousands of components and ten thousands of examples, all mainstream toolchains. The MCUXpresso CMake extensions aims to greatly reduce build data development and maintenance efforts. 
 
-Following extensions are provided for you to facilitate component, project and misc data record. All extension functions start with prefix "mcux_"
+Following extensions are provided for you to facilitate component, project and misc data record for all toolchains. All extension functions start with prefix "mcux_"
 
 ### Source And Include
 
@@ -553,26 +553,64 @@ Except adding data, the build system also supports removing defined data. For ex
   mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/drivers)
   ```
 
-## Data Organization
+## SDK Data
 
-The majority of MCUXpresso SDK data is recorded through data sections instead of fragment lines. In this way, software is highly modularized thus greatly improve the software integration.
+### Data File Types
 
-Every data section is composed of CMake and Kconfig.
+The SDK data is recorded in CMake and Kconfig. CMake holds most build data like sources, includes, static configurations while Kconfig holds component dependencies and run time configurations.
+
+Since Kconfig data are configurable, then there are 3 ways to provide the configure values
+
+1. Kconfig default value
+
+   Inside the Kconfig file, for each symbol, default value must be provided. In this way, any symbol will anyway gets a default value in any cases.
+
+2. prj.conf
+
+   For visible Kconfig symbols, you can directly set symbol=value in prj.conf to do the configuration. The prj.confs placed in designated places will be taken as Kconfig process input with priority. Please refer [prj.conf](#prj.conf) for details.
+
+3. Kconfig.defconfig
+
+   For invisible Kconfig symbols, prj.conf won't take effect. Please use Kconfig.defconf to redefine the symbol without type but with new default value.
+
+   Note, Kconfig.defconfig will is actually repeatedly define Kconfig symbols. They are only supported in board and device reconfiguration. Please don't use it in your examples customization.
+
+### Principles
+
+There are 2 principles for MCUXpresso SDK data
+
+1. Componentization
+
+   SDK data is recorded and used in a "component" way instead of fragment lines. There are several component types each of which in data record is a data section.  Please refer [Data Section](#Data Section) chapter for details.
+
+   In this way software is highly modularized thus greatly improve the integration.
+
+
+2. Decoupling.
+
+   There are many kinds SDK data: boards, devices, drivers, components, middlewares, examples, etc. Different type data are strictly decoupled from each other and prepared separately. 
+
+   In this way, migrability is highly addressed and achieved. When adding a driver, you don't need to care about examples. When adding an example, you don't need to care about board or device data like pinmux or clock.
+
+   So please don't mix data during the developments.
 
 ### Data Section
 
-3 data sections are supported: component, project segment and project.
+Each data section is composed of CMake and Kconfig. 
+
+3 data section types are supported: component, project segment and project.
 
 #### Component
 
-"component" section is used for any software components. 
+"component" section is used for software components. 
 
-In CMake, component data shall be recorded inside a if-endif guard. The condition shall be with prefix "CONFIG_MCUX_COMPONENT", the component name is right after it.
+In CMake, component data shall be recorded inside a if-endif guard. The if condition shall be with prefix "CONFIG_MCUX_COMPONENT" to specify the following data belongs to a software component. The component name is right next to it.
 
-Here is the CMake example
+Here is one driver.uart component cmake data:
 
 ```cmake
-if (CONFIG_MCUX_COMPONENT_driver.uart)
+if (CONFIG_MCUX_COMPONENT_driver.uart) # component name
+    # component data
     mcux_add_source(
         PROJECT_BASE_PATH drivers
         SOURCES fsl_uart.h 
@@ -585,9 +623,11 @@ if (CONFIG_MCUX_COMPONENT_driver.uart)
 endif()
 ```
 
-If a component is defined in several cmake files, please use the same if-endif guard in all the file data.
+If a component definition is split into several CMake files, please use the same if-endif guard in all files data.
 
-In Kconfig, symbol for a component shall start with "MCUX_COMPONENT_" to be identical with CMake component name. Component configuration and dependency shall be recorded following the below pattern:
+In Kconfig, symbol for a component shall also start with "MCUX_COMPONENT_" to be identical with CMake component name. 
+
+Component configuration and dependency shall be recorded following the below pattern:
 
 ```Kcon
 config MCUX_HAS_COMPONENT_driver.uart
@@ -599,14 +639,15 @@ config MCUX_COMPONENT_driver.uart
     select MCUX_COMPONENT_driver.common
     depends on MCUX_HAS_COMPONENT_driver.uart # component dependency
 
-    if MCUX_COMPONENT_driver.uart
+	# Configuration for driver.uart shall be put into the if-endif so that only driver.uart is selected, the configuration will be showed
+    if MCUX_COMPONENT_driver.uart 
     	# Configuration for driver.gpio
     endif
 ```
 
-About the dependency, please refer [Complex Dependency In Kconfig](#Complex Dependency In Kconfig ) chapter.
+About the dependency, please refer [Complex Dependency In Kconfig](#Complex Dependency In Kconfig ) chapter for details.
 
-For components belonging to one middleware set, please use Kconfig "menu" to gather them together, like
+For multiple components belonging to one middleware set, please use Kconfig "menu" to gather them together, like
 
 ```Kconfig
 menu "freertos-kernel(FreeRTOSConfig.h)"
@@ -631,11 +672,11 @@ endmenu
 
 #### Project Segment
 
-MCUXpresso SDK is composed of hundreds of devices and boards. Projects on these boards and devices have many shared data like core related settings, common build target settings,  device headers and configurations, board files, pinmux and configurations. Project segment data section is introduced to avoid data duplication. It is an abstraction of common shared data.
+MCUXpresso SDK is composed of hundreds of devices and boards, thousands of components and ten thousands of projects. Projects on these boards and devices have many shared data like core related settings, common build target settings,  device headers and configurations, board files, clock and pinmux. Project segment data section is an abstraction of common shared data. It is introduced to avoid data duplication. 
 
-In CMake, project segment data shall be recorded inside a if-endif guard. The condition shall be with prefix "CONFIG_MCUX_PRJSEG_", right after it is the project segment name.
+Like the component, in CMake, project segment data shall also be recorded inside a if-endif guard. The if condition shall be with prefix "CONFIG_MCUX_PRJSEG_", right after it is the project segment name.
 
-Here is the frequently used prepared project segment table.
+Here is the frequently used and prepared project segments table.
 
 | Project Segment Name                     | Location               | Functionality                            |
 | ---------------------------------------- | ---------------------- | ---------------------------------------- |
@@ -648,26 +689,41 @@ Here is the frequently used prepared project segment table.
 | CONFIG_MCUX_PRJSEG_module.board.\<board module name> | boards/common          | Commonly shared board modules like board file, pinmux, clock config, etc. |
 | CONFIG_MCUX_PRJSEG_project.\<project module name> | boards/common          | Commonly shared project modules like hardware init app. etc. |
 
-In Kconfig, symbol for a component shall start with "MCUX_PRJSEG_" to be identical with CMake project segment name. Project segment configuration and dependency shall be recorded following the below pattern:
+Here is one project segment CMake example:
+
+```cmake
+if (CONFIG_MCUX_PRJSEG_module.board.clock)
+    mcux_add_source(
+        BASE_PATH ${SdkRootDirPath}
+        PROJECT_PATH board
+        SOURCES boards/${board}/clock_config.h
+                boards/${board}/clock_config.c
+    )
+    mcux_add_include(
+        BASE_PATH ${SdkRootDirPath}
+        PROJECT_PATH board
+        INCLUDES boards/${board}
+    )
+endif()
+```
+
+In Kconfig, symbol for a project segment shall start with "MCUX_PRJSEG_" to be identical with CMake project segment name. Project segment configuration and dependency shall be recorded following the below pattern:
 
 ```
-    config MCUX_PRJSEG_module.board.suite
-        bool "Use default board suite"
-        default y
-        # Here are the dependencies
-        imply MCUX_COMPONENT_driver.common
-        imply MCUX_COMPONENT_device.CMSIS
-        imply MCUX_COMPONENT_device.startup
-        if MCUX_PRJSEG_module.board.suite
-        	# Configuration shall be record here
-        endif
+    config MCUX_PRJSEG_module.board.clock
+        bool "Use default clock files"
+        imply MCUX_COMPONENT_driver.clock
+        if MCUX_PRJSEG_module.board.clock
+        endif   
 ```
+
+Unlike the component dependency, the dependency for project segment is simple, just several parallel "imply" to state that the project segment depends on some components and maybe other project segment to work. Since it is frequently occuring cases that some examples on certain boards need to customize some project segment dependencies, please use "imply"  instead of "select" for project segment dependencies because "select" once true then cannot be deselected anymore.
 
 #### Project
 
-Just like the native cmake way, all data inside CMakeLists.txt with "project" macro inside is a "project" segment.
+Just like the native CMake way, all data inside CMakeLists.txt with "project" macro inside is a "project" segment.
 
-Here is one CMake example
+Here is one project CMake example
 
 ```cmake
 cmake_minimum_required(VERSION 3.22.0)
@@ -677,10 +733,10 @@ include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
 # Specify the project
 project(hello_world LANGUAGES C CXX ASM PROJECT_ROOT_PATH boards/${board}/demo_apps/hello_world/${multicore_foldername})
 
+# Include device, board, drivers/components, middlewares
 include(${SdkRootDirPath}/CMakeLists.txt)
 
 include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
-
 include(${SdkRootDirPath}/${project_root_path}/reconfig.cmake OPTIONAL)
 
 mcux_add_source(
@@ -715,15 +771,15 @@ mcux_add_include(
 
   It defines a choice group. The single choice can only be of type bool or tristate. If no type is specified for a choice, its type will be determined by the type of the first choice element in the group or remain unknown if none of the choice elements have a type specified.
 
-Build system Kconfig processor will give warnings about unsatisfied component selected. 
+Kconfig processor in BCS will give detailed warnings about unsatisfied component selection so that  you can immediately find it and fix.
 
-For depending on hardware related dependency items like board, device, device_id, please use "depends on". If not satisfied, the related components will not be showed.
+For depending on hardware related dependency items like board, device, device_id, please use "depends on". If not satisfied, the related components will not be showed so that not bloat the Kconfig GUI list.
 
 For depending on software component, priority to use "select". It helps to auto select component dependency.
 
-If there are "any of" dependencies, "choice" can satisfy the needs.
+If there are "any of" dependencies, "choice" can satisfy the needs, please see "[Dependency Patterns](#Dependency Patterns)"
 
-Don’t use “depends on” on component dependency because Kconfig doesn’tsupport mutual dependency(recursive issue)
+Don’t use “depends on” on component dependency because Kconfig doesn’t support mutual dependency(recursive issue)
 
 #### Dependency Patterns
 
@@ -756,7 +812,9 @@ Here are summarized frequently used dependency patterns.
     select MCUX_COMPONENT_component2
     select MCUX_COMPONENT_component3 if MCUX_HAS_COMPONENT_component3
     select MCUX_COMPONENT_component4 if MCUX_HAS_COMPONENT_component4
+
   ```
+  Note, if MCUX_HAS_COMPONENT_component3 and MCUX_HAS_COMPONENT_component4 are satisfied simultaneously, then MCUX_COMPONENT_component3 and MCUX_COMPONENT_component4 will be added simultaneously correspondingly.
 
 -  Pattern 2: starting with allOf with more than 1 anyOf
 
@@ -1062,14 +1120,14 @@ Here are summarized frequently used dependency patterns.
 
 ### Variables
 
-Variable mechanism is introduced to facilitate data record in both cmake and Kconfig for MCUXpresso base SDK.
+Variable mechanism is introduced to facilitate data record in both CMake and Kconfig for MCUXpresso SDK.
 
-For example, in cmake with a "board" variable in the source, one copy of the following project segment can be shared by all boards without any duplication.
+For example, in CMake with a "board" variable in the source, one copy of the following project segment data can be shared by all boards examples without any duplication.
 
 ```cmake
 if (CONFIG_MCUX_PRJSEG_module.board.suite)
     mcux_add_source(
-        BASE_PATH ${SdkRootDirPath}/boards/${board}
+        BASE_PATH ${SdkRootDirPath}/boards/${board} # "board" variable shall be defined in each board so that each board can use this project segment
         PROJECT_PATH board
         SOURCES dcd.c dcd.h
     )
@@ -1083,15 +1141,17 @@ In Kconfig, the same "board" variable can set the board Kconfig path for all boa
 rsource "${board}/Kconfig"
 ```
 
-There are some required variables which must be provided for each build to make the cmake configuration process run passed. Besides, customized variables are allowed for some software data recorded.
+There are some required variables which must be provided for each build to make the CMake configuration process run passed. 
+
+Besides, customized variables are allowed for some software data recorded although not suggested.
 
 #### Required Variables
 
-There are some required variables which shall be defined in advance to make the build process workable. These variables are generally related to hardware related information.
+There are some required variables which shall be defined in advance to make the BCP workable. These variables are generally related to hardware related information.
 
-In the build system, all these required variables can be defined in CMake, but to enable the switch across device parts in run time in Kconfig, most hardware related variables are moved into Kconfig.
+In the BS, all these required variables can be defined in CMake to make the build work, but to enable the switch across device parts in run time in Kconfig, most hardware related variables are moved into Kconfig.chip because Kconfig mechanism can make sure that when you switch device part, all related variables can be switch at the same time.
 
-Here is the cmake stored variable table:
+Here is the CMake stored variable table:
 
 | Variable Name        | Explanation               | Acquisition                              | Used in           | Usage                                    |
 | -------------------- | ------------------------- | ---------------------------------------- | ----------------- | ---------------------------------------- |
@@ -1102,6 +1162,8 @@ Here is the cmake stored variable table:
 | core_id_suffix_name  | Core id suffix name       | Device variable cmake                    | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project name, in multicore device, it is may called hello_world_cm4 and hello_world_cm7 while in single core device, it is may called hello_world, then "hello_world${core_id_suffix_name}" can work for all cases. For cm4 core, it can be "\_cm4", for cm7 core, it can be "_cm7", for single core, it can be "" |
 | multicore_foldername | multicore folder name     | Device variable cmake                    | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project root, in multicore device evkmimxrt1170, it is boards/evkmimxrt1170/demo_apps/hello_world/cm4 and boards/evkmimxrt1170/demo_apps/hello_world/cm7 while in single core board frdmk64f, it is boards/frdmk64f/demo_apps/hello_world, then "boards/evkmimxrt1170/demo_apps/hello_world/${multicore_foldername}" can work for all cases. For cm4 core, it can be "cm4", for cm7 core, it can be "cm7", for single core, it can be "." |
 | soc_series           | soc series                | Soc series cmake                         | CMake             | Specify the soc series, like "BASE_PATH \$\{SdkRootDirPath}/devices/\$\{soc_series}/${device}" |
+
+The above variables shall anyway be provided in CMake because they are used before Kconfig process.
 
 Here is the Kconfig stored variable table:
 
@@ -1118,25 +1180,35 @@ Here is the Kconfig stored variable table:
 | MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER   | IAR IDE project device identifier        | Kconfig process | CMake   |       |
 | MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER   | MDK IDE project device identifier        | Kconfig process | CMake   |       |
 
-Basically, all type string Kconfig symbol can be regarded as variable and used in cmake. 
+Basically, all type string Kconfig symbol can be regarded as variable and used in CMake. 
 
 #### Customized Variables
 
+Besides the above variables, you can set your own variable in CMake to facilitate your data record with extension mcux_set_variable. 
+
+For the required variables, BCS will guarantee that they are defined before they are used. 
+
+For you customized variables, please make sure that your variables are defined before they are used by yourself.
+
 #### Tips For Variable Usage
 
-- Variable value replacement is invisible in cmake process, to avoid potential issues, please minimize the usage of variable. 
-- To make Kconfig integratable for other Kconfig system, please don't use variables in Kconfig data other than "rsource".
+- Variable value replacement is invisible in CMake process, to avoid potential issues, please minimize the usage of variable. 
+- To make Kconfig integratable for other Kconfig system, please don't use variables in Kconfig data other than "rsource". "rsource" is only to load Kconfig files.
 
-### Board Data
+### Repo Data
 
-Here is the board data composition, located inside "boards" folder.
+MCUXpresso SDK repo CMake and Kconfig data are composed of arch, boards, devices, drivers, components, middlewares and examples.
+
+#### Board Data
+
+Board data stays in boards folder. Here is a hierarchy demonstrated with single core device board frdmk64f and multicore device board evkmimxrt1170:
 
 ```yaml
 boards:
   frdmk64f: # A single core device board
     CMakeLists.txt: Board specific contents like components and settings
     Kconfig: Board software Kconfig, mainly specify board specific component and project segment dependency
-    Kconfig.chip: Board hardware Kconfig related to device and core
+    Kconfig.defconfig: Board specific components selection and configuration for invisible Kconfig symbols
     prj.conf: Board specific components selection and configuration
     <category>_example_list.yml: Board example list like sdk_example_list, freertos_example_list, etc
     variable.cmake: Board variables
@@ -1156,20 +1228,20 @@ boards:
     cm4: Core specific contents folder 
       <category>_example_list.yml: Board core specific example list
       Kconfig: Board core software Kconfig, mainly specify board core specific component and project segment dependency
-      Kconfig.chip: Board core software Kconfig related to core
+      Kconfig.defconfig: Board core specific components selection and configuration for invisible Kconfig symbols
       prj.conf: Board core specific components selection and configuration
       setting.cmake: Board core specific data and settings
       variable.cmake: Board core specific variables
     cm7: # Just like above cm4 core
       <category>_example_list.yml:
       Kconfig:
-      Kconfig.chip:
+      Kconfig.defconfig:
       prj.conf: 
       setting.cmake:
       variable.cmake:
     CMakeLists.txt: Board specific contents like components and settings
     Kconfig: Board software Kconfig, mainly specify board specific component and project segment dependency
-    Kconfig.chip: Board hardware Kconfig related to device
+    Kconfig.defconfig: Board specific components selection and configuration for invisible Kconfig symbols
     prj.conf: Board specific components selection and configuration
     variable.cmake: Board variables
     demo_apps:
@@ -1186,9 +1258,9 @@ boards:
   prj.conf: components selection and configuration by all boards
 ```
 
-### Device Data
+#### Device Data
 
-Here is the device data composition, located inside "devices"
+Device data stays in devices folder. Here is the device data hierarchy demonstrated with single core device MK64F 2 and multicore device MIMXRT1176:
 
 ```yaml
 devices:
@@ -1196,14 +1268,16 @@ devices:
     MK63F12:
       Kconfig: Device software Kconfig, mainly specify board specific component and project segment dependency
       Kconfig.chip: Device hardware Kconfig related to device and core
+      Kconfig.defconfig: Device specific components selection and configuration for invisible Kconfig symbols
       CMakeLists.txt: Device specific contents like components and settings, usually, just load mainset cmakelist
       driver:
         CMakeLists.txt: Device specific drivers
         Kconfig: Device specific drivers Kconfig
-      prj.conf: Device specific components selection and configuration
+      prj.conf: Device specific components selection and configuration for visible Kconfig symbols
     MK64F12:
       Kconfig: Device software Kconfig, mainly specify board specific component and project segment dependency
       Kconfig.chip: Device hardware Kconfig related to device and core
+      Kconfig.defconfig: Device specific components selection and configuration for invisible Kconfig symbols
       CMakeLists.txt: Device specific contents like components and settings
       driver:
         CMakeLists.txt: Device specific drivers
@@ -1217,6 +1291,7 @@ devices:
           CMakeLists.txt: Device core specific drivers
         Kconfig: Device core software Kconfig, mainly specify board specific component and project segment dependency
         Kconfig.chip: Device core hardware Kconfig related to device and core
+        Kconfig.defconfig: Device core specific components selection and configuration for invisible Kconfig symbols
         setting.cmake: Device core specific data and settings
         variable.cmake: Device core specific variables
         prj.conf: Device core specific components selection and configuration
@@ -1225,6 +1300,7 @@ devices:
           CMakeLists.txt:
         Kconfig:
         Kconfig.chip:
+        Kconfig.defconfig:
         setting.cmake:
         variable.cmake:
         prj.conf:
@@ -1233,6 +1309,7 @@ devices:
         CMakeLists.txt: Device specific drivers
       Kconfig: Device 
       Kconfig.chip: Device software Kconfig, mainly specify board specific component and project segment dependency
+      Kconfig.defconfig: Device specific components selection and configuration for invisible Kconfig symbols
       prj.conf: Device specific components selection and configuration
     MIMXRT1176:
       cm4:
@@ -1240,6 +1317,7 @@ devices:
           CMakeLists.txt: Device core specific drivers
         Kconfig: Device core software Kconfig, mainly specify board specific component and project segment dependency
         Kconfig.chip: Device core hardware Kconfig related to device and core
+        Kconfig.defconfig: Device core specific components selection and configuration for invisible Kconfig symbols
         setting.cmake: Device core specific data and settings
         variable.cmake: Device core specific variables
         prj.conf: Device core specific components selection and configuration
@@ -1248,6 +1326,7 @@ devices:
           CMakeLists.txt:
         Kconfig:
         Kconfig.chip:
+        Kconfig.defconfig:
         setting.cmake:
         variable.cmake:
         prj.conf:
@@ -1256,14 +1335,15 @@ devices:
         CMakeLists.txt: Device specific drivers
       Kconfig: Device 
       Kconfig.chip: Device software Kconfig, mainly specify board specific component and project segment dependency
+      Kconfig.defconfig: Device specific components selection and configuration for invisible Kconfig symbols
       prj.conf: Device specific components selection and configuration
     prj.conf: Components selection and configuration by all RT series
   prj.conf: Components selection and configuration by all devices
 ```
 
-### Example Data
+#### Example Data
 
-Here is the example data composition, located inside "examples" folder
+All examples are expected to be placed under "examples" folder in their category.
 
 ```yaml
 examples:
@@ -1282,9 +1362,11 @@ examples:
   prj.conf: all examples shared component selection and configuration
 ```
 
-### Driver Data
+#### Driver Data
 
-Here is driver data composition located in "drivers" folder
+Base SDK drivers are placed under "drivers" folder.
+
+You can use "mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/drivers)" to recursively include all drivers CMakelists.txt once.
 
 ```yaml
 drivers:
@@ -1300,7 +1382,11 @@ drivers:
   Kconfig: load all driver Kconfig
 ```
 
-### Component Data
+#### Component Data
+
+Base SDK components are placed under "components" folder.
+
+You can use "mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/components)" to recursively include all components CMakelists.txt once.
 
 ```yaml
 components:
@@ -1313,19 +1399,201 @@ components:
   Kconfig: load all components Kconfig
 ```
 
-### Customization
+## Kconfig Interface 
 
-#### Misc CMake
+menuconfig and guiconfig are 2 available interactive configuration interfaces to start a GUI to do run time selection and configuration for Kconfig options.
 
-#### prj.conf
+menuconfig is a curses-based interface that runs in the terminal while guiconfig is a graphical configuration interface.
 
-### Data Process Flow
+Since the Kconfig data has variable inside, they need to be processed. BS has integrated this process into the build process. You can use west cmdline to start the GUI.
 
-## Kconfig Process
+1. Run cmake configuration
 
-## CMake Configuration Process Flow
+```bash
+west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
+```
+
+​	You can ignore "--cmake-only", then the projecrt will be built.
+
+2. Run guiconfig target
+
+```bash
+west build -t guiconfig
+```
+
+Then you will get the Kconfig GUI launched, like
+
+​	           ![](./_doc/kconfig_gui.png)
+
+You can select/deselect and modify to do reconfiguration and remember to save.
+
+After you save and close, you can directly run "west build" to do the build.
+
+## Kconfig Process Flow
+
+The Kconfig files and related prj.conf with priority are put into the Kconfig processor.
+
+The direct output is the .config and config headers. Any updates in input Kconfig, output .config and config header will trigger a Kconfig process in next build cmd
+
+![](./_doc/Kconfig_process_flow.PNG)
+
+### prj.conf
+
+As illustrated previously, prj.conf is the pre set value for Kconfig symbols. It is the input for the Kconfig process. 
+
+Unlike the CMake which shall be explicitly included, the proj.conf will be loaded implicitly with different priority.
+
+Here is the priority list from low to high
+
+1. devices/prj.conf
+2. devices/\<soc_series>/prj.conf
+3. devices/\<soc_series>/\<device>/prj.conf
+4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
+5. boards/prj.conf
+6. boards/\<board>/prj.conf
+7. boards/\<board>/\<core_id>/prj.conf
+8. examples/prj.conf
+9. examples/\<example_category>/prj.conf
+10. boards/\<board>/\<example_category>/prj.conf
+11. boards/\<board>/\<example_category>/\<example>/prj.conf
+
+High priority prj.conf data will override low priority prj.conf data.
+
+### .config
+
+.config will be filtered to get the component and project segment dependency symbol values, such symbol values will be put into cmake process so that cmake knows which component and project segment data shall be included into the build process.
+
+For example, if CONFIG_MCUX_COMPONENT_driver.uart is y in .config, then the following sources and includes will be added into the build during cmake process, otherwise not.
+
+```cmake
+if (CONFIG_MCUX_COMPONENT_driver.uart)
+    mcux_add_source(
+        PROJECT_BASE_PATH drivers
+        SOURCES fsl_uart.h 
+                fsl_uart.c
+    )
+    mcux_add_include(
+        PROJECT_BASE_PATH drivers
+        INCLUDES .
+    )
+endif()
+```
+
+### config headers
+
+The Kconfig symbols and the values will be generated into config headers placed in build binary folder. 
+
+The config headers shall be included in the source in advance and the build binary folder will be added into includes so that all config headers will be added into build tree.
+
+If it is not set, then all Kconfig symbols and values will be generated header named "RTE_Components.h".
+
+If you want your components Kconfig symbols and values to be generatedendmenu  into customized header, you can set Kconfig menu with (header name). Here is an example with Freertos kernel.
+
+```
+menu "freertos-kernel(FreeRTOSConfig.h)" # All freertos kernel Kconfig symbols and values will be generated into FreeRTOSConfig.h
+    config MCUX_COMPONENT_middleware.freertos-kernel
+        bool "middleware.freertos-kernel"
+        select MCUX_COMPONENT_middleware.freertos-kernel.extension
+
+    config MCUX_COMPONENT_middleware.freertos-kernel.extension
+    ......
+endmenu
+```
+
+## Build Process Flow
+
+Broadly speaking, the build process flow can be divide into Kconfig process and CMake process.
+
+When you run a build, BS start from the example CMakelists.txt to work:
+
+```cmake
+cmake_minimum_required(VERSION 3.22.0)
+
+include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
+## In this mcux.cmake, BS does the following work
+# 1. Load used extension modules like python.cmake, sysbuild.cmake
+# 2. Clean cached cmake compiler flags variable
+# 3. Load toolchain.cmake
+# 4. Load board variable
+# 5. Load device variable
+# With board and device variable, cmake has the environment to start Kconfig because Kconfig needs board and device variables to work. This execution will be done in following "project"
+
+project(hello_world LANGUAGES C CXX ASM PROJECT_ROOT_PATH boards/${board}/demo_apps/hello_world/${multicore_foldername})
+## In this "project" macro, BS continuously does the following work
+# 6. Add execution cmake target
+# 7. Add pristine cmake target
+# 8. Execute Kconfig process to get .config and config headers
+# 9. Process .config to get 
+#  a. All variables used in CMakes so that all cmakes can be included
+#  b. component and project segment if-endif guard condition value so that cmake knows whether include or skip the component or project segment
+#  config headers with compiler macros inside which are in the build tree
+# 10. Add run cmake target 
+# 11. Add GUI generation cmake target
+
+include(${SdkRootDirPath}/CMakeLists.txt)
+# ${SdkRootDirPath}/CMakeLists.txt is the assembly point for all board/device, drivers, components,  middlewares cmake data.
+# Here is its contents
+# # Load device CMakeLists.txt
+# mcux_add_cmakelists(${SdkRootDirPath}/devices/${soc_series}/${device})
+# Load board CMakeLists.txt
+# mcux_add_cmakelists(${SdkRootDirPath}/boards/${board})
+# Load all drivers
+# mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/drivers)
+# all components
+# mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/components)
+# CMSIS
+# mcux_add_cmakelists(${SdkRootDirPath}/CMSIS)
+# middlewares
+# mcux_add_cmakelists(${SdkRootDirPath}/rtos/freertos/freertos-kernel OPTIONAL)
+# mcux_add_cmakelists(${SdkRootDirPath}/middleware/fatfs OPTIONAL)
+# mcux_add_cmakelists(${SdkRootDirPath}/middleware/multicore OPTIONAL)
+# After the include(${SdkRootDirPath}/CMakeLists.txt), the project has got the environment setup and all depended data included
+
+# If needed, load other customized cmake
+include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
+include(${SdkRootDirPath}/${project_root_path}/reconfig.cmake OPTIONAL)
+
+# Add the project self source and include
+mcux_add_source(
+    SOURCES hello_world.c
+    PROJECT_PATH source
+)
+
+mcux_add_include(
+    INCLUDES .
+    PROJECT_PATH source
+)
+    
+```
+
+## Enable An Example
+
+Please firstly make sure that the target board and device data are ready, then follow the example CMakelists.txt pattern in [Project](#Project) chapter and make your own one.
+
+If the default board and device data and configuration cannot satisfy, then you need to do customization for the certain board or device or both.
+
+BCS provides following ways to do the customization.
+
+1. Reconfig CMake
+
+For example, the hello_world example CMakelists.txt is defined in "examples/demo_apps/hello_world". Inside it, there are 2 optional included reconfig.cmake, like
+
+```cmake
+include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
+# project_root_path here means boards/frdmk64f/demo_apps/hello_world
+include(${SdkRootDirPath}/${project_root_path}/reconfig.cmake OPTIONAL)
+```
+
+You can add reconfig.cmake in any sub folder of the above 2 optional cmake path to different level reconfig.cmake and remember to include it recursively in deeper level cmake.
+
+For example, if you add a boards/frdmk64f/demo_apps/reconfig.cmake, then you should be awared of that this reconfig.cmake shall apply for all demo_apps in frdmk64f.
+
+In these reconfig.cmake, [remove](#Remove) extensions can be used to remove board/device common data and settings. After removing the previous data and settings, customization data and settings can be added.
+
+2. prj.conf
 
 
+For component selection and configuration, you can use different level prj.conf to achieve it. Refer the priority level in [prj.conf](#prj.conf) to set the data.
 
 ## IDE Generation
 

@@ -3,14 +3,16 @@ devices:
     MK63F12:
       Kconfig: Device software Kconfig, mainly specify board specific component and project segment dependency
       Kconfig.chip: Device hardware Kconfig related to device and core
+      Kconfig.defconfig: Device specific components selection and configuration for invisible Kconfig symbols
       CMakeLists.txt: Device specific contents like components and settings, usually, just load mainset cmakelist
       driver:
         CMakeLists.txt: Device specific drivers
         Kconfig: Device specific drivers Kconfig
-      prj.conf: Device specific components selection and configuration
+      prj.conf: Device specific components selection and configuration for visible Kconfig symbols
     MK64F12:
       Kconfig: Device software Kconfig, mainly specify board specific component and project segment dependency
       Kconfig.chip: Device hardware Kconfig related to device and core
+      Kconfig.defconfig: Device specific components selection and configuration for invisible Kconfig symbols
       CMakeLists.txt: Device specific contents like components and settings
       driver:
         CMakeLists.txt: Device specific drivers
@@ -24,6 +26,7 @@ devices:
           CMakeLists.txt: Device core specific drivers
         Kconfig: Device core software Kconfig, mainly specify board specific component and project segment dependency
         Kconfig.chip: Device core hardware Kconfig related to device and core
+        Kconfig.defconfig: Device core specific components selection and configuration for invisible Kconfig symbols
         setting.cmake: Device core specific data and settings
         variable.cmake: Device core specific variables
         prj.conf: Device core specific components selection and configuration
@@ -32,6 +35,7 @@ devices:
           CMakeLists.txt:
         Kconfig:
         Kconfig.chip:
+        Kconfig.defconfig:
         setting.cmake:
         variable.cmake:
         prj.conf:
@@ -40,6 +44,7 @@ devices:
         CMakeLists.txt: Device specific drivers
       Kconfig: Device 
       Kconfig.chip: Device software Kconfig, mainly specify board specific component and project segment dependency
+      Kconfig.defconfig: Device specific components selection and configuration for invisible Kconfig symbols
       prj.conf: Device specific components selection and configuration
     MIMXRT1176:
       cm4:
@@ -47,6 +52,7 @@ devices:
           CMakeLists.txt: Device core specific drivers
         Kconfig: Device core software Kconfig, mainly specify board specific component and project segment dependency
         Kconfig.chip: Device core hardware Kconfig related to device and core
+        Kconfig.defconfig: Device core specific components selection and configuration for invisible Kconfig symbols
         setting.cmake: Device core specific data and settings
         variable.cmake: Device core specific variables
         prj.conf: Device core specific components selection and configuration
@@ -55,6 +61,7 @@ devices:
           CMakeLists.txt:
         Kconfig:
         Kconfig.chip:
+        Kconfig.defconfig:
         setting.cmake:
         variable.cmake:
         prj.conf:
@@ -63,6 +70,7 @@ devices:
         CMakeLists.txt: Device specific drivers
       Kconfig: Device 
       Kconfig.chip: Device software Kconfig, mainly specify board specific component and project segment dependency
+      Kconfig.defconfig: Device specific components selection and configuration for invisible Kconfig symbols
       prj.conf: Device specific components selection and configuration
     prj.conf: Components selection and configuration by all RT series
   prj.conf: Components selection and configuration by all devices
@@ -71,6 +79,7 @@ boards:
   frdmk64f: # A single core device board
     CMakeLists.txt: Board specific contents like components and settings
     Kconfig: Board software Kconfig, mainly specify board specific component and project segment dependency
+    Kconfig.defconfig: Board specific components selection and configuration for invisible Kconfig symbols
     prj.conf: Board specific components selection and configuration
     <category>_example_list.yml: Board example list like sdk_example_list, freertos_example_list, etc
     variable.cmake: Board variables
@@ -90,19 +99,20 @@ boards:
     cm4: Core specific contents folder 
       <category>_example_list.yml: Board core specific example list
       Kconfig: Board core software Kconfig, mainly specify board core specific component and project segment dependency
-      Kconfig.chip: Board core software Kconfig related to core
+      Kconfig.defconfig: Board core specific components selection and configuration for invisible Kconfig symbols
       prj.conf: Board core specific components selection and configuration
       setting.cmake: Board core specific data and settings
       variable.cmake: Board core specific variables
     cm7: # Just like above cm4 core
       <category>_example_list.yml:
       Kconfig:
-      Kconfig.chip:
+      Kconfig.defconfig:
       prj.conf: 
       setting.cmake:
       variable.cmake:
     CMakeLists.txt: Board specific contents like components and settings
     Kconfig: Board software Kconfig, mainly specify board specific component and project segment dependency
+    Kconfig.defconfig: Board specific components selection and configuration for invisible Kconfig symbols
     prj.conf: Board specific components selection and configuration
     variable.cmake: Board variables
     demo_apps:
