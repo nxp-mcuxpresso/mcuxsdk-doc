@@ -51,6 +51,6 @@ for more details.
    :maxdepth: 1
    :caption: Build And Configuration System
 
-   Build System Based On CMake <build_system/Build_And_Configuration_System_Based_On_CMake_And_Kconfig.md>
+   Build And Configuration System Based On CMake And Kconfig <build_system/Build_And_Configuration_System_Based_On_CMake_And_Kconfig.md>
    Frequently Asked Questions <build_system/Frequently_Asked_Questions.md>
-   Best Practise <build_system/Best_Practise.md>
+   Best Practise <build_system/Best_Practice.md>
