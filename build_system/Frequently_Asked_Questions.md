@@ -20,7 +20,7 @@
 
    1. All kconfig symbols will firstly been generated into .config with kconfig process lib. We do some updates on the kconfig process lib to meet our needs
 
-   2. Symbols starting with MCUX_will be got by cmake and determine which components/drivers/project_segments to be included in.
+   2. Symbols starting with `MCUX_` will be got by cmake and determine which components/drivers/project_segments to be included in.
 
    3. Macro symbols will be generated into config header files
 
