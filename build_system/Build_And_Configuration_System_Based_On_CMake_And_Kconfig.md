@@ -707,6 +707,26 @@ mcux_add_include(
 )
 ```
 
+For project, it is not required to provide example specific Kconfig. If your example has specific Kconfig, then please follow the pattern to add it.
+
+```
+rsource "../../../Kconfig.mcuxpresso"
+
+mainmenu "Hello world Example Run Time Configuration"
+
+config HELLO_WORLD_EXAMPLE_MACRO
+    bool
+    default y
+    help
+        "Hello world example macro"
+```
+
+1. "rsource "../../../Kconfig.mcuxpresso"" must be added to load all repo Kconfigs because Kconfig.mcuxpresso is assembly point for Kconfigs.
+2. Set "mainmenu" to give the GUI title
+3. Set your example specific configurations
+
+**Note, the Kconfig process will take example specific Kconfig as entry point with priority. If not provided, then take the \<mcu-sdk-3.0>/Kconfig instead. So if your example doesn't have Kconfig contents, please don't keep it.**
+
 ### Complex Dependency In Kconfig
 
 #### Dependency Mechanisms
@@ -1154,7 +1174,9 @@ For you customized variables, please make sure that your variables are defined b
 
 ### Repo Data
 
-MCUXpresso SDK repo CMake and Kconfig data are composed of arch, boards, devices, drivers, components, middlewares and examples.
+MCUXpresso SDK repo CMake and Kconfig data are composed of arch, boards, devices, drivers, components, middlewares and examples. Based on the decoupling principle, all these different kinds data are placed under different folders of the MCUXpresso SDK repo.
+
+#### Arch Data
 
 #### Board Data
 
@@ -1307,13 +1329,13 @@ examples:
   demo_apps: 
     prj.conf: Component selection and configuration for all examples under demo_apps
     hello_world: 
-      Kconfig: hello_world example Kconfig
+      Kconfig: hello_world example Kconfig, if there is no project specific configuration data, please don't add it
       CMakeLists.txt: hello world example CMakeLists.txt
       prj.conf: hello world example component selection and configuration
   rtos_examples: 
     prj.conf: Component selection and configuration for all examples under rtos_examples
     freertos_hello:
-      Kconfig: freertos_hello example Kconfig
+      Kconfig: freertos_hello example Kconfig, if there is no project specific configuration data, please don't add it
       CMakeLists.txt: freertos_hello example CMakeLists.txt
       prj.conf: freertos hello example component selection and configuration
   prj.conf: all examples shared component selection and configuration
@@ -1355,6 +1377,62 @@ components:
     Kconfig:    
   Kconfig: load all components Kconfig
 ```
+
+#### Assembly Point
+
+All the above data are pieces of building blocks. For any build process, all data shall be loaded for selection and configuration. The assembly point is the start entry from where all CMakes and Kconfigs can be loaded.
+
+The assembly point for all cmakes is the root CMakeLists.txt. It looks like 
+
+```cmake
+# Load device CMakeLists.txt
+mcux_add_cmakelists(${SdkRootDirPath}/devices/${soc_series}/${device})
+
+# Load board CMakeLists.txt
+mcux_add_cmakelists(${SdkRootDirPath}/boards/${board})
+
+# Load all drivers
+mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/drivers)
+
+# all components
+mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/components)
+
+# middlewares
+mcux_add_cmakelists(${SdkRootDirPath}/rtos/freertos/freertos-kernel OPTIONAL)
+mcux_add_cmakelists(${SdkRootDirPath}/middleware/fatfs OPTIONAL)
+mcux_add_cmakelists(${SdkRootDirPath}/middleware/multicore OPTIONAL)
+```
+
+The assembly point for all Kconfig is the root Kconfg.mcuxpresso which is 
+
+```
+# arch
+rsource "arch/Kconfig"
+
+# board
+rsource "boards/Kconfig"
+
+# device
+rsource "devices/Kconfig"
+
+# Driver config
+rsource "drivers/Kconfig"
+
+# Component config
+rsource "components/Kconfig"
+
+# middleware config
+menu "Middleware"
+    osource "middleware/mbedtls/Kconfig"
+    osource "rtos/freertos/freertos-kernel/Kconfig"
+    osource "middleware/fatfs/Kconfig"
+    osource "middleware/multicore/Kconfig"
+endmenu
+```
+
+The CMake include and Kconfig rsource(load) are generally aligned which means they shall stay together corresponding each other.
+
+For other CMake based BS which wants to integrate MCUXpresso SDK, it may needs to set up the new assembly point file for CMake and Kconfig files in this repo.
 
 ## Kconfig Interface 
 
@@ -1668,10 +1746,6 @@ The sysbuild projects can be configured with kconfig, just like a normal project
 west build -t guiconfig
 west build -t hello_world_secondary_core_guiconfig
 ```
-
-
-
-## Scripts And Tools
 
 ## Integrated Into Other Build System
 

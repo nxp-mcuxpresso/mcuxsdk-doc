@@ -132,13 +132,13 @@ examples:
   demo_apps: 
     prj.conf: Component selection and configuration for all examples under demo_apps
     hello_world: 
-      Kconfig: hello_world example Kconfig
+      Kconfig: hello_world example Kconfig, if there is no project specific configuration data, please don't add it
       CMakeLists.txt: hello world example CMakeLists.txt
       prj.conf: hello world example component selection and configuration
   rtos_examples: 
     prj.conf: Component selection and configuration for all examples under rtos_examples
     freertos_hello:
-      Kconfig: freertos_hello example Kconfig
+      Kconfig: freertos_hello example Kconfig, if there is no project specific configuration data, please don't add it
       CMakeLists.txt: freertos_hello example CMakeLists.txt
       prj.conf: freertos hello example component selection and configuration
   prj.conf: all examples shared component selection and configuration
