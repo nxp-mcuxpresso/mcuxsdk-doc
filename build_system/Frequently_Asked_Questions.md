@@ -52,3 +52,17 @@
 2. For board device variant selection, kconfig files will provide default. We also expect in boards/\<board>/prj.conf, developers can explicitly specify it, like
 
    ![board_select_device_part](./_doc/board_select_device_part.PNG)
+
+## GUI Project
+
+1. Why do I get an "wrong argument type nil (expected Regexp)" error when running -t guiproject?
+
+   That's because you have run west command for armgcc toolchain, so that the script will get build information from cache, but there is no GUI project for armgcc. In this case, you need to add "-p always" to run a pristine build.
+
+   We have updated the script, if you get the latest commit, you will get more explicit error message:
+
+   ```
+   Currently supported toolchain: ["iar", "mdk"], but script get armgcc, please check --toolchain in west command, or try run with -p always to prevent setting by cache.
+   ```
+
+   ​
