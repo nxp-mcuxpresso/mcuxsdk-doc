@@ -35,7 +35,7 @@ Most of native zephyr's west build features are reserved.
 
 Build system supports IAR,MDK,Armgcc, MCUXpresso IDE and Zephyr SDK to build.
 
-For IAR, MDK Armgcc and Zephyr, you need to set environment varaibles to specify the toolchain installation so that build system can find it. 
+For IAR, MDK Armgcc and Zephyr, you need to set environment varaibles to specify the toolchain installation so that build system can find it.
 
 Here are the toolchain environment variable table
 
@@ -50,9 +50,9 @@ Here are the toolchain environment variable table
 
 1. Please install python3 and menuconfig. For menuconfig, you can run with
 
-```bash
-pip install -U kconfiglib
-```
+    ```bash
+    pip install -U kconfiglib
+    ```
 
 2. Make sure that `mcu-sdk-boards`, `mcu-sdk-components`, `mcux-devices-kinetis`, `mcux-devices-lpc`, `mcux-devices-rt` projects are cloned because there are Kconfig data inside these repos for boards/components/devices. Only with all these data included, then you can enjoy full feature of kconfig.
 
@@ -60,27 +60,27 @@ pip install -U kconfiglib
 
    Inside Kconfig files, there are board/device variables inside, so it cannot be directly run, so Kconfig shall be run inside whole cmake process.
 
-   1. Run cmake configuration
+   - Run cmake configuration
 
-```bash
-west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
-```
+      ```bash
+      west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
+      ```
 
-​	You can ignore "--cmake-only", then the projecrt will be built.
+     You can ignore "--cmake-only", then the projecrt will be built.
 
-​	2. Run guiconfig target
+   - Run guiconfig target
 
-```bash
-west build -t guiconfig
-```
+      ```bash
+      west build -t guiconfig
+      ```
 
-​	Then you will get the Kconfig GUI launched, like
+     Then you will get the Kconfig GUI launched, like
 
-​	           ![](./_doc/kconfig_gui.png)
+     ![kconfig_gui](./_doc/kconfig_gui.png)
 
-You can select/deselect and modify to do reconfiguration and remember to save.
+     You can select/deselect and modify to do reconfiguration and remember to save.
 
-After you save and close, you can directly run "west build" to do the build.
+     After you save and close, you can directly run "west build" to do the build.
 
 ## West Extension Commands
 
@@ -122,7 +122,7 @@ Remember to use "--config" to specify build target which is different from SDKGE
 
 To support multicore project building, we ported Sysbuild from Zephyr. It supports combining multiple projects for compilation. You can build all projects by adding "--sysbuild" for main application. For example:
 
-```
+```bash
 west build -b evkmimxrt1170 --sysbuild ./examples/middleware/multicore/multicore_examples/hello_world/primary -Dcore_id=cm7 --config flexspi_nor_debug -p always
 ```
 
@@ -150,87 +150,22 @@ west debug -r linkserver
 
 ![debug](./_doc/debug.png)
 
-## IDE GUI Projects
 
-### Prequisites
-
-Currently, we have not implemented all features through Python. So, in order to generate IDE GUI projects, you have to prepare the ruby 3.1 environment, You can refer [SDK Generator V3 environment setup](https://confluence.sw.nxp.com/display/MCUXSDK/Getting+Started+With+SDK+Generator+V3#GettingStartedWithSDKGeneratorV3-EnvironmentSetup).
-
-In short words:
-
-- For windows: use [portable_ruby](https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-generator/browse/bin/windows)
-- For Linux/MacOS: use [rbenv](https://github.com/rbenv/rbenv) to install `ruby 3.1.2` and then download [Gemfile](https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-generator/raw/Gemfile?at=refs%2Fheads%2Fdevelop%2Fmcu_sdk_generator) and [Gemfile.lock](https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-generator/raw/Gemfile.lock?at=refs%2Fheads%2Fdevelop%2Fmcu_sdk_generator) in an empty directory and then run `gem install bundle && bundle install` in it.
-
-### IAR/MDK
-
-For the convenience of users who like to use IAR/MDK IDE for development and debugging, the meta build system support to create IDE project definition files from west command with "--toolchain [iar|mdk] -t guiproject". For example:
-
-```bash
-west build -b frdmk64f examples/demo_apps/hello_world --toolchain mdk -t guiproject
-```
-
-You can check log from command:
-
-```bash
--- west build: running target guiproject
-[0/1] cmd.exe /C "cd /D C:\git_repo\identify_2\sdk-next\mcu-sdk-3.0 && C:\CMake\bin\cmake.exe -E env board=frdmk64f device=MK64F12 soc_series=Kinetis Sd..." 
-Generate GUI project
-generate SDK project:  [debug] [hello_world] [C:\git_repo\identify_2\sdk-next\mcu-sdk-3.0/boards/frdmk64f/demo_apps/hello_world/mdk/hello_world.uvprojx]
-```
-
-### MCUXpresso
-
-For mcuxpresso, `-t guiproject` will always be set, so just run:
-
-```bash
-west build -b frdmk64f examples/demo_apps/hello_world --toolchain mcux
-```
-
-You can check log from command:
-
-```bash
--- west build: running target guiproject
-[0/1] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Repos\sdk-next\mcu-sdk-3.0 &&...ild.ninja -o boards/frdmk64f/demo_apps/hello_world/ -p hello_world -c debug"Generate GUI project
-C:/Repos/sdk-next/mcu-sdk-3.0/examples/demo_apps/hello_world/hello_world.yml
-D, [2024-03-26T14:33:37.903561 #62960] DEBUG -- : Starting XSD validation
-D, [2024-03-26T14:33:37.914107 #62960] DEBUG -- : hello_world_v3_14.xml: Validation complete, no errors were found
-generate SDK project:  [mcux] [hello_world] [C:\Repos\sdk-next\mcu-sdk-3.0/boards/frdmk64f/demo_apps/hello_world/hello_world_v3_14.xml]
-
--- west build: running target manifest
-[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Repos\sdk-next\mcu-sdk-3.0\bu...on.exe C:\Repos\sdk-next\mcu-sdk-3.0/scripts/mcux_manifest/mcux_manifest.py"
-Generate manifest file to C:\Repos\sdk-next\mcu-sdk-3.0\FRDM-K64F_manifest_v3_14.xml
-```
-
-To import the sdk in mcuxpresso, you have to add `mcu-sdk-3.0` repo in SDK search roots:
-![mcux_import_sdk](./_doc/mcux_import_sdk.png)
-
-
-We now have two major limitations with the manifest and project.xml generated from meta build system:
-
-1. No support for MCUXpresso 'New Project Wizard'
-  We cannot generate component and dependency information in sdk manifest, but you can use kconfig to get similiar experience.
-
-2. Cannot import standalone project
-  MCUXpresso will not copy all sources for include path only if they are explicitly recorded in manifest. So you have to untick the `Copy sources` option.
-
-![mcux_import_project](./_doc/mcux_import_project.png)
-
-## Multi Project Solution Build
 
 ## Overview
 
-MCUXpresso SDK build and configuration system is based on CMake and Kconfig. 
+MCUXpresso SDK build and configuration system is based on CMake and Kconfig.
 
 [Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html) is a selection-based configuration system originally developed for the Linux kernel which now found
 more and more use in other projects beyond the Linux kernel. In MCUXpresso SDK, Kconfig is used to config the build in run time which includes component selection with dependency resolve, component configuration with feature
-enable, disable and customization. 
+enable, disable and customization.
 
 You can interact with Kconfig via a curses or graphical menu interface, usually invoked by running "west build -t guiconfig" after you have already run passed the CMake configuration process. In this interface, the user selects the options and features desired, and saves a configuration file, which is then used as an input to the
 build process.
 
-[CMake](https://cmake.org/) which is cross platform not only manages the software build process based on Kconfig result. 
+[CMake](https://cmake.org/) which is cross platform not only manages the software build process based on Kconfig result.
 
-Beyond traditional CMake generation, MCUXpresso build system also integrates some useful functionalities like IDE project generation. 
+Beyond traditional CMake generation, MCUXpresso build system also integrates some useful functionalities like IDE project generation.
 
 ## Acronyms and Abbreviations
 
@@ -242,7 +177,7 @@ Beyond traditional CMake generation, MCUXpresso build system also integrates som
 
 ## Toolchains Beyond GCC
 
-MCUXpresso SDK supports all mainstream toolchains in the embedded world beyond traditional armgcc. 
+MCUXpresso SDK supports all mainstream toolchains in the embedded world beyond traditional armgcc.
 
 The toolchain list supported by our build system is IAR, MDK, Xcc, Xclang and Zephyr. The CMake toolchain setting files are placed in \<mcu-sdk-3.0>/cmake/toolchain folder. All toolchain files generally follow the same structure and loaded through \<mcu-sdk-3.0>/cmake/toolchain.cmake. The CMake variable for toolchain is "CONFIG_TOOLCHAIN" which is used to cmdline to specify the toolchain to build.
 
@@ -250,7 +185,7 @@ If you need to enable new toolchain, please follow the existing toolchain file p
 
 ## CMake Extension
 
-MCUXpresso SDK is a comprehensive product including hundred of boards and devices, thousands of components and ten thousands of examples, all mainstream toolchains. The MCUXpresso CMake extensions aims to greatly reduce build data development and maintenance efforts. 
+MCUXpresso SDK is a comprehensive product including hundred of boards and devices, thousands of components and ten thousands of examples, all mainstream toolchains. The MCUXpresso CMake extensions aims to greatly reduce build data development and maintenance efforts.
 
 Following extensions are provided for you to facilitate component, project and misc data record for all toolchains. All extension functions start with prefix "mcux_"
 
@@ -363,7 +298,6 @@ Following extensions are provided for you to facilitate component, project and m
 
 ### Configuration
 
-
 - mcux_add_configuration
 
   Add configuration for all toolchains with specified build targets.
@@ -472,11 +406,11 @@ Except adding data, the build system also supports removing defined data. For ex
 
   ```cmake
   mcux_project_remove_source(
-  	SOURCES hello_world.c
+   SOURCES hello_world.c
   )
 
   mcux_project_remove_include(
-  	INCLUDES .
+   INCLUDES .
   )
   ```
 
@@ -542,10 +476,9 @@ There are 2 principles for MCUXpresso SDK data
 
    In this way software is highly modularized thus greatly improve the integration.
 
-
 2. Decoupling.
 
-   There are many kinds SDK data: boards, devices, drivers, components, middlewares, examples, etc. Different type data are strictly decoupled from each other and prepared separately. 
+   There are many kinds SDK data: boards, devices, drivers, components, middlewares, examples, etc. Different type data are strictly decoupled from each other and prepared separately.
 
    In this way, migrability is highly addressed and achieved. When adding a driver, you don't need to care about examples. When adding an example, you don't need to care about board or device data like pinmux or clock.
 
@@ -553,13 +486,13 @@ There are 2 principles for MCUXpresso SDK data
 
 ### Data Section
 
-Each data section is composed of CMake and Kconfig. 
+Each data section is composed of CMake and Kconfig.
 
 3 data section types are supported: component, project segment and project.
 
 #### Component
 
-"component" section is used for software components. 
+"component" section is used for software components.
 
 In CMake, component data shall be recorded inside a if-endif guard. The if condition shall be with prefix "CONFIG_MCUX_COMPONENT" to specify the following data belongs to a software component. The component name is right next to it.
 
@@ -582,7 +515,7 @@ endif()
 
 If a component definition is split into several CMake files, please use the same if-endif guard in all files data.
 
-In Kconfig, symbol for a component shall also start with "MCUX_COMPONENT_" to be identical with CMake component name. 
+In Kconfig, symbol for a component shall also start with "MCUX_COMPONENT_" to be identical with CMake component name.
 
 Component configuration and dependency shall be recorded following the below pattern:
 
@@ -596,9 +529,9 @@ config MCUX_COMPONENT_driver.uart
     select MCUX_COMPONENT_driver.common
     depends on MCUX_HAS_COMPONENT_driver.uart # component dependency
 
-	# Configuration for driver.uart shall be put into the if-endif so that only driver.uart is selected, the configuration will be showed
+ # Configuration for driver.uart shall be put into the if-endif so that only driver.uart is selected, the configuration will be showed
     if MCUX_COMPONENT_driver.uart 
-    	# Configuration for driver.gpio
+     # Configuration for driver.gpio
     endif
 ```
 
@@ -629,7 +562,7 @@ endmenu
 
 #### Project Segment
 
-MCUXpresso SDK is composed of hundreds of devices and boards, thousands of components and ten thousands of projects. Projects on these boards and devices have many shared data like core related settings, common build target settings,  device headers and configurations, board files, clock and pinmux. Project segment data section is an abstraction of common shared data. It is introduced to avoid data duplication. 
+MCUXpresso SDK is composed of hundreds of devices and boards, thousands of components and ten thousands of projects. Projects on these boards and devices have many shared data like core related settings, common build target settings,  device headers and configurations, board files, clock and pinmux. Project segment data section is an abstraction of common shared data. It is introduced to avoid data duplication.
 
 Like the component, in CMake, project segment data shall also be recorded inside a if-endif guard. The if condition shall be with prefix "CONFIG_MCUX_PRJSEG_", right after it is the project segment name.
 
@@ -666,7 +599,7 @@ endif()
 
 In Kconfig, symbol for a project segment shall start with "MCUX_PRJSEG_" to be identical with CMake project segment name. Project segment configuration and dependency shall be recorded following the below pattern:
 
-```
+```bash
     config MCUX_PRJSEG_module.board.clock
         bool "Use default clock files"
         imply MCUX_COMPONENT_driver.clock
@@ -776,13 +709,13 @@ Here are summarized frequently used dependency patterns.
 
   The Kconfig pattern is like
 
-  ```
+  ```bash
   config MCUX_HAS_COMPONENT_component3
     bool
 
   config MCUX_HAS_COMPONENT_component4
     bool
-  	  
+     
   config MCUX_COMPONENT_componentA
     bool "Component A, pattern 1"
     select MCUX_COMPONENT_component1 
@@ -791,9 +724,10 @@ Here are summarized frequently used dependency patterns.
     select MCUX_COMPONENT_component4 if MCUX_HAS_COMPONENT_component4
 
   ```
+
   Note, if MCUX_HAS_COMPONENT_component3 and MCUX_HAS_COMPONENT_component4 are satisfied simultaneously, then MCUX_COMPONENT_component3 and MCUX_COMPONENT_component4 will be added simultaneously correspondingly.
 
--  Pattern 2: starting with allOf with more than 1 anyOf
+- Pattern 2: starting with allOf with more than 1 anyOf
 
   ```yaml
   componentB:
@@ -802,22 +736,22 @@ Here are summarized frequently used dependency patterns.
     - component1
     - component2
     - anyOf:
-  	- component3
-  	- component4
+   - component3
+   - component4
     - anyOf:
-  	- component5
-  	- component6
+   - component5
+   - component6
     - core:
-  	- cm33
-  	- cm33f
+   - cm33
+   - cm33f
     - device:
-  	- MK64F12
-  	- MK63F12
+   - MK64F12
+   - MK63F12
   ```
 
   The Kconfig dependency pattern is like
 
-  ```
+  ```bash
   config MCUX_COMPONENT_componentB
     bool "Component B, pattern 1"
     select MCUX_COMPONENT_component1 
@@ -826,29 +760,29 @@ Here are summarized frequently used dependency patterns.
     depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
 
     if MCUX_COMPONENT_componentB
-  	  choice
-  		  prompt "Component B anyOf 1"
-  		  default MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component3
-  		  config MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component3
-  			  bool "Select component3"
-  			  select MCUX_COMPONENT_component3
+     choice
+      prompt "Component B anyOf 1"
+      default MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component3
+      config MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component3
+       bool "Select component3"
+       select MCUX_COMPONENT_component3
 
-  		  config MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component4
-  			  bool "Select component4"
-  			 select MCUX_COMPONENT_component4
-  	  endchoice
+      config MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component4
+       bool "Select component4"
+      select MCUX_COMPONENT_component4
+     endchoice
 
-  	  choice
-  		  prompt "Component B anyOf 2"
-  		  default MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component5
-  		  config MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component5
-  			  bool "Select component5"
-  			  select MCUX_COMPONENT_component5
+     choice
+      prompt "Component B anyOf 2"
+      default MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component5
+      config MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component5
+       bool "Select component5"
+       select MCUX_COMPONENT_component5
 
-  		  config MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component6
-  			  bool "Select component6"
-  			  select MCUX_COMPONENT_component6
-  	  endchoice            
+      config MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component6
+       bool "Select component6"
+       select MCUX_COMPONENT_component6
+     endchoice            
   endif
   ```
 
@@ -883,7 +817,7 @@ Here are summarized frequently used dependency patterns.
 
   The Kconfig dependency pattern is like
 
-  ```
+  ```bash
   config MCUX_COMPONENT_componentC
     bool "Component C, pattern 2"
     select MCUX_COMPONENT_component1 
@@ -893,21 +827,21 @@ Here are summarized frequently used dependency patterns.
     depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12 || MCUX_HW_DEVICE_LPC54005 || MCUX_HW_DEVICE_LPC54016 || MCUX_HW_DEVICE_LPC54018 || MCUX_HW_DEVICE_LPC54018M || MCUX_HW_DEVICE_LPC54628
 
     if MCUX_COMPONENT_componentC
-  	  choice
-  		  prompt "Component C anyOf"
-  		  default MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_1
-  		  config MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_1
-  			  bool "Select component3 and component 4 in device MK64F12, MK63F12"
-  			  select MCUX_COMPONENT_component3
-  			  select MCUX_COMPONENT_component4
-  			  depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
+     choice
+      prompt "Component C anyOf"
+      default MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_1
+      config MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_1
+       bool "Select component3 and component 4 in device MK64F12, MK63F12"
+       select MCUX_COMPONENT_component3
+       select MCUX_COMPONENT_component4
+       depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
 
-  		  config MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_2
-  			  bool "Select component5 and component4"
-  			  select MCUX_COMPONENT_component5
-  			  select MCUX_COMPONENT_component6
-  			  depends on MCUX_HW_DEVICE_LPC54005 || MCUX_HW_DEVICE_LPC54016 || MCUX_HW_DEVICE_LPC54018 || MCUX_HW_DEVICE_LPC54018M || MCUX_HW_DEVICE_LPC54628
-  	  endchoice           
+      config MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_2
+       bool "Select component5 and component4"
+       select MCUX_COMPONENT_component5
+       select MCUX_COMPONENT_component6
+       depends on MCUX_HW_DEVICE_LPC54005 || MCUX_HW_DEVICE_LPC54016 || MCUX_HW_DEVICE_LPC54018 || MCUX_HW_DEVICE_LPC54018M || MCUX_HW_DEVICE_LPC54628
+     endchoice           
     endif
   ```
 
@@ -935,7 +869,7 @@ Here are summarized frequently used dependency patterns.
 
   The Kconfig dependency pattern is like
 
-  ```
+  ```bash
   config MCUX_COMPONENT_componentD
     bool "Component D, pattern 3"
     select MCUX_COMPONENT_component1 
@@ -944,44 +878,44 @@ Here are summarized frequently used dependency patterns.
     depends on MCUX_COMPILER_IAR || MCUX_COMPILER_MDK
 
     if MCUX_COMPONENT_componentD
-  	  choice
-  		  prompt "Component C Dependencies"
+     choice
+      prompt "Component C Dependencies"
 
-  		  config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_ANYOF_component3_component4
-  			  bool "Select component3 or component4"
-  			  if MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_ANYOF_component3_component4
-  				  choice
-  					  prompt "Select component3 or component4"
-  					  default MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component3
-  					  config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component3
-  						  bool "Select component3"
-  						  select MCUX_COMPONENT_component3
-  					  config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component4
-  						  bool "Select component4"
-  						  select MCUX_COMPONENT_component4
-  				  endchoice  
-  			  endif              
+      config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_ANYOF_component3_component4
+       bool "Select component3 or component4"
+       if MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_ANYOF_component3_component4
+        choice
+         prompt "Select component3 or component4"
+         default MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component3
+         config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component3
+          bool "Select component3"
+          select MCUX_COMPONENT_component3
+         config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component4
+          bool "Select component4"
+          select MCUX_COMPONENT_component4
+        endchoice  
+       endif              
 
-  		  config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_ANYOF_component5_component6
-  			  bool "Select component5 or component6"
-  			  if MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_ANYOF_component5_component6
-  				  choice
-  					  prompt "Select component5 or component6"
-  					  default MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component5
-  					  config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component5
-  						  bool "Select component5"
-  						  select MCUX_COMPONENT_component5
-  					  config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component6
-  						  bool "Select component6"
-  						  select MCUX_COMPONENT_component6
-  				  endchoice        
-  			  endif            
+      config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_ANYOF_component5_component6
+       bool "Select component5 or component6"
+       if MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_ANYOF_component5_component6
+        choice
+         prompt "Select component5 or component6"
+         default MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component5
+         config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component5
+          bool "Select component5"
+          select MCUX_COMPONENT_component5
+         config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component6
+          bool "Select component6"
+          select MCUX_COMPONENT_component6
+        endchoice        
+       endif            
 
-  		  config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component7
-  			  bool "Select component7"
-  			  select MCUX_COMPONENT_component7
+      config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component7
+       bool "Select component7"
+       select MCUX_COMPONENT_component7
 
-  	  endchoice           
+     endchoice           
     endif
   ```
 
@@ -1007,25 +941,25 @@ Here are summarized frequently used dependency patterns.
 
   The Kconfig dependency pattern is like
 
-  ```
+  ```bash
   config MCUX_COMPONENT_componentE
     bool "Component E, pattern 5"
     if MCUX_COMPONENT_componentE
-  	  choice
-  		  prompt "Component E anyOf"
-  		  default MCUX_DEPENDENCY_COMPONENT_componentE_DEPEND_ALLOF_component1_component2
-  		  config MCUX_DEPENDENCY_COMPONENT_componentE_DEPEND_ALLOF_component1_component2
-  			  bool "Select component1 and component2"
-  			  select MCUX_COMPONENT_component1
-  			  select MCUX_COMPONENT_component2
-  			  depends on MCUX_HW_CORE_CM4 || MCUX_HW_CORE_CM4F
-  			  depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
+     choice
+      prompt "Component E anyOf"
+      default MCUX_DEPENDENCY_COMPONENT_componentE_DEPEND_ALLOF_component1_component2
+      config MCUX_DEPENDENCY_COMPONENT_componentE_DEPEND_ALLOF_component1_component2
+       bool "Select component1 and component2"
+       select MCUX_COMPONENT_component1
+       select MCUX_COMPONENT_component2
+       depends on MCUX_HW_CORE_CM4 || MCUX_HW_CORE_CM4F
+       depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
 
-  		  config MCUX_DEPENDENCY_COMPONENT_componentE_DEPEND_ALLOF_component3_component4
-  			  bool "Select component3 and component4"
-  			  select MCUX_COMPONENT_component3
-  			  select MCUX_COMPONENT_component4
-  	  endchoice           
+      config MCUX_DEPENDENCY_COMPONENT_componentE_DEPEND_ALLOF_component3_component4
+       bool "Select component3 and component4"
+       select MCUX_COMPONENT_component3
+       select MCUX_COMPONENT_component4
+     endchoice           
     endif
   ```
 
@@ -1072,26 +1006,25 @@ Here are summarized frequently used dependency patterns.
 
   The Kconfig dependency pattern is like
 
-  ```
+  ```bash
   config MCUX_COMPONENT_componentG
     bool "Component G, pattern 7"
     if MCUX_COMPONENT_componentG
-  	  choice
-  		  prompt "component F dependency"
-  		  default MCUX_DEPENDENCY_COMPONENT_componentG_DEPEND_ALLOF_component9
-  		  config MCUX_DEPENDENCY_COMPONENT_componentG_DEPEND_ALLOF_component9
-  			  bool "Select component 9 in devce MK64F12 and MK63F12"
-  			  select MCUX_COMPONENT_component9
-  			  depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
+     choice
+      prompt "component F dependency"
+      default MCUX_DEPENDENCY_COMPONENT_componentG_DEPEND_ALLOF_component9
+      config MCUX_DEPENDENCY_COMPONENT_componentG_DEPEND_ALLOF_component9
+       bool "Select component 9 in devce MK64F12 and MK63F12"
+       select MCUX_COMPONENT_component9
+       depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
 
-  		  config MCUX_DEPENDENCY_COMPONENT_componentG_DEPNED_ALLOF_component10
-  			  bool "Select component 10 in devce other than MK64F12 and MK63F12"
-  			  select MCUX_COMPONENT_component10
-  			  depends on !MCUX_HW_DEVICE_MK64F12 && !MCUX_HW_DEVICE_MK63F12
-  	  endchoice
+      config MCUX_DEPENDENCY_COMPONENT_componentG_DEPNED_ALLOF_component10
+       bool "Select component 10 in devce other than MK64F12 and MK63F12"
+       select MCUX_COMPONENT_component10
+       depends on !MCUX_HW_DEVICE_MK64F12 && !MCUX_HW_DEVICE_MK63F12
+     endchoice
     endif
   ```
-
 
 ### IDE Related
 
@@ -1114,11 +1047,11 @@ endif()
 
 In Kconfig, the same "board" variable can set the board Kconfig path for all boards.
 
-```
+```bash
 rsource "${board}/Kconfig"
 ```
 
-There are some required variables which must be provided for each build to make the CMake configuration process run passed. 
+There are some required variables which must be provided for each build to make the CMake configuration process run passed.
 
 Besides, customized variables are allowed for some software data recorded although not suggested.
 
@@ -1157,19 +1090,19 @@ Here is the Kconfig stored variable table:
 | MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER   | IAR IDE project device identifier        | Kconfig process | CMake   |       |
 | MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER   | MDK IDE project device identifier        | Kconfig process | CMake   |       |
 
-Basically, all type string Kconfig symbol can be regarded as variable and used in CMake. 
+Basically, all type string Kconfig symbol can be regarded as variable and used in CMake.
 
 #### Customized Variables
 
-Besides the above variables, you can set your own variable in CMake to facilitate your data record with extension mcux_set_variable. 
+Besides the above variables, you can set your own variable in CMake to facilitate your data record with extension mcux_set_variable.
 
-For the required variables, BCS will guarantee that they are defined before they are used. 
+For the required variables, BCS will guarantee that they are defined before they are used.
 
 For you customized variables, please make sure that your variables are defined before they are used by yourself.
 
 #### Tips For Variable Usage
 
-- Variable value replacement is invisible in CMake process, to avoid potential issues, please minimize the usage of variable. 
+- Variable value replacement is invisible in CMake process, to avoid potential issues, please minimize the usage of variable.
 - To make Kconfig integratable for other Kconfig system, please don't use variables in Kconfig data other than "rsource". "rsource" is only to load Kconfig files.
 
 ### Repo Data
@@ -1444,25 +1377,25 @@ Since the Kconfig data has variable inside, they need to be processed. BS has in
 
 1. Run cmake configuration
 
-```bash
-west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
-```
+    ```bash
+    west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
+    ```
 
-​	You can ignore "--cmake-only", then the projecrt will be built.
+   You can ignore "--cmake-only", then the projecrt will be built.
 
 2. Run guiconfig target
 
-```bash
-west build -t guiconfig
-```
+    ```bash
+    west build -t guiconfig
+    ```
 
-Then you will get the Kconfig GUI launched, like
+   Then you will get the Kconfig GUI launched, like
 
-​	           ![](./_doc/kconfig_gui.png)
+    ![kconfig_gui](./_doc/kconfig_gui.png)
 
-You can select/deselect and modify to do reconfiguration and remember to save.
+   You can select/deselect and modify to do reconfiguration and remember to save.
 
-After you save and close, you can directly run "west build" to do the build.
+   After you save and close, you can directly run "west build" to do the build.
 
 ## Kconfig Process Flow
 
@@ -1470,11 +1403,11 @@ The Kconfig files and related prj.conf with priority are put into the Kconfig pr
 
 The direct output is the .config and config headers. Any updates in input Kconfig, output .config and config header will trigger a Kconfig process in next build cmd
 
-![](./_doc/Kconfig_process_flow.PNG)
+![Kconfig_process_flow](./_doc/Kconfig_process_flow.PNG)
 
 ### prj.conf
 
-As illustrated previously, prj.conf is the pre set value for Kconfig symbols. It is the input for the Kconfig process. 
+As illustrated previously, prj.conf is the pre set value for Kconfig symbols. It is the input for the Kconfig process.
 
 Unlike the CMake which shall be explicitly included, the proj.conf will be loaded implicitly with different priority.
 
@@ -1516,7 +1449,7 @@ endif()
 
 ### config headers
 
-The Kconfig symbols and the values will be generated into config headers placed in build binary folder. 
+The Kconfig symbols and the values will be generated into config headers placed in build binary folder.
 
 The config headers shall be included in the source in advance and the build binary folder will be added into includes so that all config headers will be added into build tree.
 
@@ -1524,7 +1457,7 @@ If it is not set, then all Kconfig symbols and values will be generated header n
 
 If you want your components Kconfig symbols and values to be generatedendmenu  into customized header, you can set Kconfig menu with (header name). Here is an example with Freertos kernel.
 
-```
+```bash
 menu "freertos-kernel(FreeRTOSConfig.h)" # All freertos kernel Kconfig symbols and values will be generated into FreeRTOSConfig.h
     config MCUX_COMPONENT_middleware.freertos-kernel
         bool "middleware.freertos-kernel"
@@ -1603,7 +1536,7 @@ mcux_add_include(
 
 ## Enable An Example
 
-Please firstly make sure that the target board and device data are ready, then follow the example CMakelists.txt pattern in [Project](#Project) chapter and make your own one.
+Please firstly make sure that the target board and device data are ready, then follow the example CMakelists.txt pattern in [Project](#project) chapter and make your own one.
 
 If the default board and device data and configuration cannot satisfy, then you need to do customization for the certain board or device or both.
 
@@ -1611,30 +1544,40 @@ BCS provides following ways to do the customization.
 
 1. Reconfig CMake
 
-For example, the hello_world example CMakelists.txt is defined in "examples/demo_apps/hello_world". Inside it, there are 2 optional included reconfig.cmake, like
+   For example, the hello_world example CMakelists.txt is defined in "examples/demo_apps/hello_world". Inside it, there are 2 optional included reconfig.cmake, like
 
-```cmake
-include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
-# project_root_path here means boards/frdmk64f/demo_apps/hello_world
-include(${SdkRootDirPath}/${project_root_path}/reconfig.cmake OPTIONAL)
-```
+    ```cmake
+    include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
+    # project_root_path here means boards/frdmk64f/demo_apps/hello_world
+    include(${SdkRootDirPath}/${project_root_path}/reconfig.cmake OPTIONAL)
+    ```
 
-You can add reconfig.cmake in any sub folder of the above 2 optional cmake path to different level reconfig.cmake and remember to include it recursively in deeper level cmake.
+   You can add reconfig.cmake in any sub folder of the above 2 optional cmake path to different level reconfig.cmake and remember to include it recursively in deeper level cmake.
 
-For example, if you add a boards/frdmk64f/demo_apps/reconfig.cmake, then you should be awared of that this reconfig.cmake shall apply for all demo_apps in frdmk64f.
+   For example, if you add a boards/frdmk64f/demo_apps/reconfig.cmake, then you should be awared of that this reconfig.cmake shall apply for all demo_apps in frdmk64f.
 
-In these reconfig.cmake, [remove](#Remove) extensions can be used to remove board/device common data and settings. After removing the previous data and settings, customization data and settings can be added.
+   In these reconfig.cmake, [remove](#remove) extensions can be used to remove board/device common data and settings. After removing the previous data and settings, customization data and settings can be added.
 
 2. prj.conf
 
-
-For component selection and configuration, you can use different level prj.conf to achieve it. Refer the priority level in [prj.conf](#prj.conf) to set the data.
+   For component selection and configuration, you can use different level prj.conf to achieve it. Refer the priority level in [prj.conf](#prj.conf) to set the data.
 
 ## IDE Generation
 
 CMake is a text-oriented tool that uses the command-line, for many developers, especially those who are used to working on Windows operating system, this is not a great experience for coding and debugging. Therefore the meta build system supports GUI project generation for specific IDE.  
 
-It's quiet easy for you to generate a GUI project, only "-t guiproject" is required for west command. It tells CMake to run guiproject target to generate project files.
+### Prerequisite
+
+Currently, we have not implemented all features through Python. So, in order to generate IDE GUI projects, you have to prepare the ruby 3.1 environment, You can refer [SDK Generator V3 environment setup](https://confluence.sw.nxp.com/display/MCUXSDK/Getting+Started+With+SDK+Generator+V3#GettingStartedWithSDKGeneratorV3-EnvironmentSetup).
+
+In short words:
+
+- For windows: use [portable_ruby](https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-generator/browse/bin/windows)
+- For Linux/MacOS: use [rbenv](https://github.com/rbenv/rbenv) to install `ruby 3.1.2` and then download [Gemfile](https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-generator/raw/Gemfile?at=refs%2Fheads%2Fdevelop%2Fmcu_sdk_generator) and [Gemfile.lock](https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-generator/raw/Gemfile.lock?at=refs%2Fheads%2Fdevelop%2Fmcu_sdk_generator) in an empty directory and then run `gem install bundle && bundle install` in it.
+
+### Command
+
+It's quiet easy for you to generate a GUI project definition files, only "--toolchain [iar|mdk] -t guiproject" is required for west command. It tells CMake to run guiproject target to generate project files for specific toolchain.
 
 If you are running a pristine build, please specify board/examples/toolchain/core_id on the command line. For example:
 
@@ -1644,21 +1587,19 @@ west build -b evkmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcor
 
 If you have run this command, there is a simpler and faster command:
 
-```
+```bash
 west build -t guiproject
 ```
 
 After the command runs, the project files are generated into the compilation directory. You can find it in command line, for example:
 
-![](./_doc/gui_project.gif)
+![gui_project](./_doc/gui_project.gif)
 
 > [!NOTE]
 >
 > Currently only IAR and MDK are supported, but we will support other toolchains in the future.
 >
 > Currently the generation script is ported from SDK Generator which use Ruby language. During the official release phase we will change to python to reduce the effort of configuring development environment.
-
-
 
 ## System Build
 
@@ -1686,11 +1627,11 @@ add_dependencies(${DEFAULT_IMAGE} hello_world_secondary_core)
 
 The build order can by set by "add_dependencies [add_dependencies](https://cmake.org/cmake/help/latest/command/add_dependencies.html#add-dependencies) function in sysbuild.cmake.
 
-The variables in sysbuild.cmake can be defined inside the file. Or you can pass them with west command. 
+The variables in sysbuild.cmake can be defined inside the file. Or you can pass them with west command.
 
 In practice, however, it is more common to set these variables automatically via kconfig to support multiple platforms in a more flexible way. For example, you can prepare a Kconfig.sysbuild in main application folder:
 
-```
+```bash
 # examples/middleware/multicore/multicore_examples/hello_world/primary/Kconfig.sysbuild
 
 config secondary_board
@@ -1730,26 +1671,26 @@ mcux_add_iar_configuration(
 
 To enable sysbuild, only "--sysbuild" is needed when you run the main application
 
-```
+```bash
 west build -b evkmimxrt1170 --sysbuild ./examples/middleware/multicore/multicore_examples/hello_world/primary -Dcore_id=cm7  --config flexspi_nor_debug --toolchain=armgcc -p always
 ```
 
 You can find build information from terminal:
 
-![](./_doc/sysbuild.gif)
+![sysbuild](./_doc/sysbuild.gif)
 
-### Kconfig
+### Kconfig Target
 
 The sysbuild projects can be configured with kconfig, just like a normal project in the meta build system. The only different is the target name, for main application, they're menuconfig or guiconfig, for sub project, you must add project name prefix to differ each target. For example:
 
-```
+```bash
 west build -t guiconfig
 west build -t hello_world_secondary_core_guiconfig
 ```
 
 ## Integrated Into Other Build System
 
-The meta build system can be integrate into other build system which is based on CMake. In principle, the meta build system use customized CMake function and configured by Kconfig, so that it requires you to: 
+The meta build system can be integrate into other build system which is based on CMake. In principle, the meta build system use customized CMake function and configured by Kconfig, so that it requires you to:
 
 1. Include sdk-next/mcu-sdk-3.0/cmake/extension/function.cmake
 2. Load necessary CMakeLists.txt files for source code
@@ -1761,7 +1702,7 @@ Let's say if you want to use drivers from meta build system, you need to prepare
 
    The Kconfig file determines which drivers are available on which devices, it will load drivers kconfig and device kconfig file, for example, if you're working on zephyr, the kconfig file should contain content at least:
 
-   ```
+   ```bash
    source "$(ZEPHYR_HAL_NXP_MODULE_DIR)/mcux/mcux-sdk/drivers/Kconfig"
    source "$(ZEPHYR_HAL_NXP_MODULE_DIR)/mcux/mcux-sdk/devices/common/Kconfig.common"
    source "$(ZEPHYR_HAL_NXP_MODULE_DIR)/mcux/mcux-sdk/CMSIS/Kconfig"
@@ -1778,7 +1719,7 @@ Let's say if you want to use drivers from meta build system, you need to prepare
 
    In meta build system, some variables are used, so that you must set them before loading any CMakeLists.txt,  if you're working on zephyr, for example:
 
-   ```
+   ```cmake
    include(${CMAKE_CURRENT_LIST_DIR}/../cmake/extension/function.cmake)
 
    set(MCUX_SDK_PROJECT_NAME ${ZEPHYR_CURRENT_LIBRARY})
@@ -1803,19 +1744,19 @@ Let's say if you want to use drivers from meta build system, you need to prepare
 
 ## Integrate Other CMake build system
 
-The meta build system is based on CMake, theoretically, it supports the integration of other third-party software based on the CMake compilation system. 
+The meta build system is based on CMake, theoretically, it supports the integration of other third-party software based on the CMake compilation system.
 
 There are two ways for this requirement:
 
 1. If the other software want to  use assembler/compiler/linker flags provided by meta build system, you can just import software CMakeLists.txt by [add_subdirectory](https://cmake.org/cmake/help/latest/command/add_subdirectory.html#add-subdirectory) function.  Let's say you have a code that will be compiled into library, the source code is added into a CMake target called "my_library":
 
-   ```
+   ```cmake
    add_library(my_library STATIC ${SOURCE_FILES})
    ```
 
    In meta build system project, you can import "my_library" and link it in project CMakeLists.txt:
 
-   ```
+   ```cmake
    add_subdirectory(path/to/my_library ${CMAKE_CURRENT_BINARY_DIR}/mylib)
    target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE my_library)
    ```
@@ -1824,7 +1765,7 @@ There are two ways for this requirement:
 
    For example, you can provide a sysbuild.cmake:
 
-   ```
+   ```cmake
    ExternalZephyrProject_Add(
            APPLICATION my_library
            SOURCE_DIR  path/to/my_library
