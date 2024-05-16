@@ -28,7 +28,7 @@ pip install west -U
 pip install -r mcu-sdk-3.0/scripts/requirements.txt
 ```
 
-Following build, flash and debug commands are refered from zephyr's official one. So you can find the full documentation here: <https://docs.zephyrproject.org/latest/develop/west/build-flash-debug.html>
+Following build, flash and debug commands are refered from zephyr's official one. So you can find the full documentation here: [https://docs.zephyrproject.org/latest/develop/west/build-flash-debug.html](https://docs.zephyrproject.org/latest/develop/west/build-flash-debug.html)
 Most of native zephyr's west build features are reserved.
 
 ### Toolchain Setup
@@ -50,29 +50,27 @@ Here are the toolchain environment variable table
 
 1. Please install python3 and menuconfig. For menuconfig, you can run with
 
-    ```bash
-    pip install -U kconfiglib
-    ```
+   ```bash
+   pip install -U kconfiglib
+   ```
 
 2. Make sure that `mcu-sdk-boards`, `mcu-sdk-components`, `mcux-devices-kinetis`, `mcux-devices-lpc`, `mcux-devices-rt` projects are cloned because there are Kconfig data inside these repos for boards/components/devices. Only with all these data included, then you can enjoy full feature of kconfig.
-
 3. Run
 
    Inside Kconfig files, there are board/device variables inside, so it cannot be directly run, so Kconfig shall be run inside whole cmake process.
 
    - Run cmake configuration
 
-      ```bash
-      west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
-      ```
+     ```bash
+     west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
+     ```
 
      You can ignore "--cmake-only", then the projecrt will be built.
-
    - Run guiconfig target
 
-      ```bash
-      west build -t guiconfig
-      ```
+     ```bash
+     west build -t guiconfig
+     ```
 
      Then you will get the Kconfig GUI launched, like
 
@@ -150,8 +148,6 @@ west debug -r linkserver
 
 ![debug](./_doc/debug.png)
 
-
-
 ## Overview
 
 MCUXpresso SDK build and configuration system is based on CMake and Kconfig.
@@ -199,7 +195,7 @@ Following extensions are provided for you to facilitate component, project and m
 
   | Argument Name         | Argument Type | Explanation                              |
   | --------------------- | ------------- | ---------------------------------------- |
-  | PROJECT_PATH          | Single        | The project path for the source or include. This attribute is used to construct the source or include explorer view in IDE project. If not provided, then the source or include path relative to the repo root will be used. For project source or include, usually use PROJECT_PATH. <br />If you set hello_world source hello_world.c PROJECT_PATH to "source", then in the generated IDE explorer view, it looks like <br />![](./_doc/IAR_hello_world_show_project_path.PNG) |
+  | PROJECT_PATH          | Single        | The project path for the source or include. This attribute is used to construct the source or include explorer view in IDE project. If not provided, then the source or include path relative to the repo root will be used. For project source or include, usually use PROJECT_PATH.<br />If you set hello_world source hello_world.c PROJECT_PATH to "source", then in the generated IDE explorer view, it looks like <br />![](./_doc/IAR_hello_world_show_project_path.PNG) |
   | PROJECT_BASE_PATH     | Single        | The base part the of the PROJECT_PATH. For component, usually use PROJECT_BASE_PATH, the left relatIve path part can directly use the source or include real path. For example, we usually set driver source with PROJECT_BASE_PATH "drivers", then in the generated IDE explorer view, it looks like<br />![](./_doc/IAR_hello_world_show_driver_project_path.PNG)<br /><br />Note, the PROJECT_PATH has priority over PROJECT_BASE_PATH. |
   | PROJECT_RELATIVE_PATH | Single        | The relative part of the PROJECT_PATH which is rarely used. Usually the folder path of "SOURCES" is the default value for it. |
   | BASE_PATH             | Single        | If provided, the final source path equals BASE_PATH + SOURCES. This is usually used in abstracted .cmake files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
@@ -288,7 +284,7 @@ Following extensions are provided for you to facilitate component, project and m
               BASE_PATH ${SdkRootDirPath}
               LINKER devices/${soc_series}/${device}/gcc/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
       )
-      
+
       mcux_add_mdk_linker_script(
               TARGETS debug release
               BASE_PATH ${SdkRootDirPath}
@@ -361,7 +357,6 @@ Except adding data, the build system also supports removing defined data. For ex
 - mcux_remove_iar_configuration/mcux_remove_mdk_configuration/mcux_remove_armgcc_configuration
 
   Very similar with mcux_remove_configuration, just target specified toolchain, not for all.
-
 - mcux_remove_iar_linker_script/mcux_remove_mdk_linker_scriptmcux_remove_armgcc_linker_script
 
   | Argument Name | Argument Type | Explanation                              |
@@ -384,7 +379,7 @@ Except adding data, the build system also supports removing defined data. For ex
               BASE_PATH ${SdkRootDirPath}
               LINKER devices/${soc_series}/${device}/gcc/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
       )
-      
+
       mcux_remove_mdk_linker_script(
               TARGETS debug release
               BASE_PATH ${SdkRootDirPath}
@@ -455,11 +450,9 @@ Since Kconfig data are configurable, then there are 3 ways to provide the config
 1. Kconfig default value
 
    Inside the Kconfig file, for each symbol, default value must be provided. In this way, any symbol will anyway gets a default value in any cases.
-
 2. prj.conf
 
    For visible Kconfig symbols, you can directly set symbol=value in prj.conf to do the configuration. The prj.confs placed in designated places will be taken as Kconfig process input with priority. Please refer [prj.conf](#prj.conf) for details.
-
 3. Kconfig.defconfig
 
    For invisible Kconfig symbols, prj.conf won't take effect. Please use Kconfig.defconf to redefine the symbol without type but with new default value.
@@ -475,7 +468,6 @@ There are 2 principles for MCUXpresso SDK data
    SDK data is recorded and used in a "component" way instead of fragment lines. There are several component types each of which in data record is a data section.  Please refer [Data Section](#Data Section) chapter for details.
 
    In this way software is highly modularized thus greatly improve the integration.
-
 2. Decoupling.
 
    There are many kinds SDK data: boards, devices, drivers, components, middlewares, examples, etc. Different type data are strictly decoupled from each other and prepared separately.
@@ -671,12 +663,10 @@ config HELLO_WORLD_EXAMPLE_MACRO
   It defines a dependency for Kconfig symbol. If multiple dependencies are defined, they can be connected with ‘&&’, ‘||’, and ! for NOT.
 
   The Kconfig item won’t be showed if the “depends on” is not satisfied.
-
 - "select"
 
   It forces a symbol to true which means the depended component is selected anyway no matter the dependency is
   satisfied or not.
-
 - "choice"
 
   It defines a choice group. The single choice can only be of type bool or tristate. If no type is specified for a choice, its type will be determined by the type of the first choice element in the group or remain unknown if none of the choice elements have a type specified.
@@ -715,7 +705,7 @@ Here are summarized frequently used dependency patterns.
 
   config MCUX_HAS_COMPONENT_component4
     bool
-     
+
   config MCUX_COMPONENT_componentA
     bool "Component A, pattern 1"
     select MCUX_COMPONENT_component1 
@@ -726,7 +716,6 @@ Here are summarized frequently used dependency patterns.
   ```
 
   Note, if MCUX_HAS_COMPONENT_component3 and MCUX_HAS_COMPONENT_component4 are satisfied simultaneously, then MCUX_COMPONENT_component3 and MCUX_COMPONENT_component4 will be added simultaneously correspondingly.
-
 - Pattern 2: starting with allOf with more than 1 anyOf
 
   ```yaml
@@ -782,7 +771,7 @@ Here are summarized frequently used dependency patterns.
       config MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component6
        bool "Select component6"
        select MCUX_COMPONENT_component6
-     endchoice            
+     endchoice          
   endif
   ```
 
@@ -841,7 +830,7 @@ Here are summarized frequently used dependency patterns.
        select MCUX_COMPONENT_component5
        select MCUX_COMPONENT_component6
        depends on MCUX_HW_DEVICE_LPC54005 || MCUX_HW_DEVICE_LPC54016 || MCUX_HW_DEVICE_LPC54018 || MCUX_HW_DEVICE_LPC54018M || MCUX_HW_DEVICE_LPC54628
-     endchoice           
+     endchoice         
     endif
   ```
 
@@ -894,7 +883,7 @@ Here are summarized frequently used dependency patterns.
           bool "Select component4"
           select MCUX_COMPONENT_component4
         endchoice  
-       endif              
+       endif            
 
       config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_ANYOF_component5_component6
        bool "Select component5 or component6"
@@ -908,14 +897,14 @@ Here are summarized frequently used dependency patterns.
          config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component6
           bool "Select component6"
           select MCUX_COMPONENT_component6
-        endchoice        
-       endif            
+        endchoice      
+       endif          
 
       config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component7
        bool "Select component7"
        select MCUX_COMPONENT_component7
 
-     endchoice           
+     endchoice         
     endif
   ```
 
@@ -959,7 +948,7 @@ Here are summarized frequently used dependency patterns.
        bool "Select component3 and component4"
        select MCUX_COMPONENT_component3
        select MCUX_COMPONENT_component4
-     endchoice           
+     endchoice         
     endif
   ```
 
@@ -1001,7 +990,7 @@ Here are summarized frequently used dependency patterns.
         - not:
             device:
             - MK64F12
-            - MK63F12      
+            - MK63F12    
   ```
 
   The Kconfig dependency pattern is like
@@ -1066,12 +1055,12 @@ Here is the CMake stored variable table:
 | Variable Name        | Explanation               | Acquisition                              | Used in           | Usage                                    |
 | -------------------- | ------------------------- | ---------------------------------------- | ----------------- | ---------------------------------------- |
 | SdkRootDirPath       | SDK root directory        | Automatically set by BS                  | CMake             | Secify sdk root path like "include(${SdkRootDirPath}/devices/common/device_header.cmake)" |
-| board                | board name, like frdmk64f | Provided in cmdline argument, also need to record it in board variable cmake | CMake and Kconfig | Specify the target board, like "BASE_PATH \$\{SdkRootDirPath}/boards/${board}" |
+| board                | board name, like frdmk64f | Provided in cmdline argument, also need to record it in board variable cmake | CMake and Kconfig | Specify the target board, like "BASE_PATH\$\{SdkRootDirPath}/boards/${board}" |
 | device               | device name, like MK64F12 | Device variable cmake                    | CMake and Kconfig | Specify the target device, like  "\$\{SdkRootDirPath}/devices/\$\{soc_series}/${device}" |
 | core_id              | Core id, like cm33_core0  | Device variable cmake. This is only required for multicore device. | Kconfig           | Specify the core_id, like "rsource "${core_id}/Kconfig".<br />This is only needed for multiple core device Kconfig. |
 | core_id_suffix_name  | Core id suffix name       | Device variable cmake                    | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project name, in multicore device, it is may called hello_world_cm4 and hello_world_cm7 while in single core device, it is may called hello_world, then "hello_world${core_id_suffix_name}" can work for all cases. For cm4 core, it can be "\_cm4", for cm7 core, it can be "_cm7", for single core, it can be "" |
 | multicore_foldername | multicore folder name     | Device variable cmake                    | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project root, in multicore device evkmimxrt1170, it is boards/evkmimxrt1170/demo_apps/hello_world/cm4 and boards/evkmimxrt1170/demo_apps/hello_world/cm7 while in single core board frdmk64f, it is boards/frdmk64f/demo_apps/hello_world, then "boards/evkmimxrt1170/demo_apps/hello_world/${multicore_foldername}" can work for all cases. For cm4 core, it can be "cm4", for cm7 core, it can be "cm7", for single core, it can be "." |
-| soc_series           | soc series                | Soc series cmake                         | CMake             | Specify the soc series, like "BASE_PATH \$\{SdkRootDirPath}/devices/\$\{soc_series}/${device}" |
+| soc_series           | soc series                | Soc series cmake                         | CMake             | Specify the soc series, like "BASE_PATH\$\{SdkRootDirPath}/devices/\$\{soc_series}/${device}" |
 
 The above variables shall anyway be provided in CMake because they are used before Kconfig process.
 
@@ -1170,6 +1159,17 @@ boards:
   prj.conf: components selection and configuration by all boards
 ```
 
+Note, the supported examples by the board shall be recorded inside boards/\<board>/\<category>\_example\_list.yml. For multicore boards, since each core has different examples, the supported examples shall be recorded inside boards/\<board>/\<core_id>/\<category>\_example\_list.yml.
+
+A typical sdk_example_list.yml is like
+
+```yaml
+hello_world:
+ required: true # false or without "required" is treated as NOT supported.
+freertos_hello:
+ required: true
+```
+
 #### Device Data
 
 Device data stays in devices folder. Here is the device data hierarchy demonstrated with single core device MK64F 2 and multicore device MIMXRT1176:
@@ -1194,7 +1194,7 @@ devices:
       driver:
         CMakeLists.txt: Device specific drivers
         Kconfig: Device specific drivers Kconfig
-      prj.conf: Device specific components selection and configuration     
+      prj.conf: Device specific components selection and configuration   
     prj.conf: Components selection and configuration by all Kinetis series
   RT:
     MIMXRT1175:
@@ -1307,7 +1307,7 @@ components:
     Kconfig:
   <other components>:
     CMakeLists.txt:
-    Kconfig:    
+    Kconfig:  
   Kconfig: load all components Kconfig
 ```
 
@@ -1315,7 +1315,7 @@ components:
 
 All the above data are pieces of building blocks. For any build process, all data shall be loaded for selection and configuration. The assembly point is the start entry from where all CMakes and Kconfigs can be loaded.
 
-The assembly point for all cmakes is the root CMakeLists.txt. It looks like 
+The assembly point for all cmakes is the root CMakeLists.txt. It looks like
 
 ```cmake
 # Load device CMakeLists.txt
@@ -1336,7 +1336,7 @@ mcux_add_cmakelists(${SdkRootDirPath}/middleware/fatfs OPTIONAL)
 mcux_add_cmakelists(${SdkRootDirPath}/middleware/multicore OPTIONAL)
 ```
 
-The assembly point for all Kconfig is the root Kconfg.mcuxpresso which is 
+The assembly point for all Kconfig is the root Kconfg.mcuxpresso which is
 
 ```
 # arch
@@ -1367,7 +1367,7 @@ The CMake include and Kconfig rsource(load) are generally aligned which means th
 
 For other CMake based BS which wants to integrate MCUXpresso SDK, it may needs to set up the new assembly point file for CMake and Kconfig files in this repo.
 
-## Kconfig Interface 
+## Kconfig Interface
 
 menuconfig and guiconfig are 2 available interactive configuration interfaces to start a GUI to do run time selection and configuration for Kconfig options.
 
@@ -1377,21 +1377,20 @@ Since the Kconfig data has variable inside, they need to be processed. BS has in
 
 1. Run cmake configuration
 
-    ```bash
-    west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
-    ```
+   ```bash
+   west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
+   ```
 
    You can ignore "--cmake-only", then the projecrt will be built.
-
 2. Run guiconfig target
 
-    ```bash
-    west build -t guiconfig
-    ```
+   ```bash
+   west build -t guiconfig
+   ```
 
    Then you will get the Kconfig GUI launched, like
 
-    ![kconfig_gui](./_doc/kconfig_gui.png)
+   ![kconfig_gui](./_doc/kconfig_gui.png)
 
    You can select/deselect and modify to do reconfiguration and remember to save.
 
@@ -1531,7 +1530,7 @@ mcux_add_include(
     INCLUDES .
     PROJECT_PATH source
 )
-    
+  
 ```
 
 ## Enable An Example
@@ -1546,25 +1545,24 @@ BCS provides following ways to do the customization.
 
    For example, the hello_world example CMakelists.txt is defined in "examples/demo_apps/hello_world". Inside it, there are 2 optional included reconfig.cmake, like
 
-    ```cmake
-    include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
-    # project_root_path here means boards/frdmk64f/demo_apps/hello_world
-    include(${SdkRootDirPath}/${project_root_path}/reconfig.cmake OPTIONAL)
-    ```
+   ```cmake
+   include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
+   # project_root_path here means boards/frdmk64f/demo_apps/hello_world
+   include(${SdkRootDirPath}/${project_root_path}/reconfig.cmake OPTIONAL)
+   ```
 
    You can add reconfig.cmake in any sub folder of the above 2 optional cmake path to different level reconfig.cmake and remember to include it recursively in deeper level cmake.
 
    For example, if you add a boards/frdmk64f/demo_apps/reconfig.cmake, then you should be awared of that this reconfig.cmake shall apply for all demo_apps in frdmk64f.
 
    In these reconfig.cmake, [remove](#remove) extensions can be used to remove board/device common data and settings. After removing the previous data and settings, customization data and settings can be added.
-
 2. prj.conf
 
    For component selection and configuration, you can use different level prj.conf to achieve it. Refer the priority level in [prj.conf](#prj.conf) to set the data.
 
 ## IDE Generation
 
-CMake is a text-oriented tool that uses the command-line, for many developers, especially those who are used to working on Windows operating system, this is not a great experience for coding and debugging. Therefore the meta build system supports GUI project generation for specific IDE.  
+CMake is a text-oriented tool that uses the command-line, for many developers, especially those who are used to working on Windows operating system, this is not a great experience for coding and debugging. Therefore the meta build system supports GUI project generation for specific IDE.
 
 ### Prerequisite
 
@@ -1713,8 +1711,6 @@ Let's say if you want to use drivers from meta build system, you need to prepare
    endif
    ```
 
-   ​
-
 2. CMakeLists.txt
 
    In meta build system, some variables are used, so that you must set them before loading any CMakeLists.txt,  if you're working on zephyr, for example:
@@ -1775,5 +1771,3 @@ There are two ways for this requirement:
    # Let's build the secondary application first
    add_dependencies(${DEFAULT_IMAGE} my_library)
    ```
-
-   ​
