@@ -1,3 +1,13 @@
+arch:
+  arm:
+    targets: Commonly shared build targets data like debug and release
+    configuration: Commonly shared build configuration data
+    cortexm: Core settings
+    CMSIS: CMSIS headers
+  riscv:
+  dsc:
+  Kconfig: load all Kconfig
+
 devices:
   Kinetis: Device socs sery
     MK63F12:

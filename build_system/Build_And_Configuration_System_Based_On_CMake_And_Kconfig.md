@@ -1100,6 +1100,22 @@ MCUXpresso SDK repo CMake and Kconfig data are composed of arch, boards, devices
 
 #### Arch Data
 
+MCUXpresso SDK support all mainstream soc architecture like ARM, Riscv, DSC. The soc architecture specific data are recorded in \<mcu-sdk-3.0>/arch/\<arch> folder.
+
+Here is the hierarchy of arch data folder:
+
+```yaml
+arch:
+  arm:
+    targets: Commonly shared build targets data like debug and release
+    configuration: Commonly shared build configuration data
+    cortexm: Core settings
+    CMSIS: CMSIS headers
+  riscv:
+  dsc:
+  Kconfig: load all Kconfig
+```
+
 #### Board Data
 
 Board data stays in boards folder. Here is a hierarchy demonstrated with single core device board frdmk64f and multicore device board evkmimxrt1170:
