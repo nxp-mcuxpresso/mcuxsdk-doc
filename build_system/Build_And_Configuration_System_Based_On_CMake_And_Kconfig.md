@@ -466,7 +466,7 @@ Since Kconfig data are configurable, then there are 3 ways to provide the config
    Inside the Kconfig file, for each symbol, default value must be provided. In this way, any symbol will anyway gets a default value in any cases.
 2. prj.conf
 
-   For visible Kconfig symbols, you can directly set symbol=value in prj.conf to do the configuration. The prj.confs placed in designated places will be taken as Kconfig process input with priority. Please refer [prj.conf](#prj.conf) for details.
+   For visible Kconfig symbols, you can directly set symbol=value in prj.conf to do the configuration. The prj.confs placed in designated places will be taken as Kconfig process input with priority. Please refer [prj.conf](#prj-conf) for details.
 3. Kconfig.defconfig
 
    For invisible Kconfig symbols, prj.conf won't take effect. Please use Kconfig.defconf to redefine the symbol without type but with new default value.
@@ -479,7 +479,7 @@ There are 2 principles for MCUXpresso SDK data
 
 1. Componentization
 
-   SDK data is recorded and used in a "component" way instead of fragment lines. There are several component types each of which in data record is a data section.  Please refer [Data Section](#Data Section) chapter for details.
+   SDK data is recorded and used in a "component" way instead of fragment lines. There are several component types each of which in data record is a data section.  Please refer [Data Section](#data-section) chapter for details.
 
    In this way software is highly modularized thus greatly improve the integration.
 2. Decoupling.
@@ -541,7 +541,7 @@ config MCUX_COMPONENT_driver.uart
     endif
 ```
 
-About the dependency, please refer [Complex Dependency In Kconfig](#Complex Dependency In Kconfig ) chapter for details.
+About the dependency, please refer [Complex Dependency In Kconfig](#complex-dependency-in-kconfig ) chapter for details.
 
 For multiple components belonging to one middleware set, please use Kconfig "menu" to gather them together, like
 
@@ -691,7 +691,7 @@ For depending on hardware related dependency items like board, device, device_id
 
 For depending on software component, priority to use "select". It helps to auto select component dependency.
 
-If there are "any of" dependencies, "choice" can satisfy the needs, please see "[Dependency Patterns](#Dependency Patterns)"
+If there are "any of" dependencies, "choice" can satisfy the needs, please see "[Dependency Patterns](#dependency-patterns)"
 
 Don’t use “depends on” on component dependency because Kconfig doesn’t support mutual dependency(recursive issue)
 
@@ -1588,7 +1588,7 @@ BCS provides following ways to do the customization.
    In these reconfig.cmake, [remove](#remove) extensions can be used to remove board/device common data and settings. After removing the previous data and settings, customization data and settings can be added.
 2. prj.conf
 
-   For component selection and configuration, you can use different level prj.conf to achieve it. Refer the priority level in [prj.conf](#prj.conf) to set the data.
+   For component selection and configuration, you can use different level prj.conf to achieve it. Refer the priority level in [prj.conf](#prj-conf) to set the data.
 
 ## IDE Generation
 
