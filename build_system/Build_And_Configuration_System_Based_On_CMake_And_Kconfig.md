@@ -1,5 +1,13 @@
 # CMake And Kconfig Based Build And Configuration System
 
+## Acronyms and Abbreviations
+
+| Acronym or Term | Definition                      |
+| :-------------: | ------------------------------- |
+|       BS        | Build system                    |
+|       BCS       | Build and configuration system  |
+|       BCP       | Build and configuration process |
+
 ## Environment Setup
 
 ### Repos Setup
@@ -30,6 +38,20 @@ pip install -r mcu-sdk-3.0/scripts/requirements.txt
 
 Following build, flash and debug commands are refered from zephyr's official one. So you can find the full documentation here: [https://docs.zephyrproject.org/latest/develop/west/build-flash-debug.html](https://docs.zephyrproject.org/latest/develop/west/build-flash-debug.html)
 Most of native zephyr's west build features are reserved.
+
+### Build Environment Setup
+
+#### CMake
+
+Since the BS uses CMake as the main build tool, please follow the [CMake](https://cmake.org/getting-started/) doc to install CMake. The minimum version is 3.20.0
+
+#### Ninja
+
+The BS uses Ninja as the default output generator of CMake, please make sure you have installed the [Ninja](https://ninja-build.org/). The minimum ninja version is 1.11.0.
+
+#### Python
+
+Python is used as a  Swiss knife in many aspects from repo management to BS. Please install version later than 3.10.
 
 ### Toolchain Setup
 
@@ -162,14 +184,6 @@ build process.
 [CMake](https://cmake.org/) which is cross platform not only manages the software build process based on Kconfig result.
 
 Beyond traditional CMake generation, MCUXpresso build system also integrates some useful functionalities like IDE project generation.
-
-## Acronyms and Abbreviations
-
-| Acronym or Term | Definition                      |
-| :-------------: | ------------------------------- |
-|       BS        | Build system                    |
-|       BCS       | Build and configuration system  |
-|       BCP       | Build and configuration process |
 
 ## Toolchains Beyond GCC
 
