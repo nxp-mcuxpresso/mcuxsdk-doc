@@ -107,10 +107,11 @@ Here are the toolchain environment variable table
 ### Build
 
 Use `west build -h` to see help information for west build command.
-Compared to zephyr's west build, our west build command provides two additional options for mcux examples:
+Compared to zephyr's west build, our west build command provides following additional options for mcux examples:
 
 - --toolchain: specify the toolchain for this build, default armgcc.
 - --config: value for CMAKE_BUILD_TYPE, default debug.
+- --show-configs: show all supported build configurations for the project.
 
 Here are some typical usage for generating a SDK example is:
 
@@ -128,9 +129,12 @@ west build -b frdmk64f examples/demo_apps/hello_world --toolchain iar
 # Generate config type, default debug
 west build -b frdmk64f examples/demo_apps/hello_world --config release
 
+# Show all supported build configurations
+west build -b frdmk64f examples/demo_apps/hello_world --show-configs
+
 ```
 
-For multicore devices, you should specify the corresponding core id by passing the command line argument "-Dcore_id". For example
+For multicore devices, you shall specify the corresponding core id by passing the command line argument "-Dcore_id". For example
 
 ```bash
 west build -b evkmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug
@@ -207,26 +211,23 @@ Following extensions are provided for you to facilitate component, project and m
 
   Please see following table for the arguments
 
-  | Argument Name         | Argument Type | Explanation                              |
-  | --------------------- | ------------- | ---------------------------------------- |
-  | PROJECT_PATH          | Single        | The project path for the source or include. This attribute is used to construct the source or include explorer view in IDE project. If not provided, then the source or include path relative to the repo root will be used. For project source or include, usually use PROJECT_PATH.<br />If you set hello_world source hello_world.c PROJECT_PATH to "source", then in the generated IDE explorer view, it looks like <br />![](./_doc/IAR_hello_world_show_project_path.PNG) |
-  | PROJECT_BASE_PATH     | Single        | The base part the of the PROJECT_PATH. For component, usually use PROJECT_BASE_PATH, the left relatIve path part can directly use the source or include real path. For example, we usually set driver source with PROJECT_BASE_PATH "drivers", then in the generated IDE explorer view, it looks like<br />![](./_doc/IAR_hello_world_show_driver_project_path.PNG)<br /><br />Note, the PROJECT_PATH has priority over PROJECT_BASE_PATH. |
-  | PROJECT_RELATIVE_PATH | Single        | The relative part of the PROJECT_PATH which is rarely used. Usually the folder path of "SOURCES" is the default value for it. |
-  | BASE_PATH             | Single        | If provided, the final source path equals BASE_PATH + SOURCES. This is usually used in abstracted .cmake files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
-  | CONFIG                | Single        | Specify that the source is a config file or the include is for a config header. |
-  | SOURCES               | Multiple      | The sources. This is only for mcux_add_source. If there are multiple sources, please separate them with whitespace. |
-  | INCLUDES              | Multiple      | The includes. This is only for mcux_add_include. If there are multiple includes, please separate them with whitespace. |
-  | TARGET_FILES          | Multiple      | This is only for mcux_add_include which is used to specify the include target which header file. This is required only for "config" header. |
-  | COMPILERS             | Multiple      | The compilers. It means the source or include only supports the listed compilers.<br />Here are all the supported compilers: armclang, iar, gcc, xcc, mwcc56800e. |
-  | TOOLCHAINS            | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.<br />Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior. |
-  | CORES                 | Multiple      | The cores. It means the source or include only supports the listed cores.<br />Here are all the supported cores: cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp |
-  | CORE_IDS              | Multiple      | The core_ids. It means the source or include only supports the listed core_ids. This is usually to distinguish support for core in multicore platform. |
-  | DEVICES               | Multiple      | The devices. It means the source or include only supports the listed device, like MK64F12. |
-  | DEVICE_IDS            | Multiple      | The device ids. It means the source or include only supports the listed device id, like MK64FN1M0xxx12. |
-  | FPU                   | Multiple      | The fpu. It means the source or include only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU. |
-  | DSP                   | Multiple      | The dsp. It means the source or include only supports the listed dsp. dsp enum values are NO_DSP and DSP |
-  | TRUSTZONE             | Multiple      | The trustzone. It means the source or include only supports the listed trustzone. trustzone enum values are TZ and  NO_TZ. |
-  | COMPONENTS            | Multiple      | The components. It means the source or include only supports the listed components |
+  | Argument Name | Argument Type | Explanation                              |
+  | ------------- | ------------- | ---------------------------------------- |
+  | BASE_PATH     | Single        | If provided, the final source path equals BASE_PATH + SOURCES. This is usually used in abstracted .cmake files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
+  | CONFIG        | Single        | Specify that the source is a config file or the include is for a config header. |
+  | SOURCES       | Multiple      | The sources. This is only for mcux_add_source. If there are multiple sources, please separate them with whitespace. |
+  | INCLUDES      | Multiple      | The includes. This is only for mcux_add_include. If there are multiple includes, please separate them with whitespace. |
+  | TARGET_FILES  | Multiple      | This is only for mcux_add_include which is used to specify the include target which header file. This is required only for "config" header. |
+  | COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.<br />Here are all the supported compilers: armclang, iar, gcc, xcc, mwcc56800e. |
+  | TOOLCHAINS    | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.<br />Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior. |
+  | CORES         | Multiple      | The cores. It means the source or include only supports the listed cores.<br />Here are all the supported cores: cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp |
+  | CORE_IDS      | Multiple      | The core_ids. It means the source or include only supports the listed core_ids. This is usually to distinguish support for core in multicore platform. |
+  | DEVICES       | Multiple      | The devices. It means the source or include only supports the listed device, like MK64F12. |
+  | DEVICE_IDS    | Multiple      | The device ids. It means the source or include only supports the listed device id, like MK64FN1M0xxx12. |
+  | FPU           | Multiple      | The fpu. It means the source or include only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU. |
+  | DSP           | Multiple      | The dsp. It means the source or include only supports the listed dsp. dsp enum values are NO_DSP and DSP |
+  | TRUSTZONE     | Multiple      | The trustzone. It means the source or include only supports the listed trustzone. trustzone enum values are TZ and  NO_TZ. |
+  | COMPONENTS    | Multiple      | The components. It means the source or include only supports the listed components |
 
   Here is one example:
 
@@ -234,12 +235,10 @@ Following extensions are provided for you to facilitate component, project and m
   # In drivers/uart/CMakelists.txt
   if (CONFIG_MCUX_COMPONENT_driver.uart)
       mcux_add_source(
-          PROJECT_BASE_PATH drivers
           SOURCES fsl_uart.h 
                   fsl_uart.c
       )
       mcux_add_include(
-          PROJECT_BASE_PATH drivers
           INCLUDES .
       )
   endif()
@@ -247,12 +246,10 @@ Following extensions are provided for you to facilitate component, project and m
   # In examples/demo_apps/hello_world/CMakelists.txt
   mcux_add_source(
       SOURCES hello_world.c
-      PROJECT_PATH source
   )
 
   mcux_add_include(
       INCLUDES .
-      PROJECT_PATH source
   )
   ```
 
@@ -508,12 +505,10 @@ Here is one driver.uart component cmake data:
 if (CONFIG_MCUX_COMPONENT_driver.uart) # component name
     # component data
     mcux_add_source(
-        PROJECT_BASE_PATH drivers
         SOURCES fsl_uart.h 
                 fsl_uart.c
     )
     mcux_add_include(
-        PROJECT_BASE_PATH drivers
         INCLUDES .
     )
 endif()
@@ -591,13 +586,11 @@ Here is one project segment CMake example:
 if (CONFIG_MCUX_PRJSEG_module.board.clock)
     mcux_add_source(
         BASE_PATH ${SdkRootDirPath}
-        PROJECT_PATH board
         SOURCES boards/${board}/clock_config.h
                 boards/${board}/clock_config.c
     )
     mcux_add_include(
         BASE_PATH ${SdkRootDirPath}
-        PROJECT_PATH board
         INCLUDES boards/${board}
     )
 endif()
@@ -637,13 +630,14 @@ include(${SdkRootDirPath}/${project_root_path}/reconfig.cmake OPTIONAL)
 
 mcux_add_source(
     SOURCES hello_world.c
-    PROJECT_PATH source
 )
 
 mcux_add_include(
     INCLUDES .
-    PROJECT_PATH source
 )
+
+# convert binary to .bin. 
+mcux_convert_binary(BINARY ${APPLICATION_BINARY_DIR}/${MCUX_SDK_PROJECT_NAME}.bin)
 ```
 
 For project, it is not required to provide example specific Kconfig. If your example has specific Kconfig, then please follow the pattern to add it.
@@ -1041,7 +1035,6 @@ For example, in CMake with a "board" variable in the source, one copy of the fol
 if (CONFIG_MCUX_PRJSEG_module.board.suite)
     mcux_add_source(
         BASE_PATH ${SdkRootDirPath}/boards/${board} # "board" variable shall be defined in each board so that each board can use this project segment
-        PROJECT_PATH board
         SOURCES dcd.c dcd.h
     )
     ...
@@ -1094,6 +1087,14 @@ Here is the Kconfig stored variable table:
 | MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER   | MDK IDE project device identifier        | Kconfig process | CMake   |       |
 
 Basically, all type string Kconfig symbol can be regarded as variable and used in CMake.
+
+Except for the above variables, there are variables which are generated in the configuration stage:
+
+| Variable Name          | Explanation                              |
+| ---------------------- | ---------------------------------------- |
+| MCUX_SDK_PROJECT_NAME  | The processed example name, it equals  PROJECT_NAME+core_id_suffix_name |
+| APPLICATION_SOURCE_DIR | Project CMakelists.txt directory like examples/demo_apps/hello_world |
+| APPLICATION_BINARY_DIR | Output build directory like \<mcu-sdk-3.0>/build |
 
 #### Customized Variables
 
@@ -1465,12 +1466,10 @@ For example, if CONFIG_MCUX_COMPONENT_driver.uart is y in .config, then the foll
 ```cmake
 if (CONFIG_MCUX_COMPONENT_driver.uart)
     mcux_add_source(
-        PROJECT_BASE_PATH drivers
         SOURCES fsl_uart.h 
                 fsl_uart.c
     )
     mcux_add_include(
-        PROJECT_BASE_PATH drivers
         INCLUDES .
     )
 endif()
@@ -1553,12 +1552,10 @@ include(${SdkRootDirPath}/${project_root_path}/reconfig.cmake OPTIONAL)
 # Add the project self source and include
 mcux_add_source(
     SOURCES hello_world.c
-    PROJECT_PATH source
 )
 
 mcux_add_include(
     INCLUDES .
-    PROJECT_PATH source
 )
   
 ```
