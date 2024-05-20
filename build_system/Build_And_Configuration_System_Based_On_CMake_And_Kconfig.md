@@ -663,9 +663,15 @@ config HELLO_WORLD_EXAMPLE_MACRO
 
 **Note, the Kconfig process will take example specific Kconfig as entry point with priority. If not provided, then take the <mcu-sdk-3.0>/Kconfig instead. So if your example doesn't have Kconfig contents, please don't keep it.**
 
-### Complex Dependency In Kconfig
+### Dependency
 
-#### Dependency Mechanisms
+BS provided dependencies record and resolve for both sections(project and components) and sources.
+
+#### Section Level Dependency
+
+[Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html) dependency mechanism and tool is used to describe and resolve section level dependency.
+
+##### Dependency Mechanisms
 
 [Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html) provides `depends on`, `select` and `choice` dependency mechanisms.
 
@@ -692,7 +698,27 @@ If there are `any of` dependencies, `choice` can satisfy the needs, please see [
 
 Don’t use `depends on` on component dependency because Kconfig doesn’t support mutual dependency(recursive issue)
 
-#### Dependency Patterns
+##### Dependency Items
+
+Except for software components, following dependency items are provided.
+
+| Dependency Item               | Illustration                             |
+| ----------------------------- | ---------------------------------------- |
+| MCUX_HW_DEVICE_\<device>      | Device, like MK64F12                     |
+| MCUX_HW_DEVICE_ID_\<device_d> | Device id, like MK64FN1M0xxx12           |
+| MCUX_HW_CORE_\<core_name>     | Core name, like cm4f                     |
+| MCUX_HW_CORE_ID_\<core_id>    | Core id, like cm33_core0                 |
+| MCUX_HW_BOARD_\<board name>   | Board name, like frdmk64f                |
+| MCUX_HW_KIT_\<kit name>       | Kit name, like frdmk64f_agm01            |
+| MCUX_HW_\<fpu type>           | fpu type name, like  MCUX_HW_FPV4_SP     |
+| MCUX_HW_DSP                   | DSP                                      |
+| MCUX_HW_MPU                   | MPU                                      |
+| MCUX_HW_\<secure type>        | Secure or nonsecure, like MCUX_HW_SECURE, MCUX_HW_NONSECURE |
+| MCUX_HW_\<trustzone type>     | Trustzone type, like MCUX_HW_TZ, MCUX_HW_NO_TZ |
+
+**All these dependency items shall be defined in device Kconfig.chip.**
+
+##### Dependency Patterns
 
 Here are summarized frequently used dependency patterns.
 
@@ -1025,6 +1051,21 @@ Here are summarized frequently used dependency patterns.
      endchoice
     endif
   ```
+
+#### Source Level Dependency
+
+Source level dependency is achieved through the CMake extension, like
+
+```cmake
+    mcux_add_source(
+        SOURCES portable/GCC/ARM_CM0/port.c
+        # The following 2 lines mean port.c only supports cm0p core and toolchain armgcc, mcux and mdk
+        CORES cm0p
+        TOOLCHAINS armgcc mcux mdk
+    )
+```
+
+Please refer the [mcux_add_source/mcux_add_include extension arguments](#source-and-include) for supported dependency items.
 
 ### IDE Related
 
