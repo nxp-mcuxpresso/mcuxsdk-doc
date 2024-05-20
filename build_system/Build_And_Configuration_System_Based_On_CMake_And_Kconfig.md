@@ -158,6 +158,8 @@ For more details, please refer to [System build](#system-build)
 
 ### Flash
 
+***Note***: Please refer [West Flash and Debug Support](#west-flash-and-debug-support) to enable west flash/debug support.
+
 As we do not have a FRDM-K64F with JLink or other runners for test, we only ensure flash/debug commands can work for linkserver. Please install linkserver and add it to your PATH firstly.
 
 Flash the hello_world example:
@@ -1752,6 +1754,28 @@ BCS provides following ways to do the customization.
 2. prj.conf
 
    For component selection and configuration, you can use different level prj.conf to achieve it. Refer the priority level in [prj.conf](#prj-conf) to set the data.
+
+## Enable West Flash and Debug
+
+Like Zephyr, BS supports setting up configuration for flash runners (invoked from west flash) which allows for customising how commands are used when programming boards.
+
+### board_runner.cmake
+
+`mcux.cmake`will always include this file under `${SdkRootDirPath}/boards/<board>` to get runner arguments and which runners are supported for this board. Here is an example:
+
+```cmake
+board_runner_args(jlink "--device=MK64FN1M0xxx12")
+board_runner_args(linkserver  "--device=MK64FN1M0xxx12:FRDM-K64F")
+board_runner_args(pyocd "--target=k64f")
+
+include(${SdkRootDirPath}/cmake/extension/runner/linkserver.board.cmake)
+include(${SdkRootDirPath}/cmake/extension/runner/pyocd.board.cmake)
+include(${SdkRootDirPath}/cmake/extension/runner/jlink.board.cmake)
+include(${SdkRootDirPath}/cmake/extension/runner/openocd.board.cmake)
+include(${SdkRootDirPath}/cmake/extension/runner/canopen.board.cmake)
+```
+
+`board_runner_args` is used to pass runner speicfic arguments and then you have to include the board supported runner cmake file from `${SdkRootDirPath}/cmake/extension/runner/`.
 
 ## IDE Generation
 
