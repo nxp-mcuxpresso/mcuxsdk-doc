@@ -1152,7 +1152,7 @@ mcux_replace_ide_option(
 
 Note: For same toolchain and targets targeted by same option, make sure mcux_replace_ide_option is used after mcux_set_ide_option, otherwise you will get the error message: setting is not set before, please use mcux_set_ide_option instead of mcux_replace_ide_option.
 
-For details of commonly used option settings, please refer to [IDE Option and Scripts Setting](#ide-option-and-scripts-setting)
+For details of commonly used option settings, please refer to [IDE Option Setting](#ide-option-setting)
 
 #### Special functional scripts
 
@@ -1188,7 +1188,7 @@ mcux_replace_ide_file(
 
 Note: For same toolchain and targets targeted by same option, make sure mcux_replace_ide_file is used after mcux_set_ide_file, otherwise you will get the error message: Attribute file is not set before, please use mcux_set_ide_file instead of mcux_replace_ide_file
 
-For details of supported attribute file, please refer to [IDE Option and Scripts Setting](#ide-option-and-scripts-setting)
+For details of supported attribute file, please refer to [IDE Script Setting](#ide-script-setting)
 
 ### Variables
 
@@ -1965,3 +1965,82 @@ There are two ways for this requirement:
 
 ## IDE Option and Scripts Setting
 
+### IDE Option Setting
+
+The IDE option setting is set by CMake function "mcux_set_ide_option" and "mcux_replace_ide_option". The option is set by the SETTING and VALUE fields. For more details, please refer to  [IDE Option](#ide-option)
+
+#### Keil MDK
+
+Supported option for MDK are:
+
+- Update Target before Debugging for Keil
+
+  - SETTING: update-before-debug
+
+  - VALUE: true or false
+
+    ![update_before_debug](./_doc/ide_option_update_before_debug.png)
+
+- Load Application at Startup for Keil
+
+  - SETTING: load_application
+
+  - VALUE: true or false
+
+    ![load_application](./_doc/ide_option_load_application.png)
+
+- Set Periodic Window Update for Keil
+
+  - SETTING: periodic_update
+
+  - VALUE: true or false
+
+    ![periodic_update](./_doc/ide_option_periodic_update.png)
+
+#### IAR
+
+Supported option for IAR are:
+
+- Debugger Extra Options for IAR
+
+  - SETTING: debugger_extra_options
+
+  - VALUE: Specific settings for quote bracketing, for example, ""--macro_param enable_core=1"
+
+    ![debugger_extra_options](./_doc/ide_option_debugger_extra_options.png)
+
+### IDE Script Setting
+
+The IDE option setting is set by CMake function "mcux_set_ide_file" and "mcux_replace_ide_file". The option is set by the SOURCE and ATTRIBUTE  fields. For more details, please refer to  [Special functional scripts](#special-functional-scripts)
+
+#### Keil MDK
+
+Supported attribute for script files are:
+
+- initialization_file
+
+  ![initialization_file](./_doc/ide_file_initialization_file.png)
+
+- flash_programming_file
+
+  ![flash_programming_file](./_doc/ide_file_flash_programming_file.png)
+
+#### IAR
+
+Supported attribute for script files are:
+
+- board-file
+
+  ![board_file](./_doc/ide_file_board_file.png)
+
+- dlib-config-file
+
+  ![dlib_config_file](./_doc/ide_file_dlib_config_file.png)
+
+- macro-file
+
+  ![macro_file](./_doc/ide_file_macro_file.png)
+
+- jlink_script_file
+
+  ![jlink_script_file](./_doc/ide_file_jlink_script_file.png)
