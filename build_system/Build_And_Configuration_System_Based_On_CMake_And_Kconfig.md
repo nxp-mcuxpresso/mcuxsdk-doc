@@ -1069,7 +1069,22 @@ Please refer the [mcux_add_source/mcux_add_include extension arguments](#source-
 
 ### IDE Related
 
-The meta build system support GUI project, the build information of assembler/compiler/linker comes from  artifacts of CMake configuration, more specifically, the build.ninja file. However, it is not enough for build system. Since the IDE will provide rich download debugging capabilities, we need to record this additional information in CMake. There are 3 kinds of IDE data: project templates, IDE option and Special functional files.
+The meta build system support GUI project, the build information of assembler/compiler/linker comes from  artifacts of CMake configuration, more specifically, the build.ninja file. However, it is not enough for build system. Since the IDE will provide rich download debugging capabilities, we need to record this additional information in CMake. 
+
+The IDE related data are recorded in IDE.cmake. These cmake files are are automatically loaded by the meta build system in a certain order and do not need to be manually loaded by the user. The loading sequence is:
+
+1. \${SdkRootDirPath}/boards/\${board}/IDE.cmake
+2. \${SdkRootDirPath}/boards/\${board}/${core_id}/IDE.cmake
+3. \${SdkRootDirPath}/\${project_category_path}/IDE.cmake
+4. \${SdkRootDirPath}/\${project_root_path}/IDE.cmake
+
+Note:
+
+- These loading files are optional, there is no problem even if it is not provided
+- If the same setting is set in different files, settings loaded later will override settings loaded earlier
+- project_category_path indicates the name of each folder containing project files in the boards/\${board} directory, for example, demo_apps. 
+
+There are 3 kinds of IDE data: project templates, IDE option and Special functional files.
 
 #### Project templates
 
