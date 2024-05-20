@@ -1073,10 +1073,10 @@ The meta build system support GUI project, the build information of assembler/co
 
 The IDE related data are recorded in IDE.cmake. These cmake files are are automatically loaded by the meta build system in a certain order and do not need to be manually loaded by the user. The loading sequence is:
 
-1. \${SdkRootDirPath}/boards/\${board}/IDE.cmake
-2. \${SdkRootDirPath}/boards/\${board}/${core_id}/IDE.cmake
-3. \${SdkRootDirPath}/\${project_category_path}/IDE.cmake
-4. \${SdkRootDirPath}/\${project_root_path}/IDE.cmake
+1. `${SdkRootDirPath}`/boards/`${board}`/IDE.cmake
+2. `${SdkRootDirPath}`/boards/`${board}`/`${core_id}`/IDE.cmake
+3. `${SdkRootDirPath}`/`${project_category_path}`/IDE.cmake
+4. `${SdkRootDirPath}`/`${project_root_path}`/IDE.cmake
 
 Note:
 
