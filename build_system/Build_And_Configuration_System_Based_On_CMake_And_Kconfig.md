@@ -4,16 +4,20 @@
 
 | Acronym or Term | Definition                      |
 | :-------------: | ------------------------------- |
-|       BS        | Build system                    |
-|       BCS       | Build and configuration system  |
-|       BCP       | Build and configuration process |
+|       BS        | Build System                    |
+|       BCS       | Build and Configuration System  |
+|       BCP       | Build and Configuration Process |
 
 ## Environment Setup
+
+### Docker SUpport
+
+An all-in-one docker image for all required packages can be find [here](docker.nxp.com/mcux/mcusdk3_ci:latest) 
 
 ### Repos Setup
 
 ***Firstly, ensure all your code is up-to-date, run `west update_repo`.***
-To isolate your development environment, suggest use python venv.
+To isolate your development environment, suggest use [python venv](https://docs.python.org/3/library/venv.html).
 In sdk-next workspace root directory, create and activate a virtual environment:
 
 ```bash
@@ -27,37 +31,36 @@ source .venv/bin/activate
 .\.venv\Scripts\activate
 ```
 
-Then install pip and required packages
+Then install required packages
 
 ```bash
-pip install west -U
-
 # Note: you can add option '--default-timeout=1000' if you meet connection issue.
 pip install -r mcu-sdk-3.0/scripts/requirements.txt
 ```
 
-Following build, flash and debug commands are refered from zephyr's official one. So you can find the full documentation here: [https://docs.zephyrproject.org/latest/develop/west/build-flash-debug.html](https://docs.zephyrproject.org/latest/develop/west/build-flash-debug.html)
+Following build, flash and debug commands are referred from zephyr's official one. So you can find the full documentation here: [https://docs.zephyrproject.org/latest/develop/west/build-flash-debug.html](https://docs.zephyrproject.org/latest/develop/west/build-flash-debug.html)
+
 Most of native zephyr's west build features are reserved.
 
 ### Build Environment Setup
 
 #### CMake
 
-Since the BS uses CMake as the main build tool, please follow the [CMake](https://cmake.org/getting-started/) doc to install CMake. The minimum version is 3.20.0
+Since the BS uses CMake as the main build tool, please follow the [CMake](https://cmake.org/getting-started/) doc to install CMake. The minimum version is ***3.22.0***.
 
 #### Ninja
 
-The BS uses Ninja as the default output generator of CMake, please make sure you have installed the [Ninja](https://ninja-build.org/). The minimum ninja version is 1.11.0.
+The BS uses Ninja as the default output generator of CMake, please make sure you have installed the [Ninja](https://ninja-build.org/). The minimum ninja version is ***1.11.0***.
 
 #### Python
 
-Python is used as a  Swiss knife in many aspects from repo management to BS. Please install version later than 3.10.
+Python is used as a Swiss knife in many aspects from repo management to BS. The minimum ninja version is ***3.8***.
 
 ### Toolchain Setup
 
-Build system supports IAR,MDK,Armgcc, MCUXpresso IDE and Zephyr SDK to build.
+Build system supports IAR, MDK, Armgcc and [Zephyr SDK](https://docs.zephyrproject.org/latest/develop/toolchains/zephyr_sdk.html#toolchain-zephyr-sdk) to build.
 
-For IAR, MDK Armgcc and Zephyr, you need to set environment varaibles to specify the toolchain installation so that build system can find it.
+You need to set environment variables to specify the toolchain installation so that build system can find it.
 
 Here are the toolchain environment variable table
 
@@ -77,6 +80,7 @@ Here are the toolchain environment variable table
    ```
 
 2. Make sure that `mcu-sdk-boards`, `mcu-sdk-components`, `mcux-devices-kinetis`, `mcux-devices-lpc`, `mcux-devices-rt` projects are cloned because there are Kconfig data inside these repos for boards/components/devices. Only with all these data included, then you can enjoy full feature of kconfig.
+
 3. Run
 
    Inside Kconfig files, there are board/device variables inside, so it cannot be directly run, so Kconfig shall be run inside whole cmake process.
@@ -87,7 +91,7 @@ Here are the toolchain environment variable table
      west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
      ```
 
-     You can ignore "--cmake-only", then the projecrt will be built.
+     You can ignore `--cmake-only`, then the project will be built.
    - Run guiconfig target
 
      ```bash
@@ -178,11 +182,9 @@ west debug -r linkserver
 
 MCUXpresso SDK build and configuration system is based on CMake and Kconfig.
 
-[Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html) is a selection-based configuration system originally developed for the Linux kernel which now found
-more and more use in other projects beyond the Linux kernel. In MCUXpresso SDK, Kconfig is used to config the build in run time which includes component selection with dependency resolve, component configuration with feature
-enable, disable and customization.
+[Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html) is a selection-based configuration system originally developed for the Linux kernel which now found more and more use in other projects beyond the Linux kernel. In MCUXpresso SDK, Kconfig is used to config the build in run time which includes component selection with dependency resolve, component configuration with feature enable, disable and customization.
 
-You can interact with Kconfig via a curses or graphical menu interface, usually invoked by running "west build -t guiconfig" after you have already run passed the CMake configuration process. In this interface, the user selects the options and features desired, and saves a configuration file, which is then used as an input to the
+You can interact with Kconfig via a curses or graphical menu interface, usually invoked by running `west build -t guiconfig` after you have already run passed the CMake configuration process. In this interface, the user selects the options and features desired, and saves a configuration file, which is then used as an input to the
 build process.
 
 [CMake](https://cmake.org/) which is cross platform not only manages the software build process based on Kconfig result.
@@ -193,7 +195,7 @@ Beyond traditional CMake generation, MCUXpresso build system also integrates som
 
 MCUXpresso SDK supports all mainstream toolchains in the embedded world beyond traditional armgcc.
 
-The toolchain list supported by our build system is IAR, MDK, Xcc, Xclang and Zephyr. The CMake toolchain setting files are placed in \<mcu-sdk-3.0>/cmake/toolchain folder. All toolchain files generally follow the same structure and loaded through \<mcu-sdk-3.0>/cmake/toolchain.cmake. The CMake variable for toolchain is "CONFIG_TOOLCHAIN" which is used to cmdline to specify the toolchain to build.
+The toolchain list supported by our build system is IAR, MDK, Xcc, Xclang and Zephyr. The CMake toolchain setting files are placed in `mcu-sdk-3.0/cmake/toolchain` folder. All toolchain files generally follow the same structure and loaded through `mcu-sdk-3.0/cmake/<toolchain>.cmake`. The CMake variable for toolchain is `CONFIG_TOOLCHAIN` which is used to cmdline to specify the toolchain to build.
 
 If you need to enable new toolchain, please follow the existing toolchain file pattern and place it there.
 
@@ -201,254 +203,255 @@ If you need to enable new toolchain, please follow the existing toolchain file p
 
 MCUXpresso SDK is a comprehensive product including hundred of boards and devices, thousands of components and ten thousands of examples, all mainstream toolchains. The MCUXpresso CMake extensions aims to greatly reduce build data development and maintenance efforts.
 
-Following extensions are provided for you to facilitate component, project and misc data record for all toolchains. All extension functions start with prefix "mcux_"
+Following extensions are provided for you to facilitate component, project and misc data record for all toolchains. All extension functions start with prefix `mcux_`
 
 ### Source And Include
 
-- mcux_add_source/mcux_add_include
+#### mcux_add_source/mcux_add_include
 
-  Add the source and include can be done with mcux_add_source and mcux_add_include
+Add the source and include can be done with `mcux_add_source` and `mcux_add_include`
 
-  Please see following table for the arguments
+Please see following table for the arguments
 
-  | Argument Name | Argument Type | Explanation                              |
-  | ------------- | ------------- | ---------------------------------------- |
-  | BASE_PATH     | Single        | If provided, the final source path equals BASE_PATH + SOURCES. This is usually used in abstracted .cmake files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
-  | CONFIG        | Single        | Specify that the source is a config file or the include is for a config header. |
-  | SOURCES       | Multiple      | The sources. This is only for mcux_add_source. If there are multiple sources, please separate them with whitespace. |
-  | INCLUDES      | Multiple      | The includes. This is only for mcux_add_include. If there are multiple includes, please separate them with whitespace. |
-  | TARGET_FILES  | Multiple      | This is only for mcux_add_include which is used to specify the include target which header file. This is required only for "config" header. |
-  | COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.<br />Here are all the supported compilers: armclang, iar, gcc, xcc, mwcc56800e. |
-  | TOOLCHAINS    | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.<br />Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior. |
-  | CORES         | Multiple      | The cores. It means the source or include only supports the listed cores.<br />Here are all the supported cores: cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp |
-  | CORE_IDS      | Multiple      | The core_ids. It means the source or include only supports the listed core_ids. This is usually to distinguish support for core in multicore platform. |
-  | DEVICES       | Multiple      | The devices. It means the source or include only supports the listed device, like MK64F12. |
-  | DEVICE_IDS    | Multiple      | The device ids. It means the source or include only supports the listed device id, like MK64FN1M0xxx12. |
-  | FPU           | Multiple      | The fpu. It means the source or include only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU. |
-  | DSP           | Multiple      | The dsp. It means the source or include only supports the listed dsp. dsp enum values are NO_DSP and DSP |
-  | TRUSTZONE     | Multiple      | The trustzone. It means the source or include only supports the listed trustzone. trustzone enum values are TZ and  NO_TZ. |
-  | COMPONENTS    | Multiple      | The components. It means the source or include only supports the listed components |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`. This is usually used in abstracted `.cmake` files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
+| CONFIG        | Single        | Specify that the source is a config file or the include is for a config header. |
+| SOURCES       | Multiple      | The sources. This is only for `mcux_add_source`. If there are multiple sources, please separate them with whitespace. |
+| INCLUDES      | Multiple      | The includes. This is only for `mcux_add_include`. If there are multiple includes, please separate them with whitespace. |
+| TARGET_FILES  | Multiple      | This is only for `mcux_add_include` which is used to specify the include target which header file. This is required only for `config` header. |
+| COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.<br>Here are all the supported compilers: armclang, iar, gcc, xcc, mwcc56800e. |
+| TOOLCHAINS    | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.<br>Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior. |
+| CORES         | Multiple      | The cores. It means the source or include only supports the listed cores.<br>Here are all the supported cores: cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp |
+| CORE_IDS      | Multiple      | The core_ids. It means the source or include only supports the listed core_ids. This is usually to distinguish support for core in multicore platform. |
+| DEVICES       | Multiple      | The devices. It means the source or include only supports the listed device, like MK64F12. |
+| DEVICE_IDS    | Multiple      | The device ids. It means the source or include only supports the listed device id, like MK64FN1M0xxx12. |
+| FPU           | Multiple      | The fpu. It means the source or include only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU. |
+| DSP           | Multiple      | The dsp. It means the source or include only supports the listed dsp. dsp enum values are NO_DSP and DSP |
+| TRUSTZONE     | Multiple      | The trustzone. It means the source or include only supports the listed trustzone. trustzone enum values are TZ and  NO_TZ. |
+| COMPONENTS    | Multiple      | The components. It means the source or include only supports the listed components |
 
-  Here is one example:
+Here is one example:
 
-  ```cmake
-  # In drivers/uart/CMakelists.txt
-  if (CONFIG_MCUX_COMPONENT_driver.uart)
-      mcux_add_source(
-          SOURCES fsl_uart.h 
-                  fsl_uart.c
-      )
-      mcux_add_include(
-          INCLUDES .
-      )
-  endif()
+```cmake
+# In drivers/uart/CMakelists.txt
+if (CONFIG_MCUX_COMPONENT_driver.uart)
+    mcux_add_source(
+        SOURCES fsl_uart.h 
+                fsl_uart.c
+    )
+    mcux_add_include(
+        INCLUDES .
+    )
+endif()
 
-  # In examples/demo_apps/hello_world/CMakelists.txt
-  mcux_add_source(
-      SOURCES hello_world.c
-  )
+# In examples/demo_apps/hello_world/CMakelists.txt
+mcux_add_source(
+    SOURCES hello_world.c
+)
 
-  mcux_add_include(
-      INCLUDES .
-  )
-  ```
+mcux_add_include(
+    INCLUDES .
+)
+```
 
-- mcux_convert_binary
+#### mcux_convert_binary
 
-  Specify the Output binary format
+Specify the Output binary format
 
-  | Argument Name | Argument Type | Explanation                   |
-  | ------------- | ------------- | ----------------------------- |
-  | TOOLCHAINS    | Multiple      | Supported toolchains          |
-  | BINARY        | Single        | The target output binary type |
+| Argument Name | Argument Type | Explanation                   |
+| ------------- | ------------- | ----------------------------- |
+| TOOLCHAINS    | Multiple      | Supported toolchains          |
+| BINARY        | Single        | The target output binary type |
 
-  Here is one example
+Here is one example
 
-  ```cmake
-  mcux_convert_binary(
-          TOOLCHAINS armgcc mdk iar
-          BINARY ${APPLICATION_BINARY_DIR}/core1_image.bin
-  )
-  ```
+```cmake
+mcux_convert_binary(
+        TOOLCHAINS armgcc mdk iar
+        BINARY ${APPLICATION_BINARY_DIR}/core1_image.bin
+)
+```
 
-- mcux_add_iar_linker_script/mcux_add_mdk_linker_script/mcux_add_armgcc_linker_script
+#### mcux_add_iar_linker_script/mcux_add_mdk_linker_script/mcux_add_armgcc_linker_script
 
-  Add linker for toolchain.
+Add linker for toolchain.
 
-  | Argument Name | Argument Type | Explanation                              |
-  | ------------- | ------------- | ---------------------------------------- |
-  | TARGETS       | Multiple      | The build targets, like debug release    |
-  | BASE_PATH     | Single        | If provided, the final linker path equals BASE_PATH + LINKER. This is usually used in abstracted .cmake files which are not placed together with real linker. |
-  | LINKER        | Single        | The linker path                          |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | The build targets, like debug release    |
+| BASE_PATH     | Single        | If provided, the final linker path equals `BASE_PATH` + `LINKER`. This is usually used in abstracted .cmake files which are not placed together with real linker. |
+| LINKER        | Single        | The linker path                          |
 
-  Here is one example
+Here is one example
 
-  ```cmake
-      mcux_add_iar_linker_script(
-              TARGETS debug release
-              BASE_PATH ${SdkRootDirPath}
-              LINKER devices/${soc_series}/${device}/iar/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
-      )
+```cmake
+mcux_add_iar_linker_script(
+        TARGETS debug release
+        BASE_PATH ${SdkRootDirPath}
+        LINKER devices/${soc_series}/${device}/iar/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
+)
 
-      mcux_add_armgcc_linker_script(
-              TARGETS debug release
-              BASE_PATH ${SdkRootDirPath}
-              LINKER devices/${soc_series}/${device}/gcc/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
-      )
+mcux_add_armgcc_linker_script(
+        TARGETS debug release
+        BASE_PATH ${SdkRootDirPath}
+        LINKER devices/${soc_series}/${device}/gcc/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
+)
 
-      mcux_add_mdk_linker_script(
-              TARGETS debug release
-              BASE_PATH ${SdkRootDirPath}
-              LINKER devices/${soc_series}/${device}/arm/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
-      )
-  ```
+mcux_add_mdk_linker_script(
+        TARGETS debug release
+        BASE_PATH ${SdkRootDirPath}
+        LINKER devices/${soc_series}/${device}/arm/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
+)
+```
 
 ### Configuration
 
-- mcux_add_configuration
+#### mcux_add_configuration
 
-  Add configuration for all toolchains with specified build targets.
+Add configuration for all toolchains with specified build targets.
 
-  | Argument Name | Argument Type | Explanation                              |
-  | ------------- | ------------- | ---------------------------------------- |
-  | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-  | LIB           | Multiple      | The library, the full path               |
-  | AS            | Single        | The assemble compiler flag               |
-  | CC            | Single        | The c compiler flags                     |
-  | CX            | Single        | The cxx compiler flags                   |
-  | LD            | Single        | The linker flags                         |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
+| LIB           | Multiple      | The library, the full path               |
+| AS            | Single        | The assemble compiler flag               |
+| CC            | Single        | The c compiler flags                     |
+| CX            | Single        | The cxx compiler flags                   |
+| LD            | Single        | The linker flags                         |
 
-  Note, please use native compiler flags of the compilers.
+Note, please use native compiler flags of the compilers.
 
-  Here is one example
+Here is one example
 
-  ```cmake
-      mcux_add_configuration(
-              TARGETS release
-              AS "-DMCUXPRESSO_SDK -DNDEBUG"
-              CC "-DMCUXPRESSO_SDK -DNDEBUG"
-              CX "-DMCUXPRESSO_SDK -DNDEBUG"
-      )
-  ```
+```cmake
+mcux_add_configuration(
+        TARGETS release
+        AS "-DMCUXPRESSO_SDK -DNDEBUG"
+        CC "-DMCUXPRESSO_SDK -DNDEBUG"
+        CX "-DMCUXPRESSO_SDK -DNDEBUG"
+)
+```
 
-- mcux_add_iar_configuration\mcux_add_mdk_configuration\mcux_add_armgcc_configuration\mcux_add_xcc_configuration
+#### mcux_add_iar_configuration\mcux_add_mdk_configuration\mcux_add_armgcc_configuration\mcux_add_xcc_configuration
 
-  Very similar with mcux_add_configuration, just target specified toolchain, not for all.
+Very similar with mcux_add_configuration, just target specified toolchain, not for all.
 
 ### Remove
 
 Except adding data, the build system also supports removing defined data. For example, if in a common definition, a macro is defined for examples in the board, but your example cannot use it, then you can use following remove function to remove it.
 
-- mcux_remove_configuration
+#### mcux_remove_configuration
 
-  Remove configuration for all toolchains with specified build targets.
+Remove configuration for all toolchains with specified build targets.
 
-  | Argument Name | Argument Type | Explanation                              |
-  | ------------- | ------------- | ---------------------------------------- |
-  | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-  | LIB           | Multiple      | The library, the full path               |
-  | AS            | Single        | The assemble compiler flag               |
-  | CC            | Single        | The c compiler flags                     |
-  | CX            | Single        | The cxx compiler flags                   |
-  | LD            | Single        | The linker flags                         |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
+| LIB           | Multiple      | The library, the full path               |
+| AS            | Single        | The assemble compiler flag               |
+| CC            | Single        | The c compiler flags                     |
+| CX            | Single        | The cxx compiler flags                   |
+| LD            | Single        | The linker flags                         |
 
-  Note, please use native compiler flags of the compilers.
+Note, please use native compiler flags of the compilers.
 
-  Here is one example
+Here is one example
 
-  ```cmake
-  mcux_remove_configuration(
-          TARGETS release
-          AS "-DMCUXPRESSO_SDK -DNDEBUG"
-          CC "-DMCUXPRESSO_SDK -DNDEBUG"
-          CX "-DMCUXPRESSO_SDK -DNDEBUG"
-  )
-  ```
+```cmake
+mcux_remove_configuration(
+        TARGETS release
+        AS "-DMCUXPRESSO_SDK -DNDEBUG"
+        CC "-DMCUXPRESSO_SDK -DNDEBUG"
+        CX "-DMCUXPRESSO_SDK -DNDEBUG"
+)
+```
 
-- mcux_remove_iar_configuration/mcux_remove_mdk_configuration/mcux_remove_armgcc_configuration
+#### mcux_remove_iar_configuration/mcux_remove_mdk_configuration/mcux_remove_armgcc_configuration
 
-  Very similar with mcux_remove_configuration, just target specified toolchain, not for all.
-- mcux_remove_iar_linker_script/mcux_remove_mdk_linker_scriptmcux_remove_armgcc_linker_script
+Very similar with mcux_remove_configuration, just target specified toolchain, not for all.
 
-  | Argument Name | Argument Type | Explanation                              |
-  | ------------- | ------------- | ---------------------------------------- |
-  | TARGETS       | Multiple      | The build targets, like debug release    |
-  | BASE_PATH     | Single        | If provided, the final linker path equals BASE_PATH + LINKER. This is usually used in abstracted .cmake files which are not placed together with real linker. |
-  | LINKER        | Single        | The linker path                          |
+#### mcux_remove_iar_linker_script/mcux_remove_mdk_linker_scriptmcux_remove_armgcc_linker_script
 
-  Here is one example
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | The build targets, like debug release    |
+| BASE_PATH     | Single        | If provided, the final linker path equals BASE_PATH + LINKER. This is usually used in abstracted .cmake files which are not placed together with real linker. |
+| LINKER        | Single        | The linker path                          |
 
-  ```cmake
-      mcux_remove_iar_linker_script(
-              TARGETS debug release
-              BASE_PATH ${SdkRootDirPath}
-              LINKER devices/${soc_series}/${device}/iar/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
-      )
+Here is one example
 
-      mcux_remove_armgcc_linker_script(
-              TARGETS debug release
-              BASE_PATH ${SdkRootDirPath}
-              LINKER devices/${soc_series}/${device}/gcc/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
-      )
+```cmake
+mcux_remove_iar_linker_script(
+        TARGETS debug release
+        BASE_PATH ${SdkRootDirPath}
+        LINKER devices/${soc_series}/${device}/iar/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
+)
 
-      mcux_remove_mdk_linker_script(
-              TARGETS debug release
-              BASE_PATH ${SdkRootDirPath}
-              LINKER devices/${soc_series}/${device}/arm/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
-      )
-  ```
+mcux_remove_armgcc_linker_script(
+        TARGETS debug release
+        BASE_PATH ${SdkRootDirPath}
+        LINKER devices/${soc_series}/${device}/gcc/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
+)
 
-- mcux_project_remove_include\mcux_project_remove_source
+mcux_remove_mdk_linker_script(
+        TARGETS debug release
+        BASE_PATH ${SdkRootDirPath}
+        LINKER devices/${soc_series}/${device}/arm/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
+)
+```
 
-  Remove project source or include.
+#### mcux_project_remove_include\mcux_project_remove_source
 
-  | Argument Name | Argument Type | Explanation                              |
-  | ------------- | ------------- | ---------------------------------------- |
-  | BASE_PATH     | Single        | If provided, the final source path equals BASE_PATH + SOURCES. This is usually used in abstracted .cmake files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
-  | INCLUDES      | Single        | The include path                         |
-  | SOURCES       | Single        | The source path                          |
+Remove project source or include.
 
-  Here is one example
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`. This is usually used in abstracted .cmake files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
+| INCLUDES      | Single        | The include path.                         |
+| SOURCES       | Single        | The source path.                          |
 
-  ```cmake
-  mcux_project_remove_source(
-   SOURCES hello_world.c
-  )
+Here is one example
 
-  mcux_project_remove_include(
-   INCLUDES .
-  )
-  ```
+```cmake
+mcux_project_remove_source(
+  SOURCES hello_world.c
+)
+
+mcux_project_remove_include(
+  INCLUDES .
+)
+```
 
 ### Misc
 
-- mcux_set_variable
+#### mcux_set_variable
 
-  Set variable.
+Set variable.
 
-  Here is one example
+Here is one example
 
-  ```cmake
-  mcux_set_variable(soc_series Kinetis)
-  ```
+```cmake
+mcux_set_variable(soc_series Kinetis)
+```
 
-- mcux_add_cmakelists
+#### mcux_add_cmakelists
 
-  Add CMakelists.txt
+Add CMakelists.txt
 
-  Here is one example
+Here is one example
 
-  ```cmake
-  mcux_add_cmakelists(${SdkRootDirPath}/devices/Kinetis/MK64F12/drivers)
-  ```
+```cmake
+mcux_add_cmakelists(${SdkRootDirPath}/devices/Kinetis/MK64F12/drivers)
+```
 
-- mcux_load_all_cmakelists_in_directory
+#### mcux_load_all_cmakelists_in_directory
 
-  Load all cmakelists under one directory
+Load all cmakelists under one directory
 
-  ```cmake
-  mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/drivers)
-  ```
+```cmake
+mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/drivers)
+```
 
 ## SDK Data
 
@@ -463,12 +466,12 @@ Since Kconfig data are configurable, then there are 3 ways to provide the config
    Inside the Kconfig file, for each symbol, default value must be provided. In this way, any symbol will anyway gets a default value in any cases.
 2. prj.conf
 
-   For visible Kconfig symbols, you can directly set symbol=value in prj.conf to do the configuration. The prj.confs placed in designated places will be taken as Kconfig process input with priority. Please refer [prj.conf](#prj-conf) for details.
+   For visible Kconfig symbols, you can directly set symbol=value in `prj.conf` to do the configuration. The `prj.conf`s placed in designated places will be taken as Kconfig process input with priority. Please refer [prj.conf](#prj-conf) for details.
 3. Kconfig.defconfig
 
-   For invisible Kconfig symbols, prj.conf won't take effect. Please use Kconfig.defconf to redefine the symbol without type but with new default value.
+   For invisible Kconfig symbols, prj.conf won't take effect. Please use `Kconfig.defconf` to redefine the symbol without type but with new default value.
 
-   Note, Kconfig.defconfig will is actually repeatedly define Kconfig symbols. They are only supported in board and device reconfiguration. Please don't use it in your examples customization.
+   Note, `Kconfig.defconfig` will is actually repeatedly define Kconfig symbols. They are only supported in board and device reconfiguration. Please don't use it in your examples customization.
 
 ### Principles
 
@@ -476,7 +479,7 @@ There are 2 principles for MCUXpresso SDK data
 
 1. Componentization
 
-   SDK data is recorded and used in a "component" way instead of fragment lines. There are several component types each of which in data record is a data section.  Please refer [Data Section](#data-section) chapter for details.
+   SDK data is recorded and used in a `component` way instead of fragment lines. There are several component types each of which in data record is a data section.  Please refer [Data Section](#data-section) chapter for details.
 
    In this way software is highly modularized thus greatly improve the integration.
 2. Decoupling.
@@ -497,7 +500,7 @@ Each data section is composed of CMake and Kconfig.
 
 "component" section is used for software components.
 
-In CMake, component data shall be recorded inside a if-endif guard. The if condition shall be with prefix "CONFIG_MCUX_COMPONENT" to specify the following data belongs to a software component. The component name is right next to it.
+In CMake, component data shall be recorded inside a if-endif guard. The if condition shall be with prefix `CONFIG_MCUX_COMPONENT` to specify the following data belongs to a software component. The component name is right next to it.
 
 Here is one driver.uart component cmake data:
 
@@ -516,11 +519,11 @@ endif()
 
 If a component definition is split into several CMake files, please use the same if-endif guard in all files data.
 
-In Kconfig, symbol for a component shall also start with "MCUX_COMPONENT_" to be identical with CMake component name.
+In Kconfig, symbol for a component shall also start with `MCUX_COMPONENT_` to be identical with CMake component name.
 
 Component configuration and dependency shall be recorded following the below pattern:
 
-```Kcon
+```bash
 config MCUX_HAS_COMPONENT_driver.uart
     bool
     default y if MCUX_HW_IP_DriverType_UART
@@ -536,11 +539,11 @@ config MCUX_COMPONENT_driver.uart
     endif
 ```
 
-About the dependency, please refer [Complex Dependency In Kconfig](#complex-dependency-in-kconfig ) chapter for details.
+About the dependency, please refer [Complex Dependency In Kconfig](#complex-dependency-in-kconfig) chapter for details.
 
 For multiple components belonging to one middleware set, please use Kconfig "menu" to gather them together, like
 
-```Kconfig
+```bash
 menu "freertos-kernel(FreeRTOSConfig.h)"
     config MCUX_COMPONENT_middleware.freertos-kernel
         bool "middleware.freertos-kernel"
@@ -565,7 +568,7 @@ endmenu
 
 MCUXpresso SDK is composed of hundreds of devices and boards, thousands of components and ten thousands of projects. Projects on these boards and devices have many shared data like core related settings, common build target settings,  device headers and configurations, board files, clock and pinmux. Project segment data section is an abstraction of common shared data. It is introduced to avoid data duplication.
 
-Like the component, in CMake, project segment data shall also be recorded inside a if-endif guard. The if condition shall be with prefix "CONFIG_MCUX_PRJSEG_", right after it is the project segment name.
+Like the component, in CMake, project segment data shall also be recorded inside a if-endif guard. The if condition shall be with prefix `CONFIG_MCUX_PRJSEG_`, right after it is the project segment name.
 
 Here is the frequently used and prepared project segments table.
 
@@ -573,12 +576,12 @@ Here is the frequently used and prepared project segments table.
 | ---------------------------------------- | ---------------------- | ---------------------------------------- |
 | CONFIG_MCUX_PRJSEG_config.arm.shared     | arch/arm/configuration | The commonly shared configuration by all examples of ARM platforms |
 | CONFIG_MCUX_PRJSEG_config.kinetis.shared | arch/arm/configuration | The commonly shared configuration by all examples of kinetis platforms |
-| CONFIG_MCUX_PRJSEG_config.arm.core.\<core name> | arch/arm/cortexm       | The ARM core settings                    |
-| CONFIG_MCUX_PRJSEG_config.arm.core.fpu.\<fpu type> | arch/arm/cortexm       | The ARM core fpu settings                |
+| CONFIG_MCUX_PRJSEG_config.arm.core.`<core name>` | arch/arm/cortexm       | The ARM core settings                    |
+| CONFIG_MCUX_PRJSEG_config.arm.core.fpu.`<fpu type>` | arch/arm/cortexm       | The ARM core fpu settings                |
 | CONFIG_MCUX_PRJSEG_config.device_core.define | arch/arm/cortexm       | The core CPU macro definition            |
-| CONFIG_MCUX_PRJSEG_target.\<buiild target name> | arch/arm/target        | Build configuration target               |
-| CONFIG_MCUX_PRJSEG_module.board.\<board module name> | boards/common          | Commonly shared board modules like board file, pinmux, clock config, etc. |
-| CONFIG_MCUX_PRJSEG_project.\<project module name> | boards/common          | Commonly shared project modules like hardware init app. etc. |
+| CONFIG_MCUX_PRJSEG_target.`<buiild target name>` | arch/arm/target        | Build configuration target               |
+| CONFIG_MCUX_PRJSEG_module.board.`<board module name>` | boards/common          | Commonly shared board modules like board file, pinmux, clock config, etc. |
+| CONFIG_MCUX_PRJSEG_project.`<project module name>` | boards/common          | Commonly shared project modules like hardware init app. etc. |
 
 Here is one project segment CMake example:
 
@@ -596,21 +599,21 @@ if (CONFIG_MCUX_PRJSEG_module.board.clock)
 endif()
 ```
 
-In Kconfig, symbol for a project segment shall start with "MCUX_PRJSEG_" to be identical with CMake project segment name. Project segment configuration and dependency shall be recorded following the below pattern:
+In Kconfig, symbol for a project segment shall start with `MCUX_PRJSEG_` to be identical with CMake project segment name. Project segment configuration and dependency shall be recorded following the below pattern:
 
 ```bash
-    config MCUX_PRJSEG_module.board.clock
-        bool "Use default clock files"
-        imply MCUX_COMPONENT_driver.clock
-        if MCUX_PRJSEG_module.board.clock
-        endif   
+config MCUX_PRJSEG_module.board.clock
+    bool "Use default clock files"
+    imply MCUX_COMPONENT_driver.clock
+    if MCUX_PRJSEG_module.board.clock
+    endif
 ```
 
-Unlike the component dependency, the dependency for project segment is simple, just several parallel "imply" to state that the project segment depends on some components and maybe other project segment to work. Since it is frequently occuring cases that some examples on certain boards need to customize some project segment dependencies, please use "imply"  instead of "select" for project segment dependencies because "select" once true then cannot be deselected anymore.
+Unlike the component dependency, the dependency for project segment is simple, just several parallel `imply` to state that the project segment depends on some components and maybe other project segment to work. Since it is frequently occuring cases that some examples on certain boards need to customize some project segment dependencies, please use `imply` instead of `select` for project segment dependencies because `select` once true then cannot be deselected anymore.
 
 #### Project
 
-Just like the native CMake way, all data inside CMakeLists.txt with "project" macro inside is a "project" segment.
+Just like the native CMake way, all data inside CMakeLists.txt with `project` macro inside is a `project` segment.
 
 Here is one project CMake example
 
@@ -642,7 +645,7 @@ mcux_convert_binary(BINARY ${APPLICATION_BINARY_DIR}/${MCUX_SDK_PROJECT_NAME}.bi
 
 For project, it is not required to provide example specific Kconfig. If your example has specific Kconfig, then please follow the pattern to add it.
 
-```
+```bash
 rsource "../../../Kconfig.mcuxpresso"
 
 mainmenu "Hello world Example Run Time Configuration"
@@ -654,17 +657,17 @@ config HELLO_WORLD_EXAMPLE_MACRO
         "Hello world example macro"
 ```
 
-1. "rsource "../../../Kconfig.mcuxpresso"" must be added to load all repo Kconfigs because Kconfig.mcuxpresso is assembly point for Kconfigs.
-2. Set "mainmenu" to give the GUI title
+1. `rsource "../../../Kconfig.mcuxpresso"` must be added to load all repo Kconfigs because Kconfig.mcuxpresso is assembly point for Kconfigs.
+2. Set `mainmenu` to give the GUI title
 3. Set your example specific configurations
 
-**Note, the Kconfig process will take example specific Kconfig as entry point with priority. If not provided, then take the \<mcu-sdk-3.0>/Kconfig instead. So if your example doesn't have Kconfig contents, please don't keep it.**
+**Note, the Kconfig process will take example specific Kconfig as entry point with priority. If not provided, then take the <mcu-sdk-3.0>/Kconfig instead. So if your example doesn't have Kconfig contents, please don't keep it.**
 
 ### Complex Dependency In Kconfig
 
 #### Dependency Mechanisms
 
-[Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html) provides "depends on", "select" and "choice" dependency mechanisms.
+[Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html) provides `depends on`, `select` and `choice` dependency mechanisms.
 
 - "depends on"
 
@@ -681,13 +684,13 @@ config HELLO_WORLD_EXAMPLE_MACRO
 
 Kconfig processor in BCS will give detailed warnings about unsatisfied component selection so that  you can immediately find it and fix.
 
-For depending on hardware related dependency items like board, device, device_id, please use "depends on". If not satisfied, the related components will not be showed so that not bloat the Kconfig GUI list.
+For depending on hardware related dependency items like board, device, device_id, please use `depends on`. If not satisfied, the related components will not be showed so that not bloat the Kconfig GUI list.
 
-For depending on software component, priority to use "select". It helps to auto select component dependency.
+For depending on software component, priority to use `select`. It helps to auto select component dependency.
 
-If there are "any of" dependencies, "choice" can satisfy the needs, please see "[Dependency Patterns](#dependency-patterns)"
+If there are `any of` dependencies, `choice` can satisfy the needs, please see [Dependency Patterns](#dependency-patterns)
 
-Don’t use “depends on” on component dependency because Kconfig doesn’t support mutual dependency(recursive issue)
+Don’t use `depends on` on component dependency because Kconfig doesn’t support mutual dependency(recursive issue)
 
 #### Dependency Patterns
 
@@ -975,7 +978,7 @@ Here are summarized frequently used dependency patterns.
 
   The Kconfig dependency pattern is like
 
-  ```
+  ```bash
   config MCUX_COMPONENT_componentF
     bool "Component F, pattern 6"
     select MCUX_COMPONENT_component1
@@ -1029,7 +1032,7 @@ Here are summarized frequently used dependency patterns.
 
 Variable mechanism is introduced to facilitate data record in both CMake and Kconfig for MCUXpresso SDK.
 
-For example, in CMake with a "board" variable in the source, one copy of the following project segment data can be shared by all boards examples without any duplication.
+For example, in CMake with a `board` variable in the source, one copy of the following project segment data can be shared by all boards examples without any duplication.
 
 ```cmake
 if (CONFIG_MCUX_PRJSEG_module.board.suite)
@@ -1041,7 +1044,7 @@ if (CONFIG_MCUX_PRJSEG_module.board.suite)
 endif()
 ```
 
-In Kconfig, the same "board" variable can set the board Kconfig path for all boards.
+In Kconfig, the same `board` variable can set the board Kconfig path for all boards.
 
 ```bash
 rsource "${board}/Kconfig"
@@ -1061,13 +1064,13 @@ Here is the CMake stored variable table:
 
 | Variable Name        | Explanation               | Acquisition                              | Used in           | Usage                                    |
 | -------------------- | ------------------------- | ---------------------------------------- | ----------------- | ---------------------------------------- |
-| SdkRootDirPath       | SDK root directory        | Automatically set by BS                  | CMake             | Secify sdk root path like "include(${SdkRootDirPath}/devices/common/device_header.cmake)" |
-| board                | board name, like frdmk64f | Provided in cmdline argument, also need to record it in board variable cmake | CMake and Kconfig | Specify the target board, like "BASE_PATH\$\{SdkRootDirPath}/boards/${board}" |
-| device               | device name, like MK64F12 | Device variable cmake                    | CMake and Kconfig | Specify the target device, like  "\$\{SdkRootDirPath}/devices/\$\{soc_series}/${device}" |
-| core_id              | Core id, like cm33_core0  | Device variable cmake. This is only required for multicore device. | Kconfig           | Specify the core_id, like "rsource "${core_id}/Kconfig".<br />This is only needed for multiple core device Kconfig. |
-| core_id_suffix_name  | Core id suffix name       | Device variable cmake                    | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project name, in multicore device, it is may called hello_world_cm4 and hello_world_cm7 while in single core device, it is may called hello_world, then "hello_world${core_id_suffix_name}" can work for all cases. For cm4 core, it can be "\_cm4", for cm7 core, it can be "_cm7", for single core, it can be "" |
+| SdkRootDirPath       | SDK root directory        | Automatically set by BS                  | CMake             | Secify sdk root path like `include(${SdkRootDirPath}/devices/common/device_header.cmake)` |
+| board                | board name, like frdmk64f | Provided in cmdline argument, also need to record it in board variable cmake | CMake and Kconfig | Specify the target board, like `${SdkRootDirPath}/boards/${board}` |
+| device               | device name, like MK64F12 | Device variable cmake                    | CMake and Kconfig | Specify the target device, like `${SdkRootDirPath}/devices/\${soc_series}/${device}` |
+| core_id              | Core id, like cm33_core0  | Device variable cmake. This is only required for multicore device. | Kconfig           | Specify the core_id, like `rsource "${core_id}/Kconfig`.<br>This is only needed for multiple core device Kconfig. |
+| core_id_suffix_name  | Core id suffix name       | Device variable cmake                    | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project name, in multicore device, it is may called hello_world_cm4 and hello_world_cm7 while in single core device, it is may called hello_world, then "hello_world${core_id_suffix_name}" can work for all cases. For cm4 core, it can be "_cm4", for cm7 core, it can be "_cm7", for single core, it can be "" |
 | multicore_foldername | multicore folder name     | Device variable cmake                    | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project root, in multicore device evkmimxrt1170, it is boards/evkmimxrt1170/demo_apps/hello_world/cm4 and boards/evkmimxrt1170/demo_apps/hello_world/cm7 while in single core board frdmk64f, it is boards/frdmk64f/demo_apps/hello_world, then "boards/evkmimxrt1170/demo_apps/hello_world/${multicore_foldername}" can work for all cases. For cm4 core, it can be "cm4", for cm7 core, it can be "cm7", for single core, it can be "." |
-| soc_series           | soc series                | Soc series cmake                         | CMake             | Specify the soc series, like "BASE_PATH\$\{SdkRootDirPath}/devices/\$\{soc_series}/${device}" |
+| soc_series           | soc series                | Soc series cmake                         | CMake             | Specify the soc series, like `${SdkRootDirPath}/devices/${soc_series}/${device}` |
 
 The above variables shall anyway be provided in CMake because they are used before Kconfig process.
 
@@ -1077,12 +1080,12 @@ Here is the Kconfig stored variable table:
 | ----------------------------------- | ---------------------------------------- | --------------- | ------- | ----- |
 | MCUX_HW_CORE                        | Core                                     | Kconfig process | CMake   |       |
 | MCUX_HW_CORE_ID                     | Core id                                  | Kconfig process | CMake   |       |
-| MCUX_HW_DEVICE_CORE                 | device core. For single core, it is the device like MK64F12. For multicore, it is device+core like  MIMXRT1176\_cm4 or  MIMXRT1176\_cm7 | Kconfig process | CMake   |       |
+| MCUX_HW_DEVICE_CORE                 | device core. For single core, it is the device like MK64F12. For multicore, it is device+core like  MIMXRT1176_cm4 or  MIMXRT1176_cm7 | Kconfig process | CMake   |       |
 | MCUX_HW_FPU                         | fpu                                      | Kconfig process | CMake   |       |
 | MCUX_HW_FPU_TYPE                    | fpu type.                                | Kconfig process | CMake   |       |
 | MCUX_HW_DEVICE_ID                   | Device id like  MK64FN1M0xxx12           | Kconfig process | CMake   |       |
 | MCUX_HW_DEVICE_PART                 | Device part like  MK64FN1M0VDC12         | Kconfig process | CMake   |       |
-| MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX | NPI provided device default linker file name prefix, like "LINKER devices/\$\{soc_series}/\$\{device}/gcc/\$\{MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld", for MK64F12, it is devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld | Kconfig process | CMake   |       |
+| MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX | NPI provided device default linker file name prefix, like "LINKER devices/${soc_series}/${device}/gcc/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld", for MK64F12, it is devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld | Kconfig process | CMake   |       |
 | MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER   | IAR IDE project device identifier        | Kconfig process | CMake   |       |
 | MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER   | MDK IDE project device identifier        | Kconfig process | CMake   |       |
 
@@ -1092,9 +1095,9 @@ Except for the above variables, there are variables which are generated in the c
 
 | Variable Name          | Explanation                              |
 | ---------------------- | ---------------------------------------- |
-| MCUX_SDK_PROJECT_NAME  | The processed example name, it equals  PROJECT_NAME+core_id_suffix_name |
+| MCUX_SDK_PROJECT_NAME  | The processed example name, it equals `PROJECT_NAME`+`core_id_suffix_name` |
 | APPLICATION_SOURCE_DIR | Project CMakelists.txt directory like examples/demo_apps/hello_world |
-| APPLICATION_BINARY_DIR | Output build directory like \<mcu-sdk-3.0>/build |
+| APPLICATION_BINARY_DIR | Output build directory like `<mcu-sdk-3.0>/build` |
 
 #### Customized Variables
 
@@ -1115,7 +1118,7 @@ MCUXpresso SDK repo CMake and Kconfig data are composed of arch, boards, devices
 
 #### Arch Data
 
-MCUXpresso SDK support all mainstream soc architecture like ARM, Riscv, DSC. The soc architecture specific data are recorded in \<mcu-sdk-3.0>/arch/\<arch> folder.
+MCUXpresso SDK support all mainstream soc architecture like ARM, Riscv, DSC. The soc architecture specific data are recorded in `<mcu-sdk-3.0>/arch/<arch>` folder.
 
 Here is the hierarchy of arch data folder:
 
@@ -1190,7 +1193,7 @@ boards:
   prj.conf: components selection and configuration by all boards
 ```
 
-Note, the supported examples by the board shall be recorded inside boards/\<board>/\<category>\_example\_list.yml. For multicore boards, since each core has different examples, the supported examples shall be recorded inside boards/\<board>/\<core_id>/\<category>\_example\_list.yml.
+Note, the supported examples by the board shall be recorded inside `boards/<board>/<category>_example_list.yml`. For multicore boards, since each core has different examples, the supported examples shall be recorded inside `boards/<board>/<core_id>/<category>_example_list.yml`.
 
 A typical sdk_example_list.yml is like
 
@@ -1286,7 +1289,7 @@ devices:
 
 #### Example Data
 
-All examples are expected to be placed under "examples" folder in their category.
+All examples are expected to be placed under `examples` folder in their category.
 
 ```yaml
 examples:
@@ -1307,9 +1310,9 @@ examples:
 
 #### Driver Data
 
-Base SDK drivers are placed under "drivers" folder.
+Base SDK drivers are placed under `drivers` folder.
 
-You can use "mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/drivers)" to recursively include all drivers CMakelists.txt once.
+You can use `mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/drivers)` to recursively include all drivers CMakelists.txt once.
 
 ```yaml
 drivers:
@@ -1327,9 +1330,9 @@ drivers:
 
 #### Component Data
 
-Base SDK components are placed under "components" folder.
+Base SDK components are placed under `components` folder.
 
-You can use "mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/components)" to recursively include all components CMakelists.txt once.
+You can use `mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/components)` to recursively include all components CMakelists.txt once.
 
 ```yaml
 components:
@@ -1369,7 +1372,7 @@ mcux_add_cmakelists(${SdkRootDirPath}/middleware/multicore OPTIONAL)
 
 The assembly point for all Kconfig is the root Kconfg.mcuxpresso which is
 
-```
+```bash
 # arch
 rsource "arch/Kconfig"
 
@@ -1444,16 +1447,16 @@ Unlike the CMake which shall be explicitly included, the proj.conf will be loade
 Here is the priority list from low to high
 
 1. devices/prj.conf
-2. devices/\<soc_series>/prj.conf
-3. devices/\<soc_series>/\<device>/prj.conf
-4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
+2. devices/`<soc_series>`/prj.conf
+3. devices/`<soc_series>`/`<device>`/prj.conf
+4. devices/`<soc_series>`/`<device>`/`<core_id>`/prj.conf
 5. boards/prj.conf
-6. boards/\<board>/prj.conf
-7. boards/\<board>/\<core_id>/prj.conf
+6. boards/`<board>`/prj.conf
+7. boards/`<board>`/`<core_id>`/prj.conf
 8. examples/prj.conf
-9. examples/\<example_category>/prj.conf
-10. boards/\<board>/\<example_category>/prj.conf
-11. boards/\<board>/\<example_category>/\<example>/prj.conf
+9. examples/`<example_category>`/prj.conf
+10. boards/`<board>`/`<example_category>`/prj.conf
+11. boards/`<board>`/`<example_category>`/`<example>`/prj.conf
 
 High priority prj.conf data will override low priority prj.conf data.
 
@@ -1461,7 +1464,7 @@ High priority prj.conf data will override low priority prj.conf data.
 
 .config will be filtered to get the component and project segment dependency symbol values, such symbol values will be put into cmake process so that cmake knows which component and project segment data shall be included into the build process.
 
-For example, if CONFIG_MCUX_COMPONENT_driver.uart is y in .config, then the following sources and includes will be added into the build during cmake process, otherwise not.
+For example, if `CONFIG_MCUX_COMPONENT_driver.uart` is `y` in .config, then the following sources and includes will be added into the build during cmake process, otherwise not.
 
 ```cmake
 if (CONFIG_MCUX_COMPONENT_driver.uart)
@@ -1481,9 +1484,9 @@ The Kconfig symbols and the values will be generated into config headers placed 
 
 The config headers shall be included in the source in advance and the build binary folder will be added into includes so that all config headers will be added into build tree.
 
-If it is not set, then all Kconfig symbols and values will be generated header named "RTE_Components.h".
+If it is not set, then all Kconfig symbols and values will be generated header named `RTE_Components.h`.
 
-If you want your components Kconfig symbols and values to be generatedendmenu  into customized header, you can set Kconfig menu with (header name). Here is an example with Freertos kernel.
+If you want your components Kconfig symbols and values to be generated `endmenu` into customized header, you can set Kconfig menu with (header name). Here is an example with Freertos kernel.
 
 ```bash
 menu "freertos-kernel(FreeRTOSConfig.h)" # All freertos kernel Kconfig symbols and values will be generated into FreeRTOSConfig.h
@@ -1557,7 +1560,6 @@ mcux_add_source(
 mcux_add_include(
     INCLUDES .
 )
-  
 ```
 
 ## Enable An Example
@@ -1628,11 +1630,11 @@ After the command runs, the project files are generated into the compilation dir
 
 ## System Build
 
-Sysbuild is a higher-level build system that can be used to combine multiple other build systems together.It's ported from [Sysbuild (System build) — Zephyr Project](https://docs.zephyrproject.org/latest/build/sysbuild/index.html#sysbuild-zephyr-application). For meta build system, it's mainly used for multi-image build.
+Sysbuild is a higher-level build system that can be used to combine multiple other build systems together. It's ported from [Sysbuild (System build) — Zephyr Project](https://docs.zephyrproject.org/latest/build/sysbuild/index.html#sysbuild-zephyr-application). For meta build system, it's mainly used for multi-image build.
 
 ### Sysbuild files
 
-To include sub projects into building system, you must prepare "sysbuild.cmake" into main application folder. Sub projects can be located anywhere, which are imported by "ExternalZephyrProject_Add" command inside sysbuild.cmake. For example:
+To include sub projects into building system, you must prepare `sysbuild.cmake` into main application folder. Sub projects can be located anywhere, which are imported by `ExternalZephyrProject_Add` command inside sysbuild.cmake. For example:
 
 ```cmake
 # examples/middleware/multicore/multicore_examples/hello_world/primary/sysbuild.cmake
@@ -1650,7 +1652,7 @@ ExternalZephyrProject_Add(
 add_dependencies(${DEFAULT_IMAGE} hello_world_secondary_core)
 ```
 
-The build order can by set by "add_dependencies [add_dependencies](https://cmake.org/cmake/help/latest/command/add_dependencies.html#add-dependencies) function in sysbuild.cmake.
+The build order can by set by [add_dependencies](https://cmake.org/cmake/help/latest/command/add_dependencies.html#add-dependencies) function in sysbuild.cmake.
 
 The variables in sysbuild.cmake can be defined inside the file. Or you can pass them with west command.
 
@@ -1694,7 +1696,7 @@ mcux_add_iar_configuration(
 
 ### Build command
 
-To enable sysbuild, only "--sysbuild" is needed when you run the main application
+To enable sysbuild, only `--sysbuild` is needed when you run the main application
 
 ```bash
 west build -b evkmimxrt1170 --sysbuild ./examples/middleware/multicore/multicore_examples/hello_world/primary -Dcore_id=cm7  --config flexspi_nor_debug --toolchain=armgcc -p always
@@ -1717,8 +1719,8 @@ west build -t hello_world_secondary_core_guiconfig
 
 The meta build system can be integrate into other build system which is based on CMake. In principle, the meta build system use customized CMake function and configured by Kconfig, so that it requires you to:
 
-1. Include sdk-next/mcu-sdk-3.0/cmake/extension/function.cmake
-2. Load necessary CMakeLists.txt files for source code
+1. Include `mcu-sdk-3.0/cmake/extension/function.cmake`
+2. Load necessary `CMakeLists.txt` files for source code
 3. Involve kconfig file into your project
 
 Let's say if you want to use drivers from meta build system, you need to prepare:
@@ -1763,7 +1765,7 @@ Let's say if you want to use drivers from meta build system, you need to prepare
    mcux_load_all_cmakelists_in_directory(${ZEPHYR_HAL_NXP_MODULE_DIR}/mcux/mcux-sdk/drivers)
    ```
 
-   Note:  This section is still being evaluated and will be refined subsequently
+   ***Note: This section is still being evaluated and will be refined subsequently***
 
 ## Integrate Other CMake build system
 
