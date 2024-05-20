@@ -408,8 +408,8 @@ Remove project source or include.
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`. This is usually used in abstracted .cmake files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
-| INCLUDES      | Single        | The include path.                         |
-| SOURCES       | Single        | The source path.                          |
+| INCLUDES      | Single        | The include path.                        |
+| SOURCES       | Single        | The source path.                         |
 
 Here is one example
 
@@ -1309,6 +1309,7 @@ boards:
     prj.conf: Board specific components selection and configuration
     <category>_example_list.yml: Board example list like sdk_example_list, freertos_example_list, etc
     variable.cmake: Board variables
+    board_runner.cmake: Board debug settings
     demo_apps:
       hello_world:
         reconfig.cmake: Board example reconfig, mainly replace, remove some default board settings
@@ -1341,6 +1342,7 @@ boards:
     Kconfig.defconfig: Board specific components selection and configuration for invisible Kconfig symbols
     prj.conf: Board specific components selection and configuration
     variable.cmake: Board variables
+    board_runner.cmake: Board debug settings
     demo_apps:
       reconfig.cmake:  Board example category reconfig, mainly replace, remove some default board settings
       hello_world:

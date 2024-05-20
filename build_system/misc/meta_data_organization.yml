@@ -93,6 +93,7 @@ boards:
     prj.conf: Board specific components selection and configuration
     <category>_example_list.yml: Board example list like sdk_example_list, freertos_example_list, etc
     variable.cmake: Board variables
+    board_runner.cmake: Board debug settings
     demo_apps:
       hello_world:
         reconfig.cmake: Board example reconfig, mainly replace, remove some default board settings
@@ -125,6 +126,7 @@ boards:
     Kconfig.defconfig: Board specific components selection and configuration for invisible Kconfig symbols
     prj.conf: Board specific components selection and configuration
     variable.cmake: Board variables
+    board_runner.cmake: Board debug settings
     demo_apps:
       reconfig.cmake:  Board example category reconfig, mainly replace, remove some default board settings
       hello_world:
