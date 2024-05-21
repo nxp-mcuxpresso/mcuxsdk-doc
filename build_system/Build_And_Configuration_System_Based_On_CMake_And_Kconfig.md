@@ -1764,15 +1764,18 @@ Like Zephyr, BS supports setting up configuration for flash runners (invoked fro
 `mcux.cmake`will always include this file under `${SdkRootDirPath}/boards/<board>` to get runner arguments and which runners are supported for this board. Here is an example:
 
 ```cmake
-board_runner_args(jlink "--device=MK64FN1M0xxx12")
-board_runner_args(linkserver  "--device=MK64FN1M0xxx12:FRDM-K64F")
-board_runner_args(pyocd "--target=k64f")
+board_runner_args(pyocd "--target=mimxrt1170_${core_id}")
+if(${core_id} STREQUAL cm7)
+    board_runner_args(jlink "--device=${MCUX_HW_DEVICE_ID}_M7" "--reset-after-load")
+elseif(${core_id} STREQUAL cm4)
+    board_runner_args(jlink "--device=${MCUX_HW_DEVICE_ID}_M4")
+endif()
+board_runner_args(linkserver "--device=${MCUX_HW_DEVICE_ID}:MIMXRT1170-EVK")
+board_runner_args(linkserver "--core=${core_id}")
 
-include(${SdkRootDirPath}/cmake/extension/runner/linkserver.board.cmake)
-include(${SdkRootDirPath}/cmake/extension/runner/pyocd.board.cmake)
 include(${SdkRootDirPath}/cmake/extension/runner/jlink.board.cmake)
-include(${SdkRootDirPath}/cmake/extension/runner/openocd.board.cmake)
-include(${SdkRootDirPath}/cmake/extension/runner/canopen.board.cmake)
+include(${SdkRootDirPath}/cmake/extension/runner/pyocd.board.cmake)
+include(${SdkRootDirPath}/cmake/extension/runner/linkserver.board.cmake)
 ```
 
 `board_runner_args` is used to pass runner speicfic arguments and then you have to include the board supported runner cmake file from `${SdkRootDirPath}/cmake/extension/runner/`.
