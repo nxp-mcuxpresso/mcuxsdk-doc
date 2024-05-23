@@ -1992,7 +1992,129 @@ There are two ways for this requirement:
    add_dependencies(${DEFAULT_IMAGE} my_library)
    ```
 
-## IDE Option and Scripts Setting
+## IDE Setting
+
+### Assembler/Compiler/Linker Flags
+
+The meta build system use CMake to create build artifacts. In general, CMake doesn’t provide abstraction of flags setting for all kinds of toolchains. So that developer should use the flags for assembler/compiler/linker which follows the rule by each toolchain. 
+
+Here are links for you to refer:
+
+- [IAR][https://wwwfiles.iar.com/AVR/webic/doc/EWAVR_CompilerGuide.pdf]
+- [MDK][https://developer.arm.com/documentation/100748/0622/Using-Common-Compiler-Options]
+- [ARMGCC][https://gcc.gnu.org/onlinedocs/]
+
+Assembler/Compiler/Linker flags are set with following CMake configuration function, please refer to  [Configuration](#configuration)
+
+For example:
+
+```cmake
+    mcux_add_iar_configuration(
+        TARGETS flexspi_nor_debug
+        CC "-Ol"
+        )
+```
+
+In the following sections, the commonly used settings are described.
+
+#### Optimizations flags
+
+- IAR
+
+  IAR supported compiler optimization flags are:
+
+  - -On 
+  - -Ol  
+  - -Om 
+  - -Oh
+  - -Ohs
+  - -Ohz
+
+  Besides, IAR provides special optimization features:
+
+  - --no_size_constraints
+  - --no_cse
+  - --no_unroll
+  - --no_inline
+  - --no_code_motion
+  - --no_tbaa
+  - --no_clustering
+  - --no_scheduling
+
+  These settings are set up in the IAR GUI as shown here
+
+  ![](./_doc/iar_compiler_optimization_flags.png)
+
+- MDK
+
+  For ARM compiler v6, optimization flags are -O0/-O1/-O2/-O3/-Ofast/-Os/-Oz.
+
+  These flags match with IDE settings as below:
+
+  ![](./_doc/mdk_compiler_optimization_flags.png)
+
+- ARMGCC
+
+  For ARMGCC, optimization flag are -O0/-O1/-O2/-O3/-Os/-Ofast/-Og.
+
+#### Macro definition
+
+Macro is used to preprocess source files, it is a common setting for assembler/compiler. You can use CMake configuration function defined in  [Configuration](#configuration) to set macro definition.
+
+The macro definition follow the pattern "-Dname=value", or "-Dname" if no value provided.
+
+For example:
+
+```cmake
+    mcux_add_iar_configuration(
+        TARGETS flexspi_nor_debug
+        AS "-DDEBUG"
+        CC "-DDEBUG -DXIP_EXTERNAL_FLASH=1 -DFSL_SDK_DRIVER_QUICK_ACCESS_ENABLE=1"
+        CX "-DDEBUG"
+        )
+```
+
+#### Heap Stack setting
+
+Heap and stack is setting by linker script. Generally SDK use macro `__stack_size__`and `__heap_size__` to set the size.
+
+It's not identical for different toolchain:
+
+- IAR
+
+  IAR  use linker flags `--config_def __stack_size__=${stack size}` and `--config_def __heap_size__=${heap size}`
+
+  For example
+
+  ```cmake
+  mcux_add_iar_configuration(
+      LD "--config_def __stack_size__=0x3000 --config_def __heap_size__=0x3000"
+      )
+  ```
+
+- MDK
+
+  MDK use linker flags `--predefine="-D__stack_size__=${stack size}` and  `--predefine="-D__heap_size__=${heap size}`
+
+  For example
+
+  ```cmake
+  mcux_add_mdk_configuration(
+  	LD "--predefine=\"-D__stack_size__=0x3000\" --predefine=\"-D__heap_size__=0x3000\""
+  )
+  ```
+
+- ARMGCC
+
+  ARMGCC use linker flags `-Xlinker --defsym=__stack_size__=${stack size}` and  `-Xlinker --defsym=__heap_size__=${heap size}`
+
+  For example
+
+  ```cmake
+  mcux_add_armgcc_configuration(
+  	LD "-Xlinker --defsym=__stack_size__=0x3000 -Xlinker --defsym=__heap_size__=0x3000"
+  )
+  ```
 
 ### IDE Option Setting
 
@@ -2073,3 +2195,5 @@ Supported attribute for script files are:
 - jlink_script_file
 
   ![jlink_script_file](./_doc/ide_file_jlink_script_file.png)
+
+[https://wwwfiles.iar.com/AVR/webic/doc/EWAVR_CompilerGuide.pdf]: 
