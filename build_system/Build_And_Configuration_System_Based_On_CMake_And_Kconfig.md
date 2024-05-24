@@ -211,7 +211,25 @@ Following extensions are provided for you to facilitate component, project and m
 
 #### mcux_add_source/mcux_add_include
 
-Add the source and include can be done with `mcux_add_source` and `mcux_add_include`
+Add the source can be done with `mcux_add_source`.
+
+For include path, the following functions are provided: 
+
+- `mcux_add_include` 
+
+  Set include path for all source code
+
+-  `mcux_add_asm_include`
+
+  Set include path for assembly code
+
+-  `mcux_add_c_include`
+
+  Set include path for C code
+
+-  `mcux_add_cpp_include`
+
+  Set include path for CPP code
 
 Please see following table for the arguments
 
@@ -1996,17 +2014,15 @@ There are two ways for this requirement:
 
 ### Assembler/Compiler/Linker Flags
 
-The meta build system use CMake to create build artifacts. In general, CMake doesn’t provide abstraction of flags setting for all kinds of toolchains. So that developer should use the flags for assembler/compiler/linker which follows the rule by each toolchain. 
-
-Here are links for you to refer:
+The meta build system use CMake to create build artifacts. In general, CMake doesn’t provide abstraction of flags setting for all kinds of toolchains. So that developer should use the flags for assembler/compiler/linker which follows the rule by each toolchain. Here are links for you to refer:
 
 - [IAR][https://wwwfiles.iar.com/AVR/webic/doc/EWAVR_CompilerGuide.pdf]
 - [MDK][https://developer.arm.com/documentation/100748/0622/Using-Common-Compiler-Options]
 - [ARMGCC][https://gcc.gnu.org/onlinedocs/]
 
-Assembler/Compiler/Linker flags are set with following CMake configuration function, please refer to  [Configuration](#configuration)
+Assembler/Compiler/Linker flags are set with following CMake configuration function in CMake file, please refer to  [Configuration](#configuration)
 
-For example:
+For example, the following code set optimization level for IAR compiler:
 
 ```cmake
     mcux_add_iar_configuration(
@@ -2094,7 +2110,7 @@ It's not identical for different toolchain:
 
 - MDK
 
-  MDK use linker flags `--predefine="-D__stack_size__=${stack size}` and  `--predefine="-D__heap_size__=${heap size}`
+  MDK use linker flags `--predefine="-D__stack_size__=${stack size}"` and  `--predefine="-D__heap_size__=${heap size}"`
 
   For example
 
@@ -2116,9 +2132,158 @@ It's not identical for different toolchain:
   )
   ```
 
+#### TrustZone 
+
+TrustZone feature is enabled by compiler flags. It may be different for each toolchain.
+
+- IAR
+
+  ```cmake
+  mcux_add_iar_configuration(CC "--cmse")
+  ```
+
+- Keil MDK
+
+  ```cmake
+  mcux_add_mdk_configuration(CC "-mcmse")
+  ```
+
+- ARMGCC
+
+  ```cmake
+  mcux_add_armgcc_configuration(CC "-mcmse")
+  ```
+
+#### Keil MDK Specific Settings
+
+##### Change C library
+
+Keil use linker flag `--library_type=lib` to select the library to be used at link time.
+
+If you don't specify library, then the linker assumes `--library_type=standardlib`
+
+If you want to use C micro-library (microlib), please set it as:
+
+```cmake
+mcux_add_mdk_configuration(LD "--library_type=microlib")
+```
+
+![](./_doc/ide_option_use_macrolib.png)
+
+#### IAR Specific Settings
+
+##### Change entry symbol
+
+If you need to set the entry symbol for IAR, you can set linker flags in CMake:
+
+```cmake
+mcux_add_iar_configuration(LD "--entry Reset_Handler")
+```
+
+![entry_symbol](./_doc/ide_option_iar_entry_symbol.png)
+
+##### Change C library
+
+C/C++ runtime library configuration can be set with compiler flags, supported library types are:
+
+- --dlib_config none
+- --dlib_config normal
+- --dlib_config full
+- --dlib_config custom
+
+For example:
+
+```cmake
+mcux_add_iar_configuration(CC "--dlib_config full")
+```
+
+![](./_doc/ide_option_iar_library_config.png)
+
+#####Semihosted option
+
+If you need to set semihosted option in IAR, a linker flag `--semihosting` can be set in CMake.
+
+Further more, the default low-level interface is via semihosting, if using implementation with SWO,
+
+an additional linker flag `--redirect __iar_sh_stdout=__iar_sh_stdout_swo` is needed.
+
+Here is an example:
+
+```cmake
+mcux_add_iar_configuration(LD "--semihosting --redirect __iar_sh_stdout=__iar_sh_stdout_swo")
+```
+
+![](./_doc/ide_option_iar_semihosted.png)
+
+##### Change I/O option
+
+In IAR Library Options 1 tab, IDE provide configuration for printf formatter and scanf formatter.
+
+For each printf formatting level, you can set ld-flags to configure it. Here are linker flags:
+
+- `--redirect _Printf=_PrintfFull`
+- `--redirect _Printf=_PrintfFullNoMb`
+- `--redirect _Printf=_PrintfLarge`
+- `--redirect _Printf=_PrintfLargeNoMb`
+- `--redirect _Printf=_PrintfSmall`
+- `--redirect _Printf=_PrintfSmallNoMb`
+- `--redirect _Printf=_PrintfTiny`
+
+For each scanf formatting level, you can set ld-flags to configure it. Here are linker flags:
+
+- `--redirect _Scanf=_ScanfFull`
+- `--redirect _Scanf=_ScanfFullNoMb`
+- `--redirect _Scanf=_ScanfLarge`
+- `--redirect _Scanf=_ScanfLargeNoMb`
+- `--redirect _Scanf=_ScanfSmall`
+- `--redirect _Scanf=_ScanfSmallNoMb`
+
+Further more, you can enable buffered terminal output with ld-flags `--redirect __write=__write_buffered`.
+
+Here is an example:
+
+```cmake
+mcux_add_iar_configuration(
+	CC "--dlib_config full"
+	LD "--redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull --redirect __write=__write_buffered"
+	)
+```
+
+![](./_doc/ide_option_iar_io_options.png)
+
+### Source And Include Path
+
+The source and include path setting are set in CMake file, please refer to [Source And Include](#source-and-include)
+
+### Pre-include File
+
+
+
+### Linker file
+
+The Linker file setting are set in CMake file, please refer to [CMake Extension Linker Setting](#mcux_add_iar_linker_script/mcux_add_mdk_linker_script/mcux_add_armgcc_linker_script)
+
+### Link libraries
+
+The libraries are set in CMake file with CMake extension function `mcux_add_configuration`, please refer to [CMake Extension Configuration Function](#configuration) 
+
+#### Pre-build/Post-build Command
+
+CMake provide built-in function `add_custom_command`, this is useful for performing an operation before or after building the target by setting PRE_BUILD | PRE_LINK | POST_BUILD parameters. For more details, please refer to [CMake document]([add_custom_command — CMake 3.29.3 Documentation](https://cmake.org/cmake/help/latest/command/add_custom_command.html#add-custom-command))
+
+For example:
+
+```cmake
+add_custom_command(TARGET ${MCUX_SDK_PROJECT_NAME} PRE_BUILD COMMAND
+${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} -x c-header -E -P -c ${CMAKE_CURRENT_LIST_DIR}/../../../../../../../middleware/tfm/platform/ext/target/lpcxpresso55s69/Device/Source/armgcc/LPC55S69_cm33_core0_s.lds -o ${CMAKE_CURRENT_LIST_DIR}/../../../../../../../middleware/tfm/platform/ext/target/lpcxpresso55s69/Device/Source/armgcc/LPC55S69_cm33_core0_s.ld
+)
+```
+
+
+
 ### IDE Option Setting
 
-The IDE option setting is set by CMake function "mcux_set_ide_option" and "mcux_replace_ide_option". The option is set by the SETTING and VALUE fields. For more details, please refer to  [IDE Option](#ide-option)
+The IDE option setting is set in IDE.yml. The option is set by the `SETTING: VALUE` hash data structure in yml format. For more details, please refer to  [IDE Option](#ide-option)
 
 #### Keil MDK
 
@@ -2130,6 +2295,13 @@ Supported option for MDK are:
 
   - VALUE: true or false
 
+    For example:
+
+    ```yaml
+    mdk:
+      update-before-debug: true
+    ```
+
     ![update_before_debug](./_doc/ide_option_update_before_debug.png)
 
 - Load Application at Startup for Keil
@@ -2137,6 +2309,13 @@ Supported option for MDK are:
   - SETTING: load_application
 
   - VALUE: true or false
+
+    For example:
+
+    ```yaml
+    mdk:
+      load_application: true
+    ```
 
     ![load_application](./_doc/ide_option_load_application.png)
 
@@ -2146,23 +2325,61 @@ Supported option for MDK are:
 
   - VALUE: true or false
 
+    For example:
+
+    ```
+    mdk:
+      periodic_update: true
+    ```
+
     ![periodic_update](./_doc/ide_option_periodic_update.png)
 
 #### IAR
 
 Supported option for IAR are:
 
-- Debugger Extra Options for IAR
+- Debugger Extra Options
 
   - SETTING: debugger_extra_options
 
-  - VALUE: Specific settings for quote bracketing, for example, ""--macro_param enable_core=1"
+  - VALUE: Specific settings
+
+    For example:
+
+    ```
+    iar:
+      debugger_extra_options:
+      - "--macro_param enable_core=1"
+    ```
 
     ![debugger_extra_options](./_doc/ide_option_debugger_extra_options.png)
 
+- Download Extra Image
+
+  For multicore project, usually there are extra image needed when debugging, IAR support this setting, you can use `download-extra-image` to configure. For example
+
+  ```yaml
+            iar:
+              debug:
+                download-extra-image:
+                - path: ../../hello_world_ns/iar/debug/hello_world_ns.out
+                  offset: 0x0
+                  debug_info_only: false
+  ```
+
+  ![download_extra_image](./_doc/ide_option_download_extra_image.png)
+
 ### IDE Script Setting
 
-The IDE option setting is set by CMake function "mcux_set_ide_file" and "mcux_replace_ide_file". The option is set by the SOURCE and ATTRIBUTE  fields. For more details, please refer to  [Special functional scripts](#special-functional-scripts)
+The IDE script is set in IDE.yml. To record a script in yml, you should set at least the following properties:
+
+- source: The path of the script, it should be a path relative to ${SdkRootDirPath}
+- attribute: Mark the attribute of the script, help IDE know how to use it
+- toolchains: Indicates which toolchain this file should be used by
+
+Besides, if the script is for specific target, like ram_0x1400_debug, you should add "targets" property.
+
+Supported attributes will be introduced in the following sections.
 
 #### Keil MDK
 
@@ -2170,10 +2387,29 @@ Supported attribute for script files are:
 
 - initialization_file
 
+  For example:
+
+  ```yaml
+        initialization_file:
+          files:
+          - source: boards/${board}/evkbmimxrt1170_ram_cm4_0x1400.ini
+            targets: ram_0x1400_debug ram_0x1400_release
+            attribute: initialization_file
+            toolchains: mdk
+  ```
+
   ![initialization_file](./_doc/ide_file_initialization_file.png)
 
 - flash_programming_file
 
+  For example
+
+        flash_programming_file:
+          files:
+              - source: boards/${board}/trustzone_examples/hello_world/hello_world_s/hello_world_flashdownload_debug.ini
+                attribute: flash_programming_file
+                toolchains: mdk
+                targets: debug
   ![flash_programming_file](./_doc/ide_file_flash_programming_file.png)
 
 #### IAR
@@ -2182,18 +2418,46 @@ Supported attribute for script files are:
 
 - board-file
 
+  For example:
+
+  ```yaml
+        board_file:
+          files:
+            - source: boards/${board}/mbedtls3x_examples/mbedtls3x_psatest/mbedtls3x_psatest.board
+              attribute: board-file
+              toolchains: iar
+  ```
+
   ![board_file](./_doc/ide_file_board_file.png)
 
-- dlib-config-file
-
-  ![dlib_config_file](./_doc/ide_file_dlib_config_file.png)
-
 - macro-file
+
+  For example
+
+  ```
+        macro-file:
+          files:
+          - source: boards/${board}/evkmimxrt1064_sdram_init.mac
+            targets: sdram_txt_debug sdram_txt_release
+            toolchains: iar
+            attribute: macro-file
+  ```
 
   ![macro_file](./_doc/ide_file_macro_file.png)
 
 - jlink_script_file
 
+  For example
+
+  ```
+          jlink_script_file:
+            files:
+            - source: boards/${board}/evkbimxrt1050_sdram_init.jlinkscript
+              attribute: jlink_script_file
+              toolchains: iar
+              targets: sdram_debug sdram_release
+  ```
+
   ![jlink_script_file](./_doc/ide_file_jlink_script_file.png)
 
-[https://wwwfiles.iar.com/AVR/webic/doc/EWAVR_CompilerGuide.pdf]: 
+[https://developer.arm.com/documentation/100748/0622/Using-Common-Compiler-Options]: 
