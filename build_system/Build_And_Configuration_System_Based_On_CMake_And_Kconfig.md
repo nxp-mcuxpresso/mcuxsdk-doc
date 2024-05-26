@@ -1089,19 +1089,19 @@ Please refer the [mcux_add_source/mcux_add_include extension arguments](#source-
 
 ### IDE Related
 
-The meta build system support GUI project, the build information of assembler/compiler/linker comes from  artifacts of CMake configuration, more specifically, the build.ninja file. However, it is not enough for build system. Since the IDE will provide rich download debugging capabilities, we need to record this additional information in CMake. 
+The meta build system support GUI project, the build information of assembler/compiler/linker comes from  artifacts of CMake configuration, more specifically, the build.ninja file. However, it is not enough for build system. Since the IDE will provide rich download debugging capabilities, we need to record this additional information.
 
-The IDE related data are recorded in IDE.cmake. These cmake files are are automatically loaded by the meta build system in a certain order and do not need to be manually loaded by the user. The loading sequence is:
+The IDE related data are recorded in IDE.yml. These yml files are are automatically loaded by the meta build system in a certain order and do not need to be manually loaded by the user. The loading sequence is:
 
-1. `${SdkRootDirPath}`/boards/`${board}`/IDE.cmake
-2. `${SdkRootDirPath}`/boards/`${board}`/`${core_id}`/IDE.cmake
-3. `${SdkRootDirPath}`/`${project_category_path}`/IDE.cmake
-4. `${SdkRootDirPath}`/`${project_root_path}`/IDE.cmake
+1. `${SdkRootDirPath}`/boards/`${board}`/IDE.yml
+2. `${SdkRootDirPath}`/boards/`${board}`/`${core_id}`/IDE.yml
+3. `${SdkRootDirPath}`/`${project_category_path}`/IDE.yml
+4. `${SdkRootDirPath}`/`${project_root_path}`/IDE.yml
 
 Note:
 
 - These loading files are optional, there is no problem even if it is not provided
-- If the same setting is set in different files, settings loaded later will override settings loaded earlier
+- The setting will be merged as load sequence. Considering the yml data structure, If the setting is hash/array, then they're merged. If the setting is string or boolean, , settings loaded later will override settings loaded earlier.
 - project_category_path indicates the name of each folder containing project files in the boards/\${board} directory, for example, demo_apps. 
 
 There are 3 kinds of IDE data: project templates, IDE option and Special functional files.
@@ -1112,65 +1112,53 @@ The project template files are the most basic and original IDE definition files 
 
 ![project_template_file](./_doc/project_template_file.png)
 
-Currently, only IAR and Keil MDK are supported. For IAR, the *.ewp and *.ewd are necessary. For Keil MDK, we have provide project template files for each board, you need to set *.uvprojx and *.uvoptx.
+Currently, only IAR and Keil MDK are supported. For IAR, the *.ewp and *.ewd are necessary. For Keil MDK, we have provided project template files for each board, you need to set *.uvprojx and *.uvoptx.
 
-To record such files in CMake, we  provided CMake function **mcux_set_ide_template** and **mcux_replace_ide_template**, the parameter of these two function are same:
+To record such files in CMake, you need to record them under specific toolchain with "project-templates" field.
 
-- BASE_PATH: The base path for source which using relative path, if BASE_PATH is not provided, the source path is relative to current CMake file 
-- TOOLCHAINS: The toolchain targeted by SOURCE
-- SOURCE: The location of the project template file
+If you want to replace previous setting, you can use `__replace__`
 
 Here is the example:
 
-```cmake
-# sdk-next/mcu-sdk-3.0/boards/evkmimxrt1170/cm7/IDE.cmake
-mcux_set_ide_template(
-        BASE_PATH ${SdkRootDirPath}
-        TOOLCHAINS mdk
-        SOURCE scripts/guigenerator/templates/mdk/app_evkmimxrt1170/evkmimxrt1170_cm7.uvoptx
-                scripts/guigenerator/templates/mdk/app_evkmimxrt1170/evkmimxrt1170_cm7.uvprojx
-)
-# sdk-next/mcu-sdk-3.0/boards/evkmimxrt1170/demo_apps/hello_world/cm7/IDE.cmake
-mcux_replace_ide_template(
-        BASE_PATH ${SdkRootDirPath}
-        TOOLCHAINS iar
-        SOURCE scripts/guigenerator/templates/iar/app_jlinkswd/generic.ewp
-                scripts/guigenerator/templates/iar/app_jlinkswd/generic.ewd
-                scripts/guigenerator/templates/iar/general.eww
-)
+```yaml
+# sdk-next/mcu-sdk-3.0/boards/evkmimxrt1170/cm7/IDE.yml
+mdk:
+  project-templates:
+    - scripts/guigenerator/templates/mdk/app_evkmimxrt1170/app_evkmimxrt1170.uvprojx
+    - scripts/guigenerator/templates/mdk/app_evkmimxrt1170/app_evkmimxrt1170.uvoptx
+iar:
+  project-templates:
+    - scripts/guigenerator/templates/iar/app_cmsisdap/generic.ewp
+    - scripts/guigenerator/templates/iar/app_cmsisdap/generic.ewd
+    - scripts/guigenerator/templates/iar/general.eww
+# sdk-next/mcu-sdk-3.0/boards/evkmimxrt1170/demo_apps/hello_world/cm7/IDE.yml
+iar:
+  __replace__:
+    project-templates:
+      - scripts/guigenerator/templates/iar/app_jlinkswd/generic.ewp
+      - scripts/guigenerator/templates/iar/app_jlinkswd/generic.ewd
+      - scripts/gui
 ```
 
-Note: Make sure mcux_replace_ide_template is used after mcux_set_ide_template, otherwise you will get the error message: IDE template is not set before, please use mcux_ide_template instead of mcux_replace_ide_template
+Note: Make sure project-template is set before using `__replace__` to replace it.
 
 #### IDE option
 
 In general, IDEs support some special debugging settings, which are not implemented in the native CMake build system. For example, IAR support to selects the reset strategy to be used when the debugger starts, Keil MDK support to load application at startup, etc.
 
-The meta build system provide CMake function **mcux_set_ide_option** and **mcux_replace_ide_option** for IDE option, the parameter of these two function are same:
-
-  - TOOLCHAINS: The toolchain targeted by the option
-  - TARGETS: The build configuration targeted by the option, such as debug/release/flexspi_nor_debug/flexspi_nor_release, etc.
-  - SETTING: The name of the option to be set
-  - VALUE: The value of the option
+You can set IDE option for specific toolchain and specific target. If the setting is for all targets, please set it under `__common__`
 
 Here is the example:
-```cmake
-# sdk-next/mcu-sdk-3.0/boards/evkmimxrt1170/cm7/IDE.cmake
-mcux_set_ide_option(
-        TOOLCHAINS iar
-        TARGETS ram_0x1400_debug ram_0x1400_release
-        SETTING cmsisdap_resetlist
-        VALUE software
-# sdk-next/mcu-sdk-3.0/boards/evkmimxrt1170/demo_apps/hello_world/cm7/IDE.cmake
-mcux_replace_ide_option(
-        TOOLCHAINS iar
-        TARGETS ram_0x1400_debug ram_0x1400_release
-        SETTING cmsisdap_resetlist
-        VALUE hardware
-)
+```yaml
+# sdk-next/mcu-sdk-3.0/boards/evkmimxrt1170/cm7/IDE.yml
+iar:
+  config:
+    __common__:
+      debugger_setting:
+        cmsisdap_resetlist: software
 ```
 
-Note: For same toolchain and targets targeted by same option, make sure mcux_replace_ide_option is used after mcux_set_ide_option, otherwise you will get the error message: setting is not set before, please use mcux_set_ide_option instead of mcux_replace_ide_option.
+Note: If you want to replace the setting with the new one, you can just set it in files loaded later if the setting is a string or boolean. If the setting value is array or hash, you must use `__replace__`
 
 For details of commonly used option settings, please refer to [IDE Option Setting](#ide-option-setting)
 
@@ -1178,35 +1166,33 @@ For details of commonly used option settings, please refer to [IDE Option Settin
 
 Some IDEs may use scripts to initialize the compilation environment before and after the compilation phase, or to process the image files generated by the compilation, or to initialize the flash before the start of debugging, etc. So we need to support the recording of these scripts in CMake with special functions.
 
-The meta build system provide CMake function **mcux_set_ide_file** and  **mcux_replace_ide_file** for IDE option, the parameter of these two function are same:
+You can set a script in "files" field inside a section with with attribute:
 
-- BASE_PATH: The base path for IDE script which using relative path, if BASE_PATH is not provided, the script path is relative to current CMake file 
-- TOOLCHAINS: The toolchain targeted by the IDE script
-- TARGETS: The build configuration targeted by the IDE scripts, such as debug/release/flexspi_nor_debug/flexspi_nor_release, etc.
-- SOURCE: The relative path of the IDE script
-- ATTRIBUTE: The attribute of the script, Represents the function of the script
+- toolchains: The toolchain targeted by the IDE script
+- targets: The build configuration targeted by the IDE scripts, such as debug/release/flexspi_nor_debug/flexspi_nor_release, etc.
+- source: The relative path of the IDE script
+- attribute: The attribute of the script, Represents the function of the script
 
 Here is the example:
 
-```cmake
-# sdk-next/mcu-sdk-3.0/boards/evkmimxrt1170/cm7/IDE.cmake
-mcux_set_ide_file(
-        BASE_PATH ${SdkRootDirPath}
-        TOOLCHAINS iar
-        SOURCE boards/${board}/evkmimxrt1170_connect_cm7.mac
-        TARGETS sdram_txt_debug sdram_txt_release ram_0x1400_debug ram_0x1400_release
-        ATTRIBUTE macro-file
-)
-# sdk-next/mcu-sdk-3.0/boards/evkmimxrt1170/demo_apps/hello_world/cm7/IDE.cmake
-mcux_replace_ide_file(
-        TOOLCHAINS iar
-        SOURCE evkmimxrt1170_connect_cm7.mac
-        TARGETS sdram_txt_debug sdram_txt_release ram_0x1400_debug ram_0x1400_release
-        ATTRIBUTE macro-file
-)
+```yaml
+macro-file: #setction name
+  files:
+  - source: boards/${board}/evkmimxrt1170_cm7.mac
+    attribute: macro-file
+    toolchains: iar
 ```
 
-Note: For same toolchain and targets targeted by same option, make sure mcux_replace_ide_file is used after mcux_set_ide_file, otherwise you will get the error message: Attribute file is not set before, please use mcux_set_ide_file instead of mcux_replace_ide_file
+Note: If you want to replace the script with the new one, you must use `__replace__`. For example:
+
+```yaml
+macro-file: #setction name
+  __replace__:
+    files:
+    - source: boards/${board}/evkmimxrt1170_connect_cm7.mac
+      attribute: macro-file
+      toolchains: iar
+```
 
 For details of supported attribute file, please refer to [IDE Script Setting](#ide-script-setting)
 
@@ -2404,12 +2390,14 @@ Supported attribute for script files are:
 
   For example
 
-        flash_programming_file:
-          files:
-              - source: boards/${board}/trustzone_examples/hello_world/hello_world_s/hello_world_flashdownload_debug.ini
-                attribute: flash_programming_file
-                toolchains: mdk
-                targets: debug
+  ```yaml
+    flash_programming_file:
+      files:
+          - source: boards/${board}/trustzone_examples/hello_world/hello_world_s/hello_world_flashdownload_debug.ini
+            attribute: flash_programming_file
+            toolchains: mdk
+            targets: debug
+  ```
   ![flash_programming_file](./_doc/ide_file_flash_programming_file.png)
 
 #### IAR
@@ -2421,7 +2409,7 @@ Supported attribute for script files are:
   For example:
 
   ```yaml
-        board_file:
+        board-file:
           files:
             - source: boards/${board}/mbedtls3x_examples/mbedtls3x_psatest/mbedtls3x_psatest.board
               attribute: board-file
@@ -2441,6 +2429,7 @@ Supported attribute for script files are:
             targets: sdram_txt_debug sdram_txt_release
             toolchains: iar
             attribute: macro-file
+
   ```
 
   ![macro_file](./_doc/ide_file_macro_file.png)
@@ -2459,5 +2448,3 @@ Supported attribute for script files are:
   ```
 
   ![jlink_script_file](./_doc/ide_file_jlink_script_file.png)
-
-[https://developer.arm.com/documentation/100748/0622/Using-Common-Compiler-Options]: 
