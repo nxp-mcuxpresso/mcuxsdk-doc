@@ -1649,17 +1649,18 @@ Unlike the CMake which shall be explicitly included, the proj.conf will be loade
 
 Here is the priority list from low to high
 
-1. devices/prj.conf
-2. devices/\<soc_series>/prj.conf
-3. devices/\<soc_series>/\<device>/prj.conf
-4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
-5. boards/prj.conf
-6. boards/\<board>/prj.conf
-7. boards/\<board>/\<core_id>/prj.conf
-8. examples/prj.conf
-9. examples/\<example_category>/prj.conf
-10. boards/\<board>/\<example_category>/prj.conf
-11. boards/\<board>/\<example_category>/\<example>/prj.conf
+1. devices/IDE.yml
+2. devices/\<soc_series>/IDE.yml
+3. devices/\<soc_series>/\<device>/IDE.yml
+4. devices/\<soc_series>/\<device>/\<core_id>/IDE.yml
+5. boards/IDE.yml
+6. boards/\<board>/IDE.yml
+7. boards/\<board>/\<core_id>/IDE.yml
+8. examples/IDE.yml
+9. examples/\<example_category>/IDE.yml
+10. examples/\<example_category>/\<example>/IDE.yml
+11. examples/\<example_category>/\<example>/boards/\<board>/IDE.yml
+12. examples/\<example_category>/\<example>/boards/\<board>/\<core>/IDE.yml
 
 High priority prj.conf data will override low priority prj.conf data.
 
