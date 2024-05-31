@@ -1650,16 +1650,16 @@ Unlike the CMake which shall be explicitly included, the proj.conf will be loade
 Here is the priority list from low to high
 
 1. devices/prj.conf
-2. devices/`<soc_series>`/prj.conf
-3. devices/`<soc_series>`/`<device>`/prj.conf
-4. devices/`<soc_series>`/`<device>`/`<core_id>`/prj.conf
+2. devices/\<soc_series>/prj.conf
+3. devices/\<soc_series>/\<device>/prj.conf
+4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
 5. boards/prj.conf
-6. boards/`<board>`/prj.conf
-7. boards/`<board>`/`<core_id>`/prj.conf
+6. boards/\<board>/prj.conf
+7. boards/\<board>/\<core_id>/prj.conf
 8. examples/prj.conf
-9. examples/`<example_category>`/prj.conf
-10. boards/`<board>`/`<example_category>`/prj.conf
-11. boards/`<board>`/`<example_category>`/`<example>`/prj.conf
+9. examples/\<example_category>/prj.conf
+10. boards/\<board>/\<example_category>/prj.conf
+11. boards/\<board>/\<example_category>/\<example>/prj.conf
 
 High priority prj.conf data will override low priority prj.conf data.
 
