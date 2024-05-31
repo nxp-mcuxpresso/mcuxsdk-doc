@@ -1277,18 +1277,18 @@ The above variables shall anyway be provided in CMake because they are used befo
 
 Here is the Kconfig stored variable table:
 
-| Variable Name                       | Explanation                              | Acquisition     | Used in | Usage |
-| ----------------------------------- | ---------------------------------------- | --------------- | ------- | ----- |
-| MCUX_HW_CORE                        | Core                                     | Kconfig process | CMake   |       |
-| MCUX_HW_CORE_ID                     | Core id                                  | Kconfig process | CMake   |       |
-| MCUX_HW_DEVICE_CORE                 | device core. For single core, it is the device like MK64F12. For multicore, it is device+core like  MIMXRT1176_cm4 or  MIMXRT1176_cm7 | Kconfig process | CMake   |       |
-| MCUX_HW_FPU                         | fpu                                      | Kconfig process | CMake   |       |
-| MCUX_HW_FPU_TYPE                    | fpu type.                                | Kconfig process | CMake   |       |
-| MCUX_HW_DEVICE_ID                   | Device id like  MK64FN1M0xxx12           | Kconfig process | CMake   |       |
-| MCUX_HW_DEVICE_PART                 | Device part like  MK64FN1M0VDC12         | Kconfig process | CMake   |       |
-| MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX | NPI provided device default linker file name prefix, like "LINKER devices/${soc_series}/${device}/gcc/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld", for MK64F12, it is devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld | Kconfig process | CMake   |       |
-| MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER   | IAR IDE project device identifier        | Kconfig process | CMake   |       |
-| MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER   | MDK IDE project device identifier        | Kconfig process | CMake   |       |
+| Variable Name                            | Explanation                              | Acquisition     | Used in | Usage |
+| ---------------------------------------- | ---------------------------------------- | --------------- | ------- | ----- |
+| CONFIG_MCUX_HW_CORE                      | Core                                     | Kconfig process | CMake   |       |
+| CONFIG_MCUX_HW_CORE_ID                   | Core id                                  | Kconfig process | CMake   |       |
+| CONFIG_MCUX_HW_DEVICE_CORE               | device core. For single core, it is the device like MK64F12. For multicore, it is device+core like  MIMXRT1176_cm4 or  MIMXRT1176_cm7 | Kconfig process | CMake   |       |
+| CONFIG_MCUX_HW_FPU                       | fpu                                      | Kconfig process | CMake   |       |
+| CONFIG_MCUX_HW_FPU_TYPE                  | fpu type.                                | Kconfig process | CMake   |       |
+| CONFIG_MCUX_HW_DEVICE_ID                 | Device id like  MK64FN1M0xxx12           | Kconfig process | CMake   |       |
+| CONFIG_MCUX_HW_DEVICE_PART               | Device part like  MK64FN1M0VDC12         | Kconfig process | CMake   |       |
+| CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX | NPI provided device default linker file name prefix, like "LINKER devices/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld", for MK64F12, it is devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld | Kconfig process | CMake   |       |
+| CONFIG_MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER | IAR IDE project device identifier        | Kconfig process | CMake   |       |
+| CONFIG_MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER | MDK IDE project device identifier        | Kconfig process | CMake   |       |
 
 Basically, all type string Kconfig symbol can be regarded as variable and used in CMake.
 
@@ -1803,11 +1803,11 @@ Like Zephyr, BS supports setting up configuration for flash runners (invoked fro
 ```cmake
 board_runner_args(pyocd "--target=mimxrt1170_${core_id}")
 if(${core_id} STREQUAL cm7)
-    board_runner_args(jlink "--device=${MCUX_HW_DEVICE_ID}_M7" "--reset-after-load")
+    board_runner_args(jlink "--device=${CONFIG_MCUX_HW_DEVICE_ID}_M7" "--reset-after-load")
 elseif(${core_id} STREQUAL cm4)
-    board_runner_args(jlink "--device=${MCUX_HW_DEVICE_ID}_M4")
+    board_runner_args(jlink "--device=${CONFIG_MCUX_HW_DEVICE_ID}_M4")
 endif()
-board_runner_args(linkserver "--device=${MCUX_HW_DEVICE_ID}:MIMXRT1170-EVK")
+board_runner_args(linkserver "--device=${CONFIG_MCUX_HW_DEVICE_ID}:MIMXRT1170-EVK")
 board_runner_args(linkserver "--core=${core_id}")
 
 include(${SdkRootDirPath}/cmake/extension/runner/jlink.board.cmake)
@@ -1984,8 +1984,8 @@ Let's say if you want to use drivers from meta build system, you need to prepare
    set(device MIMXRT1176)
    set(SdkRootDirPath ${CMAKE_CURRENT_LIST_DIR}/..)
    set(core_id cm7)
-   set(MCUX_HW_CORE cm7f)
-   set(MCUX_HW_FPU_TYPE fpv5_dp)
+   set(CONFIG_MCUX_HW_CORE cm7f)
+   set(CONFIG_MCUX_HW_FPU_TYPE fpv5_dp)
 
    # load device CMakeLists.txt
    mcux_add_cmakelists(${ZEPHYR_HAL_NXP_MODULE_DIR}/mcux/mcux-sdk/devices/${soc_series}/${device})
