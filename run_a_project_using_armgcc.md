@@ -6,7 +6,7 @@ This section contains the steps to install the necessary components required to 
 application with the Arm GCC toolchain, as supported by the MCUXpresso SDK. There are many ways to use Arm GCC
 tools, but this example focuses on a Windows operating system environment.
 
-### 1. Install GCC ARM Embedded toolchain
+### 1. Install GCC Arm Embedded toolchain
 Download and run the installer from launchpad.net/gcc-arm-embedded. This is the actual toolset (in other words,compiler, linker, etc.).
 
 ### 2. Install MinGW (only required on Windows OS)
