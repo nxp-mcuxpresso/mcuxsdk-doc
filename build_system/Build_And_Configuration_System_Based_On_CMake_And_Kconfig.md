@@ -357,6 +357,34 @@ mcux_add_configuration(
 
 Very similar with mcux_add_configuration, just target specified toolchain, not for all.
 
+### MACRO
+
+#### mcux_add_macro
+
+The CMake function mcux_add_configuration requires the complete toolchain setting. For macro setting, you must add "-D" prefix for each macro. To make it easier for users to add macros, mcux_add_macro is provided.
+
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
+| AS            | Single        | The assemble compiler macros               |
+| CC            | Single        | The c compiler macros                     |
+| CX            | Single        | The cxx compiler macros                   |
+
+Note, mcux_add_macro automatically prefixes macros that do not have the -D prefix, duplicated macros will be removed
+
+Here is one example
+
+```cmake
+mcux_add_macro(
+  CC "FOO -DFOO -D BAR=1" # Equals -DFOO -DBAR=1
+  )
+```
+
+
+#### mcux_add_iar_macro/mcux_add_mdk_macro/mcux_add_armgcc_macro
+
+Very similar with mcux_add_macro, just target specified toolchain, not for all.
+
 ### Remove
 
 Except adding data, the build system also supports removing defined data. For example, if in a common definition, a macro is defined for examples in the board, but your example cannot use it, then you can use following remove function to remove it.
@@ -390,6 +418,28 @@ mcux_remove_configuration(
 #### mcux_remove_iar_configuration/mcux_remove_mdk_configuration/mcux_remove_armgcc_configuration
 
 Very similar with mcux_remove_configuration, just target specified toolchain, not for all.
+
+#### mcux_remove_macro
+
+Remove macros for all toolchains with specified build targets.
+
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
+| AS            | Single        | The assemble compiler macros               |
+| CC            | Single        | The c compiler macros                     |
+| CX            | Single        | The cxx compiler macros                   |
+
+Note, mcux_remove_macro automatically prefixes macros that do not have the -D prefix
+Here is one example
+
+```cmake
+mcux_remove_macro(CC "TESTMACRO")
+```
+
+#### mcux_remove_iar_macro/mcux_remove_mdk_macro/mcux_remove_armgcc_macro
+
+Very similar with mcux_remove_macro, just target specified toolchain, not for all.
 
 #### mcux_remove_iar_linker_script/mcux_remove_mdk_linker_scriptmcux_remove_armgcc_linker_script
 
