@@ -20,7 +20,6 @@ separate_arguments(LATEXMKOPTS)
 #-------------------------------------------------------------------------------
 # Dependencies
 
-find_package(Doxygen REQUIRED dot)
 
 find_program(SPHINXBUILD sphinx-build)
 if(NOT SPHINXBUILD)
@@ -37,7 +36,7 @@ endif()
 # Environment & Paths
 
 set(SPHINX_ENV
-  DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE}
+  # DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE}
   DOT_EXECUTABLE=${DOXYGEN_DOT_EXECUTABLE}
   DOCGEN_BRANCH=${DOCGEN_BRANCH}
   DOCGEN_REV=${DOCGEN_REV}
@@ -46,7 +45,20 @@ set(SPHINX_ENV
 message(STATUS "Generation branch: ${DOCGEN_BRANCH}")
 message(STATUS "Generation revision: ${DOCGEN_REV}")
 
-set(DOCS_CFG_DIR ${CMAKE_CURRENT_LIST_DIR})
+# set(DOCS_CFG_DIR ${CMAKE_CURRENT_LIST_DIR})
+# Check if SPHINX_CONF_DIR is passed from command line
+if(DEFINED SPHINX_CONF_DIR)
+  get_filename_component(SPHINX_CONF_DIR_ABS ${SPHINX_CONF_DIR} ABSOLUTE)
+  set(DOCS_CFG_DIR ${SPHINX_CONF_DIR_ABS})
+  # set(DOCS_CFG_DIR ${SPHINX_CONF_DIR})
+else()
+  # Default value if not provided
+  set(DOCS_CFG_DIR ${CMAKE_CURRENT_LIST_DIR})
+endif()
+
+message(STATUS "CURRENT DIR = ${CMAKE_CURRENT_LIST_DIR}")
+message(STATUS "Decided Sphinx configuration directory: ${DOCS_CFG_DIR}")
+
 set(DOCS_DOCTREE_DIR ${CMAKE_CURRENT_BINARY_DIR}/doctrees)
 set(DOCS_BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR})
 set(DOCS_SRC_DIR ${CMAKE_CURRENT_BINARY_DIR}/src)
@@ -85,25 +97,32 @@ endfunction()
 #-------------------------------------------------------------------------------
 # Doxygen (standalone)
 
-set(DOXY_OUT ${CMAKE_CURRENT_BINARY_DIR}/doxygen)
-message(STATUS "DOXY_OUT: ${DOXY_OUT}")
-set(DOXYFILE_IN ${CMAKE_CURRENT_LIST_DIR}/Doxyfile_lib_PDF_RM_Drivers)
-set(DOXYFILE_OUT ${CMAKE_CURRENT_BINARY_DIR}/sdk.doxyfile)
+if (IS_DOXY)
+  message(STATUS "Config Doxygen Setup")
+  find_package(Doxygen REQUIRED dot)
+  list(APPEND SHPINX_ENV DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE})
+  set(DOXY_OUT ${CMAKE_CURRENT_BINARY_DIR}/doxygen)
+  message(STATUS "DOXY_OUT: ${DOXY_OUT}")
+  set(DOXYFILE_IN ${CMAKE_CURRENT_LIST_DIR}/Doxyfile_lib_PDF_RM_Drivers)
+  set(DOXYFILE_OUT ${CMAKE_CURRENT_BINARY_DIR}/sdk.doxyfile)
 
-configure_file(${DOXYFILE_IN} ${DOXYFILE_OUT} @ONLY)
+  configure_file(${DOXYFILE_IN} ${DOXYFILE_OUT} @ONLY)
 
-add_custom_target(
-  doxygen
-  COMMAND
-    ${DOXYGEN_EXECUTABLE} ${DOXYFILE_OUT}
-  COMMENT "Running Doxygen..."
-)
+  add_custom_target(
+    doxygen
+    COMMAND
+      ${DOXYGEN_EXECUTABLE} ${DOXYFILE_OUT}
+    COMMENT "Running Doxygen..."
+  )
 
-set_target_properties(
-  doxygen
-  PROPERTIES
-    ADDITIONAL_CLEAN_FILES "${DOXY_OUT}"
-)
+  set_target_properties(
+    doxygen
+    PROPERTIES
+      ADDITIONAL_CLEAN_FILES "${DOXY_OUT}"
+  )
+else()
+  message(STATUS "Skip Doxygen Setup")
+endif(IS_DOXY)
 
 #-------------------------------------------------------------------------------
 # html

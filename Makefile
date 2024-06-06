@@ -19,6 +19,10 @@ DOCGEN_REV ?= 851c5ddabe8
 html latex pdf linkcheck doxygen: configure
 	cmake --build ${BUILDDIR} --target $@
 
+# Define multiple configuration options for conf.py from different directory
+SPHINX_CONF_DIR ?=_cfg/full
+IS_DOXY ?=1
+
 configure:
 	cmake \
 		-GNinja \
@@ -29,7 +33,9 @@ configure:
 		-DSPHINXOPTS_EXTRA="${SPHINXOPTS_EXTRA}" \
 		-DLATEXMKOPTS="${LATEXMKOPTS}" \
 		-DDOCGEN_BRANCH=$(DOCGEN_BRANCH) \
-		-DDOCGEN_REV=$(DOCGEN_REV)
+		-DDOCGEN_REV=$(DOCGEN_REV) \
+		-DSPHINX_CONF_DIR=${SPHINX_CONF_DIR} \
+		-DIS_DOXY=${IS_DOXY}
 
 clean:
 	cmake --build ${BUILDDIR} --target clean

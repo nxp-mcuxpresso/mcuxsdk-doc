@@ -23,8 +23,8 @@ from sphinx.cmd.build import get_parser
 
 args = get_parser().parse_args()
 
-DOC_BASE = Path(__file__).absolute().parents[0]
-SDK_BASE = Path(__file__).absolute().parents[1]
+DOC_BASE = Path(__file__).absolute().parents[2]
+SDK_BASE = Path(__file__).absolute().parents[3]
 print(SDK_BASE)
 DOC_BUILD = Path(args.outputdir).resolve().parents[0]
 # sys.path.insert(0, os.path.abspath('.'))
