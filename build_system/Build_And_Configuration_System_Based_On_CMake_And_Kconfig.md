@@ -334,6 +334,7 @@ Add configuration for all toolchains with specified build targets.
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
+| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians    |
 | LIB           | Multiple      | The library, the full path               |
 | AS            | Single        | The assemble compiler flag               |
 | CC            | Single        | The c compiler flags                     |
@@ -363,12 +364,13 @@ Very similar with mcux_add_configuration, just target specified toolchain, not f
 
 The CMake function mcux_add_configuration requires the complete toolchain setting. For macro setting, you must add "-D" prefix for each macro. To make it easier for users to add macros, mcux_add_macro is provided.
 
-| Argument Name | Argument Type | Explanation                              |
-| ------------- | ------------- | ---------------------------------------- |
+| Argument Name | Argument Type | Explanation                                                           |
+|---------------| ------------- |-----------------------------------------------------------------------|
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-| AS            | Single        | The assemble compiler macros               |
-| CC            | Single        | The c compiler macros                     |
-| CX            | Single        | The cxx compiler macros                   |
+| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians    |
+| AS            | Single        | The assemble compiler macros                                          |
+| CC            | Single        | The c compiler macros                                                 |
+| CX            | Single        | The cxx compiler macros                                               |
 
 Note, mcux_add_macro automatically prefixes macros that do not have the -D prefix, duplicated macros will be removed
 
@@ -379,11 +381,6 @@ mcux_add_macro(
   CC "FOO -DFOO -D BAR=1" # Equals -DFOO -DBAR=1
   )
 ```
-
-
-#### mcux_add_iar_macro/mcux_add_mdk_macro/mcux_add_armgcc_macro
-
-Very similar with mcux_add_macro, just target specified toolchain, not for all.
 
 ### Remove
 
@@ -396,6 +393,7 @@ Remove configuration for all toolchains with specified build targets.
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
+| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians    |
 | LIB           | Multiple      | The library, the full path               |
 | AS            | Single        | The assemble compiler flag               |
 | CC            | Single        | The c compiler flags                     |
@@ -426,6 +424,7 @@ Remove macros for all toolchains with specified build targets.
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
+| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians |
 | AS            | Single        | The assemble compiler macros               |
 | CC            | Single        | The c compiler macros                     |
 | CX            | Single        | The cxx compiler macros                   |
@@ -436,10 +435,6 @@ Here is one example
 ```cmake
 mcux_remove_macro(CC "TESTMACRO")
 ```
-
-#### mcux_remove_iar_macro/mcux_remove_mdk_macro/mcux_remove_armgcc_macro
-
-Very similar with mcux_remove_macro, just target specified toolchain, not for all.
 
 #### mcux_remove_iar_linker_script/mcux_remove_mdk_linker_scriptmcux_remove_armgcc_linker_script
 
