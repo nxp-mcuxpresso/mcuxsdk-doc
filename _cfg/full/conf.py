@@ -126,7 +126,7 @@ latex_engine = "xelatex"
 # -- Options for doxyrunner plugin ---------------------------------
 
 doxyrunner_doxygen = os.environ.get("DOXYGEN_EXECUTABLE", "doxygen")
-doxyrunner_doxyfile = DOC_BASE / "Doxyfile_lib_PDF_RM_Drivers"
+doxyrunner_doxyfile = DOC_BASE / "drivers" / "Doxyfile_lib_PDF_RM_Drivers"
 doxyrunner_outdir = DOC_BUILD / "doxygen"
 doxyrunner_fmt = True
 doxyrunner_fmt_vars = {"SDK_BASE": str(SDK_BASE)}

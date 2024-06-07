@@ -30,27 +30,45 @@ for more details.
 
 .. _GitHub repo: https://github.com/NXPMicro/mcux-sdk
 
-
 .. only:: html
 
+.. toctree::
+   :maxdepth: 1
+   :caption: introduction
+
+   introduction/index
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :caption: Getting Started
 
-   Documentation Home <self>
-   MCUXpresso SDK Brief Introduction <README.md>
-   Getting Started with MCUXpresso SDK <Getting_Started.md>
-   Contribution to MCUXpresso SDK <CONTRIBUTING.md>
-   Demos and Examples <examples/index.rst>
-   API Reference Manual <drivers/index.rst>
-   Middleware <middleware/index.rst>
-   Avaiable Development Boards <Boards/index.rst>
+   GetStart <gsd/index>
+:
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents
+
+   Examples <examples/index.rst>
+   Drivers <drivers/index.rst>
+   Middlewares <middleware/index>
+   Boards <boards/index>
 
 .. toctree::
    :maxdepth: 1
-   :caption: Build And Configuration System
+   :caption: Development
 
-   Build And Configuration System Based On CMake And Kconfig <build_system/Build_And_Configuration_System_Based_On_CMake_And_Kconfig.md>
-   Frequently Asked Questions <build_system/Frequently_Asked_Questions.md>
-   Best Practise <build_system/Best_Practice.md>
+   develop/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Releases
+
+   release/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contribution
+
+   contribute/index
+
+.. todolist::

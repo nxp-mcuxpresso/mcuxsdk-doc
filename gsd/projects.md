@@ -1,4 +1,4 @@
-# Getting Start with MCUXpresso SDK
+# Projects
 This section helps you build basic understanding of current fundamental project content and guide you how to build and run the provided example project in whole SDK delivery.
 
 ## Fundamental Project(core)
@@ -30,11 +30,4 @@ In the folder `examples`, all board examples in current SDK revision are include
 
 Below we use the hello_world example (part of the demo_apps folder) to demonstrate the example structure, other examples have similar structure.
 
-![Software example structure](Getting_Started/images/example_structure.png)
-
-### Build and run example application
-To build and run the example application, we provide below guides:
-
-Using MCUXpresso IDE: Check steps in [Run a project using MCUXpresso IDE](run_a_project_using_mcux.md)
-
-Using ARMGCC: Check steps in [Run a project using ARMGCC](run_a_project_using_armgcc.md)
+![Software example structure](images/example_structure.png)
