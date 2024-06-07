@@ -251,6 +251,10 @@ Please see following table for the arguments
 | TRUSTZONE     | Multiple      | The trustzone. It means the source or include only supports the listed trustzone. trustzone enum values are TZ and  NO_TZ. |
 | COMPONENTS    | Multiple      | The components. It means the source or include only supports the listed components |
 
+Wildcard "\*.\<extension>" is supported in mcux\_add_source, frequently used would be "\*.*", "\*.c" and "\*.h". 
+
+If the number of files is relatively small, it is not recommended to use wildcards because it is implicit and time consumed.
+
 Here is one example:
 
 ```cmake
@@ -260,6 +264,10 @@ if (CONFIG_MCUX_COMPONENT_driver.uart)
         SOURCES fsl_uart.h 
                 fsl_uart.c
     )
+    # with wildcard, it can be this way
+    # mcux_add_source(
+    # SOURCES *.*
+    # )
     mcux_add_include(
         INCLUDES .
     )
@@ -334,7 +342,7 @@ Add configuration for all toolchains with specified build targets.
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians    |
+| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians |
 | LIB           | Multiple      | The library, the full path               |
 | AS            | Single        | The assemble compiler flag               |
 | CC            | Single        | The c compiler flags                     |
@@ -364,13 +372,13 @@ Very similar with mcux_add_configuration, just target specified toolchain, not f
 
 The CMake function mcux_add_configuration requires the complete toolchain setting. For macro setting, you must add "-D" prefix for each macro. To make it easier for users to add macros, mcux_add_macro is provided.
 
-| Argument Name | Argument Type | Explanation                                                           |
-|---------------| ------------- |-----------------------------------------------------------------------|
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians    |
-| AS            | Single        | The assemble compiler macros                                          |
-| CC            | Single        | The c compiler macros                                                 |
-| CX            | Single        | The cxx compiler macros                                               |
+| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians |
+| AS            | Single        | The assemble compiler macros             |
+| CC            | Single        | The c compiler macros                    |
+| CX            | Single        | The cxx compiler macros                  |
 
 Note, mcux_add_macro automatically prefixes macros that do not have the -D prefix, duplicated macros will be removed
 
@@ -393,7 +401,7 @@ Remove configuration for all toolchains with specified build targets.
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians    |
+| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians |
 | LIB           | Multiple      | The library, the full path               |
 | AS            | Single        | The assemble compiler flag               |
 | CC            | Single        | The c compiler flags                     |
@@ -425,9 +433,9 @@ Remove macros for all toolchains with specified build targets.
 | ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
 | TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians |
-| AS            | Single        | The assemble compiler macros               |
-| CC            | Single        | The c compiler macros                     |
-| CX            | Single        | The cxx compiler macros                   |
+| AS            | Single        | The assemble compiler macros             |
+| CC            | Single        | The c compiler macros                    |
+| CX            | Single        | The cxx compiler macros                  |
 
 Note, mcux_remove_macro automatically prefixes macros that do not have the -D prefix
 Here is one example
