@@ -1147,16 +1147,18 @@ The meta build system support GUI project, the build information of assembler/co
 The IDE related data are recorded in IDE.yml. These yml files are are automatically loaded and merged by the meta build system in a certain order and do not need to be manually loaded by the user. The loading sequence is:
 
 1. devices/IDE.yml
-2. devices/<soc_series>/IDE.yml
-3. devices/<soc_series>/<device>/IDE.yml
-4. devices/<soc_series>/<device>/<core_id>/IDE.yml
-5. boards/IDE.yml
-6. boards/<board>/IDE.yml
-7. boards/<board>/<core_id>/IDE.yml
-8. examples/IDE.yml
-9. examples/<example_category>/IDE.yml
-10. boards/<board>/<example_category>/IDE.yml
-11. boards/<board>/<example_category>/<example>/IDE.yml
+2. devices/\<soc_series>/IDE.yml
+3. devices/\<soc_series>/\<device>/IDE.yml
+4. devices/\<soc_series>/\<device>/\<core_id>/IDE.yml
+5. examples/IDE.yml
+6. examples/\<board>/IDE.yml
+7. examples/\<board>/\<core_id>/IDE.yml
+8. examples/src/IDE.yml
+9. examples/src/\<example_category>/IDE.yml
+10. examples/src/\<example_category>/\<example>/IDE.yml
+11. examples/\<board>/\<example_category>/IDE.yml
+12. examples/\<board>/\<example_category>/\<example>/IDE.yml
+13. examples/\<board>/\<example_category>/\<example>/\<core_id>/IDE.yml
 
 Note:
 
@@ -1702,18 +1704,19 @@ Unlike the CMake which shall be explicitly included, the proj.conf will be loade
 
 Here is the priority list from low to high
 
-1. devices/IDE.yml
-2. devices/\<soc_series>/IDE.yml
-3. devices/\<soc_series>/\<device>/IDE.yml
-4. devices/\<soc_series>/\<device>/\<core_id>/IDE.yml
-5. boards/IDE.yml
-6. boards/\<board>/IDE.yml
-7. boards/\<board>/\<core_id>/IDE.yml
-8. examples/IDE.yml
-9. examples/\<example_category>/IDE.yml
-10. examples/\<example_category>/\<example>/IDE.yml
-11. examples/\<example_category>/\<example>/boards/\<board>/IDE.yml
-12. examples/\<example_category>/\<example>/boards/\<board>/\<core>/IDE.yml
+1. devices/prj.conf
+2. devices/\<soc_series>/prj.conf
+3. devices/\<soc_series>/\<device>/prj.conf
+4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
+5. examples/prj.conf
+6. examples/\<board>/prj.conf
+7. examples/\<board>/\<core_id>/prj.conf
+8. examples/src/prj.conf
+9. examples/src/\<example_category>/prj.conf
+10. examples/src/\<example_category>/\<example>/prj.conf
+11. examples/\<board>/\<example_category>/prj.conf
+12. examples/\<board>/\<example_category>/\<example>/prj.conf
+13. examples/\<board>/\<example_category>/\<example>/\<core_id>/prj.conf
 
 High priority prj.conf data will override low priority prj.conf data.
 
