@@ -696,13 +696,13 @@ cmake_minimum_required(VERSION 3.22.0)
 include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
 
 # Specify the project
-project(hello_world LANGUAGES C CXX ASM PROJECT_ROOT_PATH boards/${board}/demo_apps/hello_world/${multicore_foldername})
+project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH boards/${board}/demo_apps/hello_world/${multicore_foldername})
 
 # Include device, board, drivers/components, middlewares
 include(${SdkRootDirPath}/CMakeLists.txt)
 
 include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
-include(${SdkRootDirPath}/${project_root_path}/reconfig.cmake OPTIONAL)
+include(${SdkRootDirPath}/${project_board_port_path}/reconfig.cmake OPTIONAL)
 
 mcux_add_source(
     SOURCES hello_world.c
@@ -1777,7 +1777,7 @@ include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
 # 5. Load device variable
 # With board and device variable, cmake has the environment to start Kconfig because Kconfig needs board and device variables to work. This execution will be done in following "project"
 
-project(hello_world LANGUAGES C CXX ASM PROJECT_ROOT_PATH boards/${board}/demo_apps/hello_world/${multicore_foldername})
+project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH boards/${board}/demo_apps/hello_world/${multicore_foldername})
 ## In this "project" macro, BS continuously does the following work
 # 6. Add execution cmake target
 # 7. Add pristine cmake target
@@ -1810,7 +1810,7 @@ include(${SdkRootDirPath}/CMakeLists.txt)
 
 # If needed, load other customized cmake
 include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
-include(${SdkRootDirPath}/${project_root_path}/reconfig.cmake OPTIONAL)
+include(${SdkRootDirPath}/${project_board_port_path}/reconfig.cmake OPTIONAL)
 
 # Add the project self source and include
 mcux_add_source(
@@ -1836,8 +1836,8 @@ BCS provides following ways to do the customization.
 
    ```cmake
    include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
-   # project_root_path here means boards/frdmk64f/demo_apps/hello_world
-   include(${SdkRootDirPath}/${project_root_path}/reconfig.cmake OPTIONAL)
+   # project_board_port_path here means boards/frdmk64f/demo_apps/hello_world
+   include(${SdkRootDirPath}/${project_board_port_path}/reconfig.cmake OPTIONAL)
    ```
 
    You can add reconfig.cmake in any sub folder of the above 2 optional cmake path to different level reconfig.cmake and remember to include it recursively in deeper level cmake.
