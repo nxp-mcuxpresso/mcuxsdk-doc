@@ -612,7 +612,7 @@ config MCUX_COMPONENT_driver.uart
     endif
 ```
 
-About the dependency, please refer [Complex Dependency In Kconfig](#complex-dependency-in-kconfig) chapter for details.
+About the dependency, please refer [Complex Dependency In Kconfig](#dependency) chapter for details.
 
 For multiple components belonging to one middleware set, please use Kconfig "menu" to gather them together, like
 
@@ -835,17 +835,17 @@ Here are summarized frequently used dependency patterns.
     - component1
     - component2
     - anyOf:
-   - component3
-   - component4
+      - component3
+      - component4
     - anyOf:
-   - component5
-   - component6
+      - component5
+      - component6
     - core:
-   - cm33
-   - cm33f
+      - cm33
+      - cm33f
     - device:
-   - MK64F12
-   - MK63F12
+      - MK64F12
+      - MK63F12
   ```
 
   The Kconfig dependency pattern is like
