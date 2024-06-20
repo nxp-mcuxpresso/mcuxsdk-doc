@@ -244,7 +244,7 @@ external_content_contents = [
     (SDK_BASE, "boards/**/**/*.readme"),
     (SDK_BASE, "boards/**/**/**/*.readme"),
     (SDK_BASE, "middleware/mcuboot_opensource/docs/*.md"),
-    (SDK_BASE / "..", "manifest_int/readme.md"),
+    (SDK_BASE / "..", "bifrost/readme.md"),
 ]
 external_content_keep = [
 ]
