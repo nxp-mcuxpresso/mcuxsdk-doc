@@ -43,10 +43,10 @@ for more details.
    :caption: Getting Started
 
    GetStart <gsd/index>
-:
+
 .. toctree::
-   :maxdepth: 1
-   :caption: Contents
+   :maxdepth: 2
+   :caption: User Guide
 
    Examples <examples/index.rst>
    Drivers <drivers/index.rst>
