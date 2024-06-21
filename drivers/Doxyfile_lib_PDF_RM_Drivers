@@ -751,7 +751,10 @@ INPUT                  = @SDK_BASE@/docs/_doxygen/mainpage.md \
                          @SDK_BASE@/drivers/smc \
                          @SDK_BASE@/drivers/smc/doxygen \
                          @SDK_BASE@/drivers/uart \
-                         @SDK_BASE@/drivers/uart/doxygen
+                         @SDK_BASE@/drivers/uart/doxygen \
+                         @SDK_BASE@/rtos/freertos/freertos-kernel/ChangeLogKSDK.txt \
+                         @SDK_BASE@/middleware/fatfs/ChangeLogKSDK.txt \
+                         @SDK_BASE@/middleware/maestro/ChangeLogKSDK.txt
 
 # If the value of the INPUT tag contains directories, you can use the
 # FILE_PATTERNS tag to specify one or more wildcard patterns (like *.cpp and
@@ -764,6 +767,7 @@ INPUT                  = @SDK_BASE@/docs/_doxygen/mainpage.md \
 
 FILE_PATTERNS          = *.h \
                          *.dox \
+                         *.txt \
                          *.md
 
 # The EXCLUDE tag can be used to specify files and/or directories that should be

@@ -82,7 +82,8 @@ extensions = [
 "myst_parser",
 "breathe",
 "doxyrunner",
-"external_content"
+"external_content",
+"page_filter"
 #"warnings_filter"
 # 'exhale'
 ]
@@ -244,6 +245,9 @@ external_content_contents = [
     # (SDK_BASE, "boards/**/**/*.readme"),
     # (SDK_BASE, "boards/**/**/**/*.readme"),
     (SDK_BASE, "middleware/mcuboot_opensource/docs/*.md"),
+    (SDK_BASE, "middleware/maestro/ChangeLogKSDK.txt"),
+    (SDK_BASE, "middleware/fatfs/ChangeLogKSDK.txt"),
+    (SDK_BASE, "rtos/freertos/freertos-kernel/ChangeLogKSDK.txt"),
     (SDK_BASE / "..", "bifrost/readme.md"),
 ]
 external_content_keep = [
