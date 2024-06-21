@@ -236,13 +236,13 @@ vcs_link_prefixes = {
 
 external_content_contents = [
     (SDK_BASE / "docs", "[!_]*"),
-    (SDK_BASE, "examples/index.rst"),
-    (SDK_BASE, "examples/*/index.rst"),
-    (SDK_BASE, "examples/*/**/index.rst"),
-    (SDK_BASE, "examples/**/**/*.readme"),
-    (SDK_BASE, "examples/**/**/**/*.readme"),
-    (SDK_BASE, "boards/**/**/*.readme"),
-    (SDK_BASE, "boards/**/**/**/*.readme"),
+    # (SDK_BASE, "examples/index.rst"),
+    # (SDK_BASE, "examples/*/index.rst"),
+    # (SDK_BASE, "examples/*/**/index.rst"),
+    # (SDK_BASE, "examples/**/**/*.readme"),
+    # (SDK_BASE, "examples/**/**/**/*.readme"),
+    # (SDK_BASE, "boards/**/**/*.readme"),
+    # (SDK_BASE, "boards/**/**/**/*.readme"),
     (SDK_BASE, "middleware/mcuboot_opensource/docs/*.md"),
     (SDK_BASE / "..", "bifrost/readme.md"),
 ]
