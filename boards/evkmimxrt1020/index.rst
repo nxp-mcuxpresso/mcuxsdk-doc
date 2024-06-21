@@ -6,7 +6,7 @@ EVK-MIMXRT1020
 Overview
 ********
 
-The NXP MIMXRT1020-EVK is a development board for the i.MX MIMXRT1021 500 MHz 32-bit ARM® Cortex®-M7 MCUs.
+The NXP MIMXRT1020-EVK is a development board for the i.MX MIMXRT1021 500 MHz 32-bit ARM Cortex-M7 MCUs.
 
 
 .. image:: ./evkmimxrt1020.png

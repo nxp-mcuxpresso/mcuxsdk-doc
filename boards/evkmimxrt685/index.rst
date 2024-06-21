@@ -6,7 +6,7 @@ EVK-MIMXRT685
 Overview
 ********
 
-The NXP IMXRT685-EVKB is a development board for the i.MX MIMXRT685S 275 MHz 32-bit ARM® Cortex®-M33 MCUs.
+The NXP IMXRT685-EVKB is a development board for the i.MX RT600 Crossover MCU with Arm Cortex-M33 and DSP Cores.
 
 
 .. image:: ./evkmimxrt685.png

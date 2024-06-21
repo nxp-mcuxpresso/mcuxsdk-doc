@@ -6,7 +6,7 @@ EVK-MIMXRT1064
 Overview
 ********
 
-The NXP MIMXRT1064-EVK is a development board for the i.MX MIMXRT1064 600 MHz 32-bit ARM® Cortex®-M7 MCUs.
+The NXP MIMXRT1064-EVK is a development board for the i.MX MIMXRT1064 600 MHz 32-bit ARM Cortex-M7 MCUs.
 
 
 .. image:: ./evkmimxrt1064.png

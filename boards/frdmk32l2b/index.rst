@@ -6,7 +6,7 @@ FRDM-K32L2B
 Overview
 ********
 
-The FRDM-K32L2B3 is supported by a range of NXP® and third-party development software.
+The FRDM-K32L2B3 is supported by a range of NXP and third-party development software.
 
 
 .. image:: ./frdmk32l2b.png

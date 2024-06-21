@@ -6,7 +6,7 @@ MEK-MIMX8QX
 Overview
 ********
 
-The i.MX8QX family of boards provides a powerful and flexible development system for NXP®'s Cortex-M4 MCUs.
+The i.MX8QX family of boards provides a powerful and flexible development system for NXP's Cortex-M4 MCUs.
 
 
 .. image:: ./mekmimx8qx.png

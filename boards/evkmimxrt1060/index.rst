@@ -6,7 +6,7 @@ EVK-MIMXRT1060
 Overview
 ********
 
-The NXP MIMXRT1060-EVK is a development board for the i.MX MIMXRT1062 and MIMXRT1061 600 MHz 32-bit ARM® Cortex®-M7 MCUs.
+The NXP MIMXRT1060-EVK is a development board for the i.MX MIMXRT1062 and MIMXRT1061 600 MHz 32-bit ARM Cortex-M7 MCUs.
 
 
 .. image:: ./evkmimxrt1060.png

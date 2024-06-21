@@ -6,7 +6,7 @@ FRDM-KV11Z
 Overview
 ********
 
-FRDM-KV11Z is a development platform for the Kinetis V series KV1x 64 KB and 128 KB MCU family built on the ARM® Cortex®-M0+ processor.
+FRDM-KV11Z is a development platform for the Kinetis V series KV1x 64 KB and 128 KB MCU family built on the ARM Cortex-M0+ processor.
 
 
 .. image:: ./frdmkv11z.png

@@ -6,7 +6,7 @@ EVK-MIMX8MQ
 Overview
 ********
 
-The i.MX 8MQuad family of boards provides a powerful and flexible development system for NXP®'s Cortex-M4 MCUs.
+The i.MX 8MQuad family of boards provides a powerful and flexible development system for NXP's Cortex-M4 MCUs.
 
 
 .. image:: ./evkmimx8mq.png

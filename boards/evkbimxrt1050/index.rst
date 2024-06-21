@@ -6,7 +6,7 @@ EVKB-IMXRT1050
 Overview
 ********
 
-The NXP IMXRT1050-EVKB is a development board for the i.MX MIMXRT1052 and MIMXRT1051 600 MHz 32-bit ARM® Cortex®-M7 MCUs.
+The NXP IMXRT1050-EVKB is a development board for the i.MX MIMXRT1052 and MIMXRT1051 600 MHz 32-bit ARM Cortex-M7 MCUs.
 
 
 .. image:: ./evkbimxrt1050.png
