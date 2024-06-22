@@ -45,7 +45,7 @@ for more details.
    GetStart <gsd/index>
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: User Guide
 
    Examples <examples/index.rst>
@@ -54,7 +54,7 @@ for more details.
    Boards <boards/index>
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Development
 
    develop/index
