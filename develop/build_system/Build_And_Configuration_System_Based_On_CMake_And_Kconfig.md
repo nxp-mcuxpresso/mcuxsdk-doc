@@ -240,6 +240,7 @@ Please see following table for the arguments
 | PREINCLUDE    | Single        | Specify that the header is a preinclude header. This is only for mcux_add_source. |
 | EXCLUDE       | Single        | Specify the source shall be exluded from build. This is only for mcux_add_source |
 | SOURCES       | Multiple      | The sources. This is only for `mcux_add_source`. If there are multiple sources, please separate them with whitespace. |
+| SCOPE         | Single        | Specify the source scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for mcux_add_source and take same effect as target_sources scope. |
 | INCLUDES      | Multiple      | The includes. This is only for `mcux_add_include`. If there are multiple includes, please separate them with whitespace. |
 | TARGET_FILES  | Multiple      | This is only for `mcux_add_include` which is used to specify the include target which header file. This is required only for `config` header. |
 | COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.<br>Here are all the supported compilers: armclang, iar, gcc, xcc, mwcc56800e. |
