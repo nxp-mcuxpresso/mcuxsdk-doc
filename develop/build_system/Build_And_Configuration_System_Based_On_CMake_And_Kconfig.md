@@ -498,6 +498,18 @@ mcux_project_remove_include(
 )
 ```
 
+#### mcux_remove_toolchain
+
+Remove toolchain(s) for specific data, meaning that the specific data doesn't support the toolchain(s). 
+
+Here is an example
+
+```cmake
+    mcux_remove_toolchain(
+        armgcc iar
+    )
+```
+
 ### Misc
 
 #### mcux_set_variable
