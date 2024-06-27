@@ -10,7 +10,7 @@
 
 ## Environment Setup
 
-### Docker SUpport
+### Docker Support
 
 An all-in-one docker image for all required packages can be find [here](docker.nxp.com/mcux/mcusdk3_ci:latest) 
 
@@ -1733,6 +1733,14 @@ Here is the priority list from low to high
 13. examples/\<board>/\<example_category>/\<example>/\<core_id>/prj.conf
 
 High priority prj.conf data will override low priority prj.conf data.
+
+If you have some customized project config, you can specify it with -DCONF_FILE=\<your customized config file>, like
+
+```bash
+west build -b evkmimxrt1170 examples/src/demo_apps/hello_world -Dcore_id=cm4 -DCONF_FILE=./examples/prj.conf
+```
+
+The customized project config file has the highest priority over all.
 
 ### .config
 
