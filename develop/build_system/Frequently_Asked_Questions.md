@@ -64,3 +64,17 @@
    ```bash
    Currently supported toolchain: ["iar", "mdk"], but script get armgcc, please check --toolchain in west command, or try run with -p always to prevent setting by cache.
    ```
+
+2. Why the IDE can not identify the MCU when I open the project?
+
+    For Keil MDK, if you get build error like:
+
+    ![board_select_device_part](./_doc/gui_project_mdk_device_not_found.png)
+    
+    For IAR, if the error like `Fatal Error[Pe035]: #error directive: "Unknown target."` And no device setting:
+    
+    ![board_select_device_part](./_doc/gui_project_undefined_device.png)
+
+    Please check the variable MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER and MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER in mcu-sdk-3.0\devices\${soc_series}\${device}\Kconfig.chip, make sure it's a valid device idenditier. 
+
+
