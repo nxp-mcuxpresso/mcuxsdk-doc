@@ -317,7 +317,7 @@ Here is one example
     )
 ```
 
-Note, the library can be also added by mcux_add_configuration, however, it requires the absolute path and does not support file scope or dependency condition. Therefore, mcux_add_configuration is preferred.
+Note, the library can be also added by mcux_add_configuration, however, it requires the absolute path and does not support file scope or dependency condition. Therefore, mcux_add_library is preferred.
 
 #### mcux_convert_binary
 
