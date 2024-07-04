@@ -290,7 +290,7 @@ mcux_add_include(
 Specify/remove the library to be linked.
 
 | Argument Name | Argument Type | Explanation                              |
-| ------------- | ------------- | ----------------------------- |
+| ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final library path equals `BASE_PATH` + `LIB`. This is usually used in abstracted `.cmake` files which are not placed together with real library. For library in CMakeLists.txt which is usually put together with real library, no need to add it. |
 | LIBS          | Multiple      | The libraries to be added/removed        |
 | SCOPE         | Single        | Specify the library scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for mcux_add_library and take same effect as target_link_libraries scope. The default scope is PRIVATE if not set. |
@@ -811,13 +811,13 @@ BS provided dependencies record and resolve for both sections(project and compon
 
 Kconfig processor in BCS will give detailed warnings about unsatisfied component selection so that  you can immediately find it and fix.
 
-For depending on hardware related dependency items like board, device, device_id, please use `depends on`. If not satisfied, the related components will not be showed so that not bloat the Kconfig GUI list.
+##### Practice Recommendation
 
-For depending on software component, priority to use `select`. It helps to auto select component dependency.
+- For software components depending on hardware related dependency items like board, device, device_id, please use `depends on`. If not satisfied, the related components will not be showed so that not bloat the Kconfig GUI list.
 
-If there are `any of` dependencies, `choice` can satisfy the needs, please see [Dependency Patterns](#dependency-patterns)
-
-Don’t use `depends on` on component dependency because Kconfig doesn’t support mutual dependency(recursive issue)
+- For software components depending on software component, priority to use `select`. It helps to auto select component dependency.
+- For cycle dependency case like FOO needs to "select" BAR and BAR needs to "select" FOO, since Kconfig doesn't support cycle dependency, so you cannot use mutually "select" between FOO and BAR. The recommendation is use both "select" and "depends on". For example, FOO "select" BAR and BAR "depends on" FOO. In this way, when you  tick FOO, then BAR will be automatically selected. When FOO dependency is not satisfied, BAR cannot be showed.
+- If there are `any of` dependencies, `choice` can satisfy the needs, please see [Dependency Patterns](#dependency-patterns)
 
 ##### Dependency Items
 
