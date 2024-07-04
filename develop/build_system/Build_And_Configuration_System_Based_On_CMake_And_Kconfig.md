@@ -285,9 +285,9 @@ mcux_add_include(
     INCLUDES .
 )
 ```
-#### mcux_add_library/mcux_remove_library
+#### mcux_add_library
 
-Specify/remove the library to be linked.
+Specify the library to be linked.
 
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
@@ -378,7 +378,7 @@ Add configuration for all toolchains with specified build targets.
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians |
+| TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
 | LIB           | Multiple      | The library, the full path               |
 | AS            | Single        | The assemble compiler flag               |
 | CC            | Single        | The c compiler flags                     |
@@ -411,20 +411,50 @@ The CMake function mcux_add_configuration requires the complete toolchain settin
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians |
+| TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
 | AS            | Single        | The assemble compiler macros             |
 | CC            | Single        | The c compiler macros                    |
 | CX            | Single        | The cxx compiler macros                  |
 
-Note, mcux_add_macro automatically prefixes macros that do not have the -D prefix, duplicated macros will be removed
+Note:
 
-Here is one example
+1. mcux_add_macro automatically prefixes macros that do not have the -D prefix, duplicated macros will be removed
+
+   Here is one example
 
 ```cmake
 mcux_add_macro(
   CC "FOO -DFOO -D BAR=1" # Equals -DFOO -DBAR=1
   )
 ```
+
+2. For all macros added by mcux_add_configuration or mcux_add_macro, the duplicated macro name without value, like -DA -DA, or with same value, like -DC=3 -DC=3, only one macro will be kept. If found duplicated macro name with different value, use the latest one. You can also get notice from log.
+
+### Pre/Post Build Command
+
+#### mcux_add_custom_command
+
+Meta build system provide CMake function mcux_add_custom_command to set pre/post build command for specific target and toolchains.
+
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
+| TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
+| BUILD_EVENT   | Single        | Set the time when the command is executed, can be PRE_BUILD/PRE_LINK /POST_BUILD. f not provided, the default setting is POST_BUILD |
+| BUILD_COMMAND | Single        | Specify the command-line(s) to execute   |
+
+Here is one example
+
+```cmake
+mcux_add_custom_command(
+        TARGETS debug release
+        TOOLCHAINS armgcc
+        BUILD_EVENT  PRE_BUILD
+        BUILD_COMMAND "${TOOLCHAIN_DIR}/bin/arm-none-eabi-gcc -E -P -xc -I${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/target/nxp/evkmimxrt685/partition -I${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common ${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common/gcc/tfm_common_ns.ld -o ${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common/gcc/tfm_common_ns_pre.ld"
+)
+```
+
+Note: According to [add_custom_command — CMake 3.30.0 Documentation](https://cmake.org/cmake/help/latest/command/add_custom_command.html) , for Ninja and Make generator, the PRE_BUILD behaves the same as PRE_LINK.
 
 ### Remove
 
@@ -437,7 +467,7 @@ Remove configuration for all toolchains with specified build targets.
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians |
+| TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
 | LIB           | Multiple      | The library, the full path               |
 | AS            | Single        | The assemble compiler flag               |
 | CC            | Single        | The c compiler flags                     |
@@ -468,7 +498,7 @@ Remove macros for all toolchains with specified build targets.
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-| TOOLCHAINS    | Multiple      | Supported toolchians. If not provided, then supporting all toolchians |
+| TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
 | AS            | Single        | The assemble compiler macros             |
 | CC            | Single        | The c compiler macros                    |
 | CX            | Single        | The cxx compiler macros                  |
@@ -517,8 +547,8 @@ Remove project source or include.
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`. This is usually used in abstracted .cmake files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
-| INCLUDES      | Single        | The include path.                        |
-| SOURCES       | Single        | The source path.                         |
+| INCLUDES      | Multiple      | The include path.                        |
+| SOURCES       | Multiple      | The source path.                         |
 
 Here is one example
 
@@ -529,6 +559,24 @@ mcux_project_remove_source(
 
 mcux_project_remove_include(
   INCLUDES .
+)
+```
+
+#### mcux_remove_library
+
+Remove libraries. Whether the file was added before or after this statement, it will take effect.
+
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `LIBS`. Otherwise the actual path is relative to ${CMAKE_CURRENT_LIST_DIR} |
+| LIBS          | Multiple      | The library files to be removed          |
+
+Here is one example
+
+```cmake
+mcux_remove_library(
+  BASE_PATH ${SdkRootDirPath}
+  SOURCES devices/${soc_series}/${device}/iar/iar_lib_power.a
 )
 ```
 
