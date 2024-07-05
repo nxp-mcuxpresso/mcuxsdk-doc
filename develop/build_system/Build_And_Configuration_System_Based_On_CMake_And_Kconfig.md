@@ -1962,9 +1962,23 @@ BCS provides following ways to do the customization.
    For example, if you add a boards/frdmk64f/demo_apps/reconfig.cmake, then you should be awared of that this reconfig.cmake shall apply for all demo_apps in frdmk64f.
 
    In these reconfig.cmake, [remove](#remove) extensions can be used to remove board/device common data and settings. After removing the previous data and settings, customization data and settings can be added.
+
 2. prj.conf
 
    For component selection and configuration, you can use different level prj.conf to achieve it. Refer the priority level in [prj.conf](#prj-conf) to set the data.
+
+Remember to register the example in board example.yml so that build system, CI and IDE will know that the examples are enabled in certain boards.
+
+Here is one example:
+
+```yaml
+# in examples/board/frdmk64f/example.yml
+
+hello_world:
+  required: true
+```
+
+
 
 ## Enable West Flash and Debug
 
