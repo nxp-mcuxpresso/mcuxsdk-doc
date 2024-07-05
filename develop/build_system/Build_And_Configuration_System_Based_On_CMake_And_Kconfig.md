@@ -434,14 +434,14 @@ mcux_add_macro(
 
 #### mcux_add_custom_command
 
-Meta build system provide CMake function mcux_add_custom_command to set pre/post build command for specific target and toolchains.
+CMake provide built-in function `add_custom_command`, this is useful for performing an operation before or after building the target by setting PRE_BUILD | PRE_LINK | POST_BUILD parameters. For more details, please refer to [CMake document]([add_custom_command — CMake 3.29.3 Documentation](https://cmake.org/cmake/help/latest/command/add_custom_command.html#add-custom-command)). Based on this function, meta build system provide customized CMake function mcux_add_custom_command to set pre/post build command for specific targets and toolchains.
 
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
 | TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
 | BUILD_EVENT   | Single        | Set the time when the command is executed, can be PRE_BUILD/PRE_LINK /POST_BUILD. f not provided, the default setting is POST_BUILD |
-| BUILD_COMMAND | Single        | Specify the command-line(s) to execute   |
+| BUILD_COMMAND | Multiple      | Specify the command-line(s) to execute. The format is same as CMake built-in function add_custom_command, do not wrap the command with double quotes |
 
 Here is one example
 
@@ -450,7 +450,7 @@ mcux_add_custom_command(
         TARGETS debug release
         TOOLCHAINS armgcc
         BUILD_EVENT  PRE_BUILD
-        BUILD_COMMAND "${TOOLCHAIN_DIR}/bin/arm-none-eabi-gcc -E -P -xc -I${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/target/nxp/evkmimxrt685/partition -I${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common ${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common/gcc/tfm_common_ns.ld -o ${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common/gcc/tfm_common_ns_pre.ld"
+        BUILD_COMMAND ${TOOLCHAIN_DIR}/bin/arm-none-eabi-gcc -E -P -xc -I${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/target/nxp/evkmimxrt685/partition -I${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common ${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common/gcc/tfm_common_ns.ld -o ${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common/gcc/tfm_common_ns_pre.ld
 )
 ```
 
@@ -783,6 +783,14 @@ Unlike the component dependency, the dependency for project segment is simple, j
 #### Project
 
 Just like the native CMake way, all data inside CMakeLists.txt with `project` macro inside is a `project` segment.
+
+ Compared to the native `project`, the customized `project` provides the following additional  parameters:
+
+| Argument Name           | Argument Type | Explanation                              |
+| ----------------------- | ------------- | ---------------------------------------- |
+| PROJECT_BOARD_PORT_PATH | Single        | Path for board-specific and project-specific files. Generally, this folder will contain hardware_init.c and app.h |
+| PROJECT_TYPE            | Single        | Specify the project type, can be " EXECUTABLE" or "LIBRARY". The default type is " EXECUTABLE" if not set. |
+| CUSTOM_PRJ_CONF_PATH    | Multiple      | Specify customized prj.conf search path. Please refer to [prj.conf](#prj.conf) |
 
 Here is one project CMake example
 
@@ -2476,17 +2484,7 @@ The libraries are set in CMake file with CMake extension function `mcux_add_conf
 
 #### Pre-build/Post-build Command
 
-CMake provide built-in function `add_custom_command`, this is useful for performing an operation before or after building the target by setting PRE_BUILD | PRE_LINK | POST_BUILD parameters. For more details, please refer to [CMake document]([add_custom_command — CMake 3.29.3 Documentation](https://cmake.org/cmake/help/latest/command/add_custom_command.html#add-custom-command))
-
-For example:
-
-```cmake
-add_custom_command(TARGET ${MCUX_SDK_PROJECT_NAME} PRE_BUILD COMMAND
-${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} -x c-header -E -P -c ${CMAKE_CURRENT_LIST_DIR}/../../../../../../../middleware/tfm/platform/ext/target/lpcxpresso55s69/Device/Source/armgcc/LPC55S69_cm33_core0_s.lds -o ${CMAKE_CURRENT_LIST_DIR}/../../../../../../../middleware/tfm/platform/ext/target/lpcxpresso55s69/Device/Source/armgcc/LPC55S69_cm33_core0_s.ld
-)
-```
-
-
+The pre/post build command can be set by CMake function mcux_add_custom_command, please refer to [CMake Extension Pre/Post Build Command](#mcux_add_custom_command)
 
 ### IDE Option Setting
 
