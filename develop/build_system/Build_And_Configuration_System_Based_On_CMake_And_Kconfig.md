@@ -592,6 +592,24 @@ Here is an example
     )
 ```
 
+#### mcux_remove_build_config
+
+Remove build config.
+
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | The build config to be removed.          |
+| TOOLCHAINS    | Multiple      | Specify the toolchain. Disable the build config for all toolchains If not provide. |
+
+Here is one example
+
+```cmake
+    mcux_remove_build_config(
+        TARGETS ram_0x1400_debug ram_0x1400_release
+        TOOLCHAINS armgcc
+    )
+```
+
 ### Misc
 
 #### mcux_set_variable
