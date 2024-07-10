@@ -2334,13 +2334,13 @@ It's not identical for different toolchain:
 
 - IAR
 
-  IAR  use linker flags `--config_def __stack_size__=${stack size}` and `--config_def __heap_size__=${heap size}`
+  IAR  use linker flags `--config_def=__stack_size__=${stack size}` and `--config_def=__heap_size__=${heap size}`
 
   For example
 
   ```cmake
   mcux_add_iar_configuration(
-      LD "--config_def __stack_size__=0x3000 --config_def __heap_size__=0x3000"
+      LD "--config_def=__stack_size__=0x3000 --config_def=__heap_size__=0x3000"
       )
   ```
 
