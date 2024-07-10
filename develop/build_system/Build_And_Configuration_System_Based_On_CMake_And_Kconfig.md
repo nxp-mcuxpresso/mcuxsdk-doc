@@ -1885,11 +1885,7 @@ endif()
 
 The Kconfig symbols and the values will be generated into config headers placed in build binary folder.
 
-The config headers shall be included in the source in advance and the build binary folder will be added into includes so that all config headers will be added into build tree.
-
-If it is not set, then all Kconfig symbols and values will be generated header named `RTE_Components.h`.
-
-If you want your components Kconfig symbols and values to be generated `endmenu` into customized header, you can set Kconfig menu with (header name). Here is an example with Freertos kernel.
+If you want your components Kconfig symbols and values to be generated into customized header, you can set Kconfig menu with (header name). Here is an example with Freertos kernel.
 
 ```bash
 menu "freertos-kernel(FreeRTOSConfig.h)" # All freertos kernel Kconfig symbols and values will be generated into FreeRTOSConfig.h
@@ -1901,6 +1897,13 @@ menu "freertos-kernel(FreeRTOSConfig.h)" # All freertos kernel Kconfig symbols a
     ......
 endmenu
 ```
+
+If it is not set, then all Kconfig symbols and values will be generated header named `RTE_Components.h`.
+
+There are 2 ways to include the generated config headers into build tree.
+
+1. The config headers shall be included in the source in advance and the build binary folder will be added into includes so that all config headers will be added into build tree. This is the default way.
+2. If run with "-DPREINCLUDE=1", then all generated header files will be included into build tree in a preinclude way.
 
 ## Build Process Flow
 
