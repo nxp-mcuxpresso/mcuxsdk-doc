@@ -16,31 +16,7 @@ An all-in-one docker image for all required packages can be find [here](docker.n
 
 ### Repos Setup
 
-***Firstly, ensure all your code is up-to-date, run `west update_repo`.***
-To isolate your development environment, suggest use [python venv](https://docs.python.org/3/library/venv.html).
-In sdk-next workspace root directory, create and activate a virtual environment:
-
-```bash
-# Please ensure your system python version >= 3.8
-python -m venv .venv
-
-# For Linux/MacOS
-source .venv/bin/activate
-
-# For Windows
-.\.venv\Scripts\activate
-```
-
-Then install required packages
-
-```bash
-# Note: you can add option '--default-timeout=1000' if you meet connection issue.
-pip install -r mcu-sdk-3.0/scripts/requirements.txt
-```
-
-Following build, flash and debug commands are referred from zephyr's official one. So you can find the full documentation here: [https://docs.zephyrproject.org/latest/develop/west/build-flash-debug.html](https://docs.zephyrproject.org/latest/develop/west/build-flash-debug.html)
-
-Most of native zephyr's west build features are reserved.
+Please make sure that all your code is up-to-date, please refer [Bifrost](https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/bifrost/browse).
 
 ### Build Environment Setup
 
