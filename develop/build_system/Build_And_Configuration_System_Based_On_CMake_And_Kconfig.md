@@ -229,6 +229,7 @@ Please see following table for the arguments
 | DSP           | Multiple      | The dsp. It means the source or include only supports the listed dsp. dsp enum values are NO_DSP and DSP |
 | TRUSTZONE     | Multiple      | The trustzone. It means the source or include only supports the listed trustzone. trustzone enum values are TZ and  NO_TZ. |
 | COMPONENTS    | Multiple      | The components. It means the source or include only supports the listed components |
+| TARGETS       | Multiple      | This parameter is for adding include path by `mcux_add_include`or `mcux_add_${language}_include`. It means the include path only supports the listed targets |
 
 Wildcard "\*.\<extension>" is supported in mcux\_add_source, frequently used would be "\*.*", "\*.c" and "\*.h". 
 
@@ -405,6 +406,13 @@ mcux_add_macro(
 ```
 
 2. For all macros added by mcux_add_configuration or mcux_add_macro, the duplicated macro name without value, like -DA -DA, or with same value, like -DC=3 -DC=3, only one macro will be kept. If found duplicated macro name with different value, use the latest one. You can also get notice from log.
+3. If you want to set macro for assembler, c compiler and cpp compiler at the same time, you can set them three times. Or there is an easy way to omit AS/CC/CX parameters. For example:
+
+   ```cmake
+   mcux_add_macro(
+   "-DFOO -DBAR=1"
+   )
+   ```
 
 ### Pre/Post Build Command
 
