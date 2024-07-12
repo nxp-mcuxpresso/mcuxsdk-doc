@@ -901,7 +901,7 @@ Except for software components, following dependency items are provided.
 
 Here are summarized frequently used dependency patterns.
 
-- Pattern1: Simple allOf with only one sub anyOf
+- Pattern1: start with allOf, with one level anyOf and not
 
   ```yaml
   componentA:
@@ -911,90 +911,51 @@ Here are summarized frequently used dependency patterns.
       - anyOf:
         - component3
         - component4
+      - anyOf:	
+        - component5
+        - component6
+      - not: 
+          device:
+          - MK64F12
+          - MK63F12
   ```
 
-  The Kconfig pattern is like
+  The recommended dependency patterns for this.
 
   ```bash
-  config MCUX_HAS_COMPONENT_component3
-    bool
+      config MCUX_COMPONENT_componentA
+          bool "Component A, pattern 1"
+          select MCUX_COMPONENT_component1 
+          select MCUX_COMPONENT_component2
+          depends on !MCUX_HW_DEVICE_MK64F12 && !MCUX_HW_DEVICE_MK63F12 # not
+          choice
+              prompt "Component A anyOf1"
+              default MCUX_DEPENDENCY_COMPONENT_componentA_DEPEND_ANYOF_1
+              config MCUX_DEPENDENCY_COMPONENT_componentA_DEPEND_ANYOF_1
+                  bool "Select component3"
+                  select MCUX_COMPONENT_component3
 
-  config MCUX_HAS_COMPONENT_component4
-    bool
+              config MCUX_DEPENDENCY_COMPONENT_componentA_DEPEND_ANYOF_2
+                  bool "Select component4"
+                  select MCUX_COMPONENT_component4
+          endchoice  
+          choice
+              prompt "Component A anyOf2"
+              default MCUX_DEPENDENCY_COMPONENT_componentA_DEPEND_ANYOF_3
+              config MCUX_DEPENDENCY_COMPONENT_componentA_DEPEND_ANYOF_3
+                  bool "Select component5"
+                  select MCUX_COMPONENT_component5
 
-  config MCUX_COMPONENT_componentA
-    bool "Component A, pattern 1"
-    select MCUX_COMPONENT_component1 
-    select MCUX_COMPONENT_component2
-    select MCUX_COMPONENT_component3 if MCUX_HAS_COMPONENT_component3
-    select MCUX_COMPONENT_component4 if MCUX_HAS_COMPONENT_component4
-
+              config MCUX_DEPENDENCY_COMPONENT_componentA_DEPEND_ANYOF_4
+                  bool "Select component6"
+                  select MCUX_COMPONENT_component6
+          endchoice
   ```
 
-  Note, if MCUX_HAS_COMPONENT_component3 and MCUX_HAS_COMPONENT_component4 are satisfied simultaneously, then MCUX_COMPONENT_component3 and MCUX_COMPONENT_component4 will be added simultaneously correspondingly.
-- Pattern 2: starting with allOf with more than 1 anyOf
+- Pattern 2: start with allOf, with 2 level anyOf/allOf
 
   ```yaml
   componentB:
-  dependency:
-    allOf:
-    - component1
-    - component2
-    - anyOf:
-      - component3
-      - component4
-    - anyOf:
-      - component5
-      - component6
-    - core:
-      - cm33
-      - cm33f
-    - device:
-      - MK64F12
-      - MK63F12
-  ```
-
-  The Kconfig dependency pattern is like
-
-  ```bash
-  config MCUX_COMPONENT_componentB
-    bool "Component B, pattern 1"
-    select MCUX_COMPONENT_component1 
-    select MCUX_COMPONENT_component2
-    depends on MCUX_HW_CORE_CM4F || MCUX_HW_CORE_CM4
-    depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
-
-    if MCUX_COMPONENT_componentB
-     choice
-      prompt "Component B anyOf 1"
-      default MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component3
-      config MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component3
-       bool "Select component3"
-       select MCUX_COMPONENT_component3
-
-      config MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component4
-       bool "Select component4"
-      select MCUX_COMPONENT_component4
-     endchoice
-
-     choice
-      prompt "Component B anyOf 2"
-      default MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component5
-      config MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component5
-       bool "Select component5"
-       select MCUX_COMPONENT_component5
-
-      config MCUX_DEPENDENCY_COMPONENT_componentB_DEPEND_COMPONENT_component6
-       bool "Select component6"
-       select MCUX_COMPONENT_component6
-     endchoice          
-  endif
-  ```
-
-- Pattern 3: start with allOf with 2 sub level dependencies including anyOf/allOf
-
-  ```yaml
-  componentC:
     dependency:
       allOf:
       - component1
@@ -1015,116 +976,75 @@ Here are summarized frequently used dependency patterns.
             - device:
               - LPC54005
               - LPC54016
-              - LPC54018
-              - LPC54018M
-              - LPC54628
   ```
 
   The Kconfig dependency pattern is like
 
   ```bash
-  config MCUX_COMPONENT_componentC
-    bool "Component C, pattern 2"
-    select MCUX_COMPONENT_component1 
-    select MCUX_COMPONENT_component2
-    depends on MCUX_COMPILER_IAR || MCUX_COMPILER_MDK
-    # All device scope shall be explicitly specified here, otherwise for a device which is not in the scope which means the dependency is not satisfied, but componentC is still showed and configurable
-    depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12 || MCUX_HW_DEVICE_LPC54005 || MCUX_HW_DEVICE_LPC54016 || MCUX_HW_DEVICE_LPC54018 || MCUX_HW_DEVICE_LPC54018M || MCUX_HW_DEVICE_LPC54628
+      config MCUX_COMPONENT_componentB
+          bool "Component B, pattern 2 choise"
+          select MCUX_COMPONENT_component1 
+          select MCUX_COMPONENT_component2
+          depends on MCUX_COMPILER_IAR || MCUX_COMPILER_MDK
+          # All device scope shall be explicitly specified here, otherwise for a device which is not in the scope which means the dependency is not satisfied, but componentC is still showed and configurable
+          depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12 || MCUX_HW_DEVICE_LPC54005 || MCUX_HW_DEVICE_LPC54016
 
-    if MCUX_COMPONENT_componentC
-     choice
-      prompt "Component C anyOf"
-      default MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_1
-      config MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_1
-       bool "Select component3 and component 4 in device MK64F12, MK63F12"
-       select MCUX_COMPONENT_component3
-       select MCUX_COMPONENT_component4
-       depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
+          if MCUX_COMPONENT_componentB
+              choice
+                  prompt "ComponentB anyOf"
+                  default MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_1
+                  config MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_1
+                      bool "Select component3 and component 4 in device MK64F12, MK63F12"
+                      select MCUX_COMPONENT_component3
+                      select MCUX_COMPONENT_component4
+                      depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
 
-      config MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_2
-       bool "Select component5 and component4"
-       select MCUX_COMPONENT_component5
-       select MCUX_COMPONENT_component6
-       depends on MCUX_HW_DEVICE_LPC54005 || MCUX_HW_DEVICE_LPC54016 || MCUX_HW_DEVICE_LPC54018 || MCUX_HW_DEVICE_LPC54018M || MCUX_HW_DEVICE_LPC54628
-     endchoice         
-    endif
+                  config MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_2
+                      bool "Select component5 and component4"
+                      select MCUX_COMPONENT_component5
+                      select MCUX_COMPONENT_component6
+                      depends on MCUX_HW_DEVICE_LPC54005 || MCUX_HW_DEVICE_LPC54016
+              endchoice         
+          endif
   ```
 
-- Pattern 4: start with allOf with 2 sub level dependencies including anyOf/anyOf
+  If under each allOf, there is only one component, then you can use "select"
 
   ```yaml
-  componentD:
+  componentB:
     dependency:
       allOf:
       - component1
       - component2
-      - not: component8
       - compiler:
         - iar
         - mdk
       - anyOf:
-        - anyOf:
-          - component3
-          - component4
-        - anyOf:
-          - component5
-          - component6
-        - component7
+          - allOf:
+            - component3
+            - device:
+              - MK64F12
+              - MK63F12
+          - allOf:
+            - component5
+            - device:
+              - LPC54005
+              - LPC54016
   ```
-
-  The Kconfig dependency pattern is like
 
   ```bash
-  config MCUX_COMPONENT_componentD
-    bool "Component D, pattern 3"
-    select MCUX_COMPONENT_component1 
-    select MCUX_COMPONENT_component2
-    depends on !MCUX_COMPONENT_component8 # support not
-    depends on MCUX_COMPILER_IAR || MCUX_COMPILER_MDK
-
-    if MCUX_COMPONENT_componentD
-     choice
-      prompt "Component C Dependencies"
-
-      config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_ANYOF_component3_component4
-       bool "Select component3 or component4"
-       if MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_ANYOF_component3_component4
-        choice
-         prompt "Select component3 or component4"
-         default MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component3
-         config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component3
-          bool "Select component3"
-          select MCUX_COMPONENT_component3
-         config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component4
-          bool "Select component4"
-          select MCUX_COMPONENT_component4
-        endchoice  
-       endif            
-
-      config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_ANYOF_component5_component6
-       bool "Select component5 or component6"
-       if MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_ANYOF_component5_component6
-        choice
-         prompt "Select component5 or component6"
-         default MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component5
-         config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component5
-          bool "Select component5"
-          select MCUX_COMPONENT_component5
-         config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component6
-          bool "Select component6"
-          select MCUX_COMPONENT_component6
-        endchoice      
-       endif          
-
-      config MCUX_DEPENDENCY_COMPONENT_componentD_DEPEND_COMPONENT_component7
-       bool "Select component7"
-       select MCUX_COMPONENT_component7
-
-     endchoice         
-    endif
+     config MCUX_COMPONENT_componentB
+          bool "Component B, pattern 2 select"
+          select MCUX_COMPONENT_component1 
+          select MCUX_COMPONENT_component2
+          depends on MCUX_COMPILER_IAR || MCUX_COMPILER_MDK
+          # All device scope shall be explicitly specified here, otherwise for a device which is not in the scope which means the dependency is not satisfied, but componentC is still showed and configurable
+          depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12 || MCUX_HW_DEVICE_LPC54005 || MCUX_HW_DEVICE_LPC54016
+          select MCUX_COMPONENT_component3 if MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
+          select MCUX_COMPONENT_component5 if MCUX_HW_DEVICE_LPC54005 || MCUX_HW_DEVICE_LPC54016 
   ```
 
-- Pattern 5: start with anyOf with multiple allOf
+- Pattern 3: start with anyOf, with one level allOf
 
   ```yaml
   componentE:
@@ -1147,88 +1067,25 @@ Here are summarized frequently used dependency patterns.
   The Kconfig dependency pattern is like
 
   ```bash
-  config MCUX_COMPONENT_componentE
-    bool "Component E, pattern 5"
-    if MCUX_COMPONENT_componentE
-     choice
-      prompt "Component E anyOf"
-      default MCUX_DEPENDENCY_COMPONENT_componentE_DEPEND_ALLOF_component1_component2
-      config MCUX_DEPENDENCY_COMPONENT_componentE_DEPEND_ALLOF_component1_component2
-       bool "Select component1 and component2"
-       select MCUX_COMPONENT_component1
-       select MCUX_COMPONENT_component2
-       depends on MCUX_HW_CORE_CM4 || MCUX_HW_CORE_CM4F
-       depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
+      config MCUX_COMPONENT_componentC
+          bool "Component C, pattern 3"
+          if MCUX_COMPONENT_componentC
+              choice
+                  prompt "Component C anyOf"
+                  default MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_component1_component2
+                  config MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_component1_component2
+                      bool "Select component1 and component2"
+                      select MCUX_COMPONENT_component1
+                      select MCUX_COMPONENT_component2
+                      depends on MCUX_HW_CORE_CM4 || MCUX_HW_CORE_CM4F
+                      depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
 
-      config MCUX_DEPENDENCY_COMPONENT_componentE_DEPEND_ALLOF_component3_component4
-       bool "Select component3 and component4"
-       select MCUX_COMPONENT_component3
-       select MCUX_COMPONENT_component4
-     endchoice         
-    endif
-  ```
-
-- Pattern 6: start with allOf with one not
-
-  ```yaml
-  componentF:
-    dependency:
-      allOf:
-      - component1
-      - not: 
-          device:
-          - MK64F12
-          - MK63F12
-  ```
-
-  The Kconfig dependency pattern is like
-
-  ```bash
-  config MCUX_COMPONENT_componentF
-    bool "Component F, pattern 6"
-    select MCUX_COMPONENT_component1
-    depends on !MCUX_HW_DEVICE_MK64F12 && !MCUX_HW_DEVICE_MK63F12  
-  ```
-
-- Pattern 7: start with anyOf, with multiple allOf and not
-
-  ```yaml
-  componentG:
-    dependency:
-      anyOf:
-      - allOf:
-        - component1
-        - device:
-          - MK64F12
-          - MK63F12
-      - allOf:
-        - component2
-        - not:
-            device:
-            - MK64F12
-            - MK63F12    
-  ```
-
-  The Kconfig dependency pattern is like
-
-  ```bash
-  config MCUX_COMPONENT_componentG
-    bool "Component G, pattern 7"
-    if MCUX_COMPONENT_componentG
-     choice
-      prompt "component F dependency"
-      default MCUX_DEPENDENCY_COMPONENT_componentG_DEPEND_ALLOF_component9
-      config MCUX_DEPENDENCY_COMPONENT_componentG_DEPEND_ALLOF_component9
-       bool "Select component 9 in devce MK64F12 and MK63F12"
-       select MCUX_COMPONENT_component9
-       depends on MCUX_HW_DEVICE_MK64F12 || MCUX_HW_DEVICE_MK63F12
-
-      config MCUX_DEPENDENCY_COMPONENT_componentG_DEPNED_ALLOF_component10
-       bool "Select component 10 in devce other than MK64F12 and MK63F12"
-       select MCUX_COMPONENT_component10
-       depends on !MCUX_HW_DEVICE_MK64F12 && !MCUX_HW_DEVICE_MK63F12
-     endchoice
-    endif
+                  config MCUX_DEPENDENCY_COMPONENT_componentC_DEPEND_ALLOF_component3_component4
+                      bool "Select component3 and component4"
+                      select MCUX_COMPONENT_component3
+                      select MCUX_COMPONENT_component4
+              endchoice         
+          endif
   ```
 
 #### Source Level Dependency
