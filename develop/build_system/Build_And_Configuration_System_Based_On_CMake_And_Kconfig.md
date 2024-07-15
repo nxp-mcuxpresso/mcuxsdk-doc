@@ -330,19 +330,19 @@ Here is one example
 mcux_add_iar_linker_script(
         TARGETS debug release
         BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_series}/${device}/iar/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
+        LINKER devices/${soc_series}/${device}/iar/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
 )
 
 mcux_add_armgcc_linker_script(
         TARGETS debug release
         BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_series}/${device}/gcc/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
+        LINKER devices/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
 )
 
 mcux_add_mdk_linker_script(
         TARGETS debug release
         BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_series}/${device}/arm/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
+        LINKER devices/${soc_series}/${device}/arm/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
 )
 ```
 
@@ -508,19 +508,19 @@ Here is one example
 mcux_remove_iar_linker_script(
         TARGETS debug release
         BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_series}/${device}/iar/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
+        LINKER devices/${soc_series}/${device}/iar/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
 )
 
 mcux_remove_armgcc_linker_script(
         TARGETS debug release
         BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_series}/${device}/gcc/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
+        LINKER devices/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
 )
 
 mcux_remove_mdk_linker_script(
         TARGETS debug release
         BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_series}/${device}/arm/${MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
+        LINKER devices/${soc_series}/${device}/arm/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
 )
 ```
 
