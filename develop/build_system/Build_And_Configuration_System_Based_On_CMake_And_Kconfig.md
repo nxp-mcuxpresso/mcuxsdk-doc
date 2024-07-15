@@ -64,7 +64,7 @@ Here are the toolchain environment variable table
    - Run cmake configuration
 
      ```bash
-     west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
+     west build -b frdmk64f examples/src/demo_apps/hello_world --cmake-only
      ```
 
      You can ignore `--cmake-only`, then the project will be built.
@@ -98,26 +98,26 @@ Here are some typical usage for generating a SDK example is:
 ```bash
 
 # Generate example with default settings
-west build -b frdmk64f examples/demo_apps/hello_world
+west build -b frdmk64f examples/src/demo_apps/hello_world
 
 # Just print cmake commands, do not execute it
-west build -b frdmk64f examples/demo_apps/hello_world --dry-run
+west build -b frdmk64f examples/src/demo_apps/hello_world --dry-run
 
 # Generate other toolchain like iar, default armgcc
-west build -b frdmk64f examples/demo_apps/hello_world --toolchain iar
+west build -b frdmk64f examples/src/demo_apps/hello_world --toolchain iar
 
 # Generate config type, default debug
-west build -b frdmk64f examples/demo_apps/hello_world --config release
+west build -b frdmk64f examples/src/demo_apps/hello_world --config release
 
 # Show all supported build configurations
-west build -b frdmk64f examples/demo_apps/hello_world --show-configs
+west build -b frdmk64f examples/src/demo_apps/hello_world --show-configs
 
 ```
 
 For multicore devices, you shall specify the corresponding core id by passing the command line argument "-Dcore_id". For example
 
 ```bash
-west build -b evkmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug
+west build -b evkmimxrt1170 examples/src/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug
 ```
 
 Remember to use "--config" to specify build target which is different from SDKGENv3.
@@ -253,7 +253,7 @@ if (CONFIG_MCUX_COMPONENT_driver.uart)
     )
 endif()
 
-# In examples/demo_apps/hello_world/CMakelists.txt
+# In examples/src/demo_apps/hello_world/CMakelists.txt
 mcux_add_source(
     SOURCES hello_world.c
 )
@@ -807,7 +807,7 @@ project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH boards/${board}/
 # Include device, board, drivers/components, middlewares
 include(${SdkRootDirPath}/CMakeLists.txt)
 
-include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
+include(${SdkRootDirPath}/examples/src/demo_apps/reconfig.cmake OPTIONAL)
 include(${SdkRootDirPath}/${project_board_port_path}/reconfig.cmake OPTIONAL)
 
 mcux_add_source(
@@ -1315,7 +1315,7 @@ Except for the above variables, there are variables which are generated in the c
 | Variable Name          | Explanation                              |
 | ---------------------- | ---------------------------------------- |
 | MCUX_SDK_PROJECT_NAME  | The processed example name, it equals `PROJECT_NAME`+`core_id_suffix_name` |
-| APPLICATION_SOURCE_DIR | Project CMakelists.txt directory like examples/demo_apps/hello_world |
+| APPLICATION_SOURCE_DIR | Project CMakelists.txt directory like examples/src/demo_apps/hello_world |
 | APPLICATION_BINARY_DIR | Output build directory like `<mcu-sdk-3.0>/build` |
 
 #### Customized Variables
@@ -1633,7 +1633,7 @@ Since the Kconfig data has variable inside, they need to be processed. BS has in
 1. Run cmake configuration
 
    ```bash
-   west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
+   west build -b frdmk64f examples/src/demo_apps/hello_world --cmake-only
    ```
 
    You can ignore "--cmake-only", then the projecrt will be built.
@@ -1796,7 +1796,7 @@ include(${SdkRootDirPath}/CMakeLists.txt)
 # After the include(${SdkRootDirPath}/CMakeLists.txt), the project has got the environment setup and all depended data included
 
 # If needed, load other customized cmake
-include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
+include(${SdkRootDirPath}/examples/src/demo_apps/reconfig.cmake OPTIONAL)
 include(${SdkRootDirPath}/${project_board_port_path}/reconfig.cmake OPTIONAL)
 
 # Add the project self source and include
@@ -1819,10 +1819,10 @@ BCS provides following ways to do the customization.
 
 1. Reconfig CMake
 
-   For example, the hello_world example CMakelists.txt is defined in "examples/demo_apps/hello_world". Inside it, there are 2 optional included reconfig.cmake, like
+   For example, the hello_world example CMakelists.txt is defined in "examples/src/demo_apps/hello_world". Inside it, there are 2 optional included reconfig.cmake, like
 
    ```cmake
-   include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
+   include(${SdkRootDirPath}/examples/src/demo_apps/reconfig.cmake OPTIONAL)
    # project_board_port_path here means boards/frdmk64f/demo_apps/hello_world
    include(${SdkRootDirPath}/${project_board_port_path}/reconfig.cmake OPTIONAL)
    ```
@@ -1895,7 +1895,7 @@ It's quiet easy for you to generate a GUI project definition files, only "--tool
 If you are running a pristine build, please specify board/examples/toolchain/core_id on the command line. For example:
 
 ```bash
-west build -b evkmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug -p always -t guiproject
+west build -b evkmimxrt1170 examples/src/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug -p always -t guiproject
 ```
 
 If you have run this command, there is a simpler and faster command:
