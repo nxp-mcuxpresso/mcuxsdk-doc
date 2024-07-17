@@ -1809,6 +1809,106 @@ mcux_add_include(
 )
 ```
 
+## Example Types
+
+Example types are distinguished based on the location of the example CMakelists.txt:
+
+| Example type | CMakelists.txt Location                  |
+| ------------ | ---------------------------------------- |
+| Repository   | mcu-sdk-3.0 repo examples/src folder     |
+| freestanding | Other location than mcu-sdk-3.0 repo examples folder, it can be inside or outside mcu-sdk-3.0 repo |
+
+### Repository Example
+
+Repository example CMakelists.txt is located inside `mcu-sdk-3.0/examples/src/<example-category>/<example>` folder, like the hello_world CMakelists.txt is located in `mcu-sdk-3.0/examples/src/demo_apps/hello_world`. 
+
+```yaml
+sdk_next/
+├─── .west/
+│    └─── config
+└─── mcu-sdk-3.0/
+     ├── arch/
+     ├── cmake/
+     ├── examples/
+     │   ├─── src
+     │   	  ├─── demo_apps
+     │             ├── reconfig.cmake
+     │             ├── prj.conf
+     │  	       ├── hello_world
+     │                 ├── CMakeLists.txt
+     │                 ├── Kconfig
+     │                 ├── prj.conf
+     │                 ├── hello_world.c
+```
+
+The repository example supports "PROJECT_BOARD_PORT_PATH" inside "project" macro to specify the unified and customized board specific configuration. Any prj.conf and reconfig.cmake inside any sub folder of PROJECT_BOARD_PORT_PATH will be included into build tree.
+
+### Freestanding Example
+
+Freestanding example CMakelists.txt shall be located in any place other than `mcu-sdk-3.0/examples`.
+
+Freestanding examples doesn't support "PROJECT_BOARD_PORT_PATH" in "project" macro.
+
+Freestanding examples share the same build and run way as repository examples. You can still use `west build` to work.
+
+- Inside mcu-sdk-3.0 repo
+
+  ```yaml
+  sdk_next/
+  ├─── .west/
+  │    └─── config
+  └─── mcu-sdk-3.0/
+       ├── arch/
+       ├── cmake/
+       ├── <any folder>/
+       │   ├── hello_world
+       │       ├── CMakeLists.txt
+       │       ├── Kconfig
+       │       ├── prj.conf
+       │       ├── hello_world.c
+  ```
+
+- Outside mcu-sdk-3.0 repo
+
+  ```
+  <home>/
+  ├─── sdk_next/
+  │     ├─── .west/
+  │     │    └─── config
+  │     ├── mcu-sdk-3.0/
+  │     └── ...
+  │
+  └─── app/
+       ├── CMakeLists.txt
+       ├── prj.conf
+       └── src/
+           └── main.c
+  ```
+
+All freestanding examples still share the default prj conf of the target board and device. Compared with repository example, the board example specific configuration inside examples folder are not available for freestanding examples.
+
+The prj conf list is like
+
+```yaml
+1. devices/prj.conf
+2. devices/\<soc_series>/prj.conf
+3. devices/\<soc_series>/\<device>/prj.conf
+4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
+5. examples/prj.conf
+6. examples/\<board>/prj.conf
+7. examples/\<board>/\<core_id>/prj.conf
+8. <example location>/prj.conf
+```
+
+Note, the freestanding project may don't need the default pin mux and hardware_init/app prj.conf setting, you can disable them by 
+
+```cmake
+CONFIG_MCUX_PRJSEG_module.board.pinmux_project_folder=n
+CONFIG_MCUX_PRJSEG_module.board.pinmux_board_folder=n
+CONFIG_MCUX_HAS_PRJSEG_project.use_hw_app=n
+CONFIG_MCUX_HAS_PRJSEG_module.board.pinmux_sel=n
+```
+
 ## Enable An Example
 
 Please firstly make sure that the target board and device data are ready, then follow the example CMakelists.txt pattern in [Project](#project) chapter and make your own one.
