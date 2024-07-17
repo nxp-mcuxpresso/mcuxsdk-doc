@@ -40,12 +40,12 @@ You need to set environment variables to specify the toolchain installation so t
 
 Here are the toolchain environment variable table
 
-| Toolchain | Environment variable   | Cmd Line Argument           |
-| --------- | ---------------------- | :-------------------------- |
-| IAR       | IAR_DIR                | --toolchain iar             |
-| MDK       | MDK_DIR                | --toolchain mdk             |
-| Armgcc    | ARMGCC_DIR             | --toolchain armgcc(default) |
-| Zephyr    | ZEPHYR_SDK_INSTALL_DIR | --toolchain zephyr          |
+| Toolchain | Environment variable   | Example    | Cmd Line Argument           |
+| --------- | ---------------------- | ---------- | :-------------------------- |
+| IAR       | IAR_DIR                | C:\iar     | --toolchain iar             |
+| MDK       | MDK_DIR                | C:\Keil_v5 | --toolchain mdk             |
+| Armgcc    | ARMGCC_DIR             | C:\armgcc  | --toolchain armgcc(default) |
+| Zephyr    | ZEPHYR_SDK_INSTALL_DIR |            | --toolchain zephyr          |
 
 ## Kconfig
 
