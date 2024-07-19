@@ -1817,6 +1817,7 @@ Example types are distinguished based on the location of the example CMakelists.
 | ------------ | ---------------------------------------- |
 | Repository   | mcu-sdk-3.0 repo examples/src folder     |
 | freestanding | Other location than mcu-sdk-3.0 repo examples folder, it can be inside or outside mcu-sdk-3.0 repo |
+| Standalone   | A completely detached project from the repository, contains everything necessary for a single project, which does not rely on meta build system. |
 
 ### Repository Example
 
@@ -1908,6 +1909,30 @@ CONFIG_MCUX_PRJSEG_module.board.pinmux_board_folder=n
 CONFIG_MCUX_HAS_PRJSEG_project.use_hw_app=n
 CONFIG_MCUX_HAS_PRJSEG_module.board.pinmux_sel=n
 ```
+
+### Standalone Example
+
+If you want to share the example with others, sharing the freestanding project is a good way if both sides work on mcu-sdk-3.0. However, if the other developer does not use meta build system, it is not feasible to zip all repository into a package file and send it over email. 
+
+Based on this requirement, the meta build system can export standalone project from the repository. The project contains everything necessary for a single project, keeps same folder structure comparing with repository, which does not rely on meta build system. 
+
+To accomplish this, we maintain a simplified build system in a separate project. In short, for those IDEs with a graphical interface, generate the corresponding IDE project, for example, .ewp file for IAR, .uvprojx for Keil. As for toolchain without GUI project, such as ARMGCC, provide a CMakeLists.txt that flattens all files and configurations.
+
+The standalone project can be generated with west command line parameters "-t standalone_project". For example:
+
+```
+west build -b frdmk64f ./examples/src/demo_apps/hello_world -p always --config debug --toolchain iar -t standalone_project
+```
+
+You can find IAR project in build folder with source code.
+
+![iar_standalone_project](./_doc/iar_standalone_project.PNG)
+
+Note:
+
+1. The default destination folder is mcu-sdk-3.0/build/${toolchain}. You can also specify the destination folder with command line parameter "-d" .
+2. You can only create a project for a specific toolchain and config in one CMake configuration context. You should remove CMake build folder or run with "-p always" if changing toolchain or config
+3. If the CMake has generated build artifacts, you can just type "west build -t standalone_project"
 
 ## Enable An Example
 
