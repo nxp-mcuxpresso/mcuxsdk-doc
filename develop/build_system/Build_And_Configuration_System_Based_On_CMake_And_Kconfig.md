@@ -330,19 +330,19 @@ Here is one example
 mcux_add_iar_linker_script(
         TARGETS debug release
         BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_series}/${device}/iar/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
+        LINKER devices/${soc_portfolio}/${soc_series}/${device}/iar/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
 )
 
 mcux_add_armgcc_linker_script(
         TARGETS debug release
         BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
+        LINKER devices/${soc_portfolio}/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
 )
 
 mcux_add_mdk_linker_script(
         TARGETS debug release
         BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_series}/${device}/arm/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
+        LINKER devices/${soc_portfolio}/${soc_series}/${device}/arm/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
 )
 ```
 
@@ -508,19 +508,19 @@ Here is one example
 mcux_remove_iar_linker_script(
         TARGETS debug release
         BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_series}/${device}/iar/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
+        LINKER devices/${soc_portfolio}/${soc_series}/${device}/iar/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
 )
 
 mcux_remove_armgcc_linker_script(
         TARGETS debug release
         BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
+        LINKER devices/${soc_portfolio}/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
 )
 
 mcux_remove_mdk_linker_script(
         TARGETS debug release
         BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_series}/${device}/arm/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
+        LINKER devices/${soc_portfolio}/${soc_series}/${device}/arm/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
 )
 ```
 
@@ -560,7 +560,7 @@ Here is one example
 ```cmake
 mcux_remove_library(
   BASE_PATH ${SdkRootDirPath}
-  SOURCES devices/${soc_series}/${device}/iar/iar_lib_power.a
+  SOURCES devices/${soc_portfolio}/${soc_series}/${device}/iar/iar_lib_power.a
 )
 ```
 
@@ -1285,11 +1285,11 @@ Here is the CMake stored variable table:
 | -------------------- | ------------------------- | ---------------------------------------- | ----------------- | ---------------------------------------- |
 | SdkRootDirPath       | SDK root directory        | Automatically set by BS                  | CMake             | Secify sdk root path like `include(${SdkRootDirPath}/devices/common/device_header.cmake)` |
 | board                | board name, like frdmk64f | Provided in cmdline argument, also need to record it in board variable cmake | CMake and Kconfig | Specify the target board, like `${SdkRootDirPath}/boards/${board}` |
-| device               | device name, like MK64F12 | Device variable cmake                    | CMake and Kconfig | Specify the target device, like `${SdkRootDirPath}/devices/\${soc_series}/${device}` |
+| device               | device name, like MK64F12 | Device variable cmake                    | CMake and Kconfig | Specify the target device, like `${SdkRootDirPath}/devices/\${soc_portfolio}/${soc_series}/${device}` |
 | core_id              | Core id, like cm33_core0  | Device variable cmake. This is only required for multicore device. | Kconfig           | Specify the core_id, like `rsource "${core_id}/Kconfig`.<br>This is only needed for multiple core device Kconfig. |
 | core_id_suffix_name  | Core id suffix name       | Device variable cmake                    | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project name, in multicore device, it is may called hello_world_cm4 and hello_world_cm7 while in single core device, it is may called hello_world, then "hello_world${core_id_suffix_name}" can work for all cases. For cm4 core, it can be "_cm4", for cm7 core, it can be "_cm7", for single core, it can be "" |
 | multicore_foldername | multicore folder name     | Device variable cmake                    | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project root, in multicore device evkmimxrt1170, it is boards/evkmimxrt1170/demo_apps/hello_world/cm4 and boards/evkmimxrt1170/demo_apps/hello_world/cm7 while in single core board frdmk64f, it is boards/frdmk64f/demo_apps/hello_world, then "boards/evkmimxrt1170/demo_apps/hello_world/${multicore_foldername}" can work for all cases. For cm4 core, it can be "cm4", for cm7 core, it can be "cm7", for single core, it can be "." |
-| soc_series           | soc series                | Soc series cmake                         | CMake             | Specify the soc series, like `${SdkRootDirPath}/devices/${soc_series}/${device}` |
+| soc_series           | soc series                | Soc series cmake                         | CMake             | Specify the soc series, like `${SdkRootDirPath}/devices/${soc_portfolio}/${soc_series}/${device}` |
 
 The above variables shall anyway be provided in CMake because they are used before Kconfig process.
 
@@ -1304,7 +1304,7 @@ Here is the Kconfig stored variable table:
 | CONFIG_MCUX_HW_FPU_TYPE                  | fpu type.                                | Kconfig process | CMake   |       |
 | CONFIG_MCUX_HW_DEVICE_ID                 | Device id like  MK64FN1M0xxx12           | Kconfig process | CMake   |       |
 | CONFIG_MCUX_HW_DEVICE_PART               | Device part like  MK64FN1M0VDC12         | Kconfig process | CMake   |       |
-| CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX | NPI provided device default linker file name prefix, like "LINKER devices/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld", for MK64F12, it is devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld | Kconfig process | CMake   |       |
+| CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX | NPI provided device default linker file name prefix, like "LINKER devices/${soc_portfolio}/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld", for MK64F12, it is devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld | Kconfig process | CMake   |       |
 | CONFIG_MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER | IAR IDE project device identifier        | Kconfig process | CMake   |       |
 | CONFIG_MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER | MDK IDE project device identifier        | Kconfig process | CMake   |       |
 
@@ -1574,7 +1574,7 @@ The assembly point for all cmakes is the root CMakeLists.txt. It looks like
 
 ```cmake
 # Load device CMakeLists.txt
-mcux_add_cmakelists(${SdkRootDirPath}/devices/${soc_series}/${device})
+mcux_add_cmakelists(${SdkRootDirPath}/devices/${soc_portfolio}/${soc_series}/${device})
 
 # Load board CMakeLists.txt
 mcux_add_cmakelists(${SdkRootDirPath}/boards/${board})
@@ -1780,7 +1780,7 @@ include(${SdkRootDirPath}/CMakeLists.txt)
 # ${SdkRootDirPath}/CMakeLists.txt is the assembly point for all board/device, drivers, components,  middlewares cmake data.
 # Here is its contents
 # # Load device CMakeLists.txt
-# mcux_add_cmakelists(${SdkRootDirPath}/devices/${soc_series}/${device})
+# mcux_add_cmakelists(${SdkRootDirPath}/devices/${soc_portfolio}/${soc_series}/${device})
 # Load board CMakeLists.txt
 # mcux_add_cmakelists(${SdkRootDirPath}/boards/${board})
 # Load all drivers
@@ -2171,7 +2171,7 @@ Let's say if you want to use drivers from meta build system, you need to prepare
    set(CONFIG_MCUX_HW_FPU_TYPE fpv5_dp)
 
    # load device CMakeLists.txt
-   mcux_add_cmakelists(${ZEPHYR_HAL_NXP_MODULE_DIR}/mcux/mcux-sdk/devices/${soc_series}/${device})
+   mcux_add_cmakelists(${ZEPHYR_HAL_NXP_MODULE_DIR}/mcux/mcux-sdk/devices/${soc_portfolio}/${soc_series}/${device})
    # Load all drivers CMakeList.txt
    mcux_load_all_cmakelists_in_directory(${ZEPHYR_HAL_NXP_MODULE_DIR}/mcux/mcux-sdk/drivers)
    ```
