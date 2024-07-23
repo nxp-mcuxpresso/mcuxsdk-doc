@@ -2654,3 +2654,16 @@ Supported attribute for script files are:
   ```
 
   ![jlink_script_file](./_doc/ide_file_jlink_script_file.png)
+
+### IDE language Setting
+
+For GUI project, project language can be set to "c" or "cpp" in IDE.yml with "project_language" field. If not set, the default is c. For IAR C++ project, generally you can set project language to "auto" to let the compiler decide how to compile.
+
+For example:
+
+```yaml
+iar:
+  project_language: auto
+mdk:
+  project_language: cpp
+```
