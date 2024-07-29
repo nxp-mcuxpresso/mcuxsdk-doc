@@ -211,7 +211,7 @@ Please see following table for the arguments
 
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
-| BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`. This is usually used in abstracted `.cmake` files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
+| BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`.  If not provided, the final source path equals `${CMAKE_CURRENT_LIST_DIR}` + `SOURCES`. This is usually used in abstracted `.cmake` files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
 | CONFIG        | Single        | Specify that the source is a config file or the include is for a config header. |
 | PREINCLUDE    | Single        | Specify that the header is a preinclude header. This is only for mcux_add_source. |
 | EXCLUDE       | Single        | Specify the source shall be exluded from build. This is only for mcux_add_source |
@@ -414,6 +414,27 @@ mcux_add_macro(
    )
    ```
 
+#### mcux_add_linker_symbol
+
+The CMake function mcux_add_configuration requires the complete toolchain setting. For linker macro setting, you have to add prefix for linker symbol. The prefix may be different for each linker. For example, `--config_def=` for iar, `--predefine=` for mdk. To be convenient for developer to set linker symbol once time for all toolchains, ``mcux_add_linker_symbol` is provided.
+
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
+| SYMBOLS       | Single        | The linker symbols                       |
+
+For example:
+
+```cmake
+mcux_add_linker_symbol(
+	SYMBOLS "gUseNVMLink_d=1\
+             gEraseNVMLink_d=1\
+             _ram_vector_table_=1\
+             gFlashNbuImage_d=1\
+             gUseProdInfoLegacyMode_d=1"
+)
+```
+
 ### Pre/Post Build Command
 
 #### mcux_add_custom_command
@@ -493,6 +514,25 @@ Here is one example
 ```cmake
 mcux_remove_macro(CC "TESTMACRO")
 ```
+
+####  mcux_remove_linker_symbol
+
+Remove linker symbol for all toolchains with specified build targets.
+
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all target |
+| SYMBOLS       | Single        | The linker symbols to be removed         |
+
+Here is one example
+
+```cmake
+mcux_remove_linker_symbol(
+    SYMBOLS "gFlashNbuImage_d=1"
+)
+```
+
+#### 
 
 #### mcux_remove_iar_linker_script/mcux_remove_mdk_linker_scriptmcux_remove_armgcc_linker_script
 
