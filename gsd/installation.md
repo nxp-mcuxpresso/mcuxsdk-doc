@@ -37,7 +37,7 @@ Follow the [CMake](https://cmake.org/getting-started/) doc to install CMake. The
 
 ### Ninja
 
-Install the [Ninja](https://ninja-build.org/). The minimum ninja version is ***1.11.0***.
+Install the [Ninja](https://ninja-build.org/). Please use the latest ninja version 1.12.1.
 
 ### Kconfig
 
@@ -58,12 +58,9 @@ Here are the toolchain environment variable table
 
 #### armgcc
 
-
 #### iar
 
-
 #### mdk
-
 
 ## Document
 
@@ -72,6 +69,7 @@ It is only needed when you want to generate the HTML version of the document in 
 ### Python dependencies
 
 There are several needed python packages for documentation generation, such as Sphinx tool, which we used to do the generation process. Run below command to install those python dependencies.
+
 ```
 cd mcu-sdk-3.0/docs
 pip install -r requirements.txt
@@ -80,45 +78,51 @@ pip install -r requirements.txt
 ### make
 
 Install make for windows using choco, other OS has make installed by default. Ensure you are running command in administrator mode.
+
 ```cmd
 choco install make
 ```
+
 If you do not have choco installed, you can install it from [chocolatey](https://chocolatey.org/install)
 
 ### doxygen
 
 The doxygen installation is needed if you want to try documentation generation. The versions for the doxygen tools are as below:
+
 - Doxygen version 1.8.13
 - Graphviz 2.43
 - Latexmk version 4.56
 
 For installation, you can refer to the guideline as below, which is referenced from the [Zephyr documentation generation guideline](https://docs.zephyrproject.org/latest/contribute/documentation/generation.html#installing-the-documentation-processors)
+
 - Linux
+
   - On Ubuntu Linux:
-	```
-	sudo apt-get install --no-install-recommends doxygen graphviz librsvg2-bin \
-	texlive-latex-base texlive-latex-extra latexmk texlive-fonts-recommended imagemagick
+
     ```
-	
+    sudo apt-get install --no-install-recommends doxygen graphviz librsvg2-bin \
+    texlive-latex-base texlive-latex-extra latexmk texlive-fonts-recommended imagemagick
+    ```
   - On Fedora Linux:
-	```
-	sudo dnf install doxygen graphviz texlive-latex latexmk \
-	texlive-collection-fontsrecommended librsvg2-tools ImageMagick
-    ```	
 
+    ```
+    sudo dnf install doxygen graphviz texlive-latex latexmk \
+    texlive-collection-fontsrecommended librsvg2-tools ImageMagick
+    ```
   - On Clear Linux:
-	```
-	sudo swupd bundle-add texlive graphviz ImageMagick
-	```	
-	
-  - On Arch Linux:
-	```
-	sudo pacman -S graphviz doxygen librsvg texlive-core texlive-bin \
-	texlive-latexextra texlive-fontsextra imagemagick
-	```
 
+    ```
+    sudo swupd bundle-add texlive graphviz ImageMagick
+    ```
+  - On Arch Linux:
+
+    ```
+    sudo pacman -S graphviz doxygen librsvg texlive-core texlive-bin \
+    texlive-latexextra texlive-fontsextra imagemagick
+    ```
 - macOS
   Use ``brew`` and ``tlmgr`` to install the tools:
+
   ```
   brew install doxygen graphviz mactex librsvg imagemagick
   ```
@@ -128,9 +132,9 @@ For installation, you can refer to the guideline as below, which is referenced f
   ```
   tlmgr install collection-fontsrecommended
   ```
-
 - Windows
   Open a ``cmd.exe`` window as **Administrator** and run the following command:
+
   ```
   choco install doxygen.install graphviz strawberryperl miktex rsvg-convert imagemagick
   ```
