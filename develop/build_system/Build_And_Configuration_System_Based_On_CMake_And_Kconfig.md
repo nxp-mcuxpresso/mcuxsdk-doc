@@ -2008,7 +2008,7 @@ Like Zephyr, BS supports setting up configuration for flash runners (invoked fro
 
 ### board_runner.cmake
 
-`mcux.cmake`will always include this file under `${SdkRootDirPath}/boards/<board>` to get runner arguments and which runners are supported for this board. Here is an example:
+`mcux.cmake` will always include this file under `${SdkRootDirPath}/boards/<board>` to get runner arguments and which runners are supported for this board. Here is an example:
 
 ```cmake
 board_runner_args(pyocd "--target=mimxrt1170_${core_id}")
@@ -2026,6 +2026,19 @@ include(${SdkRootDirPath}/cmake/extension/runner/linkserver.board.cmake)
 ```
 
 `board_runner_args` is used to pass runner speicfic arguments and then you have to include the board supported runner cmake file from `${SdkRootDirPath}/cmake/extension/runner/`.
+
+***The first included runner cmake will be set as the default runner for both flash and debug***. If you want to set another default runner. Please set following variable in board's variable.cmake:
+
+```cmake
+mcux_set_variable(BOARD_FLASH_RUNNER "linkserver")
+mcux_set_variable(BOARD_DEBUG_RUNNER "jlink")
+```
+
+To let the runners get correct flash address, developer should maintain Kconfig variable `FLASH_BASE_ADDRESS`. It usually be overrided in `devices/${soc_portfolio}/${soc_series}/${device}/(${core_id})/prj.conf`:
+
+```bash
+CONFIG_FLASH_BASE_ADDRESS=0x30000400
+```
 
 ## IDE Generation
 
