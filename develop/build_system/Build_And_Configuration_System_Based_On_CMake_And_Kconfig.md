@@ -171,7 +171,7 @@ Beyond traditional CMake generation, MCUXpresso build system also integrates som
 
 MCUXpresso SDK supports all mainstream toolchains in the embedded world beyond traditional armgcc.
 
-The toolchain list supported by our build system is IAR, MDK, Xcc, Xclang and Zephyr. The CMake toolchain setting files are placed in `mcu-sdk-3.0/cmake/toolchain` folder. All toolchain files generally follow the same structure and loaded through `mcu-sdk-3.0/cmake/<toolchain>.cmake`. The CMake variable for toolchain is `CONFIG_TOOLCHAIN` which is used to cmdline to specify the toolchain to build.
+The toolchain list supported by our build system is armgcc, iar, mdk, xtensa and zephyr. The CMake toolchain setting files are placed in `mcu-sdk-3.0/cmake/toolchain` folder. All toolchain files generally follow the same structure and loaded through `mcu-sdk-3.0/cmake/<toolchain>.cmake`. The CMake variable for toolchain is `CONFIG_TOOLCHAIN` which is used to cmdline to specify the toolchain to build.
 
 If you need to enable new toolchain, please follow the existing toolchain file pattern and place it there.
 
