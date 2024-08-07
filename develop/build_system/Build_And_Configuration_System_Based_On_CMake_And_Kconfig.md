@@ -4,7 +4,7 @@
 
 | Acronym or Term | Definition                      |
 | :-------------: | ------------------------------- |
-|       BS       | Build System                    |
+|       BS        | Build System                    |
 |       BCS       | Build and Configuration System  |
 |       BCP       | Build and Configuration Process |
 
@@ -46,6 +46,8 @@ Here are the toolchain environment variable table
 | MDK       | MDK_DIR                | C:\Keil_v5 | --toolchain mdk             |
 | Armgcc    | ARMGCC_DIR             | C:\armgcc  | --toolchain armgcc(default) |
 | Zephyr    | ZEPHYR_SDK_INSTALL_DIR |            | --toolchain zephyr          |
+
+Note, for MDK toolchain, only armclang compiler is supported.
 
 ## Kconfig
 
@@ -206,27 +208,27 @@ For include path, the following functions are provided:
 
 Please see following table for the arguments
 
-| Argument Name | Argument Type | Explanation                                                                                                                                                                                                                                                                                                                                                                          |
-| ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`.  If not provided, the final source path equals `${CMAKE_CURRENT_LIST_DIR}` + `SOURCES`. This is usually used in abstracted `.cmake` files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
-| CONFIG        | Single        | Specify that the source is a config file or the include is for a config header.                                                                                                                                                                                                                                                                                                      |
-| PREINCLUDE    | Single        | Specify that the header is a preinclude header. This is only for mcux_add_source.                                                                                                                                                                                                                                                                                                    |
-| EXCLUDE       | Single        | Specify the source shall be exluded from build. This is only for mcux_add_source                                                                                                                                                                                                                                                                                                     |
-| SOURCES       | Multiple      | The sources. This is only for `mcux_add_source`. If there are multiple sources, please separate them with whitespace.                                                                                                                                                                                                                                                              |
-| SCOPE         | Single        | Specify the source scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for mcux_add_source and take same effect as target_sources scope. The default scope is PRIVATE if not set.                                                                                                                                                                                                   |
-| INCLUDES      | Multiple      | The includes. This is only for `mcux_add_include`. If there are multiple includes, please separate them with whitespace.                                                                                                                                                                                                                                                           |
-| TARGET_FILES  | Multiple      | This is only for `mcux_add_include` which is used to specify the include target which header file. This is required only for `config` header.                                                                                                                                                                                                                                    |
-| COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.`<br>`Here are all the supported compilers: armclang, iar, gcc, xcc, mwcc56800e.                                                                                                                                                                                                                  |
-| TOOLCHAINS    | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.`<br>`Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior.                                                                                                                                                                                                                |
-| CORES         | Multiple      | The cores. It means the source or include only supports the listed cores.`<br>`Here are all the supported cores: cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp                                                                                                                                                                         |
-| CORE_IDS      | Multiple      | The core_ids. It means the source or include only supports the listed core_ids. This is usually to distinguish support for core in multicore platform.                                                                                                                                                                                                                               |
-| DEVICES       | Multiple      | The devices. It means the source or include only supports the listed device, like MK64F12.                                                                                                                                                                                                                                                                                           |
-| DEVICE_IDS    | Multiple      | The device ids. It means the source or include only supports the listed device id, like MK64FN1M0xxx12.                                                                                                                                                                                                                                                                              |
-| FPU           | Multiple      | The fpu. It means the source or include only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU.                                                                                                                                                                                                                                                              |
-| DSP           | Multiple      | The dsp. It means the source or include only supports the listed dsp. dsp enum values are NO_DSP and DSP                                                                                                                                                                                                                                                                             |
-| TRUSTZONE     | Multiple      | The trustzone. It means the source or include only supports the listed trustzone. trustzone enum values are TZ and  NO_TZ.                                                                                                                                                                                                                                                           |
-| COMPONENTS    | Multiple      | The components. It means the source or include only supports the listed components                                                                                                                                                                                                                                                                                                   |
-| TARGETS       | Multiple      | This parameter is for adding include path by `mcux_add_include`or `mcux_add_${language}_include`. It means the include path only supports the listed targets                                                                                                                                                                                                                     |
+| CONFIG        | Single        | Specify that the source is a config file or the include is for a config header. |
+| PREINCLUDE    | Single        | Specify that the header is a preinclude header. This is only for mcux_add_source. |
+| EXCLUDE       | Single        | Specify the source shall be exluded from build. This is only for mcux_add_source |
+| SOURCES       | Multiple      | The sources. This is only for `mcux_add_source`. If there are multiple sources, please separate them with whitespace. |
+| SCOPE         | Single        | Specify the source scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for mcux_add_source and take same effect as target_sources scope. The default scope is PRIVATE if not set. |
+| INCLUDES      | Multiple      | The includes. This is only for `mcux_add_include`. If there are multiple includes, please separate them with whitespace. |
+| TARGET_FILES  | Multiple      | This is only for `mcux_add_include` which is used to specify the include target which header file. This is required only for `config` header. |
+| COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.`<br>`Here are all the supported compilers: armclang, iar, gcc, xcc, mwcc56800e. |
+| TOOLCHAINS    | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.`<br>`Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior. |
+| CORES         | Multiple      | The cores. It means the source or include only supports the listed cores.`<br>`Here are all the supported cores: cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp |
+| CORE_IDS      | Multiple      | The core_ids. It means the source or include only supports the listed core_ids. This is usually to distinguish support for core in multicore platform. |
+| DEVICES       | Multiple      | The devices. It means the source or include only supports the listed device, like MK64F12. |
+| DEVICE_IDS    | Multiple      | The device ids. It means the source or include only supports the listed device id, like MK64FN1M0xxx12. |
+| FPU           | Multiple      | The fpu. It means the source or include only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU. |
+| DSP           | Multiple      | The dsp. It means the source or include only supports the listed dsp. dsp enum values are NO_DSP and DSP |
+| TRUSTZONE     | Multiple      | The trustzone. It means the source or include only supports the listed trustzone. trustzone enum values are TZ and  NO_TZ. |
+| COMPONENTS    | Multiple      | The components. It means the source or include only supports the listed components |
+| TARGETS       | Multiple      | This parameter is for adding include path by `mcux_add_include`or `mcux_add_${language}_include`. It means the include path only supports the listed targets |
 
 Wildcard "\*.\<extension>" is supported in mcux\_add_source, frequently used would be "\*.*", "\*.c" and "\*.h".
 
@@ -264,23 +266,23 @@ mcux_add_include(
 
 Specify the library to be linked.
 
-| Argument Name | Argument Type | Explanation                                                                                                                                                                                                                                                                |
-| ------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final library path equals `BASE_PATH` + `LIB`. This is usually used in abstracted `.cmake` files which are not placed together with real library. For library in CMakeLists.txt which is usually put together with real library, no need to add it. |
-| LIBS          | Multiple      | The libraries to be added/removed                                                                                                                                                                                                                                          |
-| SCOPE         | Single        | Specify the library scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for mcux_add_library and take same effect as target_link_libraries scope. The default scope is PRIVATE if not set.                                                                                |
-| TOOLCHAINS    | Multiple      | The toolchains. It means the library only supports the listed toolchains.`<br>`Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior.                                                                                                                |
-| CORES         | Multiple      | The cores. It means the library only supports the listed cores.`<br>`Here are all the supported cores: cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp                                                                         |
-| CORE_IDS      | Multiple      | The core_ids. It means the library only supports the listed core_ids. This is usually to distinguish support for core in multicore platform.                                                                                                                               |
-| DEVICES       | Multiple      | The devices. It means the library only supports the listed device, like MK64F12.                                                                                                                                                                                           |
-| DEVICE_IDS    | Multiple      | The device ids. It means the library only supports the listed device id, like MK64FN1M0xxx12.                                                                                                                                                                              |
-| FPU           | Multiple      | The fpu. It means the library only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU.                                                                                                                                                              |
-| DSP           | Multiple      | The dsp. It means the library only supports the listed dsp. dsp enum values are NO_DSP and DSP                                                                                                                                                                             |
-| TRUSTZONE     | Multiple      | The trustzone. It means the library only supports the listed trustzone. trustzone enum values are TZ and  NO_TZ.                                                                                                                                                           |
-| COMPONENTS    | Multiple      | The components. It means the library only supports the listed components                                                                                                                                                                                                   |
-| GENERATED     | Single        | Mark the library is generated by other project, should be TRUE or FALSE. This is necessary for KEX package                                                                                                                                                                 |
-| EXCLUDE       | Single        | Mark the library is exclude from linking, should be TRUE or FALSE.                                                                                                                                                                                                         |
-| HIDDEN        | Single        | Mark the library is hidden from GUI project, should be TRUE or FALSE.                                                                                                                                                                                                      |
+| LIBS          | Multiple      | The libraries to be added/removed        |
+| SCOPE         | Single        | Specify the library scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for mcux_add_library and take same effect as target_link_libraries scope. The default scope is PRIVATE if not set. |
+| TOOLCHAINS    | Multiple      | The toolchains. It means the library only supports the listed toolchains.`<br>`Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior. |
+| CORES         | Multiple      | The cores. It means the library only supports the listed cores.`<br>`Here are all the supported cores: cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp |
+| CORE_IDS      | Multiple      | The core_ids. It means the library only supports the listed core_ids. This is usually to distinguish support for core in multicore platform. |
+| DEVICES       | Multiple      | The devices. It means the library only supports the listed device, like MK64F12. |
+| DEVICE_IDS    | Multiple      | The device ids. It means the library only supports the listed device id, like MK64FN1M0xxx12. |
+| FPU           | Multiple      | The fpu. It means the library only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU. |
+| DSP           | Multiple      | The dsp. It means the library only supports the listed dsp. dsp enum values are NO_DSP and DSP |
+| TRUSTZONE     | Multiple      | The trustzone. It means the library only supports the listed trustzone. trustzone enum values are TZ and  NO_TZ. |
+| COMPONENTS    | Multiple      | The components. It means the library only supports the listed components |
+| GENERATED     | Single        | Mark the library is generated by other project, should be TRUE or FALSE. This is necessary for KEX package |
+| EXCLUDE       | Single        | Mark the library is exclude from linking, should be TRUE or FALSE. |
+| HIDDEN        | Single        | Mark the library is hidden from GUI project, should be TRUE or FALSE. |
 
 Here is one example
 
@@ -315,11 +317,11 @@ mcux_convert_binary(
 
 Add linker for toolchain.
 
-| Argument Name | Argument Type | Explanation                                                                                                                                                           |
-| ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TARGETS       | Multiple      | The build targets, like debug release                                                                                                                                 |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | The build targets, like debug release    |
 | BASE_PATH     | Single        | If provided, the final linker path equals `BASE_PATH` + `LINKER`. This is usually used in abstracted .cmake files which are not placed together with real linker. |
-| LINKER        | Single        | The linker path                                                                                                                                                       |
+| LINKER        | Single        | The linker path                          |
 
 Here is one example
 
@@ -349,15 +351,15 @@ mcux_add_mdk_linker_script(
 
 Add configuration for all toolchains with specified build targets.
 
-| Argument Name | Argument Type | Explanation                                                           |
-| ------------- | ------------- | --------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
 | TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
-| LIB           | Multiple      | The library, the full path                                            |
-| AS            | Single        | The assemble compiler flag                                            |
-| CC            | Single        | The c compiler flags                                                  |
-| CX            | Single        | The cxx compiler flags                                                |
-| LD            | Single        | The linker flags                                                      |
+| LIB           | Multiple      | The library, the full path               |
+| AS            | Single        | The assemble compiler flag               |
+| CC            | Single        | The c compiler flags                     |
+| CX            | Single        | The cxx compiler flags                   |
+| LD            | Single        | The linker flags                         |
 
 Note, please use native compiler flags of the compilers.
 
@@ -382,13 +384,13 @@ Very similar with mcux_add_configuration, just target specified toolchain, not f
 
 The CMake function mcux_add_configuration requires the complete toolchain setting. For macro setting, you must add "-D" prefix for each macro. To make it easier for users to add macros, mcux_add_macro is provided.
 
-| Argument Name | Argument Type | Explanation                                                           |
-| ------------- | ------------- | --------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
 | TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
-| AS            | Single        | The assemble compiler macros                                          |
-| CC            | Single        | The c compiler macros                                                 |
-| CX            | Single        | The cxx compiler macros                                               |
+| AS            | Single        | The assemble compiler macros             |
+| CC            | Single        | The c compiler macros                    |
+| CX            | Single        | The cxx compiler macros                  |
 
 Note:
 
@@ -415,10 +417,10 @@ mcux_add_macro(
 
 The CMake function mcux_add_configuration requires the complete toolchain setting. For linker macro setting, you have to add prefix for linker symbol. The prefix may be different for each linker. For example, `--config_def=` for iar, `--predefine=` for mdk. To be convenient for developer to set linker symbol once time for all toolchains, ``mcux_add_linker_symbol` is provided.
 
-| Argument Name | Argument Type | Explanation                                                           |
-| ------------- | ------------- | --------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-| SYMBOLS       | Single        | The linker symbols                                                    |
+| SYMBOLS       | Single        | The linker symbols                       |
 
 For example:
 
@@ -493,15 +495,15 @@ Except adding data, the build system also supports removing defined data. For ex
 
 Remove configuration for all toolchains with specified build targets.
 
-| Argument Name | Argument Type | Explanation                                                           |
-| ------------- | ------------- | --------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
 | TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
-| LIB           | Multiple      | The library, the full path                                            |
-| AS            | Single        | The assemble compiler flag                                            |
-| CC            | Single        | The c compiler flags                                                  |
-| CX            | Single        | The cxx compiler flags                                                |
-| LD            | Single        | The linker flags                                                      |
+| LIB           | Multiple      | The library, the full path               |
+| AS            | Single        | The assemble compiler flag               |
+| CC            | Single        | The c compiler flags                     |
+| CX            | Single        | The cxx compiler flags                   |
+| LD            | Single        | The linker flags                         |
 
 Note, please use native compiler flags of the compilers.
 
@@ -524,13 +526,13 @@ Very similar with mcux_remove_configuration, just target specified toolchain, no
 
 Remove macros for all toolchains with specified build targets.
 
-| Argument Name | Argument Type | Explanation                                                           |
-| ------------- | ------------- | --------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
 | TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
-| AS            | Single        | The assemble compiler macros                                          |
-| CC            | Single        | The c compiler macros                                                 |
-| CX            | Single        | The cxx compiler macros                                               |
+| AS            | Single        | The assemble compiler macros             |
+| CC            | Single        | The c compiler macros                    |
+| CX            | Single        | The cxx compiler macros                  |
 
 Note, mcux_remove_macro automatically prefixes macros that do not have the -D prefix
 Here is one example
@@ -543,10 +545,10 @@ mcux_remove_macro(CC "TESTMACRO")
 
 Remove linker symbol for all toolchains with specified build targets.
 
-| Argument Name | Argument Type | Explanation                                                          |
-| ------------- | ------------- | -------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all target |
-| SYMBOLS       | Single        | The linker symbols to be removed                                     |
+| SYMBOLS       | Single        | The linker symbols to be removed         |
 
 Here is one example
 
@@ -558,11 +560,11 @@ mcux_remove_linker_symbol(
 
 #### mcux_remove_iar_linker_script/mcux_remove_mdk_linker_scriptmcux_remove_armgcc_linker_script
 
-| Argument Name | Argument Type | Explanation                                                                                                                                                   |
-| ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TARGETS       | Multiple      | The build targets, like debug release                                                                                                                         |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | The build targets, like debug release    |
 | BASE_PATH     | Single        | If provided, the final linker path equals BASE_PATH + LINKER. This is usually used in abstracted .cmake files which are not placed together with real linker. |
-| LINKER        | Single        | The linker path                                                                                                                                               |
+| LINKER        | Single        | The linker path                          |
 
 Here is one example
 
@@ -590,11 +592,11 @@ mcux_remove_mdk_linker_script(
 
 Remove project source or include.
 
-| Argument Name | Argument Type | Explanation                                                                                                                                                                                                                                                                          |
-| ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`. This is usually used in abstracted .cmake files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
-| INCLUDES      | Multiple      | The include path.                                                                                                                                                                                                                                                                    |
-| SOURCES       | Multiple      | The source path.                                                                                                                                                                                                                                                                     |
+| INCLUDES      | Multiple      | The include path.                        |
+| SOURCES       | Multiple      | The source path.                         |
 
 Here is one example
 
@@ -612,10 +614,10 @@ mcux_project_remove_include(
 
 Remove libraries. Whether the file was added before or after this statement, it will take effect.
 
-| Argument Name | Argument Type | Explanation                                                                                                                            |
-| ------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `LIBS`. Otherwise the actual path is relative to ${CMAKE_CURRENT_LIST_DIR} |
-| LIBS          | Multiple      | The library files to be removed                                                                                                        |
+| LIBS          | Multiple      | The library files to be removed          |
 
 Here is one example
 
@@ -642,9 +644,9 @@ Here is an example
 
 Remove build config.
 
-| Argument Name | Argument Type | Explanation                                                                        |
-| ------------- | ------------- | ---------------------------------------------------------------------------------- |
-| TARGETS       | Multiple      | The build config to be removed.                                                    |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | The build config to be removed.          |
 | TOOLCHAINS    | Multiple      | Specify the toolchain. Disable the build config for all toolchains If not provide. |
 
 Here is one example
@@ -805,16 +807,16 @@ Like the component, in CMake, project segment data shall also be recorded inside
 
 Here is the frequently used and prepared project segments table.
 
-| Project Segment Name                                    | Location               | Functionality                                                             |
-| ------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------- |
-| CONFIG_MCUX_PRJSEG_config.arm.shared                    | arch/arm/configuration | The commonly shared configuration by all examples of ARM platforms        |
-| CONFIG_MCUX_PRJSEG_config.kinetis.shared                | arch/arm/configuration | The commonly shared configuration by all examples of kinetis platforms    |
-| CONFIG_MCUX_PRJSEG_config.arm.core.`<core name>`      | arch/arm/cortexm       | The ARM core settings                                                     |
-| CONFIG_MCUX_PRJSEG_config.arm.core.fpu.`<fpu type>`   | arch/arm/cortexm       | The ARM core fpu settings                                                 |
-| CONFIG_MCUX_PRJSEG_config.device_core.define            | arch/arm/cortexm       | The core CPU macro definition                                             |
-| CONFIG_MCUX_PRJSEG_target.`<buiild target name>`      | arch/arm/target        | Build configuration target                                                |
+| Project Segment Name                     | Location               | Functionality                            |
+| ---------------------------------------- | ---------------------- | ---------------------------------------- |
+| CONFIG_MCUX_PRJSEG_config.arm.shared     | arch/arm/configuration | The commonly shared configuration by all examples of ARM platforms |
+| CONFIG_MCUX_PRJSEG_config.kinetis.shared | arch/arm/configuration | The commonly shared configuration by all examples of kinetis platforms |
+| CONFIG_MCUX_PRJSEG_config.arm.core.`<core name>` | arch/arm/cortexm       | The ARM core settings                    |
+| CONFIG_MCUX_PRJSEG_config.arm.core.fpu.`<fpu type>` | arch/arm/cortexm       | The ARM core fpu settings                |
+| CONFIG_MCUX_PRJSEG_config.device_core.define | arch/arm/cortexm       | The core CPU macro definition            |
+| CONFIG_MCUX_PRJSEG_target.`<buiild target name>` | arch/arm/target        | Build configuration target               |
 | CONFIG_MCUX_PRJSEG_module.board.`<board module name>` | boards/common          | Commonly shared board modules like board file, pinmux, clock config, etc. |
-| CONFIG_MCUX_PRJSEG_project.`<project module name>`    | boards/common          | Commonly shared project modules like hardware init app. etc.              |
+| CONFIG_MCUX_PRJSEG_project.`<project module name>` | boards/common          | Commonly shared project modules like hardware init app. etc. |
 
 Here is one project segment CMake example:
 
@@ -850,11 +852,11 @@ Just like the native CMake way, all data inside CMakeLists.txt with `project` ma
 
  Compared to the native `project`, the customized `project` provides the following additional  parameters:
 
-| Argument Name           | Argument Type | Explanation                                                                                                       |
-| ----------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Argument Name           | Argument Type | Explanation                              |
+| ----------------------- | ------------- | ---------------------------------------- |
 | PROJECT_BOARD_PORT_PATH | Single        | Path for board-specific and project-specific files. Generally, this folder will contain hardware_init.c and app.h |
-| PROJECT_TYPE            | Single        | Specify the project type, can be " EXECUTABLE" or "LIBRARY". The default type is " EXECUTABLE" if not set.        |
-| CUSTOM_PRJ_CONF_PATH    | Multiple      | Specify customized prj.conf search path. Please refer to[prj.conf](#prj.conf)                                        |
+| PROJECT_TYPE            | Single        | Specify the project type, can be " EXECUTABLE" or "LIBRARY". The default type is " EXECUTABLE" if not set. |
+| CUSTOM_PRJ_CONF_PATH    | Multiple      | Specify customized prj.conf search path. Please refer to[prj.conf](#prj.conf) |
 
 Here is one project CMake example
 
@@ -942,19 +944,19 @@ Kconfig processor in BCS will give detailed warnings about unsatisfied component
 
 Except for software components, following dependency items are provided.
 
-| Dependency Item               | Illustration                                                |
-| ----------------------------- | ----------------------------------------------------------- |
-| MCUX_HW_DEVICE_\<device>      | Device, like MK64F12                                        |
-| MCUX_HW_DEVICE_ID_\<device_d> | Device id, like MK64FN1M0xxx12                              |
-| MCUX_HW_CORE_\<core_name>     | Core name, like cm4f                                        |
-| MCUX_HW_CORE_ID_\<core_id>    | Core id, like cm33_core0                                    |
-| MCUX_HW_BOARD_\<board name>   | Board name, like frdmk64f                                   |
-| MCUX_HW_KIT_\<kit name>       | Kit name, like frdmk64f_agm01                               |
-| MCUX_HW_\<fpu type>           | fpu type name, like  MCUX_HW_FPV4_SP                        |
-| MCUX_HW_DSP                   | DSP                                                         |
-| MCUX_HW_MPU                   | MPU                                                         |
+| Dependency Item               | Illustration                             |
+| ----------------------------- | ---------------------------------------- |
+| MCUX_HW_DEVICE_\<device>      | Device, like MK64F12                     |
+| MCUX_HW_DEVICE_ID_\<device_d> | Device id, like MK64FN1M0xxx12           |
+| MCUX_HW_CORE_\<core_name>     | Core name, like cm4f                     |
+| MCUX_HW_CORE_ID_\<core_id>    | Core id, like cm33_core0                 |
+| MCUX_HW_BOARD_\<board name>   | Board name, like frdmk64f                |
+| MCUX_HW_KIT_\<kit name>       | Kit name, like frdmk64f_agm01            |
+| MCUX_HW_\<fpu type>           | fpu type name, like  MCUX_HW_FPV4_SP     |
+| MCUX_HW_DSP                   | DSP                                      |
+| MCUX_HW_MPU                   | MPU                                      |
 | MCUX_HW_\<secure type>        | Secure or nonsecure, like MCUX_HW_SECURE, MCUX_HW_NONSECURE |
-| MCUX_HW_\<trustzone type>     | Trustzone type, like MCUX_HW_TZ, MCUX_HW_NO_TZ              |
+| MCUX_HW_\<trustzone type>     | Trustzone type, like MCUX_HW_TZ, MCUX_HW_NO_TZ |
 
 **All these dependency items shall be defined in device Kconfig.chip.**
 
@@ -1341,42 +1343,42 @@ In the BS, all these required variables can be defined in CMake to make the buil
 
 Here is the CMake stored variable table:
 
-| Variable Name        | Explanation               | Acquisition                                                                  | Used in           | Usage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| -------------------- | ------------------------- | ---------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| SdkRootDirPath       | SDK root directory        | Automatically set by BS                                                      | CMake             | Secify sdk root path like `include(${SdkRootDirPath}/devices/common/device_header.cmake)`                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| board                | board name, like frdmk64f | Provided in cmdline argument, also need to record it in board variable cmake | CMake and Kconfig | Specify the target board, like `${SdkRootDirPath}/boards/${board}`                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| device               | device name, like MK64F12 | Device variable cmake                                                        | CMake and Kconfig | Specify the target device, like `${SdkRootDirPath}/devices/\${soc_portfolio}/${soc_series}/${device}`                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| core_id              | Core id, like cm33_core0  | Device variable cmake. This is only required for multicore device.           | Kconfig           | Specify the core_id, like `rsource "${core_id}/Kconfig`.`<br>`This is only needed for multiple core device Kconfig.                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| core_id_suffix_name  | Core id suffix name       | Device variable cmake                                                        | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project name, in multicore device, it is may called hello_world_cm4 and hello_world_cm7 while in single core device, it is may called hello_world, then "hello_world${core_id_suffix_name}" can work for all cases. For cm4 core, it can be "_cm4", for cm7 core, it can be "_cm7", for single core, it can be ""                                                                                                                         |
-| multicore_foldername | multicore folder name     | Device variable cmake                                                        | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project root, in multicore device evkmimxrt1170, it is boards/evkmimxrt1170/demo_apps/hello_world/cm4 and boards/evkmimxrt1170/demo_apps/hello_world/cm7 while in single core board frdmk64f, it is boards/frdmk64f/demo_apps/hello_world, then "boards/evkmimxrt1170/demo_apps/hello_world/${multicore_foldername}" can work for all cases. For cm4 core, it can be "cm4", for cm7 core, it can be "cm7", for single core, it can be "." |
-| soc_series           | soc series                | Soc series cmake                                                             | CMake             | Specify the soc series, like `${SdkRootDirPath}/devices/${soc_portfolio}/${soc_series}/${device}`                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Variable Name        | Explanation               | Acquisition                              | Used in           | Usage                                    |
+| -------------------- | ------------------------- | ---------------------------------------- | ----------------- | ---------------------------------------- |
+| SdkRootDirPath       | SDK root directory        | Automatically set by BS                  | CMake             | Secify sdk root path like `include(${SdkRootDirPath}/devices/common/device_header.cmake)` |
+| board                | board name, like frdmk64f | Provided in cmdline argument, also need to record it in board variable cmake | CMake and Kconfig | Specify the target board, like `${SdkRootDirPath}/boards/${board}` |
+| device               | device name, like MK64F12 | Device variable cmake                    | CMake and Kconfig | Specify the target device, like `${SdkRootDirPath}/devices/\${soc_portfolio}/${soc_series}/${device}` |
+| core_id              | Core id, like cm33_core0  | Device variable cmake. This is only required for multicore device. | Kconfig           | Specify the core_id, like `rsource "${core_id}/Kconfig`.`<br>`This is only needed for multiple core device Kconfig. |
+| core_id_suffix_name  | Core id suffix name       | Device variable cmake                    | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project name, in multicore device, it is may called hello_world_cm4 and hello_world_cm7 while in single core device, it is may called hello_world, then "hello_world${core_id_suffix_name}" can work for all cases. For cm4 core, it can be "_cm4", for cm7 core, it can be "_cm7", for single core, it can be "" |
+| multicore_foldername | multicore folder name     | Device variable cmake                    | CMake             | Unify data record across single core and multicore device. For example, for the same hello_world project root, in multicore device evkmimxrt1170, it is boards/evkmimxrt1170/demo_apps/hello_world/cm4 and boards/evkmimxrt1170/demo_apps/hello_world/cm7 while in single core board frdmk64f, it is boards/frdmk64f/demo_apps/hello_world, then "boards/evkmimxrt1170/demo_apps/hello_world/${multicore_foldername}" can work for all cases. For cm4 core, it can be "cm4", for cm7 core, it can be "cm7", for single core, it can be "." |
+| soc_series           | soc series                | Soc series cmake                         | CMake             | Specify the soc series, like `${SdkRootDirPath}/devices/${soc_portfolio}/${soc_series}/${device}` |
 
 The above variables shall anyway be provided in CMake because they are used before Kconfig process.
 
 Here is the Kconfig stored variable table:
 
-| Variable Name                              | Explanation                                                                                                                                                                                                                                                | Acquisition     | Used in | Usage |
-| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------- | ----- |
-| CONFIG_MCUX_HW_CORE                        | Core                                                                                                                                                                                                                                                       | Kconfig process | CMake   |       |
-| CONFIG_MCUX_HW_CORE_ID                     | Core id                                                                                                                                                                                                                                                    | Kconfig process | CMake   |       |
-| CONFIG_MCUX_HW_DEVICE_CORE                 | device core. For single core, it is the device like MK64F12. For multicore, it is device+core like  MIMXRT1176_cm4 or  MIMXRT1176_cm7                                                                                                                      | Kconfig process | CMake   |       |
-| CONFIG_MCUX_HW_FPU                         | fpu                                                                                                                                                                                                                                                        | Kconfig process | CMake   |       |
-| CONFIG_MCUX_HW_FPU_TYPE                    | fpu type.                                                                                                                                                                                                                                                  | Kconfig process | CMake   |       |
-| CONFIG_MCUX_HW_DEVICE_ID                   | Device id like  MK64FN1M0xxx12                                                                                                                                                                                                                             | Kconfig process | CMake   |       |
-| CONFIG_MCUX_HW_DEVICE_PART                 | Device part like  MK64FN1M0VDC12                                                                                                                                                                                                                           | Kconfig process | CMake   |       |
+| Variable Name                            | Explanation                              | Acquisition     | Used in | Usage |
+| ---------------------------------------- | ---------------------------------------- | --------------- | ------- | ----- |
+| CONFIG_MCUX_HW_CORE                      | Core                                     | Kconfig process | CMake   |       |
+| CONFIG_MCUX_HW_CORE_ID                   | Core id                                  | Kconfig process | CMake   |       |
+| CONFIG_MCUX_HW_DEVICE_CORE               | device core. For single core, it is the device like MK64F12. For multicore, it is device+core like  MIMXRT1176_cm4 or  MIMXRT1176_cm7 | Kconfig process | CMake   |       |
+| CONFIG_MCUX_HW_FPU                       | fpu                                      | Kconfig process | CMake   |       |
+| CONFIG_MCUX_HW_FPU_TYPE                  | fpu type.                                | Kconfig process | CMake   |       |
+| CONFIG_MCUX_HW_DEVICE_ID                 | Device id like  MK64FN1M0xxx12           | Kconfig process | CMake   |       |
+| CONFIG_MCUX_HW_DEVICE_PART               | Device part like  MK64FN1M0VDC12         | Kconfig process | CMake   |       |
 | CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX | NPI provided device default linker file name prefix, like "LINKER devices/${soc_portfolio}/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld", for MK64F12, it is devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld | Kconfig process | CMake   |       |
-| CONFIG_MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER   | IAR IDE project device identifier                                                                                                                                                                                                                          | Kconfig process | CMake   |       |
-| CONFIG_MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER   | MDK IDE project device identifier                                                                                                                                                                                                                          | Kconfig process | CMake   |       |
+| CONFIG_MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER | IAR IDE project device identifier        | Kconfig process | CMake   |       |
+| CONFIG_MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER | MDK IDE project device identifier        | Kconfig process | CMake   |       |
 
 Basically, all type string Kconfig symbol can be regarded as variable and used in CMake.
 
 Except for the above variables, there are variables which are generated in the configuration stage:
 
-| Variable Name          | Explanation                                                                    |
-| ---------------------- | ------------------------------------------------------------------------------ |
+| Variable Name          | Explanation                              |
+| ---------------------- | ---------------------------------------- |
 | MCUX_SDK_PROJECT_NAME  | The processed example name, it equals `PROJECT_NAME`+`core_id_suffix_name` |
-| APPLICATION_SOURCE_DIR | Project CMakelists.txt directory like examples/src/demo_apps/hello_world       |
-| APPLICATION_BINARY_DIR | Output build directory like `<mcu-sdk-3.0>/build`                            |
+| APPLICATION_SOURCE_DIR | Project CMakelists.txt directory like examples/src/demo_apps/hello_world |
+| APPLICATION_BINARY_DIR | Output build directory like `<mcu-sdk-3.0>/build` |
 
 #### Customized Variables
 
@@ -1871,10 +1873,10 @@ mcux_add_include(
 
 Example types are distinguished based on the location of the example CMakelists.txt:
 
-| Example type | CMakelists.txt Location                                                                                                                          |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Repository   | mcu-sdk-3.0 repo examples/src folder                                                                                                             |
-| freestanding | Other location than mcu-sdk-3.0 repo examples folder, it can be inside or outside mcu-sdk-3.0 repo                                               |
+| Example type | CMakelists.txt Location                  |
+| ------------ | ---------------------------------------- |
+| Repository   | mcu-sdk-3.0 repo examples/src folder     |
+| freestanding | Other location than mcu-sdk-3.0 repo examples folder, it can be inside or outside mcu-sdk-3.0 repo |
 | Standalone   | A completely detached project from the repository, contains everything necessary for a single project, which does not rely on meta build system. |
 
 ### Repository Example
