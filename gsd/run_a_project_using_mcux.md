@@ -19,31 +19,31 @@ To build an example application, follow these steps.
 1. Drag and drop the repository into the **Installed SDKs** view to install the MCUXpresso SDK. In the window that
 appears, click the **OK** button and wait until the import has finished.
 
-    ![Install SDK](Getting_Started/images/mcux_install_a_sdk.png)
+    ![Install SDK](images/mcux_install_a_sdk.png)
 2. On the **Quickstart Panel**, click **Import SDK example(s)….**
 
-    ![Import an SDK example](Getting_Started/images/mcux_import_project.png)
+    ![Import an SDK example](images/mcux_import_project.png)
 3. In the window that appears, expand the **MIMXRT1020** folder and select **MIMXRT1021xxxxx**. Then, select **evkmimxrt1020** and click the **Next** button.
 
-    ![Selecting EVK-MIMXRT1020 board](Getting_Started/images/mcux_select_rt1020_board.png)
+    ![Selecting EVK-MIMXRT1020 board](images/mcux_select_rt1020_board.png)
 
 4. Expand the demo_apps folder and select hello_world. Then, click the **Next** button.
 
-    ![Selecting hello_world](Getting_Started/images/mcux_import_example_evkmimxrt1020.png)
+    ![Selecting hello_world](images/mcux_import_example_evkmimxrt1020.png)
 
     | :exclamation: NOTE | 
     |:-----------------------------------------:| 
     | If you want to use semihost to print log, first select the Semihost button when importing projects.|
 
-    ![Selecting User floating point version of printf](Getting_Started/images/mcux_select_semihost.png)
+    ![Selecting User floating point version of printf](images/mcux_select_semihost.png)
 
 5. Ensure the option **Redlib: Use floating point version of printf** is selected if the cases print floating point numbers on the terminal (such as mmcau_examples mmcau_api). Otherwise, there is no need to select it. Click the **Finish** button.
 
-    ![Selecting User floating point version of printf](Getting_Started/images/mcux_select_float_number.png)
+    ![Selecting User floating point version of printf](images/mcux_select_float_number.png)
 
 6. On the **Quickstart** panel, click **build evkmimxrt1020_demo_apps_hello_world [Debug]**.
 
-    ![Building hello world case](Getting_Started/images/mcux_build.png)
+    ![Building hello world case](images/mcux_build.png)
 
 ## :three:Run an example application
 For more information on debug probe support in the MCUXpresso IDE, visit community.nxp.com.
@@ -56,23 +56,23 @@ To download and run the application, perform these steps:
 
 1. On the **Quickstart** panel, click **Debug evkmimxrt1020_demo_apps_hello_world [Debug]**.
 
-    ![Debugging hello_world case](Getting_Started/images/mcux_debug.png)
+    ![Debugging hello_world case](images/mcux_debug.png)
 
 2. The first time you debug a project, the Debug Emulator Selection Dialog is displayed, showing all supported probes
 that are attached to your computer. Select the probe through which you want to debug and click the **OK** button. (For
 any future debug sessions, the stored probe selection is automatically used, unless the probe cannot be found.)
 
-    ![Attached Probes: debug emulator selection](Getting_Started/images/mcux_select_debug_emulator_evkmimxrt1020.png)
+    ![Attached Probes: debug emulator selection](images/mcux_select_debug_emulator_evkmimxrt1020.png)
 
 3. The application is downloaded to the target and automatically runs to main().
 
-    ![Stop at main() when running debugging](Getting_Started/images/mcux_debug_stop_main_evkmimxrt1020.png)
+    ![Stop at main() when running debugging](images/mcux_debug_stop_main_evkmimxrt1020.png)
 
 4. Start the application by clicking the **Resume** button.
 
-    ![Resume button](Getting_Started/images/mcux_debug_go_evkmimxrt1020.png)
+    ![Resume button](images/mcux_debug_go_evkmimxrt1020.png)
 
 The hello_world application is now running and a banner is displayed on the MCUXpresso IDE console window. If this is
 not the case, check your terminal settings and connections.
 
-![Text display of the hello_world demo](Getting_Started/images/ide_hello_world_result.png)
+![Text display of the hello_world demo](images/ide_hello_world_result.png)

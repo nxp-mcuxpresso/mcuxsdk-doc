@@ -94,7 +94,7 @@ Open Git bash to execute below commands for adding sign-off.
 
 ### Sign-off DCO if you are using GitHub Web Editor
 It's currently not supported automatically adding sign-off when you Commit change directly using GitHub Web UI. You need to manually add sign-off message in the end of your commit message. Example as below:
-![Adding sing-off in GitHub UI](Contributing/add_signoff_for_github_editor.png)
+![Adding sing-off in GitHub UI](add_signoff_for_github_editor.png)
 
 
 | :exclamation: NOTE | 
@@ -195,7 +195,7 @@ The documentation sources are consist of:
 
 Below picture shows the framework. We used the popular sphinx_rtd_theme for HTML site creation, the breathe extension is used to bridge the doxygen generated xml files to sphinx. The following section will describe the environment set up and  steps for documentation generation.
 
-![Documentation Sources](Contributing/documentation_overview.png)
+![Documentation Sources](documentation_overview.png)
 
 ### Environment Setup
 

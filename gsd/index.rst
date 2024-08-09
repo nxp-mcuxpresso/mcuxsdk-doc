@@ -1,3 +1,5 @@
+.. _gsd_index:
+
 Getting Started
 ====================
 

@@ -18,11 +18,11 @@ and tools.
 2. Run the installer. The recommended installation path is C:\MinGW, however, you may install to any location. But please notice that the installation path cannot contain any spaces.
 3. Ensure that the **mingw32-base** and **msys-base** are selected under **Basic Setup**.
 
-    ![Set Up MinGW and MSYS](Getting_Started/images/armgcc_install_mingw_select_component.png)
+    ![Set Up MinGW and MSYS](images/armgcc_install_mingw_select_component.png)
 
 4. In the **Installation** menu, click **Apply Changes** and follow the remaining instructions to complete the installation.
 
-    ![Complete MinGW and MSYS installation](Getting_Started/images/armgcc_install_mingw_applychange.png)
+    ![Complete MinGW and MSYS installation](images/armgcc_install_mingw_applychange.png)
 
 5. Add the appropriate item to the Windows operating system path environment variable. It can be found under **Control
 Panel->System and Security->System->Advanced System Settings** in the **Environment Variables...** section. The
@@ -36,7 +36,7 @@ path is:
     |:-----------------------------------------:| 
     | If you have  C:\MinGW\msys\x.x\bin in your PATH variable (as required by Kinetis SDK 1.0.0), remove it to ensure that the new GCC build system works correctly.|
 
-    ![Add Path to system environment](Getting_Started/images/armgcc_install_mingw_addpath.png)
+    ![Add Path to system environment](images/armgcc_install_mingw_addpath.png)
 
 ### 3. Add a new system environment variable for **ARMGCC_DIR**
 Create a new system environment variable and name it as ARMGCC_DIR. The value of this variable should point to the Arm
@@ -48,16 +48,16 @@ See the installation folder of the GNU Arm GCC Embedded tools for the exact path
     
 **Short path should be used for path setting**, you could convert the path to short path by running command "for %I in (.) do echo %~sI" in above path
 
-![Convert path to short path](Getting_Started/images/armgcc_install_armgcc_cvt_path.png)
+![Convert path to short path](images/armgcc_install_armgcc_cvt_path.png)
 
-![Add ARMGCC_DIR system variable](Getting_Started/images/armgcc_add_dir.png)
+![Add ARMGCC_DIR system variable](images/armgcc_add_dir.png)
 
 ### 4. Install CMake
 1.  Download CMake 3.0.x from www.cmake.org/cmake/resources/software.html.
 2. Install CMake, ensuring that the option **Add CMake to system PATH** is selected when installing. The user chooses to
 select whether it is installed into the PATH for all users or just the current user. In this example, it is installed for all users.
 
-![Install CMake](Getting_Started/images/armgcc_install_cmake.png)
+![Install CMake](images/armgcc_install_cmake.png)
 
 3. Follow the remaining instructions of the installer.
 4. You may need to reboot your system for the PATH changes to take effect.
@@ -92,7 +92,7 @@ determine the COM port number, see Appendix A). Configure the terminal with thes
     - 8 data bits
     - 1 stop bit
 
-    ![Terminal (PuTTY) configurations](Getting_Started/images/putty_configuration.png)
+    ![Terminal (PuTTY) configurations](images/putty_configuration.png)
 
 4. Open the J-Link GDB Server application. Go to the SEGGER install folder. For example, C:\Program
 Files(x86)\SEGGER\JLink_Vxxx. 
@@ -104,13 +104,13 @@ Files(x86)\SEGGER\JLink_Vxxx.
 5. Select target device for the board. Take evkmimxrt1024 as an example, choose device MIMXRT1024xxx5A.
 6. After it is connected, the screen should resemble this figure:
 
-    ![SEGGER J-Link GDB Server screen after successful connection](Getting_Started/images/armgcc_debug_jlink_gdbserver.png)
+    ![SEGGER J-Link GDB Server screen after successful connection](images/armgcc_debug_jlink_gdbserver.png)
 
 7. If not already running, open a GCC ARM Embedded tool chain command window. To launch the window, from the
 Windows operating system **Start menu**, go to **Programs -> GNU Tools ARM Embedded <version>** and select **GCC
 Command Prompt**.
 
-    ![Launch command prompt](Getting_Started/images/armgcc_debug_jdbserver_launch.png)
+    ![Launch command prompt](images/armgcc_debug_jdbserver_launch.png)
 
 8. Change to the directory that contains the example application output. The output can be found in below path:
     *{repo_path}/boards/{board_name}/{example_type}/{application_name}/armgcc/{build_target}*
@@ -119,7 +119,7 @@ Command Prompt**.
     *{repo_path}/boards/evkmimxrt1024/demo_apps/hello_world/armgcc/debug*
 9. Run the arm-none-eabi-gdb.exe {application_path}/{application_name}.elf. For this example, it is ```arm-none-eabi-gdb.exe {repo_path}/boards/evkmimxrt1024/demo_apps/hello_world/armgcc/debug/hello_world.elf```.
 
-    ![Run arm-none-eabi-gdb](Getting_Started/images/armgcc_debug_launch_result.png)
+    ![Run arm-none-eabi-gdb](images/armgcc_debug_launch_result.png)
 
 10. Run these commands:
     ```

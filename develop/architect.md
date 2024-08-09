@@ -29,7 +29,7 @@ below.
 
 6.  Demo Applications based on the MCUXpresso SDK
 
-![](media/image1.tmp){width="4.875in" height="3.09375in"}
+![](media/Kinetis_SDK_Block_Diagram.jpg)
 
 ## CMSIS Support
 
@@ -327,7 +327,7 @@ All files in the application folder are specific to that example, so it
 is easy to copy and paste an existing example to start developing a
 custom application based on a project provided in the MCUXpresso SDK.
 
-![](media/image2.tmp){width="4.875in" height="3.8125in"}
+![](media/image2.png)
 
 ### BOARD specific configuration: board.c/h
 
