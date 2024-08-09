@@ -19,5 +19,3 @@ The repo structure can be categorized into four parts:
 - **middleware repos**. Recorded in the submanifests/middleware subdirectory, categorized according to functionality, such as safety, motor control, wireless, connectivity and etc. They are also loaded in the root west.yml manifest file. 
 - **internal repos**.Recorded in the submanifests/internal.yml and loaded in the root west.yml manifest file. They are grouped into the *bifrost* group and only visible to NXP internal developers.
 
-## Getting SDK Repos
-Internal developers please refer to the guide in [repo setup](../bifrost/readme.md#steps-to-try)

@@ -3,13 +3,23 @@
 We greatly welcome and highly appreciate for your contribution. You could freely choose to either raise a GitHub issue or contributing your code change directly to our project. Please read through below guidelines before building your contribution.  
 
 ##### Table of Contents 
-  * [Code of Conduct](#code-of-conduct)
-  * [Licensing](#licensing)
-  * [Developer Certification of Origin (DCO)](#developer-certification-of-origin-(DCO))
-  * [Commit Guidelines](#commit-guidelines)
-  * [Contribution Workflow](#contribution-workflow)
-  * [Contributing New Components](#contributing-new-components)
-  * [Documentation Generation](#documentation-generation)
+- [Contribution Guidelines](#contribution-guidelines)
+        - [Table of Contents](#table-of-contents)
+  - [Code of Conduct](#code-of-conduct)
+  - [Licensing](#licensing)
+  - [Developer Certification of Origin (DCO)](#developer-certification-of-origin-dco)
+    - [Sign-off DCO if you are using Git command line](#sign-off-dco-if-you-are-using-git-command-line)
+    - [Sign-off DCO if you are using GitHub Web Editor](#sign-off-dco-if-you-are-using-github-web-editor)
+  - [Commit Guidelines](#commit-guidelines)
+    - [Coding Style](#coding-style)
+    - [Commit Preparation](#commit-preparation)
+  - [Contribution Workflow](#contribution-workflow)
+    - [Raise an issue](#raise-an-issue)
+    - [Create a pull-request](#create-a-pull-request)
+  - [Contributing New Components](#contributing-new-components)
+  - [Documentation Generation](#documentation-generation)
+    - [Documentation Overview](#documentation-overview)
+    - [Documentation Generation](#documentation-generation-1)
 
 
 ## Code of Conduct
@@ -197,30 +207,8 @@ Below picture shows the framework. We used the popular sphinx_rtd_theme for HTML
 
 ![Documentation Sources](documentation_overview.png)
 
-### Environment Setup
-
-***Firstly, ensure all your code is up-to-date, run `west update_repo`.*** You could refer to the guide in [repo setup](manifest_int/readme.md)
-
-The documentation environment setup steps could refer to [Zephyr Installing the documentation processors](https://docs.zephyrproject.org/latest/contribute/documentation/generation.html#installing-the-documentation-processors) with below notices:
-
-1. No need to install zephyr. But if you do not have below tools installed, refer to [Zephyr Getting Start Guide](https://docs.zephyrproject.org/latest/develop/getting_started/index.html#install-dependencies) to install them:
-    - Python version >= 3.8
-    - Cmake
-    - Ninja
-2. For the required python dependencies, install from the requirements.txt under the docs/ folder.
-
-```bash
-
-# Note: you can add option '--default-timeout=1000' if you meet connection issue.
-pip install -r mcu-sdk-3.0/docs/requirements.txt
-```
-3. Install make for windows using choco, other OS has make installed by default. Ensure you are running command in administrator mode.
-```cmd
-choco install make
-```
-
 ### Documentation Generation
-Assume you have the MCUXpresso SDK repos up to date, you could navigate to docs/ folder where the sphinx configuration file locates and where the Makefile prepared. Then, with below command to generate the html content locally:
+Assume you have the MCUXpresso SDK repos up to date and followed the [installation](../gsd/installation.md) to installed the required tools, you could navigate to *docs/* folder where the sphinx configuration file locates and where the Makefile prepared. Then, with below command to generate the html content locally:
 ```cmd
 make html
 ```
