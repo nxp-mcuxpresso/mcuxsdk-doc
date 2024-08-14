@@ -1,0 +1,4 @@
+build:
+  # The root dir is zcbor
+  cmake: mcux/.
+  kconfig: mcux/Kconfig

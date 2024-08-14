@@ -40,14 +40,14 @@ You need to set environment variables to specify the toolchain installation so t
 
 Here are the toolchain environment variable table
 
-| Toolchain   | Environment variable   | Example | Cmd Line Argument           |
-|-------------|------------------------| - |:----------------------------|
-| IAR         | IAR_DIR                | C:\iar | --toolchain iar             |
-| MDK         | MDK_DIR                | C:\Keil_v5 | --toolchain mdk             |
-| Armgcc      | ARMGCC_DIR             | C:\armgcc | --toolchain armgcc(default) |
-| CodeWarrior | CW_DIR                 | C:\Freescale\CW MCU v11.2  | --toolchain codewarrior     |
-| Xtensa      | XCC_DIR                | C:\xtensa\XtDevTools\install\tools\RI-2023.11-win32\XtensaTools | --toolchain xtensa |
-| Zephyr      | ZEPHYR_SDK_INSTALL_DIR |   | --toolchain zephyr          |
+| Toolchain   | Environment variable   | Example                                  | Cmd Line Argument           |
+| ----------- | ---------------------- | ---------------------------------------- | :-------------------------- |
+| IAR         | IAR_DIR                | C:\iar                                   | --toolchain iar             |
+| MDK         | MDK_DIR                | C:\Keil_v5                               | --toolchain mdk             |
+| Armgcc      | ARMGCC_DIR             | C:\armgcc                                | --toolchain armgcc(default) |
+| CodeWarrior | CW_DIR                 | C:\Freescale\CW MCU v11.2                | --toolchain codewarrior     |
+| Xtensa      | XCC_DIR                | C:\xtensa\XtDevTools\install\tools\RI-2023.11-win32\XtensaTools | --toolchain xtensa          |
+| Zephyr      | ZEPHYR_SDK_INSTALL_DIR |                                          | --toolchain zephyr          |
 
 Note: 
 - For MDK toolchain, only armclang compiler is supported.
@@ -2278,54 +2278,9 @@ west build -t hello_world_secondary_core_guiconfig
 
 ## Integrated Into Other Build System
 
-The meta build system can be integrate into other build system which is based on CMake. In principle, the meta build system use customized CMake function and configured by Kconfig, so that it requires you to:
+Please refer [McuxSDK CMake Package](#McuxSDK-CMake-Package).
 
-1. Include `mcu-sdk-3.0/cmake/extension/function.cmake`
-2. Load necessary `CMakeLists.txt` files for source code
-3. Involve kconfig file into your project
-
-Let's say if you want to use drivers from meta build system, you need to prepare:
-
-1. Kconfig file
-
-   The Kconfig file determines which drivers are available on which devices, it will load drivers kconfig and device kconfig file, for example, if you're working on zephyr, the kconfig file should contain content at least:
-
-   ```bash
-   source "$(ZEPHYR_HAL_NXP_MODULE_DIR)/mcux/mcux-sdk/drivers/Kconfig"
-   source "$(ZEPHYR_HAL_NXP_MODULE_DIR)/mcux/mcux-sdk/devices/common/Kconfig.common"
-   source "$(ZEPHYR_HAL_NXP_MODULE_DIR)/mcux/mcux-sdk/CMSIS/Kconfig"
-
-   if $(BOARD_IDENTIFIER) = "/mimxrt1176/cm7"
-   source "$(ZEPHYR_HAL_NXP_MODULE_DIR)/mcux/mcux-sdk/devices/RT/MIMXRT1176/Kconfig.chip"
-   source "$(ZEPHYR_HAL_NXP_MODULE_DIR)/mcux/mcux-sdk/devices/RT/MIMXRT1176/cm7/Kconfig.chip"
-   endif
-   ```
-2. CMakeLists.txt
-
-   In meta build system, some variables are used, so that you must set them before loading any CMakeLists.txt,  if you're working on zephyr, for example:
-
-   ```cmake
-   include(${CMAKE_CURRENT_LIST_DIR}/../cmake/extension/function.cmake)
-
-   set(MCUX_SDK_PROJECT_NAME ${ZEPHYR_CURRENT_LIBRARY})
-
-   enable_language(C ASM)
-
-   # The varaibles below should be set in zephyr's build system, list here for reference
-   set(soc_series RT)
-   set(device MIMXRT1176)
-   set(SdkRootDirPath ${CMAKE_CURRENT_LIST_DIR}/..)
-   set(core_id cm7)
-   set(CONFIG_MCUX_HW_CORE cm7f)
-   set(CONFIG_MCUX_HW_FPU_TYPE fpv5_dp)
-
-   # load device CMakeLists.txt
-   mcux_add_cmakelists(${ZEPHYR_HAL_NXP_MODULE_DIR}/mcux/mcux-sdk/devices/${soc_portfolio}/${soc_series}/${device})
-   # Load all drivers CMakeList.txt
-   mcux_load_all_cmakelists_in_directory(${ZEPHYR_HAL_NXP_MODULE_DIR}/mcux/mcux-sdk/drivers)
-   ```
-
-   ***Note: This section is still being evaluated and will be refined subsequently***
+Note: Currently GUI project and standalone project generation are not supported for other build system which uses McuxSDK CMake Package.
 
 ## Integrate Other CMake build system
 
@@ -2333,24 +2288,81 @@ The meta build system is based on CMake, theoretically, it supports the integrat
 
 There are two ways for this requirement:
 
-1. If the other software want to  use assembler/compiler/linker flags provided by meta build system, you can just import software CMakeLists.txt by [add_subdirectory](https://cmake.org/cmake/help/latest/command/add_subdirectory.html#add-subdirectory) function.  Let's say you have a code that will be compiled into library, the source code is added into a CMake target called "my_library":
+1. If the third-party software will be built as a library and linked to the project from meta build system, you can add the software path to CMake variable "EXTRA_MCUX_MODULES". The The directory of the path will be regarded as module's name. You need to create a folder named `mcux` in this path, and  prepare files below:
 
-   ```cmake
-   add_library(my_library STATIC ${SOURCE_FILES})
-   ```
+   - module.yml
 
-   In meta build system project, you can import "my_library" and link it in project CMakeLists.txt:
+     module.yml must be put into `mcux` folder. It records the relative path of CMakeLists.txt and Kconfig file. Note that the base path is the path form EXTRA_MCUX_MODULES. For example:
 
-   ```cmake
-   add_subdirectory(path/to/my_library ${CMAKE_CURRENT_BINARY_DIR}/mylib)
-   target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE my_library)
-   ```
+     ```yaml
+     build:
+       # if the base path is ~/zcbor
+       cmake: mcux/.             #full path ~/zcobr/mcux/CMakeLists.txt
+       kconfig: mcux/Kconfig     #full path ~/zcobr/mcux/Kconfig
+     ```
+
+   - Kconfig
+
+     At least one Kconfig item `MCUX_COMPONENT_`${module_name} should be recorded to help enable/disable the third-party software from building. For example:
+
+     ```
+     config MCUX_COMPONENT_ZCBOR
+     	bool "zcbor CBOR library"
+     	help
+     	  zcbor CBOR encoder/decoder library
+
+     if MCUX_COMPONENT_ZCBOR
+
+     config ZCBOR_CANONICAL
+     	bool "Produce canonical CBOR"
+     	help
+     	  Enabling this will prevent zcbor from creating lists and maps with
+     	  indefinite-length arrays (it will still decode them properly).
+     endif # MCUX_COMPONENT_ZCBOR  
+     ```
+
+   - CMakeLists.txt
+
+     All content should be wrapped by `if(CONFIG_MCUX_COMPONENT_${module_name}) ... endif()`. Then we can enable/disable the third-party software according to kconfig setting. There is no strict format for CMakeLists.txt, but you need to at least declare a library and link it to `${MCUX_SDK_PROJECT_NAME}`.
+
+     For example:
+
+     ```cmake
+     cmake_minimum_required(VERSION 3.20.0)
+
+     if(CONFIG_MCUX_COMPONENT_ZCBOR)
+         add_library(zcbor) # declare a zcbor library 
+
+         target_sources(zcbor PRIVATE # add files to zcbor library
+                 ${MCUX_ZCBOR_MODULE_DIR}/src/zcbor_common.c
+                 ${MCUX_ZCBOR_MODULE_DIR}/src/zcbor_decode.c
+                 ${MCUX_ZCBOR_MODULE_DIR}/src/zcbor_encode.c
+         )
+
+         target_include_directories(zcbor PUBLIC # add include path to zcbor library
+                 ${MCUX_ZCBOR_MODULE_DIR}/include
+         )
+
+         target_compile_definitions(zcbor PUBLIC _POSIX_C_SOURCE=200809L) # add macro to zcbor library and the targets which links this library
+
+         if(CONFIG_ZCBOR_CANONICAL)
+             target_compile_definitions(zcbor PRIVATE ZCBOR_CANONICAL) # # add macro only for zcbor library 
+         endif ()
+
+         target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE zcbor) # make mcux project link this library
+     endif()
+     ```
+
+   The software will use assembler/compiler/linker flags provided by meta build system, you can also set specific options for  the third-party software  in `PRIVATE` scope. 
+
+   Note: Due to the loading order of CMake, the compilation settings in reconfig.cmake are not available, so if necessary, you need to set them yourself in cmakelists.txt of the module.
+
 2. If the other software is a standalone project which has separated configuration, it can be imported by sysbuild.
 
    For example, you can provide a sysbuild.cmake:
 
    ```cmake
-   ExternalZephyrProject_Add(
+   ExternalMCUXProject_Add(
            APPLICATION my_library
            SOURCE_DIR  path/to/my_library
            CMAKE_ARGS -DCMAKE_BUILD_TYPE=debug -DCMAKE_TOOLCHAIN_FILE=path/to/toolchain.cmake
