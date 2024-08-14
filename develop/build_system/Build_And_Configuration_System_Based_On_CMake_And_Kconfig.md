@@ -40,14 +40,18 @@ You need to set environment variables to specify the toolchain installation so t
 
 Here are the toolchain environment variable table
 
-| Toolchain | Environment variable   | Example    | Cmd Line Argument           |
-| --------- | ---------------------- | ---------- | :-------------------------- |
-| IAR       | IAR_DIR                | C:\iar     | --toolchain iar             |
-| MDK       | MDK_DIR                | C:\Keil_v5 | --toolchain mdk             |
-| Armgcc    | ARMGCC_DIR             | C:\armgcc  | --toolchain armgcc(default) |
-| Zephyr    | ZEPHYR_SDK_INSTALL_DIR |            | --toolchain zephyr          |
+| Toolchain   | Environment variable   | Example | Cmd Line Argument           |
+|-------------|------------------------| - |:----------------------------|
+| IAR         | IAR_DIR                | C:\iar | --toolchain iar             |
+| MDK         | MDK_DIR                | C:\Keil_v5 | --toolchain mdk             |
+| Armgcc      | ARMGCC_DIR             | C:\armgcc | --toolchain armgcc(default) |
+| CodeWarrior | CW_DIR                 | C:\Freescale\CW MCU v11.2  | --toolchain codewarrior     |
+| Xtensa      | XCC_DIR                | C:\xtensa\XtDevTools\install\tools\RI-2023.11-win32\XtensaTools | --toolchain xtensa |
+| Zephyr      | ZEPHYR_SDK_INSTALL_DIR |   | --toolchain zephyr          |
 
-Note, for MDK toolchain, only armclang compiler is supported.
+Note: 
+- For MDK toolchain, only armclang compiler is supported.
+- For Xtensa toolchain, please set XTENSA_CORE environment, depends on your devices, it can be `nxp_rt600_RI23_11_newlib` or `nxp_rt500_RI23_11_newlib` and so on.
 
 ## Kconfig
 
