@@ -2195,12 +2195,12 @@ Sysbuild is a higher-level build system that can be used to combine multiple oth
 
 ### Sysbuild files
 
-To include sub projects into building system, you must prepare `sysbuild.cmake` into main application folder. Sub projects can be located anywhere, which are imported by `ExternalZephyrProject_Add` command inside sysbuild.cmake. For example:
+To include sub projects into building system, you must prepare `sysbuild.cmake` into main application folder. Sub projects can be located anywhere, which are imported by `ExternalMCUXProject_Add` command inside sysbuild.cmake. For example:
 
 ```cmake
-# examples/middleware/multicore/multicore_examples/hello_world/primary/sysbuild.cmake
+# examples/src/multicore/multicore_examples/hello_world/primary/sysbuild.cmake
 
-ExternalZephyrProject_Add(
+ExternalMCUXProject_Add(
         APPLICATION hello_world_secondary_core
         SOURCE_DIR  ${APP_DIR}/../secondary
         board ${SB_CONFIG_secondary_board}
@@ -2244,14 +2244,14 @@ config secondary_toolchain
 One thing to emphasize is that, sysbuild is only used to organize how individual images are compiled, but in reality, how images are included is set by the project's own cmakelsist.txt. For example, you must import the secondary core binary in primary core image CMakeLists.txt:
 
 ```cmake
-# mcu-sdk-3.0/examples/middleware/multicore/multicore_examples/hello_world/secondary/CMakeLists.txt
+# examples/src/multicore/multicore_examples/hello_world/secondary/CMakeLists.txt
 mcux_convert_binary(
         TOOLCHAINS armgcc mdk iar
-        BINARY ${APPLICATION_BINARY_DIR}/core1_image.bin
+        BINARY ${APPLICATION_BINARY_DIR}/${CONFIG_TOOLCHAIN}/core1_image.bin
 )
-# mcu-sdk-3.0/examples/middleware/multicore/multicore_examples/hello_world/primary/CMakeLists.txt
+# examples/src/multicore/multicore_examples/hello_world/primary/CMakeLists.txt
 mcux_add_iar_configuration(
-        LD "--image_input=${APPLICATION_BINARY_DIR}/../hello_world_secondary_core/core1_image.bin,_core1_image,__core1_image,4 "
+        LD "--image_input=${APPLICATION_BINARY_DIR}/../hello_world_secondary_core/iar/core1_image.bin,_core1_image,__core1_image,4 "
 )
 ```
 

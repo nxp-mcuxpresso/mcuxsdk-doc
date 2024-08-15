@@ -108,4 +108,14 @@
 
     Please check the variable MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER and MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER in mcu-sdk-3.0\devices\${soc_series}\${device}\Kconfig.chip, make sure it's a valid device idenditier. 
 
+## BUILD
 
+1. Why does GUI project build pass but fail on the command line?
+
+    To create GUI project, the script parses build.ninja and set them in project template file. There may be some presets in the template file that make your project compile successfully, but they will not be used by CMake. So you need to compare the build options in the GUI project with those in build.ninja and add missing assembler/compiler/linker flags in CMake.
+    
+    For IAR project, you can check build options by setting log level to `All`.
+    ![board_select_device_part](./_doc/IAR_GUI_all_build_option.png)
+    
+    For MDK project, you can check build options in  `C/C++(AC6)`/`Asm`/`Linker`  option tab.
+    ![board_select_device_part](./_doc/MDK_GUI_all_build_option.png)
