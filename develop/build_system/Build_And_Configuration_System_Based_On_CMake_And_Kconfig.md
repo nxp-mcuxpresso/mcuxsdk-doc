@@ -215,13 +215,13 @@ Please see following table for the arguments
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`.  If not provided, the final source path equals `${CMAKE_CURRENT_LIST_DIR}` + `SOURCES`. This is usually used in abstracted `.cmake` files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
-| CONFIG        | Single        | Specify that the source is a config file or the include is for a config header. |
+| CONFIG        | Single        | Specify that the source is a config file. If build system finds a file with the same name, it can replace the config file. Please note if the config file is a header file, you need to record the file in `TARGET_FILES` when adding the path for that header file with `mcux_add_include`. |
 | PREINCLUDE    | Single        | Specify that the header is a preinclude header. This is only for mcux_add_source. |
 | EXCLUDE       | Single        | Specify the source shall be exluded from build. This is only for mcux_add_source |
 | SOURCES       | Multiple      | The sources. This is only for `mcux_add_source`. If there are multiple sources, please separate them with whitespace. |
 | SCOPE         | Single        | Specify the source scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for mcux_add_source and take same effect as target_sources scope. The default scope is PRIVATE if not set. |
 | INCLUDES      | Multiple      | The includes. This is only for `mcux_add_include`. If there are multiple includes, please separate them with whitespace. |
-| TARGET_FILES  | Multiple      | This is only for `mcux_add_include` which is used to specify the include target which header file. This is required only for `config` header. |
+| TARGET_FILES  | Multiple      | This is only for `mcux_add_include`, which indicates the path is for the target header file. Please note target header files must be added by `mcux_add_source` and marked `CONFIG TRUE`.|
 | COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.`<br>`Here are all the supported compilers: armclang, iar, gcc, xcc, mwcc56800e. |
 | TOOLCHAINS    | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.`<br>`Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior. |
 | CORES         | Multiple      | The cores. It means the source or include only supports the listed cores.`<br>`Here are all the supported cores: cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp |
