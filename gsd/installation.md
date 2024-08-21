@@ -26,7 +26,7 @@ Install python 3.8 or above, please follow the guideline at [Python Download](ht
 
 ### Cmake
 
-Follow the [CMake](https://cmake.org/getting-started/) doc to install CMake. The minimum version is ***3.22.0***.
+Follow the [CMake](https://cmake.org/getting-started/) doc to install CMake. The minimum version is ***3.30.0***.
 
 
 ## Get SDK and install Python dependencies

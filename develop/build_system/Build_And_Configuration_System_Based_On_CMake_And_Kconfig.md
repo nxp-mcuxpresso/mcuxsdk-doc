@@ -22,7 +22,7 @@ Please make sure that all your code is up-to-date, please refer [Bifrost](https:
 
 #### CMake
 
-Since the BS uses CMake as the main build tool, please follow the [CMake](https://cmake.org/getting-started/) doc to install CMake. The minimum version is ***3.22.0***.
+Since the BS uses CMake as the main build tool, please follow the [CMake](https://cmake.org/getting-started/) doc to install CMake. The minimum version is ***3.30.0***.
 
 #### Ninja
 
@@ -442,7 +442,7 @@ mcux_add_linker_symbol(
 
 #### mcux_add_custom_command
 
-CMake provide built-in function `add_custom_command`, this is useful for performing an operation before or after building the target by setting PRE_BUILD | PRE_LINK | POST_BUILD parameters. For more details, please refer to [CMake document]([add_custom_command — CMake 3.29.3 Documentation](https://cmake.org/cmake/help/latest/command/add_custom_command.html#add-custom-command)). Based on this function, meta build system provide customized CMake function mcux_add_custom_command to set pre/post build command for specific targets and toolchains.
+CMake provide built-in function `add_custom_command`, this is useful for performing an operation before or after building the target by setting PRE_BUILD | PRE_LINK | POST_BUILD parameters. For more details, please refer to [CMake document]([add_custom_command — CMake 3.30.3 Documentation](https://cmake.org/cmake/help/latest/command/add_custom_command.html#add-custom-command)). Based on this function, meta build system provide customized CMake function mcux_add_custom_command to set pre/post build command for specific targets and toolchains.
 
 | Argument Name     | Argument Type | Explanation                              |
 | ----------------- | ------------- | ---------------------------------------- |
@@ -865,7 +865,7 @@ Just like the native CMake way, all data inside CMakeLists.txt with `project` ma
 Here is one project CMake example
 
 ```cmake
-cmake_minimum_required(VERSION 3.22.0)
+cmake_minimum_required(VERSION 3.30.0)
 
 include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
 
@@ -1817,7 +1817,7 @@ Broadly speaking, the build process flow can be divide into Kconfig process and 
 When you run a build, BS start from the example CMakelists.txt to work:
 
 ```cmake
-cmake_minimum_required(VERSION 3.22.0)
+cmake_minimum_required(VERSION 3.30.0)
 
 include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
 ## In this mcux.cmake, BS does the following work
@@ -2103,7 +2103,7 @@ When using McuxSDK CMake package, you just simply needs to write `find_package(M
 Here is an example:
 
 ```cmake
-cmake_minimum_required(VERSION 3.22.0)
+cmake_minimum_required(VERSION 3.30.0)
 find_package(Mcuxsdk REQUIRED)
 project(hello_world LANGUAGES C CXX ASM)
 mcux_add_source(
