@@ -221,7 +221,7 @@ Please see following table for the arguments
 | SOURCES       | Multiple      | The sources. This is only for `mcux_add_source`. If there are multiple sources, please separate them with whitespace. |
 | SCOPE         | Single        | Specify the source scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for mcux_add_source and take same effect as target_sources scope. The default scope is PRIVATE if not set. |
 | INCLUDES      | Multiple      | The includes. This is only for `mcux_add_include`. If there are multiple includes, please separate them with whitespace. |
-| TARGET_FILES  | Multiple      | This is only for `mcux_add_include`, which indicates the path is for the target header file. Please note target header files must be added by `mcux_add_source` and marked `CONFIG TRUE`.|
+| TARGET_FILES  | Multiple      | This is only for `mcux_add_include`, which indicates the path is for the target header file. Please note target header files must be added by `mcux_add_source` and marked `CONFIG TRUE`. |
 | COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.`<br>`Here are all the supported compilers: armclang, iar, gcc, xcc, mwcc56800e. |
 | TOOLCHAINS    | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.`<br>`Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior. |
 | CORES         | Multiple      | The cores. It means the source or include only supports the listed cores.`<br>`Here are all the supported cores: cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp |
@@ -1410,13 +1410,12 @@ Here is the hierarchy of arch data folder:
 ```yaml
 arch:
   arm:
-    targets: Commonly shared build targets data like debug and release
+    target: Commonly shared build targets data like debug and release
     configuration: Commonly shared build configuration data
     cortexm: Core settings
     CMSIS: CMSIS headers
-  riscv:
-  dsc:
-  Kconfig: load all Kconfig
+  dsp56800:
+  xtensa:
 ```
 
 #### Board Data
@@ -1430,7 +1429,7 @@ boards:
     Kconfig: Board software Kconfig, mainly specify board specific component and project segment dependency
     Kconfig.defconfig: Board specific components selection and configuration for invisible Kconfig symbols
     prj.conf: Board specific components selection and configuration
-    <category>_example_list.yml: Board example list like sdk_example_list, freertos_example_list, etc
+    example.yml: The supported toolchains and build configuration targets
     variable.cmake: Board variables
     board_runner.cmake: Board debug settings
     demo_apps:
@@ -1447,14 +1446,14 @@ boards:
       prj.conf:
   evkmimxrt1170: # A multicore device board
     cm4: Core specific contents folder 
-      <category>_example_list.yml: Board core specific example list
+      example.yml: Board core specific example list
       Kconfig: Board core software Kconfig, mainly specify board core specific component and project segment dependency
       Kconfig.defconfig: Board core specific components selection and configuration for invisible Kconfig symbols
       prj.conf: Board core specific components selection and configuration
       setting.cmake: Board core specific data and settings
       variable.cmake: Board core specific variables
     cm7: # Just like above cm4 core
-      <category>_example_list.yml:
+      example.yml:
       Kconfig:
       Kconfig.defconfig:
       prj.conf: 
@@ -1480,16 +1479,21 @@ boards:
   prj.conf: components selection and configuration by all boards
 ```
 
-Note, the supported examples by the board shall be recorded inside `boards/<board>/<category>_example_list.yml`. For multicore boards, since each core has different examples, the supported examples shall be recorded inside `boards/<board>/<core_id>/<category>_example_list.yml`.
+Note, the board level supported toolchains and build configuration targets shall be recorded in the `example.yml`.
 
-A typical sdk_example_list.yml is like
+A typical board example.yml is like
 
 ```yaml
-hello_world:
- required: true # false or without "required" is treated as NOT supported.
-freertos_hello:
- required: true
+board.toolchains:
+- +armgcc@debug
+- +armgcc@release
+- +iar@debug
+- +iar@release
+- +mdk@debug
+- +mdk@release
 ```
+
+All examples under the board share the toolchains and targets in the board example.yml.
 
 #### Device Data
 
@@ -1586,14 +1590,58 @@ examples:
       Kconfig: hello_world example Kconfig, if there is no project specific configuration data, please don't add it
       CMakeLists.txt: hello world example CMakeLists.txt
       prj.conf: hello world example component selection and configuration
+      example.yml: Miscellaneous description data for example including toolchain and build configuration targets support
   rtos_examples: 
     prj.conf: Component selection and configuration for all examples under rtos_examples
     freertos_hello:
       Kconfig: freertos_hello example Kconfig, if there is no project specific configuration data, please don't add it
       CMakeLists.txt: freertos_hello example CMakeLists.txt
       prj.conf: freertos hello example component selection and configuration
+      example.yml: Miscellaneous description data for example including toolchain and build configuration targets support
   prj.conf: all examples shared component selection and configuration
 ```
+
+Here is a typical case of example.yml:
+
+```yaml
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+
+hello_world:
+  section-type: application
+  contents:
+    meta_path: examples/src/demo_apps/hello_world
+    project-root-path: boards/${board}/demo_apps/hello_world/${multicore_foldername}
+    document:
+      name: hello_world${core_id_suffix_name}
+      category: demo_apps
+      brief: The HelloWorld demo prints the "Hello World" string to the terminal using
+        the SDK UART drivers and repeat what user input. The purpose of this demo
+        is to show how to use the UART, and to provide a simple project for debugging
+        and further development.
+  boards:
+    frdmk64f: []
+    evk9mimx8ulp@cm33: []
+    evkbimxrt1050:
+    - +armgcc@flexspi_nor_sdram_debug
+    - +armgcc@flexspi_nor_sdram_release
+    - +armgcc@sdram_txt_debug
+    - +armgcc@sdram_txt_release
+    - +iar@flexspi_nor_sdram_debug
+    - +iar@flexspi_nor_sdram_release
+    - +iar@ram_0x1400_debug
+    - +iar@ram_0x1400_release
+    - +iar@sdram_txt_debug
+	......
+```
+
+The supported toolchains and build configuration targets for an example can be got in the following way:
+
+1. Get the designated board example.yml to get the default supported toolchains and build configuration targets.
+2. Get the designated board from "boards" data attribute
+   1. If the data attribute is empty, then the board level toolchains and build configuration targets are the example ones.
+   2. If the data attribute exists, "+" to add extra toolchains and build configuration targets pairs from board ones. "-" to reduce extra ones from board ones.
+
+A detailed [json schema](https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-3.0/browse/scripts/data_schema) is provided for the example level example.yml, please review.
 
 #### Driver Data
 
@@ -1643,44 +1691,65 @@ The assembly point for all cmakes is the root CMakeLists.txt. It looks like
 mcux_add_cmakelists(${SdkRootDirPath}/devices/${soc_portfolio}/${soc_series}/${device})
 
 # Load board CMakeLists.txt
-mcux_add_cmakelists(${SdkRootDirPath}/boards/${board})
+mcux_add_cmakelists(${SdkRootDirPath}/examples/)
 
 # Load all drivers
 mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/drivers)
 
 # all components
-mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/components)
+mcux_add_cmakelists(${SdkRootDirPath}/components)
 
 # middlewares
 mcux_add_cmakelists(${SdkRootDirPath}/rtos/freertos/freertos-kernel OPTIONAL)
+mcux_add_cmakelists(${SdkRootDirPath}/middleware/usb OPTIONAL)
 mcux_add_cmakelists(${SdkRootDirPath}/middleware/fatfs OPTIONAL)
+mcux_add_cmakelists(${SdkRootDirPath}/middleware/littlefs OPTIONAL)
 mcux_add_cmakelists(${SdkRootDirPath}/middleware/multicore OPTIONAL)
+......
 ```
 
 The assembly point for all Kconfig is the root Kconfg.mcuxpresso which is
 
 ```bash
-# arch
-rsource "arch/Kconfig"
-
 # board
-rsource "boards/Kconfig"
+rsource "examples/Kconfig"
 
 # device
 rsource "devices/Kconfig"
 
 # Driver config
-rsource "drivers/Kconfig"
+menu "Driver Configuration"
+    rsource "drivers/Kconfig"
+    osource "rtos/freertos/freertos-drivers/Kconfig"
+endmenu
 
 # Component config
 rsource "components/Kconfig"
 
 # middleware config
 menu "Middleware"
+    osource "middleware/wifi_nxp/Kconfig"
     osource "middleware/mbedtls/Kconfig"
-    osource "rtos/freertos/freertos-kernel/Kconfig"
+    osource "middleware/usb/Kconfig"
     osource "middleware/fatfs/Kconfig"
+	osource "middleware/littlefs/Kconfig"
     osource "middleware/multicore/Kconfig"
+	......
+endmenu
+
+# RTOS config
+menu "RTOS"
+menu "FreeRTOS"
+    osource "rtos/freertos/freertos-kernel/Kconfig"
+    osource "rtos/freertos/backoffalgorithm/Kconfig"
+	......
+endmenu
+endmenu
+
+menu "External Modules"
+
+osource "$(KCONFIG_BINARY_DIR)/Kconfig.modules"
+
 endmenu
 ```
 
@@ -2024,7 +2093,9 @@ BCS provides following ways to do the customization.
 
    For component selection and configuration, you can use different level prj.conf to achieve it. Refer the priority level in [prj.conf](#prj-conf) to set the data.
 
-Remember to register the example in board example.yml so that build system, CI and IDE will know that the examples are enabled in certain boards.
+Remember to register the example in example.yml so that build system. The example.yml
+
+ CI and IDE will know that the examples are enabled in certain boards.
 
 Here is one example:
 
