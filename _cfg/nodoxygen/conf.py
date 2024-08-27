@@ -39,7 +39,7 @@ copyright = '2021,2024, NXP'
 author = 'NXP'
 
 # parse version from 'VERSION' file
-with open(SDK_BASE / "VERSION") as f:
+with open(SDK_BASE / "MCUX_VERSION") as f:
     m = re.match(
         (
             r"^CURRENT_YEAR\s*=\s*(\d+)$\n"
