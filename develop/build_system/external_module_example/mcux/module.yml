@@ -1,3 +1,4 @@
+name: zcbor # in case module name is different with module name
 build:
   # The root dir is zcbor
   cmake: mcux/.

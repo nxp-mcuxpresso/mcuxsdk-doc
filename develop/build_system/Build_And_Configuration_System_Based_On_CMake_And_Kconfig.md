@@ -2366,10 +2366,13 @@ There are two ways for this requirement:
      module.yml must be put into `mcux` folder. It records the relative path of CMakeLists.txt and Kconfig file. Note that the base path is the path form EXTRA_MCUX_MODULES. For example:
 
      ```yaml
+     name: zcbor #optional, must be set only if module folder name is different with module name
      build:
        # if the base path is ~/zcbor
        cmake: mcux/.             #full path ~/zcobr/mcux/CMakeLists.txt
        kconfig: mcux/Kconfig     #full path ~/zcobr/mcux/Kconfig
+       depends:                 # optional, dependent module will be included into the build system and be processed before current module.
+         - <module>
      ```
 
    - Kconfig
@@ -2394,7 +2397,7 @@ There are two ways for this requirement:
 
    - CMakeLists.txt
 
-     All content should be wrapped by `if(CONFIG_MCUX_COMPONENT_${module_name}) ... endif()`. Then we can enable/disable the third-party software according to kconfig setting. There is no strict format for CMakeLists.txt, but you need to at least declare a library and link it to `${MCUX_SDK_PROJECT_NAME}`.
+     All content should be wrapped by `if(CONFIG_MCUX_COMPONENT_${module_name}) ... endif()`. Then we can enable/disable the third-party software according to kconfig setting. There is no strict format for CMakeLists.txt. The module project will be linked to application code automatically by build system if it is a static library.
 
      For example:
 
@@ -2420,7 +2423,6 @@ There are two ways for this requirement:
              target_compile_definitions(zcbor PRIVATE ZCBOR_CANONICAL) # # add macro only for zcbor library 
          endif ()
 
-         target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE zcbor) # make mcux project link this library
      endif()
      ```
 

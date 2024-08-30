@@ -16,7 +16,7 @@
 
 2. How to replace the default linker file with the customized one?
    
-   Generally, when you type "--config=<CMAKE_BUILD_CONFIG>" in the command line, the cmake settings inside sdk-next/mcu-sdk-3.0/arch/arm/target folder will take effect. The link file for the corresponding config is then used.
+   Generally, when you type "--config=<CMAKE_BUILD_TYPE>" in the command line, the cmake settings inside sdk-next/mcu-sdk-3.0/arch/arm/target folder will take effect. The link file for the corresponding config is then used.
    If running with "--log-level=debug" in the command line, you can find the log, such as:
    ```text
    -- DEBUG: Add -T C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld to LD flags, load from CMakefile: C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/arch/arm/target/flash.cmake
