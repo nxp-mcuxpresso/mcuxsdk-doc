@@ -1880,6 +1880,24 @@ There are 2 ways to include the generated config headers into build tree.
 1. The config headers shall be included in the source in advance and the build binary folder will be added into includes so that all config headers will be added into build tree. This is the default way.
 2. If run with "-DPREINCLUDE=1", then all generated header files will be included into build tree in a preinclude way.
 
+## Component Configuration In Project Construction
+
+There are following ways to do component configuration in the project construction and build
+
+1. Use the provided default configuration header of the component set
+2. Use Kconfig to do RTE configuration for the component set
+3. Prepare customized configuration header for the component set.
+
+To achieve the above way, a component set(especially middleware components) shall do the following steps:
+
+1. Prepare a "config" component to hold the default configuration file for the component set. The configuration file shall be marked with CONFIG: TRUE and the include shall be with "TARGET_FILES".  The "config" header file has lowest priority in the build system, if any same name header file is provided, then it won't be included. This "config" component shall be selected by the root component of the component set, then it can always be selected. So if the customized configuration is not provided for that component, the project can still build with default configuration.
+
+
+2. Prepare a project segment to hold all Kconfig configuration symbols for the component set. All the configuration symbols shall be set to generated into designated header file with the same name as component default configuration.
+
+If you want to use Kconfig to do RTE configuration, then the project segment shall be set to 'y'. The generated configuration header name shall be set in Kconfig and be the same with component default configuration head file so that it will override the component default one. The project segment can depend on the root component of the component set so that it  can involve root component of the set.
+If you don't want to use Kconfig but want to directly provide a configuration header, then project segment should be set to 'n', the directly provided configuration header shall be put in the root of project.
+
 ## Build Process Flow
 
 Broadly speaking, the build process flow can be divide into Kconfig process and CMake process.
