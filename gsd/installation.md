@@ -121,6 +121,9 @@ There are several needed python packages for documentation generation, such as S
 cd mcu-sdk-3.0/docs
 pip install -r requirements.txt
 ```
+### ruby
+
+Install ruby for GUI project generation and standalone project generation. Follow the guide here [ruby installation](../develop/build_system/Build_And_Configuration_System_Based_On_CMake_And_Kconfig.md#ide-generation).
 
 ### make
 
