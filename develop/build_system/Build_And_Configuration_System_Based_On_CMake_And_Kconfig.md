@@ -633,36 +633,6 @@ mcux_remove_library(
 )
 ```
 
-#### mcux_remove_toolchain
-
-Remove toolchain(s) for specific data, meaning that the specific data doesn't support the toolchain(s).
-
-Here is an example
-
-```cmake
-    mcux_remove_toolchain(
-        armgcc iar
-    )
-```
-
-#### mcux_remove_build_config
-
-Remove build config.
-
-| Argument Name | Argument Type | Explanation                              |
-| ------------- | ------------- | ---------------------------------------- |
-| TARGETS       | Multiple      | The build config to be removed.          |
-| TOOLCHAINS    | Multiple      | Specify the toolchain. Disable the build config for all toolchains If not provide. |
-
-Here is one example
-
-```cmake
-    mcux_remove_build_config(
-        TARGETS ram_0x1400_debug ram_0x1400_release
-        TOOLCHAINS armgcc
-    )
-```
-
 ### Misc
 
 #### mcux_set_variable
@@ -1421,6 +1391,8 @@ arch:
 
 #### Board Data
 
+##### Structure
+
 Board data stays in boards folder. Here is a hierarchy demonstrated with single core device board frdmk64f and multicore device board evkmimxrt1170:
 
 ```yaml
@@ -1480,7 +1452,9 @@ boards:
   prj.conf: components selection and configuration by all boards
 ```
 
-Note, the board level supported toolchains and build configuration targets shall be recorded in the `example.yml`.
+##### Example.yml
+
+The board level supported toolchains and build configuration targets shall be recorded in the `example.yml`.
 
 A typical board example.yml is like
 
@@ -1581,6 +1555,8 @@ devices:
 
 #### Example Data
 
+##### Structure
+
 All examples are expected to be placed under `examples` folder in their category.
 
 ```yaml
@@ -1634,6 +1610,8 @@ hello_world:
     - +iar@sdram_txt_debug
 	......
 ```
+
+##### Example Toolchain And Target
 
 The supported toolchains and build configuration targets for an example can be got in the following way:
 
