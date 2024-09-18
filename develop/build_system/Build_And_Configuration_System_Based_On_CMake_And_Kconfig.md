@@ -350,44 +350,11 @@ mcux_add_mdk_linker_script(
 )
 ```
 
-### Configuration
-
-#### mcux_add_configuration
-
-Add configuration for all toolchains with specified build targets.
-
-| Argument Name | Argument Type | Explanation                              |
-| ------------- | ------------- | ---------------------------------------- |
-| TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-| TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
-| LIB           | Multiple      | The library, the full path               |
-| AS            | Single        | The assemble compiler flag               |
-| CC            | Single        | The c compiler flags                     |
-| CX            | Single        | The cxx compiler flags                   |
-| LD            | Single        | The linker flags                         |
-
-Note, please use native compiler flags of the compilers.
-
-Here is one example
-
-```cmake
-mcux_add_configuration(
-        TARGETS release
-        AS "-DMCUXPRESSO_SDK -DNDEBUG"
-        CC "-DMCUXPRESSO_SDK -DNDEBUG"
-        CX "-DMCUXPRESSO_SDK -DNDEBUG"
-)
-```
-
-#### mcux_add_iar_configuration\mcux_add_mdk_configuration\mcux_add_armgcc_configuration\mcux_add_xcc_configuration
-
-Very similar with mcux_add_configuration, just target specified toolchain, not for all.
-
 ### MACRO
 
 #### mcux_add_macro
 
-The CMake function mcux_add_configuration requires the complete toolchain setting. For macro setting, you must add "-D" prefix for each macro. To make it easier for users to add macros, mcux_add_macro is provided.
+It is recommended to use `mcux_add_macro` to set macros.
 
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
@@ -403,18 +370,19 @@ Note:
 
    Here is one example
 
-```cmake
-mcux_add_macro(
-  CC "FOO -DFOO -D BAR=1" # Equals -DFOO -DBAR=1
-  )
-```
+    ```cmake
+    mcux_add_macro(
+      CC "FOO -DFOO -D BAR=1" # Equals -DFOO -DBAR=1
+    )
+    ```
 
 2. For all macros added by mcux_add_configuration or mcux_add_macro, the duplicated macro name without value, like -DA -DA, or with same value, like -DC=3 -DC=3, only one macro will be kept. If found duplicated macro name with different value, use the latest one. You can also get notice from log.
-3. If you want to set macro for assembler, c compiler and cpp compiler at the same time, you can set them three times. Or there is an easy way to omit AS/CC/CX parameters. For example:
+
+3. If you want to set macro for assembler, c compiler and cpp compiler at the same time, you can set them three times. Or there is an easy way to omit AS/CC/CX parameters. Here is an example:
 
    ```cmake
    mcux_add_macro(
-   "-DFOO -DBAR=1"
+     "-DFOO -DBAR=1"
    )
    ```
 
@@ -438,6 +406,40 @@ mcux_add_linker_symbol(
              gUseProdInfoLegacyMode_d=1"
 )
 ```
+
+### Configuration
+
+#### mcux_add_configuration
+
+Add configuration for all toolchains with specified build targets.
+
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
+| TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
+| LIB           | Multiple      | The library, the full path               |
+| AS            | Single        | The assemble compiler flag               |
+| CC            | Single        | The c compiler flags                     |
+| CX            | Single        | The cxx compiler flags                   |
+| LD            | Single        | The linker flags                         |
+
+Note, please use native compiler flags of the compilers.
+
+Here is one example
+
+```cmake
+mcux_add_configuration(
+        TARGETS release
+        TOOLCHAINS IAR
+        AS "-M\"<>\" -w+ -s -j"
+        CC "--diag_suppress=Pa082,Pa050 --endian=little -e --use_c++_inline --silent"
+        CX "--diag_suppress=Pa082,Pa050 --endian=little -e --c++ --silent"
+)
+```
+
+#### mcux_add_iar_configuration\mcux_add_mdk_configuration\mcux_add_armgcc_configuration\mcux_add_xcc_configuration
+
+Very similar with mcux_add_configuration, just target specified toolchain, not for all.
 
 ### Pre/Post Build Command
 
