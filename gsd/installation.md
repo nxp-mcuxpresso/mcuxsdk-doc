@@ -15,14 +15,14 @@ Git is a free and open source distributed version control system designed to han
 
 Then configure your username and email using below commands:
 
-```
+```bash
 git config --global user.name "Your Name"
 git config --global user.email "youremail@example.com"
 ```
 
 ### Python
 
-Install python 3.8 or above, please follow the guideline at [Python Download](https://wiki.python.org/moin/BeginnersGuide/Download). 
+Install python `3.10` or above, please follow the guideline at [Python Download](https://wiki.python.org/moin/BeginnersGuide/Download).
 
 ### Cmake
 
@@ -37,7 +37,7 @@ To isolate your development environment, suggest use [python venv](https://docs.
 Open your shell window, create and activate a virtual environment with below command. If you are on Windows, please use the command prompt or powershell.
 
 ```bash
-# Please ensure your system python version >= 3.8
+# Please ensure your system python version >= 3.10
 python -m venv sdk-next/.venv
 
 # For Linux/MacOS
@@ -63,6 +63,7 @@ Remember to activate the virtual environment every time you start working.
 ---
 
 ### Install west
+
 ```bash
 # Note: you can add option '--default-timeout=1000' if you meet connection issue. Or you may set a different source using option '-i'.
 # for example, in China you could try: pip install west>=1.2.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
@@ -117,10 +118,11 @@ It is only needed when you want to generate the HTML version of the document in 
 
 There are several needed python packages for documentation generation, such as Sphinx tool, which we used to do the generation process. Run below command to install those python dependencies.
 
-```
+```bash
 cd mcu-sdk-3.0/docs
 pip install -r requirements.txt
 ```
+
 ### ruby
 
 Install ruby for GUI project generation and standalone project generation. Follow the guide here [ruby installation](../develop/build_system/Build_And_Configuration_System_Based_On_CMake_And_Kconfig.md#ide-generation).
