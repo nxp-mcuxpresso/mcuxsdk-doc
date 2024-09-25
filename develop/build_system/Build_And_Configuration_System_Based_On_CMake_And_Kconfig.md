@@ -647,6 +647,16 @@ Here is one example
 mcux_set_variable(soc_series Kinetis)
 ```
 
+#### mcux_set_list
+
+Set a cmake list.
+
+Here is one example
+
+```cmake
+mcux_set_list(KW47_FAMILY "KW47B42Z83xxxA KW47B42Z96xxxA KW47B42Z97xxxA KW47B42ZB2xxxA KW47B42ZB3xxxA KW47B42ZB6xxxA KW47B42ZB7xxxA KW47Z42082xxxA KW47Z42092xxxA KW47Z420B2xxxA KW47Z420B3xxxA")
+```
+
 #### mcux_add_cmakelists
 
 Add CMakelists.txt
