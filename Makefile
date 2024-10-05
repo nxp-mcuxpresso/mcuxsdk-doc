@@ -20,8 +20,7 @@ html latex pdf linkcheck doxygen: configure
 	cmake --build ${BUILDDIR} --target $@
 
 # Define multiple configuration options for conf.py from different directory
-SPHINX_CONF_DIR ?=_cfg/full
-IS_DOXY ?=1
+SPHINX_CONF_DIR ?=.
 
 configure:
 	cmake \
@@ -34,8 +33,7 @@ configure:
 		-DLATEXMKOPTS="${LATEXMKOPTS}" \
 		-DDOCGEN_BRANCH=$(DOCGEN_BRANCH) \
 		-DDOCGEN_REV=$(DOCGEN_REV) \
-		-DSPHINX_CONF_DIR=${SPHINX_CONF_DIR} \
-		-DIS_DOXY=${IS_DOXY}
+		-DSPHINX_CONF_DIR=${SPHINX_CONF_DIR}
 
 clean:
 	cmake --build ${BUILDDIR} --target clean

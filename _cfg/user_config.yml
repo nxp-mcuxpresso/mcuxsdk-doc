@@ -1,0 +1,119 @@
+# yaml-language-server: $schema=mcux_doc_config_schema.json
+project: mcuxsdk
+copyright: '2021, 2024, NXP'
+author: 'NXP'
+extensions:
+- sphinx_rtd_theme
+- sphinx.ext.extlinks
+- vcs_link
+- sphinx.ext.todo
+- sphinx.ext.extlinks
+- myst_parser
+- external_content
+- page_filter
+# - sphinxcontrib.plantuml
+- sphinx.ext.graphviz
+- sphinx_tabs.tabs
+source_suffix:
+  .rst: restructuredtext
+  .readme: markdown
+  .md: markdown
+ext_doxygen:
+  doxyfile: docs/drivers/Doxyfile_lib_PDF_RM_Drivers
+  fmt: True
+  fmt_vars: {}
+vcs_link:
+- pattern: ".*"
+  link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-doc/browse"
+external_contents:
+- root: 'docs'
+  pattern: 'index.rst'
+- root: 'docs'
+  pattern: 'develop/index.rst'
+- root: docs
+  pattern: 'generation.rst'
+- root: docs
+  pattern: 'develop/document/*'
+modules:
+  introduction:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'introduction/*'
+  gsd:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'gsd/*'
+  doxygen:
+    default: true
+    extensions:
+    - breathe
+    - doxyrunner
+  boards:
+    default: True
+    external_contents:
+    - root: .
+      pattern: 'boards/**/*.readme'
+    vcs_link:
+    - pattern: "boards/.*readme"
+      link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse"
+    - pattern: "Boards/.*readme"
+      link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse"
+  release:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'release/*'
+  # examples:
+  #   default: True
+  #   external_contents:
+  #   - root: .
+  #     pattern: 'examples/index.rst'
+  #   - root: .
+  #     pattern: 'examples/**/*.readme'
+  #   vcs_link:
+  #   - pattern: examples/.*readme
+  #     link: https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-examples/browse
+  contribute:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'contribute/*'
+  bifrost:
+    default: True
+    external_contents:
+    - root: '..'
+      pattern: 'bifrost/readme.md'
+  dev_architect:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'develop/architect.md'
+  dev_build_system:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'develop/build_system/*'
+    - root: '.'
+      pattern: 'sdk_generator/doc_ecosystem/index.rst'
+    - root: '.'
+      pattern: 'sdk_generator/doc_ecosystem/*.md'
+  mid_wireless_fwk:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/wireless/framework/index.rst'
+    - root: .
+      pattern: 'middleware/wireless/framework/*.md'
+    - root: .
+      pattern: 'middleware/wireless/framework/**/*.md'
+  mid_mcuboot:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/mcuboot_opensource/docs/*.md'
+    vcs_link:
+    - pattern: "middleware/mcuboot_opensource/.*md"
+      link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-mcuboot/browse"
+

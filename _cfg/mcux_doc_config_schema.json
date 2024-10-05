@@ -1,0 +1,134 @@
+{
+    "$id": "mcux_doc_config_schema.json",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "type": "object",
+    "definitions": {
+        "vcs_link" : {
+            "type": "object",
+            "properties": {
+                "pattern": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "pattern",
+                "link"
+            ]
+        },
+        "external_contents": {
+            "type": "object",
+            "properties": {
+                "root": {
+                    "type": "string",
+                    "default": ".",
+                    "pattern": "\\.|docs",
+                    "description": "Root directory of external contents"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "Glob Pattern of external contents"
+                }
+            },
+            "required": [
+                "root",
+                "pattern"
+            ]
+        }
+    },
+    "properties": {
+        "project": {
+            "description": "Name of configuration in configs",
+            "type": "string",
+            "pattern": "mcuxsdk"
+        },
+        "copyright": {
+            "description": "Copyright information",
+            "type": "string",
+            "pattern": "NXP"
+        },
+        "author": {
+            "description": "Author information",
+            "type": "string",
+            "pattern": "NXP"
+        },
+        "extensions": {
+            "description": "List of extensions",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "source_suffix": {
+            "description": "Source file suffix",
+            "type": "object",
+            "patternProperties": {
+                "^a\\.[a-zA-Z0-9_]+$": {
+                    "type": "string",
+                    "pattern": "markdown|restructuredtext"
+                }
+            }
+        },
+        "vcs_link": {
+            "description": "Link to VCS",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/vcs_link"
+            }
+        },
+        "external_contents": {
+            "description": "External contents",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/external_contents"
+            }
+        },
+        "modules": {
+            "description": "List of modules",
+            "type": "object",
+            "patternProperties": {
+                "^[a-zA-Z0-9_]+$": {
+                    "type": "object",
+                    "properties": {
+                        "default": {
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "extensions": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "vcs_link": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/vcs_link"
+                            }
+                        },
+                        "external_contents": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/external_contents"
+                            }
+                        }
+                    },
+                    "required": [
+                        "default"
+                    ]
+                }
+            }
+        }
+    },
+    "required": [
+        "project",
+        "author",
+        "copyright",
+        "vcs_link",
+        "extensions",
+        "source_suffix",
+        "external_contents"
+    ]
+}

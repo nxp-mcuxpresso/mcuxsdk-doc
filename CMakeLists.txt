@@ -11,11 +11,19 @@ set(MIN_WEST_VERSION 1.0.0)
 set(SPHINXOPTS "-j auto -W --keep-going -T" CACHE STRING "Default Sphinx Options")
 set(SPHINXOPTS_EXTRA "" CACHE STRING "Extra Sphinx Options (added to defaults)")
 set(LATEXMKOPTS "-halt-on-error -no-shell-escape" CACHE STRING "Default latexmk options")
-set(DOC_TAG "development" CACHE STRING "Documentation tag")
+set(DOC_TAG "development" CACHE STRING "Documentation tag, multiple tags are divided by comma")
 
 separate_arguments(SPHINXOPTS)
 separate_arguments(SPHINXOPTS_EXTRA)
 separate_arguments(LATEXMKOPTS)
+
+string(REPLACE "," ";" DOC_TAG_LIST "${DOC_TAG}")
+set(SPHINX_DOC_TAGS "" CACHE STRING "Sphinx Documentation tags")
+foreach(TAG ${DOC_TAG_LIST})
+  set(SPHINX_DOC_TAGS "${SPHINX_DOC_TAGS} -t ${TAG}")
+endforeach()
+message(STATUS "Sphinx Documentation tags: ${SPHINX_DOC_TAGS}")
+separate_arguments(SPHINX_DOC_TAGS)
 
 #-------------------------------------------------------------------------------
 # Dependencies
@@ -97,32 +105,28 @@ endfunction()
 #-------------------------------------------------------------------------------
 # Doxygen (standalone)
 
-if (IS_DOXY)
-  message(STATUS "Config Doxygen Setup")
-  find_package(Doxygen REQUIRED dot)
-  list(APPEND SHPINX_ENV DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE})
-  set(DOXY_OUT ${CMAKE_CURRENT_BINARY_DIR}/doxygen)
-  message(STATUS "DOXY_OUT: ${DOXY_OUT}")
-  set(DOXYFILE_IN ${CMAKE_CURRENT_LIST_DIR}/drivers/Doxyfile_lib_PDF_RM_Drivers)
-  set(DOXYFILE_OUT ${CMAKE_CURRENT_BINARY_DIR}/sdk.doxyfile)
+message(STATUS "Config Doxygen Setup")
+find_package(Doxygen REQUIRED dot)
+list(APPEND SHPINX_ENV DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE})
+set(DOXY_OUT ${CMAKE_CURRENT_BINARY_DIR}/doxygen)
+message(STATUS "DOXY_OUT: ${DOXY_OUT}")
+set(DOXYFILE_IN ${CMAKE_CURRENT_LIST_DIR}/drivers/Doxyfile_lib_PDF_RM_Drivers)
+set(DOXYFILE_OUT ${CMAKE_CURRENT_BINARY_DIR}/sdk.doxyfile)
 
-  configure_file(${DOXYFILE_IN} ${DOXYFILE_OUT} @ONLY)
+configure_file(${DOXYFILE_IN} ${DOXYFILE_OUT} @ONLY)
 
-  add_custom_target(
-    doxygen
-    COMMAND
-      ${DOXYGEN_EXECUTABLE} ${DOXYFILE_OUT}
-    COMMENT "Running Doxygen..."
-  )
+add_custom_target(
+  doxygen
+  COMMAND
+    ${DOXYGEN_EXECUTABLE} ${DOXYFILE_OUT}
+  COMMENT "Running Doxygen..."
+)
 
-  set_target_properties(
-    doxygen
-    PROPERTIES
-      ADDITIONAL_CLEAN_FILES "${DOXY_OUT}"
-  )
-else()
-  message(STATUS "Skip Doxygen Setup")
-endif(IS_DOXY)
+set_target_properties(
+  doxygen
+  PROPERTIES
+    ADDITIONAL_CLEAN_FILES "${DOXY_OUT}"
+)
 
 #-------------------------------------------------------------------------------
 # html
@@ -135,7 +139,7 @@ add_doc_target(
     -c ${DOCS_CFG_DIR}
     -d ${DOCS_DOCTREE_DIR}
     -w ${DOCS_BUILD_DIR}/html.log
-    -t ${DOC_TAG}
+    ${SPHINX_DOC_TAGS}
     ${SPHINXOPTS}
     ${SPHINXOPTS_EXTRA}
     ${DOCS_SRC_DIR}
@@ -162,7 +166,8 @@ add_doc_target(
     -c ${DOCS_CFG_DIR}
     -d ${DOCS_DOCTREE_DIR}
     -w ${DOCS_BUILD_DIR}/latex.log
-    -t ${DOC_TAG}
+    # -t ${DOC_TAG}
+    ${SPHINX_DOC_TAGS}
     -t svgconvert
     ${SPHINXOPTS}
     ${SPHINXOPTS_EXTRA}

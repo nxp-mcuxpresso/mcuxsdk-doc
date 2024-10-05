@@ -14,8 +14,8 @@ consult the published :ref:`mcux-sdk_release_notes` documentation.
 
 The whole MCUXpresso SDK delivery is provided under the `LA_OPT_NXP_Software_License`_ (as found in
 the LA_OPT_NXP_Software_License.txt file in the project's `GitHub repo`_). The mcux-sdk project, alias the
-core project, is the fundamental project of whole MCUXpresso SDK delivery. It is under the 
-`BSD-3-Clause`_ (as found in the COPYING-BSD-3.txt file in the project's `GitHub repo`_) which is quite a 
+core project, is the fundamental project of whole MCUXpresso SDK delivery. It is under the
+`BSD-3-Clause`_ (as found in the COPYING-BSD-3.txt file in the project's `GitHub repo`_) which is quite a
 permissive license. The other projects in MCUXpresso SDK may have different license, please check `SW-Content-Register`_
 for more details.
 
@@ -36,11 +36,10 @@ for more details.
    :maxdepth: 1
    :caption: introduction
 
-   introduction/index
+   MCUXPresso SDK <introduction/README.md>
 
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started
 
    GetStart <gsd/index>
 
@@ -57,7 +56,9 @@ for more details.
    :maxdepth: 2
    :caption: Development
 
-   develop/index
+   develop/architect.md
+   develop/build_system/index
+   develop/document/index
 
 .. toctree::
    :maxdepth: 1
