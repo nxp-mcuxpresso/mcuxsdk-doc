@@ -639,7 +639,7 @@ mcux_remove_library(
 
 #### mcux_set_variable
 
-Set variable.
+Set variable with **global scope**. It requests that variable defined by mcux_set_variable must be unique. Build system will give error if there are duplication variable defined with "mcux_set_variable".
 
 Here is one example
 
