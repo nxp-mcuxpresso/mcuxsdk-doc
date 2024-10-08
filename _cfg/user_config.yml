@@ -96,9 +96,9 @@ modules:
     - root: 'docs'
       pattern: 'develop/build_system/*'
     - root: '.'
-      pattern: 'sdk_generator/doc_ecosystem/index.rst'
+      pattern: 'ecosystem/sdk_generator/doc_ecosystem/index.rst'
     - root: '.'
-      pattern: 'sdk_generator/doc_ecosystem/*.md'
+      pattern: 'ecosystem/sdk_generator/doc_ecosystem/*'
   mid_wireless_fwk:
     default: true
     external_contents:
