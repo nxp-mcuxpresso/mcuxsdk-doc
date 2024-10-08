@@ -174,7 +174,7 @@ args = get_parser().parse_args()
 DOC_BASE = SDK_BASE / "docs"
 DOC_BUILD = Path(args.outputdir).resolve().parents[0]
 # sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, DOC_BASE)
+sys.path.insert(0, str(DOC_BASE))
 sys.path.insert(0, str(DOC_BASE / "_extensions"))
 import sphinx_rtd_theme
 
