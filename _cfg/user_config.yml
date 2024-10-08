@@ -29,7 +29,7 @@ external_contents:
 - root: 'docs'
   pattern: 'index.rst'
 - root: 'docs'
-  pattern: 'develop/index.rst'
+  pattern: 'middleware/index.rst'
 - root: docs
   pattern: 'generation.rst'
 - root: docs
@@ -53,6 +53,8 @@ modules:
   boards:
     default: True
     external_contents:
+    - root: docs
+      pattern: 'boards/*'
     - root: .
       pattern: 'boards/**/*.readme'
     vcs_link:
@@ -60,21 +62,26 @@ modules:
       link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse"
     - pattern: "Boards/.*readme"
       link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse"
+  drivers:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'drivers/*'
   release:
     default: True
     external_contents:
     - root: 'docs'
       pattern: 'release/*'
-  # examples:
-  #   default: True
-  #   external_contents:
-  #   - root: .
-  #     pattern: 'examples/index.rst'
-  #   - root: .
-  #     pattern: 'examples/**/*.readme'
-  #   vcs_link:
-  #   - pattern: examples/.*readme
-  #     link: https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-examples/browse
+  examples:
+    default: True
+    external_contents:
+    - root: .
+      pattern: 'examples/index.rst'
+    - root: .
+      pattern: 'examples/**/*.readme'
+    vcs_link:
+    - pattern: examples/.*readme
+      link: https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-examples/browse
   contribute:
     default: True
     external_contents:
