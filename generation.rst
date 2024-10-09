@@ -268,7 +268,7 @@ faster.
 
 To enable this mode, set the following option when invoking ``west doc``::
 
-   -t module_name_a,module_name_b,module_name_regex_a,module_name_regex_b
+   -t module_name_a,module_name_regex_a
 
    e,g. -t gsd,dev_.* will only build the HTML with gsd module and other modules
    starts with dev_
@@ -281,16 +281,10 @@ with a web browser:
 
 .. code-block:: console
 
-   $ python3 -m http.server -d _build/html
+   $ python3 -m http.server -d _build/html --bind 127.0.0.1
 
-.. note::
-
-   WSL2 users may need to explicitly bind the address to ``127.0.0.1`` in order
-   to be accessible from the host machine:
-
-   .. code-block:: console
-
-      $ python3 -m http.server -d _build/html --bind 127.0.0.1
+   # Or you can invoke by west extension
+   $ west doc view
 
 .. _reStructuredText: http://sphinx-doc.org/rest.html
 .. _Sphinx: http://sphinx-doc.org/

@@ -45,7 +45,7 @@ class MCUXDoc(WestCommand):
                                  usage=DOC_USAGE,
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-        parser.add_argument('target', action='store', type=str, choices=['clean', 'html', 'latex', 'doxygen', 'pdf', 'config'], help='Target for the document creation')
+        parser.add_argument('target', action='store', type=str, choices=['clean', 'html', 'latex', 'doxygen', 'pdf', 'config', 'view'], help='Target for the document creation')
         parser.add_argument('-t', '--tags',  action='store', type=str, default='development', help='Tags for the document creation. Tags are joined by "," and regex format. For example, -t mid_.*,gsd will pick the modules starting with mid_ and gsd module.')
         parser.add_argument('-b', '--build_dir',action='store', type=str, default='_build', help='Build directory for the document creation')
         parser.add_argument('--sphinx_opts', action='store', type=str, default='-j auto --keep-going -T', help='Additional options for sphinx-build')
@@ -65,6 +65,8 @@ class MCUXDoc(WestCommand):
         targets = []
         if args.target == 'clean':
             targets = ['clean']
+        elif args.target == 'view':
+            targets = ['view']
         elif args.target == 'config':
             targets = ['config']
         else:
@@ -77,6 +79,13 @@ class MCUXDoc(WestCommand):
                 build_dir = DOC_PATH / args.build_dir
                 if build_dir.exists():
                     shutil.rmtree(build_dir)
+            elif target == 'view':
+                if os.path.exists(os.path.join(args.build_dir, 'html', 'index.html')):
+                    cmd = f'python -m http.server -d {os.path.join(args.build_dir, "html").replace("\\", "/")} --bind 127.0.0.1'
+                    self.inf('Host HTML: ' + cmd)
+                    subprocess.check_call(shlex.split(cmd))
+                else:
+                    self.err('Html folder is not existed')
             elif target == 'config':
                 cmd = shlex.split(f'cmake -GNinja -B{args.build_dir} -S . -DDOC_TAG={args.tags} -DSPHINXOPTS="{args.sphinx_opts}" -DSPHINXOPTS_EXTRA="{args.sphinx_extra_opts}" -DLATEXMKOPTS="{args.latexmkopts}" -DDOCGEN_BRANCH={args.branch} -DDOCGEN_REV={args.revision} -DSPHINX_CONF_DIR=.')
                 if subprocess.check_call(cmd, cwd=DOC_PATH):
@@ -85,4 +94,5 @@ class MCUXDoc(WestCommand):
                 cmd = shlex.split(f'cmake --build {args.build_dir} --target {args.target}')
                 if subprocess.check_call(cmd, cwd=DOC_PATH):
                     self.err("Failed to build the document with \n" + cmd)
+
 
