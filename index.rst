@@ -40,6 +40,7 @@ for more details.
 
 .. toctree::
    :maxdepth: 1
+   :caption: Getting Started
 
    GetStart <gsd/index>
 
