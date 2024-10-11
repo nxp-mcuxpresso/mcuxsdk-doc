@@ -1,0 +1,4 @@
+/* Hide GUID spans if they are rendered in the HTML */
+span[id^="GUID-"] {
+    display: none;
+}

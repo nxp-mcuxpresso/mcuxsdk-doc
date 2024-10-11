@@ -20,3 +20,10 @@ MCU device and part on board is shown below:
  - PartNumber: MIMXRT1189CVM8B
 
 
+Getting Started
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXSDKMIMXRT118XKGSUG
+
+   gettingStarted/gsindex.md

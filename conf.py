@@ -287,7 +287,8 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_theme_options = {
     "logo_only": True,
     'navigation_depth': 5,
-    "prev_next_buttons_location": None
+    "prev_next_buttons_location": None,
+    'collapse_navigation' : False,
 }
 html_baseurl = "https://docs.zephyrproject.org/latest/"
 html_title = "MCUXpresso SDK Documentation"
@@ -301,6 +302,11 @@ html_show_sourcelink = False
 html_show_sphinx = False
 docgen_branch = os.getenv("DOCGEN_BRANCH")
 docgen_rev = os.getenv("DOCGEN_REV")
+html_css_files = [
+    'custom.css',
+]
+
+extensions.append('myst_parser')
 
 is_release = tags.has("release")  # pylint: disable=undefined-variable
 reference_prefix = DOC_BUILD
