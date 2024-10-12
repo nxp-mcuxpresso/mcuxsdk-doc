@@ -306,8 +306,6 @@ html_css_files = [
     'custom.css',
 ]
 
-extensions.append('myst_parser')
-
 is_release = tags.has("release")  # pylint: disable=undefined-variable
 reference_prefix = DOC_BUILD
 if tags.has("publish"):  # pylint: disable=undefined-variable
