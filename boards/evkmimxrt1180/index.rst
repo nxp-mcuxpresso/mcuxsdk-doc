@@ -27,3 +27,11 @@ Getting Started
    :caption: MCUXSDKMIMXRT118XKGSUG
 
    gettingStarted/gsindex.md
+
+Release Notes
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXSDKMIMXRT118XKRN
+
+   releaseNote/rnindex.md
