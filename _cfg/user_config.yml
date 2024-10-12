@@ -73,7 +73,7 @@ modules:
     - root: 'docs'
       pattern: 'release/*'
   examples:
-    default: True
+    default: False
     external_contents:
     - root: .
       pattern: 'examples/index.rst'
