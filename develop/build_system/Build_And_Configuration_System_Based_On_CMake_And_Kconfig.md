@@ -314,7 +314,7 @@ Here is one example
 ```cmake
 mcux_convert_binary(
         TOOLCHAINS armgcc mdk iar
-        BINARY ${APPLICATION_BINARY_DIR}/core1_image.bin
+        BINARY ${APPLICATION_BINARY_DIR}/${MCUX_SDK_PROJECT_NAME}.bin
 )
 ```
 
@@ -349,6 +349,8 @@ mcux_add_mdk_linker_script(
         LINKER devices/${soc_portfolio}/${soc_series}/${device}/arm/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
 )
 ```
+
+Please remember to set "TARGETS" for the linker, otherwise the linker will be enabled for all targets.
 
 ### MACRO
 
@@ -445,7 +447,7 @@ Very similar with mcux_add_configuration, just target specified toolchain, not f
 
 #### mcux_add_custom_command
 
-CMake provide built-in function `add_custom_command`, this is useful for performing an operation before or after building the target by setting PRE_BUILD | PRE_LINK | POST_BUILD parameters. For more details, please refer to [CMake document]([add_custom_command — CMake 3.30.3 Documentation](https://cmake.org/cmake/help/latest/command/add_custom_command.html#add-custom-command)). Based on this function, meta build system provide customized CMake function mcux_add_custom_command to set pre/post build command for specific targets and toolchains.
+CMake provide built-in function `add_custom_command`, this is useful for performing an operation before or after building the target by setting PRE_BUILD | PRE_LINK | POST_BUILD parameters. For more details, please refer to [CMake document]([add_custom_command — CMake 3.30.3 Documentation](https://cmake.org/cmake/help/latest/command/add_custom_command.html#add-custom-command)). It shall only be used in the project CMakelists.txt,  not the component one. Based on this function, meta build system provide customized CMake function mcux_add_custom_command to set pre/post build command for specific targets and toolchains.
 
 | Argument Name     | Argument Type | Explanation                              |
 | ----------------- | ------------- | ---------------------------------------- |
