@@ -30,6 +30,8 @@ external_contents:
   pattern: 'index.rst'
 - root: 'docs'
   pattern: 'middleware/index.rst'
+- root: 'docs'
+  pattern: 'middleware/multicore/*'
 - root: docs
   pattern: 'generation.rst'
 - root: docs
@@ -115,6 +117,25 @@ modules:
       pattern: 'middleware/wireless/framework/*.md'
     - root: .
       pattern: 'middleware/wireless/framework/**/*.md'
+  mid_multicore:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/multicore/rpmsg-lite/*.md'
+    - root: .
+      pattern: 'middleware/multicore/rpmsg-lite/doc/*'
+    - root: .
+      pattern: 'middleware/multicore/rpmsg-lite/doxygen/*'
+    - root: .
+      pattern: 'middleware/multicore/mcmgr/*.md'
+    - root: .
+      pattern: 'middleware/multicore/mcmgr/doc/*'
+    - root: .
+      pattern: 'middleware/multicore/mcmgr/doxygen/*'
+    - root: .
+      pattern: 'middleware/multicore/erpc/*.md'
+    - root: .
+      pattern: 'middleware/multicore/erpc/doxygen/*'
   mid_mcuboot:
     default: true
     external_contents:
@@ -123,4 +144,3 @@ modules:
     vcs_link:
     - pattern: "middleware/mcuboot_opensource/.*md"
       link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-mcuboot/browse"
-

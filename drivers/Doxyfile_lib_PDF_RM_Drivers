@@ -754,6 +754,12 @@ INPUT                  = @SDK_BASE@/docs/_doxygen/mainpage.md \
                          @SDK_BASE@/drivers/uart/doxygen \
                          @SDK_BASE@/rtos/freertos/freertos-kernel/ChangeLogKSDK.txt \
                          @SDK_BASE@/middleware/fatfs/ChangeLogKSDK.txt \
+                         @SDK_BASE@/middleware/multicore/rpmsg-lite/ \
+                         @SDK_BASE@/middleware/multicore/rpmsg-lite/doxygen \
+                         @SDK_BASE@/middleware/multicore/mcmgr/ \
+                         @SDK_BASE@/middleware/multicore/mcmgr/doxygen \
+                         @SDK_BASE@/middleware/multicore/erpc/ \
+                         @SDK_BASE@/middleware/multicore/erpc/doxygen \
                          @SDK_BASE@/middleware/maestro/ChangeLogKSDK.txt
 
 # If the value of the INPUT tag contains directories, you can use the
