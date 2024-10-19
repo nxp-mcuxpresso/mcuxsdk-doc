@@ -93,16 +93,26 @@ Kconfig is installed during python library installation
 
 ### Toolchains
 
+Build system supports IAR, MDK, Armgcc and [Zephyr SDK](https://docs.zephyrproject.org/latest/develop/toolchains/zephyr_sdk.html#toolchain-zephyr-sdk) to build.
+
 You need to set environment variables to specify the toolchain installation so that build system can find it.
 
 Here are the toolchain environment variable table
 
-| Toolchain | Environment variable   | Cmd Line Argument           |
-| --------- | ---------------------- | :-------------------------- |
-| IAR       | IAR_DIR                | --toolchain iar             |
-| MDK       | MDK_DIR                | --toolchain mdk             |
-| Armgcc    | ARMGCC_DIR             | --toolchain armgcc(default) |
-| Zephyr    | ZEPHYR_SDK_INSTALL_DIR | --toolchain zephyr          |
+| Toolchain   | Environment variable   | Example                                  | Cmd Line Argument           |
+| ----------- | ---------------------- | ---------------------------------------- | :-------------------------- |
+| IAR         | IAR_DIR                | C:\iar for Windows OR /opt/iarsystems/bxarm-9.40.2 for Linux | --toolchain iar             |
+| MDK         | MDK_DIR                | C:\Keil_v5 for Windows OR /usr/local/ArmCompilerforEmbedded6.21 for Linux | --toolchain mdk             |
+| MDK         | ARMCLANG_DIR           | C:\ArmCompilerforEmbedded6.22 for Windows OR /usr/local/ArmCompilerforEmbedded6.21 for Linux | --toolchain mdk             |
+| Armgcc      | ARMGCC_DIR             | C:\armgcc                                | --toolchain armgcc(default) |
+| CodeWarrior | CW_DIR                 | C:\Freescale\CW MCU v11.2                | --toolchain codewarrior     |
+| Xtensa      | XCC_DIR                | C:\xtensa\XtDevTools\install\tools\RI-2023.11-win32\XtensaTools | --toolchain xtensa          |
+| Zephyr      | ZEPHYR_SDK_INSTALL_DIR |                                          | --toolchain zephyr          |
+
+Note: 
+
+- For MDK toolchain, only armclang compiler is supported. There are 2 environment variables MDK_DIR and ARMCLANG_DIR for it. Since most Keil users will install MDK IDE instead of standalone armclang compiler, the MDK_DIR has higher priority than ARMCLANG_DIR.
+- For Xtensa toolchain, please set XTENSA_CORE environment, depends on your devices, it can be `nxp_rt600_RI23_11_newlib` or `nxp_rt500_RI23_11_newlib` and so on.
 
 #### armgcc
 
@@ -208,7 +218,7 @@ cmake --version
 If you see the version number, you have successfully installed the tool. Else please check whether the tool installation path be added into the PATH variable, if not, you could check the PATH variable add the tool installation path to the PATH with below commands:
 
 - Windows:
-Open command prompt or powershell, run below command to show the user PATH variable.
+  Open command prompt or powershell, run below command to show the user PATH variable.
   ```
   reg query HKEY_CURRENT_USER\Environment /v PATH
   ```
