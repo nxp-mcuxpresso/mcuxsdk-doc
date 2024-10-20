@@ -101,7 +101,6 @@ Compared to zephyr's west build, our west build command provides following addit
 Here are some typical usage for generating a SDK example is:
 
 ```bash
-
 # Generate example with default settings
 west build -b frdmk64f examples/src/demo_apps/hello_world
 
@@ -116,7 +115,6 @@ west build -b frdmk64f examples/src/demo_apps/hello_world --config release
 
 # Show all supported build configurations
 west build -b frdmk64f examples/src/demo_apps/hello_world --show-configs
-
 ```
 
 For multicore devices, you shall specify the corresponding core id by passing the command line argument "-Dcore_id". For example
@@ -126,6 +124,12 @@ west build -b evkmimxrt1170 examples/src/demo_apps/hello_world --toolchain iar -
 ```
 
 Remember to use "--config" to specify build target which is different from SDKGENv3.
+
+For shield, please use the "--shield" to specify the shield to run, like
+
+```bash
+west build -b mimxrt700evk --shield a8974 examples examples/src/issdk_examples/sensors/fxls8974cf/fxls8974cf_poll -Dcore_id=cm33_core0
+```
 
 ### Sysbuild(System build)
 
@@ -1173,6 +1177,23 @@ The IDE related data are recorded in IDE.yml. These yml files are are automatica
 12. examples/\<board>/\<example_category>/\<example>/IDE.yml
 13. examples/\<board>/\<example_category>/\<example>/\<core_id>/IDE.yml
 
+For shield, it is like
+
+1. devices/IDE.yml
+2. devices/\<soc_series>/IDE.yml
+3. devices/\<soc_series>/\<device>/IDE.yml
+4. devices/\<soc_series>/\<device>/\<core_id>/IDE.yml
+5. examples/IDE.yml
+6. examples/\<board>/IDE.yml
+7. examples/\<board>/\<core_id>/IDE.yml
+8. examples/src/IDE.yml
+9. examples/src/\<shield_example_category>/IDE.yml
+10. examples/src/\<shield_example_category>/\<example>/IDE.yml
+11. examples/\<board>/\<shield>/IDE.yml
+12. examples/\<board>/\<shield>/\<shield_example_category>/IDE.yml
+13. examples/\<board>/\<shield>/\<shield_example_category>/\<example>/IDE.yml
+14. examples/\<board>/\<shiedl>/\<shield_example_category>/\<example>/\<core_id>/IDE.yml
+
 Note:
 
 - These loading files are optional, there is no problem even if it is not provided
@@ -1419,6 +1440,7 @@ boards:
     example.yml: The supported toolchains and build configuration targets
     variable.cmake: Board variables
     board_runner.cmake: Board debug settings
+    shields: The shields, see next Shield Data chapter
     demo_apps:
       hello_world:
         reconfig.cmake: Board example reconfig, mainly replace, remove some default board settings
@@ -1483,6 +1505,28 @@ board.toolchains:
 ```
 
 All examples under the board share the toolchains and targets in the board example.yml.
+
+#### Shield Data
+
+Shield is an addon which is attached to a board to extend its features and functionalities. All shields are put under its mother board folder. The structure is like
+
+```yaml
+boards:
+  frdmk64f:
+    shields:
+      a8974:
+        <example category>:
+        CMakeLists.txt:
+        Kconfig:
+        prj.conf:
+      <other_shield>:
+        <example category>:
+        CMakeLists.txt:
+        Kconfig:
+        prj.conf:
+```
+
+The shield shares the board example.yml for toolchains and targets support. The shield CMakelists.txt shall be added into the board CMakeLists.txt with mcux_add_cmakelists and the shield Kconfig shall be 'rsource' in the board Kconfig.
 
 #### Device Data
 
@@ -1809,6 +1853,24 @@ The prj.conf search paths can be provided through 3 ways with priority.
   11. examples/\<board>/\<example_category>/prj.conf
   12. examples/\<board>/\<example_category>/\<example>/prj.conf
   13. examples/\<board>/\<example_category>/\<example>/\<core_id>/prj.conf
+
+  For shield case, it is generally the same as board:
+
+  1. devices/prj.conf
+  2. devices/\<soc_series>/prj.conf
+  3. devices/\<soc_series>/\<device>/prj.conf
+  4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
+  5. examples/prj.conf
+  6. examples/\<board>/prj.conf
+  7. examples/\<board>/\<core_id>/prj.conf
+  8. examples/src/prj.conf
+  9. examples/src/\<shield_example_category>/prj.conf
+  10. examples/src/\<shield_example_category>/\<example>/prj.conf
+  11. examples/\<board>/\<shield>/prj.conf
+  12. examples/\<board>/\<shield>/\<shield_example_category>/prj.conf
+  13. examples/\<board>/\<shield>/\<shield_example_category>/\<example>/prj.conf
+  14. examples/\<board>/\<shield>/\<shield_example_category>/\<example>/\<core_id>/prj.conf
+
 - Specify customized prj.conf search path in project CMakelists.txt "project" with "CUSTOM_PRJ_CONF_PATH"
 
   The "CUSTOM_PRJ_CONF_PATH" argument can be used in project CMakelists.txt "project" macro to specify the customized prj.conf search paths.
@@ -1820,6 +1882,7 @@ The prj.conf search paths can be provided through 3 ways with priority.
   ```
 
   The prj.conf search paths of CUSTOM_PRJ_CONF_PATH is with higher priority than the fixed prj.conf search paths.
+
 - -DCONF_FILE=\<customized config file>
 
   You can directly provide customized prj.conf with -DCONF_FILE=\<customized config file>, like
