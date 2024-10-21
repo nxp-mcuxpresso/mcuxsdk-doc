@@ -1204,15 +1204,17 @@ The settings in IDE.yml will be merged as load sequence. If same setting is set 
 # load firstly
 A:
   B:
-  	- B1
-  	- B2
+    - B1
+    - B2
   C: C1
   D: true
   E: E1
+```
+```yaml
 # load secondly
 A:
   B:
-  	- B3
+    - B3
   C: C2
   D: false
   F: F1
@@ -1331,7 +1333,6 @@ if (CONFIG_MCUX_PRJSEG_module.board.suite)
         BASE_PATH ${SdkRootDirPath}/boards/${board} # "board" variable shall be defined in each board so that each board can use this project segment
         SOURCES dcd.c dcd.h
     )
-    ...
 endif()
 ```
 
@@ -1666,7 +1667,6 @@ hello_world:
     - +iar@ram_0x1400_debug
     - +iar@ram_0x1400_release
     - +iar@sdram_txt_debug
-	......
 ```
 
 ##### Example Toolchain And Target
@@ -1742,7 +1742,6 @@ mcux_add_cmakelists(${SdkRootDirPath}/middleware/usb OPTIONAL)
 mcux_add_cmakelists(${SdkRootDirPath}/middleware/fatfs OPTIONAL)
 mcux_add_cmakelists(${SdkRootDirPath}/middleware/littlefs OPTIONAL)
 mcux_add_cmakelists(${SdkRootDirPath}/middleware/multicore OPTIONAL)
-......
 ```
 
 The assembly point for all Kconfig is the root Kconfg.mcuxpresso which is
@@ -2030,7 +2029,7 @@ Example types are distinguished based on the location of the example CMakelists.
 
 Repository example CMakelists.txt is located inside `mcu-sdk-3.0/examples/src/<example-category>/<example>` folder, like the hello_world CMakelists.txt is located in `mcu-sdk-3.0/examples/src/demo_apps/hello_world`.
 
-```yaml
+```
 sdk_next/
 ├─── .west/
 │    └─── config
@@ -2109,7 +2108,7 @@ The prj conf list is like
 
 Note, the freestanding project may don't need the default pin mux and hardware_init/app prj.conf setting, you can disable them by
 
-```cmake
+```
 CONFIG_MCUX_PRJSEG_module.board.pinmux_project_folder=n
 CONFIG_MCUX_PRJSEG_module.board.pinmux_board_folder=n
 CONFIG_MCUX_HAS_PRJSEG_project.use_hw_app=n
@@ -2132,7 +2131,7 @@ west build -b frdmk64f ./examples/src/demo_apps/hello_world -p always --config d
 
 You can find IAR project in build folder with source code.
 
-![iar_standalone_project](./_doc/iar_standalone_project.PNG)
+![iar_standalone_project](./_doc/iar_standalone_project.png)
 
 Note:
 
