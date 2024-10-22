@@ -20,9 +20,10 @@ DOC_PATH = Path(__file__).absolute().parents[2]
 with open(DOC_PATH / '_cfg/user_config.yml', 'r', encoding='utf-8') as f:
     MODULE_NAMES = yaml.safe_load(f)['modules'].keys()
 
-DOC_USAGE = '''
+lf_string = "\n"
+DOC_USAGE = f'''
 Tags:
-    Modules: {"\n".join(MODULE_NAMES)}
+    Modules: {lf_string.join(MODULE_NAMES)}
 '''
 
 class MCUXDoc(WestCommand):
@@ -81,7 +82,8 @@ class MCUXDoc(WestCommand):
                     shutil.rmtree(build_dir)
             elif target == 'view':
                 if os.path.exists(os.path.join(args.build_dir, 'html', 'index.html')):
-                    cmd = 'python -m http.server -d {os.path.join(args.build_dir, "html").replace("\\", "/")} --bind 127.0.0.1'
+                    replace_entry = os.path.join(args.build_dir, "html").replace("\\", "/")
+                    cmd = f'python -m http.server -d {replace_entry} --bind 127.0.0.1'
                     self.inf('Host HTML: ' + cmd)
                     subprocess.check_call(shlex.split(cmd))
                 else:
@@ -94,3 +96,5 @@ class MCUXDoc(WestCommand):
                 cmd = shlex.split(f'cmake --build {args.build_dir} --target {args.target}')
                 if subprocess.check_call(cmd, cwd=DOC_PATH):
                     self.err("Failed to build the document with \n" + cmd)
+
+
