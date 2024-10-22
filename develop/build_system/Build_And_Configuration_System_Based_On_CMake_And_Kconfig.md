@@ -1870,6 +1870,12 @@ The prj.conf search paths can be provided through 3 ways with priority.
   13. examples/\<board>/\<shield>/\<shield_example_category>/\<example>/prj.conf
   14. examples/\<board>/\<shield>/\<shield_example_category>/\<example>/\<core_id>/prj.conf
 
+  If the "project" macro is with "NO_DEFAULT_CONFIG" like the following, then build system will skip all the fixed prj.conf search paths, since the input prj.conf cannot be empty, so the prj.conf must be provided with CUSTOM_PRJ_CONF_PATH or DCONF_FILE.
+
+  ```cmake
+  project(hello_world LANGUAGES C CXX ASM NO_DEFAULT_CONFIG)
+  ```
+
 - Specify customized prj.conf search path in project CMakelists.txt "project" with "CUSTOM_PRJ_CONF_PATH"
 
   The "CUSTOM_PRJ_CONF_PATH" argument can be used in project CMakelists.txt "project" macro to specify the customized prj.conf search paths.
