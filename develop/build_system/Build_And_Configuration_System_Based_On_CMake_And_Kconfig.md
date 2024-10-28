@@ -237,7 +237,6 @@ Please see following table for the arguments
 | DSP           | Multiple      | The dsp. It means the source or include only supports the listed dsp. dsp enum values are NO_DSP and DSP |
 | TRUSTZONE     | Multiple      | The trustzone. It means the source or include only supports the listed trustzone. trustzone enum values are TZ and  NO_TZ. |
 | COMPONENTS    | Multiple      | The components. It means the source or include only supports the listed components |
-| TARGETS       | Multiple      | This parameter is for adding include/sources path by `mcux_add_include`/`mcux_add_${language}_include`/`mcux_add_source`. It means the include path only supports the designated build configuration targets |
 
 Wildcard "\*.\<extension>" is supported in mcux\_add_source, frequently used would be "\*.*", "\*.c" and "\*.h".
 
