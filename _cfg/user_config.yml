@@ -32,6 +32,8 @@ external_contents:
   pattern: 'middleware/index.rst'
 - root: 'docs'
   pattern: 'middleware/multicore/*'
+- root: 'docs'
+  pattern: 'middleware/lwip/*'
 - root: docs
   pattern: 'generation.rst'
 - root: docs
@@ -117,6 +119,13 @@ modules:
       pattern: 'middleware/wireless/framework/*.md'
     - root: .
       pattern: 'middleware/wireless/framework/**/*.md'
+  mid_lwip:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/lwip/ChangeLogKSDK.txt'
+    - root: .
+      pattern: 'middleware/lwip/port/README.md'
   mid_multicore:
     default: true
     external_contents:
