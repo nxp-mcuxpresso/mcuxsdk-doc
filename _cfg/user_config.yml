@@ -34,6 +34,8 @@ external_contents:
   pattern: 'middleware/multicore/*'
 - root: 'docs'
   pattern: 'middleware/lwip/*'
+- root: 'docs'
+  pattern: 'middleware/lvgl/index.rst'
 - root: docs
   pattern: 'generation.rst'
 - root: docs
@@ -126,6 +128,11 @@ modules:
       pattern: 'middleware/lwip/ChangeLogKSDK.txt'
     - root: .
       pattern: 'middleware/lwip/port/README.md'
+  mid_lvgl:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/lvgl/docs/integration/chip/nxp.rst'
   mid_multicore:
     default: true
     external_contents:
