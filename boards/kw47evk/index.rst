@@ -1,6 +1,6 @@
-.. _kw45b41zloc:
+.. _kw47evk:
 
-KW45B41Z-LOC
+KW47-EVK
 ####################
 
 Overview
@@ -9,14 +9,14 @@ Overview
 
 
 
-.. image:: ./kw45b41zloc.png
+.. image:: ./kw47evk.png
    :width: 240px
    :align: center
-   :alt: KW45B41Z-LOC
+   :alt: KW47-EVK
 
 MCU device and part on board is shown below:
 
- - Device: KW45B41Z83
- - PartNumber: KW45B41Z83AFTA
+ - Device: KW47B42ZB7
+ - PartNumber: KW47B42ZB7AFTA
 
 

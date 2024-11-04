@@ -1,6 +1,6 @@
-.. _kw45b41zloc:
+.. _mcxw72evk:
 
-KW45B41Z-LOC
+MCX-W72-EVK
 ####################
 
 Overview
@@ -9,14 +9,14 @@ Overview
 
 
 
-.. image:: ./kw45b41zloc.png
+.. image:: ./mcxw72evk.png
    :width: 240px
    :align: center
-   :alt: KW45B41Z-LOC
+   :alt: MCX-W72-EVK
 
 MCU device and part on board is shown below:
 
- - Device: KW45B41Z83
- - PartNumber: KW45B41Z83AFTA
+ - Device: MCXW727C
+ - PartNumber: MCXW727CMFTA
 
 

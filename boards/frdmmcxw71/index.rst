@@ -1,0 +1,24 @@
+.. _frdmmcxw71:
+
+FRDM-MCXW71
+####################
+
+Overview
+********
+
+| The NXP FRDM-MCXW71 is a development board for the MCXW71 96 MHz Arm Cortex-M33 microcontroller.
+
+` <https://mir.nxp.com/log/record?refType=board&amp;amp;amp;amp;refId=238&amp;amp;amp;amp;column=overview>`__
+
+
+.. image:: ./frdmmcxw71.png
+   :width: 240px
+   :align: center
+   :alt: FRDM-MCXW71
+
+MCU device and part on board is shown below:
+
+ - Device: MCXW716C
+ - PartNumber: MCXW716CMFTA
+
+
