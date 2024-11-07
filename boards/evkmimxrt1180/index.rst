@@ -7,9 +7,6 @@ Overview
 ********
 
 
-
-
-
 .. image:: ./evkmimxrt1180.png
    :width: 240px
    :align: center
