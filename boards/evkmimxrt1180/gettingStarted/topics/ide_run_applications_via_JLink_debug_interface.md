@@ -1,4 +1,4 @@
-# Run applications via JLink Debug Interface {#topic_s33_pdx_g1c}
+# Run applications via JLink Debug Interface
 
 The previous sections assume that you are using the CMSIS-DAP debugging interface for MCUXpresso IDE to do the debugging. If you are using J-Link probe as a debugging interface, the configurations are slightly different.
 

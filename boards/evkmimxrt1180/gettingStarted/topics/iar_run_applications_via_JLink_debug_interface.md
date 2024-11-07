@@ -1,4 +1,4 @@
-# Run applications via JLink debug interface {#topic_db5_qgx_g1c}
+# Run applications via JLink debug interface 
 
 When JLink Debug Interface is used, manually revise **Debug Configuration** under **Project** \> **Options** \> **Debugging**.
 

@@ -1,4 +1,4 @@
-# Build a multicore example application {#ide_build_a_multicore_example_application}
+# Build a multicore example application
 
 This section describes the steps required to configure MCUXpresso IDE to build, run, and debug multicore example applications. The following steps can be applied to any multicore example application in the MCUXpresso SDK. Here, the dual-core version of `hello_world` example application targeted for the **evkmimxrt1180** hardware platform is used as an example.
 
