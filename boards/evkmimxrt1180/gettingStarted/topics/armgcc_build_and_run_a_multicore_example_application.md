@@ -1,4 +1,4 @@
-# Build and run a multicore example application {#topic_osm_czt_4wb}
+# Build and run a multicore example application
 
 This section describes the steps to build and run a dual-core application. The demo application build scripts locate in this folder:
 

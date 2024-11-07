@@ -1,4 +1,4 @@
-# Build an example application {#keil_build_an_example_application}
+# Build an example application 
 
 1.  Open the desired example application workspace in:
 

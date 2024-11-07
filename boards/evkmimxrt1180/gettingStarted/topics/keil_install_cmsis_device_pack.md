@@ -1,4 +1,4 @@
-# Install CMSIS device pack {#keil_install_cmsis_device_pack}
+# Install CMSIS device pack 
 
 After the MDK tools are installed, Cortex Microcontroller Software Interface Standard \(CMSIS\) device packs must be installed to fully support the device from a debug perspective. These packs include things such as memory map information, register definitions and flash programming algorithms. Follow these steps to install the MIMXRT118x CMSIS pack.
 

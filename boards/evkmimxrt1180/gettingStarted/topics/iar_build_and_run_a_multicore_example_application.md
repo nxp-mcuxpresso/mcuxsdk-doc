@@ -1,4 +1,4 @@
-# Build and run a multicore example application {#topic_nqx_3xt_4wb}
+# Build and run a multicore example application
 
 This section describes the steps to build and run a dual-core application. The demo applications workspace files are available in the folder: `<install_dir>/boards/<board_name>/multicore_examples/<application_name>/<core_type>/iar`
 

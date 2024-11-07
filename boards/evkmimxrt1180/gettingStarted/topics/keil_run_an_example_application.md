@@ -1,4 +1,4 @@
-# Run an example application {#keil_run_an_example_application}
+# Run an example application 
 
 The default MDK project settings assumes CMSIS-DAP debug interface is used. If you are using a CMSIS-DAP debugging interface, perform the following steps:
 

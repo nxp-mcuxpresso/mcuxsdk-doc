@@ -1,4 +1,4 @@
-# Build a multicore example application {#keil_build_a_multicore_example_application}
+# Build a multicore example application 
 
 This section describes the particular steps that need to be done in order to build and run a dual-core application. The demo applications workspace files are located in this folder:
 

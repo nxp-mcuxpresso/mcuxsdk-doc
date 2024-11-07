@@ -1,5 +1,4 @@
-# Run a multicore example application {#keil_run_a_multicore_example_application}
-
+# Run a multicore example application 
 This section describes the steps to run a multicore example application. The primary core debugger flashes both the primary and the auxiliary core applications into the SoC flash memory.
 
 1.  To download and run the multicore application, switch to the primary core application project and perform Step 1 – Step 3 as described in [Build a multicore example application](keil_build_a_multicore_example_application.md).
