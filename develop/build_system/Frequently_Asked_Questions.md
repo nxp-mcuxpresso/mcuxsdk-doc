@@ -119,3 +119,24 @@
     
     For MDK project, you can check build options in  `C/C++(AC6)`/`Asm`/`Linker`  option tab.
     ![board_select_device_part](./_doc/MDK_GUI_all_build_option.png)
+
+2. Why does IAR GUI project run pass but fail on the command line?
+    
+    There are two possible causes for this. The first one is caused by wrong compiler/linker flags, please refer to previous question `Why does GUI project build pass but fail on the command line?`.
+
+    If the flags are identical, please check the version of CMake and Ninja. The IAR IDE GUI project will use `.o` extension for object name, developer may relocate these object in linker file. For example:
+    ```
+    initialize by copy {
+        readwrite,
+        /* Place in RAM flash and performance dependent functions  */
+        readonly object fsl_flexspi_nor_flash.o,
+        readonly object nor_flash_ops.o,
+        readonly object fsl_flexspi.o,
+        readonly object fsl_clock.o,
+        readonly object ABImemclr4.o,
+        section .textrw,
+        section CodeQuickAccess,
+        section DataQuickAccess
+        };
+    ``` 
+    However, meta build system use CMake and Ninja, in some of low version CMake and Ninja, the generated object has `.c.o` extesion name. This misalignment will cause the link configuration not to take effect. So please make sure the minimum version for CMake is 3.30.0, and 1.12.1 for Ninja.

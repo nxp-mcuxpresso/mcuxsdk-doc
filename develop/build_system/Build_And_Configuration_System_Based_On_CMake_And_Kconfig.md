@@ -2641,6 +2641,15 @@ It's not identical for different toolchain:
   	LD "-Xlinker --defsym=__stack_size__=0x3000 -Xlinker --defsym=__heap_size__=0x3000"
   )
   ```
+  
+To simplify heap stack setting, you can just set linker symbols with `mcux_add_linker_symbol`.
+For example
+
+  ```cmake
+      mcux_add_linker_symbol(
+        SYMBOLS "__stack_size__=0x3000 __heap_size__=0x3000"
+      )
+  ```
 
 #### TrustZone
 

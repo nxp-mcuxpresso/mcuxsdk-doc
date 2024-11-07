@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.30.0)
 
 # include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
 
-find_package(Mcuxsdk 3.0.0 EXACT REQUIRED)
+find_package(McuxSDK 3.0.0 EXACT REQUIRED)
 
 project(hello_world LANGUAGES C CXX ASM)
 
