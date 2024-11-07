@@ -1,4 +1,4 @@
-# CM7 binary image runs from internal TCM, and `multicore_trigger` CM33 image runs from external FLASH {#topic_wbc_5lx_g1c}
+# CM7 binary image runs from internal TCM, and `multicore_trigger` CM33 image runs from external FLASH 
 
 **Note:** Be very careful that this scenario requires fuse manipulation, which is not revertible.
 

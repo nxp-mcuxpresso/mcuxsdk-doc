@@ -1,4 +1,4 @@
-# MCUxpresso settings for image type switch {#mcuxpresso_setting_for_image_type_switch}
+# MCUxpresso settings for image type switch
 
 ![](../images/mcuxpresso_setting_for_image_type_switch.png "MCUxpresso settings for image type switch")
 

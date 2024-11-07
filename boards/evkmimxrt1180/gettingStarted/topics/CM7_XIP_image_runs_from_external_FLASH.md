@@ -1,4 +1,4 @@
-# CM7 XIP image runs from external FLASH, and `multicore_trigger` CM33 image runs from internal RAM {#topic_cnd_4lx_g1c}
+# CM7 XIP image runs from external FLASH, and `multicore_trigger` CM33 image runs from internal RAM 
 
 Perform the following steps:
 

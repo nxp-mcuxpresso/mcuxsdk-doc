@@ -1,4 +1,4 @@
-# Use Secure Provisiong Tool to erase flash {#use_secure_provisiong_tool_to_erase_flash}
+# Use Secure Provisiong Tool to erase flash 
 
 In worst cases a debugger cannot successfully connect to the board. A major reason for this is there are POR boot image inside the on board flash memory which causes the whole system in a trouble state. Secure Provisioning Tool provide a reliable way to erase the flash in this worst case. To achieve this
 

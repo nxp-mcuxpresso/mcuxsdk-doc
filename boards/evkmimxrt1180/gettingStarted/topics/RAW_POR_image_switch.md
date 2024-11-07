@@ -1,4 +1,4 @@
-# RAW/POR image switch {#topic_kwy_xlx_g1c}
+# RAW/POR image switch 
 
 In current delivered SDK package, most demos generate RAW images. To enhance customer OOBE experience, the following RT1180 SDK CM33 project/targets generate POR image, which means that they can POR run after you debug/download it in IDE.
 

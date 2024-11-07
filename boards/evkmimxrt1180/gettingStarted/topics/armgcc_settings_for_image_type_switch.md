@@ -1,4 +1,4 @@
-# ARMGCC settings for image type switch {#topic_p2b_gmx_g1c}
+# ARMGCC settings for image type switch
 
 ![](../images/ARMGCC_RAW_POR_Image_Switch.png "ARMGCC setting for Image Type Switch")
 

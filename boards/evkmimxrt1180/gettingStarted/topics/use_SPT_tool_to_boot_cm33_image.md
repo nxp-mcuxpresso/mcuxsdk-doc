@@ -1,4 +1,4 @@
-# Use SPT tool to boot cm33 image {#topic_l1d_hlx_g1c}
+# Use SPT tool to boot cm33 image 
 
 Run the Secure Provisioning Tool, and the following GUI shows.
 
