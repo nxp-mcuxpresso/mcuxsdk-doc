@@ -1,4 +1,4 @@
-# Note about the source code in the document {#topic_btb_tvx_g1c}
+# Note about the source code in the document
 
 Example code shown in this document has the following copyright and BSD-3-Clause license:
 

@@ -1,4 +1,4 @@
-# Use SPT tool and `multicore_trigger` image to kick off `cm7` binary image {#topic_lkk_klx_g1c}
+# Use SPT tool and `multicore_trigger` image to kick off `cm7` binary image 
 
 This section introduces how to create a CM7 POR boot image with the aid of a CM33 kicker application. The CM33 kicker application is located in `demo_apps/multicore_trigger`.
 
