@@ -20,3 +20,10 @@ MCU device and part on board is shown below:
  - PartNumber: MIMXRT1052DVL6B
 
 
+Getting Started
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started with MCUXpresso SDK for EVKB-IMXRT1050
+
+   gettingStarted/gsindex.md

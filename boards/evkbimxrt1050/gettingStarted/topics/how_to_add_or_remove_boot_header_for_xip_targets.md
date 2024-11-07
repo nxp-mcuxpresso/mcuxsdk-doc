@@ -1,4 +1,4 @@
-# How to add or remove boot header for XIP targets {#GUID-82961617-9610-4E46-97D6-C581407B732B}
+# How to add or remove boot header for XIP targets
 
 The MCUXpresso SDK for i.MX RT1050 provides `flexspi_nor_debug` and `flexspi_nor_release` targets for each example and/or demo which supports XIP \(eXecute-In-Place\). These two targets add `XIP_BOOT_HEADER` to the image by default. Because of this, ROM can boot and run this image directly on external flash.
 

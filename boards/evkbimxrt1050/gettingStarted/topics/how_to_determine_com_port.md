@@ -1,4 +1,4 @@
-# How to determine COM port {#GUID-9A968EFE-38CF-4949-B1EA-95C31620D791}
+# How to determine COM port
 
 This section describes the steps necessary to determine the debug COM port number of your NXP hardware development platform.
 

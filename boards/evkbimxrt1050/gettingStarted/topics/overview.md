@@ -1,4 +1,4 @@
-# Overview {#GUID-47419A67-FE27-47C4-96EA-9C9178E50703}
+# Overview
 
 The NXP MCUXpresso software and tools offer comprehensive development solutions designed to optimize, ease and help accelerate embedded system development of applications based on general purpose, crossover and Bluetooth™-enabled MCUs from NXP.
 

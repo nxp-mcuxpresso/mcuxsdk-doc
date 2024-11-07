@@ -1,4 +1,4 @@
-# Locating example application source files {#GUID-5781114A-C376-4E0A-8252-487CD5A7497E}
+# Locating example application source files
 
 When opening an example application in any of the supported IDEs, a variety of source files are referenced. The MCUXpresso SDK devices folder is the central component to all example applications. It means the examples reference the same source files and, if one of these files is modified, it could potentially impact the behavior of other examples.
 

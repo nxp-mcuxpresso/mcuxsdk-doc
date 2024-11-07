@@ -1,4 +1,4 @@
-# Add a new system environment variable for ARMGCC\_DIR {#GUID-B970CA84-4067-4F85-B58A-7FF3AD157184}
+# Add a new system environment variable for ARMGCC\_DIR
 
 Create a new *system* environment variable and name it as `ARMGCC_DIR`. The value of this variable should point to the Arm GCC Embedded tool chain installation path. For this example, the path is:
 

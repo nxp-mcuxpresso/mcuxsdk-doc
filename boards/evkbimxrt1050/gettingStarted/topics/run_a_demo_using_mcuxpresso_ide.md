@@ -1,4 +1,4 @@
-# Run a demo using MCUXpresso IDE {#GUID-E67D9966-05D2-4ADF-BD19-73E4EDA416E5}
+# Run a demo using MCUXpresso IDE
 
 **Note:**
 
