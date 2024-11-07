@@ -1,4 +1,4 @@
-# Install CMSIS device pack {#GUID-C11633CE-2D48-4464-95FC-39E4196E9567}
+# Install CMSIS device pack
 
 After the MDK tools are installed, Cortex Microcontroller Software Interface Standard \(CMSIS\) device packs must be installed to fully support the device from a debug perspective. These packs include things such as memory map information, register definitions, and flash programming algorithms. Follow these steps to install the MIMXRT102x CMSIS pack.
 

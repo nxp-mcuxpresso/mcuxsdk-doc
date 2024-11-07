@@ -1,4 +1,4 @@
-# Build an example application {#GUID-9BE6B7D7-D124-4538-B71E-3F55103ABCF5}
+# Build an example application
 
 1.  Open the desired example application workspace in:
 

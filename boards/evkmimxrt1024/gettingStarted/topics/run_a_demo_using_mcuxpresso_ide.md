@@ -1,4 +1,4 @@
-# Run a demo using MCUXpresso IDE {#GUID-6802198B-D58A-426F-8AC6-3A15A8C6A21E}
+# Run a demo using MCUXpresso IDE
 
 **Note:**
 
@@ -10,10 +10,16 @@ This section describes the steps required to configure MCUXpresso IDE to build, 
 
 **Note:** By default, three macros, `XIP_EXTERNAL_FLASH=1`, `XIP_BOOT_HEADER_ENABLE=1`, and `XIP_BOOT_HEADER_DCD_ENABLE=1`, are set in the project. If you do not use `Board_Flash` in the project, these macros should be removed or set value to **0** in project settings.
 
--   **[Select the workspace location](../topics/select_the_workspace_location.md)**  
 
--   **[Build an example application](../topics/build_an_example_application.md)**  
+```{include} ../topics/select_the_workspace_location.md
+:heading-offset: 1
+```
 
--   **[Run an example application](../topics/run_an_example_application_003.md)**  
+```{include} ../topics/build_an_example_application.md
+:heading-offset: 1
+```
 
+```{include} ../topics/run_an_example_application_003.md
+:heading-offset: 1
+```
 

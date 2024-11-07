@@ -1,7 +1,11 @@
-# Run a demo application using IAR {#GUID-9E1315B5-E114-42CC-A538-A57717E980E0}
+# Run a demo application using IAR
 
--   **[Build an example application](../topics/build_an_example_application_002.md)**  
 
--   **[Run an example application](../topics/run_an_example_application.md)**  
+```{include} ../topics/build_an_example_application_002.md
+:heading-offset: 1
+```
 
+```{include} ../topics/run_an_example_application.md
+:heading-offset: 1
+```
 

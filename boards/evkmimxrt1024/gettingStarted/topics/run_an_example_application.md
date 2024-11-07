@@ -1,4 +1,4 @@
-# Run an example application {#GUID-4CD1582C-5E75-4100-8B6B-BA3F37D0F361}
+# Run an example application
 
 To download and run the application, perform these steps:
 

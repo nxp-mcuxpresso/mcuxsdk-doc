@@ -1,4 +1,4 @@
-# MCUXpresso IDE New Project Wizard {#GUID-DB5313C5-5828-4E54-8D7D-0EA0F7DC6ED9}
+# MCUXpresso IDE New Project Wizard
 
 MCUXpresso IDE features a new project wizard. The wizard provides functionality for the user to create new projects from the installed SDKs \(and from pre-installed part support\). It offers user the flexibility to select and change multiple builds. The wizard also includes a library and provides source code options. The source code is organized as software components, categorized as drivers, utilities, and middleware.
 

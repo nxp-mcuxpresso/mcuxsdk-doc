@@ -1,4 +1,4 @@
-# MCUXpresso SDK board support package folders {#GUID-C94377D8-C1BD-4591-A460-92AF83ADAC3C}
+# MCUXpresso SDK board support package folders
 
 MCUXpresso SDK board support package provides example applications for NXP development and evaluation boards for Arm Cortex-M cores including Freedom, Tower System, and LPCXpresso boards. Board support packages are found inside the top-level boards folder and each supported board has its own folder \(an MCUXpresso SDK package can support multiple boards\). Within each `<board_name>` folder, there are various subfolders to classify the type of examples it contains. These include \(but are not limited to\):
 
@@ -7,8 +7,12 @@ MCUXpresso SDK board support package provides example applications for NXP devel
 -   `rtos_examples`: Basic FreeRTOSM OS examples that show the use of various RTOS objects \(semaphores, queues, and so on\) and interfaces with the MCUXpresso SDK’s RTOS drivers
 -   `wireless_examples`: Applications that use the Zigbee and OpenThread stacks.
 
--   **[Example application structure](../topics/example_application_structure.md)**  
 
--   **[Locating example application source files](../topics/locating_example_application_source_files.md)**  
+```{include} ../topics/example_application_structure.md
+:heading-offset: 1
+```
 
+```{include} ../topics/locating_example_application_source_files.md
+:heading-offset: 1
+```
 
