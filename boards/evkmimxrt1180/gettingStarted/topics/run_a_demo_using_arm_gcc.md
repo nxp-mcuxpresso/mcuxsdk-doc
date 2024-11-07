@@ -1,4 +1,4 @@
-# Run a demo using Arm GCC {#GUID-0C8A7571-0107-4F06-993E-D81B29A5255B}
+# Run a demo using Arm GCC
 
 This section describes the steps to configure the command line Arm GCC tools to build, run, and debug demo applications and necessary driver libraries provided in the MCUXpresso SDK. The `hello_world`demo application is targeted which is used as an example.
 

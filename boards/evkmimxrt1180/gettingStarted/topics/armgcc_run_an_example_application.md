@@ -1,4 +1,4 @@
-# Run an example application {#GUID-88EFC3FB-5011-47DD-9794-06A664232087}
+# Run an example application
 
 This section describes steps to run a demo application using J-Link GDB Server application. To perform this exercise, make sure that a standalone J-Link pod is connected to the debug interface of your board.
 
@@ -32,17 +32,17 @@ After the J-Link interface is configured and connected, follow these steps to do
 
     ![](../images/armgcc_segger_jlink_gdb_server_screen.png "SEGGER J-Link GDB Server screen after successful connection")
 
-6.  If not already running, open a GCC ARM Embedded tool chain command window. To launch the window, from the Windows operating system **Start menu**, go to **Programs**&gt; **GNU Tools ARM Embedded &lt;version&gt;**and select **GCC Command Prompt**.
+6.  If not already running, open a GCC ARM Embedded tool chain command window. To launch the window, from the Windows operating system **Start menu**, go to **Programs**\> **GNU Tools ARM Embedded <version\>**and select **GCC Command Prompt**.
 
     ![](../images/armgcc_launch_command_prompt.png "Launch command prompt")
 
 7.  Change to the directory that contains the example application output. The output can be found in using one of these paths, depending on the build target selected:
 
-    *&lt;install\_dir&gt;/boards/&lt;board\_name&gt;/&lt;example\_type&gt;/&lt;application\_name&gt;/&lt;core&gt;/armgcc/&lt;target&gt;*
+    *<install\_dir\>/boards/<board\_name\>/<example\_type\>/<application\_name\>/<core\>/armgcc/<target\>*
 
     For this example, the path is:
 
-    *&lt;install\_dir&gt;/boards/evkmimxrt1180/demo\_apps/hello\_world/&lt;core&gt;/armgcc/debug*
+    *<install\_dir\>/boards/evkmimxrt1180/demo\_apps/hello\_world/<core\>/armgcc/debug*
 
 8.  Run the `arm-none-eabi-gdb.exe <application_name>.elf`. For this example, it is `arm-none-eabi-gdb.exe hello_world.elf`.
 

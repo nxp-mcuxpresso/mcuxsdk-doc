@@ -1,4 +1,4 @@
-# Revision history {#GUID-F7F83E8E-776B-4318-95CC-967056D3E720}
+# Revision history
 
 [Table 1](#TABLE_REVISIONHISTORY) summarizes the revisions to this document.
 

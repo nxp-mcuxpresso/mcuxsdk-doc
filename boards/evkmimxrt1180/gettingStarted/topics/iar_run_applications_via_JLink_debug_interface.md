@@ -1,6 +1,6 @@
 # Run applications via JLink debug interface {#topic_db5_qgx_g1c}
 
-When JLink Debug Interface is used, manually revise **Debug Configuration** under **Project** &gt; **Options** &gt; **Debugging**.
+When JLink Debug Interface is used, manually revise **Debug Configuration** under **Project** \> **Options** \> **Debugging**.
 
 1.  Change the debug driver to `J-Link/J-Trace`.
 

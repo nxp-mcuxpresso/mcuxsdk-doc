@@ -1,14 +1,14 @@
-# Build an example application {#GUID-22E6D641-FA06-4447-8762-2F048FD1E063}
+# Build an example application
 
 To build the `hello_world` demo application, perform the following steps:
 
 1.  Open the desired demo application workspace. Most example application workspace files can be located using the following path:
 
-    *&lt;install\_dir&gt;/boards/&lt;board\_name&gt;/&lt;example\_type&gt;/&lt;application\_name&gt;/&lt;core\_type&gt;/iar*
+    *<install\_dir\>/boards/<board\_name\>/<example\_type\>/<application\_name\>/<core\_type\>/iar*
 
     Using the MIMXRT1180-EVK hardware platform as an example, the `hello_world` workspace is located in:
 
-    *&lt;install\_dir&gt;/boards/evkmimxrt1180/demo\_apps/hello\_world/cm33/iar/hello\_world\_demo\_cm33.eww*
+    *<install\_dir\>/boards/evkmimxrt1180/demo\_apps/hello\_world/cm33/iar/hello\_world\_demo\_cm33.eww*
 
     Other example applications may have additional folders in their path.
 

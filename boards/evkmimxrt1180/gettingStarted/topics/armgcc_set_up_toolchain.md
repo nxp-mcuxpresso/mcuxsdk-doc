@@ -1,4 +1,4 @@
-# Set up toolchain {#GUID-4E6693A5-871F-479C-B814-4E473F1806D6}
+# Set up toolchain
 
 This section contains the steps to install the necessary components required to build and run an MCUXpresso SDK demo application with the Arm GCC toolchain, as supported by the MCUXpresso SDK. There are many ways to use Arm GCC tools, but this example focuses on a Windows operating system environment.
 

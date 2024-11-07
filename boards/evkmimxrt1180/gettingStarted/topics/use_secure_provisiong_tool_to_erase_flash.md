@@ -6,7 +6,7 @@ In worst cases a debugger cannot successfully connect to the board. A major reas
 
 2.  Connect the board to your PC from both `J53` \(Debugging\) and `J33` \(USB OTG 1\), then power up the board.
 
-3.  Start `Secure Provisioning Tool`, select `Tool` &gt; `Flash Programmer` or `Ctrl + R`.
+3.  Start `Secure Provisioning Tool`, select `Tool` \> `Flash Programmer` or `Ctrl + R`.
 
 4.  Click `Yes` to prompt up questions, wait memory initialization finish.
 
@@ -14,7 +14,7 @@ In worst cases a debugger cannot successfully connect to the board. A major reas
 
 5.  Click `Erase all` button and wait a minute for the erase process to finish.
 
-    ![](../images/use_secure_provisiong_tool_to_erase_flash2.png "Secure Provisiong Tool Initialize Flash Programming Tool")
+    ![](../images/use_secure_provisiong_tool_to_erase_flash2.png " Secure Provisiong Tool Initialize Flash Programming Tool")
 
 6.  After `Success: Erase whole memory` shows up, the board should have restored to a good state to work in various mode.
 

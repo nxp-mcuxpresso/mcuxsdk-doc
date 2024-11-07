@@ -14,7 +14,7 @@ By default, the primary core flexspi\_nor\_debug target links the auxiliary core
 
 1.  Build the CM7 and CM33 projects respectively.
 
-2.  Only click the `Download and Debug` button on the CM33 project, IAR could help start to debug a multicore project. It is user-friendly to debug multicore examples with CMSIS-DAP on IAR \(Multicore Project is set on Debugger-&gt;Multicore window\).
+2.  Only click the `Download and Debug` button on the CM33 project, IAR could help start to debug a multicore project. It is user-friendly to debug multicore examples with CMSIS-DAP on IAR \(Multicore Project is set on Debugger-\>Multicore window\).
 
     ![](../images/iar_build_and_run_a_multicore_example_application.png "Debug multicore project")
 

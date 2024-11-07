@@ -6,7 +6,8 @@ MIMXRT1180-EVK
 Overview
 ********
 
-
+
+
 
 
 .. image:: ./evkmimxrt1180.png
@@ -24,9 +25,10 @@ Getting Started
 ****************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXSDKMIMXRT118XKGSUG
+   :caption: Getting Started with MCUXpresso SDK for MIMXRT1180-EVK
 
    gettingStarted/gsindex.md
+
 
 Release Notes
 ****************

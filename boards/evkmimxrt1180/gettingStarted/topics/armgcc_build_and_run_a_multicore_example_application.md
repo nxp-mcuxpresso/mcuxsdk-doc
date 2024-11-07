@@ -2,13 +2,13 @@
 
 This section describes the steps to build and run a dual-core application. The demo application build scripts locate in this folder:
 
-*&lt;install\_dir&gt;/boards/evkmimxrt1180/multicore\_examples/&lt;application\_name&gt;/&lt;core\_type&gt;/armgcc*
+*<install\_dir\>/boards/evkmimxrt1180/multicore\_examples/<application\_name\>/<core\_type\>/armgcc*
 
 Begin with a simple dual-core version of the Hello World application. The multicore Hello World GCC build scripts are located in this folder:
 
-*&lt;install\_dir&gt;/boards/evkmimxrt1180/multicore\_examples/hello\_world/cm7/armgcc/build\_debug.bat*
+*<install\_dir\>/boards/evkmimxrt1180/multicore\_examples/hello\_world/cm7/armgcc/build\_debug.bat*
 
-*&lt;install\_dir&gt;/boards/evkmimxrt1180/multicore\_examples/hello\_world/cm33/armgcc/build\_flexspi\_nor\_debug.bat*
+*<install\_dir\>/boards/evkmimxrt1180/multicore\_examples/hello\_world/cm33/armgcc/build\_flexspi\_nor\_debug.bat*
 
 Build the application for the auxiliary core \(cm7\) first, because the primary core application project \(cm33\) must know the auxiliary core application binary when running the linker. It is not possible to finish the primary core linker when the auxiliary core application binary is not ready.
 

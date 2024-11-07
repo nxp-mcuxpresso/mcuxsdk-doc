@@ -1,4 +1,4 @@
-# Run an example application {#GUID-EC1687A4-2DA1-4F6D-924B-933E1F3DA3E7}
+# Run an example application
 
 The default IAR project setting assumes that CMSIS-DAP debug interface is used. When such a debug interface is used, perform the following steps to do the debugging:
 

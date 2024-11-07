@@ -1,6 +1,7 @@
-# MCUXSDKMIMXRT118XKGSUG
+# Getting Started with MCUXpresso SDK for MIMXRT1180-EVK
 
-```{toctree}
+
+```{tocTree}
 :maxdepth: 4
 :caption: Table of Contents
 
@@ -15,6 +16,4 @@ topics/mcuxpresso_config_tools.md
 topics/how_to_determine_com_port.md
 topics/default_debug_interfaces.md
 topics/note_source_code.md
-topics/revision_history.md
-topics/legal_information.md
 ```

@@ -1,4 +1,4 @@
-# Bootable image generation {#topic_0128cec6-7394-4405-9926-64029e04c556}
+# Bootable image generation
 
 RT1180 can only boot from CM33. For CM33 application image to boot, a sophisticated boot header structure is needed. To ease the customer from complex settings, the **Secure Provisioning Tool** is provided. Among other rich features, it provides an easy way to use GUI for customer to generate bootable image from raw application image. In addition, in order for users to run the CM7 image conveniently, SDK provides the `multicore_trigger` demo for users to kick off CM7 image, combined with the SPT tool, we can run CM7 image by from POR.
 

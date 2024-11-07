@@ -1,4 +1,4 @@
-# How to determine COM port {#GUID-C30FD15B-1285-45BC-958C-7DACC3D431DA}
+# How to determine COM port
 
 This section describes the steps necessary to determine the debug COM port number of your NXP hardware development platform.
 
@@ -6,13 +6,13 @@ This section describes the steps necessary to determine the debug COM port numbe
 
     ![](../images/device_manager.png "Device Manager")
 
-2.  In the **Device Manager**, expand the **Ports \(COM &amp; LPT\)** section to view the available ports. Depending on the NXP board you’re using, the COM port can be named differently.
+2.  In the **Device Manager**, expand the **Ports \(COM & LPT\)** section to view the available ports. Depending on the NXP board you’re using, the COM port can be named differently.
 
     1.  OpenSDA – CMSIS-DAP/mbed/DAPLink interface:
 
         ![](../images/opensda_cmsis_dap.png "OpenSDA – CMSIS-DAP/mbed/DAPLink interface")
 
-    2.  OpenSDA – P&amp;E Micro:
+    2.  OpenSDA – P&E Micro:
 
         ![](../images/opensda_pe_micro.png "OpenSDA – P&E Micro")
 
@@ -20,7 +20,7 @@ This section describes the steps necessary to determine the debug COM port numbe
 
         ![](../images/opensda_jlink.png "OpenSDA – J-Link")
 
-    4.  P&amp;E Micro OSJTAG:
+    4.  P&E Micro OSJTAG:
 
         ![](../images/pe_micro_osjtag.png "P&E Micro OSJTAG")
 

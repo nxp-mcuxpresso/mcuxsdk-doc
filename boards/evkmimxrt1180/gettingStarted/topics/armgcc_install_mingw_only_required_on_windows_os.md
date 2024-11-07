@@ -1,4 +1,4 @@
-# Install MinGW \(only required on Windows OS\) {#GUID-C8C4206D-E829-4590-A88B-73966FA3051B}
+# Install MinGW \(only required on Windows OS\)
 
 The Minimalist GNU for Windows \(MinGW\) development tools provide a set of tools that are not dependent on third-party C-Runtime DLLs \(such as Cygwin\). The build environment used by the MCUXpresso SDK does not use the MinGW build tools, but does leverage the base install of both MinGW and MSYS. MSYS provides a basic shell with a Unix-like interface and tools.
 
@@ -15,9 +15,9 @@ The Minimalist GNU for Windows \(MinGW\) development tools provide a set of tool
 
     ![](../images/armgcc_complete_mingw_and_msys.png "Complete MinGW and MSYS installation")
 
-5.  Add the appropriate item to the Windows operating system path environment variable. It can be found under **Control Panel**-&gt;**System and Security**-&gt;**System**-&gt;**Advanced System Settings**in the **Environment Variables...**section. The path is:
+5.  Add the appropriate item to the Windows operating system path environment variable. It can be found under **Control Panel**-\>**System and Security**-\>**System**-\>**Advanced System Settings**in the **Environment Variables...**section. The path is:
 
-    *&lt;mingw\_install\_dir&gt;\\bin*
+    *<mingw\_install\_dir\>\\bin*
 
     Assuming the default installation path is *C:\\MinGW*, an example is as shown in [Figure 3](#FIG_ADDPATH). If the path is not set correctly, the toolchain will not work.
 

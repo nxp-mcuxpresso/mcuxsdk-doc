@@ -19,7 +19,7 @@ Press the **Build** button to start the multi-core project build.. Because of th
 
 **Note:**
 
-When the **Release** build is requested, it is necessary to change the build configuration of both the primary and auxiliary core application projects first. To do this, select both projects in the Project Explorer view and then right click which displays the context-sensitive menu. Select **Build Configurations** -&gt; **Set Active** -&gt; **Release**. This alternate navigation using the menu item is **Project** -&gt; **Build Configuration** -&gt; **Set Active** -&gt; **Release**. After switching to the **Release** build configuration, the build of the multicore example can be started by triggering the primary core application \(`cm33`\) build.
+When the **Release** build is requested, it is necessary to change the build configuration of both the primary and auxiliary core application projects first. To do this, select both projects in the Project Explorer view and then right click which displays the context-sensitive menu. Select **Build Configurations** -\> **Set Active** -\> **Release**. This alternate navigation using the menu item is **Project** -\> **Build Configuration** -\> **Set Active** -\> **Release**. After switching to the **Release** build configuration, the build of the multicore example can be started by triggering the primary core application \(`cm33`\) build.
 
 ![](../images/ide_multicore_switching_into_release_build.png "Switching multicore projects into the Release build configuration")
 

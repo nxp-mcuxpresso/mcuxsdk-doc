@@ -9,7 +9,8 @@ This section describes the steps to run a multicore example application. The pri
 
 3.  Run the primary core project and then run the secondary core project.
 
-    ![](../images/keil_run_a_multicore_example_application2.png "Stop the primary/auxiliary core application at main() when debugging")
+    ![](../images/keil_run_a_multicore_example_application2.png "Stop the primary/auxiliary core application at main() when
+                                debugging")
 
 4.  `Hello_World` multicore demos are now running. A banner appears on the terminal and the LED D6 blinks. If this is not true, check your terminal settings and connections.
 

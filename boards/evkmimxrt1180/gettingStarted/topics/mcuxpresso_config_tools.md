@@ -1,4 +1,4 @@
-# MCUXpresso configuration tools {#GUID-CDDFBC62-A3D9-4445-AE48-0191106A2A59}
+# MCUXpresso configuration tools
 
 MCUXpresso Config Tools can help configure the processor and generate initialization code for the on-chip peripherals. The tools are able to modify any existing example project, or create a configuration for the selected board or processor. The generated code is used with MCUXpresso SDK version 2.x.
 

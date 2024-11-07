@@ -1,4 +1,4 @@
-# Run a demo using IAR {#GUID-BA1042A5-8F45-4771-B42C-476D7C55C064}
+# Run a demo using IAR
 
 This section describes the steps required to build, run, and debug example applications provided in the MCUXpresso SDK. This document uses `hello_world` demo application targeted for the MIMXRT1180-EVK as an example. These steps can be applied to any example application in the MCUXpresso SDK.
 
