@@ -9,7 +9,7 @@
     The workspace file is named as `<demo_name>.uvmpw`. For this specific example, the actual path is:
 
     ```
-    <install_dir>/boards/evkmimxrt1060/demo_apps/hello_world/mdk/hello_world.uvmpw
+    <install_dir>/boards/evkbmimxrt1060/demo_apps/hello_world/mdk/hello_world.uvmpw
     ```
 
 2.  To build the demo project, select **Rebuild**, highlighted in red.

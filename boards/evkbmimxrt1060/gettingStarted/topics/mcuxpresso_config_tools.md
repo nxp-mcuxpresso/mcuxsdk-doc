@@ -18,7 +18,7 @@ MCUXpresso Config Tools can help configure the processor and generate initializa
 |**TEE tool**|Configures access policies for memory area and peripherals helping to protect and isolate sensitive parts of the application.|![](../images/tee_80.png)
 
 |
-|**Device Configuration tool**|Configures Device Configuration Data \(DCD\) contained in the program image that the Boot ROM code interprets to setup various on-chip peripherals prior the program launch.|![](../images/dcd_80.png)
+|**Device Configuration tool**|Configures Device Configuration Data \(DCD\) contained in the program image that the Boot ROM code interprets to set up various on-chip peripherals prior to the program launch.|![](../images/dcd_80.png)
 
 |
 

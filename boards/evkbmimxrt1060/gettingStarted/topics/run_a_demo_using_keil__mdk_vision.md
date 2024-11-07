@@ -11,7 +11,7 @@ This section describes the steps required to build, run, and debug example appli
 :heading-offset: 1
 ```
 
-```{include} ../topics/run_an_example_application_002.md
+```{include} ../topics/run_an_example_application_003.md
 :heading-offset: 1
 ```
 

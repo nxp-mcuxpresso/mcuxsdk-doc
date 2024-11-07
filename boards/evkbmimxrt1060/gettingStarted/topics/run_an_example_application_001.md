@@ -22,11 +22,11 @@ After the J-Link interface is configured and connected, follow these steps to do
 
 |
 
-4.  Open the J-Link GDB Server application. Go to the SEGGER install folder. For example, *C:\\Program Files\(x86\)\\SEGGER\\JLink\_Vxxx*. Open the command windows. For Debug and Release targets, use the `JLinkGDBServer.exe` command. For the `sdram_debug`, `sdram_release`, `flexspi_nor_sdram_debug`, and `flexspi_nor_sdram_release` targets, use the `JLinkGDBServer.exe-scriptfile <install_dir>/boards/evkmimxrt1060/demo_apps/hello_world/evkmimxrt1060_sdram_init.jlinkscript` command
+4.  Open the J-Link GDB Server application. Go to the SEGGER install folder. For example, *C:\\Program Files\(x86\)\\SEGGER\\JLink\_Vxxx*. Open the command windows. For Debug and Release targets, use the `JLinkGDBServer.exe` command. For the `sdram_debug`, `sdram_release`, `flexspi_nor_sdram_debug`, and `flexspi_nor_sdram_release` targets, use the `JLinkGDBServer.exe-scriptfile <install_dir>/boards/evkbmimxrt1060/demo_apps/hello_world/evkbmimxrt1060_sdram_init.jlinkscript` command
 5.  The target device selection chosen for this example is **MIMXRT1062DVL6A**.
 6.  After it is connected, the screen should resemble [Figure 2](run_an_example_application_001.md#SEGGERJLINKGDBSERVERSUCCESS0000).
 
-    |![](../images/segger_j-link_gdb_server_screen_after_successful_c.png "SEGGER J-Link GDB Server screen after successful
+    |![](../images/jlink_connect_rt1060evkb.png "SEGGER J-Link GDB Server screen after successful
 											connection")
 
 |
@@ -50,12 +50,12 @@ After the J-Link interface is configured and connected, follow these steps to do
     For this example, the path is:
 
     ```
-    <install_dir>/boards/evkmimxrt1060/demo_apps/hello_world/armgcc/debug
+    <install_dir>/boards/evkbmimxrt1060/demo_apps/hello_world/armgcc/debug
     ```
 
 9.  Run the `arm-none-eabi-gdb.exe <application_name>.elf`. For this example, it is `arm-none-eabi-gdb.exe hello_world.elf`.
 
-    |![](../images/run_arm_none_eabi_gdb_rt1060.png "Run arm-none-eabi-gdb")
+    |![](../images/arm-none-eabi-gdb_rt1060evkb.png "Run arm-none-eabi-gdb")
 
 |
 

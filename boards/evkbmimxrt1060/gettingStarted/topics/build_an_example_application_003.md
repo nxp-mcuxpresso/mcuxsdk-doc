@@ -17,14 +17,14 @@ To build an example application, follow these steps.
     For this example, the exact path is:
 
     ```
-    <install_dir>/examples/evkmimxrt1060/demo_apps/hello_world/armgcc
+    <install_dir>/examples/evkbmimxrt1060/demo_apps/hello_world/armgcc
     ```
 
     **Note:** To change directories, use the `cd` command.
 
 3.  Type **build\_debug.bat** on the command line or double click on **build\_debug.bat** file in Windows Explorer to build it. The output is as shown in [Figure 2](build_an_example_application_003.md#HELLOWORLDBUILDSUCCESS9999).
 
-    |![](../images/hello_world_demo_build_successful_rt1060.png "hello_world demo build
+    |![](../images/amgcc_build_pass_rt1060evkb.png "hello_world demo build
 											successful")
 
 |

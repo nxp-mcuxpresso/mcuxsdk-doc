@@ -1,6 +1,6 @@
 # How to add or remove boot header for XIP targets
 
-The MCUXpresso SDK for i.MX RT1060 provides `flexspi_nor_debug` and `flexspi_nor_release` targets for each example and/or demo which supports XIP \(eXecute-In-Place\). These two targets add `XIP_BOOT_HEADER` to the image by default. Because of this, ROM can boot and run this image directly on external flash.
+The MCUXpresso SDK for i.MX RT1060-EVKB provides `flexspi_nor_debug` and `flexspi_nor_release` targets for each example and/or demo which supports XIP \(eXecute-In-Place\). These two targets add `XIP_BOOT_HEADER` to the image by default. Because of this, ROM can boot and run this image directly on external flash.
 
 **Macros for the boot leader:**
 
@@ -20,10 +20,6 @@ Take `hello_world` as an example:
 
 |
 
-    |![](../images/change_configuration_in_misc_controls_rt1060.png "Change configuration Misc controls")
-
-|
-
 -   **ARMGCC**
 
     Change the configuration in CMakeLists.txt.
@@ -34,7 +30,7 @@ Take `hello_world` as an example:
 
 -   **MCUX**
 
-    |![](../images/properties_for_evkbimxrt1060.png "Properties for evkmimxrt1060")
+    |![](../images/mcux_macro_rt1060evkb.png "Properties for evkbmimxrt1060")
 
 |
 

@@ -37,6 +37,6 @@ Getting Started
 ****************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for EVK-MIMXRT1060
+   :caption: Getting Started with MCUXpresso SDK for MIMXRT1060-EVKB
 
    gettingStarted/gsindex.md

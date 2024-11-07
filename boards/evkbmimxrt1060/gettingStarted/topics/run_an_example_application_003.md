@@ -1,42 +1,41 @@
 # Run an example application
 
-For more information on debug probe support in the MCUXpresso IDE, visit [community.nxp.com](https://community.nxp.com/message/630901).
-
 To download and run the application, perform these steps:
 
-**Note:** Make sure that the board is on the QSPI\_Flash mode before download \(set SW8: 0010\).
+1.  This board supports the `CMSIS-DAP/mbed/DAPLink` debug probe by default. Visit [os.mbed.com/handbook/Windows-serial-configuration](https://os.mbed.com/handbook/Windows-serial-configuration) and follow the instructions to install the Windows operating system serial driver. If running on Linux OS, this step is not required.
+2.  Connect the development platform to your PC via USB cable.
+3.  Open the terminal application on the PC, such as PuTTY or TeraTerm, and connect to the debug serial port number \(to determine the COM port number, see [How to determine COM port](how_to_determine_com_port.md)\). Configure the terminal with these settings:
 
-1.  On the **Quickstart Panel**, click **Debug evkmimxrt1060\_demo\_apps\_hello\_world \[Debug\]**.
-
-    |![](../images/debug_hello_world_case_rt1060.png "Debugging hello_world case")
-
-|
-
-2.  The first time you debug a project, the **Debug Emulator Selection Dialog** is displayed, showing all supported probes that are attached to your computer. Select the probe through which you want to debug and click **OK**. \(For any future debug sessions, the stored probe selection is automatically used, unless the probe cannot be found.\)
-
-    |![](../images/attached_probes_debug_emulator_selection_rt1060.png "Attached Probes: debug emulator selection")
+    1.  115200 or 9600 baud rate, depending on your board \(reference `BOARD_DEBUG_UART_BAUDRATE` variable in the `board.h` file\)
+    2.  No parity
+    3.  8 data bits
+    4.  1 stop bit
+    |![](../images/terminal_putty_configuration_001.png "Terminal (PuTTY) configurations")
 
 |
 
-3.  The application is downloaded to the target and automatically runs to `main()`.
+4.  To debug the application, click **load** \(or press the F8 key\). Then, click the **Start/Stop Debug Session** button, highlighted in red in [Figure 2](run_an_example_application_003.md#S1234098A702). If using **J-Link** as the debugger, click **Project option** \> **Debug** \> **Settings** \> **Debug** \> **Port**, and select **SW**.
 
-    |![](../images/stop_at_main_when_running_debugging_rt1060.png "Stop at main() when running
+    **Note:** When debugging with jlink, it expects one jlinkscript file named JLinkSettings.JLinkScript in the folder where the uVision project files are located. For details, see Segger Wiki. For the contents in this JlinkSettings.JLinkScript, use contents in evkbmimxrt1060\_sdram\_init.jlinkscript.
+
+    |![](../images/stop_at_main_when_running_debugging_rt1020.png "Stop at main() when run
 											debugging")
 
 |
 
-4.  Start the application by clicking the **Resume** button.
+5.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](run_an_example_application_003.md#S12702).
 
-    |![](../images/resume_button.png "Resume button")
+    |![](../images/go_button.png "Run button")
+
+|
+
+    The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](run_an_example_application_003.md#S127DD02). If this is not true, check your terminal settings and connections.
+
+    |![](../images/hello_world_lowercase_001.png "Text display of the hello_world
+											demo")
 
 |
 
 
-The `hello_world` application is now running and a banner is displayed on the MCUXpresso IDE console window. If not, check your terminal settings and connections.
-
-|![](../images/text_display_hello_world_demo_rt1020.png "Text display of the hello_world demo")
-
-|
-
-**Parent topic:**[Run a demo using MCUXpresso IDE](../topics/run_a_demo_using_mcuxpresso_ide.md)
+**Parent topic:**[Run a demo using Keil MDK/μVision](../topics/run_a_demo_using_keil__mdk_vision.md)
 

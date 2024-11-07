@@ -8,10 +8,10 @@ Do the following steps to build the `hello_world` example application.
     <install_dir>/boards/<board_name>/<example_type>/<application_name>/iar
     ```
 
-    Using the MIMXRT1060-EVK hardware platform as an example, the `hello_world` workspace is located in:
+    Using the MIMXRT1060-EVKB hardware platform as an example, the `hello_world` workspace is located in:
 
     ```
-    <install_dir>/boards/evkmimxrt1060/demo_apps/hello_world/iar/hello_world.eww
+    <install_dir>/boards/evkbmimxrt1060/demo_apps/hello_world/iar/hello_world.eww
     ```
 
     Other example applications may have additional folders in their path.

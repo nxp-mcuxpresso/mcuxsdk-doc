@@ -12,7 +12,7 @@ This section describes the steps necessary to determine the debug COM port numbe
 
     There are two ports, one is Cortex-A core debug console and the other is for Cortex M4.
 
-2.  **Windows**: To determine the COM port open Device Manager in the Windows operating system. Click on the **Start** menu and type **Device Manager** in the search bar.
+2.  **Windows**: To determine the COM port open Device Manager in the Windows operating system. Click the **Start** menu and type **Device Manager** in the search bar.
 
 3.  In the Device Manager, expand the **Ports \(COM & LPT\)** section to view the available ports. The COM port names will be different for all the NXP boards.
 
