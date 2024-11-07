@@ -20,3 +20,10 @@ MCU device and part on board is shown below:
  - PartNumber: MIMXRT1011DAE5A
 
 
+Getting Started
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started with MCUXpresso SDK for EVK-MIMXRT1010
+
+   gettingStarted/gsindex.md
