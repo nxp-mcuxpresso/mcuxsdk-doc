@@ -1,0 +1,12 @@
+# Overview
+
+The NXP MCUXpresso software and tools offer comprehensive development solutions designed to optimize, ease and help accelerate embedded system development of applications based on general purpose, crossover and Bluetooth-enabled MCUs from NXP. The MCUXpresso SDK includes a flexible set of peripheral drivers designed to speed up and simplify development of embedded applications. Along with the peripheral drivers, the MCUXpresso SDK provides an extensive and rich set of example applications covering everything from basic peripheral use case examples to full demo applications. The MCUXpresso SDK contains optional RTOS integrations such as FreeRTOS and Azure RTOS, and various other middleware to support rapid development.
+
+For supported toolchain versions, see *MCUXpresso SDK Release Notes for MIMXRT1040-EVK* \(document MCUXSDKMIMXRT104XRN\).
+
+For more details about MCUXpresso SDK, see [MCUXpresso Software Development Kit \(SDK\)](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-software-development-kit-sdk:MCUXpresso-SDK?tid=vanMCUXPRESSO/SDK).
+
+|![](../images/mcuxpresso_sdk_layers.svg "MCUXpresso SDK layers")
+
+|
+
