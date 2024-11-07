@@ -1,4 +1,4 @@
-# Default debug interfaces {#GUID-DB861F4A-FCFD-4AAA-A8C0-2E5C7E83EC0C}
+# Default debug interfaces
 
 The MCUXpresso SDK supports various hardware platforms that come loaded with a variety of factory programmed debug interface configurations. [Table 1](default_debug_interfaces.md#TABLE_HWPLATFORMS) lists the hardware platforms supported by the MCUXpresso SDK, their default debug interface, and any version information that helps differentiate a specific interface configuration.
 
