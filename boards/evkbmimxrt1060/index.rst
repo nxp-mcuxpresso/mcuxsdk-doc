@@ -32,7 +32,6 @@ MCU device and part on board is shown below:
  - Device: MIMXRT1062
  - PartNumber: MIMXRT1062DVL6B
 
-
 Getting Started
 ****************
 .. toctree::
