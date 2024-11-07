@@ -20,6 +20,7 @@ MCU device and part on board is shown below:
  - Device: MIMX8ML8
  - PartNumber: MIMX8ML8DVNLZ
 
+
 Getting Started
 ****************
 .. toctree::
