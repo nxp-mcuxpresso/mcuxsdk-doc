@@ -19,4 +19,10 @@ MCU device and part on board is shown below:
  - Device: MIMXRT595S
  - PartNumber: MIMXRT595SFFOC
 
+Getting Started
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started with MCUXpresso SDK for EVK-MIMXRT595
 
+   gettingStarted/gsindex.md
