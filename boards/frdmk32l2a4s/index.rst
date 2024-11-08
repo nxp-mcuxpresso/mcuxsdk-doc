@@ -24,6 +24,7 @@ MCU device and part on board is shown below:
  - Device: K32L2A41A
  - PartNumber: K32L2A41VLL1A
 
+
 Getting Started
 ****************
 .. toctree::
