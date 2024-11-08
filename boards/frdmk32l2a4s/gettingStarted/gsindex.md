@@ -27,7 +27,7 @@
 -   [MCUXpresso IDE New Project Wizard](topics/mcuxpresso_ide_new_project_wizard.md)
 -   [How to determine COM port](topics/how_to_determine_com_port.md)
 -   [How to define IRQ handler in CPP files](topics/how_to_define_irq_handler_in_cpp_files.md)
--   [topics/default\_debug\_interfaces.dita\#GUID-854D01E3-8AA5-4008-9321-8B93BF327232](topics/default_debug_interfaces.md)
+-   [Default default interfaces](topics/default_debug_interfaces.md)
 -   [Updating debugger firmware](topics/updating_debugger_firmware.md)
     -   [Updating OpenSDA firmware](topics/updating_opensda_firmware.md)
 
