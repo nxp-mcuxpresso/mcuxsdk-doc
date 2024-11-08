@@ -399,19 +399,20 @@ The CMake function mcux_add_configuration requires the complete toolchain settin
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-| SYMBOLS       | Single        | The linker symbols                       |
+| SYMBOLS       | Multiple        | The linker symbols                       |
 
 For example:
 
 ```cmake
 mcux_add_linker_symbol(
-	SYMBOLS "gUseNVMLink_d=1\
-             gEraseNVMLink_d=1\
-             _ram_vector_table_=1\
-             gFlashNbuImage_d=1\
-             gUseProdInfoLegacyMode_d=1"
+	SYMBOLS gUseNVMLink_d=1
+            gEraseNVMLink_d=1
+            _ram_vector_table_=1
+            gFlashNbuImage_d=1
+            gUseProdInfoLegacyMode_d=1
 )
 ```
+Note: For compatibility, it's also supported to wrap all symbols in double quotes.
 
 ### Configuration
 
