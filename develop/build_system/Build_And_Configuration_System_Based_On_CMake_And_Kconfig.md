@@ -2121,31 +2121,6 @@ CONFIG_MCUX_PRJSEG_module.board.pinmux_board_folder=n
 CONFIG_MCUX_HAS_PRJSEG_project.use_hw_app=n
 CONFIG_MCUX_HAS_PRJSEG_module.board.pinmux_sel=n
 ```
-
-### Standalone Example
-
-If you want to share the example with others, sharing the freestanding project is a good way if both sides work on mcu-sdk-3.0. However, if the other developer does not use meta build system, it is not feasible to zip all repository into a package file and send it over email.
-
-Based on this requirement, the meta build system can export standalone project from the repository. The project contains everything necessary for a single project, keeps same folder structure comparing with repository, which does not rely on meta build system.
-
-To accomplish this, we maintain a simplified build system in a separate project. In short, for those IDEs with a graphical interface, generate the corresponding IDE project, for example, .ewp file for IAR, .uvprojx for Keil. As for toolchain without GUI project, such as ARMGCC, provide a CMakeLists.txt that flattens all files and configurations.
-
-The standalone project can be generated with west command line parameters "-t standalone_project". For example:
-
-```
-west build -b frdmk64f ./examples/src/demo_apps/hello_world -p always --config debug --toolchain iar -t standalone_project
-```
-
-You can find IAR project in build folder with source code.
-
-![iar_standalone_project](./_doc/iar_standalone_project.png)
-
-Note:
-
-1. The default destination folder is mcu-sdk-3.0/build/${toolchain}. You can also specify the destination folder with command line parameter "-d" .
-2. You can only create a project for a specific toolchain and config in one CMake configuration context. You should remove CMake build folder or run with "-p always" if changing toolchain or config
-3. If the CMake has generated build artifacts, you can just type "west build -t standalone_project"
-
 ## Enable An Example
 
 Please firstly make sure that the target board and device data are ready, then follow the example CMakelists.txt pattern in [Project](#project) chapter and make your own one.
@@ -2301,22 +2276,46 @@ find_package(McuxSDK 3.0.0 EXACT)
 project(hello_world)
 ```
 
-## IDE Generation
+## IDE GUI Project Generation
 
-CMake is a text-oriented tool that uses the command-line, for many developers, especially those who are used to working on Windows operating system, this is not a great experience for coding and debugging. Therefore the meta build system supports GUI project generation for specific IDE.
+CMake is a text-oriented tool that uses the command-line, for many developers, especially those who are used to working on Windows operating system with IDE such as IAR and so on,
+this is not a great experience for coding and debugging. Therefore, we provide CMake target guiproject/standalone_project to analyze the build.ninja file to get source files, include path, assembler/compiler/linker flags
+and set them into project template files. Currently, the meta build system supports GUI project generation for specific IAR, MDK and Xtensa.
 
 ### Prerequisite
 
-Currently, we have not implemented all features through Python. So, in order to generate IDE GUI projects, you have to prepare the ruby 3.1 environment, You can refer [SDK Generator V3 environment setup](https://confluence.sw.nxp.com/display/MCUXSDK/Getting+Started+With+SDK+Generator+V3#GettingStartedWithSDKGeneratorV3-EnvironmentSetup).
+1. Ruby environment
 
-In short words:
+   Currently, we have not implemented all features through Python. So, in order to generate IDE GUI projects, you have to prepare the ruby 3.1 environment.
+   Please refer to  [Ruby environment setup](./misc/Ruby_evnironment_set_up.md).
 
-- For windows: use [portable_ruby](https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-generator/browse/bin/windows). You can run `west install_ruby` directly if the portable_ruby is in mcu-sdk-3.0/ecosystem/sdk_generator/bin/windows directory.
-- For Linux/MacOS: use [rbenv](https://github.com/rbenv/rbenv) to install `ruby 3.1.2` and then download [Gemfile](https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-generator/raw/Gemfile?at=refs%2Fheads%2Fdevelop%2Fmcu_sdk_generator) and [Gemfile.lock](https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-generator/raw/Gemfile.lock?at=refs%2Fheads%2Fdevelop%2Fmcu_sdk_generator) in an empty directory and then run `gem install bundle && bundle install` in it.
 
-### Command
+2. Project templates
 
-It's quiet easy for you to generate a GUI project definition files, only "--toolchain [iar|mdk] -t guiproject" is required for west command. It tells CMake to run guiproject target to generate project files for specific toolchain.
+   Project template files are prepared in mcu-sdk-3.0/scripts/guigenerator/templates. You need to set `project-templates` for specific toolchain in `examples/${board}/IDE.yml` for single core devices, 
+or `examples/${board}/${core_id}/IDE.yml` for multicore devices. For example:
+    ``` yaml
+   # mcu-sdk-3.0/examples/evkbmimxrt1170/cm4/IDE.yml
+    mdk:
+      project-templates:
+        - scripts/guigenerator/templates/mdk/app_evkbmimxrt1170/app_evkbmimxrt1170_cm4.uvprojx
+        - scripts/guigenerator/templates/mdk/app_evkbmimxrt1170/app_evkbmimxrt1170_cm4.uvoptx
+    
+    iar:
+      project-templates:
+        - scripts/guigenerator/templates/iar/app_cmsisdap/generic.ewp
+        - scripts/guigenerator/templates/iar/app_cmsisdap/generic.ewd
+        - scripts/guigenerator/templates/iar/general.eww
+    ```
+   You can also set project level template files in IDE.yml from board project folder to override the one from board level.
+
+
+3. Make sure the CMake project can configure done without errors. The IDE GUI Project Generation script consumes build.ninja to obtain all information. You must ensure build.ninja is generated completely correctly for further process.
+
+### linked project
+
+It's quite easy for you to generate a GUI linked project, only "--toolchain [iar|mdk|xtensa] -t guiproject" is required for west command. It tells CMake to run guiproject target to generate project files for specific toolchain. The linked project
+files are located in build_dir/${toolchain} folder,  it uses relative path to refer source files and include path in repo.
 
 If you are running a pristine build, please specify board/examples/toolchain/core_id on the command line. For example:
 
@@ -2324,7 +2323,7 @@ If you are running a pristine build, please specify board/examples/toolchain/cor
 west build -b evkmimxrt1170 examples/src/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug -p always -t guiproject
 ```
 
-If you have run this command, there is a simpler and faster command:
+If you have run "west build" command, there is a simpler and faster command:
 
 ```bash
 west build -t guiproject
@@ -2336,9 +2335,33 @@ After the command runs, the project files are generated into the compilation dir
 
 > [!NOTE]
 >
-> Currently only IAR and MDK are supported, but we will support other toolchains in the future.
->
-> Currently the generation script is ported from SDK Generator which use Ruby language. During the official release phase we will change to python to reduce the effort of configuring development environment.
+> 1. Currently only IAR, MDK and Xtensa are supported, but we will support other toolchains in the future.
+> 2. Generally, SDK package project build issue can be reproduced quickly with guiproject, no need to create a new package locally.
+
+### Standalone Example
+
+The linked project is small and fast when generation. However, it uses the file in the repo, which means if you want to share the linked project with others,  both sides need to have a mcu-sdk-3.0 repo, as well as keep the relative paths of the linked projects the same. But if other developer does not have the repo, it is not feasible to zip all repository into a package file and send it over email.
+
+Based on this requirement, the meta build system can export standalone project from the repository. The project contains everything necessary for a single project, keeps same folder structure comparing with repository, which does not rely on meta build system.
+
+To accomplish this, we extend the guiproject generation script for linked project generation process, create a new CMake target `standalone_project`. When generating the corresponding IDE project, for example, .ewp file for IAR, .uvprojx for Keil, the script will copy all the files needed from repo to build_dir/${toolchain}
+folder and transfer path setting for these files. Then you can share the project inside build_dir/${toolchain} with other developers.
+
+The standalone project can be generated with west command line parameters "-t standalone_project". For example:
+
+```
+west build -b frdmk64f ./examples/src/demo_apps/hello_world -p always --config debug --toolchain iar -t standalone_project
+```
+
+You can find IAR project in build folder with source code.
+
+![iar_standalone_project](./_doc/iar_standalone_project.png)
+
+Note:
+
+1. The default project folder is mcu-sdk-3.0/build/${toolchain}. You can also specify the destination folder with command line parameter "-d" .
+2. In one CMake configuration context, you can only create a project for a specific toolchain and specific config such as `debug` or `flexspi_nor_debug`. You should remove CMake build folder or run with "-p always" if changing toolchain or config.
+3. If the CMake has generated build artifacts, you can just type "west build -t standalone_project"
 
 ## System Build
 
