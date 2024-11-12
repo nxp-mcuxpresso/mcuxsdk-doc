@@ -90,7 +90,7 @@ modules:
     - root: 'docs'
       pattern: 'release/*'
   examples:
-    default: False
+    default: True
     external_contents:
     - root: .
       pattern: 'examples/**/*.md'
