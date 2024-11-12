@@ -31,17 +31,101 @@ import textwrap
 import yaml
 from sphinx.cmd.build import get_parser
 import sphinx_rtd_theme
+from functools import reduce
+from pprint import pprint
+import chardet
 
 # -- MCUXpresso SDK Configuration Data ----------------------------------------
 SDK_BASE = Path(__file__).absolute().parents[1]
 
+
+# Patch the example_board_readme.md to avoid the warning
+# WARNING: document isn't included in any toctree
+def patch_example_readme_md(app, docname, source):
+    if docname.endswith('example_board_readme'):
+        source[0] = f'''---
+orphan: true
+---
+
+{source[0]}
+'''
+
+
+def setup(app):
+    app.connect('source-read', patch_example_readme_md)
+
+def detect_encoding(file_path):
+    with open(file_path, 'rb') as file:
+        raw_data = file.read()
+        result = chardet.detect(raw_data)
+        return result['encoding']
+
+def list_md_files(entry_file, visited_files=None):
+    '''Search all the md files refered by entry_file recursively'''
+
+    if not visited_files:
+        visited_files = set()
+
+    if entry_file in visited_files:
+        return
+
+    visited_files.add(entry_file)
+
+    with open(entry_file, encoding=detect_encoding(entry_file)) as fd:
+        data = fd.read()
+
+    references = re.findall(r'\[.*?\]\((.*?\.md\b)(?:#.*)?\)', data)
+
+    for ref in references:
+        ref_path = (entry_file.parent / Path(ref)).resolve()
+        if ref_path.is_file():
+            list_md_files(ref_path, visited_files)
+
+    return visited_files
+
+
+def expand_example_scope(example_scope):
+    '''Expand the required md files and index.rst files to a list'''
+
+    sdk_base      = SDK_BASE.resolve()
+    example_scope = (sdk_base / Path(example_scope)).resolve()
+    result        = set()
+
+    if example_scope.is_dir():
+        md_entries = example_scope.rglob('readme.md')
+        result     = set([example_scope / '**' / 'index.rst', ])
+    elif example_scope.is_file():
+        md_entries = [example_scope, ]
+    else:
+        print(f'ERROR: Invalid example scope: {example_scope}')
+        return []
+
+    # Append md files
+    result = reduce(lambda acc, x: acc.union(list_md_files(x.resolve())), md_entries, result)
+    result = [str(x.relative_to(sdk_base)) for x in result]
+
+    return result
+
+
 class MCUXDocConfig:
     '''MCUXpresso SDK Configuration Data Class to simplify the feeding of configuration data'''
     NAME = 'default'
-    def __init__(self, user_tags):
+    def __init__(self, user_tags, example_scope=''):
         # Read the user config
         with open(SDK_BASE / 'docs' / '_cfg' / 'user_config.yml', 'r', encoding='utf-8') as f:
             self.config = yaml.safe_load(f)
+
+        # If example_scope is specified through command line, use it.
+        if example_scope != '':
+            example_doc_files = expand_example_scope(example_scope)
+            print('-' * 100)
+            print("Files used for example readme generation")
+            pprint(example_doc_files)
+            print('-' * 100)
+
+            self.config['modules']['examples']['external_contents'] = [
+                { 'root': '.', 'pattern': x } for x in example_doc_files
+            ]
 
         # Find matched tags
         self.user_tags = user_tags
@@ -184,7 +268,18 @@ class MCUXDocConfig:
 
         return links
 
-mcux_config = MCUXDocConfig(tags) # pylint: disable=undefined-variable
+args = get_parser().parse_args()
+
+# Extract the -D parameters
+d_params = {}
+if args.define:
+    for item in args.define:
+        key, value = item.split('=', 1)
+        d_params[key] = value
+
+example_scope = d_params.get('example_scope', '')
+
+mcux_config = MCUXDocConfig(tags, example_scope)  # pylint: disable=undefined-variable
 
 # -- Functions -----------------------------------------------------------------
 # def search_sdk_base():
@@ -198,7 +293,6 @@ mcux_config = MCUXDocConfig(tags) # pylint: disable=undefined-variable
 #         current_path = current_path.parent
 #     raise RuntimeError(f"-- Cannot find SDK base path starting from {Path(__file__).absolute()}")
 
-args = get_parser().parse_args()
 # SDK_BASE = search_sdk_base()
 DOC_BASE = SDK_BASE / "docs"
 DOC_BUILD = Path(args.outputdir).resolve().parents[0]

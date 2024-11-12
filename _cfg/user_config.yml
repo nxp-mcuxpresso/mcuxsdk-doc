@@ -95,12 +95,18 @@ modules:
     default: False
     external_contents:
     - root: .
-      pattern: 'examples/index.rst'
+      pattern: 'examples/**/*.md'
     - root: .
-      pattern: 'examples/**/*.readme'
+      pattern: 'examples/**/*.jpg'
+    - root: .
+      pattern: 'examples/**/*.png'
+    - root: .
+      pattern: 'examples/**/index.rst'
     vcs_link:
-    - pattern: examples/.*readme
-      link: https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-examples/browse
+    - pattern: examples/.*\.md
+      link: https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-examples/browse
+    - pattern: examples/.*\.rst
+      link: https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-examples/browse
   contribute:
     default: True
     external_contents:

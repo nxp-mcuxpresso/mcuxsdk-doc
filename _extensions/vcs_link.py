@@ -70,11 +70,11 @@ def vcs_link_get_url(app: Sphinx, pagename: str) -> Optional[str]:
                 pagepath.replace("boards/","").replace("Boards/",""),
             ]
         )
-    elif "examples" in found_prefix:
+    elif "examples/" in found_prefix:
         return "/".join(
             [
                 found_prefix,
-                pagepath.replace("examples/",""),
+                re.sub(r'^examples/', '', pagepath)
             ]
         )
     elif "mcuboot" in found_prefix:
