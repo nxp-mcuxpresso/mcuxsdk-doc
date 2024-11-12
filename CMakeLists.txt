@@ -150,6 +150,7 @@ add_doc_target(
     -c ${DOCS_CFG_DIR}
     -d ${DOCS_DOCTREE_DIR}
     -w ${DOCS_BUILD_DIR}/html.log
+    -D example_scope=${EXAMPLE_SCOPE}
     ${SPHINX_DOC_TAGS}
     ${SPHINX_DOC_DEFINES}
     ${SPHINXOPTS}
@@ -178,6 +179,7 @@ add_doc_target(
     -c ${DOCS_CFG_DIR}
     -d ${DOCS_DOCTREE_DIR}
     -w ${DOCS_BUILD_DIR}/latex.log
+    -D example_scope=${EXAMPLE_SCOPE}
     # -t ${DOC_TAG}
     ${SPHINX_DOC_TAGS}
     -t svgconvert

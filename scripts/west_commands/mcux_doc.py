@@ -90,6 +90,10 @@ class MCUXDoc(WestCommand):
             '--internal', action='store_true', default=False,
             help='Internal document creation'
         )
+        parser.add_argument(
+            '--example_scope', action='store', type=str, default='',
+            help='Examples for document creation, like examples/src/demo_apps'
+        )
 
         return parser           # gets stored as self.parser
 
@@ -134,6 +138,7 @@ class MCUXDoc(WestCommand):
                                   f'-DDOC_TAG={tags} -DDOC_DEFINE={defines} '
                                   f'-DSPHINXOPTS="{args.sphinx_opts}" -DSPHINXOPTS_EXTRA="{args.sphinx_extra_opts}" '
                                   f'-DLATEXMKOPTS="{args.latexmkopts}" '
+                                  f'-DEXAMPLE_SCOPE="{args.example_scope}" '
                                   f'-DDOCGEN_BRANCH={args.branch} -DDOCGEN_REV={args.revision} -DSPHINX_CONF_DIR=.')
                 if subprocess.check_call(cmd, cwd=DOC_PATH):
                     self.err("Failed to configure the document with \n" + cmd)
