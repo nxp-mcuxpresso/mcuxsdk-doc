@@ -1,4 +1,4 @@
-# How to set the board to the Bootloader ISP mode {#topic_fsm_prg_5wb}
+# How to set the board to the Bootloader ISP mode 
 
 On the KW45B41Z-EVK board:
 
