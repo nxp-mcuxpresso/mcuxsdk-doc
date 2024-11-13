@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for FRDM-MCXW71
+# Getting Started with MCUXpresso SDK for K32W148-EVK
 
 
 ```{tocTree}

@@ -2,7 +2,7 @@
 
 To download and run the application, perform these steps:
 
-1.  Connect the development platform to your PC via USB cable between the USB connector \(J10 and the PC USB connector.
+1.  Connect the development platform to your PC via USB cable between the USB connector \(J14\) and the PC USB connector.
 2.  Open the terminal application on the PC, such as PuTTY or TeraTerm, and connect to the debug COM port. To determine the COM port number, see [How to determine COM Port](how_to_determine_com_port.md). Configure the terminal with these settings:
 
     1.  115200 baud rate, depending on your settings \(reference the `BOARD_DEBUG_UART_BAUDRATE` variable in the `board.h` file\)
@@ -28,5 +28,5 @@ To download and run the application, perform these steps:
     ![](../images/iar_text_display_hello_world.jpg "Text display of the hello_world demo")
 
 
-**Parent topic:**[Running a demo application using IAR](../topics/running_a_demo_application_using_iar.md)
+**Parent topic:**[Running a Demo Application using IAR](../topics/running_a_demo_application_using_iar.md)
 
