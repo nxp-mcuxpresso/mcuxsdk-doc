@@ -20,3 +20,10 @@ MCU device and part on board is shown below:
  - PartNumber: MKE16Z64VLF4
 
 
+Getting Started
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started with MCUXpresso SDK for FRDM-KE16Z
+
+   gettingStarted/gsindex.md
