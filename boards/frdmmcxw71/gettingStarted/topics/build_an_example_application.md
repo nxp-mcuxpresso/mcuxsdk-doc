@@ -8,10 +8,10 @@ Do the following steps to build the `hello_world` example application..
     <install_dir>/boards/<board_name>/<example_type>/<application_name>/iar
     ```
 
-    Using the k32w148evk hardware platform as an example, the `hello_world` workspace is located in:
+    Using the `frdmmcxw71` hardware platform as an example, the `hello_world` workspace is located in:
 
     ```
-    <install_dir>/boards/k32w148evk/demo_apps/hello_world/iar/hello_world.eww
+    <install_dir>/boards/frdmmcxw71/demo_apps/hello_world/iar/hello_world.eww
     ```
 
     Other example applications may have additional folders in their path.
@@ -28,5 +28,5 @@ Do the following steps to build the `hello_world` example application..
 
 4.  The build completes without errors.
 
-**Parent topic:**[Running a Demo Application using IAR](../topics/running_a_demo_application_using_iar.md)
+**Parent topic:**[Running a demo application using IAR](../topics/running_a_demo_application_using_iar.md)
 

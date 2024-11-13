@@ -10,9 +10,9 @@ To build an example application, follow these steps.
 
     ![](../images/ide_importing_an_sdk_example.jpg "Import an SDK example")
 
-3.  In the window that appears, expand the **K32W14X** folder and select **K32W1480xxxA**. Then, select **k32w148evk** and click **Next**.
+3.  In the window that appears, expand the **MCXW7XX** folder and select **MCXW716CxxxA**. Then, select **frdmmcxw71** and click **Next**.
 
-    ![](../images/ide_selecting_k32w148_board.png "Select K32W14X board")
+    ![](../images/ide_selecting_k32w148_board.png "Select the frdmmcxw71 board")
 
 4.  Expand the `demo_apps` folder and select `hello_world`. Then, click **Next**.
 

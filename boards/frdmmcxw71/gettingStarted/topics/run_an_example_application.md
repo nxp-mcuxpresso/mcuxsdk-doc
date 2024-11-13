@@ -2,7 +2,7 @@
 
 To download and run the application, perform the following steps:
 
-1.  Connect the development platform to your PC via USB cable between the USB connector \(J14\) and the PC USB connector.
+1.  Connect the development platform to your PC via USB cable between the USB connector \(J10\) and the PC USB connector.
 2.  Open the terminal application on the PC, such as PuTTY or TeraTerm. Connect to the debug serial port number \(to determine the COM port number, see [How to determine COM Port](how_to_determine_com_port.md)\). Configure the terminal with these settings:
 
     1.  115200 or 9600 baud rate, depending on your board \(reference `BOARD_DEBUG_UART_BAUDRATE` variable in `board.h` file\)
