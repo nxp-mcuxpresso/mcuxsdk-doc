@@ -1,23 +1,24 @@
-# Build an example application
+# Build an example application {#GUID-42D77B62-0F7B-4DFE-9496-AEFFBB4B775B}
 
-To build an example application, follow these steps.
-
-1.  Open a GCC Arm Embedded tool chain command window. To launch the window, from the Windows operating system **Start** menu, go to **Programs** \>**GNU Tools Arm Embedded <version\>** and select **GCC Command Prompt**.
-
-    ![](../images/launch_command_prompt_20.jpg "Launch command prompt")
-
-2.  Change the directory to the example application project directory which has a path similar to the following:
+1.  Open the desired example application workspace in:
 
     ```
-    <install_dir>/boards/<board_name>/<example_type>/<application_name>/armgcc
+    <install_dir>/boards/<board_name>/*<example\_type\>*/<application_name>/mdk
     ```
 
-    For this example, the exact path is:
+    The workspace file is named as `<demo_name>.uvmpw`. For this specific example, the actual path is:
 
-    **Note:** To change directories, use the `cd` command.
+    ```
+    <install_dir>/boards/frdmke17z/demo_apps/hello_world/mdk/hello_world.uvmpw
+    ```
 
-3.  Type **build\_debug.bat** on the command line or double click on **build\_debug.bat** file in Windows Explorer to build it. The output is as shown in [\#HELLOWORLDBUILDSUCCESS9999](#HELLOWORLDBUILDSUCCESS9999).
+2.  To build the demo project, select **Rebuild**, as shown in [Figure 1](build_an_example_application_003.md#FIG_BUILDTHEDEMO), highlighted in red.
 
+    |![](../images/keil_build_the_demo.png "Build the demo")
 
-**Parent topic:**[Run a demo using Arm® GCC](../topics/run_a_demo_using_arm__gcc.md)
+|
+
+3.  The build completes without errors.
+
+**Parent topic:**[Run a demo using Keil® MDK/μVision](../topics/run_a_demo_using_keil__mdk_vision.md)
 

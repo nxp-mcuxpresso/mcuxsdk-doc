@@ -1,19 +1,29 @@
-# Build an example application
+# Build an example application {#GUID-82DEC427-F7DF-4707-B3E1-5AB430CDA2E1}
 
 To build an example application, follow these steps.
 
-1.  Drag and drop the SDK zip file into the **Installed SDKs** view to install an SDK. In the window that appears, click **OK** and wait until the import has finished.
+1.  Open a GCC Arm Embedded tool chain command window. To launch the window, from the Windows operating system **Start** menu, go to **Programs** \>**GNU Tools Arm Embedded <version\>** and select **GCC Command Prompt**.
 
-    ![](../images/install_an_sdk.png "Install an SDK")
+    |![](../images/arm_gcc_launch_command_prompt.png "Launch command prompt")
 
-2.  On the **Quickstart Panel**, click **Import SDK example\(s\)…**.
+|
 
-3.  In the window that appears, . Then, select and click **Next**.
+2.  Change the directory to the example application project directory which has a path similar to the following:
 
-4.  Expand the `demo_apps` folder and select `hello_world` . Then, click **Next** .
+    ```
+    <install_dir>/boards/<board_name>/<example_type>/<application_name>/armgcc
+    ```
 
-5.  Ensure **Redlib: Use floating point version of printf** is selected if the example prints floating point numbers on the terminal. Otherwise, it is not necessary to select this option. Then, click **Finish**.
+    For this example, the exact path is:
+
+    ```
+    <install_dir>/boards/frdmke17z/demo_apps/hello_world/armgcc
+    ```
+
+    **Note:** To change directories, use the `cd` command.
+
+3.  Type **build\_debug.bat** on the command line or double click on **build\_debug.bat** file in Windows Explorer to build it. The `hello_world.elf` is generated under *.\\debug* folder.
 
 
-**Parent topic:**[Run a demo using MCUXpresso IDE](../topics/run_a_demo_using_mcuxpresso_ide.md)
+**Parent topic:**[Run a demo using Arm® GCC](../topics/run_a_demo_using_arm__gcc.md)
 

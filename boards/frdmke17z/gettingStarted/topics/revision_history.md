@@ -1,11 +1,14 @@
-# Revision history
+#  {#GUID-64F859E2-ADC1-434E-A91A-4EF1863C3FA5}
 
-This table summarizes revisions to this document.
+|Rev.|Date|Description|
+|:--:|:--:|-----------|
+|2|12 October 2021|Updated the sections [Run an example application](run_an_example_application_002.md) and [Run an example application](run_an_example_application_001.md)
 
-^
+|
+|1|20 August 2021|For MT256X RFP release
 
-|Revision number|Date|Substantive changes|
-|---------------|----|-------------------|
-|2.11.0|11 November 2021|Updated for MCUXpresso SDK v2.11.0|
-|2.11.1|11 March 2022|Updated for MCUXpresso SDK v2.11.1|
+ -   Added [MCUXpresso Config Tools](mcuxpresso_config_tools.md)
+
+|
+|0|20 May 2021|Initial release, for MT256X EAR release|
 

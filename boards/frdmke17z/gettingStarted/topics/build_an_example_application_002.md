@@ -1,21 +1,37 @@
-# Build an example application
+# Build an example application {#GUID-0F1F9FA8-EC0E-462B-B8C8-3F518C321C4B}
 
-Do the following steps to build the `hello_world` example application.
+To build an example application, follow these steps.
 
-1.  Open the desired demo application workspace. Most example application workspace files can be located using the following path:
+1.  Drag and drop the SDK zip file into the **Installed SDKs** view to install an SDK. In the window that appears, click **OK** and wait until the import has finished.
 
-    ```
-    <install_dir>/boards/<board_name>/<example_type>/<application_name>/iar
-    ```
+    |![](../images/ide_install_an_sdk.png "Install an SDK")
 
-    Other example applications may have additional folders in their path.
+|
 
-2.  Select the desired build target from the drop-down menu.
+2.  On the **Quickstart Panel**, click **Import SDK example\(s\)…**.
 
-    For this example, select **hello\_world** – **debug**.
+    |![](../images/ide_import_sdk_example.png "Import an SDK example")
 
-3.  To build the demo application, click **Make**, highlighted in red in [\#BUILDINGDEMOAPP](#BUILDINGDEMOAPP).
-4.  The build completes without errors.
+|
 
-**Parent topic:**[Run a demo application using IAR](../topics/run_a_demo_application_using_iar.md)
+3.  In the window that appears, expand the **KE1x** folder and select **MKE17Z256xxx7** . Then, select **frdmke17z** and click **Next**.
+
+    |![](../images/ide_select_frdm-ke17z_board.png "Select FRDM-KE17Z board")
+
+|
+
+4.  Expand the `demo_apps` folder and select `hello_world` . Then, click **Next** .
+
+    |![](../images/ide_select_hello_world.png "Select hello_world")
+
+|
+
+5.  Ensure **Redlib: Use floating point version of printf** is selected if the example prints floating point numbers on the terminalfor demo applications such as `adc_basic`, `adc_burst`, `adc_dma`, and `adc_interrupt`. Otherwise, it is not necessary to select this option. Then, click **Finish**.
+
+    |![](../images/ide_user_floating_print_version_printf.png "Select Use floating point version of printf")
+
+|
+
+
+**Parent topic:**[Run a demo using MCUXpresso IDE](../topics/run_a_demo_using_mcuxpresso_ide.md)
 

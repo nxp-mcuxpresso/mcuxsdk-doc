@@ -1,53 +1,46 @@
-# Run an example application
+# Run an example application {#GUID-6C323C64-746D-4276-93DB-BEE720971482}
 
-This section describes steps to run a demo application using J-Link GDB Server application. To update the on-board LPC-Link2 debugger to Jlink firmware, see [Updating debugger firmware](updating_debugger_firmware.md).
+To download and run the application, perform these steps:
 
-**Note:** J-Link GDB Server application is not supported for TFM examples. Use CMSIS DAP instead of J-Link for flashing and debugging TFM examples.
+1.  See [Table 1](default_debug_interfaces.md#TABLE_HARDWAREPLATFORM) to determine the debug interface that comes loaded on your specific hardware platform.
+    -   For boards with the CMSIS-DAP/mbed/DAPLink interface, visit [Windows serial configuration](https://developer.mbed.org/handbook/Windows-serial-configuration) and follow the instructions to install the Windows operating system serial driver. If running on Linux OS, this step is not required.
+    -   For boards with a P&E Micro interface, visit [PE micro](http://www.pemicro.com/support/downloads_find.cfm) and download and install the P&E Micro Hardware Interface Drivers package.
+    -   If using J-Link either a standalone debug pod or OpenSDA, install the J-Link software \(drivers and utilities\) from [Segger](https://www.segger.com/).
+2.  Connect the development platform to your PC via USB cable using OpenSDA USB connector.
+3.  Open the terminal application on the PC, such as PuTTY or TeraTerm and connect to the debug serial port number \(to determine the COM port number, see [How to determine COM port](how_to_determine_com_port.md)\). Configure the terminal with these settings:
 
-After the J-Link interface is configured and connected, follow these steps to download and run the demo applications:
-
-1.  Connect the development platform to your PC via USB cable between the LPC-Link2 USB connector and the PC USB connector. If using a standalone J-Link debug pod, connect it to the SWD/JTAG connector of the board.
-2.  Open the terminal application on the PC, such as PuTTY or TeraTerm, and connect to the debug serial port number \(to determine the COM port number, see [How to determine COM port](how_to_determine_com_port.md#)\). Configure the terminal with these settings:
-
-    1.  115200 or 9600 baud rate, depending on your board \(reference `BOARD_DEBUG_UART_BAUDRATE` variable in `board.h` file\)
+    1.  115200 or 9600 baud rate, depending on your board \(reference `BOARD_DEBUG_UART_BAUDRATE` variable in the `board.h` file\)
     2.  No parity
     3.  8 data bits
     4.  1 stop bit
+    |![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configurations")
 
-        ![](../images/terminal_putty_configurations.png "Terminal (PuTTY) configurations")
+|
 
-    **Note:** Make sure the board is set to FlexSPI flash boot mode \(ISP2: ISP1: ISP0 = ON, OFF, ON\) before use GDB debug.
+4.  In μVision, after the application is built, click the **Download** button to download the application to the target.
 
-3.  Open the J-Link GDB Server application.
-4.  After it is connected, the screen should look like this figure:
-5.  If not already running, open a GCC Arm Embedded tool chain command window. To launch the window, from the Windows operating system Start menu, go to **Programs** -\> **GNU Tools Arm Embedded <version\>** and select **GCC Command Prompt**.
+    |![](../images/keil_download_button.png "Download button")
 
-    ![](../images/launch_command_prompt_20.jpg "Launch command prompt")
+|
 
-6.  Change to the directory that contains the example application output. The output can be found in using one of these paths, depending on the build target selected:
+5.  After clicking the **Download** button, the application downloads to the target and is running. To debug the application, click the **Start/Stop Debug Session** button, highlighted in red.
 
-    ```
-    <install_dir>/boards/<board_name>/<example_type>/<application_name>/armgcc/debug
-    ```
+    |![](../images/keil_stop_at_main_running_debugging.png "Stop at main() when run debugging")
 
-    ```
-    <install_dir>/boards/<board_name>/<example_type>/<application_name>/armgcc/release
-    ```
+|
 
-    For this example, the path is:
+6.  Run the code by clicking the **Run** button to start the application.
 
-7.  Run the `arm-none-eabi-gdb.exe <application_name>.elf` command. For this example, it is `arm-none-eabi-gdb.exe hello_world.elf`.
+    |![](../images/keil_go_button.png "Go button")
 
-8.  Run these commands:
-    1.  `target remote localhost:2331`
-    2.  `monitor halt`
-    3.  `load`
-9.  The application is now downloaded and halted at the watch point. Execute the `monitor go` command to start the demo application.
+|
 
     The `hello_world` application is now running and a banner is displayed on the terminal. If this does not appear, check your terminal settings and connections.
 
-    ![](../images/text_display_hello_world_demo.png "Text display of the hello_world demo")
+    |![](../images/text_display_hello_world.png "Text display of the hello_world demo")
+
+|
 
 
-**Parent topic:**[Run a demo using Arm® GCC](../topics/run_a_demo_using_arm__gcc.md)
+**Parent topic:**[Run a demo using Keil® MDK/μVision](../topics/run_a_demo_using_keil__mdk_vision.md)
 

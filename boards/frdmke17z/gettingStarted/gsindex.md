@@ -1,20 +1,32 @@
-# Getting Started with MCUXpresso SDK for FRDM-KE17Z
+# FRDM-KE17Z
 
+-   [Overview](topics/overview.md)
+-   [MCUXpresso SDK board support package folders](topics/mcuxpresso_sdk_board_support_package_folders.md)
+    -   [Example application structure](topics/example_application_structure.md)
+    -   [Locating example application source files](topics/locating_example_application_source_files.md)
+-   [Run a demo using MCUXpresso IDE](topics/run_a_demo_using_mcuxpresso_ide.md)
+    -   [Select the workspace location](topics/select_the_workspace_location.md)
+    -   [Build an example application](topics/build_an_example_application_002.md)
+    -   [Run an example application](topics/run_an_example_application_002.md)
+-   [Run a demo application using IAR](topics/run_a_demo_application_using_iar.md)
+    -   [Build an example application](topics/build_an_example_application_001.md)
+    -   [Run an example application](topics/run_an_example_application_001.md)
+-   [Run a demo using Keil® MDK/μVision](topics/run_a_demo_using_keil__mdk_vision.md)
+    -   [Install CMSIS device pack](topics/install_cmsis_device_pack.md)
+    -   [Build an example application](topics/build_an_example_application_003.md)
+    -   [Run an example application](topics/run_an_example_application_003.md)
+-   [Run a demo using Arm® GCC](topics/run_a_demo_using_arm__gcc.md)
+    -   [Set up toolchain](topics/set_up_toolchain.md)
+        -   [Install GCC Arm Embedded tool chain](topics/install_gcc_arm_embedded_tool_chain.md)
+        -   [Install MinGW \(only required on Windows OS\)](topics/install_mingw_only_required_on_windows_os.md)
+        -   [Add a new system environment variable for ARMGCC\_DIR](topics/add_a_new_system_environment_variable_for_armgcc_d.md)
+        -   [Install CMake](topics/install_cmake.md)
+    -   [Build an example application](topics/build_an_example_application.md)
+    -   [Run an example application](topics/run_an_example_application.md)
+-   [MCUXpresso Config Tools](topics/mcuxpresso_config_tools.md)
+-   [MCUXpresso IDE New Project Wizard](topics/mcuxpresso_ide_new_project_wizard.md)
+-   [How to determine COM port](topics/how_to_determine_com_port.md)
+-   [Default debug interfaces](topics/default_debug_interfaces.md)
+-   [Updating debugger firmware](topics/updating_debugger_firmware.md)
+    -   [Updating OpenSDA firmware](topics/updating_opensda_firmware.md)
 
-```{tocTree}
-:maxdepth: 4
-:caption: Table of Contents
-
-topics/overview.md
-topics/mcuxpresso_sdk_board_support_package_folders.md
-topics/run_a_demo_using_mcuxpresso_ide.md
-topics/run_a_demo_application_using_iar.md
-topics/run_a_demo_using_keil__mdk_vision.md
-topics/run_a_demo_using_arm__gcc.md
-topics/mcuxpresso_config_tools.md
-topics/mcuxpresso_ide_new_project_wizard.md
-topics/how_to_determine_com_port.md
-topics/how_to_define_irq_handler_in_cpp_files.md
-topics/default_debug_interfaces.md
-topics/updating_debugger_firmware.md
-```

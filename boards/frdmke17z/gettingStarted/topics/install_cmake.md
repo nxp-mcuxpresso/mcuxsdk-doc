@@ -1,9 +1,11 @@
-# Install CMake
+# Install CMake {#GUID-E9E86271-41DF-4AA6-B243-E6E6F1EC9A4D}
 
-1.  Download CMake 3.0.x from [www.cmake.org/cmake/resources/software.html](http://www.cmake.org/cmake/resources/software.html).
+1.  Download CMake 3.0.x from [CMake](http://www.cmake.org/cmake/resources/software.html).
 2.  Install CMake, ensuring that the option **Add CMake to system PATH** is selected when installing. The user chooses to select whether it is installed into the PATH for all users or just the current user. In this example, it is installed for all users.
 
-    ![](../images/install_cmake.jpg "Install CMake")
+    |![](../images/arm_gcc_install_cmake.png "Install CMake")
+
+|
 
 3.  Follow the remaining instructions of the installer.
 4.  You may need to reboot your system for the PATH changes to take effect.

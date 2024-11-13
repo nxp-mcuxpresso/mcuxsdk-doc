@@ -1,18 +1,36 @@
-# Build an example application
+# Build an example application {#GUID-7672B6F1-FFD2-4D7F-9825-C36AA1C6C2A6}
 
-1.  Open the desired example application workspace in:
+Perform the following steps to build the `hello_world` example application.
+
+1.  Open the desired demo application workspace. Most example application workspace files can be located using the following path:
 
     ```
-    <install_dir>/boards/<board_name>/*<example\_type\>*/<application_name>/mdk
+    <install_dir>/boards/<board_name>/<example_type>/<application_name>/iar
     ```
 
-    The workspace file is named as `<demo_name>.uvmpw`. For this specific example, the actual path is:
+    Using the FRDM-KE17Z Freedom hardware platform as an example, the `hello_world` workspace is located in:
 
-2.  To build the demo project, select **Rebuild**, highlighted in red.
+    ```
+    <install_dir>/boards/frdmke17z/demo_apps/hello_world/iar/hello_world.eww
+    ```
 
-    ![](../images/build_the_demo.png "Build the demo")
+    Other example applications may have additional folders in their path.
 
-3.  The build completes without errors.
+2.  Select the desired build target from the drop-down menu.
 
-**Parent topic:**[Run a demo using Keil® MDK/μVision](../topics/run_a_demo_using_keil__mdk_vision.md)
+    For this example, select **hello\_world** – **debug**.
+
+    |![](../images/iar_demo_build_target_selection.png "Demo build target selection")
+
+|
+
+3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](build_an_example_application_001.md#FIG_BUILDINGDEMOAPP).
+
+    |![](../images/build_the_demo_application_20.png "Build the demo application")
+
+|
+
+4.  The build completes without errors.
+
+**Parent topic:**[Run a demo application using IAR](../topics/run_a_demo_application_using_iar.md)
 
