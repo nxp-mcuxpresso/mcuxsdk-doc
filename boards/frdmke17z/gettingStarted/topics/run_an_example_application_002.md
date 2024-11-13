@@ -1,4 +1,4 @@
-# Run an example application {#GUID-EBAE488F-8B9D-4580-BD38-C2766BE2D4EA}
+# Run an example application
 
 For more information on debug probe support in the MCUXpresso IDE, see [Community](https://community.nxp.com/message/630901).
 

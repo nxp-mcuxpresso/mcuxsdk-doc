@@ -1,4 +1,4 @@
-# Updating OpenSDA firmware {#GUID-A9170DEE-0442-4037-B44D-01B441FAE74F}
+# Updating OpenSDA firmware
 
 Any NXP hardware platform that comes with an OpenSDA-compatible debug interface has the ability to update the OpenSDA firmware. This typically means switching from the default application \(either CMSIS-DAP/mbed/DAPLink or P&E Micro\) to a SEGGER J-Link. This section contains the steps to switch the OpenSDA firmware to a J-Link interface. However, the steps can be applied to restoring the original image also. For reference, OpenSDA firmware files can be found at the links below:
 

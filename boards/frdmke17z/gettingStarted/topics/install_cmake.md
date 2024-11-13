@@ -1,4 +1,4 @@
-# Install CMake {#GUID-E9E86271-41DF-4AA6-B243-E6E6F1EC9A4D}
+# Install CMake
 
 1.  Download CMake 3.0.x from [CMake](http://www.cmake.org/cmake/resources/software.html).
 2.  Install CMake, ensuring that the option **Add CMake to system PATH** is selected when installing. The user chooses to select whether it is installed into the PATH for all users or just the current user. In this example, it is installed for all users.

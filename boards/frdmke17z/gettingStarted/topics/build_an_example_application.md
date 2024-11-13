@@ -1,4 +1,4 @@
-# Build an example application {#GUID-82DEC427-F7DF-4707-B3E1-5AB430CDA2E1}
+# Build an example application
 
 To build an example application, follow these steps.
 

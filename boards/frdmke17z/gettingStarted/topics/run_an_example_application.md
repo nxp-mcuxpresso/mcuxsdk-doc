@@ -1,4 +1,4 @@
-# Run an example application {#GUID-CF73F817-C428-418F-AAB9-514DC81ED047}
+# Run an example application
 
 This section describes steps to run a demo application using J-Link GDB Server application.
 

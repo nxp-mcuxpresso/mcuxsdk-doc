@@ -1,4 +1,4 @@
-# Example application structure {#GUID-99C78AEF-010E-478E-947A-35E8E60CC993}
+# Example application structure
 
 This section describes how the various types of example applications interact with the other components in the MCUXpresso SDK. To get a comprehensive understanding of all MCUXpresso SDK components and folder structure, see *MCUXpresso SDK API Reference Manual*.
 

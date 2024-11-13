@@ -1,4 +1,4 @@
-# Run a demo using MCUXpresso IDE {#GUID-34A4097A-63D6-4BD5-823D-1C0890A719F4}
+# Run a demo using MCUXpresso IDE
 
 **Note:** Ensure that the MCUXpresso IDE toolchain is included when generating the MCUXpresso SDK package.
 

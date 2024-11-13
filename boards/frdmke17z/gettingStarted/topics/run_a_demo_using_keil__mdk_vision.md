@@ -1,4 +1,4 @@
-# Run a demo using Keil® MDK/μVision {#GUID-11C27F3F-8B19-40EA-80AF-FA17AF4B013A}
+# Run a demo using Keil® MDK/μVision
 
 This section describes the steps required to build, run, and debug example applications provided in the MCUXpresso SDK.
 
