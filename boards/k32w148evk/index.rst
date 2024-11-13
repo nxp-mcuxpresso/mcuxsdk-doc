@@ -6,7 +6,8 @@ K32W148-EVK
 Overview
 ********
 
-
+
+
 
 
 .. image:: ./k32w148evk.png
@@ -18,5 +19,13 @@ MCU device and part on board is shown below:
 
  - Device: K32W1480
  - PartNumber: K32W1480VFTA
+
+Getting Started
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started with MCUXpresso SDK for K32W148-EVK
+
+   gettingStarted/gsindex.md
 
 
