@@ -4,8 +4,12 @@ This section describes the steps required to build, run, and debug example appli
 
 **Note:** IAR Embedded Workbench for Arm version 9.10.2 is used in the following example, and the IAR toolchain should correspond to the latest supported version, as described in the *MCUXpresso SDK Release Notes*.
 
--   **[Build an example application](../topics/build_an_example_application_001.md)**  
 
--   **[Run an example application](../topics/run_an_example_application_001.md)**  
+```{include} ../topics/build_an_example_application_001.md
+:heading-offset: 1
+```
 
+```{include} ../topics/run_an_example_application_001.md
+:heading-offset: 1
+```
 

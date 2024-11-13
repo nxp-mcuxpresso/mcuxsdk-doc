@@ -7,8 +7,12 @@ MCUXpresso SDK board support package provides example applications for NXP devel
 -   `driver_examples`: Simple applications that show how to use the MCUXpresso SDK’s peripheral drivers for a single use case. These applications typically only use a single peripheral but there are cases where multiple peripherals are used \(for example, SPI conversion using DMA\).
 -   `rtos_examples`: Basic FreeRTOSTM OS examples that show the use of various RTOS objects \(semaphores, queues, and so on\) and interfaces with the MCUXpresso SDK’s RTOS drivers
 
--   **[Example application structure](../topics/example_application_structure.md)**  
 
--   **[Locating example application source files](../topics/locating_example_application_source_files.md)**  
+```{include} ../topics/example_application_structure.md
+:heading-offset: 1
+```
 
+```{include} ../topics/locating_example_application_source_files.md
+:heading-offset: 1
+```
 

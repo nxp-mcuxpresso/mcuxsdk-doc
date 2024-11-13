@@ -4,10 +4,16 @@ This section describes the steps to configure the command line Arm® GCC tools t
 
 **Note:** GCC Arm Embedded 8.2.1 is used as an example in this document. The latest GCC version for this package is as described in the *MCUXpresso SDK Release Notes*.
 
--   **[Set up toolchain](../topics/set_up_toolchain.md)**  
 
--   **[Build an example application](../topics/build_an_example_application.md)**  
+```{include} ../topics/set_up_toolchain.md
+:heading-offset: 1
+```
 
--   **[Run an example application](../topics/run_an_example_application.md)**  
+```{include} ../topics/build_an_example_application.md
+:heading-offset: 1
+```
 
+```{include} ../topics/run_an_example_application.md
+:heading-offset: 1
+```
 

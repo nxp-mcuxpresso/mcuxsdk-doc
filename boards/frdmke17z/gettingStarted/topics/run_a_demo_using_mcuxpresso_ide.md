@@ -4,10 +4,16 @@
 
 This section describes the steps required to configure MCUXpresso IDE to build, run, and debug example applications. The `hello_world` demo application targeted for the FRDM-KE17Z hardware platform is used as an example, though these steps can be applied to any example application in the MCUXpresso SDK.
 
--   **[Select the workspace location](../topics/select_the_workspace_location.md)**  
 
--   **[Build an example application](../topics/build_an_example_application_002.md)**  
+```{include} ../topics/select_the_workspace_location.md
+:heading-offset: 1
+```
 
--   **[Run an example application](../topics/run_an_example_application_002.md)**  
+```{include} ../topics/build_an_example_application_002.md
+:heading-offset: 1
+```
 
+```{include} ../topics/run_an_example_application_002.md
+:heading-offset: 1
+```
 
