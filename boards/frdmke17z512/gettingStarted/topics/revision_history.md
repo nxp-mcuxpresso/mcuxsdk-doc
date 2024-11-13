@@ -1,4 +1,4 @@
-# Revision history {#revision_history}
+# Revision history 
 
 [Table 1](#table_revisionhistory) summarizes the revisions to this document.
 

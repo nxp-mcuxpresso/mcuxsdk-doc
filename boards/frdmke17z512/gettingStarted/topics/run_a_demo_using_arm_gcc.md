@@ -1,4 +1,4 @@
-# Run a demo using Arm GCC {#run_a_demo_using_arm_gcc}
+# Run a demo using Arm GCC 
 
 This section describes the steps to configure the command line Arm GCC tools to build, run, and debug demo applications and necessary driver libraries provided in the MCUXpresso SDK. The `hello_world` demo application is targeted for the FRDM-KE17Z512 Freedom hardware platform which is used as an example.
 

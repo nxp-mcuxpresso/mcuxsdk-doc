@@ -1,4 +1,4 @@
-# Run an example application {#armgcc_run_an_example_application}
+# Run an example application 
 
 This section describes steps to run a demo application using J-Link GDB Server application.
 

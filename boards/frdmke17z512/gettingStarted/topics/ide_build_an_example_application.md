@@ -1,4 +1,4 @@
-# Build an example application {#ide_build_an_example_application}
+# Build an example application 
 
 To build an example application, follow these steps.
 

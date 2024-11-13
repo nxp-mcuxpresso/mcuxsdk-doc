@@ -1,4 +1,4 @@
-# Run an example application {#iar_run_an_example_application}
+# Run an example application 
 
 To download and run the application, perform these steps:
 

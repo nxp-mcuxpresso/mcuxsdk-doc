@@ -1,4 +1,4 @@
-# Updating MCU-LINK firmware {#updating_opensda_firmware}
+# Updating MCU-LINK firmware 
 
 The Freedom hardware platform comes with a CMSIS-DAP-compatible debug interface \(known as MCU-Link\). This firmware in this debug interface may be updated using the host computer scripts. It is typically used when switching between the default debugger protocol \(CMSIS-DAP\) to SEGGER J-Link, or for updating this firmware with new releases of these. This section contains the steps to re-program the debug probe firmware.
 

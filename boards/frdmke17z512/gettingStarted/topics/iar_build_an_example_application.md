@@ -1,4 +1,4 @@
-# Build an example application {#iar_build_an_example_application}
+# Build an example application 
 
 Perform the following steps to build the `hello_world` example application.
 

@@ -1,4 +1,4 @@
-# Updating debugger firmware {#updating_debugger_firmware}
+# Updating debugger firmware 
 
 
 ```{include} ../topics/updating_mcu-link_firmware.md

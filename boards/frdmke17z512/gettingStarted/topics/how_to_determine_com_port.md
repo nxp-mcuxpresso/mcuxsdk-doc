@@ -1,4 +1,4 @@
-# How to determine COM port {#how_to_determine_com_port}
+# How to determine COM port 
 
 This section describes the steps necessary to determine the debug COM port number of your NXP hardware development platform.
 

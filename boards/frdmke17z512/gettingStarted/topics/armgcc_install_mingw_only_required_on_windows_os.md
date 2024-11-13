@@ -1,4 +1,4 @@
-# Install MinGW \(only required on Windows OS\) {#armgcc_install_mingw_only_required_on_windows_os}
+# Install MinGW \(only required on Windows OS\) 
 
 The Minimalist GNU for Windows \(MinGW\) development tools provide a set of tools that are not dependent on third-party C-Runtime DLLs \(such as Cygwin\). The build environment used by the MCUXpresso SDK does not use the MinGW build tools, but does leverage the base install of both MinGW and MSYS. MSYS provides a basic shell with a Unix-like interface and tools.
 

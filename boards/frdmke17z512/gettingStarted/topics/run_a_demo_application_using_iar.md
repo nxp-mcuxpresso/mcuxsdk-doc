@@ -1,4 +1,4 @@
-# Run a demo application using IAR {#run_a_demo_application_using_iar}
+# Run a demo application using IAR 
 
 This section describes the steps required to build, run, and debug example applications provided in the MCUXpresso SDK.
 

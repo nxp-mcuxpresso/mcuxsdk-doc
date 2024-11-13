@@ -1,4 +1,4 @@
-# Run an example application {#ide_run_an_example_application}
+# Run an example application 
 
 For more information on debug probe support in the MCUXpresso IDE, see [Community](https://community.nxp.com/message/630901).
 
