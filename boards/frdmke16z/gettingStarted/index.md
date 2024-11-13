@@ -30,6 +30,5 @@
 -   [Default debug interfaces](topics/default_debug_interfaces.md)
 -   [Updating debugger firmware](topics/updating_debugger_firmware.md)
     -   [Updating OpenSDA firmware](topics/updating_opensda_firmware.md)
--   [Revision history](topics/revision_history.md)
--   [Legal information](topics/legal_information.md)
+
 
