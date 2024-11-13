@@ -1,4 +1,4 @@
-# How to set the board to the Bootloader ISP mode {#topic_osx_j2h_5wb}
+# How to set the board to the Bootloader ISP mode 
 
 On K32W148-EVK board:
 
