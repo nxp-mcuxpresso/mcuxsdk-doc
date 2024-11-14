@@ -1,4 +1,4 @@
-# Program NBU firmware {#topic_ar5_c2f_qcc}
+# Program NBU firmware 
 
 The Narrow Band Unit \(NBU\) firmware is included in the SDK folder as a signed and encrypted FW. SDK v2.16.0:
 

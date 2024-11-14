@@ -1,4 +1,4 @@
-# Run a demo using MCUXpresso IDE {#run_a_demo_using_mcuxpresso_ide}
+# Run a demo using MCUXpresso IDE 
 
 **Note:** Ensure that the MCUXpresso IDE toolchain is included when generating the MCUXpresso SDK package.
 

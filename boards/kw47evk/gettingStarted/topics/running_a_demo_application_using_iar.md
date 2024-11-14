@@ -1,4 +1,4 @@
-# Running a demo application using IAR {#running_a_demo_application_using_iar}
+# Running a demo application using IAR 
 
 This section describes the steps required to build, run, and debug example applications provided in the MCUXpresso SDK. The `hello_world` demo application targeted for the **kw47evk** hardware platform is used as an example, although these steps can be applied to any example application in the MCUXpresso SDK.
 

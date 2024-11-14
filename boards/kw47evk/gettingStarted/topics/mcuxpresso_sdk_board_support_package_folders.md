@@ -1,4 +1,4 @@
-# MCUXpresso SDK board support package folders {#mcuxpresso_sdk_board_support_package_folders}
+# MCUXpresso SDK board support package folders 
 
 MCUXpresso SDK board support package provides example applications for NXP development and evaluation boards for Arm Cortex-M cores including Freedom, Tower System, and LPCXpresso boards. Board support packages are found inside the top-level boards folder and each supported board has its own folder \(an MCUXpresso SDK package can support multiple boards\). Within each *<board\_name\>* folder, there are various sub-folders to classify the type of examples it contains. These include \(but are not limited to\):
 

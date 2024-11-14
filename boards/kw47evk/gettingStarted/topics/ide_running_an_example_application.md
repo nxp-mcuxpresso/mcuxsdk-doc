@@ -1,4 +1,4 @@
-# Running an example application {#run_an_example_application_001}
+# Running an example application 
 
 To download and run the application, perform the following steps:
 

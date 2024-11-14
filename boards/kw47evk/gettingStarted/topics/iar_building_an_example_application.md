@@ -1,4 +1,4 @@
-# Build an example application {#build_an_example_application}
+# Build an example application 
 
 Do the following steps to build the `hello_world` example application..
 

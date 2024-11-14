@@ -1,4 +1,4 @@
-# How to determine COM Port {#how_to_determine_com_port}
+# How to determine COM Port
 
 This section describes the steps necessary to determine the debug COM port number of your NXP hardware development platform. All NXP boards ship with a factory programmed, on-board debug interface MCU-LINK.
 
