@@ -1,5 +1,4 @@
-# Bluetooth LE controller {#topic_tv3_w3j_vwb}
-
+# Bluetooth LE controller 
 -   Main features supported:
 
     -   Peripheral Role

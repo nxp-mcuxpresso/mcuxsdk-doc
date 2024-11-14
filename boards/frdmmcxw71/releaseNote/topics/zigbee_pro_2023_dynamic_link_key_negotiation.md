@@ -1,4 +1,4 @@
-# Annexure: Zigbee PRO 2023 dynamic link key negotiation {#zigbee_pro_2023_dynamic_link_key_negotiation}
+# Annexure: Zigbee PRO 2023 dynamic link key negotiation 
 
 There are two types of DLK negotiations. When the requester of a new TCLK is not yet authorized in the network \(does not have the network key\), the process is called off-network DLK negotiation. This occurs after the parent replies with the Network Commissioning Response. Once a node is fully joined and authorized, it can request a new TCLK from the trust center. If both nodes, the TC and the requester, supports DLK, they shall use the on-network DLK Negotiation method instead of the Zigbee 3.0 Request Key method. The on-network DLK can be triggered using the Node Descriptor request from the initiator to the trust center. The stack appends the Supported Key Negotiation method TLV to the request and the response contains the Selected Key Negotiation method TLV. If the Trust Center approved the DLK, the stack of the initiator initiates the key negotiation process.
 

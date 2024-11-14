@@ -1,4 +1,4 @@
-# IEEE 802.15.4 features {#topic_slv_bjj_vwb}
+# IEEE 802.15.4 features 
 
 The IEEE 802.15.4 software includes:
 

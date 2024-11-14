@@ -1,4 +1,4 @@
-# Wireless connectivity middleware overview {#topic_vnq_cgb_zwb}
+# Wireless connectivity middleware overview 
 
 **Component Version tags**:
 

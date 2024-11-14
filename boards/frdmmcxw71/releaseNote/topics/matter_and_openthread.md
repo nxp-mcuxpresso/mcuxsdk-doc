@@ -1,4 +1,4 @@
-# Matter and OpenThread {#topic_xdm_h3b_zwb}
+# Matter and OpenThread 
 
 This SDK version provides the base support for Matter 1.x over Thread and OpenThread integration.
 
