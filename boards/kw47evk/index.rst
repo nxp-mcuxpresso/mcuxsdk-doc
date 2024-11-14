@@ -27,3 +27,12 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK for KW47-EVK
 
    gettingStarted/gsindex.md
+
+
+Release Notes
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for KW47-EVK
+
+   releaseNote/rnindex.md
