@@ -1,13 +1,10 @@
 # Installation
 
-## Basic tools
-
----
 **NOTE**
 
 If the installation instruction asks/selects whether to have the tool installation path be added to the PATH variable, please agree/select the choice. This ensures the tool can be used in any terminal in any path. After each tool installation, please [verify the installation](#tool-installation-check).
 
----
+## Basic tools
 
 ### Git
 
@@ -24,64 +21,18 @@ git config --global user.email "youremail@example.com"
 
 Install python `3.10` or above, please follow the guideline at [Python Download](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-### Cmake
-
-Follow the [CMake](https://cmake.org/getting-started/) doc to install CMake. The minimum version is ***3.30.0***.
-
-
-## Get SDK and install Python dependencies
-
-### Create and activate a virtual environment
-
-To isolate your development environment, suggest use [python venv](https://docs.python.org/3/library/venv.html).
-Open your shell window, create and activate a virtual environment with below command. If you are on Windows, please use the command prompt or powershell.
-
-```bash
-# Please ensure your system python version >= 3.10
-python -m venv sdk-next/.venv
-
-# For Linux/MacOS
-source sdk-next/.venv/bin/activate
-
-# For Windows
-.\sdk-next\.venv\Scripts\activate
-
-# If you are using powershell and see the issue that the activate script cannot be run. 
-# You may fix the issue by opening the powershell as administrator and run below command:
-powershell Set-ExecutionPolicy RemoteSigned 
-# then run above activate command again.
-
-```
-
-Once activated your shell will be prefixed with (.venv). The virtual environment can be deactivated at any time by running `deactivate` command.
-
----
-**NOTE**
-
-Remember to activate the virtual environment every time you start working.
-
----
-
-### Install west
+### West
 
 ```bash
 # Note: you can add option '--default-timeout=1000' if you meet connection issue. Or you may set a different source using option '-i'.
 # for example, in China you could try: pip install west>=1.2.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install west>=1.2.0
 ```
-
-### Get SDK repos
-Follow the guide here [repo setup](../bifrost/readme.md#steps-to-try).
-
-### Install required packages
-
-```bash
-# Note: you can add option '--default-timeout=1000' if you meet connection issue. Or you may set a different source using option '-i'.
-# for example, in China you could try: pip3 install -r mcu-sdk-3.0/scripts/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-pip install -r mcu-sdk-3.0/scripts/requirements.txt
-```
-
 ## Build System
+
+### Cmake
+
+Follow the [CMake](https://cmake.org/getting-started/) doc to install CMake. The minimum version is ***3.30.0***.
 
 ### Ninja
 
@@ -91,51 +42,58 @@ Install the [Ninja](https://ninja-build.org/). Please use the latest ninja versi
 
 Kconfig is installed during python library installation
 
-### Toolchains
+### Ruby - Optional
 
-Build system supports IAR, MDK, Armgcc and [Zephyr SDK](https://docs.zephyrproject.org/latest/develop/toolchains/zephyr_sdk.html#toolchain-zephyr-sdk) to build.
+> If you don't need GUI based IAR/MDK project, skip this step.
 
-You need to set environment variables to specify the toolchain installation so that build system can find it.
+Install ruby for GUI project generation and standalone project generation. Follow the guide here [ruby installation](../develop/build_system/Build_And_Configuration_System_Based_On_CMake_And_Kconfig.md#ide-generation).
 
-Here are the toolchain environment variable table
+### Compiler
 
-| Toolchain   | Environment variable   | Example                                  | Cmd Line Argument           |
-| ----------- | ---------------------- | ---------------------------------------- | :-------------------------- |
+> If you don't need to evaluate a specific compiler,  you can skip that step.
+
+#### ARMGCC
+
+Download and install ARMGCC from [Arm GNU Toolchain Downloads](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads)
+
+#### IAR
+
+Download and install IAR toolchain [IAR Embedded Workbench for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/)
+
+#### MDK
+
+Download and install MDK toolchain [MDK](https://developer.arm.com/documentation/109350/v6/What-is-MDK-/Download-options).
+
+#### Codewarrior
+
+Download and install CodeWarrior toolchain from [NXP CodeWarrior](https://www.nxp.com/design/design-center/software/development-software/codewarrior-development-tools:CW_HOME).
+
+Follow the installation instructions provided on the website. Ensure that the installation path is added to the PATH environment variable to use the toolchain from any terminal.
+
+
+#### Environment Variables
+
+| Toolchain   | Environment variable   | Example                                                      | Cmd Line Argument           |
+| ----------- | ---------------------- | ------------------------------------------------------------ | :-------------------------- |
 | IAR         | IAR_DIR                | C:\iar for Windows OR /opt/iarsystems/bxarm-9.40.2 for Linux | --toolchain iar             |
 | MDK         | MDK_DIR                | C:\Keil_v5 for Windows OR /usr/local/ArmCompilerforEmbedded6.21 for Linux | --toolchain mdk             |
 | MDK         | ARMCLANG_DIR           | C:\ArmCompilerforEmbedded6.22 for Windows OR /usr/local/ArmCompilerforEmbedded6.21 for Linux | --toolchain mdk             |
-| Armgcc      | ARMGCC_DIR             | C:\armgcc                                | --toolchain armgcc(default) |
-| CodeWarrior | CW_DIR                 | C:\Freescale\CW MCU v11.2                | --toolchain codewarrior     |
+| Armgcc      | ARMGCC_DIR             | C:\armgcc                                                    | --toolchain armgcc(default) |
+| CodeWarrior | CW_DIR                 | C:\Freescale\CW MCU v11.2                                    | --toolchain codewarrior     |
 | Xtensa      | XCC_DIR                | C:\xtensa\XtDevTools\install\tools\RI-2023.11-win32\XtensaTools | --toolchain xtensa          |
-| Zephyr      | ZEPHYR_SDK_INSTALL_DIR |                                          | --toolchain zephyr          |
-
-Note: 
+| Zephyr      | ZEPHYR_SDK_INSTALL_DIR |                                                              | --toolchain zephyr          |
 
 - For MDK toolchain, only armclang compiler is supported. There are 2 environment variables MDK_DIR and ARMCLANG_DIR for it. Since most Keil users will install MDK IDE instead of standalone armclang compiler, the MDK_DIR has higher priority than ARMCLANG_DIR.
 - For Xtensa toolchain, please set XTENSA_CORE environment, depends on your devices, it can be `nxp_rt600_RI23_11_newlib` or `nxp_rt500_RI23_11_newlib` and so on.
 
-#### armgcc
+### Debugger
 
-#### iar
+>  TODO. To add the installation for the linker server
 
-#### mdk
+## Document Installation
 
-## Document
+> It is only needed when you want to generate the HTML version of the document in your local environment
 
-It is only needed when you want to generate the HTML version of the document in your local environment
-
-### Python dependencies
-
-There are several needed python packages for documentation generation, such as Sphinx tool, which we used to do the generation process. Run below command to install those python dependencies.
-
-```bash
-cd mcu-sdk-3.0/docs
-pip install -r requirements.txt
-```
-
-### ruby
-
-Install ruby for GUI project generation and standalone project generation. Follow the guide here [ruby installation](../develop/build_system/Build_And_Configuration_System_Based_On_CMake_And_Kconfig.md#ide-generation).
 
 ### make
 
@@ -200,8 +158,9 @@ For installation, you can refer to the guideline as below, which is referenced f
   ```
   choco install doxygen.install graphviz strawberryperl miktex rsvg-convert imagemagick
   ```
+
 ## Tool installation check
-Once installed, open a terminal or command prompt and type the associated command to verify the installation. 
+Once installed, open a terminal or command prompt and type the associated command to verify the installation.
 - Git:
 ```
 git --version
@@ -243,3 +202,63 @@ If you see the version number, you have successfully installed the tool. Else pl
   3. Add the line which append the tool installation path to PATH variable and export PATH at the end of the file. For example, export PATH="/Directory1:$PATH"
   4. Save and exit.
   5. Execute the script with `source .bash_profile` or reboot the system to make the changes live. To verify the changes, run `echo $PATH`
+
+# Get MCUXpresso SDK Repo
+
+To get the MCUXpresso SDK repository, use the `west` tool to clone the manifest repository and checkout all the west projects.
+
+  ```bash
+  - Initialize west with the manifest repository
+  - TODO -  To be replaced by the final customer available manifest repository address
+  west init -m https://github.com/nxp-mcuxpresso/mcux-sdk
+
+  - Update the west projects
+  west update
+  ```
+
+# Install Python Dependency
+To create a Python virtual environment in the west workspace manifest repo core, follow these steps:
+
+1. Navigate to the core directory:
+  ```bash
+  cd core
+  ```
+
+2. [Optional] Create and activate the virtual environment:
+> If you don't want to use the python virtual environment, skip this step.
+
+  ```bash
+  python -m venv .venv
+
+  # For Linux/MacOS
+  source .venv/bin/activate
+
+  # For Windows
+  .\.venv\Scripts\activate
+  # If you are using powershell and see the issue that the activate script cannot be run.
+  # You may fix the issue by opening the powershell as administrator and run below command:
+  powershell Set-ExecutionPolicy RemoteSigned
+  # then run above activate command again.
+
+  ```
+Once activated, your shell will be prefixed with (.venv). The virtual environment can be deactivated at any time by running `deactivate` command.
+
+3. Install the required Python packages:
+
+  ```bash
+  # Note: you can add option '--default-timeout=1000' if you meet connection issue. Or you may set a different source using option '-i'.
+  # for example, in China you could try: pip3 install -r mcu-sdk-3.0/scripts/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+  pip install -r scripts/requirements.txt
+  ```
+
+> Remember to activate the virtual environment every time you start working in this directory.
+
+## Document Python dependencies
+
+There are several needed python packages for documentation generation, such as Sphinx tool, which we used to do the generation process. Run below command to install those python dependencies.
+
+  ```bash
+  cd core/docs
+  pip install -r requirements.txt
+  ```
+

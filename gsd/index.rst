@@ -8,6 +8,5 @@ Getting Started
     :caption: GSD:
 
     installation.md
-    codebase.md
-    projects.md
-    run_project
+    explore_sdk.md
+    run_project.md
