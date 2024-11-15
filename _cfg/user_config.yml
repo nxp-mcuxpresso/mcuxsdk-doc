@@ -37,6 +37,8 @@ external_contents:
 >>>>>>> origin/release/24.12.00-pvw2-dirty
   pattern: 'middleware/aws_iot/*'
 - root: 'docs'
+  pattern: 'middleware/audio_voice/maestro/index.rst'
+- root: 'docs'
   pattern: 'middleware/multicore/*'
 - root: 'docs'
   pattern: 'middleware/freemaster/*'
