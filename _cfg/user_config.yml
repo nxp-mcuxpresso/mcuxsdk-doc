@@ -46,8 +46,6 @@ external_contents:
   pattern: 'rtos/index.rst'
 - root: docs
   pattern: 'rtos/freertos/freertos-drivers/*'
-- root: 'docs'
-  pattern: 'middleware/fatfs/*'
 modules:
   introduction:
     default: True
@@ -182,8 +180,22 @@ modules:
       pattern: 'rtos/freertos/freertos-drivers/README.md'
     - root: .
       pattern: 'rtos/freertos/freertos-drivers/CHANGELOG.md'
-  mid_fatfs:
+  rtos_freertos:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/fatfs/*'
+      pattern: 'rtos/freertos/freertos-kernel/README.md'
+    - root: .
+      pattern: 'rtos/freertos/backoffalgorithm/README.md'
+    - root: .
+      pattern: 'rtos/freertos/corehttp/README.md'
+    - root: .
+      pattern: 'rtos/freertos/corejson/README.md'
+    - root: .
+      pattern: 'rtos/freertos/coremqtt/README.md'
+    - root: .
+      pattern: 'rtos/freertos/coremqtt-agent/README.md'
+    - root: .
+      pattern: 'rtos/freertos/corepkcs11/README.md'
+    - root: .
+      pattern: 'rtos/freertos/freertos-plus-tcp/README.md'
