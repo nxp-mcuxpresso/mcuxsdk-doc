@@ -42,6 +42,10 @@ external_contents:
   pattern: 'generation.rst'
 - root: docs
   pattern: 'develop/document/*'
+- root: docs
+  pattern: 'rtos/index.rst'
+- root: docs
+  pattern: 'rtos/freertos/freertos-drivers/*'
 modules:
   introduction:
     default: True
@@ -169,3 +173,10 @@ modules:
     vcs_link:
     - pattern: "middleware/mcuboot_opensource/.*md"
       link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-mcuboot/browse"
+  mid_freertos_drivers:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'rtos/freertos/freertos-drivers/README.md'
+    - root: .
+      pattern: 'rtos/freertos/freertos-drivers/CHANGELOG.md'
