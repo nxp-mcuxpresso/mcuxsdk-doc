@@ -31,6 +31,8 @@ external_contents:
 - root: 'docs'
   pattern: 'middleware/index.rst'
 - root: 'docs'
+  pattern: 'middleware/audio_voice/maestro/*'
+- root: 'docs'
   pattern: 'middleware/multicore/*'
 - root: 'docs'
   pattern: 'middleware/lwip/*'
@@ -133,6 +135,13 @@ modules:
     external_contents:
     - root: .
       pattern: 'middleware/lvgl/docs/integration/chip/nxp.rst'
+  mid_maestro:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/audio_voice/maestro/*.md'
+    - root: .
+      pattern: 'middleware/audio_voice/maestro/doxygen/*'
   mid_multicore:
     default: true
     external_contents:
