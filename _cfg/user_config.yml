@@ -46,6 +46,8 @@ external_contents:
   pattern: 'rtos/index.rst'
 - root: docs
   pattern: 'rtos/freertos/freertos-drivers/*'
+- root: 'docs'
+  pattern: 'middleware/fatfs/*'
 modules:
   introduction:
     default: True
@@ -199,3 +201,9 @@ modules:
       pattern: 'rtos/freertos/corepkcs11/README.md'
     - root: .
       pattern: 'rtos/freertos/freertos-plus-tcp/README.md'
+  mid_fatfs:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/fatfs/*'
+
