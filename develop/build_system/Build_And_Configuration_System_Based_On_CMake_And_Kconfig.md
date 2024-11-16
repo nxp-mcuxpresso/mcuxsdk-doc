@@ -1933,7 +1933,7 @@ menu "freertos-kernel(FreeRTOSConfig.h)" # All freertos kernel Kconfig symbols a
 endmenu
 ```
 
-If it is not set, then all Kconfig symbols and values will be generated header named `RTE_Components.h`.
+If it is not set, then all Kconfig symbols and values will be generated header named `mcux_config.h`.
 
 There are 2 ways to include the generated config headers into build tree.
 

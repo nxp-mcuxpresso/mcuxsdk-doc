@@ -57,7 +57,7 @@
 
         3.1 In the kconfig menu, if the header is specified, like menu "freertos-kernel(FreeRTOSConfig.h)", the all symbols under this menu will be generated into FreeRTOSConfig.h
 
-        3.2 If there is no specified headers in the menu, then all systems be generated into RTE_Components.h.
+        3.2 If there is no specified headers in the menu, then all systems be generated into mcux_config.h.
 
         3.3 all generated config headers are generated and placed under the project root path, like boards/frdmk64f/demo_apps/hello_world. These headers are expected to be included
 
