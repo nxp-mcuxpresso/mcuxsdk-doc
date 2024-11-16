@@ -15,13 +15,13 @@
    ![cmake_debug_log](./_doc/cmake_debug_log.PNG)
 
 2. How to replace the default linker file with the customized one?
-   
+
    Generally, when you type "--config=<CMAKE_BUILD_TYPE>" in the command line, the cmake settings inside sdk-next/mcu-sdk-3.0/arch/arm/target folder will take effect. The link file for the corresponding config is then used.
    If running with "--log-level=debug" in the command line, you can find the log, such as:
    ```text
    -- DEBUG: Add -T C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld to LD flags, load from CMakefile: C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/arch/arm/target/flash.cmake
    ```
-   
+
    To replace the default linker file with the customized one, you need to remove the default linker file and add the customized one by `mcux_remove_<toolchain>_linker_script` and `mcux_add_<toolchain>_linker_script` in reconfig.cmake.
    For example:
    ```cmake
@@ -31,7 +31,7 @@
        BASE_PATH ${SdkRootDirPath}
        LINKER devices/${soc_portfolio}/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
    )
-   
+
    mcux_add_armgcc_linker_script(
        TARGETS debug release
        BASE_PATH ${SdkRootDirPath}
@@ -43,7 +43,7 @@
    -- DEBUG: Add linker flag -T C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld into TO_BE_REMOVED_FLAGS list, load from CMakefile: 1171
    -- DEBUG: Remove linker flag -T C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld, load from CMakefile: 1182
    -- DEBUG: Add -T C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/examples/frdmk64f/demo_apps/hello_world/hello_world_flash.ld to LD flags, load from CMakefile: C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/examples/frdmk64f/demo_apps/hello_world/reconfig.cmake
-   ```   
+   ```
 
 ## Kconfig
 
@@ -57,7 +57,7 @@
 
         3.1 In the kconfig menu, if the header is specified, like menu "freertos-kernel(FreeRTOSConfig.h)", the all symbols under this menu will be generated into FreeRTOSConfig.h
 
-        3.2 If there is no specified headers in the menu, then all systems be generated into RTE_Components.h.
+        3.2 If there is no specified headers in the menu, then all systems be generated into mcux_config.h.
 
         3.3 all generated config headers are generated and placed under the project root path, like boards/frdmk64f/demo_apps/hello_world. These headers are expected to be included
 
@@ -101,9 +101,9 @@
     For Keil MDK, if you get build error like:
 
     ![board_select_device_part](./_doc/gui_project_mdk_device_not_found.png)
-    
+
     For IAR, if the error like `Fatal Error[Pe035]: #error directive: "Unknown target."` And no device setting:
-    
+
     ![board_select_device_part](./_doc/gui_project_undefined_device.png)
 
     Please check the variable MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER and MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER in mcu-sdk-3.0\devices\${soc_series}\${device}\Kconfig.chip, make sure it's a valid device idenditier. 
@@ -113,15 +113,15 @@
 1. Why does GUI project build pass but fail on the command line?
 
     To create GUI project, the script parses build.ninja and set them in project template file. There may be some presets in the template file that make your project compile successfully, but they will not be used by CMake. So you need to compare the build options in the GUI project with those in build.ninja and add missing assembler/compiler/linker flags in CMake.
-    
+
     For IAR project, you can check build options by setting log level to `All`.
     ![board_select_device_part](./_doc/IAR_GUI_all_build_option.png)
-    
+
     For MDK project, you can check build options in  `C/C++(AC6)`/`Asm`/`Linker`  option tab.
     ![board_select_device_part](./_doc/MDK_GUI_all_build_option.png)
 
 2. Why does IAR GUI project run pass but fail on the command line?
-    
+
     There are two possible causes for this. The first one is caused by wrong compiler/linker flags, please refer to previous question `Why does GUI project build pass but fail on the command line?`.
 
     If the flags are identical, please check the version of CMake and Ninja. The IAR IDE GUI project will use `.o` extension for object name, developer may relocate these object in linker file. For example:
@@ -138,5 +138,5 @@
         section CodeQuickAccess,
         section DataQuickAccess
         };
-    ``` 
+    ```
     However, meta build system use CMake and Ninja, in some of low version CMake and Ninja, the generated object has `.c.o` extesion name. This misalignment will cause the link configuration not to take effect. So please make sure the minimum version for CMake is 3.30.0, and 1.12.1 for Ninja.
