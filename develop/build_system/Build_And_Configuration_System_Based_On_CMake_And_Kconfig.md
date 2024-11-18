@@ -69,7 +69,7 @@ Note:
    - Run cmake configuration
 
      ```bash
-     west build -b frdmk64f examples/src/demo_apps/hello_world --cmake-only
+     west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
      ```
 
      You can ignore `--cmake-only`, then the project will be built.
@@ -102,25 +102,25 @@ Here are some typical usage for generating a SDK example is:
 
 ```bash
 # Generate example with default settings
-west build -b frdmk64f examples/src/demo_apps/hello_world
+west build -b frdmk64f examples/demo_apps/hello_world
 
 # Just print cmake commands, do not execute it
-west build -b frdmk64f examples/src/demo_apps/hello_world --dry-run
+west build -b frdmk64f examples/demo_apps/hello_world --dry-run
 
 # Generate other toolchain like iar, default armgcc
-west build -b frdmk64f examples/src/demo_apps/hello_world --toolchain iar
+west build -b frdmk64f examples/demo_apps/hello_world --toolchain iar
 
 # Generate config type, default debug
-west build -b frdmk64f examples/src/demo_apps/hello_world --config release
+west build -b frdmk64f examples/demo_apps/hello_world --config release
 
 # Show all supported build configurations
-west build -b frdmk64f examples/src/demo_apps/hello_world --show-configs
+west build -b frdmk64f examples/demo_apps/hello_world --show-configs
 ```
 
 For multicore devices, you shall specify the corresponding core id by passing the command line argument "-Dcore_id". For example
 
 ```bash
-west build -b evkmimxrt1170 examples/src/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug
+west build -b evkmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug
 ```
 
 Remember to use "--config" to specify build target which is different from SDKGENv3.
@@ -128,7 +128,7 @@ Remember to use "--config" to specify build target which is different from SDKGE
 For shield, please use the "--shield" to specify the shield to run, like
 
 ```bash
-west build -b mimxrt700evk --shield a8974 examples examples/src/issdk_examples/sensors/fxls8974cf/fxls8974cf_poll -Dcore_id=cm33_core0
+west build -b mimxrt700evk --shield a8974 examples examples/issdk_examples/sensors/fxls8974cf/fxls8974cf_poll -Dcore_id=cm33_core0
 ```
 
 ### Sysbuild(System build)
@@ -260,7 +260,7 @@ if (CONFIG_MCUX_COMPONENT_driver.uart)
     )
 endif()
 
-# In examples/src/demo_apps/hello_world/CMakelists.txt
+# In examples/demo_apps/hello_world/CMakelists.txt
 mcux_add_source(
     SOURCES hello_world.c
 )
@@ -860,12 +860,12 @@ cmake_minimum_required(VERSION 3.30.0)
 include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
 
 # Specify the project
-project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH boards/${board}/demo_apps/hello_world/${multicore_foldername})
+project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH examples/_boards/${board}/demo_apps/hello_world)
 
 # Include device, board, drivers/components, middlewares
 include(${SdkRootDirPath}/CMakeLists.txt)
 
-include(${SdkRootDirPath}/examples/src/demo_apps/reconfig.cmake OPTIONAL)
+include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
 include(${SdkRootDirPath}/${project_board_port_path}/reconfig.cmake OPTIONAL)
 
 mcux_add_source(
@@ -1169,14 +1169,14 @@ The IDE related data are recorded in IDE.yml. These yml files are are automatica
 3. devices/\<soc_series>/\<device>/IDE.yml
 4. devices/\<soc_series>/\<device>/\<core_id>/IDE.yml
 5. examples/IDE.yml
-6. examples/\<board>/IDE.yml
-7. examples/\<board>/\<core_id>/IDE.yml
-8. examples/src/IDE.yml
-9. examples/src/\<example_category>/IDE.yml
-10. examples/src/\<example_category>/\<example>/IDE.yml
-11. examples/\<board>/\<example_category>/IDE.yml
-12. examples/\<board>/\<example_category>/\<example>/IDE.yml
-13. examples/\<board>/\<example_category>/\<example>/\<core_id>/IDE.yml
+6. examples/_boards/IDE.yml
+7. examples/_boards/\<board>/IDE.yml
+8. examples/_boards/\<board>/\<core_id>/IDE.yml
+9. examples/\<example_category>/IDE.yml
+10. examples/\<example_category>/\<example>/IDE.yml
+11. examples/_boards/\<board>/\<example_category>/IDE.yml
+12. examples/_boards/\<board>/\<example_category>/\<example>/IDE.yml
+13. examples/_boards/\<board>/\<example_category>/\<example>/\<core_id>/IDE.yml
 
 For shield, it is like
 
@@ -1185,15 +1185,15 @@ For shield, it is like
 3. devices/\<soc_series>/\<device>/IDE.yml
 4. devices/\<soc_series>/\<device>/\<core_id>/IDE.yml
 5. examples/IDE.yml
-6. examples/\<board>/IDE.yml
-7. examples/\<board>/\<core_id>/IDE.yml
-8. examples/src/IDE.yml
-9. examples/src/\<shield_example_category>/IDE.yml
-10. examples/src/\<shield_example_category>/\<example>/IDE.yml
-11. examples/\<board>/\<shield>/IDE.yml
-12. examples/\<board>/\<shield>/\<shield_example_category>/IDE.yml
-13. examples/\<board>/\<shield>/\<shield_example_category>/\<example>/IDE.yml
-14. examples/\<board>/\<shiedl>/\<shield_example_category>/\<example>/\<core_id>/IDE.yml
+6. examples/_boards/IDE.yml
+7. examples/_boards/\<board>/IDE.yml
+8. examples/_boards/\<board>/\<core_id>/IDE.yml
+9. examples/\<shield_example_category>/IDE.yml
+10. examples/\<shield_example_category>/\<example>/IDE.yml
+11. examples/_boards/\<board>/\<shield>/IDE.yml
+12. examples/_boards/\<board>/\<shield>/\<shield_example_category>/IDE.yml
+13. examples/_boards/\<board>/\<shield>/\<shield_example_category>/\<example>/IDE.yml
+14. examples/_boards/\<board>/\<shiedl>/\<shield_example_category>/\<example>/\<core_id>/IDE.yml
 
 Note:
 
@@ -1305,7 +1305,7 @@ Here is the example:
 ```yaml
 macro-file: #setction name
   files:
-  - source: boards/${board}/evkmimxrt1170_cm7.mac
+  - source: examples/_boards/${board}/evkmimxrt1170_cm7.mac
     attribute: macro-file
     toolchains: iar
 ```
@@ -1315,7 +1315,7 @@ Note: If you want to replace the script with the new one, please record them in 
 ```yaml
 macro-file: #setction name
   files:
-    - source: boards/${board}/evkmimxrt1170_connect_cm7.mac
+    - source: examples/_boards/${board}/evkmimxrt1170_connect_cm7.mac
       attribute: macro-file
       toolchains: iar
 ```
@@ -1331,7 +1331,7 @@ For example, in CMake with a `board` variable in the source, one copy of the fol
 ```cmake
 if (CONFIG_MCUX_PRJSEG_module.board.suite)
     mcux_add_source(
-        BASE_PATH ${SdkRootDirPath}/boards/${board} # "board" variable shall be defined in each board so that each board can use this project segment
+        BASE_PATH ${SdkRootDirPath}/examples/_boards/${board} # "board" variable shall be defined in each board so that each board can use this project segment
         SOURCES dcd.c dcd.h
     )
 endif()
@@ -1389,7 +1389,7 @@ Except for the above variables, there are variables which are generated in the c
 | Variable Name          | Explanation                              |
 | ---------------------- | ---------------------------------------- |
 | MCUX_SDK_PROJECT_NAME  | The processed example name, it equals `PROJECT_NAME`+`core_id_suffix_name` |
-| APPLICATION_SOURCE_DIR | Project CMakelists.txt directory like examples/src/demo_apps/hello_world |
+| APPLICATION_SOURCE_DIR | Project CMakelists.txt directory like examples/demo_apps/hello_world |
 | APPLICATION_BINARY_DIR | Output build directory like `<mcu-sdk-3.0>/build` |
 
 #### Customized Variables
@@ -1433,7 +1433,7 @@ arch:
 Board data stays in boards folder. Here is a hierarchy demonstrated with single core device board frdmk64f and multicore device board evkmimxrt1170:
 
 ```yaml
-boards:
+_boards:
   frdmk64f: # A single core device board
     CMakeLists.txt: Board specific contents like components and settings
     Kconfig: Board software Kconfig, mainly specify board specific component and project segment dependency
@@ -1513,7 +1513,7 @@ All examples under the board share the toolchains and targets in the board examp
 Shield is an addon which is attached to a board to extend its features and functionalities. All shields are put under its mother board folder. The structure is like
 
 ```yaml
-boards:
+_boards:
   frdmk64f:
     shields:
       a8974:
@@ -1646,7 +1646,7 @@ Here is a typical case of example.yml:
 hello_world:
   section-type: application
   contents:
-    meta_path: examples/src/demo_apps/hello_world
+    meta_path: examples/demo_apps/hello_world
     project-root-path: boards/${board}/demo_apps/hello_world/${multicore_foldername}
     document:
       name: hello_world${core_id_suffix_name}
@@ -1805,7 +1805,7 @@ Since the Kconfig data has variable inside, they need to be processed. BS has in
 1. Run cmake configuration
 
    ```bash
-   west build -b frdmk64f examples/src/demo_apps/hello_world --cmake-only
+   west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
    ```
 
    You can ignore "--cmake-only", then the projecrt will be built.
@@ -1845,14 +1845,14 @@ The prj.conf search paths can be provided through 3 ways with priority.
   3. devices/\<soc_series>/\<device>/prj.conf
   4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
   5. examples/prj.conf
-  6. examples/\<board>/prj.conf
-  7. examples/\<board>/\<core_id>/prj.conf
-  8. examples/src/prj.conf
-  9. examples/src/\<example_category>/prj.conf
-  10. examples/src/\<example_category>/\<example>/prj.conf
-  11. examples/\<board>/\<example_category>/prj.conf
-  12. examples/\<board>/\<example_category>/\<example>/prj.conf
-  13. examples/\<board>/\<example_category>/\<example>/\<core_id>/prj.conf
+  6. examples/_boards/prj.conf
+  7. examples/_boards/\<board>/prj.conf
+  8. examples/_boards/\<board>/\<core_id>/prj.conf
+  9. examples/\<example_category>/prj.conf
+  10. examples/\<example_category>/\<example\>/prj.conf
+  11. examples/_boards/\<board>/\<example_category>/prj.conf
+  12. examples/_boards/\<board>/\<example_category>/\<example>/prj.conf
+  13. examples/_boards/\<board>/\<example_category>/\<example>/\<core_id>/prj.conf
 
   For shield case, it is generally the same as board:
 
@@ -1861,15 +1861,15 @@ The prj.conf search paths can be provided through 3 ways with priority.
   3. devices/\<soc_series>/\<device>/prj.conf
   4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
   5. examples/prj.conf
-  6. examples/\<board>/prj.conf
-  7. examples/\<board>/\<core_id>/prj.conf
-  8. examples/src/prj.conf
-  9. examples/src/\<shield_example_category>/prj.conf
-  10. examples/src/\<shield_example_category>/\<example>/prj.conf
-  11. examples/\<board>/\<shield>/prj.conf
-  12. examples/\<board>/\<shield>/\<shield_example_category>/prj.conf
-  13. examples/\<board>/\<shield>/\<shield_example_category>/\<example>/prj.conf
-  14. examples/\<board>/\<shield>/\<shield_example_category>/\<example>/\<core_id>/prj.conf
+  6. examples/_boards/prj.conf
+  7. examples/_boards/\<board>/prj.conf
+  8. examples/_boards/\<board>/\<core_id>/prj.conf
+  9. examples/\<shield_example_category>/prj.conf
+  10. examples/\<shield_example_category>/\<example\>/prj.conf
+  11. examples/_boards/\<board>/\<shield>/prj.conf
+  12. examples/_boards/\<board>/\<shield>/\<shield_example_category>/prj.conf
+  13. examples/_boards/\<board>/\<shield>/\<shield_example_category>/\<example>/prj.conf
+  14. examples/_boards/\<board>/\<shield>/\<shield_example_category>/\<example>/\<core_id>/prj.conf
 
   If the "project" macro is with "NO_DEFAULT_CONFIG" like the following, then build system will skip all the fixed prj.conf search paths, since the input prj.conf cannot be empty, so the prj.conf must be provided with CUSTOM_PRJ_CONF_PATH or DCONF_FILE.
 
@@ -1884,7 +1884,7 @@ The prj.conf search paths can be provided through 3 ways with priority.
   Here is an example:
 
   ```cmake
-  project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH examples/${board}/demo_apps/hello_world CUSTOM_PRJ_CONF_PATH <customized path 1> <customized path 2>)
+  project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH examples/_boards/${board}/demo_apps/hello_world CUSTOM_PRJ_CONF_PATH <customized path 1> <customized path 2>)
   ```
 
   The prj.conf search paths of CUSTOM_PRJ_CONF_PATH is with higher priority than the fixed prj.conf search paths.
@@ -1894,7 +1894,7 @@ The prj.conf search paths can be provided through 3 ways with priority.
   You can directly provide customized prj.conf with -DCONF_FILE=\<customized config file>, like
 
   ```bash
-  west build -b evkmimxrt1170 examples/src/demo_apps/hello_world -Dcore_id=cm4 -DCONF_FILE=./examples/prj.conf
+  west build -b evkmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm4 -DCONF_FILE=./examples/prj.conf
   ```
 
   The customized project config file has the highest priority over all.
@@ -1977,7 +1977,7 @@ include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
 # 5. Load device variable
 # With board and device variable, cmake has the environment to start Kconfig because Kconfig needs board and device variables to work. This execution will be done in following "project"
 
-project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH boards/${board}/demo_apps/hello_world/${multicore_foldername})
+project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH examples/_boards/${board}/demo_apps/hello_world/${multicore_foldername})
 ## In this "project" macro, BS continuously does the following work
 # 6. Add execution cmake target
 # 7. Add pristine cmake target
@@ -2009,7 +2009,7 @@ include(${SdkRootDirPath}/CMakeLists.txt)
 # After the include(${SdkRootDirPath}/CMakeLists.txt), the project has got the environment setup and all depended data included
 
 # If needed, load other customized cmake
-include(${SdkRootDirPath}/examples/src/demo_apps/reconfig.cmake OPTIONAL)
+include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
 include(${SdkRootDirPath}/${project_board_port_path}/reconfig.cmake OPTIONAL)
 
 # Add the project self source and include
@@ -2028,13 +2028,13 @@ Example types are distinguished based on the location of the example CMakelists.
 
 | Example type | CMakelists.txt Location                  |
 | ------------ | ---------------------------------------- |
-| Repository   | mcu-sdk-3.0 repo examples/src folder     |
+| Repository   | mcu-sdk-3.0 repo examples folder         |
 | freestanding | Other location than mcu-sdk-3.0 repo examples folder, it can be inside or outside mcu-sdk-3.0 repo |
 | Standalone   | A completely detached project from the repository, contains everything necessary for a single project, which does not rely on meta build system. |
 
 ### Repository Example
 
-Repository example CMakelists.txt is located inside `mcu-sdk-3.0/examples/src/<example-category>/<example>` folder, like the hello_world CMakelists.txt is located in `mcu-sdk-3.0/examples/src/demo_apps/hello_world`.
+Repository example CMakelists.txt is located inside `mcu-sdk-3.0/examples/<example-category>/<example>` folder, like the hello_world CMakelists.txt is located in `mcu-sdk-3.0/examples/demo_apps/hello_world`.
 
 ```
 sdk_next/
@@ -2043,8 +2043,7 @@ sdk_next/
 └─── mcu-sdk-3.0/
      ├── arch/
      ├── cmake/
-     ├── examples/
-     │   ├─── src
+     ├── examples
      │   	  ├─── demo_apps
      │             ├── reconfig.cmake
      │             ├── prj.conf
@@ -2104,12 +2103,13 @@ The prj conf list is like
 
 ```yaml
 1. devices/prj.conf
-2. devices/\<soc_series>/prj.conf
-3. devices/\<soc_series>/\<device>/prj.conf
-4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
+2. devices/<soc_series>/prj.conf
+3. devices/<soc_series>/<device>/prj.conf
+4. devices/<soc_series>/<device>/<core_id>/prj.conf
 5. examples/prj.conf
-6. examples/\<board>/prj.conf
-7. examples/\<board>/\<core_id>/prj.conf
+6. examples/_boards/prj.conf
+6. examples/_boards/<board>/prj.conf
+7. examples/_boards/<board>/<core_id>/prj.conf
 8. <example location>/prj.conf
 ```
 
@@ -2121,6 +2121,31 @@ CONFIG_MCUX_PRJSEG_module.board.pinmux_board_folder=n
 CONFIG_MCUX_HAS_PRJSEG_project.use_hw_app=n
 CONFIG_MCUX_HAS_PRJSEG_module.board.pinmux_sel=n
 ```
+
+### Standalone Example
+
+If you want to share the example with others, sharing the freestanding project is a good way if both sides work on mcu-sdk-3.0. However, if the other developer does not use meta build system, it is not feasible to zip all repository into a package file and send it over email.
+
+Based on this requirement, the meta build system can export standalone project from the repository. The project contains everything necessary for a single project, keeps same folder structure comparing with repository, which does not rely on meta build system.
+
+To accomplish this, we maintain a simplified build system in a separate project. In short, for those IDEs with a graphical interface, generate the corresponding IDE project, for example, .ewp file for IAR, .uvprojx for Keil. As for toolchain without GUI project, such as ARMGCC, provide a CMakeLists.txt that flattens all files and configurations.
+
+The standalone project can be generated with west command line parameters "-t standalone_project". For example:
+
+```
+west build -b frdmk64f ./examples/demo_apps/hello_world -p always --config debug --toolchain iar -t standalone_project
+```
+
+You can find IAR project in build folder with source code.
+
+![iar_standalone_project](./_doc/iar_standalone_project.png)
+
+Note:
+
+1. The default destination folder is mcu-sdk-3.0/build/${toolchain}. You can also specify the destination folder with command line parameter "-d" .
+2. You can only create a project for a specific toolchain and config in one CMake configuration context. You should remove CMake build folder or run with "-p always" if changing toolchain or config
+3. If the CMake has generated build artifacts, you can just type "west build -t standalone_project"
+
 ## Enable An Example
 
 Please firstly make sure that the target board and device data are ready, then follow the example CMakelists.txt pattern in [Project](#project) chapter and make your own one.
@@ -2131,10 +2156,10 @@ BCS provides following ways to do the customization.
 
 1. Reconfig CMake
 
-   For example, the hello_world example CMakelists.txt is defined in "examples/src/demo_apps/hello_world". Inside it, there are 2 optional included reconfig.cmake, like
+   For example, the hello_world example CMakelists.txt is defined in "examples/demo_apps/hello_world". Inside it, there are 2 optional included reconfig.cmake, like
 
    ```cmake
-   include(${SdkRootDirPath}/examples/src/demo_apps/reconfig.cmake OPTIONAL)
+   include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
    # project_board_port_path here means boards/frdmk64f/demo_apps/hello_world
    include(${SdkRootDirPath}/${project_board_port_path}/reconfig.cmake OPTIONAL)
    ```
@@ -2155,7 +2180,7 @@ Remember to register the example in example.yml so that build system. The exampl
 Here is one example:
 
 ```yaml
-# in examples/board/frdmk64f/example.yml
+# in examples/_boards/frdmk64f/example.yml
 
 hello_world:
   required: true
@@ -2320,7 +2345,7 @@ files are located in build_dir/${toolchain} folder,  it uses relative path to re
 If you are running a pristine build, please specify board/examples/toolchain/core_id on the command line. For example:
 
 ```bash
-west build -b evkmimxrt1170 examples/src/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug -p always -t guiproject
+west build -b evkmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug -p always -t guiproject
 ```
 
 If you have run "west build" command, there is a simpler and faster command:
@@ -2372,7 +2397,7 @@ Sysbuild is a higher-level build system that can be used to combine multiple oth
 To include sub projects into building system, you must prepare `sysbuild.cmake` into main application folder. Sub projects can be located anywhere, which are imported by `ExternalMCUXProject_Add` command inside sysbuild.cmake. For example:
 
 ```cmake
-# examples/src/multicore/multicore_examples/hello_world/primary/sysbuild.cmake
+# examples/multicore_examples/hello_world/primary/sysbuild.cmake
 
 ExternalMCUXProject_Add(
         APPLICATION hello_world_secondary_core
@@ -2418,12 +2443,12 @@ config secondary_toolchain
 One thing to emphasize is that, sysbuild is only used to organize how individual images are compiled, but in reality, how images are included is set by the project's own cmakelsist.txt. For example, you must import the secondary core binary in primary core image CMakeLists.txt:
 
 ```cmake
-# examples/src/multicore/multicore_examples/hello_world/secondary/CMakeLists.txt
+# examples/multicore_examples/hello_world/secondary/CMakeLists.txt
 mcux_convert_binary(
         TOOLCHAINS armgcc mdk iar
         BINARY ${APPLICATION_BINARY_DIR}/${CONFIG_TOOLCHAIN}/core1_image.bin
 )
-# examples/src/multicore/multicore_examples/hello_world/primary/CMakeLists.txt
+# examples/multicore_examples/hello_world/primary/CMakeLists.txt
 mcux_add_iar_configuration(
         LD "--image_input=${APPLICATION_BINARY_DIR}/../hello_world_secondary_core/iar/core1_image.bin,_core1_image,__core1_image,4 "
 )
@@ -2434,7 +2459,7 @@ mcux_add_iar_configuration(
 To enable sysbuild, only `--sysbuild` is needed when you run the main application
 
 ```bash
-west build -b evkmimxrt1170 --sysbuild ./examples/middleware/multicore/multicore_examples/hello_world/primary -Dcore_id=cm7  --config flexspi_nor_debug --toolchain=armgcc -p always
+west build -b evkmimxrt1170 --sysbuild ./examples/multicore_examples/hello_world/primary -Dcore_id=cm7  --config flexspi_nor_debug --toolchain=armgcc -p always
 ```
 
 You can find build information from terminal:
