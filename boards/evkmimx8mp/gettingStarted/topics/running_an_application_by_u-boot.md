@@ -24,7 +24,7 @@ This section describes the steps to write a bootable SDK bin file to TCM, DRAM a
 
         -   `sf probe`
         -   `sf read 0x80000000 0 4`
-        -   `fatload mmc 1:1 0x80000000 flash.bin`
+        -   `fatload mmc 1:1 0x48000000 flash.bin`
         -   `dcache flush`
         -   `sf erase 0 0x100000`
         -   `sf write 0x48000000 0 0x100000`
