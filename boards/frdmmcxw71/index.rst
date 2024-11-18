@@ -31,3 +31,12 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK for FRDM-MCXW71
 
    gettingStarted/gsindex.md
+
+   
+Release Notes
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for FRDM-MCXW71
+
+   releaseNote/rnindex.md
