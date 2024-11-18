@@ -1,6 +1,7 @@
 hello_world:
   contents:
-    project-root-path: examples/${board}/demo_apps/hello_world/${core_id}
+    meta_path: examples/demo_apps/hello_world
+    project-root-path: boards/${board}/demo_apps/hello_world/${multicore_foldername}
     document:
       name: hello_world
       category: demo_apps
