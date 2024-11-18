@@ -9,7 +9,6 @@ Overview
 
 
 
-
 .. image:: ./kw47evk.png
    :width: 240px
    :align: center
