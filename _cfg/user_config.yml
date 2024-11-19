@@ -35,6 +35,8 @@ external_contents:
 - root: 'docs'
   pattern: 'middleware/multicore/*'
 - root: 'docs'
+  pattern: 'middleware/freemaster/*'
+- root: 'docs'
   pattern: 'middleware/lwip/*'
 - root: 'docs'
   pattern: 'middleware/lvgl/index.rst'
@@ -207,3 +209,10 @@ modules:
     - root: .
       pattern: 'middleware/fatfs/*'
 
+  mid_freemaster:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/freemaster/doc/index.md'
+    - root: .
+      pattern: 'middleware/freemaster/doc/user_guide/*'
