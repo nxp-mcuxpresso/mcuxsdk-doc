@@ -1,0 +1,31 @@
+# Run a demo using MCUXpresso IDE
+
+**Note:** Ensure that the MCUXpresso IDE toolchain is included when generating the MCUXpresso SDK package.
+
+This section describes the steps required to configure MCUXpresso IDE to build, run, and debug example applications. The `hello_world` demo application targeted for the LPCXpresso54018 hardware platform is used as an example, though these steps can be applied to any example application in the MCUXpresso SDK.
+
+
+```{include} ../topics/select_the_workspace_location.md
+:heading-offset: 1
+```
+
+```{include} ../topics/build_a_non-xip_plain_load_example_application_001.md
+:heading-offset: 1
+```
+
+```{include} ../topics/run_a_non-xip_plain_load_example_application_001.md
+:heading-offset: 1
+```
+
+```{include} ../topics/how_to_program_the_non-xip_plain_load_example_bin_.md
+:heading-offset: 1
+```
+
+```{include} ../topics/build_an_xip_example_application_002.md
+:heading-offset: 1
+```
+
+```{include} ../topics/run_an_xip_example_application_002.md
+:heading-offset: 1
+```
+
