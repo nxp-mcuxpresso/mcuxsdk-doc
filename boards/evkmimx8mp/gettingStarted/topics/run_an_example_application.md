@@ -15,22 +15,35 @@ To download and run the application via UUU, perform these steps:
 |
 
 4.  Get the fspi version U-Boot image named **imx-boot-imx8mpevk-fspi.bin-flash\_evk\_flexspi** from the linux release package.
-5.  In the command line, execute uuu with the *-b qspi* switch: `uuu -b qspi imx-boot-imx8mpevk-fspi.bin-flash_evk_flexspi hello_world.bin`.
+5.  In the command line, execute uuu to get script for qspi: `uuu -bshow qspi > qspi_auto.sh`.
+    
+	Then edit qspi_auto.sh, repleace this line:
 
-    The UUU puts the platform into fast boot mode and automatically flashes the target bootloader to QSPI. The command line and fast boot console is as shown in [Figure 2](run_an_example_application.md#COMMANDLINSEFASTBOOT).
+   	`FB: ucmd if qspihdr dump ${fastboot_buffer}; then setenv qspihdr_exist yes; else setenv qspihdr_exist no; fi;` 
+
+    with the below line:
+
+   	`FB: ucmd setenv qspihdr_exist no`
+	|![](../images/qspi_auto_modification.png "Modify qspi_auto script")
+6. rename file imx-boot-imx8mpevk-fspi.bin-flash_evk_flexspi with `_flexspi.bin`,
+
+   rename hello_world.bin with `_image`
+
+7. In the command line, execute uuu with the qspi_auto.sh:
+
+   `uuu qspi_auto.sh`
+
+    The UUU puts the platform into fast boot mode and automatically flashes the target bin to QSPI. The command line and fast boot console is as shown 
+	(run_an_example_application.md#COMMANDLINSEFASTBOOT).
 
     |![](../images/command_line_fast_boot_console_output_executing_uu.png "Command line and fast boot console output when
 											executing UUU")
 
 |
 
-6.  Then, power off the board and change the boot mode to `ECSPI Flash [SW1000[1-4]]`, and power on the board again.
+8. Then, power off the board and change the boot mode to eMMC/SDHC3 [SW0010[1-4]], and power on the board again.
 
-    |![](../images/u-boot_and_m4_demo_output_8dxl.png "U-Boot and M4 demo output")
-
-|
-
-7.  Use following command in U-Boot to kickoff m7:
+9.  Use following command in U-Boot to kickoff m7:
 
     ```
     sf probe
