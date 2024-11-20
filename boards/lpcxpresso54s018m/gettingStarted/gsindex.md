@@ -51,4 +51,3 @@
     -   [Updating SPIFI clock frequency in Arm® GCC](topics/updating_spifi_clock_frequency_in_arm__gcc.md)
     -   [Updating SPIFI clock frequency in MCUXpresso IDE](topics/updating_spifi_clock_frequency_in_mcuxpresso_ide.md)
 
-
