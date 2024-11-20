@@ -27,7 +27,7 @@ Compared to zephyr's west build, MCUXpresso SDK's west build command provides fo
 - --config: value for CMAKE_BUILD_TYPE, default debug.
 - --show-configs: show all supported build configurations for the project.
 
-Here are some typical usage for generating a SDK example is:
+Here are some typical usage for generating a SDK example:
 
 ```bash
 # Generate example with default settings

@@ -10,6 +10,8 @@ If the installation instruction asks/selects whether to have the tool installati
 
 Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. For installation, you could visit the official [Git website](https://git-scm.com/), download the appropriate version(you may use the latest one) for your operating system (Windows, macOS, Linux). Then run the installer and follow the installation instructions.
 
+User `git --version` to check the version if you have a version installed.
+
 Then configure your username and email using below commands:
 
 ```bash
@@ -20,6 +22,8 @@ git config --global user.email "youremail@example.com"
 ### Python
 
 Install python `3.10` or above, please follow the guideline at [Python Download](https://wiki.python.org/moin/BeginnersGuide/Download).
+
+Use `python --version` to check the version if you have a version installed.
 
 ### West
 
@@ -34,9 +38,13 @@ pip install west>=1.2.0
 
 Follow the [CMake](https://cmake.org/getting-started/) doc to install CMake. The minimum version is ***3.30.0***.
 
+Use `cmake --version` to check the version if you have a versio installed.
+
 ### Ninja
 
-Install the [Ninja](https://ninja-build.org/). Please use the latest ninja version 1.12.1.
+Install the [Ninja](https://ninja-build.org/). Please use the ninja version equal or greater than 1.12.1.
+
+Use `ninja --version` to check the version if you have a version installed.
 
 ### Kconfig
 
@@ -85,6 +93,7 @@ Follow the installation instructions provided on the website. Ensure that the in
 
 - For MDK toolchain, only armclang compiler is supported. There are 2 environment variables MDK_DIR and ARMCLANG_DIR for it. Since most Keil users will install MDK IDE instead of standalone armclang compiler, the MDK_DIR has higher priority than ARMCLANG_DIR.
 - For Xtensa toolchain, please set XTENSA_CORE environment, depends on your devices, it can be `nxp_rt600_RI23_11_newlib` or `nxp_rt500_RI23_11_newlib` and so on.
+- In Windows, the short path name is used in environment variables. If any toolchain is using the long path name, you can open a command window from the toolchain folder and use below command to get the short path name: `for %i in (.) do echo %~fsi`
 
 ### Debugger
 
@@ -99,7 +108,7 @@ Follow the installation instructions provided on the website. Ensure that the in
 
 Install make for windows using choco, other OS has make installed by default. Ensure you are running command in administrator mode.
 
-```cmd
+```
 choco install make
 ```
 
@@ -159,20 +168,10 @@ For installation, you can refer to the guideline as below, which is referenced f
   choco install doxygen.install graphviz strawberryperl miktex rsvg-convert imagemagick
   ```
 
+.. _tool-installation-check:
+
 ## Tool installation check
 Once installed, open a terminal or command prompt and type the associated command to verify the installation.
-- Git:
-```
-git --version
-```
-- Python:
-```
-python --version
-```
-- cmake:
-```
-cmake --version
-```
 
 If you see the version number, you have successfully installed the tool. Else please check whether the tool installation path be added into the PATH variable, if not, you could check the PATH variable add the tool installation path to the PATH with below commands:
 
@@ -210,18 +209,18 @@ To get the MCUXpresso SDK repository, use the `west` tool to clone the manifest 
   ```bash
   - Initialize west with the manifest repository
   - TODO -  To be replaced by the final customer available manifest repository address
-  west init -m https://github.com/nxp-mcuxpresso/mcux-sdk
+  west init -m https://github.com/nxp-mcuxpresso/mcuxsdk-manifest.git
 
   - Update the west projects
   west update
   ```
 
 # Install Python Dependency
-To create a Python virtual environment in the west workspace manifest repo core, follow these steps:
+To create a Python virtual environment in the west workspace core repo directory mcuxsdk, follow these steps:
 
 1. Navigate to the core directory:
   ```bash
-  cd core
+  cd mcuxsdk
   ```
 
 2. [Optional] Create and activate the virtual environment:

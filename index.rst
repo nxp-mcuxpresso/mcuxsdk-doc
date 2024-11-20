@@ -42,7 +42,8 @@ for more details.
    :maxdepth: 1
    :caption: Getting Started
 
-   GetStart <gsd/index>
+   GithubRepository <gsd/repo>
+   ZipPackage <gsd/package>
 
 .. toctree::
    :maxdepth: 1
