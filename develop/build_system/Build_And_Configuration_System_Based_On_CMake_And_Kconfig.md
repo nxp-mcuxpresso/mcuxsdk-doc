@@ -12,7 +12,7 @@
 
 ### Docker Support
 
-An all-in-one docker image for all required packages can be find [here](docker.nxp.com/mcux/mcusdk3_ci:latest)
+An all-in-one docker image for all required packages can be find [here](https://docker.nxp.com/#!/taglist/mcux/mcusdk3_ci)
 
 ### Repos Setup
 
@@ -30,49 +30,32 @@ The BS uses Ninja as the default output generator of CMake, please make sure you
 
 #### Python
 
-Python is used as a Swiss knife in many aspects from repo management to BS. The minimum python version is ***3.8***.
+Python is used as a Swiss knife in many aspects from repo management to BS. The minimum python version is ***3.10***. Please use mcu-sdk-3.0/scripts/requirements.txt to install the required packages.
 
 ### Toolchain Setup
 
-Build system supports IAR, MDK, Armgcc and [Zephyr SDK](https://docs.zephyrproject.org/latest/develop/toolchains/zephyr_sdk.html#toolchain-zephyr-sdk) to build.
-
-You need to set environment variables to specify the toolchain installation so that build system can find it.
-
-Here are the toolchain environment variable table
-
-| Toolchain   | Environment variable   | Example                                  | Cmd Line Argument           |
-| ----------- | ---------------------- | ---------------------------------------- | :-------------------------- |
-| IAR         | IAR_DIR                | C:\iar for Windows OR /opt/iarsystems/bxarm-9.40.2 for Linux | --toolchain iar             |
-| MDK         | MDK_DIR                | C:\Keil_v5 for Windows OR /usr/local/ArmCompilerforEmbedded6.21 for Linux | --toolchain mdk             |
-| MDK         | ARMCLANG_DIR           | C:\ArmCompilerforEmbedded6.22 for Windows OR /usr/local/ArmCompilerforEmbedded6.21 for Linux | --toolchain mdk             |
-| Armgcc      | ARMGCC_DIR             | C:\armgcc                                | --toolchain armgcc(default) |
-| CodeWarrior | CW_DIR                 | C:\Freescale\CW MCU v11.2                | --toolchain codewarrior     |
-| Xtensa      | XCC_DIR                | C:\xtensa\XtDevTools\install\tools\RI-2023.11-win32\XtensaTools | --toolchain xtensa          |
-| Zephyr      | ZEPHYR_SDK_INSTALL_DIR |                                          | --toolchain zephyr          |
-
-Note: 
-- For MDK toolchain, only armclang compiler is supported. There are 2 environment variables MDK_DIR and ARMCLANG_DIR for it. Since most Keil users will install MDK IDE instead of standalone armclang compiler, the MDK_DIR has higher priority than ARMCLANG_DIR.
-- For Xtensa toolchain, please set XTENSA_CORE environment, depends on your devices, it can be `nxp_rt600_RI23_11_newlib` or `nxp_rt500_RI23_11_newlib` and so on.
+Build system provides mainstream toolchains support for NXP products. Please refer to [Get Started document](../../gsd/installation.md#compiler) to set up environment variables.
 
 ## Kconfig
 
-1. Please install python3 and menuconfig. For menuconfig, you can run with
+1. Please install python3 before installing kconfiglib. For kconfiglib, you can run with the command
 
    ```bash
    pip install -U kconfiglib
    ```
 2. Make sure that `mcu-sdk-boards`, `mcu-sdk-components`, `mcux-devices-kinetis`, `mcux-devices-lpc`, `mcux-devices-rt` projects are cloned because there are Kconfig data inside these repos for boards/components/devices. Only with all these data included, then you can enjoy full feature of kconfig.
+
 3. Run
 
-   Inside Kconfig files, there are board/device variables inside, so it cannot be directly run, so Kconfig shall be run inside whole cmake process.
+   Inside Kconfig files, there are board/device variables included in referenced paths, so it cannot be directly run, so Kconfig shall be run inside whole cmake process.
 
    - Run cmake configuration
 
      ```bash
-     west build -b frdmk64f examples/demo_apps/hello_world --cmake-only
+     west build -b frdmk22f examples/demo_apps/hello_world --cmake-only
      ```
 
-     You can ignore `--cmake-only`, then the project will be built.
+     `--cmake-only` only executes BS configuration stage and generation stage.You can ignore `--cmake-only`, then the project will be built.
    - Run guiconfig target
 
      ```bash
@@ -102,25 +85,23 @@ Here are some typical usage for generating a SDK example is:
 
 ```bash
 # Generate example with default settings
-west build -b frdmk64f examples/demo_apps/hello_world
+west build -b frdmk22f examples/demo_apps/hello_world
 
 # Just print cmake commands, do not execute it
-west build -b frdmk64f examples/demo_apps/hello_world --dry-run
+west build -b frdmk22f examples/demo_apps/hello_world --dry-run
 
 # Generate other toolchain like iar, default armgcc
-west build -b frdmk64f examples/demo_apps/hello_world --toolchain iar
+west build -b frdmk22f examples/demo_apps/hello_world --toolchain iar
 
 # Generate config type, default debug
-west build -b frdmk64f examples/demo_apps/hello_world --config release
+west build -b frdmk22f examples/demo_apps/hello_world --config release
 
-# Show all supported build configurations
-west build -b frdmk64f examples/demo_apps/hello_world --show-configs
 ```
 
 For multicore devices, you shall specify the corresponding core id by passing the command line argument "-Dcore_id". For example
 
 ```bash
-west build -b evkmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug
+west build -b evkbmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug
 ```
 
 Remember to use "--config" to specify build target which is different from SDKGENv3.
@@ -129,6 +110,20 @@ For shield, please use the "--shield" to specify the shield to run, like
 
 ```bash
 west build -b mimxrt700evk --shield a8974 examples examples/issdk_examples/sensors/fxls8974cf/fxls8974cf_poll -Dcore_id=cm33_core0
+```
+
+If you want to get available commands for different build config combinations supported by the project and the toolchain, you can run the command below. Please note that "@${core_id}" suffix for board is only needed for multicore devices.
+```bash
+  west list_project  -p examples/mbedtls_examples/mbedtls_selftest -b evkmimxrt1160@cm4 -t mdk
+```
+Here is the output:
+```bash
+INFO: [   1][west build -p always examples/mbedtls_examples/mbedtls_selftest --toolchain mdk --config debug -b evkmimxrt1160 -Dcore_id=cm4]
+INFO: [   2][west build -p always examples/mbedtls_examples/mbedtls_selftest --toolchain mdk --config flexspi_nor_debug -b evkmimxrt1160 -Dcore_id=cm4]
+INFO: [   3][west build -p always examples/mbedtls_examples/mbedtls_selftest --toolchain mdk --config flexspi_nor_release -b evkmimxrt1160 -Dcore_id=cm4]
+INFO: [   4][west build -p always examples/mbedtls_examples/mbedtls_selftest --toolchain mdk --config release -b evkmimxrt1160 -Dcore_id=cm4]
+INFO: [   5][west build -p always examples/mbedtls_examples/mbedtls_selftest --toolchain mdk --config sdram_debug -b evkmimxrt1160 -Dcore_id=cm4]
+INFO: [   6][west build -p always examples/mbedtls_examples/mbedtls_selftest --toolchain mdk --config sdram_release -b evkmimxrt1160 -Dcore_id=cm4]
 ```
 
 ### Sysbuild(System build)
@@ -145,7 +140,7 @@ For more details, please refer to [System build](#system-build)
 
 ***Note***: Please refer [West Flash and Debug Support](#west-flash-and-debug-support) to enable west flash/debug support.
 
-As we do not have a FRDM-K64F with JLink or other runners for test, we only ensure flash/debug commands can work for linkserver. Please install linkserver and add it to your PATH firstly.
+As we do not have a FRDM-K64F with JLink or other runners for test, we only ensure flash/debug commands can work for [linkserver](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER). Please install linkserver and add it to your PATH firstly.
 
 Flash the hello_world example:
 
@@ -220,15 +215,15 @@ Please see following table for the arguments
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`.  If not provided, the final source path equals `${CMAKE_CURRENT_LIST_DIR}` + `SOURCES`. This is usually used in abstracted `.cmake` files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
-| CONFIG        | Single        | Specify that the source is a config file. If build system finds a file with the same name, it can replace the config file. Please note if the config file is a header file, you need to record the file in `TARGET_FILES` when adding the path for that header file with `mcux_add_include`. |
-| PREINCLUDE    | Single        | Specify that the header is a preinclude header. This is only for mcux_add_source. |
-| EXCLUDE       | Single        | Specify the source shall be exluded from build. This is only for mcux_add_source |
+| CONFIG        | Single        | `true` or `false`, case insensitive. Specify that the source is a config file. If build system finds a file with the same name, it can replace the config file. Please note if the config file is a header file, you need to record the file in `TARGET_FILES` when adding the path for that header file with `mcux_add_include`. |
+| PREINCLUDE    | Single        | `true` or `false`, case insensitive. Specify that the header is a preinclude header. This is only for mcux_add_source. |
+| EXCLUDE       | Single        | `true` or `false`, case insensitive. Specify the source shall be excluded from build. This is only for mcux_add_source |
 | SOURCES       | Multiple      | The sources. This is only for `mcux_add_source`. If there are multiple sources, please separate them with whitespace. |
 | SCOPE         | Single        | Specify the source scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for mcux_add_source and take same effect as target_sources scope. The default scope is PRIVATE if not set. |
 | INCLUDES      | Multiple      | The includes. This is only for `mcux_add_include`. If there are multiple includes, please separate them with whitespace. |
-| TARGET_FILES  | Multiple      | This is only for `mcux_add_include`, which indicates the path is for the target header file. Please note target header files must be added by `mcux_add_source` and marked `CONFIG TRUE`. |
-| COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.`<br>`Here are all the supported compilers: armclang, iar, gcc, xcc, mwcc56800e. |
-| TOOLCHAINS    | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.`<br>`Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior. |
+| TARGET_FILES  | Multiple      | This is only for `mcux_add_include`, which indicates the path is for the target header file. The base name of the file without parent folder path is accepted. Please note target header files must be added by `mcux_add_source` and marked `CONFIG TRUE`. |
+| COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.`<br>`Here are all the supported compilers: armclang, iar, gcc, xcc, mwcc56800e, riscvllvm. |
+| TOOLCHAINS    | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.`<br>`Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior, riscvllvm. |
 | CORES         | Multiple      | The cores. It means the source or include only supports the listed cores.`<br>`Here are all the supported cores: cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp |
 | CORE_IDS      | Multiple      | The core_ids. It means the source or include only supports the listed core_ids. This is usually to distinguish support for core in multicore platform. |
 | DEVICES       | Multiple      | The devices. It means the source or include only supports the listed device, like MK64F12. |
@@ -277,7 +272,7 @@ Specify the library to be linked.
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final library path equals `BASE_PATH` + `LIB`. This is usually used in abstracted `.cmake` files which are not placed together with real library. For library in CMakeLists.txt which is usually put together with real library, no need to add it. |
-| LIBS          | Multiple      | The libraries to be added/removed        |
+| LIBS          | Multiple      | The libraries to be added       |
 | SCOPE         | Single        | Specify the library scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for mcux_add_library and take same effect as target_link_libraries scope. The default scope is PRIVATE if not set. |
 | TOOLCHAINS    | Multiple      | The toolchains. It means the library only supports the listed toolchains.`<br>`Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior. |
 | CORES         | Multiple      | The cores. It means the library only supports the listed cores.`<br>`Here are all the supported cores: cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp |
@@ -392,6 +387,13 @@ Note:
    )
    ```
 
+4. If the vaule of macro contains quotation marks, please use the escape symbol for them. For example:
+    ```cmake
+      mcux_add_macro(
+          CC "-DMBEDTLS_CONFIG_FILE=\\\"ksdk_mbedtls_config.h\\\""
+      )
+    ```
+
 #### mcux_add_linker_symbol
 
 The CMake function mcux_add_configuration requires the complete toolchain setting. For linker macro setting, you have to add prefix for linker symbol. The prefix may be different for each linker. For example, `--config_def=` for iar, `--predefine=` for mdk. To be convenient for developer to set linker symbol once time for all toolchains, ``mcux_add_linker_symbol` is provided.
@@ -503,7 +505,7 @@ You will see the log:
 
 ### Remove
 
-Except adding data, the build system also supports removing defined data. For example, if in a common definition, a macro is defined for examples in the board, but your example cannot use it, then you can use following remove function to remove it.
+Besides adding data, the build system also supports removing defined data. For example, if in a common definition, a macro is defined for examples in the board, but your example cannot use it, then you can use following remove function to remove it.
 
 #### mcux_remove_configuration
 
@@ -572,7 +574,7 @@ mcux_remove_linker_symbol(
 )
 ```
 
-#### mcux_remove_iar_linker_script/mcux_remove_mdk_linker_scriptmcux_remove_armgcc_linker_script
+#### mcux_remove_iar_linker_script/mcux_remove_mdk_linker_script/mcux_remove_armgcc_linker_script
 
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
@@ -692,10 +694,10 @@ Since Kconfig data are configurable, then there are 3 ways to provide the config
 
 1. Kconfig default value
 
-   Inside the Kconfig file, for each symbol, default value must be provided. In this way, any symbol will anyway gets a default value in any cases.
+   Inside the Kconfig file, for each symbol, default value must be provided. In this way, any symbol will anyway gets a default value in any cases if the symbol dependency has been satisfied.
 2. prj.conf
 
-   For visible Kconfig symbols, you can directly set symbol=value in `prj.conf` to do the configuration. The `prj.conf`s placed in designated places will be taken as Kconfig process input with priority. Please refer [prj.conf](#prj-conf) for details.
+   For **visible** Kconfig symbols, you can directly set symbol=value in `prj.conf` to do the configuration. The `prj.conf`s placed in designated places will be taken as Kconfig process input with priority. Please refer [prj.conf](#prj-conf) for details.
 3. Kconfig.defconfig
 
    For invisible Kconfig symbols, prj.conf won't take effect. Please use `Kconfig.defconf` to redefine the symbol without type but with new default value.
@@ -727,14 +729,18 @@ Each data section is composed of CMake and Kconfig.
 
 #### Component
 
-"component" section is used for software components.
+"component" section is used for software components. Only source files/include path/libraries/flags/macros/version are valid data for component section. Please do not set other data like variable inside the component.
 
-In CMake, component data shall be recorded inside a if-endif guard. The if condition shall be with prefix `CONFIG_MCUX_COMPONENT` to specify the following data belongs to a software component. The component name is right next to it.
+In CMake, component data shall be recorded inside a if-endif guard. The `if` condition shall be with prefix `CONFIG_MCUX_COMPONENT` to specify the following data belongs to a software component. The component name is right next to it. Please note nested if-endif is unsupported, and the `if` condition should only contains single cmake variable, combined condition is unsupported.
 
 Here is one driver.uart component cmake data:
 
 ```cmake
 if (CONFIG_MCUX_COMPONENT_driver.uart) # component name
+
+    # component version
+    mcux_component_version(2.5.1)
+    
     # component data
     mcux_add_source(
         SOURCES fsl_uart.h 
@@ -750,7 +756,7 @@ If a component definition is split into several CMake files, please use the same
 
 In Kconfig, symbol for a component shall also start with `MCUX_COMPONENT_` to be identical with CMake component name.
 
-Component configuration and dependency shall be recorded following the below pattern:
+Component configuration and dependency shall be recorded in Kconfig with the following the below pattern:
 
 ```bash
 config MCUX_HAS_COMPONENT_driver.uart

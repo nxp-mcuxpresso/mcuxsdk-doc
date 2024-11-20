@@ -76,6 +76,13 @@ Download and install MDK toolchain [MDK](https://developer.arm.com/documentation
 
 Download and install CodeWarrior toolchain from [NXP CodeWarrior](https://www.nxp.com/design/design-center/software/development-software/codewarrior-development-tools:CW_HOME).
 
+#### Xtensa
+Download and install Xtensa toolchain from [Tensilica Tools](https://tensilicatools.com/platforms/).
+
+#### NXP S32Compiler RISC-V Zen-V
+
+Download and install NXP S32Compiler RISC-V Zen-V compiler from [NXP Website](https://www.nxp.com.cn/search?keyword=NXP%2520S32Compiler%2520RISC-V&start=0)
+
 Follow the installation instructions provided on the website. Ensure that the installation path is added to the PATH environment variable to use the toolchain from any terminal.
 
 
@@ -90,9 +97,17 @@ Follow the installation instructions provided on the website. Ensure that the in
 | CodeWarrior | CW_DIR                 | C:\Freescale\CW MCU v11.2                                    | --toolchain codewarrior     |
 | Xtensa      | XCC_DIR                | C:\xtensa\XtDevTools\install\tools\RI-2023.11-win32\XtensaTools | --toolchain xtensa          |
 | Zephyr      | ZEPHYR_SDK_INSTALL_DIR |                                                              | --toolchain zephyr          |
+| NXP S32Compiler RISC-V Zen-V| RISCVLLVM_DIR |c:/riscv-llvm-win32_b298_b298_2024.08.12 for Windows OR /opt/riscv-llvm-linux-x64_b298_b298_2024.08.12 for Linux|--toolchain riscvllvm|
 
 - For MDK toolchain, only armclang compiler is supported. There are 2 environment variables MDK_DIR and ARMCLANG_DIR for it. Since most Keil users will install MDK IDE instead of standalone armclang compiler, the MDK_DIR has higher priority than ARMCLANG_DIR.
-- For Xtensa toolchain, please set XTENSA_CORE environment, depends on your devices, it can be `nxp_rt600_RI23_11_newlib` or `nxp_rt500_RI23_11_newlib` and so on.
+- For Xtensa toolchain, please set XTENSA_CORE environment, depends on your devices, here's the list for your reference
+  | Device core  | environment varibale value| 
+  | ----------- | --------------------------| 
+  | RT500 fusion1 | nxp_rt500_RI23_11_newlib| 
+  | RT600 hifi4   | nxp_rt600_RI23_11_newlib| 
+  | RT700 hifi1   | rt700_hifi1_RI23_11_nlib| 
+  | RT700 hifi1   | rt700_hifi4_RI23_11_nlib| 
+  | i.MX8ULP fusion1 | fusion_nxp02_dsp_prod| 
 - In Windows, the short path name is used in environment variables. If any toolchain is using the long path name, you can open a command window from the toolchain folder and use below command to get the short path name: `for %i in (.) do echo %~fsi`
 
 ### Debugger
