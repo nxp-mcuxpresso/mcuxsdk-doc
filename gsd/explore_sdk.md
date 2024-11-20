@@ -6,7 +6,7 @@ The fundamental project, alias the core project in west workspace which places i
 
 | Folder | Description |
 | :--------- | :-------- |
-| examples | Board support package. For each board, there are board configuration files. |
+| examples | Various demos and examples on different supported boards. For each board support, there are board configuration files. |
 | arch | Arch related files such as ARM CMSIS core files. |
 | components | Software components. |
 | devices | Device support package. For each device, header file, feature file, startup file and linker files are provided, also device specific drivers are included. |
@@ -18,7 +18,7 @@ The fundamental project, alias the core project in west workspace which places i
 
 ## Examples Project
 
-The examples project part of the whole SDK delivery, and locates in the folder `core/examples` of west workspace.
+The examples project is part of the whole SDK delivery, and locates in the folder `mcuxsdk/examples` of west workspace.
 
 Examples files are placed in folder of `<example_category>`, these examples include (but are not limited to)
 

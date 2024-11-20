@@ -1,11 +1,10 @@
 .. _gsd_index:
 
-Getting Started
+Getting Started With Repo
 ====================
 
 .. toctree::
     :maxdepth: 2
-    :caption: GSD:
 
     installation.md
     explore_sdk.md
