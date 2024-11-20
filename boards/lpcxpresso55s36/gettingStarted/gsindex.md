@@ -1,4 +1,4 @@
-# LPCXpresso55S36
+# Getting Started with MCUXpresso SDK for LPCXpresso55S36
 
 
 ```{tocTree}
