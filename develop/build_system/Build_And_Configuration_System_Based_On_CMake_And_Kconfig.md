@@ -401,7 +401,7 @@ The CMake function mcux_add_configuration requires the complete toolchain settin
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-| SYMBOLS       | Multiple        | The linker symbols                       |
+| SYMBOLS       | Multiple      | The linker symbols                       |
 
 For example:
 
@@ -2030,17 +2030,16 @@ mcux_add_include(
 
 ## Example Types
 
-Example types are distinguished based on the location of the example CMakelists.txt:
+In MCUXpresso SDK, based on whether supporting the hierarchical configuration for board porting, we can distinguish 2 types examples: repository and freestanding examples.
 
-| Example type | CMakelists.txt Location                  |
-| ------------ | ---------------------------------------- |
-| Repository   | mcu-sdk-3.0 repo examples folder         |
-| freestanding | Other location than mcu-sdk-3.0 repo examples folder, it can be inside or outside mcu-sdk-3.0 repo |
-| Standalone   | A completely detached project from the repository, contains everything necessary for a single project, which does not rely on meta build system. |
+| Example Type | Support hierarchical configuration for board porting | CMakeLists.txt Location                  |
+| ------------ | ---------------------------------------- | ---------------------------------------- |
+| Repository   | Yes                                      | Under sdk-root/examples sdk-root/examples_int |
+| freestanding | No                                       | No restriction.                          |
 
 ### Repository Example
 
-Repository example CMakelists.txt is located inside `mcu-sdk-3.0/examples/<example-category>/<example>` folder, like the hello_world CMakelists.txt is located in `mcu-sdk-3.0/examples/demo_apps/hello_world`.
+Repository example CMakelists.txt is located inside `mcu-sdk-3.0/examples/<example-category>/<example>`or `mcu-sdk-3.0/examples_int/<example-category>/<example>` folder, like the hello_world CMakelists.txt is located in `mcu-sdk-3.0/examples/demo_apps/hello_world`.
 
 ```
 sdk_next/
@@ -2050,25 +2049,43 @@ sdk_next/
      ├── arch/
      ├── cmake/
      ├── examples
-     │   	  ├─── demo_apps
-     │             ├── reconfig.cmake
-     │             ├── prj.conf
-     │  	       ├── hello_world
-     │                 ├── CMakeLists.txt
-     │                 ├── Kconfig
-     │                 ├── prj.conf
-     │                 ├── hello_world.c
+     │   	├── demo_apps
+     │              ├── reconfig.cmake
+     │              ├── prj.conf
+     │  	        ├── hello_world
+     │                     ├── CMakeLists.txt
+     │                     ├── Kconfig
+     │                     ├── prj.conf
+     │                     ├── hello_world.c
 ```
 
-The repository example supports "PROJECT_BOARD_PORT_PATH" inside "project" macro to specify the unified and customized board specific configuration. Any prj.conf and reconfig.cmake inside any sub folder of PROJECT_BOARD_PORT_PATH will be included into build tree.
+#### Hierarchical Configuration For Board Porting
+
+For MCUXpresso SDK officially supported boards, the board porting are done for all board supported examples in a hierarchical way. In any repository example CMakeLists.txt "project" macro, the "PROJECT_BOARD_PORT_PATH" is provided to specify the root board porting path. All the prj.conf files inside each sub folder of PROJECT_BOARD_PORT_PATH will be processed during the example build, they are hierarchically configuring the example in different levels. 
+
+Take evkmimxrt1170 hello_world porting for example, in the hello_world CMakeLists.txt, we have "PROJECT_BOARD_PORT_PATH" as "examples/_boards/${board}/demo_apps/hello_world" as the following:
+
+```cmake
+project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH examples/_boards/${board}/demo_apps/hello_world)
+```
+
+So following prj.conf files are taken into examples to do different level configurations.
+
+| prj.conf                                 | Application scope of configuration       |
+| ---------------------------------------- | ---------------------------------------- |
+| examples/prj.conf                        | Apply for all examples                   |
+| examples/\_boards/prj.conf               | Apply for all NXP official boards examples |
+| examples/\_boards/evkmimxrt1170/prj.conf | Apply for all evkmimxrt1170 examples     |
+| examples/\_boards/evkmimxrt1170/demo_apps/prj.conf | Apply for all evkmimxrt1170 demo apps examples |
+| examples/\_boards/evkmimxrt1170/demo_apps/hello_world/prj.conf | Apply for evkmimxrt1170 hello_world examples |
+
+The deeper path of prj.conf, the higher priority it has. You can refer the chapter [prj.conf.](#Kconfig-Process-Flow).
+
+Note, such hierarchical configuration must be specified with "PROJECT_BOARD_PORT_PATH" and only supports examples under "examples" folder, that is the standard repository example.
 
 ### Freestanding Example
 
-Freestanding example CMakelists.txt shall be located in any place other than `mcu-sdk-3.0/examples`.
-
-Freestanding examples doesn't support "PROJECT_BOARD_PORT_PATH" in "project" macro.
-
-Freestanding examples share the same build and run way as repository examples. You can still use `west build` to work.
+Unlike standard repository examples, freestanding examples don't support hierarchical configuration for board porting, so there is no "PROJECT_BOARD_PORT_PATH" in "project" macro and there is no location restriction for freestanding example which means it can be placed anywhere. 
 
 - Inside mcu-sdk-3.0 repo
 
@@ -2103,9 +2120,13 @@ Freestanding examples share the same build and run way as repository examples. Y
            └── main.c
   ```
 
-All freestanding examples still share the default prj conf of the target board and device. Compared with repository example, the board example specific configuration inside examples folder are not available for freestanding examples.
+Freestanding examples share the same build and run way as repository examples. You can still use `west build` to work.
 
-The prj conf list is like
+#### Configuration
+
+All freestanding examples still share the default configuration of the target board and device and the full scope example configuration. 
+
+The default prj.conf list is like
 
 ```yaml
 1. devices/prj.conf
@@ -2116,7 +2137,7 @@ The prj conf list is like
 6. examples/_boards/prj.conf
 6. examples/_boards/<board>/prj.conf
 7. examples/_boards/<board>/<core_id>/prj.conf
-8. <example location>/prj.conf
+8. <example location>/prj.conf # The example itself configuration
 ```
 
 Note, the freestanding project may don't need the default pin mux and hardware_init/app prj.conf setting, you can disable them by
@@ -2128,17 +2149,51 @@ CONFIG_MCUX_HAS_PRJSEG_project.use_hw_app=n
 CONFIG_MCUX_HAS_PRJSEG_module.board.pinmux_sel=n
 ```
 
+#### Ways To Get MCUXpresso SDK Contents
+
+For freestanding project, there are 2 ways to get the MCUXpresso SDK contents.
+
+##### Explicitly include root CMakeLists.txt
+
+The CMakeLists.txt shall explicitly include mcux.cmake to get the NXP cmake extension and include the root CMakeLists.txt to get MCUXpresso SDK contents.
+
+```cmake
+include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
+# No PROJECT_BOARD_PORT_PATH in project
+project(hello_world LANGUAGES C CXX ASM)
+include(${SdkRootDirPath}/CMakeLists.txt)
+```
+
+##### Use McuxSDK CMake package
+
+Since the MCUXpresso SDK can be export to be a standard CMake package, so you can directly use find_package(McuxSDK) way to get MCUXpresso SDK contents:
+
+```cmake
+cmake_minimum_required(VERSION 3.30.0)
+find_package(McuxSDK 24.12.00 EXACT REQUIRED)
+project(hello_world LANGUAGES C CXX ASM)
+```
+
+Please refer [McuxSDK CMake Package](#McuxSDK-CMake-Package) for details.
+
 ### Standalone Example
 
-If you want to share the example with others, sharing the freestanding project is a good way if both sides work on mcu-sdk-3.0. However, if the other developer does not use meta build system, it is not feasible to zip all repository into a package file and send it over email.
+The build system provides a feature to collect and copy all the components, project segments and example self configurations and sources into an individual folder so that the example can build and run just with the stuff in the folder without depending on the sources, configurations and the build system inside the west repos. 
 
-Based on this requirement, the meta build system can export standalone project from the repository. The project contains everything necessary for a single project, keeps same folder structure comparing with repository, which does not rely on meta build system.
+With this feature, it could be very convenient to zip and share examples between customers and developers.
 
-To accomplish this, we maintain a simplified build system in a separate project. In short, for those IDEs with a graphical interface, generate the corresponding IDE project, for example, .ewp file for IAR, .uvprojx for Keil. As for toolchain without GUI project, such as ARMGCC, provide a CMakeLists.txt that flattens all files and configurations.
+To build the standalone examples, an individual build system is provided in the location folder. 
+
+- For toolchains with GUI tool support like IAR/MDK/Codewarrior/Xtensa, the project files, like .ewp file for IAR, .uvprojx for MDK, will be generated to use. Developers and customers can directly use corresponding IDE to work. 
+
+
+- For toolchain without GUI tool support like Armgcc, all the examples files and configurations will be flattened into a complete CMakeLists.txt. Build target specific shell and windows cmd batch will be provided to do the build.
+
+  **There is no Kconfig file in the standalone folder, so there is no Kconfig GUI feature in the standalone example.**
 
 The standalone project can be generated with west command line parameters "-t standalone_project". For example:
 
-```
+```bash
 west build -b frdmk64f ./examples/demo_apps/hello_world -p always --config debug --toolchain iar -t standalone_project
 ```
 
@@ -2148,9 +2203,10 @@ You can find IAR project in build folder with source code.
 
 Note:
 
-1. The default destination folder is mcu-sdk-3.0/build/${toolchain}. You can also specify the destination folder with command line parameter "-d" .
-2. You can only create a project for a specific toolchain and config in one CMake configuration context. You should remove CMake build folder or run with "-p always" if changing toolchain or config
-3. If the CMake has generated build artifacts, you can just type "west build -t standalone_project"
+1. **The standalone project supports repository examples and freestanding examples using the explicitly include root CMakeLists.txt. Freestanding examples using McuxSDK CMake package do not have standalone project feature.**
+2. The default destination folder is mcu-sdk-3.0/build/${toolchain}. You can also specify the destination folder with command line parameter "-d" .
+3. You can only create a project for a specific toolchain and config in one CMake configuration context. You should remove CMake build folder or run with "-p always" if changing toolchain or config
+4. If the CMake has generated build artifacts, you can directly type "west build -t standalone_project" to generate.
 
 ## Enable An Example
 
@@ -2242,9 +2298,9 @@ There are 2 ways to use the McuxSDK CMake package:
 
    | OS      | CMake user package registry              |
    | ------- | ---------------------------------------- |
-   | Windows | HKEY_CURRENT_USER\Software\Kitware\CMake\Packages\Zephyr |
-   | Ubuntu  | ~/.cmake/packages/Zephyr                 |
-   | MacOS   | ~/.cmake/packages/Zephyr                 |
+   | Windows | HKEY_CURRENT_USER\Software\Kitware\CMake\Packages\McuxSDK |
+   | Ubuntu  | ~/.cmake/packages/McuxSDK                |
+   | MacOS   | ~/.cmake/packages/McuxSDK                |
 
    There are 2 ways to export MCUXpresso SDK repo.
 
@@ -2324,7 +2380,7 @@ and set them into project template files. Currently, the meta build system suppo
 2. Project templates
 
    Project template files are prepared in mcu-sdk-3.0/scripts/guigenerator/templates. You need to set `project-templates` for specific toolchain in `examples/${board}/IDE.yml` for single core devices, 
-or `examples/${board}/${core_id}/IDE.yml` for multicore devices. For example:
+   or `examples/${board}/${core_id}/IDE.yml` for multicore devices. For example:
     ``` yaml
    # mcu-sdk-3.0/examples/evkbmimxrt1170/cm4/IDE.yml
     mdk:
@@ -2696,7 +2752,7 @@ It's not identical for different toolchain:
   	LD "-Xlinker --defsym=__stack_size__=0x3000 -Xlinker --defsym=__heap_size__=0x3000"
   )
   ```
-  
+
 To simplify heap stack setting, you can just set linker symbols with `mcux_add_linker_symbol`.
 For example
 
