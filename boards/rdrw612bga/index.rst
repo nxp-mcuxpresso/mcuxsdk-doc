@@ -6,7 +6,8 @@ RD-RW612-BGA
 Overview
 ********
 
-
+
+
 
 
 .. image:: ./rdrw612bga.png
@@ -20,3 +21,10 @@ MCU device and part on board is shown below:
  - PartNumber: RW612ETA2I
 
 
+Getting Started
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started with MCUXpresso SDK for RD-RW61X
+
+   gettingStarted/gsindex.md
