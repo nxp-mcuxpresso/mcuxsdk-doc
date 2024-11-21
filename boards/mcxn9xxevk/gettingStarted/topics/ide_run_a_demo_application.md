@@ -1,4 +1,4 @@
-# Run a demo application using MCUXpresso IDE {#topic_gnd_fjw_lvb}
+# Run a demo application using MCUXpresso IDE 
 
 **Note:** Ensure that the MCUXpresso IDE toolchain is included when generating the MCUXpresso SDK package.
 

@@ -1,4 +1,4 @@
-# Run a demo using Keil MDK/μVision {#topic_lzp_mlx_lvb}
+# Run a demo using Keil MDK/μVision 
 
 This section describes the steps required to build, run, and debug example applications provided in the MCUXpresso SDK. The `hello_world` demo application targeted for the MCX-N9XX-EVK hardware platform is used as an example, although these steps can be applied to any demo or example application in the MCUXpresso SDK.
 

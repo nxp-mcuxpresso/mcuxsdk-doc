@@ -1,5 +1,4 @@
-# Run an example application {#topic_btg_ftx_lvb}
-
+# Run an example application 
 This section describes steps to run a demo application using J-Link GDB Server application.
 
 To complete the set-up check if your board supports OpenSDA, see [Default debug interfaces](default_debug_interfaces.md).

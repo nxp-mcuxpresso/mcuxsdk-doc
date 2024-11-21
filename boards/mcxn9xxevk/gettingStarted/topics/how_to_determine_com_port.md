@@ -1,4 +1,4 @@
-# How to determine com port {#topic_vwg_vvw_lvb}
+# How to determine com port 
 
 This section describes the steps necessary to determine the debug COM port number of your NXP hardware development platform. All NXP boards ship with a factory programmed, on-board debug interface, whether it’s based on OpenSDA or the legacy P&E Micro OSJTAG interface. To determine what your specific board ships with, see [Default debug interfaces](default_debug_interfaces.md).
 

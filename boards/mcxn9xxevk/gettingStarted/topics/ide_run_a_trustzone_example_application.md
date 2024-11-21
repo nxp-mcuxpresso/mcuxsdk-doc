@@ -1,4 +1,4 @@
-# Run a TrustZone example application {#topic_e4b_vbx_lvb}
+# Run a TrustZone example application 
 
 To download and run the application perform all steps as described in [Run an example application](ide_run_an_example_application.md). These steps are common for single core, dual-core, and TrustZone applications, ensuring both sides of the TrustZone application are properly loaded and started secure application. However, there is one additional dialogue that is specific to TrustZone examples. See [Figure 1](#DEBUGLPC) and [Figure 2](#ATTACHEDPROBES) as reference.
 

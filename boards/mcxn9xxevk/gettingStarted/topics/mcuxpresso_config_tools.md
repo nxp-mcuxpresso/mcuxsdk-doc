@@ -1,4 +1,4 @@
-# MCUXpresso Config Tools {#topic_uqb_qxx_lvb}
+# MCUXpresso Config Tools 
 
 MCUXpresso Config Tools can help configure the processor and generate initialization code for the on chip peripherals. The tools are able to modify any existing example project, or create a new configuration for the selected board or processor. The generated code is designed to be used with MCUXpresso SDK version 2.x.
 

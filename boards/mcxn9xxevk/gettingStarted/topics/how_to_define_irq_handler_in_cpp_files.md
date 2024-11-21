@@ -1,4 +1,4 @@
-# How to define IRQ handler in CPP files {#topic_eb3_lyx_lvb}
+# How to define IRQ handler in CPP files
 
 With MCUXpresso SDK, users could define their own IRQ handler in application level to
 

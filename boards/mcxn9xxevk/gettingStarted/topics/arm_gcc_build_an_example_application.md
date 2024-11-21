@@ -1,5 +1,4 @@
-# Build an example application {#topic_p1k_ssx_lvb}
-
+# Build an example application 
 To build an example application, follow these steps.
 
 1.  Open a GCC Arm Embedded tool chain command window. To launch the window, from the Windows operating system **Start** menu, go to **Programs** \>**GNU Tools Arm Embedded <version\>** and select **GCC Command Prompt**.

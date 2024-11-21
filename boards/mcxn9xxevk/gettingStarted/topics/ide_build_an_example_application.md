@@ -1,4 +1,4 @@
-# Build an example application {#topic_tx3_ysw_lvb}
+# Build an example application 
 
 To build an example application, follow these steps.
 

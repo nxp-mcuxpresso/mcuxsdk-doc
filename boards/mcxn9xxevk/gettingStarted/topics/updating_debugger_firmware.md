@@ -1,4 +1,4 @@
-# Updating debugger firmware {#topic_p4d_1zx_lvb}
+# Updating debugger firmware 
 
 
 ```{include} ../topics/updating_mcxn_board_firmware.md

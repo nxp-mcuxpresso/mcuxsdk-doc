@@ -1,4 +1,4 @@
-# Run an example application {#topic_v5q_ymx_lvb}
+# Run an example application 
 
 To download and run the application, perform these steps:
 

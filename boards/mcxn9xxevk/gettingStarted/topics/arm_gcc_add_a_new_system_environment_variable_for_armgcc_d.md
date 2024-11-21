@@ -1,4 +1,4 @@
-# Add a new system environment variable for ARMGCC\_DIR {#topic_pqf_gsx_lvb}
+# Add a new system environment variable for ARMGCC\_DIR 
 
 Create a new *system* environment variable and name it as `ARMGCC_DIR`. The value of this variable should point to the Arm GCC Embedded tool chain installation path. For this example, the path is:
 

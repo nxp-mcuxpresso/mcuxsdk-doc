@@ -1,4 +1,4 @@
-# Build a TrustZone example application {#topic_tmy_pyw_lvb}
+# Build a TrustZone example application 
 
 This section describes the steps required to configure MCUXpresso IDE to build, run, and debug TrustZone example applications. The trustzone version of the `hello_world` example application targeted for the MCX-N9XX-EVK hardware platform is used as an example, though these steps can be applied to any TrustZone example application in the MCUXpresso SDK.
 
