@@ -230,3 +230,13 @@ modules:
       pattern: 'middleware/freemaster/doc/index.md'
     - root: .
       pattern: 'middleware/freemaster/doc/user_guide/*'
+  mid_issdk:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/issdk/*'
+  mid_ble:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/wireless/Bluetooth/*'
