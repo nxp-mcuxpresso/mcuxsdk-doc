@@ -412,11 +412,14 @@ html_theme_options = {
     "prev_next_buttons_location": None,
     'collapse_navigation' : False,
 }
-html_baseurl = "https://docs.zephyrproject.org/latest/"
+html_baseurl = "https://kex-dev.nxp.com/docs/latest/"
 html_title = "MCUXpresso SDK Documentation"
 html_logo = str(DOC_BASE / "_static" / "images" / "nxp_logo_small.png")
 html_favicon = str(DOC_BASE / "_static" / "images" / "nxp_logo_small.png")
-html_static_path = [str(DOC_BASE / "_static")]
+static_path = [str(DOC_BASE / "_static")]
+if os.path.exists(os.path.join(DOC_BASE, "internal")):
+    static_path.append(str(DOC_BASE / "internal" / "public"))
+html_static_path = static_path
 html_last_updated_fmt = "%b %d, %Y"
 html_domain_indices = False
 html_split_index = True
@@ -441,14 +444,10 @@ html_context = {
     "branch_info": docgen_branch,
     "rev_info": docgen_rev,
     "versions": (
-        ("latest", "/"),
-        ("24.3.0.0", "/24.3.0.0/"),
-        ("24.3.1.0", "/24.3.1.0/"),
+        ("latest", "/latest/"),
+        ("24.12.00-pvw2", "/24.12.00-pvw2/"),
     ),
     "display_vcs_link": True,
-    "reference_links": {
-        "API Reference Manual": f"{reference_prefix}/doxygen/html/index.html",
-    },
 }
 # -- Options for vcs_link ------------------------------------------
 if 'vcs_link' in extensions:

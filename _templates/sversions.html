@@ -12,10 +12,5 @@
           <dd><a href="{{ url }}">{{ slug }}</a></dd>
         {% endfor %}
       </dl>
-      <dl>
-        <dt>{{ _('Downloads') }}</dt>
-        {% set prefix = current_version if is_release else "latest" %}
-        <dd><a href="/{{ prefix }}/mcuxsdk.pdf">PDF</a></dd>
-      </dl>
     </div>
   </div>
