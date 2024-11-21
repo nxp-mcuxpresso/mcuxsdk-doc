@@ -1,4 +1,4 @@
-# Build an example application {#topic_wnp_nmx_lvb}
+# Build an example application 
 
 1.  Open the desired example application workspace in:
 

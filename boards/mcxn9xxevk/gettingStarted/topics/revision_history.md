@@ -1,4 +1,4 @@
-# Revision history {#topic_ikt_fzx_lvb}
+# Revision history 
 
 |Rev.|Date|Description|
 |:--:|:--:|-----------|

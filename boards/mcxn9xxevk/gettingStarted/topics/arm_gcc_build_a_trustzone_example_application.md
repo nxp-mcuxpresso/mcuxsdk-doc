@@ -1,5 +1,4 @@
-# Build a TrustZone example application {#topic_f3d_fwx_lvb}
-
+# Build a TrustZone example application 
 This section describes the steps to build and run a TrustZone application. The demo application build scripts are located in this folder:
 
 ```

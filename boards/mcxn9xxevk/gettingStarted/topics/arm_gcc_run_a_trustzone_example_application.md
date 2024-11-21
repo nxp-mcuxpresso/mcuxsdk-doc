@@ -1,4 +1,4 @@
-# Run a TrustZone example application {#topic_hjx_twx_lvb}
+# Run a TrustZone example application 
 
 When running a TrustZone application, the same prerequisites for J-Link/J-Link OpenSDA firmware, and the serial console as for the single core application, apply, as described in [Run an example application](arm_gcc_run_an_example_application.md).
 

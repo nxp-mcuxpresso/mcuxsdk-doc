@@ -1,4 +1,4 @@
-# Updating MCXN board firmware {#topic_w1m_bzx_lvb}
+# Updating MCXN board firmware 
 
 The MCXN hardware platform comes with a CMSIS-DAP-compatible debug interface \(known as LPC-Link2\). This firmware in this debug interface may be updated using the host computer utility called LPCScrypt. This typically used when switching between the default debugger protocol \(CMSIS-DAP\) to SEGGER J-Link, or for updating this firmware with new releases of these. This section contains the steps to re-program the debug probe firmware.
 

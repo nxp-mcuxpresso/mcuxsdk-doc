@@ -1,4 +1,4 @@
-# Run a TrustZone example application {#topic_d3l_tpx_lvb}
+# Run a TrustZone example application 
 
 The secure project is configured to download both secure and non-secure output files so debugging can be fully managed from the secure project.
 

@@ -1,5 +1,4 @@
-# Build a TrustZone example application {#topic_vsj_ljx_lvb}
-
+# Build a TrustZone example application 
 This section describes the particular steps that need to be done in order to build and run a TrustZone application. The demo applications workspace files are located in this folder:
 
 ```

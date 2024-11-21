@@ -1,4 +1,4 @@
-# Run an example application {#topic_wsr_gfx_lvb}
+# Run an example application 
 
 To download and run the application, perform these steps:
 

@@ -1,4 +1,4 @@
-# Build an example application {#topic_ubt_j2x_lvb}
+# Build an example application 
 
 Do the following steps to build the `hello_world` example application.
 
