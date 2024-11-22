@@ -20,7 +20,6 @@ MCU device and part on board is shown below:
  - Device: MCXA276
  - PartNumber: MCXA276VLQ
 
-
 Getting Started
 ****************
 .. toctree::
