@@ -22,3 +22,10 @@ MCU device and part on board is shown below:
  - PartNumber: MCXA166VLQ
 
 
+Getting Started
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started with MCUXpresso SDK for RD-RW61X
+
+   ../commongs/gettingStarted/gsindex.md
