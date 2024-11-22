@@ -20,3 +20,10 @@ MCU device and part on board is shown below:
  - PartNumber: MCXA276VLQ
 
 
+Getting Started
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started with MCUXpresso SDK 
+
+   ../commongs/gettingStarted/gsindex.md
