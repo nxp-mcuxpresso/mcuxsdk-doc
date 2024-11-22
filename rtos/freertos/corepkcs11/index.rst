@@ -9,4 +9,4 @@ PKCS #11 key management library.
    :maxdepth: 1
    :glob:
 
-   corepkcs11 <corepkcs11/README>
+   readme_int.rst

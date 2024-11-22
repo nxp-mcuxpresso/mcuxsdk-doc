@@ -7,4 +7,4 @@ RTOS
    :maxdepth: 1
    :glob:
 
-   **/index
+   freertos/index.rst

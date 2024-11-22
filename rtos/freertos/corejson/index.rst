@@ -9,4 +9,4 @@ JSON parser.
    :maxdepth: 1
    :glob:
 
-   corejson <corejson/README>
+   readme_int.rst

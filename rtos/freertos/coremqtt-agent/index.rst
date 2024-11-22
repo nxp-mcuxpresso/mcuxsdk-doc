@@ -9,4 +9,4 @@ The coreMQTT Agent library is a high level API that adds thread safety to the co
    :maxdepth: 1
    :glob:
 
-   coremqtt-agent <coremqtt-agent/README>
+   readme_int.rst

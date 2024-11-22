@@ -9,4 +9,4 @@ Open source RTOS FreeRTOS Plus TCP.
    :maxdepth: 1
    :glob:
 
-   freertos-plus-tcp <freertos-plus-tcp/README>
+   readme_int.rst
