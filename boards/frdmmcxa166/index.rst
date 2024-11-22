@@ -6,9 +6,12 @@ FRDM-MCXA166
 Overview
 ********
 
-| The NXP FRDM-MCXA166 is a development board for the MCXA166 180MHz Arm Cortex-M33 microcontroller.
-
-` <https://mir.nxp.com/log/record?refType=board&amp;refId=241&amp;column=overview>`__
+| The NXP FRDM-MCXA166 is a development board for the MCXA166 180MHz Arm Cortex-M33 microcontroller.
+
+
+
+` <https://mir.nxp.com/log/record?refType=board&amp;refId=241&amp;column=overview>`__
+
 
 
 .. image:: ./frdmmcxa166.png
@@ -26,6 +29,6 @@ Getting Started
 ****************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for RD-RW61X
+   :caption: Getting Started with MCUXpresso SDK 
 
    ../commongs/gettingStarted/gsindex.md
