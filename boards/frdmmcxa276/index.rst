@@ -6,7 +6,8 @@ FRDM-MCXA276
 Overview
 ********
 
-| The NXP FRDM-MCXA276 is a development board for the MCXA276 180MHz Arm Cortex-M33 microcontroller.
+| The NXP FRDM-MCXA276 is a development board for the MCXA276 180MHz Arm Cortex-M33 microcontroller.
+
 
 
 .. image:: ./frdmmcxa276.png
@@ -24,6 +25,6 @@ Getting Started
 ****************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK 
+   :caption: Getting Started with MCUXpresso SDK for FRDM-MCXA276
 
    ../commongs/gettingStarted/gsindex.md
