@@ -1,4 +1,4 @@
-# MCUXSDKGSUG
+# Getting Started with MCUXpresso SDK
 
 
 ```{tocTree}
@@ -17,6 +17,5 @@ topics/how_to_determine_com_port.md
 topics/how_to_define_irq_handler_in_cpp_files.md
 topics/default_debug_interfaces.md
 topics/updating_debugger_firmware.md
-topics/revision_history.md
-topics/legal_information.md
+
 ```
