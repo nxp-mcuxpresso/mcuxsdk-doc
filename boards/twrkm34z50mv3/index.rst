@@ -6,7 +6,6 @@ TWR-KM34Z50MV3
 Overview
 ********
 
-
 
 
 .. image:: ./twrkm34z50mv3.png
@@ -20,3 +19,10 @@ MCU device and part on board is shown below:
  - PartNumber: MKM34Z128ACLL5
 
 
+Getting Started
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started with MCUXpresso SDK TWR-KM34Z50MV3
+
+   ../commongs/gettingStarted/gsindex.md
