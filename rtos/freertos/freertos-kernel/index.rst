@@ -9,4 +9,4 @@ Open source RTOS kernel for small devices.
    :maxdepth: 1
    :glob:
 
-   freertos-kernel <freertos-kernel/README>
+   readme_int.rst

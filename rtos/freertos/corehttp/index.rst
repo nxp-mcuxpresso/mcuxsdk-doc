@@ -9,4 +9,4 @@ C language HTTP client library designed for embedded platforms.
    :maxdepth: 1
    :glob:
 
-   corehttp <corehttp/README>
+   Readme <README>

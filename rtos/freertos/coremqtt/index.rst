@@ -9,4 +9,4 @@ MQTT publish/subscribe messaging library.
    :maxdepth: 1
    :glob:
 
-   coremqtt <coremqtt/README>
+   Readme <README>

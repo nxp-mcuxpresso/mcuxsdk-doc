@@ -9,4 +9,4 @@ Algorithm for calculating exponential backoff with jitter for network retry atte
    :maxdepth: 1
    :glob:
 
-   backoffalgorithm <backoffalgorithm/README>
+   readme_int.rst

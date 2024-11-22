@@ -44,7 +44,7 @@ external_contents:
 - root: docs
   pattern: 'rtos/index.rst'
 - root: docs
-  pattern: 'rtos/freertos/freertos-drivers/*'
+  pattern: 'rtos/*'
 - root: 'docs'
   pattern: 'middleware/fatfs/*'
 modules:
