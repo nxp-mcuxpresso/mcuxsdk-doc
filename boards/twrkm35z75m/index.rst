@@ -20,6 +20,7 @@ MCU device and part on board is shown below:
  - Device: MKM35Z7
  - PartNumber: MKM35Z512VLQ7
 
+
 Getting Started
 ****************
 .. toctree::
