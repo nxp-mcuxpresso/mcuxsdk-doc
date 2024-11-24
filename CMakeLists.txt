@@ -12,11 +12,13 @@ set(SPHINXOPTS "-j auto -W --keep-going -T" CACHE STRING "Default Sphinx Options
 set(SPHINXOPTS_EXTRA "" CACHE STRING "Extra Sphinx Options (added to defaults)")
 set(LATEXMKOPTS "-halt-on-error -no-shell-escape" CACHE STRING "Default latexmk options")
 set(DOC_TAG "development" CACHE STRING "Documentation tag, multiple tags are divided by comma")
+set(DOC_DEFINE "" CACHE STRING "Documentation scope")
 
 separate_arguments(SPHINXOPTS)
 separate_arguments(SPHINXOPTS_EXTRA)
 separate_arguments(LATEXMKOPTS)
 
+# Split the DOC_TAG into a list
 string(REPLACE "," ";" DOC_TAG_LIST "${DOC_TAG}")
 set(SPHINX_DOC_TAGS "" CACHE STRING "Sphinx Documentation tags")
 foreach(TAG ${DOC_TAG_LIST})
@@ -24,6 +26,15 @@ foreach(TAG ${DOC_TAG_LIST})
 endforeach()
 message(STATUS "Sphinx Documentation tags: ${SPHINX_DOC_TAGS}")
 separate_arguments(SPHINX_DOC_TAGS)
+
+# Split the DOC_DEFINE into a list and string append with -D
+string(REPLACE "," ";" DOC_DEFINE_LIST "${DOC_DEFINE}")
+set(SPHINX_DOC_DEFINES "" CACHE STRING "Sphinx Documentation defines")
+foreach(DEFINE ${DOC_DEFINE_LIST})
+  set(SPHINX_DOC_DEFINES "${SPHINX_DOC_DEFINES} -D ${DEFINE}")
+endforeach()
+message(STATUS "Sphinx Documentation defines: ${SPHINX_DOC_DEFINES}")
+separate_arguments(SPHINX_DOC_DEFINES)
 
 #-------------------------------------------------------------------------------
 # Dependencies
@@ -140,6 +151,7 @@ add_doc_target(
     -d ${DOCS_DOCTREE_DIR}
     -w ${DOCS_BUILD_DIR}/html.log
     ${SPHINX_DOC_TAGS}
+    ${SPHINX_DOC_DEFINES}
     ${SPHINXOPTS}
     ${SPHINXOPTS_EXTRA}
     ${DOCS_SRC_DIR}
