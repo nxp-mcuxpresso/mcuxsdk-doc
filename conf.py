@@ -178,9 +178,7 @@ class MCUXDocConfig:
                 (
                     r"^CURRENT_YEAR\s*=\s*(\d+)$\n"
                     + r"^VERSION_MAJOR\s*=\s*(\d+)$\n"
-                    + r"^VERSION_MINOR\s*=\s*(\d+)$\n"
-                    + r"^PATCHLEVEL\s*=\s*(\d+)$\n"
-                    + r"^EXTRAVERSION\s*=\s*(.*)$"
+                    + r"^VERSION_MINOR\s*=\s*([\d]+(-pvw\d+)*)$\n"
                 ),
                 f.read(),
                 re.MULTILINE,
@@ -190,10 +188,8 @@ class MCUXDocConfig:
                 sys.stderr.write("Warning: Could not extract SDK version\n")
                 matched_version = "Unknown"
             else:
-                year, major, minor, patch, extra = m.groups(1)
-                matched_version= ".".join((year, major, minor, patch))
-                if extra:
-                    matched_version += "-" + extra
+                year, major, minor, preview = m.groups(1)
+                matched_version= ".".join((year, major, minor))
 
         return matched_version
 
@@ -414,11 +410,11 @@ html_theme_options = {
 }
 html_baseurl = "https://kex-dev.nxp.com/docs/latest/"
 html_title = "MCUXpresso SDK Documentation"
-html_logo = str(DOC_BASE / "_static" / "images" / "nxp_logo_small.png")
-html_favicon = str(DOC_BASE / "_static" / "images" / "nxp_logo_small.png")
 static_path = [str(DOC_BASE / "_static")]
 if os.path.exists(os.path.join(DOC_BASE, "internal")):
     static_path.append(str(DOC_BASE / "internal" / "public"))
+    html_logo = str(DOC_BASE / "internal" / "images" / "nxp_logo_small.png")
+    html_favicon = str(DOC_BASE / "internal" / "images" / "nxp_logo_small.png")
 html_static_path = static_path
 html_last_updated_fmt = "%b %d, %Y"
 html_domain_indices = False
@@ -444,8 +440,8 @@ html_context = {
     "branch_info": docgen_branch,
     "rev_info": docgen_rev,
     "versions": (
-        ("latest", "/latest/"),
-        ("24.12.00-pvw2", "/24.12.00-pvw2/"),
+        ("latest", "/latest/html/"),
+        ("24.12.00-pvw2", "/24.12.00-pvw2/html/"),
     ),
     "display_vcs_link": True,
 }
