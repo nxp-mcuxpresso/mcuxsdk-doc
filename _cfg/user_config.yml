@@ -60,6 +60,10 @@ modules:
     external_contents:
     - root: 'docs'
       pattern: 'gsd/*'
+    internal:
+      external_contents:
+      - root: ..
+        pattern: bifrost/readme.md
   doxygen:
     default: true
     extensions:
