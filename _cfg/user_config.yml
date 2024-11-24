@@ -11,7 +11,6 @@ extensions:
 - myst_parser
 - external_content
 - page_filter
-# - sphinxcontrib.plantuml
 - sphinx.ext.graphviz
 - sphinx_tabs.tabs
 source_suffix:
@@ -118,10 +117,12 @@ modules:
     external_contents:
     - root: 'docs'
       pattern: 'develop/build_system/*'
-    - root: '.'
-      pattern: 'ecosystem/sdk_generator/doc_ecosystem/index.rst'
-    - root: '.'
-      pattern: 'ecosystem/sdk_generator/doc_ecosystem/*'
+    internal:
+      external_contents:
+      - root: '.'
+        pattern: 'ecosystem/sdk_generator/doc_ecosystem/index.rst'
+      - root: '.'
+        pattern: 'ecosystem/sdk_generator/doc_ecosystem/*'
   mid_wireless_fwk:
     default: true
     external_contents:
