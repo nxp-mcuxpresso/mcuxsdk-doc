@@ -1,36 +1,38 @@
+'''MCUXpresso Document Extension
+   Copyright 2024 NXP
+   All rights reserved.
+
+   SPDX-License-Identifier: BSD-3-Clause
+'''
 #!/usr/bin/python3
-from pathlib import Path
+import os
+import shutil
+import shlex
 import argparse
-import shutil, shlex
 import subprocess
+from pathlib import Path
+from textwrap import dedent  # just for nicer code indentation
+
+import yaml
 from west.commands import WestCommand
-from west.commands import CommandError
-from west.manifest import Manifest
-from west.util import west_topdir
-
-import os,yaml,logging
-
-from pathlib import *
-from textwrap import dedent            # just for nicer code indentation
-from west import log
-import subprocess
 
 DOC_PATH = Path(__file__).absolute().parents[2]
 
 with open(DOC_PATH / '_cfg/user_config.yml', 'r', encoding='utf-8') as f:
     MODULE_NAMES = yaml.safe_load(f)['modules'].keys()
 
-lf_string = "\n"
+LF_STRING = "\n"
 DOC_USAGE = f'''
 Tags:
-    Modules: {lf_string.join(MODULE_NAMES)}
+    Modules: {LF_STRING.join(MODULE_NAMES)}
 '''
 
 class MCUXDoc(WestCommand):
+    '''MCUXpresso Document Externsion'''
     def __init__(self):
         super().__init__(
             name='doc',
-            help='Install conditional personal git configuration to global git configuration, which translates the Github URL to Bitbucket URL',
+            help='Generate MCUXpresso SDK Document',
             description=dedent('''
             Use this command to set up sdk development repos.'''))
 
@@ -46,18 +48,52 @@ class MCUXDoc(WestCommand):
                                  usage=DOC_USAGE,
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-        parser.add_argument('target', action='store', type=str, choices=['clean', 'html', 'latex', 'doxygen', 'pdf', 'config', 'view'], help='Target for the document creation')
-        parser.add_argument('-t', '--tags',  action='store', type=str, default='development', help='Tags for the document creation. Tags are joined by "," and regex format. For example, -t mid_.*,gsd will pick the modules starting with mid_ and gsd module.')
-        parser.add_argument('-b', '--build_dir',action='store', type=str, default='_build', help='Build directory for the document creation')
-        parser.add_argument('--sphinx_opts', action='store', type=str, default='-j auto --keep-going -T', help='Additional options for sphinx-build')
-        parser.add_argument('--sphinx_extra_opts', action='store', type=str, default='', help='Additional options for sphinx-build')
-        parser.add_argument('--latexmkopts', action='store', type=str, default=' -halt-on-error -no-shell-escape', help='Additional options for latexmk')
-        parser.add_argument('--branch', action='store', type=str, default='main', help='Branch for the document creation')
-        parser.add_argument('--revision', action='store', type=str, default='851c5ddabe8', help='Revision for the document creation')
+        parser.add_argument(
+            'target', action='store', type=str,
+            choices=['clean', 'html', 'latex', 'doxygen', 'pdf', 'config', 'view'],
+            help='Target for the document creation'
+        )
+        parser.add_argument(
+            '-t', '--tags', action='store', type=str, default='development',
+            help='Tags for the document creation. Tags are joined by "," and regex format. '
+             'For example, -t mid_.*,gsd will pick the modules starting with mid_ and gsd module.'
+        )
+        parser.add_argument(
+            '-b', '--build_dir', action='store', type=str, default='_build',
+            help='Build directory for the document creation'
+        )
+        parser.add_argument(
+            '--sphinx_opts', action='store', type=str, default='-j auto --keep-going -T',
+            help='Additional options for sphinx-build'
+        )
+        parser.add_argument(
+            '--sphinx_extra_opts', action='store', type=str, default='',
+            help='Additional options for sphinx-build'
+        )
+        parser.add_argument(
+            '--latexmkopts', action='store', type=str, default=' -halt-on-error -no-shell-escape',
+            help='Additional options for latexmk'
+        )
+        parser.add_argument(
+            '--branch', action='store', type=str, default='main',
+            help='Branch for the document creation'
+        )
+        parser.add_argument(
+            '--revision', action='store', type=str, default='851c5ddabe8',
+            help='Revision for the document creation'
+        )
+        parser.add_argument(
+            '-d', '--defines', action='store', type=str, default='',
+            help='Additional defines for the document creation, e.g -d a=b,c=d'
+        )
+        parser.add_argument(
+            '--internal', action='store_true', default=False,
+            help='Internal document creation'
+        )
 
         return parser           # gets stored as self.parser
 
-    def do_run(self, args, unknown_args):
+    def do_run(self, args, unknown):
 
         self.banner("MCUX Document Creation")
         self.inf(f'  Target: {args.target}')
@@ -71,10 +107,10 @@ class MCUXDoc(WestCommand):
         elif args.target == 'config':
             targets = ['config']
         else:
-            targets = ['config', args.target]
+            targets = ['clean', 'config', args.target]
 
         for target in targets:
-            self.banner(f'Target Execution - {args.target}')
+            self.banner(f'Target Execution - {target}')
             if target == 'clean':
                 self.inf("Clean the document directory")
                 build_dir = DOC_PATH / args.build_dir
@@ -89,12 +125,19 @@ class MCUXDoc(WestCommand):
                 else:
                     self.err('Html folder is not existed')
             elif target == 'config':
-                cmd = shlex.split(f'cmake -GNinja -B{args.build_dir} -S . -DDOC_TAG={args.tags} -DSPHINXOPTS="{args.sphinx_opts}" -DSPHINXOPTS_EXTRA="{args.sphinx_extra_opts}" -DLATEXMKOPTS="{args.latexmkopts}" -DDOCGEN_BRANCH={args.branch} -DDOCGEN_REV={args.revision} -DSPHINX_CONF_DIR=.')
+                defines = args.defines
+                tags = 'internal_doc' if args.internal else 'external_doc'
+                if args.tags:
+                    tags += ',' + args.tags
+
+                cmd = shlex.split(f'cmake -GNinja -B{args.build_dir} -S . '
+                                  f'-DDOC_TAG={tags} -DDOC_DEFINE={defines} '
+                                  f'-DSPHINXOPTS="{args.sphinx_opts}" -DSPHINXOPTS_EXTRA="{args.sphinx_extra_opts}" '
+                                  f'-DLATEXMKOPTS="{args.latexmkopts}" '
+                                  f'-DDOCGEN_BRANCH={args.branch} -DDOCGEN_REV={args.revision} -DSPHINX_CONF_DIR=.')
                 if subprocess.check_call(cmd, cwd=DOC_PATH):
                     self.err("Failed to configure the document with \n" + cmd)
             else:
                 cmd = shlex.split(f'cmake --build {args.build_dir} --target {args.target}')
                 if subprocess.check_call(cmd, cwd=DOC_PATH):
                     self.err("Failed to build the document with \n" + cmd)
-
-

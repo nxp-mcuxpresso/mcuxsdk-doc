@@ -86,6 +86,13 @@ generated html pages to correct repository link
     - pattern: "Boards/.*readme"
       link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse"
 
+Internal Contents
+==================
+
+Some of the contents are internal only for development rather than for production. These contents are recorded
+in the ``internal`` field in the configuration file and will be excluded if ``--internal`` flag is not specified
+calling the ``west doc`` command.
+
 Modules
 ==================
 

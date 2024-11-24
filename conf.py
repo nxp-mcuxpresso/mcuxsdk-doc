@@ -1,3 +1,13 @@
+# Unless otherwise indicated, all code in the Sphinx project is licenced under the two clause BSD licence below.
+#
+# Copyright (c) 2007-2024 by the Sphinx team (see AUTHORS file). All rights reserved.
+# Copyright 2024 NXP
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#
+# Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+# Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
@@ -13,15 +23,14 @@
 
 # Paths ------------------------------------------------------------------------
 
-
 import os
-import copy
+import sys
 from pathlib import Path
-import yaml
 import re
 import textwrap
-import sys,subprocess
+import yaml
 from sphinx.cmd.build import get_parser
+import sphinx_rtd_theme
 
 # -- MCUXpresso SDK Configuration Data ----------------------------------------
 SDK_BASE = Path(__file__).absolute().parents[1]
@@ -36,23 +45,35 @@ class MCUXDocConfig:
 
         # Find matched tags
         self.user_tags = user_tags
-        print('-- MCUXDocConfig Tags')
+        print('-- Collecting MCUXDocConfig Tags')
         for tag in self.user_tags:
             print(f'  [+] {tag}')
 
+        if self.is_internal_doc:
+            print('-- Creating Internal Document')
+        else:
+            print('-- Creating External Document')
+
+        print('-- Collecting User Modules')
         # Match with module tag
         self.module_tags = []
-        for module_name in self.config['modules']:
+        for module_name, _ in self.iter_configs():
             if any([re.fullmatch(tag, module_name) for tag in self.user_tags]):
                 self.module_tags.append(module_name)
         if not self.module_tags:
-            for module_name, module_config in self.config['modules'].items():
+            for module_name, module_config in self.iter_configs():
                 if module_config.get('default', False):
                     self.module_tags.append(module_name)
-
-        print('-- MCUXDocConfig User Modules')
         for module in self.module_tags:
             print(f'  [+] {module}')
+
+    def iter_configs(self):
+        for module_name, module_config in self.config['modules'].items():
+            yield module_name, module_config
+
+    @property
+    def is_internal_doc(self):
+        return bool('internal_doc' in self.user_tags)
 
     @property
     def project(self):
@@ -68,7 +89,7 @@ class MCUXDocConfig:
 
     @property
     def version(self):
-        with open(SDK_BASE / "MCUX_VERSION") as f:
+        with open(SDK_BASE / "MCUX_VERSION", encoding='utf-8') as f:
             m = re.match(
                 (
                     r"^CURRENT_YEAR\s*=\s*(\d+)$\n"
@@ -103,10 +124,8 @@ class MCUXDocConfig:
         my_extensions = self.config['extensions']
 
         for module_name, module_config in self.iter_modules():
-            if not module_config.get('extensions', []):
-                continue
-            print(f'  [+] extensions from {module_name}')
-            my_extensions.extend(module_config['extensions'])
+            mod_extensions = self.get_mod_config(module_name, module_config, 'extensions')
+            my_extensions.extend(mod_extensions)
 
         return my_extensions
 
@@ -121,12 +140,10 @@ class MCUXDocConfig:
             (SDK_BASE / item['root'], item['pattern']) for item in self.config.get('external_contents', [])
         ]
         for module_name, module_config in self.iter_modules():
-            if not module_config.get('external_contents', []):
-                continue
-            print(f'  [+] external content from {module_name}')
+            mod_contents = self.get_mod_config(module_name, module_config, 'external_contents')
             contents.extend(
                 [
-                    (SDK_BASE/item['root'], item['pattern']) for item in module_config['external_contents']
+                    (SDK_BASE/item['root'], item['pattern']) for item in mod_contents
                 ]
             )
 
@@ -136,17 +153,27 @@ class MCUXDocConfig:
     def external_content_keep(self):
         return []
 
+    def get_mod_config(self, mod_name, mod_config, key):
+        int_mod_config = mod_config.get('internal', {})
+        if int_mod_config:
+            print(f'  [+] [{mod_name}][{key}][external]')
+        mod_option = mod_config.get(key, [])
+        if int_mod_config and int_mod_config.get(key, []):
+            if self.is_internal_doc:
+                print(f'  [+] [{mod_name}][{key}][internal]')
+                mod_option.extend(int_mod_config.get(key, []))
+
+        return mod_option
+
     @property
     def vcs_link(self):
         print('-- Collect VCS Link')
         links = {}
 
         for module_name, module_config in self.iter_modules():
-            if not module_config.get('vcs_link', {}):
-                continue
-            print(f'  [+] vcs link from {module_name}')
+            mod_links = self.get_mod_config(module_name, module_config, 'vcs_link')
             links.update({
-                item["pattern"]: item["link"] for item in module_config['vcs_link']
+                item["pattern"]: item["link"] for item in mod_links
             })
 
         links.update({
@@ -155,7 +182,7 @@ class MCUXDocConfig:
 
         return links
 
-mcux_config = MCUXDocConfig(tags)
+mcux_config = MCUXDocConfig(tags) # pylint: disable=undefined-variable
 
 # -- Functions -----------------------------------------------------------------
 # def search_sdk_base():
@@ -176,7 +203,6 @@ DOC_BUILD = Path(args.outputdir).resolve().parents[0]
 # sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, str(DOC_BASE))
 sys.path.insert(0, str(DOC_BASE / "_extensions"))
-import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
