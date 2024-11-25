@@ -7,6 +7,7 @@ List the Release Notes
    :maxdepth: 1
    :caption: Subpages:
 
+   ../commonrn/releaseNotes/rnindex.md
    release-notes-changelog.rst
    known_issues.rst
 
@@ -14,3 +15,5 @@ Maturity Level
 ================
 
 Explain the maturity Level definition and API Status
+
+
