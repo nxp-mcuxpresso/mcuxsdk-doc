@@ -19,7 +19,12 @@ MCU device and part on board is shown below:
 
 
 Getting Started
-***************
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started with MCUXpresso SDK for MCIMX93-QSB
+
+   gettingStarted/gsindex.md
 
 
 Release Notes
