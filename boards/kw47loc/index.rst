@@ -37,4 +37,4 @@ Release Notes
    :maxdepth: 1
    :caption: MCUXpresso SDK Release Notes for KW47-LOC
 
-   releaseNotes/rnindex.md
+   releaseNote/rnindex.md
