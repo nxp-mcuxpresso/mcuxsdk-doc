@@ -1,7 +1,11 @@
 Release Notes
 ================
 
-List the Release Notes
+.. toctree::
+   :maxdepth: 4
+   :caption: General Information:
+
+   commonrs/rnindex.md
 
 .. toctree::
    :maxdepth: 1

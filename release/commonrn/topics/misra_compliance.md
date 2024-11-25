@@ -1,16 +1,6 @@
 # MISRA compliance
 
-All MCUXpresso SDK drivers comply to MISRA 2012 rules with exceptions in [Table 1](misra_compliance.md#NEWIDTABLE).
-
-Directive 4.4: Sections of code should not be commented out.
-Directive 4.5: Identifiers in the same name space with overlapping visibility should be
-typographically unambiguous.
-Directive 4.6: Typedefs that indicate size and signedness should be used in place of the basic
-numerical types.
-Directive 4.8: If a pointer to a structure or union is never dereferenced within a translation unit,
-then the implementation of the object should be hidden.
-Directive 4.9: A function should be used in preference to a function-like macro where they are
-interchangeable.
+All MCUXpresso SDK drivers comply to MISRA 2012 rules with exceptions in the following table.
 
 
 | Exception Rules      | Description                                                                                     |
