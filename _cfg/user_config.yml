@@ -32,6 +32,8 @@ external_contents:
 - root: 'docs'
   pattern: 'middleware/audio_voice/maestro/*'
 - root: 'docs'
+  pattern: 'middleware/aws_iot/*'
+- root: 'docs'
   pattern: 'middleware/multicore/*'
 - root: 'docs'
   pattern: 'middleware/freemaster/*'
@@ -133,6 +135,17 @@ modules:
         pattern: 'ecosystem/sdk_generator/doc_ecosystem/index.rst'
       - root: '.'
         pattern: 'ecosystem/sdk_generator/doc_ecosystem/*'
+  mid_aws_iot:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/aws_iot/device-shadow/README.md'
+    - root: .
+      pattern: 'middleware/aws_iot/device-defender/README.md'
+    - root: .
+      pattern: 'middleware/aws_iot/jobs/README.md'
+    - root: .
+      pattern: 'middleware/aws_iot/ota/README.md'
   mid_wireless_fwk:
     default: true
     external_contents:
