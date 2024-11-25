@@ -118,6 +118,20 @@ class MCUXDocConfig:
             module_config = self.config['modules'][module_name]
             yield module_name, module_config
 
+    def get_mod_config(self, mod_name, mod_config, key):
+        # Get the module extenral config
+        mod_option = mod_config.get(key, [])
+        if mod_option:
+            print(f'  [+] [external][{key}][{mod_name}]')
+
+        # Get the internal module
+        int_mod_config = mod_config.get('internal', {})
+        if self.is_internal_doc and int_mod_config and int_mod_config.get(key, []):
+            print(f'  [+] [internal][{key}][{mod_name}]')
+            mod_option.extend(int_mod_config.get(key, []))
+
+        return mod_option
+
     @property
     def extensions(self):
         print('-- Collect Extensions')
@@ -152,18 +166,6 @@ class MCUXDocConfig:
     @property
     def external_content_keep(self):
         return []
-
-    def get_mod_config(self, mod_name, mod_config, key):
-        int_mod_config = mod_config.get('internal', {})
-        if int_mod_config:
-            print(f'  [+] [{mod_name}][{key}][external]')
-        mod_option = mod_config.get(key, [])
-        if int_mod_config and int_mod_config.get(key, []):
-            if self.is_internal_doc:
-                print(f'  [+] [{mod_name}][{key}][internal]')
-                mod_option.extend(int_mod_config.get(key, []))
-
-        return mod_option
 
     @property
     def vcs_link(self):
