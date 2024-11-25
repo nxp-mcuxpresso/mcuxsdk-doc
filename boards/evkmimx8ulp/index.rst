@@ -20,3 +20,15 @@ MCU device and part on board is shown below:
 
 Getting Started
 ***************
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for EVK-MIMX8ULP
+   gettingStarted/gsindex.md
+
+Release Notes
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for EVK-MIMX8ULP
+
+   releaseNotes/rnindex.md
