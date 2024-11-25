@@ -2,7 +2,6 @@ Release Notes
 ================
 
 List the Release Notes
-../commonrn/releaseNotes/rnindex.md
 
 .. toctree::
    :maxdepth: 1
