@@ -13,6 +13,5 @@ topics/mcuxpresso_sdk_release_package.md
 topics/release_contents.md
 topics/what_is_new.md
 topics/known_issues.md
-topics/revision_history.md
-topics/legal_information.md
+
 ```
