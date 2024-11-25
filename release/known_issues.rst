@@ -361,14 +361,14 @@ Build warning in freertos_tickless example
 
     **Affected platforms:** 
 
-.. rst-class:: hideable evkbimxrt1050 v2024-12-00-pvw2
+.. rst-class:: hideable evkbimxrt1050 v2024-12-00-pvw2 frdmke17z
 
 Cannot add SDK components into FreeRTOS projects
     It is not possible to add any SDK components into FreeRTOS project using the MCUXpresso IDE New Project wizard.
 
     **Affected platforms:** 
 
-.. rst-class:: hideable v2024-12-00-pvw2
+.. rst-class:: hideable v2024-12-00-pvw2 
 
 CMSIS-PACK svd issue
     CMSIS-PACK DFP installation takes a while. When installing cmsis-pack DFP, Keil MDK processes the MCU SVD file. The large size of SVD file takes considerable time to finish this conversion. During the installation, the progress appears stalled. However, it finishes after approximately 20 minutes.
@@ -749,6 +749,11 @@ Wireless EdgeFast_Bluetooth stack is not supported by any kits
 
     Wireless EdgeFast_Bluetooth stack can be downloaded by EVK-MIMXRT595-AGM01 and EVK-MIMXRT595-OM13790HOST in [https://mcuxpresso.nxp.com/en/welcome](https://mcuxpresso.nxp.com/en/welcome). However, it is not supported in these kits.
 
-    **Affected platforms:** evkbmimxrt1060 evkmimxrt685
+    **Affected platforms:** 
 
+. rst-class:: hideable v2024-12-00-pvw2
+
+
+
+    **Affected platforms:** 
 
