@@ -1,4 +1,4 @@
-# Demo applications and other examples {#demo_applications_and_other_examples}
+# Demo applications and other examples 
 
 The demo applications demonstrate the usage of the peripheral drivers to achieve a system level solution. Each demo application contains a `readme` file that describes the operation of the demo and required setup steps.
 

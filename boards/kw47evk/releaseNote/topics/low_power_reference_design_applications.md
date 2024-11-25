@@ -1,4 +1,4 @@
-# Low-power reference design applications \(central and peripheral\) {#low_power_reference_design_applications}
+# Low-power reference design applications \(central and peripheral\) 
 
 The Low-Power Reference Design Applications provide reference design source code and projects showcasing how to implement optimized low power functionality based on a Bluetooth LE application. For additional details, see the *README.md* in the *boards\\kw47evk\\wireless\_examples\\reference\_design\\bluetooth* folder.
 
