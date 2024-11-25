@@ -18,7 +18,8 @@ A known issue can list one or both of the following entries:
 .. version-filter::
   :default: v2024-12-00-pvw2
   :container: dl/dt
-  :tags: [("evkbimxrt1050", "EVKB-IMXRT1050"),
+  :tags: [("evk9mimx8ulp", "EVK9-MIMX8ULP"),
+      ("evkbimxrt1050", "EVKB-IMXRT1050"),
       ("evkbmimxrt1060", "MIMXRT1060-EVKB"),
       ("evkbmimxrt1170", "MIMXRT1170-EVKB"),
       ("evkcmimxrt1060", "MIMXRT1060-EVKC"),
@@ -28,15 +29,14 @@ A known issue can list one or both of the following entries:
       ("evkmimx8mnddr3l", "EVK-MIMX8MNDDR3L"),
       ("evkmimx8mp", "EVK-MIMX8MP"),
       ("evkmimx8mq", "EVK-MIMX8MQ"),
+      ("evkmimx8ulp", "EVK-MIMX8ULP"),
       ("evkmimxrt1010", "EVK-MIMXRT1010"),
       ("evkmimxrt1015", "EVK-MIMXRT1015"),
       ("evkmimxrt1020", "EVK-MIMXRT1020"),
       ("evkmimxrt1024", "MIMXRT1024-EVK"),
       ("evkmimxrt1040", "MIMXRT1040-EVK"),
-      ("evkmimxrt1060", "EVK-MIMXRT1060"),
       ("evkmimxrt1064", "EVK-MIMXRT1064"),
       ("evkmimxrt1160", "MIMXRT1160-EVK"),
-      ("evkmimxrt1170", "MIMXRT1170-EVK"),
       ("evkmimxrt1180", "MIMXRT1180-EVK"),
       ("evkmimxrt595", "EVK-MIMXRT595"),
       ("evkmimxrt685", "EVK-MIMXRT685"),
@@ -51,15 +51,24 @@ A known issue can list one or both of the following entries:
       ("frdmke17z512", "FRDM-KE17Z512"),
       ("frdmmcxa153", "FRDM-MCXA153"),
       ("frdmmcxa156", "FRDM-MCXA156"),
+      ("frdmmcxa166", "FRDM-MCXA166"),
+      ("frdmmcxa276", "FRDM-MCXA276"),
       ("frdmmcxc041", "FRDM-MCXC041"),
       ("frdmmcxc242", "FRDM-MCXC242"),
       ("frdmmcxc444", "FRDM-MCXC444"),
       ("frdmmcxn236", "FRDM-MCXN236"),
       ("frdmmcxn947", "FRDM-MCXN947"),
       ("frdmmcxw71", "FRDM-MCXW71"),
+      ("frdmmcxw72", "FRDM-MCXW72"),
+      ("frdmrw612", "FRDM-RW612"),
+      ("imx95lp4xevk15", "IMX95LP4XEVK-15"),
+      ("imx95lpd5evk19", "IMX95LPD5EVK-19"),
+      ("imx95verdinevk", "imx95verdinevk"),
       ("k32w148evk", "K32W148-EVK"),
       ("kw45b41zevk", "KW45B41Z-EVK"),
       ("kw45b41zloc", "KW45B41Z-LOC"),
+      ("kw47evk", "KW47-EVK"),
+      ("kw47loc", "KW47-LOC"),
       ("lpc845breakout", "LPC845BREAKOUT"),
       ("lpcxpresso51u68", "LPCXpresso51U68"),
       ("lpcxpresso54628", "LPCXpresso54628"),
@@ -75,22 +84,23 @@ A known issue can list one or both of the following entries:
       ("lpcxpresso824max", "LPCXpresso824MAX"),
       ("lpcxpresso845max", "LPCXpresso845MAX"),
       ("lpcxpresso860max", "LPCXpresso860MAX"),
-      ("mc56f80000evk", "MC56F80000-EVK"),
-      ("mc56f81000evk", "MC56F81000-EVK"),
-      ("mc56f83000evk", "MC56F83000-EVK"),
+      ("mcimx93autoevk", "MCIMX93AUTO-EVK"),
+      ("mcimx93evk", "MCIMX93-EVK"),
+      ("mcimx93qsb", "MCIMX93-QSB"),
       ("mcxn5xxevk", "MCX-N5XX-EVK"),
       ("mcxn9xxevk", "MCX-N9XX-EVK"),
+      ("mcxw72evk", "MCX-W72-EVK"),
       ("mimxrt685audevk", "MIMXRT685-AUD-EVK"),
+      ("mimxrt700evk", "MIMXRT700-EVK"),
       ("rdrw612bga", "RD-RW612-BGA"),
       ("twrkm34z50mv3", "TWR-KM34Z50MV3"),
       ("twrkm34z75m", "TWR-KM34Z75M"),
-      ("twrkm35z75m", "TWR-KM35Z75M"),
-      ("twrmc56f8200", "TWR-MC56F8200"),
-      ("twrmc56f8400", "TWR-MC56F8400")]
+      ("twrkm35z75m", "TWR-KM35Z75M")]
 
 .. page-filter::
   :name: boards
 
+   evk9mimx8ulp EVK9-MIMX8ULP
    evkbimxrt1050 EVKB-IMXRT1050
    evkbmimxrt1060 MIMXRT1060-EVKB
    evkbmimxrt1170 MIMXRT1170-EVKB
@@ -101,15 +111,14 @@ A known issue can list one or both of the following entries:
    evkmimx8mnddr3l EVK-MIMX8MNDDR3L
    evkmimx8mp EVK-MIMX8MP
    evkmimx8mq EVK-MIMX8MQ
+   evkmimx8ulp EVK-MIMX8ULP
    evkmimxrt1010 EVK-MIMXRT1010
    evkmimxrt1015 EVK-MIMXRT1015
    evkmimxrt1020 EVK-MIMXRT1020
    evkmimxrt1024 MIMXRT1024-EVK
    evkmimxrt1040 MIMXRT1040-EVK
-   evkmimxrt1060 EVK-MIMXRT1060
    evkmimxrt1064 EVK-MIMXRT1064
    evkmimxrt1160 MIMXRT1160-EVK
-   evkmimxrt1170 MIMXRT1170-EVK
    evkmimxrt1180 MIMXRT1180-EVK
    evkmimxrt595 EVK-MIMXRT595
    evkmimxrt685 EVK-MIMXRT685
@@ -124,15 +133,24 @@ A known issue can list one or both of the following entries:
    frdmke17z512 FRDM-KE17Z512
    frdmmcxa153 FRDM-MCXA153
    frdmmcxa156 FRDM-MCXA156
+   frdmmcxa166 FRDM-MCXA166
+   frdmmcxa276 FRDM-MCXA276
    frdmmcxc041 FRDM-MCXC041
    frdmmcxc242 FRDM-MCXC242
    frdmmcxc444 FRDM-MCXC444
    frdmmcxn236 FRDM-MCXN236
    frdmmcxn947 FRDM-MCXN947
    frdmmcxw71 FRDM-MCXW71
+   frdmmcxw72 FRDM-MCXW72
+   frdmrw612 FRDM-RW612
+   imx95lp4xevk15 IMX95LP4XEVK-15
+   imx95lpd5evk19 IMX95LPD5EVK-19
+   imx95verdinevk imx95verdinevk
    k32w148evk K32W148-EVK
    kw45b41zevk KW45B41Z-EVK
    kw45b41zloc KW45B41Z-LOC
+   kw47evk KW47-EVK
+   kw47loc KW47-LOC
    lpc845breakout LPC845BREAKOUT
    lpcxpresso51u68 LPCXpresso51U68
    lpcxpresso54628 LPCXpresso54628
@@ -148,18 +166,18 @@ A known issue can list one or both of the following entries:
    lpcxpresso824max LPCXpresso824MAX
    lpcxpresso845max LPCXpresso845MAX
    lpcxpresso860max LPCXpresso860MAX
-   mc56f80000evk MC56F80000-EVK
-   mc56f81000evk MC56F81000-EVK
-   mc56f83000evk MC56F83000-EVK
+   mcimx93autoevk MCIMX93AUTO-EVK
+   mcimx93evk MCIMX93-EVK
+   mcimx93qsb MCIMX93-QSB
    mcxn5xxevk MCX-N5XX-EVK
    mcxn9xxevk MCX-N9XX-EVK
+   mcxw72evk MCX-W72-EVK
    mimxrt685audevk MIMXRT685-AUD-EVK
+   mimxrt700evk MIMXRT700-EVK
    rdrw612bga RD-RW612-BGA
    twrkm34z50mv3 TWR-KM34Z50MV3
    twrkm34z75m TWR-KM34Z75M
    twrkm35z75m TWR-KM35Z75M
-   twrmc56f8200 TWR-MC56F8200
-   twrmc56f8400 TWR-MC56F8400
 
 .. HOWTO
 
