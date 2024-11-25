@@ -624,6 +624,11 @@ Maximum file path length in Windows 7 operating system
 
     **Affected platforms:** evkbimxrt1050 evkbmimxrt1060 evkbmimxrt1170 evkcmimxrt1060 evkmcimx7ulp evkmimx8mm evkmimx8mn evkmimx8mnddr3l evkmimx8mp evkmimx8mq evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1024 evkmimxrt1040 evkmimxrt1060 evkmimxrt1064 evkmimxrt1160 evkmimxrt1170 evkmimxrt1180 evkmimxrt595 evkmimxrt685 frdmk22f frdmk32l2a4s frdmk32l2b frdmk32l3a6 frdmke02z40m frdmke15z frdmke16z frdmke17z frdmke17z512 frdmmcxa153 frdmmcxa156 frdmmcxc041 frdmmcxc242 frdmmcxc444 frdmmcxn236 frdmmcxn947 frdmmcxw71 k32w148evk kw45b41zevk kw45b41zloc lpc845breakout lpcxpresso51u68 lpcxpresso54628 lpcxpresso54s018 lpcxpresso54s018m lpcxpresso55s06 lpcxpresso55s16 lpcxpresso55s28 lpcxpresso55s36 lpcxpresso55s69 lpcxpresso802 lpcxpresso804 lpcxpresso824max lpcxpresso845max lpcxpresso860max mc56f80000evk mc56f81000evk mc56f83000evk mcxn5xxevk mcxn9xxevk mimxrt685audevk rdrw612bga twrkm34z50mv3 twrkm34z75m twrkm35z75m twrmc56f8200 twrmc56f8400 
 
+lvgl example for evkbmimxrt1170 issue in MCUXpressoIDE
+    The *lvgl* example for evkbmimxrt1170 does not work correctly in MCUXpressoIDE.
+
+    **Affected platforms:**
+
 .. rst-class:: hideable v2024-12-00-pvw2
 
 MCUXpresso IDE limitation
