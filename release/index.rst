@@ -5,7 +5,7 @@ Release Notes
    :maxdepth: 4
    :caption: General Information:
 
-   commonrs/rnindex.md
+   commonrn/rnindex.md
 
 .. toctree::
    :maxdepth: 1
