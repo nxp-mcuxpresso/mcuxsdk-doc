@@ -20,3 +20,11 @@ MCU device and part on board is shown below:
 
 Getting Started
 ***************
+
+Release Notes
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for MCIMX93-EVK
+
+   releaseNotes/rnindex.md
