@@ -28,3 +28,10 @@ Getting Started
 
    gettingStarted/gsindex.md
 
+Release Notes
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for KW45B41Z-LOC
+
+   releaseNotes/rnindex.md
