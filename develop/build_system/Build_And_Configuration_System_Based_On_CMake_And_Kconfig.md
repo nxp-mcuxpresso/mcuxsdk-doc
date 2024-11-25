@@ -2374,7 +2374,7 @@ and set them into project template files. Currently, the meta build system suppo
 1. Ruby environment
 
    Currently, we have not implemented all features through Python. So, in order to generate IDE GUI projects, you have to prepare the ruby 3.1 environment.
-   Please refer to  [Ruby environment setup](./misc/Ruby_evnironment_set_up.md).
+   Please refer to  [Ruby environment setup](./misc/Ruby_environment_set_up.md).
 
 
 2. Project templates

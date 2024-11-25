@@ -1,8 +1,8 @@
-## Environment Setup
+# Ruby Environment Setup
 
 **For IDE GUI project generation, ruby version `3.1.2` is required. Please don't use ruby version other than 3.1.x anymore.**
 
-### Use Provided Portable Ruby Environment
+## Use Provided Portable Ruby Environment
 
 For NXP internal developer, a portable version of a stable ruby environment together with all required gems is provided. This way only applies for Windows and we strongly recommend you to use this way for your ruby environment setup in Windows.
 
@@ -29,15 +29,15 @@ $ which ruby
 /c/portable_ruby/bin/ruby
 ```
 
-### Install Ruby Environment By Yourself
+## Install Ruby Environment By Yourself
 
 For external developer, you need to install both ruby and the used gems(ruby libraries are called gems) manually. Please follow the below steps.
 
-#### Install Ruby
+### Install Ruby
 
 Here we take ruby 3.1.x as an example.
 
-##### For Windows
+#### For Windows
 
 - Please download Ruby 3.1.x from <https://rubyinstaller.org/downloads/>, choose 32-bit or 64-bit according to your PC OS and **Ruby+Devkit** for simpler MSYS integration.
 
@@ -69,7 +69,7 @@ Here we take ruby 3.1.x as an example.
 
   You may need to restart/signout your OS to make environment variable work.
 
-##### For Linux
+#### For Linux
 
 For Debian or Ubuntu, please use the version manager tool [rbenv](https://github.com/rbenv/rbenv). It can help you avoid the complex configuration of package managers of different linux distribution.
 
@@ -79,7 +79,7 @@ sudo apt-get install ruby=3.1.2
 
 For other distributions or more details, please refer https://www.ruby-lang.org/en/documentation/installation/
 
-#### Install necessary Gems
+### Install necessary Gems
 
 Before you start install, please make sure you get the proper source for ruby gem. The default source is <https://rubygems.org/> . You can run
 

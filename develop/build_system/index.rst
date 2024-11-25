@@ -9,6 +9,13 @@ Build And Configuration
    Frequently Asked Questions <Frequently_Asked_Questions.md>
    Best Practise <Best_Practice.md>
 
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Misc settings
+
+   Set up Ruby environment <misc/Ruby_environment_set_up.md>
+
 .. only:: internal_doc
 
    .. toctree::

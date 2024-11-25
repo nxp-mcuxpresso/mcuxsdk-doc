@@ -15,7 +15,7 @@ configuration items includes the following:
 * document project name
 
 Configuration Items
-******************
+*********************
 
 Extensions
 ==================
