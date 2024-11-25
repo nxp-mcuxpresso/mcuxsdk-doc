@@ -29,10 +29,10 @@ Getting Started
 
    gettingStarted/gsindex.md
 
-   Release Notes
+Release Notes
 ****************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes
+   :caption: MCUXpresso SDK Release Notes for EVKB-IMXRT1050
 
    ../commonrn/releaseNotes/rnindex.md
