@@ -1,4 +1,4 @@
-# Bluetooth LE host stack and applications {#topic_op1_n3j_vwb}
+# Bluetooth LE host stack and applications
 
 The Bluetooth LE Host Stack component provides an implementation for a Bluetooth 5.3 mandatory and some optional, proprietary, and experimental features. The Bluetooth LE Host Stack component provides application examples, services, and profiles.
 

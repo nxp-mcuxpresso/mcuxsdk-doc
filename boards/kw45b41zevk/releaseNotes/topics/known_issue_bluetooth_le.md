@@ -1,4 +1,4 @@
-# Bluetooth LE {#topic_igj_dsw_dbc}
+# Bluetooth LE
 
 -   In case more than 8 Bluetooth LE connections are configured, sporadic packet loss or disconnection events may be observed.
 

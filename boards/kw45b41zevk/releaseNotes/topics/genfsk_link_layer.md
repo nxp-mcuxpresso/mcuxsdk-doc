@@ -1,4 +1,4 @@
-# GenFSK link layer {#topic_s1k_c12_vwb}
+# GenFSK link layer 
 
 The Generic FSK protocol enables radio operation using a custom GFSK/GMSK or MSK modulation format.
 

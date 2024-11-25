@@ -1,4 +1,4 @@
-# Zigbee {#topic_ajc_bkj_vwb}
+# Zigbee 
 
 The NXP ZigBee stack provides the following generic features:
 

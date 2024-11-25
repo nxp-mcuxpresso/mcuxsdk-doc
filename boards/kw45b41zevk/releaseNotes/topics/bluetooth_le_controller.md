@@ -1,4 +1,4 @@
-# Bluetooth LE controller {#topic_dv5_4zd_vwb}
+# Bluetooth LE controller 
 
 -   Main features supported:
 
