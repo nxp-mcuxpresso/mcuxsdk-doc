@@ -272,7 +272,7 @@ Specify the library to be linked.
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final library path equals `BASE_PATH` + `LIB`. This is usually used in abstracted `.cmake` files which are not placed together with real library. For library in CMakeLists.txt which is usually put together with real library, no need to add it. |
-| LIBS          | Multiple      | The libraries to be added       |
+| LIBS          | Multiple      | The libraries to be added                |
 | SCOPE         | Single        | Specify the library scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for mcux_add_library and take same effect as target_link_libraries scope. The default scope is PRIVATE if not set. |
 | TOOLCHAINS    | Multiple      | The toolchains. It means the library only supports the listed toolchains.`<br>`Here are all the supported toolchains: iar, mdk, armgcc, xcc, codewarrior. |
 | CORES         | Multiple      | The cores. It means the library only supports the listed cores.`<br>`Here are all the supported cores: cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp |
@@ -1885,15 +1885,17 @@ The prj.conf search paths can be provided through 3 ways with priority.
 
 - Specify customized prj.conf search path in project CMakelists.txt "project" with "CUSTOM_PRJ_CONF_PATH"
 
-  The "CUSTOM_PRJ_CONF_PATH" argument can be used in project CMakelists.txt "project" macro to specify the customized prj.conf search paths.
+  The "CUSTOM_PRJ_CONF_PATH" argument can be used in project CMakelists.txt "project" macro to specify the customized prj.conf search paths and they have higher priority than the fixed prj.conf search paths.
 
-  Here is an example:
+  It could be either relative path or absolute path. For relative path, the root is the SDK repo root path.
+
+  Here is one example:
 
   ```cmake
-  project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH examples/_boards/${board}/demo_apps/hello_world CUSTOM_PRJ_CONF_PATH <customized path 1> <customized path 2>)
+  project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH examples/_boards/${board}/demo_apps/hello_world CUSTOM_PRJ_CONF_PATH subfolder e:/sdk_next/subfolder)
   ```
 
-  The prj.conf search paths of CUSTOM_PRJ_CONF_PATH is with higher priority than the fixed prj.conf search paths.
+  The `sdk-root/subfolder/prj.conf` and `e:/sdk_next/subfolder/prj.conf` will be added into build if existed. 
 
 - -DCONF_FILE=\<customized config file>
 
