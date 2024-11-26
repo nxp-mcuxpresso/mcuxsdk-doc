@@ -22,7 +22,8 @@ Getting Started
 ***************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for EVK-MIMX8ULP
+   :caption: Getting Started with MCUXpresso SDK for EVK-MIMX8ULP
+   
    gettingStarted/gsindex.md
 
 Release Notes
