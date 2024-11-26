@@ -1,4 +1,4 @@
-# Getting Started Xplorer for MIMXRT700-EVK
+# Getting Started with Xplorer for MIMXRT700-EVK
 
 
 ```{tocTree}
