@@ -28,6 +28,14 @@ Getting Started
 
    gettingStarted/gsindex.md
 
+Getting Started
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started Xplorer for MIMXRT700-EVK
+
+   gettingStartedXplorer/gsxindex.md
+
 Release Notes
 ****************
 .. toctree::

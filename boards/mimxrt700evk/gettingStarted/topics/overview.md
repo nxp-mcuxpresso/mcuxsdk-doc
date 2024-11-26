@@ -1,6 +1,10 @@
-# Overview
+# Overview 
 
-Cadence Tensilica Xplorer is a complete development environment that helps users create application code for high-performance Tensilica processors. Xplorer is the interface to powerful software development tools such as the XCC compiler, assembler, linker, debugger, code profiler, and full set of GUI tools.
+The NXP MCUXpresso software and tools offer comprehensive development solutions designed to optimize, ease, and help accelerate embedded system development of applications based on general purpose, crossover, and Bluetooth-enabled MCUs from NXP. The MCUXpresso SDK includes a flexible set of peripheral drivers designed to speed up and simplify development of embedded applications. Along with the peripheral drivers, the MCUXpresso SDK provides an extensive and rich set of example applications covering everything from basic peripheral use case examples to full demo applications. The MCUXpresso SDK contains optional RTOS integrations such as FreeRTOS and Azure RTOS,a USB host and device stack, and various other middleware to support rapid development.
 
-Xplorer, including both GUI and command-line environment, is the only available development IDE for the DSP core of MIMXRT700.
+For supported toolchain versions, see *MCUXpresso SDK Release Notes for MIMXRT700-EVK* \(document MCUXSDKRT798RN\).
+
+For more details about MCUXpresso SDK, see [MCUXpresso Software Development Kit \(SDK\)](http://www.nxp.com/products/software-and-tools/run-time-software/mcuxpresso-software-and-tools/mcuxpresso-software-development-kit-sdk:MCUXpresso-SDK).
+
+![](../images/ksdk_layers_20.svg "MCUXpresso SDK layers")
 
