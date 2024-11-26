@@ -8,8 +8,6 @@ Overview
 
 The NXP IMXRT685-EVKB is a development board for the i.MX RT600 Crossover MCU with Arm Cortex-M33 and DSP Cores.
 
-
-
 .. image:: ./evkmimxrt685.png
    :width: 240px
    :align: center
@@ -29,7 +27,7 @@ Getting Started
 
    gettingStarted/gsindex.md
 
-   Getting Started
+Getting Started
 ****************
 .. toctree::
    :maxdepth: 1
