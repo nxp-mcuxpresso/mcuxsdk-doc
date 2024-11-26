@@ -50,7 +50,6 @@ for more details.
    :caption: User Guide
 
    Examples <examples/index.rst>
-   Drivers <drivers/index.rst>
    Middlewares <middleware/index>
    RTOS <rtos/index>
    Boards <boards/index>
