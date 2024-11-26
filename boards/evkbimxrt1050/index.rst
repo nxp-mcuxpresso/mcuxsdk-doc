@@ -29,8 +29,7 @@ Getting Started
 
    gettingStarted/gsindex.md
 
-   gettingStarted/gsindex.md
-
+   
 Release Notes
 ****************
 .. toctree::

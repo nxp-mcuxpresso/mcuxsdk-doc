@@ -25,6 +25,14 @@ Getting Started
 ****************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with Xplorer for EVK-MIMXRT685
+   :caption: Getting Started with MCUXpresso SDK for EVK-MIMXRT685
 
    gettingStarted/gsindex.md
+
+Getting Started
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started with Xplorer for EVK-MIMXRT685
+
+   gettingStartedXplorer/gsxindex.md
