@@ -460,3 +460,7 @@ if 'vcs_link' in extensions:
 if 'external_content' in extensions:
     external_content_contents = mcux_config.external_content_contents
     external_content_keep = mcux_config.external_content_keep
+
+suppress_warnings = [
+    "myst.header", # WARNING: Non-consecutive header level increase; H4 to H7 [myst.header]
+]
