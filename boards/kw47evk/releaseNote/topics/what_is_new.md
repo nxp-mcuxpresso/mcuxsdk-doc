@@ -3,9 +3,13 @@
 The following changes have been implemented compared to the previous SDK release version.
 
 -   Bluetooth LE
-    -   Added Bluetooth LE sample application: `ble_shell`.
-    -   Added initial support for Bluetooth LE Channel Sounding applications: `digital_key_car_anchor_cs`, `digital_key_device_cs`, `loc_reader`, `loc_user_device`, `wireless_ranging`.
-    -   Updated `GAPScanningEventPeriodicAdvSyncEstablishedIndication` to include new parameters and fixed `GAPConnectionEventPairingCompleteIndication` Pairing Data to match the SM Pairing Failed reason.
+    -   Early Access Release.
+    -   Bluetooth LE sample applications.
+    -   Bluetooth LE Channel Sounding applications: `digital_key_car_anchor_cs`, `digital_key_device_cs`, `loc_reader`, `loc_user_device`, `wireless_ranging`.
+    -   Bluetooth LE Channel Sounding applications are controlled access.
+    -   Added LCE support.
+    -   Added OTA Support.
+	-   Documentation update.
     -   Other minor fixes and stability improvements.
 -   XCVR API:
 

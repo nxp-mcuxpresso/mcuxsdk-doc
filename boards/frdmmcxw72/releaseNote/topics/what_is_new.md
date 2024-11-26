@@ -3,21 +3,14 @@
 The following changes have been implemented compared to the previous SDK release version.
 
 -   **Bluetooth LE host stack and applications:**
-    -   New Features and Improvements:
-        -   Added support for GCC Arm embedded toolchain.
-
-        -   Added channel selection support for advertising. scanning and connection initialization.
-
-        -   Miscellaneous sample applications updates.
-
-        -   Documentation updates.
-
-    -   Bug fixing:
-
-        -   Fixed DBAF allowing the setting of empty decision data.
-
-        -   Miscellaneous sample applications bug fixing.
-
+    -   Early Access Release.
+    -   Bluetooth LE sample applications: `ble_shell`, `w_uart`.
+    -   Bluetooth LE Channel Sounding applications: `loc_reader`, `loc_user_device`, `wireless_ranging`.
+    -   Bluetooth LE Channel Sounding applications are controlled access.
+    -   Added LCE support.
+	-   Documentation update.
+    -   Other minor fixes and stability improvements.
+ 
 -   **Bluetooth LE controller:**
     -   Fixed a case of connection initiation retry failure after AUX\_CONNECT\_RSP with CRC error is received \(and peer device is using privacy\).
 

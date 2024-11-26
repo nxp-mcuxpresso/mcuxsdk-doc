@@ -5,7 +5,7 @@
 |`**middleware/wireless/framework**`|`7.0.0.a`|
 |`**middleware/wireless/genfsk**`|`4.0.21`|
 |**`middleware/wireless/ble_controller`**|`1.9.17`|
-|`**middleware/wireless/bluetooth**`|`1.10.2`|
+|`**middleware/wireless/bluetooth**`|`1.10.3`|
 |`**middleware/wireless/xcvr**`|`2.1.3`|
 |`**middleware/wireless/refdes**`|`1.1.1`|
 |`**middleware/wireless/ieee-802.15.4**`|`1.0.21a`|
