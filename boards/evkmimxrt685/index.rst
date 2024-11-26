@@ -36,3 +36,4 @@ Getting Started
    :caption: Getting Started with Xplorer for EVK-MIMXRT685
 
    gettingStartedXplorer/gsxindex.md
+   

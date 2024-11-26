@@ -35,3 +35,4 @@ Getting Started
    :caption: Getting Started with Xplorer for EVK-MIMXRT595
 
    gettingStartedXplorer/gsxindex.md
+   
