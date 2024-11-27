@@ -19,13 +19,30 @@ The following changes have been implemented compared to the previous SDK release
 	
 -   **Connectivity framework**
 
-    -   Optimized \`\`PLATFORM\_RemoteActiveReq\(\)\`\` execution time.
+    -   **Major Changes (User Applications may be impacted)**
 
-    -   Optimized critical sections for Radio Subsystem \(NBU\) firmware.
+        -   mcux github support with cmake/Kconfig from sdk3 user shall now use CmakeLists.txt and Kconfig files from root folder. Compilation should be done using west build command. In order to see the Framework Kconfig, use command >west build -t guiconfig
+        -   Board files and linker scripts moved to examples repository
 
--   **Low-power reference design applications \(central and peripheral\)**
+    -   **Bugfixes**
 
-    -   Solved build issues in case Pairing and Bonding are disabled.
+        -   [platform lowpower]
+            -   Entering Deep down power mode will no longer call PLATFORM_EnterPowerDown(). This API is now called only when going to Power down mode
+
+    -   **Platform specific**
+
+        -   Deep sleep mode is supported. Power down mode is supported in low power reference design applications as experimental only
+        -   XTAL32K-less support using FRO32K is experimental 
+        -   FRO32K notifications callback is debug only and should not be used for mass production firmware builds
+
+    -   **Overal folder restructuring for SDK3**
+
+        -   [Platform]:
+            -   Rename platform_family from connected_mcu/nbu to wireless_mcu/nbu
+            -   platform family have now a dedicated fwk_config.h, rpmsg_config.h and SecLib_mbedtls_config.h
+        -   [Services]:
+            -   Move all framework services in a common directory "services/"
+
 
 -   **Zigbee**
 

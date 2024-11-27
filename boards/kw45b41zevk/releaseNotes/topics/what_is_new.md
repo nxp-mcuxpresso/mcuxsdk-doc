@@ -22,24 +22,30 @@ The following changes have been implemented compared to the previous SDK release
     -   Removed support for A0 silicon version.
 -   **Connectivity framework**
 
-    -   **\[HWparams\]**:
-        -   Support for location of HWParameters and Application Factory Data IFR in IFR1.
+    -   **Major Changes (User Applications may be impacted)**
 
-        -   Default is still to use HWparams in Flash to keep backward compatibility.
+        -   mcux github support with cmake/Kconfig from sdk3 user shall now use CmakeLists.txt and Kconfig files from root folder. Compilation should be done using west build command. In order to see the Framework Kconfig, use command >west build -t guiconfig
+        -   Board files and linker scripts moved to examples repository
 
-        -   \[RNG\]: API updates:
+    -   **Bugfixes**
 
-            -   New APIs `RNG_IsReseedneeded()`, `RNG_SetSeed()` to provide seed to PRNG. See `BluetoothLEHost_ProcessIdleTask()` in `app_conn.c`.
+        -   [platform lowpower]
+            -   Entering Deep down power mode will no longer call PLATFORM_EnterPowerDown(). This API is now called only when going to Power down mode
 
-            -   New APIs `RNG_SetExternalSeed()`: User can provide external seed. Typically used by Radio Subsystem \(NBU\) firmware for App core to set a seed to RNG.
+    -   **Platform specific**
 
-        -   \[NVS\] Wear statistics counters added. Fixed `nvs_file_stat()` function.
+        -   Deep sleep mode is supported. Power down mode is supported in low power reference design applications as experimental only
+        -   XTAL32K-less support using FRO32K is experimental 
+        -   FRO32K notifications callback is debug only and should not be used for mass production firmware builds
 
-        -   \[NVM\] fixed. `Nv_Shutdown()` API.
+    -   **Overal folder restructuring for SDK3**
 
--   **Low-power reference design applications \(central and peripheral\)**
+        -   [Platform]:
+            -   Rename platform_family from connected_mcu/nbu to wireless_mcu/nbu
+            -   platform family have now a dedicated fwk_config.h, rpmsg_config.h and SecLib_mbedtls_config.h
+        -   [Services]:
+            -   Move all framework services in a common directory "services/"
 
-    -   Disabled power down experimental feature on peripheral application in advertising as better performance has been observed in deep sleep.
 -   **GenFSK link layer**
 
     -   No fixes or changes.

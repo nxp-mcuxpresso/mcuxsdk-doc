@@ -17,9 +17,10 @@
 
 -   If the configuration tool is used to clone `tfm-related` projects, there is a problem that *region\_defs.h* cannot be found in the cloned project.
 -   Not supported features:
-
     -   Platform low power modes not fully enabled in this release.
     -   FRO32K mode not fully supported in this release.
+-   Buttons (SW2/SW3) do not wakeup device when it is in lowpower
+-   Lowpower reference design aaplications do not work properly with armgcc
 
 **Parent topic:**[Known issues](../topics/known_issues.md)
 
