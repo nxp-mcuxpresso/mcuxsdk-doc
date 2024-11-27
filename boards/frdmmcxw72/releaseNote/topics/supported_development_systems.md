@@ -4,5 +4,5 @@ This release supports boards and devices listed in [Table 1](supported_developme
 
 |Development boards|MCU devices|
 |------------------|-----------|
-|FRDM-MCXW72 board|MCXW726C, MCXW726A|
+|FRDM-MCXW72 board|MCXW727C, MCXW727A, MCXW727D|
 

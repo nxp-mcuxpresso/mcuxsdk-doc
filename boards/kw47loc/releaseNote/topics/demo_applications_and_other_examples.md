@@ -6,4 +6,3 @@ The driver examples demonstrate the capabilities of the peripheral drivers. Each
 
 **Parent topic:**[Device support](../topics/device_support.md)
 
-s

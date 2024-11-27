@@ -1,6 +1,6 @@
 # Overview
 
-These Release Notes are associated with MCUXpresso SDK supporting K32W148 devices and K32W148-EVK development boards.
+These Release Notes are associated with MCUXpresso SDK supporting K32W148 devices and K32W148-EVK development boards. **This is an early adopter release provided as preview for early development and should not be used for final product firmware.**
 
 The MCUXpresso SDK is a comprehensive software enablement package designed to simplify and accelerate application development with Arm Cortex-M-based devices from NXP, including its general purpose, crossover and Bluetooth-enabled MCUs. MCUXpresso SW and Tools for DSC further extends the SDK support to current 32-bit Digital Signal Controllers. The MCUXpresso SDK includes production-grade software with integrated RTOS \(optional\), integrated enabling software technologies \(stacks and middleware\), reference software, and more.
 

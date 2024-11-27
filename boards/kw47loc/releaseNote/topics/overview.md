@@ -1,6 +1,6 @@
 # Overview
 
-These Release Notes are associated with MCUXpresso SDK 24.12.00-pvw1 supporting KW47 family devices and KW47-EVK development boards. This release is provided for initial development with pre-production devices.
+These Release Notes are associated with MCUXpresso SDK 24.12.00-pvw2 supporting KW47 family devices and KW47-LOC development boards. **This is an early adopter release provided as preview for development with pre-production devices.**
 
 The MCUXpresso SDK is a comprehensive software enablement package designed to simplify and accelerate application development with Arm Cortex-M-based devices from NXP, including its general purpose, crossover and Bluetooth-enabled MCUs. MCUXpresso SW and Tools for DSC further extends the SDK support to current 32-bit Digital Signal Controllers. The MCUXpresso SDK includes production-grade software with integrated RTOS \(optional\), integrated enabling software technologies \(stacks and middleware\), reference software, and more.
 

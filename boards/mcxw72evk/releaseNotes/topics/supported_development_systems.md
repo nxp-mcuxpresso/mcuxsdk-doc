@@ -3,5 +3,5 @@ This release supports boards and devices listed in [Table 1](#TABLE_SUPPORTEDBOA
 
 |Development boards|MCU devices|
 |------------------|-----------|
-|MCX-W72-EVK board|MCX-W72-EVK|
+|MCX-W72-EVK board|MCXW727C, MCXW727A, MCXW727D|
 
