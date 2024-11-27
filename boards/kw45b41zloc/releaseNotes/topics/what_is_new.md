@@ -4,20 +4,11 @@ The following is the list of new features and improvements in this release.
 
 -   **Bluetooth LE host stack and applications:**
 
-    -   **New Features and Improvements:**
-        -   Added experimental DBAF feature in the CCC sample applications.
-
-        -   Added channel selection support for advertising. scanning and connection initialization.
-
-        -   Miscellaneous sample applications updates.
-
-        -   Documentation updates.
-
-    -   Bug fixing:
-
-        -   Fixed DBAF allow setting of empty decision data.
-
-        -   Miscellaneous sample applications bug fixing.
+    -   Early Access Release.
+    -   Periodic advertising with responses - experimental.
+    -   Encrypted Advertising Data - experimental.
+    -   Documentation update.
+    -   Minor fixes and stability improvements.
 
 -   **Bluetooth LE controller:**
     -   Fixed a case of connection initiation retry failure after AUX\_CONNECT\_RSP with CRC error is received \(and peer device is using privacy\).

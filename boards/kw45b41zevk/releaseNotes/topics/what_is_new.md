@@ -1,26 +1,15 @@
 # What is new
 
-The following changes have been implemented compared to the previous SDK release version \(2.15.000\).
+The following changes have been implemented compared to the previous SDK release version \(2.16.100\).
 
 -   **Bluetooth LE host stack and applications**
 
-    -   New Features and Improvements:
-
-        -   Miscellaneous updates in sample applications.
-
-        -   Updated Handover to transfer pending packets in the controller from the source anchor to the destination anchor.
-
-        -   Documentation updates.
-
-    -   Bug fixing:
-
-        -   Fixed issue in HCI frame length fragmentation check.
-        -   GATT caching refactorization for multiple connection support.
-        -   Fixed MISRA issues in sample applications.
-        -   Fixed memory leak in `wireless_uart` sample application.
-        -   Set `identityHeaderList` before `resetActiveDeviceSlot()` call.
-        -   Fixed issue with the `AttMTU` value requested by the application GATT client following the response from a GATT server.
-        -   Fixed possible memory overflow in `gap_checkForAutoConnect` results.
+    -   Early Access Release.
+    -   Periodic advertising with responses - experimental.
+    -   Encrypted Advertising Data - experimental.
+    -   Documentation update.
+    -   Minor fixes and stability improvements.
+	
 -   **Bluetooth LE controller**
 
     -   Improved Connection Handover feature.
