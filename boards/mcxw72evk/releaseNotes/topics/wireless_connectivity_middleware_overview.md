@@ -2,7 +2,7 @@
 
 **Component versions**
 
-|`**middleware/wireless/framework**`|`7.0.0.a`|
+|`**middleware/wireless/framework**`|`7.0.0.b`|
 |`**middleware/wireless/genfsk**`|`4.0.21`|
 |**`middleware/wireless/ble_controller`**|`1.9.18`|
 |`**middleware/wireless/bluetooth**`|`1.10.3`|

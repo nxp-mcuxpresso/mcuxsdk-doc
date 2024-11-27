@@ -2,7 +2,7 @@
 
 **Component Version tags**:
 
-|`**middleware/​wireless/​framework**`|`REL_CONNFWK_6.2.4`|
+|`**middleware/wireless/framework**`|`7.0.0.b`|
 |`**middleware/​wireless/​genfsk**`|`REL_​GENFSK_​K4W1_​4.​0.20`|
 |**`middleware/​wireless/​ble_​controller`**|`REL_​LL_​K4W1_​1.9.18.0`|
 |`**middleware/​wireless/​bluetooth**`|`REL_BLE_1.8.3`|

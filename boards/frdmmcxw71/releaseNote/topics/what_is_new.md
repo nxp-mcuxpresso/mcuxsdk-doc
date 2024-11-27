@@ -60,7 +60,7 @@ The following changes have been implemented compared to the previous SDK release
 
     -   **Major Changes (User Applications may be impacted)**
 
-        -   mcux github support with cmake/Kconfig from sdk3 user shall now use CmakeLists.txt and Kconfig files from root folder. Compilation should be done using west build command. In order to see the Framework Kconfig, use command >west build -t guiconfig
+        -  Supporting cmake/Kconfig for SDK 24.12.00: user shall now use CmakeLists.txt and Kconfig files from root folder. Compilation should be done using west build command. In order to see the Framework Kconfig, use command >west build -t guiconfig
         -   Board files and linker scripts moved to examples repository
 
     -   **Bugfixes**
@@ -74,12 +74,12 @@ The following changes have been implemented compared to the previous SDK release
             -   XTAL32K-less support using FRO32K is experimental 
             -   FRO32K notifications callback is debug only and should not be used for mass production firmware builds
 
-    -   **Overal folder restructuring for SDK3**
+    -   **Overal folder restructuring for SDK 24.12.00**
         -   [Platform]:
-            -   Rename platform_family from connected_mcu/nbu to wireless_mcu/nbu
+            -   Renamed platform_family from connected_mcu/nbu to wireless_mcu/nbu
             -   platform family have now a dedicated fwk_config.h, rpmsg_config.h and SecLib_mbedtls_config.h
         -   [Services]:
-            -   Move all framework services in a common directory "services/"
+            -   Moved all framework services in a common directory "services/"
 
 
 

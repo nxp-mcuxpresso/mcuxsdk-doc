@@ -20,14 +20,29 @@ The following changes have been implemented compared to the previous SDK release
 
     -   Minor updates and stability improvements.
 
--   Connectivity Framework:
+-   **Connectivity framework**
 
-    -   SDK build environment\] Added Cmake/Kconfig support.
-    -   \[Sensors\] Sensors API renaming: `SENSORS_InitAdc()` renamed to `SENSORS_Init()`, `SENSORS_DeinitAdc()` renamed to `SENSORS_Deinit()`.
-    -   \[HWParams\] Added support to repair PROD\_DATA sector if there is ECC error \(implies loss of previous contents of sector\).
-    -   \[NVM\} Linker script modification for armgcc whenever the `gNvTableKeptInRam_d` option is used placement of NVM\_TABLE\_RW in the data initialized section, providing start and end address symbols. For details see NVM\_Interface.h comments.
-    -   \[Platform\] Updated macro values for MCX W72: `BOARD_32MHZ_XTAL_CDAC_VALUE` from 12U to 10U, `BOARD_32MHZ_XTAL_ISEL_VALUE` from 7U to 11U, `BOARD_32KHZ_XTAL_CLOAD_DEFAULT` from 8U to 4U, `BOARD_32KHZ_XTAL_COARSE_ADJ_DEFAULT` from 1U to 3U.
-    -   \[NBU\] New `PLATFORM_RegisterNbuTemperatureRequestEventCb()` API: register a function callback when NBU requests new temperature measurement. API provides the interval request for the temperature measurement.
-    -   \[NBU\] Update `PLATFORM_IsNbuStarted()` API to return true only if the NBU firmware has been started.
-    -   \[platform low-power\] Moved RAM layout values in `fwk_platform_definition.h` and update RAM retention API.
+    -   **Major Changes (User Applications may be impacted)**
+
+        -   Supporting cmake/Kconfig for SDK 24.12.00: user shall now use CmakeLists.txt and Kconfig files from root folder. Compilation should be done using west build command. In order to see the Framework Kconfig, use command >west build -t guiconfig
+        -   Board files and linker scripts moved to examples repository
+
+    -   **Bugfixes**
+
+        -   [platform lowpower]
+            -   Entering Deep down power mode will no longer call PLATFORM_EnterPowerDown(). This API is now called only when going to Power down mode
+
+    -   **Platform specific**
+
+        -   Early access release only:
+            -   Deep sleep power mode not fully tested. User can experiment deep sleep and deep down modes using low power reference design applications
+            -   XTAL32K-less support using FRO32K not tested
+
+    -   **Overal folder restructuring for SDK 24.12.00**
+
+        -   [Platform]:
+            -   Renamed platform_family from connected_mcu/nbu to wireless_mcu/nbu
+            -   platform family have now a dedicated fwk_config.h, rpmsg_config.h and SecLib_mbedtls_config.h
+        -   [Services]:
+            -   Moved all framework services in a common directory "services/"
 

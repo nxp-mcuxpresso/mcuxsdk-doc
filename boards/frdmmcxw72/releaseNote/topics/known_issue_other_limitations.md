@@ -26,7 +26,7 @@
 -   Not supported features:
     -   Platform low power modes not fully enabled in this release.
     -   FRO32K mode not fully supported in this release.
--   Lowpower reference design aaplications do not work properly with armgcc
+-   Lowpower reference design applications do not work properly with armgcc
 
 **Parent topic:**[Known issues](../topics/known_issues.md)
 
