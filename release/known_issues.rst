@@ -797,6 +797,9 @@ Only FreeRTOS is tested for RTOS support
 
     **Affected platforms:** k32w148evk
 
+.. rst-class:: hideable v2024-12-00-pvw2
 
+The wifi_webconfig example can get stuck after AP to client switch
+    The app stops uAP during switch to client, which can cause app to hang.
 
-
+    **Affected platforms:** 
