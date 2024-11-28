@@ -2137,9 +2137,9 @@ The default prj.conf list is like
 4. devices/<soc_series>/<device>/<core_id>/prj.conf
 5. examples/prj.conf
 6. examples/_boards/prj.conf
-6. examples/_boards/<board>/prj.conf
-7. examples/_boards/<board>/<core_id>/prj.conf
-8. <example location>/prj.conf # The example itself configuration
+7. examples/_boards/<board>/prj.conf
+8. examples/_boards/<board>/<core_id>/prj.conf
+9. <example location>/prj.conf # The example itself configuration
 ```
 
 Note, the freestanding project may don't need the default pin mux and hardware_init/app prj.conf setting, you can disable them by
@@ -2209,6 +2209,155 @@ Note:
 2. The default destination folder is mcu-sdk-3.0/build/${toolchain}. You can also specify the destination folder with command line parameter "-d" .
 3. You can only create a project for a specific toolchain and config in one CMake configuration context. You should remove CMake build folder or run with "-p always" if changing toolchain or config
 4. If the CMake has generated build artifacts, you can directly type "west build -t standalone_project" to generate.
+
+## Convert A Repository Example To A Freestanding Example
+
+If you find one repository example functions are similar to your project and want to copy it from SDK repository into your own workspace as an freestanding example to start the development, here are the steps with evkbmimxrt1170 hello_world as an example:
+
+1. Copy hello_world specific sources and cmakes into your workspace folder: `SDK-root/examples/demo_apps/hello_world/*` =>  `<new workspace>/hello_world/*`
+
+2. Update CMakeLists.txt: adjust paths and remove the "PROJECT_BOARD_PORT_PATH" from "project" macro.
+
+   - If using explicitly include SDK root CMakeList.txt way, then the CMakeLists.txt is
+
+     ```cmake
+     cmake_minimum_required(VERSION 3.30.0)
+     include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
+     # No PROJECT_BOARD_PORT_PATH in project
+     project(hello_world LANGUAGES C CXX ASM)
+     include(${SdkRootDirPath}/CMakeLists.txt)
+     mcux_add_source(
+         SOURCES hello_world.c
+             pin_mux.c
+             hardware_init.c
+     )
+     mcux_add_include(
+         INCLUDES .
+     )
+     include(${SdkRootDirPath}/examples/_boards/${board}/demo_apps/hello_world/reconfig.cmake OPTIONAL)
+     mcux_convert_binary(BINARY ${APPLICATION_BINARY_DIR}/${MCUX_SDK_PROJECT_NAME}.bin)
+     ```
+
+     For `include(${SdkRootDirPath}/examples/_boards/${board}/demo_apps/hello_world/reconfig.cmake OPTIONAL)`, it is board specific reconfiguration cmake, you can move it to your workspace or keep it in the SDK-root. If you move it to your workspace, please also move the related sources inside it and update the path accordingly
+
+   - If using the McuxSDK CMake package way, then the CMakeLists.txt is
+
+     ```cmake
+      cmake_minimum_required(VERSION 3.30.0)
+      find_package(McuxSDK 3.0.0 EXACT REQUIRED)
+      project(hello_world LANGUAGES C CXX ASM)
+      mcux_add_source(
+       SOURCES
+         hello_world.c
+         pin_mux.c
+         pin_mux.h
+         hardware_init.c
+         app.h
+      )
+      mcux_add_include(
+       INCLUDES
+         .
+      )
+      include(${SdkRootDirPath}/examples/${board}/demo_apps/hello_world/reconfig.cmake OPTIONAL)
+      mcux_convert_binary(BINARY ${APPLICATION_BINARY_DIR}/${MCUX_SDK_PROJECT_NAME}.bin)
+     ```
+
+
+3. Update Kconfig
+
+   If your example has its specific Kconfig, then adjust the "source" path and  "project_board_port_path"
+
+   The "project_board_port_path" can be updated with true value like `"examples/_boards/evkbmimxrt1170/demo_apps/hello_world"`. Here is the updated Kconfig:
+
+   ```
+   # It is optional to provide example specific Kconfig.
+   mainmenu "Hello World"
+
+   # Need to refer the root Kconfig.mcuxpreso to get all Kconfig data
+   source "${SdkRootDirPath}/Kconfig.mcuxpresso"
+
+   # Board example specific Kconfig can be linked in this way if needed
+   osource "${SdkRootDirPath}/examples/_boards/evkbmimxrt1170/demo_apps/hello_world/Kconfig"
+
+   ```
+
+   For `${SdkRootDirPath}/examples/_boards/evkbmimxrt1170/demo_apps/hello_world/Kconfig`, you can move it to your workspace or keep it there in SDK repo.
+
+
+4. Collect extra prj.conf
+
+   For a freestanding example, no matter using explicitly include root CMakeLists.txt or using McuxSDK CMake package way, the default configuration for device, board and general-Mcuxpresso-SDK-example are anyway involved. Here is the prj.conf table
+
+   ```yaml
+   1. devices/prj.conf
+   2. devices/<soc_series>/prj.conf
+   3. devices/<soc_series>/<device>/prj.conf
+   4. devices/<soc_series>/<device>/<core_id>/prj.conf
+   5. examples/prj.conf
+   6. examples/_boards/prj.conf
+   7. examples/_boards/<board>/prj.conf
+   8. examples/_boards/<board>/<core_id>/prj.conf
+   ###### The example itself configuration
+   9. <example location>/prj.conf
+   ```
+
+   For a repository example, it has extra category example configurations and  board porting configurations in the corresponding prj.conf:
+
+   ```yaml
+   1. devices/prj.conf
+   2. devices/<soc_series>/prj.conf
+   3. devices/<soc_series>/<device>/prj.conf
+   4. devices/<soc_series>/<device>/<core_id>/prj.conf
+   5. examples/prj.conf
+   6. examples/_boards/prj.conf
+   7. examples/_boards/<board>/prj.conf
+   8. examples/_boards/<board>/<core_id>/prj.conf
+   ###### category example configurations and  board porting configurations
+   9. examples/<example_category>/prj.conf
+   10. examples/<example_category>/<example>/prj.conf
+   11. examples/_boards/<board>/<example_category>/prj.conf
+   12. examples/_boards/<board>/<example_category>/<example>/prj.conf
+   13. examples/_boards/<board>/<example_category>/<example>/<core_id>/prj.conf
+
+   ```
+
+   When converting a repository example to freestanding example, the 9-13 prj.conf of repository example shall be collected and merged into the freestanding 9 prj.conf
+
+5. Run the example
+
+   There 2 ways to run the example:
+
+   1. Using west: 
+
+      ```bash
+      west build -b evkbmimxrt1170 <new workspace>/hello_world -Dcore_id=cm7 --toolchain=iar
+      ```
+
+      Please run west cmd inside SDK-root. If you want to run west from your workspace, you can run `SDK-root/mcux-env.cmd` or `SDK-root/mcux-env.sh` to set up the environment variable otherwise west cannot find SDK-root.
+
+   2. Using native cmake cmd in your workspace:
+
+      ```bash
+      cmake -S <new workspace>/hello_world -B build -G Ninja -Dboard=evkbmimxrt1170 -Dcore_id=cm7 -DCMAKE_BUILD_TYPE=debug -DCONFIG_TOOLCHAIN=iar -DSdkRootDirPath=SDK-root
+      ```
+
+      The "-S" specify the example folder containing CMakeLists.txt.
+
+      The "-Dboard=evkbmimxrt1170" specify the target board, equal with "-b evkbmimxrt1170" in west cmd.
+
+      The "-Dcore_id=cm7" specify the core id of multicore device.
+
+      The "-B build" specify the binary output directory is "build". In west cmd, "build" folder is the default binary output folder.
+
+      The "-G Ninja" specify the cmake generator is Ninja. In west cmd, Ninja is the default selected generator.
+
+      The "-DCMAKE_BUILD_TYPE=debug" specify the build target is "debug". In west cmd, "debug" is the default build target. 
+
+      The "-DCONFIG_TOOLCHAIN=iar" specify the toolchain is iar, equal with "--toolchain=iar" in west cmd.
+
+      The "-DSdkRootDirPath=SDK-root" specify the SDK root location. In west cmd, build system will automatically get the SDK root.
+
+      After, you can cd into "build" and run "ninja"
 
 ## Enable An Example
 
