@@ -1384,7 +1384,7 @@ Here is the Kconfig stored variable table:
 | CONFIG_MCUX_HW_FPU_TYPE                  | fpu type.                                | Kconfig process | CMake   |       |
 | CONFIG_MCUX_HW_DEVICE_ID                 | Device id like  MK64FN1M0xxx12           | Kconfig process | CMake   |       |
 | CONFIG_MCUX_HW_DEVICE_PART               | Device part like  MK64FN1M0VDC12         | Kconfig process | CMake   |       |
-| CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX | NPI provided device default linker file name prefix, like "LINKER devices/${soc_portfolio}/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld", for MK64F12, it is devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld | Kconfig process | CMake   |       |
+| CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX | MCUXpresso SDK provided device default linker file name prefix, like "LINKER devices/${soc_portfolio}/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld", for MK64F12, it is devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld | Kconfig process | CMake   |       |
 | CONFIG_MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER | IAR IDE project device identifier        | Kconfig process | CMake   |       |
 | CONFIG_MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER | MDK IDE project device identifier        | Kconfig process | CMake   |       |
 
@@ -2282,7 +2282,7 @@ mcux_set_variable(BOARD_FLASH_RUNNER "linkserver")
 mcux_set_variable(BOARD_DEBUG_RUNNER "jlink")
 ```
 
-To let the runners get correct flash address, NPI developer should maintain Kconfig variable `FLASH_BASE_ADDRESS` in `devices/${soc_portfolio}/${soc_series}/${device}/(${core_id})/prj.conf`:
+To let the runners get correct flash address, MCUXpresso SDK developer should maintain Kconfig variable `FLASH_BASE_ADDRESS` in `devices/${soc_portfolio}/${soc_series}/${device}/(${core_id})/prj.conf`:
 
 ```bash
 CONFIG_FLASH_BASE_ADDRESS=0x30000400
