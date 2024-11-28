@@ -4,7 +4,7 @@
 
 |`**middleware/​wireless/​framework**`|`RREL_CONNFWK_6.2.4`|
 |`**middleware/​wireless/​genfsk**`|`REL_​GENFSK_​K4W1_​4.​0.20`|
-|**`middleware/​wireless/​ble_​controller`**|`REL_​LL_​K4W1_​1.9.14.1`|
+|**`middleware/​wireless/​ble_​controller`**|`REL_​LL_​K4W1_​1.9.18.0`|
 |`**middleware/​wireless/​bluetooth**`|`REL_BLE_1.10.3`|
 |`**middleware/​wireless/​xcvr**`|`REL_​XCVR_​K4W1_​2.​0.19`|
 |`**middleware/wireless/refdes**`|`REL_REFDES_1.1.1`|
