@@ -15,7 +15,6 @@ The following changes have been implemented compared to the previous SDK release
     - Early Access Release
     - Periodic Advertising with Response (PAwR) – Experimental
     - Minor fixes and stability improvements
-    - Channel Sounding (controlled Access)
 
 -   **XCVR**
 

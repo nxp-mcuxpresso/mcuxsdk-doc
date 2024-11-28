@@ -15,7 +15,6 @@ The following is the list of new features and improvements in this release.
     - Early Access Release
     - Periodic Advertising with Response (PAwR) – Experimental
     - Minor fixes and stability improvements
-    - Channel Sounding (controlled Access)
 
 -   **Connectivity framework**
 
