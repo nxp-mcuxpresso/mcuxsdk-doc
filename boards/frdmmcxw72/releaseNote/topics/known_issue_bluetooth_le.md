@@ -5,7 +5,9 @@ Most sensor applications have pairing and bonding disabled to allow a faster int
 #   Bluetooth LE controller:
 
 Max number of connections supported : 8
-Potential instabilities particularly with short Connection Intervals  
+
+Potential instabilities particularly with short Connection Intervals
+
 Channel Sounding (CS) not supported: 
 -	Mode 3 steps
 -	RTT with Random sequence
