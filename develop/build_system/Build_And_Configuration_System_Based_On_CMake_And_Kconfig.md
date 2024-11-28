@@ -2224,22 +2224,20 @@ BCS provides following ways to do the customization.
 
    ```cmake
    include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
-   # project_board_port_path here means boards/frdmk64f/demo_apps/hello_world
+   # project_board_port_path here means examples/_boards/frdmk64f/demo_apps/hello_world
    include(${SdkRootDirPath}/${project_board_port_path}/reconfig.cmake OPTIONAL)
    ```
 
    You can add reconfig.cmake in any sub folder of the above 2 optional cmake path to different level reconfig.cmake and remember to include it recursively in deeper level cmake.
 
-   For example, if you add a boards/frdmk64f/demo_apps/reconfig.cmake, then you should be awared of that this reconfig.cmake shall apply for all demo_apps in frdmk64f.
+   For example, if you add a examples/_boards/frdmk64f/demo_apps/reconfig.cmake, then you should be awared of that this reconfig.cmake shall apply for all demo_apps in frdmk64f.
 
    In these reconfig.cmake, [remove](#remove) extensions can be used to remove board/device common data and settings. After removing the previous data and settings, customization data and settings can be added.
 2. prj.conf
 
    For component selection and configuration, you can use different level prj.conf to achieve it. Refer the priority level in [prj.conf](#prj-conf) to set the data.
 
-Remember to register the example in example.yml so that build system. The example.yml
-
- CI and IDE will know that the examples are enabled in certain boards.
+Remember to register the example in example.yml so that build system, CI and IDE will know that the examples are enabled in certain boards.
 
 Here is one example:
 
@@ -2256,9 +2254,10 @@ Like Zephyr, BS supports setting up configuration for flash runners (invoked fro
 
 ### board_runner.cmake
 
-`mcux.cmake` will always include this file under `${SdkRootDirPath}/boards/<board>` to get runner arguments and which runners are supported for this board. Here is an example:
+`${SdkRootDirPath}/examples/_boards/<board>/board_runner.cmake` is loaded by `${SdkRootDirPath}/cmake/extension/run.cmake` , which is used to get runner arguments and what kind of runners are supported for this board. Here is an example:
 
 ```cmake
+# set runner speicfic arguments
 board_runner_args(pyocd "--target=mimxrt1170_${core_id}")
 if(${core_id} STREQUAL cm7)
     board_runner_args(jlink "--device=${CONFIG_MCUX_HW_DEVICE_ID}_M7" "--reset-after-load")
@@ -2268,6 +2267,7 @@ endif()
 board_runner_args(linkserver "--device=${CONFIG_MCUX_HW_DEVICE_ID}:MIMXRT1170-EVK")
 board_runner_args(linkserver "--core=${core_id}")
 
+# load board supported runner cmake file
 include(${SdkRootDirPath}/cmake/extension/runner/jlink.board.cmake)
 include(${SdkRootDirPath}/cmake/extension/runner/pyocd.board.cmake)
 include(${SdkRootDirPath}/cmake/extension/runner/linkserver.board.cmake)
@@ -2282,11 +2282,13 @@ mcux_set_variable(BOARD_FLASH_RUNNER "linkserver")
 mcux_set_variable(BOARD_DEBUG_RUNNER "jlink")
 ```
 
-To let the runners get correct flash address, developer should maintain Kconfig variable `FLASH_BASE_ADDRESS`. It usually be overrided in `devices/${soc_portfolio}/${soc_series}/${device}/(${core_id})/prj.conf`:
+To let the runners get correct flash address, NPI developer should maintain Kconfig variable `FLASH_BASE_ADDRESS` in `devices/${soc_portfolio}/${soc_series}/${device}/(${core_id})/prj.conf`:
 
 ```bash
 CONFIG_FLASH_BASE_ADDRESS=0x30000400
 ```
+
+If your project has specific setting, please override this config item in ${project_board_port_path}/prj.conf.
 
 ## McuxSDK CMake Package
 
@@ -2335,7 +2337,7 @@ mcux_add_include(
 )
 ```
 
-If you use native cmake target_ function with target "app", then the sources/includes/configurations are added for target app. If you use NXP cmake extension to add sources/includes/configurations, then the data and files are added into target McuxSDK, a static library.
+If you use native cmake target_ function with target `app`, then the sources/includes/configurations are added for target `app`. If you use NXP cmake extension to add sources/includes/configurations, then the data and files are added into target `McuxSDK`, a static library, which will be linked to `app` finally.
 
 If there is no special instruction, the app target will use default provided linker by MCUXpresso SDK if it is an executable. If you want to use your own linker, then please add "CUSTOM_LINKER TRUE" in the "project" like 
 
@@ -2367,9 +2369,7 @@ project(hello_world)
 
 ## IDE GUI Project Generation
 
-CMake is a text-oriented tool that uses the command-line, for many developers, especially those who are used to working on Windows operating system with IDE such as IAR and so on,
-this is not a great experience for coding and debugging. Therefore, we provide CMake target guiproject/standalone_project to analyze the build.ninja file to get source files, include path, assembler/compiler/linker flags
-and set them into project template files. Currently, the meta build system supports GUI project generation for specific IAR, MDK and Xtensa.
+CMake is a text-oriented tool that uses the command-line, for many developers, especially those who are used to working on Windows operating system with IDE such as IAR and so on, this is not a great experience for coding and debugging. Therefore, we provide CMake target guiproject/standalone_project to create IDE GUI project, which analyzes the build.ninja file to get source files, include path, assembler/compiler/linker flags and set them into project template files. Currently, the meta build system supports GUI project generation for specific IAR, MDK, Xtensa and CodeWarrior.
 
 ### Prerequisite
 
@@ -2429,12 +2429,11 @@ After the command runs, the project files are generated into the compilation dir
 
 ### Standalone Example
 
-The linked project is small and fast when generation. However, it uses the file in the repo, which means if you want to share the linked project with others,  both sides need to have a mcu-sdk-3.0 repo, as well as keep the relative paths of the linked projects the same. But if other developer does not have the repo, it is not feasible to zip all repository into a package file and send it over email.
+The linked project is lightweight and fast when generation. However, it uses the file in the repo, which means if you want to share the linked project with others,  both sides need to have a mcu-sdk-3.0 repo, as well as keep the relative paths of the linked projects the same. But if other developer does not have the repo, it is not feasible to zip all repository into a package file and send it over email.
 
 Based on this requirement, the meta build system can export standalone project from the repository. The project contains everything necessary for a single project, keeps same folder structure comparing with repository, which does not rely on meta build system.
 
-To accomplish this, we extend the guiproject generation script for linked project generation process, create a new CMake target `standalone_project`. When generating the corresponding IDE project, for example, .ewp file for IAR, .uvprojx for Keil, the script will copy all the files needed from repo to build_dir/${toolchain}
-folder and transfer path setting for these files. Then you can share the project inside build_dir/${toolchain} with other developers.
+To accomplish this, we extend the guiproject generation script for linked project generation process, create a new CMake target `standalone_project`. When generating the corresponding IDE project, for example, .ewp file for IAR, .uvprojx for Keil, the script will copy all the files needed from repo to `build_dir/${toolchain}` folder and transfer path setting for these files. Then you can share the project inside build_dir/${toolchain} with other developers.
 
 The standalone project can be generated with west command line parameters "-t standalone_project". For example:
 
@@ -2449,7 +2448,7 @@ You can find IAR project in build folder with source code.
 Note:
 
 1. The default project folder is mcu-sdk-3.0/build/${toolchain}. You can also specify the destination folder with command line parameter "-d" .
-2. In one CMake configuration context, you can only create a project for a specific toolchain and specific config such as `debug` or `flexspi_nor_debug`. You should remove CMake build folder or run with "-p always" if changing toolchain or config.
+2. In one CMake configuration context, you can only create a project for a specific toolchain and specific config such as `debug` or `flexspi_nor_debug`. You should remove CMake build folder or run west command with "-p always" if changing toolchain or config.
 3. If the CMake has generated build artifacts, you can just type "west build -t standalone_project"
 
 ## System Build
@@ -2476,9 +2475,9 @@ ExternalMCUXProject_Add(
 add_dependencies(${DEFAULT_IMAGE} hello_world_secondary_core)
 ```
 
-The build order can by set by [add_dependencies](https://cmake.org/cmake/help/latest/command/add_dependencies.html#add-dependencies) function in sysbuild.cmake.
+The `${APP_DIR}` means the build directory of primary project and `${DEFAULT_IMAGE}` indicates the primary project tagret.The build sequence can by determined by [add_dependencies](https://cmake.org/cmake/help/latest/command/add_dependencies.html#add-dependencies) function in sysbuild.cmake.
 
-The variables in sysbuild.cmake can be defined inside the file. Or you can pass them with west command.
+The variables with `SB_` prefix in sysbuild.cmake can be defined before adding sub projects. Or you can pass them with west command `-D`.
 
 In practice, however, it is more common to set these variables automatically via kconfig to support multiple platforms in a more flexible way. For example, you can prepare a Kconfig.sysbuild in main application folder:
 
@@ -2504,7 +2503,7 @@ config secondary_toolchain
     default "$(toolchain)"
 ```
 
-One thing to emphasize is that, sysbuild is only used to organize how individual images are compiled, but in reality, how images are included is set by the project's own cmakelsist.txt. For example, you must import the secondary core binary in primary core image CMakeLists.txt:
+One thing to emphasize is that, sysbuild is only used to organize how individual images are compiled, but in reality, how images are linked together is set by the project's own cmakelsist.txt. For example, you must import the secondary core binary in the CMakeLists.txt of primary project:
 
 ```cmake
 # examples/multicore_examples/hello_world/secondary/CMakeLists.txt
@@ -2618,9 +2617,9 @@ There are two ways for this requirement:
      endif()
      ```
 
-   The software will use assembler/compiler/linker flags provided by meta build system, you can also set specific options for  the third-party software  in `PRIVATE` scope. 
+    The software will use assembler/compiler/linker flags provided by meta build system, you can also set specific options for the third-party software in `PRIVATE` scope. If the module is a library project, meta build system can link the library automatically.  
 
-   Note: Due to the loading order of CMake, the compilation settings in reconfig.cmake are not available, so if necessary, you need to set them yourself in cmakelists.txt of the module.
+    **Note**: Due to the loading sequence of CMake, the compilation settings in reconfig.cmake are not available, so if necessary, you need to set them yourself in cmakelists.txt of the module.
 
 2. If the other software is a standalone project which has separated configuration, it can be imported by sysbuild.
 
@@ -2649,7 +2648,7 @@ The meta build system use CMake to create build artifacts. In general, CMake doe
 
 Assembler/Compiler/Linker flags are set with following CMake configuration function in CMake file, please refer to  [Configuration](#configuration)
 
-For example, the following code set optimization level for IAR compiler:
+For example, the following code sets optimization level for IAR compiler:
 
 ```cmake
     mcux_add_iar_configuration(
@@ -2698,6 +2697,18 @@ In the following sections, the commonly used settings are described.
 
   For ARMGCC, optimization flag are -O0/-O1/-O2/-O3/-Os/-Ofast/-Og.
 
+**Note**: Default optimization level is set in `arch/${arch}/target` and enabled by Kconfig item `MCUX_PRJSEG_module.board.suite`. Here is the default level for each toolchain:
+
+| toolchain\target | debug        | release      |
+| ---------------- | ------------ | ------------ |
+| IAR              | -On          | -Oh          |
+| MDK              | -O1          | -Oz          |
+| ARMGCC           | -O0          | -Os          |
+| Xtensa           | -O0          | -Os          |
+| CodeWarrior      | -opt level=1 | -opt level=4 |
+
+If your project needs different optimization level, please remove the default one and add the new flag.
+
 #### Macro definition
 
 Macro is used to preprocess source files, it is a common setting for assembler/compiler. You can use CMake configuration function defined in  [Configuration](#configuration) to set macro definition.
@@ -2715,15 +2726,30 @@ For example:
         )
 ```
 
+Furthermore, `mcux_add_macro` can be used to simply the setting  to omit `-D` prefix. For example:
+
+```cmake
+mcux_add_macro(
+  CC "XIP_BOOT_HEADER_ENABLE=1"
+  TARGETS flexspi_nor_debug flexspi_nor_release
+  TOOLCHAINS mdk
+)
+```
+
 #### Heap Stack setting
 
-Heap and stack is setting by linker script. Generally SDK use macro `__stack_size__`and `__heap_size__` to set the size.
+Heap and stack is setting by linker script. Generally SDK use symbol `__stack_size__`and `__heap_size__` to set the size. To simplify heap stack setting, `mcux_add_linker_symbol` provides an unify way to set linker symbol for different toolchain. For example:
+```cmake
+    mcux_add_linker_symbol(
+      SYMBOLS "__stack_size__=0x3000 __heap_size__=0x3000"
+    )
+```
 
-It's not identical for different toolchain:
+This setting is equivalent to setting with `mcux_add_${toolchain}_configuration` function:
 
 - IAR
 
-  IAR  use linker flags `--config_def=__stack_size__=${stack size}` and `--config_def=__heap_size__=${heap size}`
+  IAR use linker flags `--config_def=__stack_size__=${stack size}` and `--config_def=__heap_size__=${heap size}`
 
   For example
 
@@ -2755,15 +2781,6 @@ It's not identical for different toolchain:
   )
   ```
 
-To simplify heap stack setting, you can just set linker symbols with `mcux_add_linker_symbol`.
-For example
-
-  ```cmake
-      mcux_add_linker_symbol(
-        SYMBOLS "__stack_size__=0x3000 __heap_size__=0x3000"
-      )
-  ```
-
 #### TrustZone
 
 TrustZone feature is enabled by compiler flags. It may be different for each toolchain.
@@ -2783,6 +2800,33 @@ TrustZone feature is enabled by compiler flags. It may be different for each too
   ```cmake
   mcux_add_armgcc_configuration(CC "-mcmse")
   ```
+
+#### Multi-projects in one workspace
+
+This feature is used in GUI project generation to put multiple projects into one workspace and is only supported on IAR and KEIL toolchains now. You can use `shared-workspace` filed to name the workspace file, and list the path of the other projects in `sharing-workspace`.
+Here is a demo of `tfm_demo_s` and `tfm_demo_ns`, both projects are contained into a shared workspace named `tfm_demo`:
+
+- *IAR*
+
+    ```yaml
+    iar:
+      shared-workspace: tfm_demo
+      sharing-workspace:
+      - ../../tfm_demo_ns/iar/tfm_demo_ns
+    ```
+
+- *KEIL*
+
+    ```yaml
+    mdk:
+      shared-workspace: tfm_demo
+      sharing-workspace:
+      - ../../tfm_demo_ns/mdk/tfm_demo_ns
+    ```
+
+Then you can open the project to see both projects:
+
+![shared_workspace](_doc/shared_workspace.png)
 
 #### Keil MDK Specific Settings
 
@@ -2829,7 +2873,7 @@ mcux_add_iar_configuration(CC "--dlib_config full")
 
 ![](./_doc/ide_option_iar_library_config.png)
 
-#####Semihosted option
+##### Semihosted option
 
 If you need to set semihosted option in IAR, a linker flag `--semihosting` can be set in CMake.
 
@@ -2887,13 +2931,24 @@ The source and include path setting are set in CMake file, please refer to [Sour
 
 ### Pre-include File
 
+You can mark the file as pre-include file with `mcux_add_source` CMake function. For example:
+
+```cmake
+mcux_add_source(
+    PREINCLUDE TRUE
+    SOURCES ./app_preinclude.h
+)
+```
+
+This pre-include file will be prefixed for each compiler automaitcally. Such as `--preinclue ./app_preinclude.h` for IAR, `-inclue ./app_preinclude.h` for mdk and so on.
+
 ### Linker file
 
 The Linker file setting are set in CMake file, please refer to [CMake Extension Linker Setting](#mcux_add_iar_linker_script/mcux_add_mdk_linker_script/mcux_add_armgcc_linker_script)
 
 ### Link libraries
 
-The libraries are set in CMake file with CMake extension function `mcux_add_configuration`, please refer to [CMake Extension Configuration Function](#configuration)
+The libraries are set in CMake file with CMake extension function `mcux_add_configuration`, please refer to [CMake Extension Configuration Function](#mcux_add_library)
 
 #### Pre-build/Post-build Command
 
@@ -2916,7 +2971,9 @@ Supported option for MDK are:
 
     ```yaml
     mdk:
-      update-before-debug: true
+      config:
+        __common__:
+          update-before-debug: true
     ```
 
     ![update_before_debug](./_doc/ide_option_update_before_debug.png)
@@ -2929,7 +2986,9 @@ Supported option for MDK are:
 
     ```yaml
     mdk:
-      load_application: true
+      config:
+        __common__:
+          load_application: true
     ```
 
     ![load_application](./_doc/ide_option_load_application.png)
@@ -2940,9 +2999,11 @@ Supported option for MDK are:
 
     For example:
 
-    ```
+    ```yaml
     mdk:
-      periodic_update: true
+      config:
+        __common__:    
+          periodic_update: true
     ```
 
     ![periodic_update](./_doc/ide_option_periodic_update.png)
@@ -2958,10 +3019,12 @@ Supported option for IAR are:
 
     For example:
 
-    ```
+    ```yaml
     iar:
-      debugger_extra_options:
-      - "--macro_param enable_core=1"
+      config:
+        __common__:
+          debugger_extra_options:
+            - "--macro_param enable_core=1"
     ```
 
     ![debugger_extra_options](./_doc/ide_option_debugger_extra_options.png)
@@ -2970,12 +3033,13 @@ Supported option for IAR are:
   For multicore project, usually there are extra image needed when debugging, IAR support this setting, you can use `download-extra-image` to configure. For example
 
   ```yaml
-            iar:
-              debug:
-                download-extra-image:
-                - path: ../../hello_world_ns/iar/debug/hello_world_ns.out
-                  offset: 0x0
-                  debug_info_only: false
+  iar:
+    config:
+      debug:
+        download-extra-image:
+        - path: ../../hello_world_ns/iar/debug/hello_world_ns.out
+          offset: 0x0
+          debug_info_only: false
   ```
 
   ![download_extra_image](./_doc/ide_option_download_extra_image.png)
@@ -3001,12 +3065,12 @@ Supported attribute for script files are:
   For example:
 
   ```yaml
-        initialization_file:
-          files:
-          - source: boards/${board}/evkbmimxrt1170_ram_cm4_0x1400.ini
-            targets: ram_0x1400_debug ram_0x1400_release
-            attribute: initialization_file
-            toolchains: mdk
+  initialization_file:
+    files:
+    - source: boards/${board}/evkbmimxrt1170_ram_cm4_0x1400.ini
+      targets: ram_0x1400_debug ram_0x1400_release
+      attribute: initialization_file
+      toolchains: mdk
   ```
 
   ![initialization_file](./_doc/ide_file_initialization_file.png)
@@ -3015,12 +3079,12 @@ Supported attribute for script files are:
   For example
 
   ```yaml
-    flash_programming_file:
-      files:
-          - source: boards/${board}/trustzone_examples/hello_world/hello_world_s/hello_world_flashdownload_debug.ini
-            attribute: flash_programming_file
-            toolchains: mdk
-            targets: debug
+  flash_programming_file:
+    files:
+      - source: boards/${board}/trustzone_examples/hello_world/hello_world_s/hello_world_flashdownload_debug.ini
+        attribute: flash_programming_file
+        toolchains: mdk
+        targets: debug
   ```
 
   ![flash_programming_file](./_doc/ide_file_flash_programming_file.png)
@@ -3034,11 +3098,11 @@ Supported attribute for script files are:
   For example:
 
   ```yaml
-        board-file:
-          files:
-            - source: boards/${board}/mbedtls3x_examples/mbedtls3x_psatest/mbedtls3x_psatest.board
-              attribute: board-file
-              toolchains: iar
+  board-file:
+    files:
+      - source: boards/${board}/mbedtls3x_examples/mbedtls3x_psatest/mbedtls3x_psatest.board
+        attribute: board-file
+        toolchains: iar
   ```
 
   ![board_file](./_doc/ide_file_board_file.png)
@@ -3046,13 +3110,13 @@ Supported attribute for script files are:
 
   For example
 
-  ```
-        macro-file:
-          files:
-          - source: boards/${board}/evkmimxrt1064_sdram_init.mac
-            targets: sdram_txt_debug sdram_txt_release
-            toolchains: iar
-            attribute: macro-file
+  ```yaml
+  macro-file:
+    files:
+    - source: boards/${board}/evkmimxrt1064_sdram_init.mac
+      targets: sdram_txt_debug sdram_txt_release
+      toolchains: iar
+      attribute: macro-file
 
   ```
 
@@ -3061,13 +3125,13 @@ Supported attribute for script files are:
 
   For example
 
-  ```
-          jlink_script_file:
-            files:
-            - source: boards/${board}/evkbimxrt1050_sdram_init.jlinkscript
-              attribute: jlink_script_file
-              toolchains: iar
-              targets: sdram_debug sdram_release
+  ```yaml
+  jlink_script_file:
+    files:
+    - source: boards/${board}/evkbimxrt1050_sdram_init.jlinkscript
+      attribute: jlink_script_file
+      toolchains: iar
+      targets: sdram_debug sdram_release
   ```
 
   ![jlink_script_file](./_doc/ide_file_jlink_script_file.png)
