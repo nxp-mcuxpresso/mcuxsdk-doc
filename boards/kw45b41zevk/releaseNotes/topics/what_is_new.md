@@ -12,33 +12,11 @@ The following changes have been implemented compared to the previous SDK release
 	
 -   **Bluetooth LE controller**
 
-    -   Improved Connection Handover feature.
+    - Early Access Release
+    - Periodic Advertising with Response (PAwR) – Experimental
+    - Minor fixes and stability improvements
+    - Channel Sounding (controlled Access)
 
-    -   Optimized Passive Scan and Scan Initiating states.
-
-    -   Optimized Critical Sections duration.
-
-    -   Improved robustness of Rx packets filtering.
-
-    -   Optimized throughput.
-
-    -   Improved reliability of hardware deadlock detection mechanism.
-
-    -   Improved scheduling of shorter Connection Intervals when Connection Intervals are multiple of each other.
-
-    -   Fixed a Link Layer real time issue causing a case of disconnection cause 0x3E \(CONNECTION FAIL TO ESTABLISH\).
-
-    -   Fixed a case of disconnection cause 0x1F \(UNSPECIFIED ERROR\), due to collision of Connection Update and PHY Update procedures.
-
-    -   Fixed a case of connection establishment failure erroneously aborted by lower priority activities. For example, the Advertising activity.
-
-    -   Fixed a case of Peripheral connection establishment failure due to undetected collision with already established connections.
-
-    -   Fixed a case of "Connection Failed to be Established \(0x3E\)" caused by wrong Access Address used when Central establishes the connection.
-
-    -   Fixed MISRA issues.
-
-    -   Fixed the mechanism for disabling enhanced notifications for connection-related events.
 -   **XCVR**
 
     -   Removed support for A0 silicon version.

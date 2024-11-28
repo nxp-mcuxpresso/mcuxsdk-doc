@@ -10,28 +10,12 @@ The following is the list of new features and improvements in this release.
     -   Documentation update.
     -   Minor fixes and stability improvements.
 
--   **Bluetooth LE controller:**
-    -   Fixed a case of connection initiation retry failure after AUX\_CONNECT\_RSP with CRC error is received \(and peer device is using privacy\).
+-   **Bluetooth LE controller**
 
-    -   Fixed RPA address generation not refreshed properly in the case of non-connectable undirected advertising.
-
-    -   Fixed a timing issue in case of concurrent activities \(connection and extended advertising\).
-
-    -   Fixed a case of race condition between incoming and outgoing connection updates.
-
-    -   Fixed some invalid fields in advertising reports.
-
-    -   Fixed channel selection, algorithm 2 is not properly disabled.
-
-    -   Fixed a case of connection drop when slave latency is enabled.
-
-    -   Fixed a case of encrypted packet being sent before `LL_START_ENC_RSP`.
-
-    -   Optimized real-time processing \(related to critical sections\) for advertising and direct test mode \(DTM\).
-
-    -   Optimized connection event occupation in some cases of packets retransmission.
-
-    -   Added advertising address in the enhanced notification messages.
+    - Early Access Release
+    - Periodic Advertising with Response (PAwR) – Experimental
+    - Minor fixes and stability improvements
+    - Channel Sounding (controlled Access)
 
 -   **Connectivity framework:**
     -   Optimized \`\`PLATFORM\_RemoteActiveReq\(\)\`\` execution time.

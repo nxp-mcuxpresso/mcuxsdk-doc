@@ -11,6 +11,12 @@ The following changes have been implemented compared to the previous SDK release
     -   Added OTA Support.
 	-   Documentation update.
     -   Other minor fixes and stability improvements.
+
+-   Bluetooth LE controller:
+    -   Early Access Release
+    -   Channel Sounding (controlled Access)
+    -   Minor fixes and stability improvements
+
 -   XCVR API:
 
     -   Fixed PA power off transient bug in `XCVR_ForcePAPower()`.

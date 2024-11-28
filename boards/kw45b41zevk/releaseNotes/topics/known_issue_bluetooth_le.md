@@ -6,6 +6,11 @@
 
 -   TX data path integrity is not guaranteed during the Bluetooth LE handover.
 
+#   Bluetooth LE controller:
+
+-   Max number of connections supported : 8 
+
+-   Potential instabilities particularly with short Connection Intervals 
 
 **Parent topic:**[Known issues](../topics/known_issues.md)
 
