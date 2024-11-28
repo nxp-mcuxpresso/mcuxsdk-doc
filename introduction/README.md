@@ -23,13 +23,5 @@ We leveraged [Zephyr west tool](https://docs.zephyrproject.org/latest/guides/wes
 2. Retrieve full MCUXpresso SDK projects by using default west.yml. This will clone and check out all the MCUXpresso SDK projects, thus the size consumption could be very huge and the speed maybe slow.
 The west tool also allows user to self create ```west.yml``` for customizing needed projects for their use cases.
 
-
 ## Getting Started
 See {ref}`Getting Start Guide <gsd_index>` to start explore the project.
-
-## License
-All SDK drivers, components, device support files, board support files and driver examples in this project are under BSD-3-Clause license, license copy please check [COPYING_BSD-3](COPYING-BSD-3). The ARM CMSIS component is under Apache License 2.0, license copy check [Apache License 2.0](CMSIS/LICENSE.txt). License information for all components could be found in [SW-Content-Register.txt](SW-Content-Register.txt)
-
-## Contribution
-Contributions are greatly welcomed! For detail guideline of contribution please check [Contribution Guide](../contribute/CONTRIBUTING.md).
-

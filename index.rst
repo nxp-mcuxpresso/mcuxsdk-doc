@@ -10,7 +10,7 @@ MCUXpresso SDK Documentation
 **Welcome to the MCUXpresso SDK Project documentation**
 
 The whole MCUXpresso SDK delivery is provided under the `LA_OPT_NXP_Software_License`_ (as found in
-the LA_OPT_NXP_Software_License.txt file in the project's `GitHub repo`_). The mcux-sdk project, alias the
+the LA_OPT_NXP_Software_License.txt file in the project's `GitHub repo`_). The mcuxsdk-core project, alias the
 core project, is the fundamental project of whole MCUXpresso SDK delivery. It is under the
 `BSD-3-Clause`_ (as found in the COPYING-BSD-3.txt file in the project's `GitHub repo`_) which is quite a
 permissive license. The other projects in MCUXpresso SDK may have different license, please check `SW-Content-Register`_
