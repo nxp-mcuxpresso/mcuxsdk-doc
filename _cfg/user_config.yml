@@ -250,3 +250,13 @@ modules:
     external_contents:
     - root: 'docs'
       pattern: 'middleware/wireless/Bluetooth/*'
+  mid_usb:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/usb/*'
+  mid_edgefast_bluetooth:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/edgefast_bluetooth/*'
