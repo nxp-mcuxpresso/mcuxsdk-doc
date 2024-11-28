@@ -1,7 +1,7 @@
 .. _edgefast_bluetooth:
 
-EDGEFAST_BLUETOOTH
-#####
+EdgeFast Bluetooth
+##################
 
 Currently we provide pdf version of those documentation, later release may convert the pdf documentation to markdown for better review and aligned format.
 
