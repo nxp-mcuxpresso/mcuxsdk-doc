@@ -6,7 +6,7 @@ Some instabilities may occur in demanding Bluetooth LE connection scenarios \(su
 
 #   Bluetooth LE controller:
 
-Max number of connections supported : 8 
+Max number of connections supported : 8
 Potential instabilities particularly with short Connection Intervals  
 Channel Sounding (CS) not supported: 
 -	Mode 3 steps
