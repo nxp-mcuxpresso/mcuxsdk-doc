@@ -1,6 +1,6 @@
 # Matter and OpenThread 
 
-This SDK version provides the base support for K32W148 Matter 1.x over Thread and OpenThread integration.
+This SDK version provides the base support for Matter 1.x over Thread and OpenThread integration.
 
 To begin development with Matter over Thread, go to [https://github.com/NXP/matter](https://github.com/NXP/matter) and navigate to examples, such as, examples/lighting-app/nxp/.
 

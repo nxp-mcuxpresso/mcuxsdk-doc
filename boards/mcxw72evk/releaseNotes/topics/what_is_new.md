@@ -1,48 +1,50 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version..
+MCUXpresso SDK version 24.12.00-pvw2 is an early adopter release provided as preview for early development.
 
--   Bluetooth LE
-    -   Early Access Release.
-    -   Bluetooth LE sample applications.
-    -   Bluetooth LE Channel Sounding applications: `loc_reader`, `loc_user_device`, `wireless_ranging`.
-    -   Bluetooth LE Channel Sounding applications are controlled access.
-    -   Added LCE support.
-	-   Documentation update.
-    -   Other minor fixes and stability improvements.
--   Bluetooth LE controller:
-    -   Early Access Release
-    -   Channel Sounding (controlled Access)
+The following changes have been implemented compared to the previous SDK release version \(24.12.00-pvw1\).
+
+-   **Bluetooth LE host stack and applications**
+    -   Added Bluetooth LE sample applications: `ble_shell`, `w_uart`.
+    -   Added Bluetooth LE Channel Sounding applications with Localization Compute Engine \(LCE\) support: `loc_reader`, `loc_user_device`, `wireless_ranging` \(Bluetooth LE Channel Sounding applications are provided with controlled access, contact your NXP representative for access\)
     -   Minor fixes and stability improvements
--   XCVR API:
-    -   Fixed PA power off transient bug in `XCVR_ForcePAPower()`.
--   IEEE 802.15.4 and Zigbee
+    -   Added support for OTA feature
+    -   Documentation updates
 
-    -   Minor updates and stability improvements.
+-   **Bluetooth LE controller**
+    -   Added support for Bluetooth LE Channel Sounding
+    -   Minor fixes and stability improvements
+
+-   **Transceiver drivers (XCVR)**
+    -   Added support for Bluetooth LE Channel Sounding
+    -   Added API to control PA ramp type and duration.
 
 -   **Connectivity framework**
 
     -   **Major Changes (User Applications may be impacted)**
 
-        -   Supporting cmake/Kconfig for SDK 24.12.00: user shall now use CmakeLists.txt and Kconfig files from root folder. Compilation should be done using west build command. In order to see the Framework Kconfig, use command >west build -t guiconfig
+        -   Supporting CMake/Kconfig for SDK 24.12.00: user shall now use `CmakeLists.txt` and `Kconfig` files from root folder. Compilation should be done using `west build` command. In order to see the Framework Kconfig, use command `>west build -t guiconfig`
         -   Board files and linker scripts moved to examples repository
 
     -   **Bugfixes**
 
         -   [platform lowpower]
-            -   Entering Deep down power mode will no longer call PLATFORM_EnterPowerDown(). This API is now called only when going to Power down mode
+            -   Entering Deep down power mode will no longer call `PLATFORM_EnterPowerDown()`. This API is now called only when going to Power down mode
 
     -   **Platform specific**
 
-        -   Early access release only:
-            -   Deep sleep power mode not fully tested. User can experiment deep sleep and deep down modes using low power reference design applications
-            -   XTAL32K-less support using FRO32K not tested
+        -   Deep sleep power mode not fully qualified - User can experiment deep sleep and deep down modes using low power reference design applications
+        -   XTAL32K-less support using FRO32K not qualified
 
-    -   **Overal folder restructuring for SDK 24.12.00**
+    -   **Overall folder restructuring for SDK 24.12.00**
 
         -   [Platform]:
-            -   Renamed platform_family from connected_mcu/nbu to wireless_mcu/nbu
-            -   platform family have now a dedicated fwk_config.h, rpmsg_config.h and SecLib_mbedtls_config.h
+            -   Renamed platform_family from `connected_mcu/nbu` to `wireless_mcu/nbu`
+            -   Platform families have now a dedicated `fwk_config.h`, `rpmsg_config.h` and `SecLib_mbedtls_config.h`
         -   [Services]:
-            -   Moved all framework services in a common directory "services/"
+            -   Moved all framework services in a common directory `services`
 
+-   **Zigbee and IEEE 802.15.4**
+    -  Minor fixes for Zigbee PRO R22 configuration.
+    -  Zigbee Pro 2023 Configuration is not supported in this release.
+    

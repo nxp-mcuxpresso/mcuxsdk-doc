@@ -1,18 +1,16 @@
 # Zigbee 
 
-The NXP ZigBee stack provides the following generic features:
+This release of the NXP Zigbee stack supports the following generic Zigbee protocol features:
 
 -   Zigbee Pro R22
--   Dynamic Link Key Support \(experimental\), see [Annexure: Zigbee PRO 2023 dynamic link key negotiation](zigbee_pro_2023_dynamic_link_key_negotiation.md)
--   Zigbee Pro 2023 - experimental
 -   Zigbee 3.0
 -   Zigbee Green Power – Proxy and Combo
--   Base Device Behavior \(BDB\) 3.0
+-   Base Device Behavior \(BDB\) 3.1
 -   Zigbee Cluster Library \(ZCL\) 8
 -   OTA Client
 -   OTA Server
 
-The SDK comes bundled with the following sample Zigbee 3.0 applications that allow the end user to get quickly up to speed with the development of Zigbee applications on NXP platforms:
+The SDK includes the following sample Zigbee 3.0 applications that allow the end user to get quickly up to speed with the development of Zigbee applications on NXP platforms:
 
 -   Zigbee Coordinator Bare Metal and FreeRTOS
 -   Zigbee Router Bare Metal and FreeRTOS

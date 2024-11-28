@@ -36,6 +36,7 @@
     -   Timestamp associated to Bluetooth LE packet reception
     -   RF channel info associated to Bluetooth LE packet reception
     -   NXP proprietary Bluetooth LE Handover feature
+    -   Support for experimental features **Advertising Coding Selection**, **Periodic Advertising with Responses \(PAwR\)**, and **Decision Based Advertising Filtering \(DBAF\)**
 
 **Note:** Project configurations that require usage of the Bluetooth LE controller including all Bluetooth LE examples require the Radio Subsystem \(NBU\) Firmware to be re-programmed with the firmware provided in the SDK under *middleware\\wireless\\ble\_controller\\bin*. See the EVK Quick Start Guide and Secure Provisioning SDK \(SPSDK\) documentation for NBU programming steps.
 

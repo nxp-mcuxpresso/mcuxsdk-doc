@@ -1,17 +1,18 @@
 # Wireless connectivity middleware overview 
 
-**Component versions**
+**Component versions**:
 
-|`**middleware/wireless/framework**`|`7.0.0.b`|
-|`**middleware/wireless/genfsk**`|`4.0.21`|
-|**`middleware/wireless/ble_controller`**|`1.9.18`|
-|`**middleware/wireless/bluetooth**`|`1.10.3`|
-|`**middleware/wireless/xcvr**`|`2.1.3`|
-|`**middleware/wireless/refdes**`|`1.1.1`|
-|`**middleware/wireless/ieee-802.15.4**`|`1.0.21a`|
-|`**middleware/wireless/zigbee**`|`1.0.16a`|
+|Wireless connectivity component|Version|
+|--|--|
+|`middleware/​wireless/​bluetooth`|`1.10.3`|
+|`middleware/​wireless/​ble_​controller`|`1.9.18.0`|
+|`middleware/wireless/ieee-802.15.4`|`1.0.21b`|
+|`middleware/​wireless/​xcvr`|`​2.​1.4`|
+|`middleware/​wireless/​genfsk`|`4.0.22`|
+|`middleware/wireless/framework`|`7.0.0b`|
+|`middleware/wireless/zigbee`|`1.0.16b`|
 
-The following connectivity-supporting documentation is included in this package:
+The following connectivity-supporting documentation is included with this release:
 
 -   *Bluetooth Low Energy Quick Start Guide*
 -   *Bluetooth Low Energy Demo Applications User's Guide*

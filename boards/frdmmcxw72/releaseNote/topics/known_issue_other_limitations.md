@@ -1,5 +1,7 @@
 # Other limitations
 
+-   Documentation may not be fully updated to refer to MCX W72 devices.
+-   Low Power configurations are not supported for Bluetooth LE Reference Design and IEEE 802.15.4, \(Zigbee/Thread\) stacks in this release.
 -   The following Connectivity Framework configurations are Experimental and not recommended for mass production:
 
     -   Power down on application power domain.

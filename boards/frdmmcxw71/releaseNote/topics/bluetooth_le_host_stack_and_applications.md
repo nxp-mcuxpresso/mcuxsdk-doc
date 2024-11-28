@@ -23,9 +23,10 @@ Main features supported:
 -   Enhanced Notifications
 -   Dynamic Database
 -   OTA Support - Sample Applications
--   Decision based Advertising Filtering - Experimental feature
--   Advertising Coding Selection - Experimental feature
--   Bluetooth LE Controller main and experimental features and capabilities described below are supported by the Bluetooth LE Host.
+-   Decision based Advertising Filtering \(DBAF\) - Experimental feature
+-   Advertising Coding Selection \(ACS\) - Experimental feature
+-   Periodic Advertising with Responses \(PAwR) - Experimental feature
+-   Encrypted Advertising Data \(EAD\) - Experimental feature
 
     **Note:** For evaluating experimental features, replace the Bluetooth LE Host default example projects libraries with the libraries from the *SDK* folder *..\\middleware\\wireless\\bluetooth\\host\\lib\_exp* and enable the features in the application. The Radio Subsystem \(NBU\) Firmware with experimental features is required.
 

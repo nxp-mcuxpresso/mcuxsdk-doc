@@ -1,11 +1,10 @@
 # Other limitations 
-
+-   Zigbee: incorrect randomization of transmission CCA backoff may cause packets to be missed by receiver nodes or procedure retry.
 -   Documentation may not be fully updated to refer to MCX W72 devices.
 -   Low Power configurations are not supported for Bluetooth LE Reference Design and IEEE 802.15.4, \(Zigbee/Thread\) stacks in this release.
 -   GenFSK Connectivity\_test application is not operational with ARMGCC compiler.
 -   GenFSK `Connectivity_test` application is not operational with Low Power enabled.
 -   Serial manager is only supported on UART \(not I2C nor SPI\).
--   SDK components may expose MISRA Required issues due to alignment with legacy codebases. Improvements are planned in the next MCUXpresso SDK release.
 -   The `--no-warn-rwx-segments` cannot been recognized on legacy MCUXpresso IDE versions.
 
     The `--no-warn-rwx-segments` option in MCUXpresso projects should be manually removed from the project settings if someone needs to use legacy \(< 11.8.0\) MCUXpresso IDE versions
