@@ -9,9 +9,6 @@ MCUXpresso SDK Documentation
 
 **Welcome to the MCUXpresso SDK Project documentation**
 
-For information about the changes and additions for releases, please
-consult the published :ref:`mcux-sdk_release_notes` documentation.
-
 The whole MCUXpresso SDK delivery is provided under the `LA_OPT_NXP_Software_License`_ (as found in
 the LA_OPT_NXP_Software_License.txt file in the project's `GitHub repo`_). The mcux-sdk project, alias the
 core project, is the fundamental project of whole MCUXpresso SDK delivery. It is under the
@@ -20,15 +17,15 @@ permissive license. The other projects in MCUXpresso SDK may have different lice
 for more details.
 
 .. _BSD-3-Clause:
-   https://github.com/NXPMicro/mcux-sdk/blob/main/COPYING-BSD-3
+   https://github.com/nxp-mcuxpresso/mcuxsdk-core/blob/main/LICENSE
 
 .. _LA_OPT_NXP_Software_License:
-   https://github.com/NXPMicro/mcux-sdk/blob/main/LA_OPT_NXP_Software_License.txt
+   https://github.com/nxp-mcuxpresso/mcuxsdk-manifests/blob/main/LA_OPT_NXP_Software_License.txt
 
 .. _SW-Content-Register:
-   https://github.com/NXPMicro/mcux-sdk/blob/main/SW-Content-Register.txt
+   https://github.com/nxp-mcuxpresso/mcuxsdk-manifests/blob/main/SCR.txt
 
-.. _GitHub repo: https://github.com/NXPMicro/mcux-sdk
+.. _GitHub repo: https://github.com/nxp-mcuxpresso/mcuxsdk-core
 
 .. only:: html
 
@@ -67,11 +64,3 @@ for more details.
    :caption: Releases
 
    release/index
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Contribution
-
-   contribute/index
-
-.. todolist::
