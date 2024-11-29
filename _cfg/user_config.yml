@@ -23,7 +23,7 @@ ext_doxygen:
   fmt_vars: {}
 vcs_link:
 - pattern: ".*"
-  link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-doc/browse"
+  link: "https://github.com/nxp-mcuxpresso/mcuxsdk-doc/blob/main"
 external_contents:
 - root: 'docs'
   pattern: 'index.rst'
@@ -80,9 +80,9 @@ modules:
       pattern: 'boards/**/*.readme'
     vcs_link:
     - pattern: "boards/.*readme"
-      link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse"
+      link: "https://github.com/nxp-mcuxpresso/mcu-sdk-examples/blob/main"
     - pattern: "Boards/.*readme"
-      link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse"
+      link: "https://github.com/nxp-mcuxpresso/mcu-sdk-examples/blob/main"
   drivers:
     default: True
     external_contents:
@@ -106,9 +106,9 @@ modules:
       pattern: 'examples/**/index.rst'
     vcs_link:
     - pattern: examples/.*\.md
-      link: https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-examples/browse
+      link: "https://github.com/nxp-mcuxpresso/mcu-sdk-examples/blob/main"
     - pattern: examples/.*\.rst
-      link: https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-examples/browse
+      link: "https://github.com/nxp-mcuxpresso/mcu-sdk-examples/blob/main"
   contribute:
     default: True
     external_contents:
@@ -200,7 +200,7 @@ modules:
       pattern: 'middleware/mcuboot_opensource/docs/*.md'
     vcs_link:
     - pattern: "middleware/mcuboot_opensource/.*md"
-      link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-mcuboot/browse"
+      link: "https://github.com/nxp-mcuxpresso/mcuboot_opensource/blob/main"
   mid_freertos_drivers:
     default: true
     external_contents:
