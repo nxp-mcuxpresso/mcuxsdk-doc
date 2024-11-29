@@ -262,6 +262,8 @@ Maximum file path length in Windows 7 operating system
 
     **Affected platforms:** evkbimxrt1050 evkbmimxrt1060 evkbmimxrt1170 evkcmimxrt1060 evkmcimx7ulp evkmimx8mm evkmimx8mn evkmimx8mnddr3l evkmimx8mp evkmimx8mq evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1024 evkmimxrt1040 evkmimxrt1060 evkmimxrt1064 evkmimxrt1160 evkmimxrt1170 evkmimxrt1180 evkmimxrt595 evkmimxrt685 frdmk22f frdmk32l2a4s frdmk32l2b frdmk32l3a6 frdmke02z40m frdmke15z frdmke16z frdmke17z frdmke17z512 frdmmcxa153 frdmmcxa156 frdmmcxc041 frdmmcxc242 frdmmcxc444 frdmmcxn236 frdmmcxn947 frdmmcxw71 k32w148evk kw45b41zevk kw45b41zloc lpc845breakout lpcxpresso51u68 lpcxpresso54628 lpcxpresso54s018 lpcxpresso54s018m lpcxpresso55s06 lpcxpresso55s16 lpcxpresso55s28 lpcxpresso55s36 lpcxpresso55s69 lpcxpresso802 lpcxpresso804 lpcxpresso824max lpcxpresso845max lpcxpresso860max mc56f80000evk mc56f81000evk mc56f83000evk mcxn5xxevk mcxn9xxevk mimxrt685audevk rdrw612bga twrkm34z50mv3 twrkm34z75m twrkm35z75m twrmc56f8200 twrmc56f8400 
 
+.. rst-class:: hideable evkbimxrt1050 evkbmimxrt1060 evkbmimxrt1170 evkcmimxrt1060 evkmcimx7ulp evkmimx8mm evkmimx8mn evkmimx8mnddr3l evkmimx8mp evkmimx8mq evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1024 evkmimxrt1040 evkmimxrt1060 evkmimxrt1064 evkmimxrt1160 evkmimxrt1170 evkmimxrt1180 evkmimxrt595 evkmimxrt685 frdmk22f frdmk32l2a4s frdmk32l2b frdmk32l3a6 frdmke02z40m frdmke15z frdmke16z frdmke17z frdmke17z512 frdmmcxa153 frdmmcxa156 frdmmcxc041 frdmmcxc242 frdmmcxc444 frdmmcxn236 frdmmcxn947 frdmmcxw71 k32w148evk kw45b41zevk kw45b41zloc lpc845breakout lpcxpresso51u68 lpcxpresso54628 lpcxpresso54s018 lpcxpresso54s018m lpcxpresso55s06 lpcxpresso55s16 lpcxpresso55s28 lpcxpresso55s36 lpcxpresso55s69 lpcxpresso802 lpcxpresso804 lpcxpresso824max lpcxpresso845max lpcxpresso860max mc56f80000evk mc56f81000evk mc56f83000evk mcxn5xxevk mcxn9xxevk mimxrt685audevk rdrw612bga twrkm34z50mv3 twrkm34z75m twrkm35z75m twrmc56f8200 twrmc56f8400 v2024-12-00-pvw2
+
 New Project Wizard compile failure
     The following components request the user to manually select other components that they depend upon in order to compile. These components depend on several other components and the New Project Wizard \(NPW\) is not able to decide which one is needed by the user.
 
@@ -398,14 +400,12 @@ Debug SRAM target with J-Link on MCUXpresso IDE issue
 
     **Affected platforms:** lpcxpresso54s018
 
-.. rst-class:: hideable evkbimxrt1050 v2024-12-00-pvw2 frdmke17z evkbimxrt1050 evkmcimx7ulp evkmimx8mm evkmimx8mn evkmimx8mp evkmimx8mq evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1064 evkmimxrt595 evkmimxrt685 evkbmimxrt1060 evkcmimxrt1060 frdmk22f frdmk32l2a4s frdmk32l2b frdmk32l3a6 frdmke02z40m frdmke16z lpcxpresso54s018 lpc845breakout lpcxpresso54s018m lpcxpresso55s06 lpcxpresso55s28 lpcxpresso55s69 lpcxpresso802 lpcxpresso804 evkmimxrt1024 eevkbmimxrt1060 evkcmimxrt1060 evkmimxrt1160
-evkbmimxrt1170 twrkm34z50mv3 twrkm34z75m frdmmcxc242 frdmk22f lpcxpresso51u68 lpcxpresso54628
+.. rst-class:: hideable evkbimxrt1050 v2024-12-00-pvw2 frdmke17z evkbimxrt1050 evkmcimx7ulp evkmimx8mm evkmimx8mn evkmimx8mp evkmimx8mq evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1064 evkmimxrt595 evkmimxrt685 evkbmimxrt1060 evkcmimxrt1060 frdmk22f frdmk32l2a4s frdmk32l2b frdmk32l3a6 frdmke02z40m frdmke16z lpcxpresso54s018 lpc845breakout lpcxpresso54s018m lpcxpresso55s06 lpcxpresso55s28 lpcxpresso55s69 lpcxpresso802 lpcxpresso804 evkmimxrt1024 eevkbmimxrt1060 evkcmimxrt1060 evkmimxrt1160 evkbmimxrt1170 twrkm34z50mv3 twrkm34z75m frdmmcxc242 frdmk22f lpcxpresso51u68 lpcxpresso54628
 
 Cannot add SDK components into FreeRTOS projects
     It is not possible to add any SDK components into FreeRTOS project using the MCUXpresso IDE New Project wizard.
 
-    **Affected platforms:** frdmke17z frdmke17z evkbimxrt1050 evkmcimx7ulp evkmimx8mm evkmimx8mn evkmimx8mp evkmimx8mq evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1064 evkmimxrt595 evkmimxrt685 evkbmimxrt1060 evkcmimxrt1060 frdmk22f frdmk32l2a4s frdmk32l2b frdmk32l3a6 frdmke02z40m frdmke16z lpcxpresso54s018 lpc845breakout lpcxpresso54s018m lpcxpresso55s06 lpcxpresso55s28 lpcxpresso55s69 lpcxpresso802 lpcxpresso804 evkmimxrt1024 eevkbmimxrt1060 evkcmimxrt1060 evkmimxrt1160
-evkbmimxrt1170 twrkm34z50mv3 twrkm34z75m frdmmcxc242 frdmk22f pcxpresso51u68 lpcxpresso54628
+    **Affected platforms:** frdmke17z frdmke17z evkbimxrt1050 evkmcimx7ulp evkmimx8mm evkmimx8mn evkmimx8mp evkmimx8mq evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1064 evkmimxrt595 evkmimxrt685 evkbmimxrt1060 evkcmimxrt1060 frdmk22f frdmk32l2a4s frdmk32l2b frdmk32l3a6 frdmke02z40m frdmke16z lpcxpresso54s018 lpc845breakout lpcxpresso54s018m lpcxpresso55s06 lpcxpresso55s28 lpcxpresso55s69 lpcxpresso802 lpcxpresso804 evkmimxrt1024 eevkbmimxrt1060 evkcmimxrt1060 evkmimxrt1160 evkbmimxrt1170 twrkm34z50mv3 twrkm34z75m frdmmcxc242 frdmk22f pcxpresso51u68 lpcxpresso54628
 
 .. rst-class:: hideable v2024-12-00-pvw2 evkbimxrt1050 evkmimxrt1010 evkmimxrt1020 evkmimxrt1024 frdmk32l2a4s lpcxpresso55s28
 
@@ -636,142 +636,10 @@ SEGGER J-Link debugger usage problem
 
 .. rst-class:: hideable v2024-12-00-pvw2 frdmmcxc041 frdmmcxc242 frdmmcxc444
 
-<<<<<<< HEAD
-=======
-.. rst-class:: hideable v2024-12-00-pvw2
-
-LE encryption failure causes connection to fail
-    There can be a corner case when LE link encryption can fail. This occurs when device under test \(DUT\); RT Bluetooth controller here, while waiting for the response to LL_SLAVE_FEATURES_REQ, instead receives the LL_ENC_REQ response from a remote device. This causes deadlock scenario where DUT and remote devices are stuck waiting for response from peer.
-
-    **Affected platforms:** 
-
-.. rst-class:: hideable v2024-12-00-pvw2
-
-Log output may be mixed in shell/hfp example
-    When multiple tasks print the log, the serial port terminal output has the probability to appear mixed.
-
-    **Affected platforms:** 
-
-.. rst-class:: hideable v2024-12-00-pvw2
-
-Low speed devices not supported
-    The host examples cannot support low-speed devices
-
-    **Affected platforms:** 
-
-.. rst-class:: hideable v2024-12-00-pvw2
-
-lwip_httpssrv_ota_wifi example fails to accept the new image on EVKMIMXRT685
-    After uploading the new image over https, and rebooting the board the new image starts. However, reboot starts it is not possible to accept the update and make it permanent. This issue is specific to combination of EVKMIMXRT685 board and AW-NM191NF-uSD Wi-Fi module. Other configurations are not affected.
-
-    **Affected platforms:** 
-
-.. rst-class:: hideable evkbimxrt1050 evkbmimxrt1060 evkbmimxrt1170 evkcmimxrt1060 evkmcimx7ulp evkmimx8mm evkmimx8mn evkmimx8mnddr3l evkmimx8mp evkmimx8mq evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1024 evkmimxrt1040 evkmimxrt1060 evkmimxrt1064 evkmimxrt1160 evkmimxrt1170 evkmimxrt1180 evkmimxrt595 evkmimxrt685 frdmk22f frdmk32l2a4s frdmk32l2b frdmk32l3a6 frdmke02z40m frdmke15z frdmke16z frdmke17z frdmke17z512 frdmmcxa153 frdmmcxa156 frdmmcxc041 frdmmcxc242 frdmmcxc444 frdmmcxn236 frdmmcxn947 frdmmcxw71 k32w148evk kw45b41zevk kw45b41zloc lpc845breakout lpcxpresso51u68 lpcxpresso54628 lpcxpresso54s018 lpcxpresso54s018m lpcxpresso55s06 lpcxpresso55s16 lpcxpresso55s28 lpcxpresso55s36 lpcxpresso55s69 lpcxpresso802 lpcxpresso804 lpcxpresso824max lpcxpresso845max lpcxpresso860max mc56f80000evk mc56f81000evk mc56f83000evk mcxn5xxevk mcxn9xxevk mimxrt685audevk rdrw612bga twrkm34z50mv3 twrkm34z75m twrkm35z75m twrmc56f8200 twrmc56f8400 v2024-12-00-pvw2
-
-Maximum file path length in Windows 7 operating system
-    The Windows 7 operating system imposes a 260-character maximum length for file paths. When installing the MCUXpresso SDK, place it in a directory close to the root to prevent file paths from exceeding the maximum character length specified by the Windows operating system. The recommended location is the C:\\<folder\>.
-
-    **Affected platforms:** evkbimxrt1050 evkbmimxrt1060 evkbmimxrt1170 evkcmimxrt1060 evkmcimx7ulp evkmimx8mm evkmimx8mn evkmimx8mnddr3l evkmimx8mp evkmimx8mq evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1024 evkmimxrt1040 evkmimxrt1060 evkmimxrt1064 evkmimxrt1160 evkmimxrt1170 evkmimxrt1180 evkmimxrt595 evkmimxrt685 frdmk22f frdmk32l2a4s frdmk32l2b frdmk32l3a6 frdmke02z40m frdmke15z frdmke16z frdmke17z frdmke17z512 frdmmcxa153 frdmmcxa156 frdmmcxc041 frdmmcxc242 frdmmcxc444 frdmmcxn236 frdmmcxn947 frdmmcxw71 k32w148evk kw45b41zevk kw45b41zloc lpc845breakout lpcxpresso51u68 lpcxpresso54628 lpcxpresso54s018 lpcxpresso54s018m lpcxpresso55s06 lpcxpresso55s16 lpcxpresso55s28 lpcxpresso55s36 lpcxpresso55s69 lpcxpresso802 lpcxpresso804 lpcxpresso824max lpcxpresso845max lpcxpresso860max mc56f80000evk mc56f81000evk mc56f83000evk mcxn5xxevk mcxn9xxevk mimxrt685audevk rdrw612bga twrkm34z50mv3 twrkm34z75m twrkm35z75m twrmc56f8200 twrmc56f8400 
-
-lvgl example for evkbmimxrt1170 issue in MCUXpressoIDE
-    The *lvgl* example for evkbmimxrt1170 does not work correctly in MCUXpressoIDE.
-
-    **Affected platforms:**
-
-.. rst-class:: hideable v2024-12-00-pvw2
-
-MCUXpresso IDE limitation
-    **Cannot debug cm4 sdram related demos with CMSIS-DAP.** MCUXpresso IDE does not support initialization of sdram when debugging.
-
-
-    **Affected platforms:** 
-
-.. rst-class:: hideable evkbimxrt1050 evkbmimxrt1060 evkbmimxrt1170 evkcmimxrt1060 evkmcimx7ulp evkmimx8mm evkmimx8mn evkmimx8mnddr3l evkmimx8mp evkmimx8mq evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1024 evkmimxrt1040 evkmimxrt1060 evkmimxrt1064 evkmimxrt1160 evkmimxrt1170 evkmimxrt1180 evkmimxrt595 evkmimxrt685 frdmk22f frdmk32l2a4s frdmk32l2b frdmk32l3a6 frdmke02z40m frdmke15z frdmke16z frdmke17z frdmke17z512 frdmmcxa153 frdmmcxa156 frdmmcxc041 frdmmcxc242 frdmmcxc444 frdmmcxn236 frdmmcxn947 frdmmcxw71 k32w148evk kw45b41zevk kw45b41zloc lpc845breakout lpcxpresso51u68 lpcxpresso54628 lpcxpresso54s018 lpcxpresso54s018m lpcxpresso55s06 lpcxpresso55s16 lpcxpresso55s28 lpcxpresso55s36 lpcxpresso55s69 lpcxpresso802 lpcxpresso804 lpcxpresso824max lpcxpresso845max lpcxpresso860max mc56f80000evk mc56f81000evk mc56f83000evk mcxn5xxevk mcxn9xxevk mimxrt685audevk rdrw612bga twrkm34z50mv3 twrkm34z75m twrkm35z75m twrmc56f8200 twrmc56f8400 v2024-12-00-pvw2
-
-New Project Wizard compile failure
-    The following components request the user to manually select other components that they depend upon in order to compile. These components depend on several other components and the New Project Wizard \(NPW\) is not able to decide which one is needed by the user.
-
-    **Note:** xxx means core variants, such as, cm0plus, cm33, cm4, cm33_nodsp.
-
-    **Components:**issdk_mag3110, issdk_host, systick, gpio_kinetis, gpio_lpc, issdk_mpl3115, sensor_fusion_agm01, sensor_fusion_agm01_lpc, issdk_mma845x, issdk_mma8491q, issdk_mma865x, issdk_mma9553, and CMSIS_RTOS2.CMSIS_RTOS2, and components which include cache driver, such as enet_qos.
-
-    Also for low-level adapter components, currently the different types of the same adapter cannot be selected at the same time.
-
-    For example, if there are two types of timer adapters, gpt_adapter and pit_adapter, only one can be selected as timer adapter
-
-    in one project at a time. Duplicate implementation of the function results in an error.
-
-    **Note:** Most of middleware components have complex dependencies and are not fully supported in new project wizard. Adding a middleware component may result in compile failure.
-
-
-
-.. rst-class:: hideable v2024-12-00-pvw2
-
-No log output from RTT viewer when a project is created using MCUXpresso IDE New Project Wizard
-    There is no log output from RTT viewer when a project is created with MCUXpresso IDE New Project Wizard and SEGGER RTT is selected as the debug console. The workaround is to add the link option in the project settings.
-    ![](images/npw_rtt_known_issue.png "Project settings")
-
-    **Affected platforms:** 
-
-.. rst-class:: hideable v2024-12-00-pvw2
-
-Non XIP target debug issue on toolchain MDK
-    When debugging non XIP targets in flash boot mode, if application changes any settings which have impacts on flexspi, the build output window might show “Debug access failed” when start debugging next time. It is recommended to keep the board in serial downloader mode when debugging non XIP targets.
-
-    **Affected platforms:** 
-
-.. rst-class:: hideable v2024-12-00-pvw2
-
-ntag_i2c_explorer_blink demo issue
-    The ntag_i2c_explorer_blink demo application works on Rev D or Rev E of the Freedom FRDM-K64F board, but fails to communicate on other versions of the board.
-
-    **Affected platforms:** 
-
-.. rst-class:: hideable v2024-12-00-pvw2
-
-RAM targets build issue in CMSIS bsp pack
-    CMSIS pack does not support different macro definitions for different targets, all RAM targets for projects inside CMSIS BSP PACKs for RT10XX boards will get the same macro definitions with Flash targets, resulting in build failure. To pass build for RAM targets, manually update the XIP_EXTERNAL_FLASH and XIP_BOOT_HEADER_ENABLE value to 0 in RTE_Components.h.
-
-    **Affected platforms:** 
-
-.. rst-class:: hideable v2024-12-00-pvw2
-
-safety_iec60730b cloned project fails to build
-    When you use the MCUXpresso Config Tool to clone the "safety_iec60730b" project in MCUXpresso SDK package, the created project fails to build. The build fails because the post-build setup for CRC is incorrect. Therefore, It is recommended to use the "safety_iec60730b" project in MCUXpresso SDK package.
-
-    **Affected platforms:** 
-
-.. rst-class:: hideable evkbimxrt1050 v2024-12-00-pvw2
-
-Some Azure examples cannot finish PHY Initializing on MCUXpresso
-    The following Azure examples cannot finish PHY initializing on MCUXpresso when running in Arm GCC, IAR, or Keil environment.
-
-    **Examples**: `azure_amqp, azure_http, azure_mqtt, azure_amqp_rc, azure_http_rc,` and `azure_mqtt_rc`.
-
-    **Affected platforms:** 
-
-.. rst-class:: hideable evkbimxrt1050 v2024-12-00-pvw2
-
-usb_device_mtp example cannot boot on Keil MDK µVision
-    After reset, the usb_device_mtp and usb_device_mtp_lite examples cannot boot successfully when using Keil MDK µVision. Adding the *--predefine="-DXIP_BOOT_HEADER_ENABLE=1"* into **Options for target \> Linker \> Misc controls** can fix this issue.
-
-    **Affected platforms:** 
-
-.. rst-class:: hideable v2024-12-00-pvw2
-
-USB high-speed interrupt endpoint issue
-    If the user wants to use a high-speed interrupt endpoint, the maximum packet size should be 512 bytes.
-
-    **Affected platforms:** 
-
-.. rst-class:: hideable v2024-12-00-pvw2
->>>>>>> d6eab9c (lvgl known_issues.rst edited online with Bitbucket)
-
 USB PID issue
     Because the PID of all USB device examples is updated, uninstall the device drivers and then reinstall when the device \(with new PID\) is plugged in the first time.
 
     **Affected platforms:** frdmmcxc041 frdmmcxc242 frdmmcxc444
-
 
 
 .. rst-class:: hideable v2024-12-00-pvw2 
@@ -780,7 +648,6 @@ CMSIS-PACK svd issue
     CMSIS-PACK DFP installation takes a while. When installing cmsis-pack DFP, Keil MDK processes the MCU SVD file. The large size of SVD file takes considerable time to finish this conversion. During the installation, the progress appears stalled. However, it finishes after approximately 20 minutes.
 
     **Affected platforms:** 
-
 
 
 .. rst-class:: hideable v2024-12-00-pvw2 lpcxpresso54s018m
