@@ -1,0 +1,75 @@
+# Pattern1: start with allOf, with one level anyOf and not
+componentA:
+  allOf:
+    - component1
+    - component2
+    - anyOf:
+      - component3
+      - component4
+    - anyOf:	
+      - component5
+      - component6
+    - not: 
+        device:
+        - MK64F12
+        - MK63F12
+
+# Pattern 2: start with allOf, with 2 level anyOf/allOf
+componentB:
+  dependency:
+    allOf:
+    - component1
+    - component2
+    - compiler:
+      - iar
+      - mdk
+    - anyOf:
+      - allOf:
+        - component3
+        - component4
+        - device:
+          - MK64F12
+          - MK63F12
+      - allOf:
+        - component5
+        - component6
+        - device:
+          - LPC54005
+          - LPC54016
+
+componentB1:
+  dependency:
+    allOf:
+    - component1
+    - component2
+    - compiler:
+      - iar
+      - mdk
+    - anyOf:
+      - allOf:
+        - component3
+        - device:
+          - MK64F12
+          - MK63F12
+      - allOf:
+        - component5
+        - device:
+          - LPC54005
+          - LPC54016          
+
+# pattern 3: start with anyOf, with one level allOf
+componentC:
+  dependency:
+    anyOf:
+    - allOf:
+      - component1
+      - component2
+      - core:
+        - cm4
+        - cm4f
+      - device:
+        - MK64F12
+        - MK63F12
+    - allOf:
+      - component3
+      - component4

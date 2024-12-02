@@ -1,0 +1,6 @@
+west-commands:
+  - file: scripts/west_commands/mcux_doc.py
+    commands:
+      - name: doc
+        class: MCUXDoc
+        help: Generate Document

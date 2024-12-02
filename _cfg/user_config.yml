@@ -1,0 +1,262 @@
+# yaml-language-server: $schema=mcux_doc_config_schema.json
+project: mcuxsdk
+copyright: '2024, NXP'
+author: 'NXP'
+extensions:
+- sphinx_rtd_theme
+- sphinx.ext.extlinks
+- vcs_link
+- sphinx.ext.todo
+- sphinx.ext.extlinks
+- myst_parser
+- external_content
+- page_filter
+- sphinx.ext.graphviz
+- sphinx_tabs.tabs
+source_suffix:
+  .rst: restructuredtext
+  .readme: markdown
+  .md: markdown
+ext_doxygen:
+  doxyfile: docs/drivers/Doxyfile_lib_PDF_RM_Drivers
+  fmt: True
+  fmt_vars: {}
+vcs_link:
+- pattern: ".*"
+  link: "https://github.com/nxp-mcuxpresso/mcuxsdk-doc/blob/main"
+external_contents:
+- root: 'docs'
+  pattern: 'index.rst'
+- root: 'docs'
+  pattern: 'middleware/index.rst'
+- root: 'docs'
+  pattern: 'middleware/audio_voice/maestro/*'
+- root: 'docs'
+  pattern: 'middleware/aws_iot/*'
+- root: 'docs'
+  pattern: 'middleware/multicore/*'
+- root: 'docs'
+  pattern: 'middleware/freemaster/*'
+- root: 'docs'
+  pattern: 'middleware/lwip/*'
+- root: 'docs'
+  pattern: 'middleware/lvgl/index.rst'
+- root: docs
+  pattern: 'generation.rst'
+- root: docs
+  pattern: 'develop/document/*'
+- root: docs
+  pattern: 'rtos/index.rst'
+- root: docs
+  pattern: 'rtos/*'
+- root: 'docs'
+  pattern: 'middleware/fatfs/*'
+modules:
+  introduction:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'introduction/*'
+  gsd:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'gsd/*'
+    internal:
+      external_contents:
+      - root: ..
+        pattern: bifrost/readme.md
+  doxygen:
+    default: false
+    extensions:
+    - breathe
+    - doxyrunner
+  boards:
+    default: True
+    external_contents:
+    - root: docs
+      pattern: 'boards/*'
+    - root: .
+      pattern: 'boards/**/*.readme'
+    vcs_link:
+    - pattern: "boards/.*readme"
+      link: "https://github.com/nxp-mcuxpresso/mcu-sdk-examples/blob/main"
+    - pattern: "Boards/.*readme"
+      link: "https://github.com/nxp-mcuxpresso/mcu-sdk-examples/blob/main"
+  drivers:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'drivers/*'
+  release:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'release/*'
+  examples:
+    default: True
+    external_contents:
+    - root: .
+      pattern: 'examples/**/*.md'
+    - root: .
+      pattern: 'examples/**/*.jpg'
+    - root: .
+      pattern: 'examples/**/*.png'
+    - root: .
+      pattern: 'examples/**/index.rst'
+    vcs_link:
+    - pattern: examples/.*\.md
+      link: "https://github.com/nxp-mcuxpresso/mcu-sdk-examples/blob/main"
+    - pattern: examples/.*\.rst
+      link: "https://github.com/nxp-mcuxpresso/mcu-sdk-examples/blob/main"
+  contribute:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'contribute/*'
+  bifrost:
+    default: True
+    external_contents:
+    - root: '..'
+      pattern: 'bifrost/readme.md'
+  dev_architect:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'develop/architect.md'
+  dev_build_system:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'develop/build_system/*'
+    internal:
+      external_contents:
+      - root: '.'
+        pattern: 'ecosystem/sdk_generator/doc_ecosystem/index.rst'
+      - root: '.'
+        pattern: 'ecosystem/sdk_generator/doc_ecosystem/*'
+  mid_aws_iot:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/aws_iot/device-shadow/README.md'
+    - root: .
+      pattern: 'middleware/aws_iot/device-defender/README.md'
+    - root: .
+      pattern: 'middleware/aws_iot/jobs/README.md'
+    - root: .
+      pattern: 'middleware/aws_iot/ota/README.md'
+  mid_wireless_fwk:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/wireless/framework/index.rst'
+    - root: .
+      pattern: 'middleware/wireless/framework/*.md'
+    - root: .
+      pattern: 'middleware/wireless/framework/**/*.md'
+  mid_lwip:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/lwip/ChangeLogKSDK.txt'
+    - root: .
+      pattern: 'middleware/lwip/port/README.md'
+  mid_lvgl:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/lvgl/docs/integration/chip/nxp.rst'
+  mid_maestro:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/audio_voice/maestro/*.md'
+    - root: .
+      pattern: 'middleware/audio_voice/maestro/doxygen/*'
+  mid_multicore:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/multicore/rpmsg-lite/*.md'
+    - root: .
+      pattern: 'middleware/multicore/rpmsg-lite/doc/*'
+    - root: .
+      pattern: 'middleware/multicore/rpmsg-lite/doxygen/*'
+    - root: .
+      pattern: 'middleware/multicore/mcmgr/*.md'
+    - root: .
+      pattern: 'middleware/multicore/mcmgr/doc/*'
+    - root: .
+      pattern: 'middleware/multicore/mcmgr/doxygen/*'
+    - root: .
+      pattern: 'middleware/multicore/erpc/*.md'
+    - root: .
+      pattern: 'middleware/multicore/erpc/doxygen/*'
+  mid_mcuboot:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/mcuboot_opensource/docs/*.md'
+    vcs_link:
+    - pattern: "middleware/mcuboot_opensource/.*md"
+      link: "https://github.com/nxp-mcuxpresso/mcuboot_opensource/blob/main"
+  mid_freertos_drivers:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'rtos/freertos/freertos-drivers/README.md'
+    - root: .
+      pattern: 'rtos/freertos/freertos-drivers/CHANGELOG.md'
+  rtos_freertos:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'rtos/freertos/freertos-kernel/README.md'
+    - root: .
+      pattern: 'rtos/freertos/backoffalgorithm/README.md'
+    - root: .
+      pattern: 'rtos/freertos/corehttp/README.md'
+    - root: .
+      pattern: 'rtos/freertos/corejson/README.md'
+    - root: .
+      pattern: 'rtos/freertos/coremqtt/README.md'
+    - root: .
+      pattern: 'rtos/freertos/coremqtt-agent/README.md'
+    - root: .
+      pattern: 'rtos/freertos/corepkcs11/README.md'
+    - root: .
+      pattern: 'rtos/freertos/freertos-plus-tcp/README.md'
+  mid_fatfs:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/fatfs/*'
+
+  mid_freemaster:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/freemaster/doc/index.md'
+    - root: .
+      pattern: 'middleware/freemaster/doc/user_guide/*'
+  mid_issdk:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/issdk/*'
+  mid_ble:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/wireless/Bluetooth/*'
+  mid_usb:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/usb/*'
+  mid_edgefast_bluetooth:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/edgefast_bluetooth/*'
