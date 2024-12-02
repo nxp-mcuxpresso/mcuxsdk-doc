@@ -31,7 +31,7 @@ for more details.
 
 .. toctree::
    :maxdepth: 1
-   :caption: introduction
+   :caption: Introduction
 
    MCUXPresso SDK <introduction/README.md>
 
