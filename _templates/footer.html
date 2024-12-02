@@ -2,12 +2,12 @@
 {% block contentinfo %}
 <p>
   {%- if show_copyright %}
-  &#169; Copyright {{ copyright }}.
+  Copyright {{ copyright }}.
   {%- endif %}
 
   {%- if last_updated %}
   <span class="lastupdated">
-    Last generated on {{ last_updated }}; branch {{ branch_info }}, sha {{rev_info}}.
+    Last generated on {{ last_updated }}; branch {{ branch_info }}.
   </span>
   {%- endif -%}
 </p>

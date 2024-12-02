@@ -1,4 +1,5 @@
-# Bluetooth LE controller 
+# Bluetooth LE controller
+
 -   Main features supported:
 
     -   Peripheral Role
@@ -35,7 +36,7 @@
     -   Timestamp associated to Bluetooth LE packet reception
     -   RF channel info associated to Bluetooth LE packet reception
     -   NXP proprietary Bluetooth LE Handover feature
-    -   Support experimental features **Advertising Coding Selection** and **Decision Based Advertising Filtering \(DBAF\)**. See [Note](#note) below.
+    -   Support for experimental features **Advertising Coding Selection**, **Periodic Advertising with Responses \(PAwR\)**, and **Decision Based Advertising Filtering \(DBAF\)**. See [Note](#note) below.
 
 **Note:** Project configurations that require usage of the Bluetooth LE Controller including all Bluetooth LE examples and Matter over Thread configurations require the Radio Subsystem \(NBU\) Firmware to be re-programmed with the firmware provided in the SDK under *middleware\\wireless\\ble\_controller\\bin* \(Bluetooth LE only\) or *middleware\\wireless\\ieee-802.15.4\\bin\\k32w1* \(Bluetooth LE and IEEE 802.15.4 multiprotocol targeting Matter\). For NBU programming steps, see the *EVK Quick Start Guide* and Secure Provisioning SDK \(SPSDK\) documentation.
 

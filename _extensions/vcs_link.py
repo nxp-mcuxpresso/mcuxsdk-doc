@@ -29,6 +29,8 @@ from typing import Optional
 
 from sphinx.application import Sphinx
 from sphinx.util import logging
+from urllib.parse import quote
+from textwrap import dedent
 
 logger = logging.getLogger(__name__)
 
@@ -104,39 +106,32 @@ def vcs_link_get_open_issue_url(app: Sphinx, pagename: str) -> Optional[str]:
         URL to open a new issue if applicable, None otherwise.
     """
 
-    # page_prefix = get_page_prefix(app, pagename)
-    # if page_prefix is None:
-        # return None
+    found_prefix = ""
+    pagepath = app.env.project.doc2path(pagename, basedir=False).replace("\\","/")
+    for pattern, prefix in app.config.vcs_link_prefixes.items():
+        if re.match(pattern, pagepath):
+            found_prefix = prefix
+            break
 
-    # rel_path = os.path.join(
-        # os.path.relpath(ZEPHYR_BASE),
-        # page_prefix,
-        # app.env.doc2path(pagename, False),
-    # )
+    title = quote(f"doc: Documentation issue in '{pagename}'")
+    labels = quote("area: Documentation")
+    body = quote(
+        dedent(
+            f"""\
+    **Describe the bug**
 
-    # title = quote(f"doc: Documentation issue in '{pagename}'")
-    # labels = quote("area: Documentation")
-    # areas = MAINTAINERS.path2areas(rel_path)
-    # if areas:
-        # labels += "," + ",".join([label for area in areas for label in area.labels])
-    # body = quote(
-        # dedent(
-            # f"""\
-    # **Describe the bug**
+    << Please describe the issue here >>
+    << You may also want to update the automatically generated issue title above. >>
 
-    # << Please describe the issue here >>
-    # << You may also want to update the automatically generated issue title above. >>
+    **Environment**
 
-    # **Environment**
+    * Page: `{pagename}`
+    """
+        )
+    )
 
-    # * Page: `{pagename}`
-    # * Version: {app.config.vcs_link_version}
-    # * SHA-1: {sha1}
-    # """
-        # )
-    # )
 
-    return f"https://jira.sw.nxp.com/secure/CreateIssueDetails!init.jspa?pid=20611&issuetype=4&priority=3&summary=test&description=test"
+    return f"{found_prefix}/issues/new?title={title}&labels={labels}&body={body}"
 
 def add_jinja_filter(app: Sphinx):
     if app.builder.name != "html":

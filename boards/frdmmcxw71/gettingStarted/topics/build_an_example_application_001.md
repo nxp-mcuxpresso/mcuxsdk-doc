@@ -18,7 +18,7 @@ To build an example application, follow these steps.
 
     ![](../images/ide_selecting_hello_world.png "Select hello_world")
 
-5.  Ensure **Redlib: Use floating point version of printf** is selected if the example prints floating point numbers on the terminalfor demo applications such as `adc_basic`, `adc_burst`, `adc_dma`, and `adc_interrupt`. Otherwise, it is not necessary to select this option. Then, click **Finish**.
+5.  Ensure **Redlib: Use floating point version of printf** is selected if the example prints floating point numbers on the terminal for demo applications such as `adc_basic`, `adc_burst`, `adc_dma`, and `adc_interrupt`. Otherwise, it is not necessary to select this option. Then, click **Finish**.
 
     ![](../images/ide_selecting_user_floating_print_version_of_print.png "Select Use floating point version of printf")
 

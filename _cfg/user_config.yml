@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=mcux_doc_config_schema.json
 project: mcuxsdk
-copyright: '2021, 2024, NXP'
+copyright: '2024, NXP'
 author: 'NXP'
 extensions:
 - sphinx_rtd_theme
@@ -23,13 +23,18 @@ ext_doxygen:
   fmt_vars: {}
 vcs_link:
 - pattern: ".*"
-  link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-doc/browse"
+  link: "https://github.com/nxp-mcuxpresso/mcuxsdk-doc/blob/main"
 external_contents:
 - root: 'docs'
   pattern: 'index.rst'
 - root: 'docs'
   pattern: 'middleware/index.rst'
 - root: 'docs'
+<<<<<<< HEAD
+=======
+  pattern: 'middleware/audio_voice/maestro/*'
+- root: 'docs'
+>>>>>>> origin/release/24.12.00-pvw2-dirty
   pattern: 'middleware/aws_iot/*'
 - root: 'docs'
   pattern: 'middleware/multicore/*'
@@ -78,9 +83,9 @@ modules:
       pattern: 'boards/**/*.readme'
     vcs_link:
     - pattern: "boards/.*readme"
-      link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse"
+      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/blob/main"
     - pattern: "Boards/.*readme"
-      link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse"
+      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/blob/main"
   drivers:
     default: True
     external_contents:
@@ -104,9 +109,9 @@ modules:
       pattern: 'examples/**/index.rst'
     vcs_link:
     - pattern: examples/.*\.md
-      link: https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-examples/browse
+      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/blob/main"
     - pattern: examples/.*\.rst
-      link: https://bitbucket.sw.nxp.com/projects/MCUCORE/repos/mcu-sdk-examples/browse
+      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/blob/main"
   contribute:
     default: True
     external_contents:
@@ -165,6 +170,13 @@ modules:
     external_contents:
     - root: .
       pattern: 'middleware/lvgl/docs/integration/chip/nxp.rst'
+  mid_maestro:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/audio_voice/maestro/*.md'
+    - root: .
+      pattern: 'middleware/audio_voice/maestro/doxygen/*'
   mid_multicore:
     default: true
     external_contents:
@@ -191,7 +203,7 @@ modules:
       pattern: 'middleware/mcuboot_opensource/docs/*.md'
     vcs_link:
     - pattern: "middleware/mcuboot_opensource/.*md"
-      link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-mcuboot/browse"
+      link: "https://github.com/nxp-mcuxpresso/mcuboot_opensource/blob/main"
   mid_freertos_drivers:
     default: true
     external_contents:

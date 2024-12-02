@@ -6,7 +6,8 @@ FRDM-MCXC444
 Overview
 ********
 
-| The FRDM-MCXC444 is supported by a range of NXP and third-party development software.
+| The FRDM-MCXC444 is supported by a range of NXP and third-party development software.
+
 
 
 .. image:: ./frdmmcxc444.png
@@ -20,3 +21,10 @@ MCU device and part on board is shown below:
  - PartNumber: MCXC444VLH
 
 
+Getting Started
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started with MCUXpresso SDK for FRDM-MCXC444
+
+   ../commongs/gettingStarted/gsindex.md

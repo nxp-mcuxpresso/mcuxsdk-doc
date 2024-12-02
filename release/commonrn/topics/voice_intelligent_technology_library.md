@@ -1,0 +1,6 @@
+# Voice intelligent technology library
+
+Voice Intelligent Technology \(VIT\) Library.
+
+**Parent topic:**[Middleware](../topics/applicable_for_productrt1050_or_productrt1010_or_p.md)
+

@@ -1,4 +1,4 @@
-# Annexure: Zigbee PRO 2023 dynamic link key negotiation 
+# Annexure: Zigbee PRO 2023 dynamic link key negotiation
 
 There are two types of DLK negotiations. When the requester of a new TCLK is not yet authorized in the network \(does not have the network key\), the process is called off-network DLK negotiation. This occurs after the parent replies with the Network Commissioning Response. Once a node is fully joined and authorized, it can request a new TCLK from the trust center. If both nodes, the TC and the requester, supports DLK, they shall use the on-network DLK Negotiation method instead of the Zigbee 3.0 Request Key method. The on-network DLK can be triggered using the Node Descriptor request from the initiator to the trust center. The stack appends the Supported Key Negotiation method TLV to the request and the response contains the Selected Key Negotiation method TLV. If the Trust Center approved the DLK, the stack of the initiator initiates the key negotiation process.
 
@@ -11,7 +11,7 @@ The coordinator R23 and Router R23 examples contain code which activates the DLK
 **\#endif**
 ```
 
-## AIB attributes {#aibattributes .section}
+## AIB attributes
 
 The AIB attribute `apsSupportedKeyNegotiationMethods` is a bit mask, which indicates the set of supported key negotiation methods by the local device. The set of valid values corresponds to the Supported Key Negotiation Methods Global TLV, which can be found in the `ZigbeeCommon/Include/tlv.h` file. Only the Hash AES-MMO-128 method is supported in this experimental preview.
 
@@ -35,7 +35,7 @@ The AIB attribute `u8SharedSecretsMask` is a bit mask which indicates the set of
 
 Setting these attributes in the AIB is done using the API `ZPS_teStatus ZPS_eAplAibSetKeyNegotiationOptions(uint8 u8Methods, uint8 u8SharedSecrets)`. The return value is always `ZPS_E_SUCCESS`.
 
-## Joiner TLVs {#joinertlv .section}
+## Joiner TLVs 
 
 The device wanting to join an R23 network shall send the Network Commissioning Request command communicates information to the parent device with the Joiner TLVs directly in the message. The device shall include the Joiner Encapsulation Global TLV. In a multi-hop joining scenario the Trust Center and parent device will not be the same entity. Information about the sending device is communicated to the Trust Center through the Joiner Encapsulation Global TLV, which will be relayed in its entirety in the Update Device message. When a device creates the Joiner Encapsulation Global TLV it shall contain the following TLVs inside it:
 

@@ -1,4 +1,4 @@
-# MCUXSDKMCXW71RN
+# MCUXpresso SDK Release Notes for FRDM-MCXW71
 
 
 ```{tocTree}
@@ -15,4 +15,4 @@ topics/what_is_new.md
 topics/known_issues.md
 topics/zigbee_pro_2023_dynamic_link_key_negotiation.md
 topics/note_about_the_source_code_in_the_document.md
-```
+``````

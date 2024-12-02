@@ -24,7 +24,7 @@ Getting Started
 ****************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for FRDM-MCXW71
+   :caption: Getting Started with MCUXpresso SDK for FRDM-KE17Z512
 
    gettingStarted/gsindex.md
 

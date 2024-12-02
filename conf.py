@@ -432,6 +432,9 @@ reference_prefix = DOC_BUILD
 if tags.has("publish"):  # pylint: disable=undefined-variable
     reference_prefix = f"/{version}" if is_release else "/latest"
 docs_title = "Docs / {}".format(version if is_release else "Latest")
+
+
+
 html_context = {
     "show_license": True,
     "docs_title": docs_title,
@@ -439,12 +442,17 @@ html_context = {
     "current_version": version,
     "branch_info": docgen_branch,
     "rev_info": docgen_rev,
-    "versions": (
-        ("latest", "/latest/html/"),
-        ("24.12.00-pvw2", "/24.12.00-pvw2/html/"),
-    ),
     "display_vcs_link": True,
 }
+
+if mcux_config.is_internal_doc:
+    html_context["versions"] = ( ("latest", "/mcuxsdk-internal/latest/html/"),
+        ("24.12.00-pvw2", "/mcuxsdk-internal/24.12.00-pvw2/html/"),)
+else:
+    html_context["versions"] = ( ("latest", "/mcuxsdk/latest/html/"),
+        ("24.12.00-pvw2", "/mcuxsdk/24.12.00-pvw2/html/"),)
+
+
 # -- Options for vcs_link ------------------------------------------
 if 'vcs_link' in extensions:
     vcs_link_prefixes = mcux_config.vcs_link

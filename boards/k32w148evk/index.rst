@@ -28,4 +28,10 @@ Getting Started
 
    gettingStarted/gsindex.md
 
+Release Notes
+****************
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for K32W148-EVK
 
+   releaseNotes/rnindex.md

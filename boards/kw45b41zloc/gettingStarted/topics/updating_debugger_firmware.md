@@ -1,4 +1,4 @@
-# Updating debugger firmware {#updating_debugger_firmware}
+# Updating debugger firmware 
 
 The KW45B41Z-LOC board comes with a CMSIS-DAP-compatible debug interface \(known as MCU-Link\). This firmware in this debug interface may be updated using the host computer scripts. This firmware is typically used when switching between the default debugger protocol \(CMSIS-DAP\) to SEGGER J-Link, or for updating this firmware with new releases of these. This section contains the steps to re-program the debug probe firmware.
 

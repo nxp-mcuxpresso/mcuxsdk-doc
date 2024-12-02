@@ -1,4 +1,4 @@
-# How to set the board to the Bootloader ISP mode {#how_to_set_the_board_to_bootloader}
+# How to set the board to the Bootloader ISP mode 
 
 On the KW45B41Z-LOC board:
 

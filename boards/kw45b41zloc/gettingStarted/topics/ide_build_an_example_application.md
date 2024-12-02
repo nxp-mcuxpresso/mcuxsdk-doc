@@ -1,4 +1,4 @@
-# Build an example application {#build_an_example_application_001}
+# Build an example application 
 
 To build an example application, follow these steps.
 

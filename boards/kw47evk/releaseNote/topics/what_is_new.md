@@ -1,32 +1,45 @@
-# What is new {#what_is_new}
+# What is new 
 
-The following changes have been implemented compared to the previous SDK release version.
+MCUXpresso SDK version 24.12.00-pvw2 is an early adopter release provided as preview for early development.
 
--   Bluetooth LE
-    -   Added Bluetooth LE sample application: `ble_shell`.
-    -   Added initial support for Bluetooth LE Channel Sounding applications: `digital_key_car_anchor_cs`, `digital_key_device_cs`, `loc_reader`, `loc_user_device`, `wireless_ranging`.
-    -   Updated `GAPScanningEventPeriodicAdvSyncEstablishedIndication` to include new parameters and fixed `GAPConnectionEventPairingCompleteIndication` Pairing Data to match the SM Pairing Failed reason.
-    -   Other minor fixes and stability improvements.
--   XCVR API:
+The following changes have been implemented compared to the previous SDK release version \(24.12.00-pvw1\).
 
-    -   Fixed PA power off transient bug in `XCVR_ForcePAPower()`.
+-   **Bluetooth LE host stack and applications:**
+    -   Added Bluetooth LE sample applications: `ble_shell`, `w_uart`.
+    -   Added Bluetooth LE Channel Sounding applications with Localization Compute Engine \(LCE\) support:`digital_key_car_anchor_cs`, `digital_key_device_cs`, `loc_reader`, `loc_user_device`, `wireless_ranging`  \(Bluetooth LE Channel Sounding applications are provided with controlled access, contact your NXP representative for access\)
+	-   Added support for OTA feature
+    -   Minor fixes and stability improvements
+    -   Documentation updates
+ 
+-   **Bluetooth LE controller:**
+    -   Added support for Bluetooth LE Channel Sounding
+    -   Minor fixes and stability improvements
 
--   Connectivity Framework:
+-   **Transceiver drivers (XCVR)**
+    -   Added support for Bluetooth LE Channel Sounding
+    -   Added API to control PA ramp type and duration
 
-    -   \[SDK build environment\] Added Cmake/Kconfig support.
+-   **Connectivity framework**
 
-    -   \[Sensors\] Sensors API renaming: `SENSORS_InitAdc()` renamed to `SENSORS_Init()`, `SENSORS_DeinitAdc()` renamed to `SENSORS_Deinit()`.
+    -   **Major Changes (User Applications may be impacted)**
 
-    -   \[HWParams\] Added support to repair PROD\_DATA sector in case of ECC error \(implies loss of previous contents of sector\).
+        -   Supporting CMake/Kconfig for SDK 24.12.00: user shall now use `CmakeLists.txt` and `Kconfig` files from root folder. Compilation should be done using `west build` command. In order to see the Framework Kconfig, use command `>west build -t guiconfig`
+        -   Board files and linker scripts moved to examples repository
 
-    -   \[NVM\} Linker script modification for armgcc whenever `gNvTableKeptInRam_d` option is used placement of `NVM_TABLE_RW` in data initialized section, providing start and end address symbols. For details see NVM\_Interface.h comments.
+    -   **Bugfixes**
 
-    -   \[Platform\] Updated macro values on kw47: `BOARD_32MHZ_XTAL_CDAC_VALUE` from 12U to 16U, `BOARD_32MHZ_XTAL_ISEL_VALUE` from 7U to 11U, `BOARD_32KHZ_XTAL_CLOAD_DEFAULT` from 8U to 4U, `BOARD_32KHZ_XTAL_COARSE_ADJ_DEFAULT` from 1U to 3U.
+        -   [platform lowpower]
+            -   Entering Deep down power mode will no longer call `PLATFORM_EnterPowerDown()`. This API is now called only when going to Power down mode
 
-    -   \[NBU\] New `PLATFORM_RegisterNbuTemperatureRequestEventCb()` API: register a function callback when NBU request new temperature measurement. API provides the interval request for the temperature measurement.
+    -   **Platform specific**
 
-    -   \[NBU\] Update`PLATFORM_IsNbuStarted()` API to return true only if the NBU firmware has been started.
+        -   Deep sleep power mode not fully qualified - User can experiment deep sleep and deep down modes using low power reference design applications
+        -   XTAL32K-less support using FRO32K not qualified
 
-    -   \[platform lowpower\] Moved RAM layout values in `fwk_platform_definition.h` and update RAM retention API.
+    -   **Overall folder restructuring for SDK 24.12.00**
 
-
+        -   [Platform]:
+            -   Renamed platform_family from `connected_mcu/nbu` to `wireless_mcu/nbu`
+            -   Platform families have now a dedicated `fwk_config.h`, `rpmsg_config.h` and `SecLib_mbedtls_config.h`
+        -   [Services]:
+            -   Moved all framework services in a common directory `services`
