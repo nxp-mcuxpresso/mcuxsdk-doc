@@ -30,11 +30,8 @@ external_contents:
 - root: 'docs'
   pattern: 'middleware/index.rst'
 - root: 'docs'
-<<<<<<< HEAD
-=======
   pattern: 'middleware/audio_voice/maestro/*'
 - root: 'docs'
->>>>>>> origin/release/24.12.00-pvw2-dirty
   pattern: 'middleware/aws_iot/*'
 - root: 'docs'
   pattern: 'middleware/multicore/*'
