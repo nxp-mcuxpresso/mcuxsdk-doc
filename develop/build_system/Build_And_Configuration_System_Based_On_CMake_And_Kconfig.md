@@ -160,6 +160,8 @@ west debug -r linkserver
 
 ![debug](./_doc/debug.png)
 
+**Note**
+All of the above west commands can only be run in mcuxsdk west workspace. If you want to use them outside the workspace, please run `SDK-root/mcux-env.cmd` in Windows Command Prompt or `source SDK-root/mcux-env.sh` in Linux terminal to activate the commands.
 ## Overview
 
 MCUXpresso SDK build and configuration system is based on CMake and Kconfig.
@@ -574,7 +576,7 @@ mcux_remove_linker_symbol(
 )
 ```
 
-#### mcux_remove_iar_linker_script/mcux_remove_mdk_linker_script/mcux_remove_armgcc_linker_script
+#### mcux_remove_iar_linker_script/mcux_remove_mdk_linker_script/mcux_remove_armgcc_linker_script/mcux_remove_codewarrior_linker_script
 
 | Argument Name | Argument Type | Explanation                              |
 | ------------- | ------------- | ---------------------------------------- |
@@ -2680,7 +2682,7 @@ You can find build information from terminal:
 
 ### Kconfig Target
 
-The sysbuild projects can be configured with kconfig, just like a normal project in the meta build system. The only different is the target name, for main application, they're menuconfig or guiconfig, for sub project, you must add project name prefix to differ each target. For example:
+The sysbuild projects can be configured with kconfig, just like a normal project in the meta build system. The only difference is the target name, for main application, they're menuconfig or guiconfig, for sub project, you must add project name prefix to differ each target. For example:
 
 ```bash
 west build -t guiconfig
@@ -2689,9 +2691,59 @@ west build -t hello_world_secondary_core_guiconfig
 
 ## Integrated Into Other Build System
 
-Please refer [McuxSDK CMake Package](#McuxSDK-CMake-Package).
+### Import as CMake package
 
-Note: Currently GUI project and standalone project generation are not supported for other build system which uses McuxSDK CMake Package.
+If you want to integrate the mcuxsdk to your project by CMake find_package feature, please refer [McuxSDK CMake Package](#McuxSDK-CMake-Package).
+
+### Import manually
+
+The mcuxsdk can also be integrated by adding CMake file manually. You need to load `${SdkRootDirPath}/cmake/extension/mcux.cmake` before project declaration, and load `${SdkRootDirPath}/CMakeLists.txt` after project declaration. For example:
+
+```cmake
+cmake_minimum_required(VERSION 3.30.0)
+
+include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
+
+project(hello_world LANGUAGES C CXX ASM)
+
+include(${SdkRootDirPath}/CMakeLists.txt)
+
+mcux_add_source(
+  SOURCES     
+    hello_world.c
+    pin_mux.c
+    pin_mux.h
+    hardware_init.c
+    app.h
+)
+
+mcux_add_include(
+  INCLUDES .
+)
+```
+
+### Build the project
+
+There are 2 ways to build the project:
+
+1. With cmake command
+  ```bash
+  cmake -B ./build -G Ninja -Dboard=<board> -DCONF_FILE=<Absolute path to project folder>/prj.conf -DCMAKE_BUILD_TYPE=debug -DCONFIG_TOOLCHAIN=armgcc
+
+  ninja -C build
+  ```
+
+2. With west command 
+  ```bash
+  west build -b <board> <Absolute/relative path to project folder> -DCONF_FILE=<Absolute path to project folder>/prj.conf --config=debug --toolchain=armgcc
+  ```
+
+Furthermore, If you encounter an error like below with west build command, possible reason is the project is added to other project by `add_subdirectory`, that's the limitation from west, please skip the sanity check by adding west parameter `-nsc` or `--no_sanity_check`
+  ```bash
+  Build directory <A> is for application <B>, but source directory <C> was specified; please clean it, use --pristine, or use --build-dir to set another build directory
+  ```
+
+**Note**: Currently GUI project and standalone project generation are not supported for other build system which uses McuxSDK CMake Package.
 
 ## Integrate Other CMake build system
 
