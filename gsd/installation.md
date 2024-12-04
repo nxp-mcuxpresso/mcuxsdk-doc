@@ -110,10 +110,6 @@ Follow the installation instructions provided on the website. Ensure that the in
   | i.MX8ULP fusion1 | fusion_nxp02_dsp_prod| 
 - In Windows, the short path name is used in environment variables. If any toolchain is using the long path name, you can open a command window from the toolchain folder and use below command to get the short path name: `for %i in (.) do echo %~fsi`
 
-### Debugger
-
->  TODO. To add the installation for the linker server
-
 ## Document Installation
 
 > It is only needed when you want to generate the HTML version of the document in your local environment
@@ -222,11 +218,11 @@ If you see the version number, you have successfully installed the tool. Else pl
 To get the MCUXpresso SDK repository, use the `west` tool to clone the manifest repository and checkout all the west projects.
 
   ```bash
-  - Initialize west with the manifest repository
-  - TODO -  To be replaced by the final customer available manifest repository address
-  west init -m https://github.com/nxp-mcuxpresso/mcuxsdk-manifest.git
+  # Initialize west with the manifest repository
+  west init -m https://github.com/nxp-mcuxpresso/mcuxsdk-manifests/ mcuxpresso-sdk
 
-  - Update the west projects
+  # Update the west projects
+  cd mcuxpresso-sdk
   west update
   ```
 
