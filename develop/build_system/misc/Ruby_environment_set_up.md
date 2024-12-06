@@ -4,40 +4,26 @@
 
 ## Use Provided Portable Ruby Environment
 
-For NXP internal developer, a portable version of a stable ruby environment together with all required gems is provided. This way only applies for Windows and we strongly recommend you to use this way for your ruby environment setup in Windows.
+You can simply run `west install_ruby` to get a portable version of ruby with all required gems. It supports following platforms:
+
+- Windows
+- x86_64-LInux with **glibc >= 2.17**, compatible with most modern Linux distributions.
+- MacOS Big Sur or later (including M series chip).
+
+By default, portable_ruby will be extracted to `~/portable-ruby` for Linux/macOS and `C:\portable_ruby` for Windows. You can use `west install_ruby -o <path>` if you want to extract it to another place.
+
+Then, the `bin` dir of portable_ruby will be automatically added to your user PATH under Windows. For Linux/macOS, please follow the guide in command line to add it to your shell profile:
 
 ```bash
-# To make sure you have install_ruby command support. No need to run again if you want to check a update
-west update_repo west-command
-west install_ruby
-```
-
-Re-run `west install_ruby` will automatically check for updates and install if exists.
-
-```bash
-$ west install_ruby
-md5 of latest portable ruby: d000ac8b376c3cdedafed4775b44eba6
-md5 of installed portable ruby: d000ac8b376c3cdedafed4775b44eba6
-No update found.
-Press any key to continue . . .
-```
-
-You can check the installation by following command:
-
-```bash
-$ which ruby
-/c/portable_ruby/bin/ruby
+You have already install the latest portable ruby
+The active ruby is /home/user_name/.rbenv/shims/ruby
+Please append following line in your shell profile like .zshrc or .bashrc:
+  export PATH=/home/user_name/portable-ruby/3.1.4/bin:$PATH
 ```
 
 ## Install Ruby Environment By Yourself
 
-For external developer, you need to install both ruby and the used gems(ruby libraries are called gems) manually. Please follow the below steps.
-
-### Install Ruby
-
-Here we take ruby 3.1.x as an example.
-
-#### For Windows
+### For Windows
 
 - Please download Ruby 3.1.x from <https://rubyinstaller.org/downloads/>, choose 32-bit or 64-bit according to your PC OS and **Ruby+Devkit** for simpler MSYS integration.
 
@@ -69,23 +55,20 @@ Here we take ruby 3.1.x as an example.
 
   You may need to restart/signout your OS to make environment variable work.
 
-#### For Linux
+### For Linux/MacOS
 
-For Debian or Ubuntu, please use the version manager tool [rbenv](https://github.com/rbenv/rbenv). It can help you avoid the complex configuration of package managers of different linux distribution.
+Please use the version manager tool [rbenv](https://github.com/rbenv/rbenv). It can help you avoid the complex configuration of package managers of different linux distribution.
 
-```bash
-sudo apt-get install ruby=3.1.2
-```
-
-For other distributions or more details, please refer https://www.ruby-lang.org/en/documentation/installation/
+If your platform does not support `rbenv`, please refer https://www.ruby-lang.org/en/documentation/installation/
 
 ### Install necessary Gems
 
 Before you start install, please make sure you get the proper source for ruby gem. The default source is <https://rubygems.org/> . You can run
 
-  ```bash
-  gem source -l
-  ```
+```bash
+gem source -l
+```
+
 to get
 
 ![ruby_gem_default_source](../_doc//ruby_gem_default_source.png)
@@ -97,12 +80,13 @@ gem sources -r https://rubygems.org
 # You can google for the best source according to your network status
 gem sources -a https://mirrors.tuna.tsinghua.edu.cn/rubygems/
 ```
+
 For developers cannot access the default gem source, please edit the source line of the sdk-next/mcu-sdk-3.0/scripts/guigenerator/Gemfile to use an accessible source.
 
-Install bundle:
+Install the latest RubyGems (This is **critical** to ensure you can get precompiled gems):
 
 ```bash
-gem install bundle
+gem update --system
 ```
 
 Then cd into "sdk-next/mcu-sdk-3.0/scripts/guigenerator" and run:
