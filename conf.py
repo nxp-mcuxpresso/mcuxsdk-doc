@@ -412,7 +412,7 @@ html_theme_options = {
     "logo_only": True,
     'navigation_depth': 5,
     "prev_next_buttons_location": None,
-    'collapse_navigation' : False,
+    'collapse_navigation' : True,
 }
 html_baseurl = "https://kex-dev.nxp.com/docs/latest/"
 html_title = "MCUXpresso SDK Documentation"
