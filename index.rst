@@ -9,8 +9,8 @@ MCUXpresso SDK Documentation
 
 **Welcome to the MCUXpresso SDK Project documentation**
 
-The whole MCUXpresso SDK delivery is provided under the `LA_OPT_NXP_Software_License`_ (as found in
-the LA_OPT_NXP_Software_License.txt file in the project's `GitHub repo`_). The mcuxsdk-core project, alias the
+The whole MCUXpresso SDK delivery is provided under the `LA_OPT_Online_Code_Hosting`_ (as found in
+the LA_OPT_Online_Code_Hosting.txt file in the project's `GitHub repo`_). The mcuxsdk-core project, alias the
 core project, is the fundamental project of whole MCUXpresso SDK delivery. It is under the
 `BSD-3-Clause`_ (as found in the COPYING-BSD-3.txt file in the project's `GitHub repo`_) which is quite a
 permissive license. The other projects in MCUXpresso SDK may have different license, please check `SW-Content-Register`_
@@ -19,8 +19,8 @@ for more details.
 .. _BSD-3-Clause:
    https://github.com/nxp-mcuxpresso/mcuxsdk-core/blob/main/LICENSE
 
-.. _LA_OPT_NXP_Software_License:
-   https://github.com/nxp-mcuxpresso/mcuxsdk-manifests/blob/main/LA_OPT_NXP_Software_License.txt
+.. _LA_OPT_Online_Code_Hosting:
+   https://github.com/nxp-mcuxpresso/mcuxsdk-manifests/blob/main/LICENSE
 
 .. _SW-Content-Register:
    https://github.com/nxp-mcuxpresso/mcuxsdk-manifests/blob/main/SCR.txt

@@ -23,7 +23,8 @@ ext_doxygen:
   fmt_vars: {}
 vcs_link:
 - pattern: ".*"
-  link: "https://github.com/nxp-mcuxpresso/mcuxsdk-doc/blob/main"
+  replace_prefix: ""
+  link: "https://github.com/nxp-mcuxpresso/mcuxsdk-doc"
 external_contents:
 - root: 'docs'
   pattern: 'index.rst'
@@ -76,13 +77,6 @@ modules:
     external_contents:
     - root: docs
       pattern: 'boards/*'
-    - root: .
-      pattern: 'boards/**/*.readme'
-    vcs_link:
-    - pattern: "boards/.*readme"
-      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/blob/main"
-    - pattern: "Boards/.*readme"
-      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/blob/main"
   drivers:
     default: True
     external_contents:
@@ -106,9 +100,11 @@ modules:
       pattern: 'examples/**/index.rst'
     vcs_link:
     - pattern: examples/.*\.md
-      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/blob/main"
+      replace_prefix: "examples/"
+      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/"
     - pattern: examples/.*\.rst
-      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/blob/main"
+      replace_prefix: "examples/"
+      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/"
   contribute:
     default: True
     external_contents:
@@ -200,7 +196,8 @@ modules:
       pattern: 'middleware/mcuboot_opensource/docs/*.md'
     vcs_link:
     - pattern: "middleware/mcuboot_opensource/.*md"
-      link: "https://github.com/nxp-mcuxpresso/mcuboot_opensource/blob/main"
+      replace_prefix: "middleware/mcuboot_opensource/"
+      link: "https://github.com/nxp-mcuxpresso/mcuboot_opensource/"
   mid_freertos_drivers:
     default: true
     external_contents:

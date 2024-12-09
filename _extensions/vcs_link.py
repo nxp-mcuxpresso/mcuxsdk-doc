@@ -37,7 +37,7 @@ logger = logging.getLogger(__name__)
 __version__ = "0.1.0"
 
 
-def vcs_link_get_url(app: Sphinx, pagename: str) -> Optional[str]:
+def vcs_link_get_url(app: Sphinx, pagename: str, mode: str = "blob") -> Optional[str]:
     """Obtain VCS URL for the given page.
 
     Args:
@@ -56,42 +56,27 @@ def vcs_link_get_url(app: Sphinx, pagename: str) -> Optional[str]:
             return None
 
     found_prefix = ""
+    found_repstr = ""
     pagepath = app.env.project.doc2path(pagename, basedir=False).replace("\\","/")
-    for pattern, prefix in app.config.vcs_link_prefixes.items():
+    for index in range(len(app.config.vcs_link_prefixes)): 
+        pattern = app.config.vcs_link_prefixes[index]["pattern"]
+        repstr = app.config.vcs_link_prefixes[index]["replace_prefix"]
+        prefix = app.config.vcs_link_prefixes[index]["link"]
         if re.match(pattern, pagepath):
             found_prefix = prefix
+            found_repstr = repstr
             break
 
     if found_prefix is None:
         return None
 
-    if "boards" in found_prefix:
-        return "/".join(
-            [
-                found_prefix,
-                pagepath.replace("boards/","").replace("Boards/",""),
-            ]
-        )
-    elif "examples/" in found_prefix:
-        return "/".join(
-            [
-                found_prefix,
-                re.sub(r'^examples/', '', pagepath)
-            ]
-        )
-    elif "mcuboot" in found_prefix:
-        return "/".join(
-            [
-                found_prefix,
-                pagepath.replace("middleware/mcuboot_opensource/",""),
-            ]
-        )
-    else:
-        return "/".join(
-            [
-                found_prefix,
-                pagepath,
-            ]
+    return "/".join(
+        [
+            found_prefix,
+            mode,
+            app.config.vcs_link_version,
+            pagepath.lstrip(found_repstr)
+        ]
         )
 
 def vcs_link_get_open_issue_url(app: Sphinx, pagename: str) -> Optional[str]:
@@ -107,10 +92,15 @@ def vcs_link_get_open_issue_url(app: Sphinx, pagename: str) -> Optional[str]:
     """
 
     found_prefix = ""
+    found_repstr = ""
     pagepath = app.env.project.doc2path(pagename, basedir=False).replace("\\","/")
-    for pattern, prefix in app.config.vcs_link_prefixes.items():
+    for index in range(len(app.config.vcs_link_prefixes)): 
+        pattern = app.config.vcs_link_prefixes[index]["pattern"]
+        repstr = app.config.vcs_link_prefixes[index]["replace_prefix"]
+        prefix = app.config.vcs_link_prefixes[index]["link"]
         if re.match(pattern, pagepath):
             found_prefix = prefix
+            found_repstr = repstr
             break
 
     title = quote(f"doc: Documentation issue in '{pagename}'")
@@ -146,8 +136,9 @@ def add_jinja_filter(app: Sphinx):
     )
 
 def setup(app: Sphinx):
-    app.add_config_value("vcs_link_prefixes", {}, "")
+    app.add_config_value("vcs_link_prefixes", [], "")
     app.add_config_value("vcs_link_exclude", [], "")
+    app.add_config_value("vcs_link_version", "", "")
 
     app.connect("builder-inited", add_jinja_filter)
 

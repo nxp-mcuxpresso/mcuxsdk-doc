@@ -250,18 +250,24 @@ class MCUXDocConfig:
     @property
     def vcs_link(self):
         print('-- Collect VCS Link')
-        links = {}
+        links = []
 
         for module_name, module_config in self.iter_modules():
             mod_links = self.get_mod_config(module_name, module_config, 'vcs_link')
-            links.update({
-                item["pattern"]: item["link"] for item in mod_links
-            })
+            # links.update({
+            #     item["pattern"]: item["link"] for item in mod_links
+            # })
+            links.extend(mod_links)
 
-        links.update({
-            item["pattern"]: item["link"] for item in self.config.get('vcs_link', [])
-        })
+        # links.update({
+        #     item["pattern"]: item["link"] for item in self.config.get('vcs_link', [])
+        # })
 
+        links.extend(
+           self.config.get('vcs_link', [{}])
+        )
+
+        print(f"VCS links {links}")
         return links
 
 args = get_parser().parse_args()
@@ -456,6 +462,7 @@ else:
 # -- Options for vcs_link ------------------------------------------
 if 'vcs_link' in extensions:
     vcs_link_prefixes = mcux_config.vcs_link
+    vcs_link_version = f"v{version}" if is_release else "main"
 
 #vcs_link_base_url = "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-doc/browse"
 
