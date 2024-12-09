@@ -70,22 +70,13 @@ def vcs_link_get_url(app: Sphinx, pagename: str, mode: str = "blob") -> Optional
     if found_prefix is None:
         return None
 
-    if app.config.is_internal_doc:
-        mode = "browse"
-        return "/".join(
-            [
-                found_prefix,
-                mode,
-                pagepath.lstrip(found_repstr)
-            ]) + f'?at=refs/heads/{app.config.vcs_link_version}'
-    else:
-        return "/".join(
-            [
-                found_prefix,
-                mode,
-                app.config.vcs_link_version,
-                pagepath.lstrip(found_repstr)
-            ]
+    return "/".join(
+        [
+            found_prefix,
+            mode,
+            app.config.vcs_link_version,
+            pagepath.lstrip(found_repstr)
+        ]
         )
 
 def vcs_link_get_open_issue_url(app: Sphinx, pagename: str) -> Optional[str]:
@@ -129,11 +120,8 @@ def vcs_link_get_open_issue_url(app: Sphinx, pagename: str) -> Optional[str]:
         )
     )
 
-    if app.config.is_internal_doc:
-        issue_server = app.config.vcs_link_prefixes[0]["link"].split("/projects")[0].replace("bitbucket", "jira")
-        return f"{issue_server}/secure/CreateIssueDetails!init.jspa?pid=10001&issuetype=10&priority=3&summary={title}&description={body}"
-    else:
-        return f"{found_prefix}/issues/new?title={title}&labels={labels}&body={body}"
+
+    return f"{found_prefix}/issues/new?title={title}&labels={labels}&body={body}"
 
 def add_jinja_filter(app: Sphinx):
     if app.builder.name != "html":
@@ -151,7 +139,6 @@ def setup(app: Sphinx):
     app.add_config_value("vcs_link_prefixes", [], "")
     app.add_config_value("vcs_link_exclude", [], "")
     app.add_config_value("vcs_link_version", "", "")
-    app.add_config_value("is_internal_doc", "", "")
 
     app.connect("builder-inited", add_jinja_filter)
 
