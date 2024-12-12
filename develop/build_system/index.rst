@@ -1,11 +1,28 @@
 Build And Configuration
 =========================
 
+.. list-table:: Acronyms and Abbreviations
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Acronym or Term
+     - Definition
+   * - BS
+     - Build System
+   * - BCS
+     - Build and Configuration System
+   * - BCP
+     - Build and Configuration Process
+
 .. toctree::
    :maxdepth: 1
    :caption: Meta Build System
 
-   Build And Configuration System Based On CMake And Kconfig <Build_And_Configuration_System_Based_On_CMake_And_Kconfig.md>
+   Build System <Build_System.md>
+   Configuration System <Configuration_System.md>
+   Sysbuild <Sysbuild.md>
+   IDE Project Support <IDE_Project.md>
+   BCS Data Introduction <BCS_data.md>
    Frequently Asked Questions <Frequently_Asked_Questions.md>
    Best Practise <Best_Practice.md>
 
