@@ -7,7 +7,6 @@ The following steps guide you through opening the `hello_world` example applicat
     ```
     <install_dir>/boards/<board_name>/<example_type>/<application_name>/iar
     ```
-
     Using the i.MX 8M Plus EVK board as an example, the workspace is located in:
 
     ```
