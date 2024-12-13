@@ -131,6 +131,11 @@ modules:
         pattern: 'ecosystem/sdk_generator/doc_ecosystem/index.rst'
       - root: '.'
         pattern: 'ecosystem/sdk_generator/doc_ecosystem/*'
+  dev_document:
+    default: True
+    external_contents:
+    - root: 'docs'
+      pattern: 'develop/document/*'
   mid_aws_iot:
     default: true
     external_contents:
