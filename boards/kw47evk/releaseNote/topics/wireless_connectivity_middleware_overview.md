@@ -8,7 +8,7 @@
 |`middleware/​wireless/​ble_​controller`|`1.9.18.0`|
 |`middleware/​wireless/​xcvr`|`​2.​1.4`|
 |`middleware/​wireless/​genfsk`|`4.0.22`|
-|`middleware/wireless/framework`|`7.0.0b`|
+|`middleware/wireless/framework`|`7.0.0`|
 
 The following connectivity-supporting documentation is included with this release:
 

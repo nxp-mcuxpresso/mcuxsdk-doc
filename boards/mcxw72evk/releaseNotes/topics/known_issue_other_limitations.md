@@ -20,7 +20,9 @@
 -   Not supported features:
     -   Platform low power modes not fully enabled in this release.
     -   FRO32K mode not fully supported in this release.
--   Lowpower reference design applications do not work properly with armgcc toolchain
+-   Low power reference design applications do not work properly with armgcc toolchain
+-   NBU core can enter in hardfault if a call to PLATFORM_NbuApiReq()(mainly used by Controller_xxx APIs) happen while the NBU is sending a HCI message
+-   Some connection event can be missed by the nbu core when asynchronous wake up are also triggered from the host
 
 **Parent topic:**[Known issues](../topics/known_issues.md)
 s

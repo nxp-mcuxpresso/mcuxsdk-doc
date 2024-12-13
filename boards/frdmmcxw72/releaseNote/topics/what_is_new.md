@@ -21,28 +21,20 @@ The following changes have been implemented compared to the previous SDK release
 
 -   **Connectivity framework**
 
-    -   **Major Changes (User Applications may be impacted)**
+    -   **Minor Changes (no impact on application)**
 
-        -   Supporting CMake/Kconfig for SDK 24.12.00: user shall now use `CmakeLists.txt` and `Kconfig` files from root folder. Compilation should be done using `west build` command. In order to see the Framework Kconfig, use command `west build -t guiconfig`
-        -   Board files and linker scripts moved to examples repository
+        - [Platform]
+            - Ignore the secure bit from RAM addresses when comparing used ram bank in bank retention mechanism
+            - Add `gPlatformNbuDebugGpioDAccessEnabled_d` Compile Macro (enabled by default). Can be used to disable the NBU debug capability using IOs in case Trustzone is enabled (``PLATFORM_InitNbu()` code executed from unsecure world).
+            - Fix in NBU firmware when sending ICS messages gFwkSrvNbuApiRequest_c (from controller_api.h API functions)
+        - [OTA]
+            - Add choice name to OtaSupport flash selection in Kconfig
+        - [NVM]
+            - Add gNvmErasePartitionWhenFlashing_c feature support to gcc toolchain
+        - [SecLib_RNG]
+            - Misra fixes
 
-    -   **Bugfixes**
-
-        -   [platform lowpower]
-            -   Entering Deep down power mode will no longer call `PLATFORM_EnterPowerDown()`. This API is now called only when going to Power down mode
-
-    -   **Platform specific**
-
-        -   Deep sleep power mode not fully qualified - User can experiment deep sleep and deep down modes using low power reference design applications
-        -   XTAL32K-less support using FRO32K not qualified
-
-    -   **Overall folder restructuring for SDK 24.12.00**
-
-        -   [Platform]:
-            -   Renamed platform_family from `connected_mcu/nbu` to `wireless_mcu/nbu`
-            -   Platform families have now a dedicated `fwk_config.h`, `rpmsg_config.h` and `SecLib_mbedtls_config.h`
-        -   [Services]:
-            -   Moved all framework services in a common directory `services`
+    Details can be found in [CHANGELOG.md](../../../../../middleware/wireless/framework/CHANGELOG.md)
 
 -   **Zigbee and IEEE 802.15.4**
     -  Minor fixes for Zigbee PRO R22 configuration.
