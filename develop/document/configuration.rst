@@ -2,7 +2,7 @@
 Documentation Config
 ######################
 
-This section describe modulization and configuration of the MCUXpresso SDK Document
+This section describe modularization and configuration of the MCUXpresso SDK Document
 
 Config file
 ******************
@@ -76,15 +76,17 @@ in configuration files.
 Cause the contents of these files are in different repositories, another zephyr extension ``vcs_link`` is used to link the
 generated html pages to correct repository link
 * pattern glob pattern to match the files to be linked
-* link leading hyperlink of the repository, which will be concated with the relative path of the file to form the hyperlink
+* link leading hyperlink of the repository, which will be conjunct with the relative path of the file to form the hyperlink
 
 .. code-block:: yaml
 
     vcs_link:
-    - pattern: "boards/.*readme"
-      link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse"
-    - pattern: "Boards/.*readme"
-      link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse"
+    - pattern: examples/.*\.md
+      replace_prefix: "examples/"
+      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/"
+    - pattern: examples/.*\.rst
+      replace_prefix: "examples/"
+      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/"
 
 Internal Contents
 ==================
@@ -127,17 +129,25 @@ configured
         extensions:
         - breathe
         - doxyrunner
-      boards:
+      examples:
         default: True
         external_contents:
         - root: .
-          pattern: 'boards/**/*.readme'
+          pattern: 'examples/**/*.md'
+        - root: .
+          pattern: 'examples/**/*.jpg'
+        - root: .
+          pattern: 'examples/**/*.png'
+        - root: .
+          pattern: 'examples/**/index.rst'
         vcs_link:
-        - pattern: "boards/.*readme"
-          link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse"
-        - pattern: "Boards/.*readme"
-          link: "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-boards/browse"
-
+        - pattern: examples/.*\.md
+          replace_prefix: "examples/"
+          link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/"
+        - pattern: examples/.*\.rst
+          replace_prefix: "examples/"
+          link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/"
+    
 Doxygen Config
 ==================
 
@@ -146,7 +156,7 @@ is located in `docs/drivers/Doxyfile_lib_PDF_RM_Drivers` and the output is locat
 
 Add contents into doxygen
 
-* Append addtional content into the ``INPUT`` field of doxygen configuraiton files with leading characters of ``@SDk_BASE@`` which
+* Append additional content into the ``INPUT`` field of doxygen configuration files with leading characters of ``@SDk_BASE@`` which
   will be replaced by the SDK base directory by doxyrunner plugin
 
 To verify whether the doxygen is correctly configured
