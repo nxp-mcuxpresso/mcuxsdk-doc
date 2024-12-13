@@ -8,8 +8,6 @@
 
     -   XTAL32K less board with FRO32K support.
 
-    -   FRO32K notifications callback is for debug only. Application shall not execute long processing \(such as PRINTF\) as it is executed in ISR context.
-
 -   A hardfault can be encountered when using fsl\_component\_mem\_manager\_light.c memory allocator and shutting down some unused RAM banks in low power. It is due to a wrong reinitialization of ECC RAM banks. To be sure not to reproduce the issue, `gPlatformShutdownEccRamInLowPower` should be set to 0.
 
 -   GenFsk `Connectivity_test` application is not operational with Low Power enabled.
@@ -25,10 +23,6 @@
     In MCUXpresso IDE, the option is in **LinkServer Debugger** -\> **Advanced Settings** -\> **Wirespeed \(Hz\)**.
 
 -   If the configuration tool is used to clone `tfm-related` projects, there is a problem that *region\_defs.h* cannot be found in the cloned project.
--   Not supported features:
-    -   Platform low power modes not fully enabled in this release.
-    -   FRO32K mode not fully supported in this release.
--   Lowpower reference design applications do not work properly with armgcc
 
 **Parent topic:**[Known issues](../topics/known_issues.md)
 

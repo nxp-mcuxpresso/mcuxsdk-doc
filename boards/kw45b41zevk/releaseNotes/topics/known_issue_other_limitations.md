@@ -1,12 +1,10 @@
 # Other limitations
 
--   The following Connectivity Framework configurations are Experimental and not recommended for mass production:
+-   The following Connectivity Framework configurations are experimental and not recommended for mass production:
 
-    -   Power down on application power domain.
+    -   Power down mode on application power domain.
 
     -   XTAL32K less board with FRO32K support.
-
-    -   FRO32K notifications callback is for debug only. Application shall not execute long processing \(such as PRINTF\) as it is executed in ISR context.
 
 -   A hardfault can be encountered when using fsl\_component\_mem\_manager\_light.c memory allocator and shutting down some unused RAM banks in low power. It is due to a wrong reinitialization of ECC RAM banks. To be sure not to reproduce the issue, `gPlatformShutdownEccRamInLowPower` should be set to 0.
 

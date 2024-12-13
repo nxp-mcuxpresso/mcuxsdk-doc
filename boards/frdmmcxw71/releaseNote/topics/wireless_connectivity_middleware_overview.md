@@ -9,7 +9,7 @@
 |`middleware/wireless/ieee-802.15.4`|`1.0.21b`|
 |`middleware/​wireless/​xcvr`|`​2.​1.4`|
 |`middleware/​wireless/​genfsk`|`4.0.22`|
-|`middleware/wireless/framework`|`7.0.0b`|
+|`middleware/wireless/framework`|`7.0.1`|
 |`middleware/wireless/zigbee`|`1.0.16b`|
 
 The following connectivity-supporting documentation is included with this release:

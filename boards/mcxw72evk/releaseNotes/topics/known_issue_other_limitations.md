@@ -1,6 +1,12 @@
 # Other limitations 
 -   Zigbee: incorrect randomization of transmission CCA backoff may cause packets to be missed by receiver nodes or procedure retry.
 -   Documentation may not be fully updated to refer to MCX W72 devices.
+-   The following Connectivity Framework configurations are Experimental and not recommended for mass production:
+
+    -   Power down on application power domain.
+
+    -   XTAL32K less board with FRO32K support.
+
 -   Low Power configurations are not supported for Bluetooth LE Reference Design and IEEE 802.15.4, \(Zigbee/Thread\) stacks in this release.
 -   GenFSK Connectivity\_test application is not operational with ARMGCC compiler.
 -   GenFSK `Connectivity_test` application is not operational with Low Power enabled.
@@ -16,11 +22,6 @@
     In MCUXpresso IDE, the option is in **LinkServer Debugger** -\> **Advanced Settings** -\> **Wirespeed \(Hz\)**.
 
 -   If the configuration tool is used to clone `tfm-related` projects, there is a problem that *region\_defs.h* cannot be found in the cloned project.
--   Low-power configurations are not supported.
--   Not supported features:
-    -   Platform low power modes not fully enabled in this release.
-    -   FRO32K mode not fully supported in this release.
--   Lowpower reference design applications do not work properly with armgcc toolchain
 
 **Parent topic:**[Known issues](../topics/known_issues.md)
 s
