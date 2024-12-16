@@ -1,33 +1,20 @@
-# Architect
+# Architecture
 
 ## Introduction
 
-The MCUXpresso Software Development Kit (SDK) provides comprehensive
-software support for Kinetis, LPC, MCX, i.MX, RT, DSC, EZHV Microcontrollers and DSPs. The MCUXpresso
-SDK includes a flexible set of peripheral drivers designed to speed up
-and simplify development of embedded applications. Along with the
-peripheral drivers, the MCUXpresso SDK provides an extensive and rich
-set of example applications covering everything from basic peripheral
-use case examples to full demo applications. The MCUXpresso SDK contains
-FreeRTOS, a USB host and device stack, and various other middleware to
-support rapid development.
+The MCUXpresso Software Development Kit (SDK) provides comprehensive development solutions designed to help accelerate embedded system development of applications based on MCUs from NXP. The MCUXpresso SDK includes a flexible set of peripheral drivers designed to speed up and simplify development of embedded applications. Along with the peripheral drivers, the MCUXpresso SDK provides an extensive set of example applications covering everything from basic peripheral use cases to full technology demonstrations. The MCUXpresso SDK contains optional RTOS integrations such as FreeRTOS, and various other middleware to support rapid development.  
 
-The MCUXpresso SDK architecture consists of five key components listed
-below.
+The MCUXpresso SDK architecture is built around the five key components listed below:
 
-1.  The Arm Cortex Microcontroller Software Interface Standard (CMSIS)
-    CORE compliance device-specific header files, SOC Header, and CMSIS
-    math/DSP libraries.
+1.  **CMSIS** - Arm Cortex Microcontroller Software Interface Standard Core: Device headers, Math/DSP libraries
 
-2.  Peripheral Drivers
+2.  **Drivers** - SoC peripheral configuration and functions
 
-3.  Components
+3.  **RTOS** - Real-time Operating Systems
 
-4.  Real-time Operating Systems (RTOS)
+4.  **Middleware** - Compatible Stacks and technology enablement  
 
-5.  Stacks and Middleware that integrate with the MCUXpresso SDK
-
-6.  Demo Applications based on the MCUXpresso SDK
+5.  **Applications** - Demo and driver examples based on the MCUXpresso SDK
 
 ![](media/Kinetis_SDK_Block_Diagram.jpg)
 
@@ -35,39 +22,29 @@ MCUXpresso SDK provides a powerful and robust [build and configuration system](#
 
 ## CMSIS Support
 
-Along with the SoC header files and peripheral extension header files,
-the MCUXpresso SDK also includes common CMSIS header files for the Arm
-Cortex-M core and the math and DSP libraries from the latest CMSIS
-release. The CMSIS DSP library source code is also included for
-reference. Content in CMSIS Folder are got from the standard [ARM CMSIS
-Core release](http://www.keil.com/pack/doc/cmsis/Core/html/index.html).
+The MCUXpresso SDK CMSIS folder provides NXP support for the [Arm CMSIS Core](http://www.keil.com/pack/doc/cmsis/Core/html/index.html) standard. Along with SoC and peripheral header files, the SDK also includes common CMSIS header files for the Arm Cortex-M cores and the math and DSP libraries. The CMSIS DSP library source code is included for reference. 
 
 ## SoC Support - Header File/Drivers/Startup/Linker\...
 
-Each device get a seperate folder to let different devices files can be
-in same SDK package. For example,  MIMXRT1052 is one of the device for
-RT105X family. It get its only folder inside devices folder.
+The MCUXpresso SDK Device folder allows support for multiple devices in the same package. For example,  MIMXRT1052 is one of the devices in the RT105X family. The support files required to develop with this device will be in a unique folder inside the devices folder. The following sections detail the content provided in these SoC files:
 
 ### MCU header files
 
-Each supported MCU device in the MCUXpresso SDK has an overall System-on
+Each device supported in the MCUXpresso SDK has an overall System-on
 Chip (SoC) memory-mapped header file. This header file contains the
 memory map and register base address for each peripheral and the IRQ
-vector table with associated vector numbers. The overall SoC header file
-provides a access to the peripheral registers through pointers and
-predefined bit masks. In addition to the overall SoC memorymapped header
-file, the MCUXpresso SDK includes a feature header file for each device.
-The feature header file allows NXP to deliver a single software driver
-for a given peripheral. The feature file ensures that the driver is
-properly compiled for the target SOC.
+vector table with the associated vector numbers. The overall SoC header file
+provides access to the peripheral registers through pointers and
+predefined bit masks. 
 
-MCU Header files is located in devices/\<DEVICE_NAME\>/\<DEVICE_NAME\>.h
-
-**The MCU Header files are not hand-written. It is generated from Chip
-Model data.  To add a not supported device in SDK,  developer need
-firstly ensure the Chip Model stuff be prepared/generated.**
+The **MCU Header file** is located in:  
+    ```
+    devices/<DEVICE_PLATFORM>/<DEVICE_FAMILY\>/<DEVICE_NAME>/<DEVICE_NAME>.h
+    ```
 
 ### Feature Header Files
+
+In addition to the overall SoC memory-mapped header file, the MCUXpresso SDK includes a feature header file for each device. The feature header file allows NXP to deliver a single software driver for a given peripheral. The feature file ensures that the driver is properly compiled for the target SOC.
 
 The peripheral drivers are designed to be reusable regardless of the
 peripheral functional differences from one MCU device to another. An
@@ -75,23 +52,25 @@ overall Peripheral Feature Header File is provided for the MCUXpresso
 SDK-supported MCU device to define the features or configuration
 differences for each sub-family device.
 
-### Startup codes, Linker file
+### Startup codes
 
-Startup codes provide the startup functions, assembly codes to support
-the SoC to run from the Power-Up to the main() function.  The codes
-usually do with the work like setup stack, configure watchdog, do with
-global variables and so on. startup codes are
-devices/\<DEVICE_NAME\>/system\_\<DEVICE_NAME\>.c/h, 
-devices/\<DEVICE_NAME\>/\<TOOLCHAIN\>/startup\_\<DEVICE_NAME\>.s/S
-files.
+The Startup code file provides the startup functions and assembly code required for the SoC to run from power-Up to the main() function.  The code
+usually covers the stack setup, watchdog configuration, and handles
+global variables.  
 
-Linker file are provided for each toolchain. User can find it from
-devices/\<DEVICE_NAME\>/\<TOOLCHAIN\>/\<\>.scf.  The postfix of the
+The **Startup code files** are located in:  
+```devices/\<DEVICE_NAME\>/system\_\<DEVICE_NAME\>.c/h ```  
+```devices/\<DEVICE_NAME\>/\<TOOLCHAIN\>/startup\_\<DEVICE_NAME\>.s/S```
+
+### Linker files
+
+Linker file are provided for each toolchain. The postfix of the
 linker file varies from toolchain to toolchain.
 
-### Peripheral Drivers
+The **Linker Files** are located in:  
+```devices/\<DEVICE_NAME\>/\<TOOLCHAIN\>/\<\>.scf```
 
-Peripheral Drivers are locatd in devices//\<DEVICE_NAME\>/drivers.
+### Peripheral Drivers
 
 The MCUXpresso SDK peripheral drivers mainly consist of low-level
 functional APIs for the MCU product family on-chip peripherals and also
@@ -100,41 +79,31 @@ driver to quickly enable the peripherals and perform transfers.
 
 All MCUXpresso SDK peripheral drivers only depend on the CMSIS headers,
 device feature files, fsl_common.h, and fsl_clock.h files so that users
-can easily pull selected drivers and their dependencies into projects.
+can add the drivers along with their dependencies into a project.  
+
 With the exception of the clock/power-relevant peripherals, each
 peripheral has its own driver. Peripheral drivers handle the peripheral
 clock gating/ungating inside the drivers during initialization and
 deinitialization respectively.
 
-Low-level functional APIs provide common peripheral functionality,
-abstracting the hardware peripheral register accesses into a set of
-stateless basic functional operations. These APIs primarily focus on the
-control, configuration, and function of basic peripheral operations. The
-APIs hide the register access details and various MCU peripheral
-instantiation differences so that the application can be abstracted from
-the low-level hardware details. The API prototypes are intentionally
-similar to help ensure easy portability across supported MCUXpresso SDK
-devices.
+Peripheral Drivers are located in:  
+```devices//\<DEVICE_NAME\>/drivers```
 
-Transactional APIs provide a quick method for customers to utilize
-higher-level functionality of the peripherals. The transactional APIs
-utilize interrupts and perform asynchronous operations without user
-intervention. Transactional APIs operate on high-level logic that
-requires data storage for internal operation context handling. However,
-the Peripheral Drivers do not allocate this memory space. Rather, the
-user passes in the memory to the driver for internal driver operation.
+**Low-level functional APIs** provide common peripheral functionality, abstracting the hardware peripheral register accesses into a set of stateless basic functional operations. These APIs primarily focus on the control, configuration, and function of basic peripheral operations. The APIs hide the register access details and various MCU peripheralinstantiation differences so that the application can be abstracted from the low-level hardware details.  
+
+The API prototypes are intentionally similar to help ensure easy portability across devices supported in the MCUXpresso SDK.
+
+**Transactional APIs** provide a quick method for customers to utilize higher-level functionality of the peripherals. The transactional APIs utilize interrupts and perform asynchronous operations without user intervention. Transactional APIs operate on high-level logic that requires data storage for internal operation context handling. However, the Peripheral Drivers do not allocate this memory space. Rather, the user passes in the memory to the driver for internal driver operation.
 
 Transactional APIs ensure the NVIC is enabled properly inside the
 drivers. The transactional APIs do not meet all customer needs, but
-provide a baseline for development of custom user APIs.Note that the
-transactional drivers never disable an NVIC after use. This is due to
-the shared nature of interrupt vectors on devices. It is up to the user
-to ensure that NVIC interrupts are properly disabled after usage is
-complete.
+provide a baseline for development of custom user APIs.  
 
-#### **Interrupt handling for transactional APIs**
+**_NOTE_** The transactional drivers never disable an NVIC after use. This is due to the shared nature of interrupt vectors on devices. It is up to the user to ensure that NVIC interrupts are properly disabled after usage is complete.
 
-A double weak mechanism is introduced for drivers with transactional
+#### **Interrupt Handling for Transactional APIs**
+
+A double weak mechanism is introduced for drivers with a Transactional
 API. The double weak indicates two levels of weak vector entries. See
 the examples below:
 
@@ -152,9 +121,12 @@ BX R0
 ```
 
 The first level of the weak implementation are the functions defined in
-the vector table. In the
-devices/\<DEVICE_NAME\>/\<TOOLCHAIN\>/startup\_\<DEVICE_NAME\>.s/.S
-file, the implementation of the first layer weak function calls the
+the vector table. 
+
+This vector table can be located in:  
+```devices/\<DEVICE_NAME\>/\<TOOLCHAIN\>/startup\_\<DEVICE_NAME\>.s/.S```  
+
+The implementation of the first layer weak function calls the
 second layer of weak function. The implementation of the second layer
 weak function (ex. SPI0_DriverIRQHandler) jumps to itself (B .). The
 MCUXpresso SDK drivers with transactional APIs provide the
@@ -182,26 +154,21 @@ the use case requirements.
 
 ### RTOS Driver
 
-SDK provide the bus communication driver integrated with native FreeRTOS
-services. These drivers are called as RTOS driver and provide the sync
-transfer APIs. User can directly call these APIs in FreeRTOS
-applications. RTOS drivers are located in same folder of Peripheral
-Drivers with the freertos in the file name. For example,
-devices\\MIMXRT1052\\drivers\\fsl_lpi2c_freertos.c/h.
+MCUXpresso SDK provides the bus communication driver integrated with native FreeRTOS services. These drivers are called as an RTOS driver and provide the sync transfer APIs. The user can directly call these APIs in FreeRTOS
+applications.   
+
+RTOS drivers are located in same folder of Peripheral Drivers with freertos in the file name. For example:  
+```devices\\MIMXRT1052\\drivers\\fsl_lpi2c_freertos.c/h```
 
 ### CMSIS Driver
 
-SDK provide CMSIS driver support for all the variants of I2C/UART/SPI
-peripheral. Different than the way proposed by ARM to configure the
-PINMUX configuration by passing a set of macros in RTE_Device.h file,
- SDK CMSIS driver implementation will use the pin mux configuration APIs
-generated by pinmux tool in pinmux.c files. 
+MCUXpresso SDK provides CMSIS driver support for all the variants of I2C/UART/SPI peripherals.   The MCUXpresso SDK CMSIS driver implementation uses the pin mux configuration APIs generated by the NXP pinmux Config Tool in ```pinmux.c``` files.
+This is different than the way proposed by ARM to configure the PINMUX configuration by passing a set of macros in ```RTE_Device.h```.
 
 ### Project Template
 
-See description for Project Template in application parts.  Comparing to
-the board level project template, project template in device level are
-for user scenartio that to create new project with a given device.
+See description for Project Template in the Application section found under Development.  Compared to a board level project template, device level project templates are
+for use cases to create a new project for a device different from the one used on a specific board.
 
 ## Components
 
@@ -396,31 +363,23 @@ All software data are recorded in cmake, Kconfig and misc yaml files. All functi
 
 ## Documentation
 
-Documents are located in docs folder.  Release notes,  Getting Start
-document, API Reference Manual and Change Log document are must have
-while other document are optional according to content inside SDK
-package.
+Documents are located in docs folder.  The Release Notes,  Getting Started
+Guide, API Reference Manual and Change Log document are provided.
 
 ### Release Notes
 
-Release notes are must have for each MCUXpresso SDK package. It
-introduce what inside the SDK package and tools set that tested with the
-package. It also list the known issues for this package and other
-information information.  It is created/maintained/delivered by the
-documentation team. For detail, please refer to [SDK
-Document](https://confluence.sw.nxp.com/display/MCUXSDK/MCUXpresso+SDK+Software+Components+Document).
+Release notes are included with each release of MCUXpresso SDK. It
+introduces what is delivered in the SDK package and which tools were used to test the
+package. It also lists any known issues for the release.  
+The MCUXpresso SDK on GitHub delivers support for multiple devices and boards.  The Release notes provides a Quality Level for the software support of each device/board.  The quality levels are: RFP, EAR, MIN, NON.
 
-### Getting Start
+### Getting Started Guide
 
-Getting start document is must have. It describe how to use the SDK
-package like understanding a typical SDK project,  compile, program and
-debug the application in board.  It is created/maintained/delivered by
-the documentation team.
+A Getting Started Guide is a valuable resource for first evaluation of the MCUXpresso SDK. It describes a clear procedure on how to use the SDK package.  It outlines steps to begin working with a typical SDK project.  The user will be shown how to compile, program and debug an application for a specific board.  
 
 ### API Reference Manual and Change Log
 
-APIRM is document describing detail software component API or data
-structure.  The API reference manual are from the doxygen tag in source
-codes and generated by the SDK Generator.  Change Log is documents
-describing the changes for software components in the package. They are
-generated from the doxygen information by SDK generator.
+The API Reference Manual details the API and data structures for a given software component.  The content is generated from the doxygen tag in source code.  
+
+Change Log is documents describing the changes for software components in the package. They are
+generated from the doxygen information.
