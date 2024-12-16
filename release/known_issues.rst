@@ -680,7 +680,6 @@ The wifi_webconfig example can get stuck after AP to client switch
 
     **Affected platforms:** 
 
-
 .. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00
 
 MCUBoot OTA examples: Encrypted XIP using IPED causes device reset
