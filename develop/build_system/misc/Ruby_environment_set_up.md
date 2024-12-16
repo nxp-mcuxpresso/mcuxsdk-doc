@@ -81,7 +81,7 @@ gem sources -r https://rubygems.org
 gem sources -a https://mirrors.tuna.tsinghua.edu.cn/rubygems/
 ```
 
-For developers cannot access the default gem source, please edit the source line of the sdk-next/mcu-sdk-3.0/scripts/guigenerator/Gemfile to use an accessible source.
+For developers cannot access the default gem source, please edit the source line of the mcuxsdk/scripts/guigenerator/Gemfile to use an accessible source.
 
 Install the latest RubyGems (This is **critical** to ensure you can get precompiled gems):
 
@@ -89,7 +89,7 @@ Install the latest RubyGems (This is **critical** to ensure you can get precompi
 gem update --system
 ```
 
-Then cd into "sdk-next/mcu-sdk-3.0/scripts/guigenerator" and run:
+Then cd into "mcuxsdk/scripts/guigenerator" and run:
 
 ```bash
 bundle install

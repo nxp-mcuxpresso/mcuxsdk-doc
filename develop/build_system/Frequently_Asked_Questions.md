@@ -16,16 +16,16 @@
 
 2. How to replace the default linker file with the customized one?
 
-   Generally, when you type "--config=<CMAKE_BUILD_TYPE>" in the command line, the cmake settings inside sdk-next/mcu-sdk-3.0/arch/arm/target folder will take effect. The link file for the corresponding config is then used.
+   Generally, when you type "--config=<CMAKE_BUILD_TYPE>" in the command line, the cmake settings inside mcuxsdk/arch/arm/target folder will take effect. The link file for the corresponding config is then used.
    If running with "--log-level=debug" in the command line, you can find the log, such as:
    ```text
-   -- DEBUG: Add -T C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld to LD flags, load from CMakefile: C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/arch/arm/target/flash.cmake
+   -- DEBUG: Add -T C:/git_repo/migrate_sdk_repo/mcuxsdk/devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld to LD flags, load from CMakefile: C:/git_repo/migrate_sdk_repo/mcuxsdk/arch/arm/target/flash.cmake
    ```
 
    To replace the default linker file with the customized one, you need to remove the default linker file and add the customized one by `mcux_remove_<toolchain>_linker_script` and `mcux_add_<toolchain>_linker_script` in reconfig.cmake.
    For example:
    ```cmake
-   # mcu-sdk-3.0/examples/frdmk64f/demo_apps/hello_world/reconfig.cmake
+   # mcuxsdk/examples/frdmk64f/demo_apps/hello_world/reconfig.cmake
    mcux_remove_armgcc_linker_script(
        TARGETS debug release
        BASE_PATH ${SdkRootDirPath}
@@ -40,9 +40,9 @@
    ```
    If running with "--log-level=debug", you can find the log:
    ```text
-   -- DEBUG: Add linker flag -T C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld into TO_BE_REMOVED_FLAGS list, load from CMakefile: 1171
-   -- DEBUG: Remove linker flag -T C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld, load from CMakefile: 1182
-   -- DEBUG: Add -T C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/examples/frdmk64f/demo_apps/hello_world/hello_world_flash.ld to LD flags, load from CMakefile: C:/git_repo/migrate_sdk_repo/sdk-next/mcu-sdk-3.0/examples/frdmk64f/demo_apps/hello_world/reconfig.cmake
+   -- DEBUG: Add linker flag -T C:/git_repo/migrate_sdk_repo/mcuxsdk/devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld into TO_BE_REMOVED_FLAGS list, load from CMakefile: 1171
+   -- DEBUG: Remove linker flag -T C:/git_repo/migrate_sdk_repo/mcuxsdk/devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld, load from CMakefile: 1182
+   -- DEBUG: Add -T C:/git_repo/migrate_sdk_repo/mcuxsdk/examples/frdmk64f/demo_apps/hello_world/hello_world_flash.ld to LD flags, load from CMakefile: C:/git_repo/migrate_sdk_repo/mcuxsdk/examples/frdmk64f/demo_apps/hello_world/reconfig.cmake
    ```
 
 ## Kconfig
@@ -106,7 +106,7 @@
 
     ![board_select_device_part](./_doc/gui_project_undefined_device.png)
 
-    Please check the variable MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER and MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER in mcu-sdk-3.0\devices\${soc_series}\${device}\Kconfig.chip, make sure it's a valid device idenditier. 
+    Please check the variable MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER and MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER in mcuxsdk\devices\${soc_series}\${device}\Kconfig.chip, make sure it's a valid device idenditier. 
 
 ## BUILD
 

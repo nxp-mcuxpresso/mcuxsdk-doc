@@ -58,7 +58,6 @@ for more details.
    develop/architect.md
    develop/application/index
    develop/build_system/index
-   develop/tool/west.md
 
 .. toctree::
    :maxdepth: 1

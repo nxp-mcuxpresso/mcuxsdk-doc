@@ -5,8 +5,6 @@ IDE such as IAR and so on, this is not a great experience for coding and debuggi
 create IDE GUI project, which analyzes the build.ninja file to get source files, include path, assembler/compiler/linker flags and set them into project 
 template files. Currently, the meta build system supports GUI project generation for specific IAR, MDK, Xtensa and CodeWarrior.
 
-## Principle
-
 ## Usage
 
 ### Prerequisite
@@ -14,14 +12,14 @@ template files. Currently, the meta build system supports GUI project generation
 1. Ruby environment
 
    Currently, we have not implemented all features through Python. So, in order to generate IDE GUI projects, you have to prepare the ruby 3.1 environment.
-   Please refer to  [Ruby environment setup](./misc/Ruby_environment_set_up.md).
+   Please refer to  [Ruby environment setup](./misc/Ruby_environment_set_up.md/#Ruby-Environment-Setup).
 
 2. Project templates
 
-   Project template files are prepared in mcu-sdk-3.0/scripts/guigenerator/templates. You need to set `project-templates` for specific toolchain in `examples/${board}/IDE.yml` for single core devices,
+   Project template files are prepared in mcuxsdk/scripts/guigenerator/templates. You need to set `project-templates` for specific toolchain in `examples/${board}/IDE.yml` for single core devices,
    or `examples/${board}/${core_id}/IDE.yml` for multicore devices. For example:
     ``` yaml
-   # mcu-sdk-3.0/examples/evkbmimxrt1170/cm4/IDE.yml
+   # mcuxsdk/examples/evkbmimxrt1170/cm4/IDE.yml
     mdk:
       project-templates:
         - scripts/guigenerator/templates/mdk/app_evkbmimxrt1170/app_evkbmimxrt1170_cm4.uvprojx
@@ -66,7 +64,7 @@ After the command runs, the project files are generated into the compilation dir
 
 ### Standalone Example
 
-The linked project is lightweight and fast when generation. However, it uses the file in the repo, which means if you want to share the linked project with others,  both sides need to have a mcu-sdk-3.0 repo, as well as keep the relative paths of the linked projects the same. But if other developer does not have the repo, it is not feasible to zip all repository into a package file and send it over email.
+The linked project is lightweight and fast when generation. However, it uses the file in the repo, which means if you want to share the linked project with others,  both sides need to have a mcuxsdk repo, as well as keep the relative paths of the linked projects the same. But if other developer does not have the repo, it is not feasible to zip all repository into a package file and send it over email.
 
 Based on this requirement, the meta build system can export standalone project from the repository. The project contains everything necessary for a single project, keeps same folder structure comparing with repository, which does not rely on meta build system.
 
@@ -75,7 +73,7 @@ To accomplish this, we extend the guiproject generation script for linked projec
 The standalone project can be generated with west command line parameters "-t standalone_project". For example:
 
 ```
-west build -b frdmk64f ./examples/src/demo_apps/hello_world -p always --config debug --toolchain iar -t standalone_project
+west build -b frdmk64f ./examples/demo_apps/hello_world -p always --config debug --toolchain iar -t standalone_project
 ```
 
 You can find IAR project in build folder with source code.
@@ -84,7 +82,7 @@ You can find IAR project in build folder with source code.
 
 Note:
 
-1. The default project folder is mcu-sdk-3.0/build/${toolchain}. You can also specify the destination folder with command line parameter "-d" .
+1. The default project folder is mcuxsdk/build/${toolchain}. You can also specify the destination folder with command line parameter "-d" .
 2. In one CMake configuration context, you can only create a project for a specific toolchain and specific config such as `debug` or `flexspi_nor_debug`. You should remove CMake build folder or run west command with "-p always" if changing toolchain or config.
 3. If the CMake has generated build artifacts, you can just type "west build -t standalone_project"
 
@@ -168,7 +166,7 @@ There are 3 kinds of IDE data: project templates, IDE option and Special functio
 
 #### Project templates
 
-The project template files are the most basic and original IDE definition files for GUI project generation. All IDE settings are set based on these files. We have prepared project template files in advance, which are located in the mcu-sdk-3.0/scripts/guigenerator/templates, for example
+The project template files are the most basic and original IDE definition files for GUI project generation. All IDE settings are set based on these files. We have prepared project template files in advance, which are located in the mcuxsdk/scripts/guigenerator/templates, for example
 
 ![project_template_file](./_doc/project_template_file.png)
 
@@ -181,7 +179,7 @@ If you want to replace previous setting, just reset the setting in files loaded 
 Here is the example:
 
 ```yaml
-# sdk-next/mcu-sdk-3.0/boards/evkmimxrt1170/cm7/IDE.yml
+# mcuxsdk/boards/evkmimxrt1170/cm7/IDE.yml
 mdk:
   project-templates:
     - scripts/guigenerator/templates/mdk/app_evkmimxrt1170/app_evkmimxrt1170.uvprojx
@@ -191,7 +189,7 @@ iar:
     - scripts/guigenerator/templates/iar/app_cmsisdap/generic.ewp
     - scripts/guigenerator/templates/iar/app_cmsisdap/generic.ewd
     - scripts/guigenerator/templates/iar/general.eww
-# sdk-next/mcu-sdk-3.0/boards/evkmimxrt1170/demo_apps/hello_world/cm7/IDE.yml
+# mcuxsdk/boards/evkmimxrt1170/demo_apps/hello_world/cm7/IDE.yml
 iar:
   project-templates: # Accodring to load sequence, this setting will take effect
     - scripts/guigenerator/templates/iar/app_jlinkswd/generic.ewp
@@ -208,7 +206,7 @@ You can set IDE option for specific toolchain and specific target. If the settin
 Here is the example:
 
 ```yaml
-# sdk-next/mcu-sdk-3.0/boards/evkmimxrt1170/cm7/IDE.yml
+# mcuxsdk/boards/evkmimxrt1170/cm7/IDE.yml
 iar:
   config:
     __common__:
@@ -261,7 +259,7 @@ The meta build system use CMake to create build artifacts. In general, CMake doe
 - [MDK][https://developer.arm.com/documentation/100748/0622/Using-Common-Compiler-Options]
 - [ARMGCC][https://gcc.gnu.org/onlinedocs/]
 
-Assembler/Compiler/Linker flags are set with following CMake configuration function in CMake file, please refer to  [Configuration](#configuration)
+Assembler/Compiler/Linker flags are set with following CMake configuration function in CMake file, please refer to  [Configuration](./Build_System.md#configuration)
 
 For example, the following code sets optimization level for IAR compiler:
 
@@ -326,7 +324,7 @@ If your project needs different optimization level, please remove the default on
 
 #### Macro definition
 
-Macro is used to preprocess source files, it is a common setting for assembler/compiler. You can use CMake configuration function defined in  [Configuration](#configuration) to set macro definition.
+Macro is used to preprocess source files, it is a common setting for assembler/compiler. You can use CMake configuration function defined in  [Configuration](./Build_System.md#configuration) to set macro definition.
 
 The macro definition follow the pattern "-Dname=value", or "-Dname" if no value provided.
 
@@ -542,7 +540,7 @@ mcux_add_iar_configuration(
 
 ### Source And Include Path
 
-The source and include path setting are set in CMake file, please refer to [Source And Include](#source-and-include)
+The source and include path setting are set in CMake file, please refer to [Source And Include](./Build_System.md#source-and-include)
 
 ### Pre-include File
 
@@ -559,15 +557,15 @@ This pre-include file will be prefixed for each compiler automaitcally. Such as 
 
 ### Linker file
 
-The Linker file setting are set in CMake file, please refer to [CMake Extension Linker Setting](#mcux_add_iar_linker_script/mcux_add_mdk_linker_script/mcux_add_armgcc_linker_script)
+The Linker file setting are set in CMake file, please refer to [CMake Extension Linker Setting](./Build_System.md#mcux_add_iar_linker_script/mcux_add_mdk_linker_script/mcux_add_armgcc_linker_script)
 
 ### Link libraries
 
-The libraries are set in CMake file with CMake extension function `mcux_add_configuration`, please refer to [CMake Extension Configuration Function](#mcux_add_library)
+The libraries are set in CMake file with CMake extension function `mcux_add_configuration`, please refer to [CMake Extension Configuration Function](./Build_System.md#mcux_add_library)
 
 #### Pre-build/Post-build Command
 
-The pre/post build command can be set by CMake function mcux_add_custom_command, please refer to [CMake Extension Pre/Post Build Command](#mcux_add_custom_command)
+The pre/post build command can be set by CMake function mcux_add_custom_command, please refer to [CMake Extension Pre/Post Build Command](./Build_System.md#mcux_add_custom_command)
 
 ### IDE Option Setting
 

@@ -1,5 +1,12 @@
 # Configuration System(Kconfig)
 
+## Overview
+
+[Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html) is a selection-based configuration system originally developed for the Linux kernel which now found more and more use in other projects beyond the Linux kernel. In MCUXpresso SDK, Kconfig is used to config the build in run time which includes component selection with dependency resolve, component configuration with feature enable, disable and customization.
+
+You can interact with Kconfig via a curses or graphical menu interface, usually invoked by running `west build -t guiconfig` after you have already run passed the CMake configuration process. In this interface, the user selects the options and features desired, and saves a configuration file, which is then used as an input to the
+build process.
+
 ## Kconfig Usage
 
 1. Please install python3 before installing kconfiglib. For kconfiglib, you can run with the command
@@ -80,36 +87,36 @@ The prj.conf search paths can be provided through 3 ways with priority.
 - Fixed prj.conf search paths
 
   For all project build, the following path prj.conf will anyway be collected into the build. They are related to device, board and example board specific part. The priority is from low to high. High priority prj.conf data will override low priority prj.conf data.
-   1. devices/prj.conf
-   2. devices/\<soc_series>/prj.conf
-   3. devices/\<soc_series>/\<device>/prj.conf
-   4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
-   5. examples/prj.conf
-   6. examples/_boards/prj.conf
-   7. examples/_boards/\<board>/prj.conf
-   8. examples/_boards/\<board>/\<core_id>/prj.conf
-   9. examples/\<example_category>/prj.conf
-   10. examples/\<example_category>/\<example\>/prj.conf
-   11. examples/_boards/\<board>/\<example_category>/prj.conf
-   12. examples/_boards/\<board>/\<example_category>/\<example>/prj.conf
-   13. examples/_boards/\<board>/\<example_category>/\<example>/\<core_id>/prj.conf
+    1. devices/prj.conf
+    2. devices/\<soc_series>/prj.conf
+    3. devices/\<soc_series>/\<device>/prj.conf
+    4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
+    5. examples/prj.conf
+    6. examples/_boards/prj.conf
+    7. examples/_boards/\<board>/prj.conf
+    8. examples/_boards/\<board>/\<core_id>/prj.conf
+    9. examples/\<example_category>/prj.conf
+    10. examples/\<example_category>/\<example\>/prj.conf
+    11. examples/_boards/\<board>/\<example_category>/prj.conf
+    12. examples/_boards/\<board>/\<example_category>/\<example>/prj.conf
+    13. examples/_boards/\<board>/\<example_category>/\<example>/\<core_id>/prj.conf
 
   For shield case, it is generally the same as board:
 
-   1. devices/prj.conf
-   2. devices/\<soc_series>/prj.conf
-   3. devices/\<soc_series>/\<device>/prj.conf
-   4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
-   5. examples/prj.conf
-   6. examples/_boards/prj.conf
-   7. examples/_boards/\<board>/prj.conf
-   8. examples/_boards/\<board>/\<core_id>/prj.conf
-   9. examples/\<shield_example_category>/prj.conf
-   10. examples/\<shield_example_category>/\<example\>/prj.conf
-   11. examples/_boards/\<board>/\<shield>/prj.conf
-   12. examples/_boards/\<board>/\<shield>/\<shield_example_category>/prj.conf
-   13. examples/_boards/\<board>/\<shield>/\<shield_example_category>/\<example>/prj.conf
-   14. examples/_boards/\<board>/\<shield>/\<shield_example_category>/\<example>/\<core_id>/prj.conf
+    1. devices/prj.conf
+    2. devices/\<soc_series>/prj.conf
+    3. devices/\<soc_series>/\<device>/prj.conf
+    4. devices/\<soc_series>/\<device>/\<core_id>/prj.conf
+    5. examples/prj.conf
+    6. examples/_boards/prj.conf
+    7. examples/_boards/\<board>/prj.conf
+    8. examples/_boards/\<board>/\<core_id>/prj.conf
+    9. examples/\<shield_example_category>/prj.conf
+    10. examples/\<shield_example_category>/\<example\>/prj.conf
+    11. examples/_boards/\<board>/\<shield>/prj.conf
+    12. examples/_boards/\<board>/\<shield>/\<shield_example_category>/prj.conf
+    13. examples/_boards/\<board>/\<shield>/\<shield_example_category>/\<example>/prj.conf
+    14. examples/_boards/\<board>/\<shield>/\<shield_example_category>/\<example>/\<core_id>/prj.conf
 
   If the "project" macro is with "NO_DEFAULT_CONFIG" like the following, then build system will skip all the fixed prj.conf search paths, since the input prj.conf cannot be empty, so the prj.conf must be provided with CUSTOM_PRJ_CONF_PATH or DCONF_FILE.
 

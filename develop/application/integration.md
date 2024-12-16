@@ -1,10 +1,87 @@
 # MCUXSDK Integration
 
+## McuxSDK CMake Package
+
+MCUXpresso SDK repo contents can be used as a standard McuxSDK [CMake package](https://cmake.org/cmake/help/latest/manual/cmake-packages.7.html) . The McuxSDK CMake package is a convenient way to create a SDK next repo based freestanding example. It ensures that CMake can automatically find the MCUXpresso SDK repo and use the contents to build the example.
+
+There are 2 ways to use the McuxSDK CMake package:
+
+1. Export the MCUXpresso SDK repo to system standard CMake User Package Registry and directly use `find_package(McuxSDK)`.
+
+   Here is the table about the standard CMake user package registry in different OSes.
+
+   | OS      | CMake user package registry              |
+      | ------- | ---------------------------------------- |
+   | Windows | HKEY_CURRENT_USER\Software\Kitware\CMake\Packages\McuxSDK |
+   | Ubuntu  | ~/.cmake/packages/McuxSDK                |
+   | MacOS   | ~/.cmake/packages/McuxSDK                |
+
+   There are 2 ways to export MCUXpresso SDK repo.
+
+   1. You can use west cmd `west mcuxsdk-export` to export.
+   2. You can directly use cmake cmd `cmake -P <sdk repo root>/share/mcuxsdk-package/cmake/mcuxsdk_export.cmake`  to export.
+
+2. Directly add the MCUXpresso SDK repo root as `HINT` for `find_package(McuxSDK HINT <repo root>)`
+
+### Create Example With "find_package(McuxSDK)"
+
+When using McuxSDK CMake package, you just simply needs to write `find_package(McuxSDK)` in the beginning of the application `CMakeLists.txt` file, then build system will get all needed drivers, components and middlewares for designated devices and boards and build them into a static library called `McuxSDK`.  This `McuxSDK` has been linked to target "app" in advance, you only need to add the example specific sources/include/configuration.
+
+Here is an example:
+
+```cmake
+cmake_minimum_required(VERSION 3.30.0)
+find_package(Mcuxsdk REQUIRED)
+project(hello_world LANGUAGES C CXX ASM)
+mcux_add_source(
+  SOURCES     
+    hello_world.c
+    pin_mux.c
+    pin_mux.h
+    hardware_init.c
+    app.h
+)
+mcux_add_include(
+  INCLUDES 
+    .
+)
+```
+
+If you use native cmake target_ function with target `app`, then the sources/includes/configurations are added for target `app`. If you use NXP cmake extension to add sources/includes/configurations, then the data and files are added into target `McuxSDK`, a static library, which will be linked to `app` finally.
+
+If there is no special instruction, the app target will use default provided linker by MCUXpresso SDK if it is an executable. If you want to use your own linker, then please add "CUSTOM_LINKER TRUE" in the "project" like
+
+```cmake
+project(hello_world LANGUAGES C CXX ASM CUSTOM_LINKER TRUE)
+```
+
+then add your own  linker.
+
+### McuxSDK CMake Package Version
+
+`find_package(McuxSDK)` supports to specify MCUXpresso SDK version number in `x.y.z` format which is very useful as it ensures the example is built with a minimal MCUXpresso SDK version. An explicit version also helps CMake to select the correct MCUXpresso SDK to use for building when there are multiple MCUXpresso SDK repos in the system.
+
+Here is an example with version:
+
+```cmake
+find_package(McuxSDK 3.0.0)
+project(hello_world)
+```
+
+This requires hello_world project to be built with MCUXpresso SDK version 3.0.0 as minimum.
+
+`find_package` supports the keyword `EXACT` to ensure an exact version is used.
+
+```cmake
+find_package(McuxSDK 3.0.0 EXACT)
+project(hello_world)
+```
+
 ## Integrated Into Other Build System
 
 ### Import as CMake package
 
-If you want to integrate the mcuxsdk to your project by CMake find_package feature, please refer [McuxSDK CMake Package](#McuxSDK-CMake-Package).
+If you want to integrate the mcuxsdk to your project by CMake find_package feature, please refer [McuxSDK CMake Package](#mcuxsdk-cmake-package).
 
 ### Import manually
 
@@ -62,7 +139,7 @@ The meta build system is based on CMake, theoretically, it supports the integrat
 
 There are two ways for this requirement:
 
-1. If the third-party software will be built as a library and linked to the project from meta build system, you can add the software path to CMake variable "EXTRA_MCUX_MODULES". The The directory of the path will be regarded as module's name. You need to create a folder named `mcux` in this path, and  prepare files below:
+1. If the third-party software will be built as a library and linked to the project from meta build system, you can add the software path to CMake variable "EXTRA_MCUX_MODULES". The directory of the path will be regarded as module's name. You need to create a folder named `mcux` in this path, and prepare files below:
 
     - module.yml
 
@@ -87,9 +164,9 @@ There are two ways for this requirement:
           bool "zcbor CBOR library"
           help
             zcbor CBOR encoder/decoder library
- 
+       
       if MCUX_COMPONENT_ZCBOR
- 
+       
       config ZCBOR_CANONICAL
           bool "Produce canonical CBOR"
           help
@@ -106,32 +183,32 @@ There are two ways for this requirement:
 
       ```cmake
       cmake_minimum_required(VERSION 3.20.0)
- 
+       
       if(CONFIG_MCUX_COMPONENT_ZCBOR)
           add_library(zcbor) # declare a zcbor library 
- 
+       
           target_sources(zcbor PRIVATE # add files to zcbor library
                   ${MCUX_ZCBOR_MODULE_DIR}/src/zcbor_common.c
                   ${MCUX_ZCBOR_MODULE_DIR}/src/zcbor_decode.c
                   ${MCUX_ZCBOR_MODULE_DIR}/src/zcbor_encode.c
           )
- 
+       
           target_include_directories(zcbor PUBLIC # add include path to zcbor library
                   ${MCUX_ZCBOR_MODULE_DIR}/include
           )
- 
+       
           target_compile_definitions(zcbor PUBLIC _POSIX_C_SOURCE=200809L) # add macro to zcbor library and the targets which links this library
- 
+       
           if(CONFIG_ZCBOR_CANONICAL)
               target_compile_definitions(zcbor PRIVATE ZCBOR_CANONICAL) # # add macro only for zcbor library 
           endif ()
- 
+       
       endif()
       ```
 
-   The software will use assembler/compiler/linker flags provided by meta build system, you can also set specific options for the third-party software in `PRIVATE` scope. If the module is a library project, meta build system can link the library automatically.
+The software will use assembler/compiler/linker flags provided by meta build system, you can also set specific options for the third-party software in `PRIVATE` scope. If the module is a library project, meta build system can link the library automatically.
 
-   **Note**: Due to the loading sequence of CMake, the compilation settings in reconfig.cmake are not available, so if necessary, you need to set them yourself in cmakelists.txt of the module.
+   **Note**: Due to the loading sequence of CMake, the compilation settings in reconfig.cmake are not available, so if necessary, you need to set them yourself in CMakeLists.txt of the module.
 
 2. If the other software is a standalone project which has separated configuration, it can be imported by sysbuild.
 

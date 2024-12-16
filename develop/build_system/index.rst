@@ -2,7 +2,7 @@ Build And Configuration
 =========================
 
 .. list-table:: Acronyms and Abbreviations
-   :widths: 25 25 50
+   :widths: 25 25
    :header-rows: 1
 
    * - Acronym or Term
@@ -20,9 +20,9 @@ Build And Configuration
 
    Build System <Build_System.md>
    Configuration System <Configuration_System.md>
+   BCS Data Introduction <BCS_data.md>
    Sysbuild <Sysbuild.md>
    IDE Project Support <IDE_Project.md>
-   BCS Data Introduction <BCS_data.md>
    Frequently Asked Questions <Frequently_Asked_Questions.md>
    Best Practise <Best_Practice.md>
 
