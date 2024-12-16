@@ -95,7 +95,12 @@ A known issue can list one or both of the following entries:
       ("rdrw612bga", "RD-RW612-BGA"),
       ("twrkm34z50mv3", "TWR-KM34Z50MV3"),
       ("twrkm34z75m", "TWR-KM34Z75M"),
-      ("twrkm35z75m", "TWR-KM35Z75M")]
+      ("twrkm35z75m", "TWR-KM35Z75M"),
+      ("mc56f80000evk", "MC56F80000-EVK"),
+      ("mc56f81000evk", "MC56F81000-EVK"),
+      ("mc56f83000evk", "MC56F83000-EVK"),
+      ("twrmc56f8200", "TWR-MC56F8200"),
+      ("twrmc56f8400", "TWR-MC56F8400")]
 
 .. page-filter::
   :name: boards
@@ -178,6 +183,11 @@ A known issue can list one or both of the following entries:
    twrkm34z50mv3 TWR-KM34Z50MV3
    twrkm34z75m TWR-KM34Z75M
    twrkm35z75m TWR-KM35Z75M
+   mc56f80000evk MC56F80000-EVK
+   mc56f81000evk MC56F81000-EVK
+   mc56f83000evk MC56F83000-EVK
+   twrmc56f8200 TWR-MC56F8200
+   twrmc56f8400 TWR-MC56F8400
 
 .. HOWTO
 
