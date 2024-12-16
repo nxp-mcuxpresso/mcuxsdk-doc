@@ -680,3 +680,38 @@ The wifi_webconfig example can get stuck after AP to client switch
     The app stops uAP during switch to client, which can cause app to hang.
 
     **Affected platforms:** 
+
+
+.. rst-class:: hideable v2024-12-00-pvw2
+
+MCUBoot OTA examples: Encrypted XIP using IPED causes device reset
+ 
+	Currently, there is an issue between IPED and PKC subsystems when mbedTLS utilizes hardware acceleration.
+	**Workaround**: There are two ways
+			1.) Disable hardware acceleration port of mbedTLS - see configuration sblconfig.h file of the ota example for more information
+			or
+			2.) Place all *FUP.c files located under components\els_pkc\src\comps\ in the SRAM
+ 
+	**Examples**: mcuboot_opensource, ota_mcuboot_client_wifi, ota_mcuboot_client_enet
+	**Affected toolchains**: All    
+    **Affected platforms**: frdmrw612, rdrw612bga
+
+.. rst-class:: hideable v2024-12-00-pvw2
+ 
+MCUBoot OTA examples: Encrypted XIP using IPED causes device reset during "Initializing WiFi connection..."
+ 
+	The issue is not observed in IAR toolchain and the root cause is unknown for now.
+ 
+	**Examples**: ota_mcuboot_client_wifi, ota_mcuboot_server_wifi
+	**Affected toolchains**: mcux, armgcc, mdk
+    **Affected platforms**: frdmrw612, rdrw612bga
+
+.. rst-class:: hideable v2024-12-00-pvw2
+
+MCUBoot OTA examples: Encrypted XIP using IPED causes a hard fault during OTA update
+	The issue may happens when three slot mode is used in specific toolchains.
+ 
+	**Workaround**: use overwrite-only mode of encrypted XIP extension
+	**Examples**: mcuboot_opensource
+    **Affected toolchains**: mcux, mdk
+    **Affected platforms**: frdmrw612, rdrw612bga
