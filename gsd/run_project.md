@@ -85,7 +85,7 @@ west build -t guiconfig
 
 Then you will get the Kconfig GUI launched, like
 
-![kconfig_gui](./_doc/kconfig_gui.png)
+![kconfig_gui](../develop/build_system/_doc/kconfig_gui.png)
 
 You can select/deselect and modify to do reconfiguration and remember to save.
 

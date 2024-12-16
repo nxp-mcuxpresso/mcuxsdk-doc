@@ -56,6 +56,7 @@ for more details.
    :caption: Development
 
    develop/architect.md
+   develop/application/index
    develop/build_system/index
    develop/document/index
 

@@ -120,6 +120,11 @@ modules:
     external_contents:
     - root: 'docs'
       pattern: 'develop/architect.md'
+  dev_application:
+    default: True
+    external_contents:
+      - root: 'docs'
+        pattern: 'develop/application/*'
   dev_build_system:
     default: True
     external_contents:
