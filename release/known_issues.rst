@@ -16,7 +16,7 @@ A known issue can list one or both of the following entries:
   Sometimes, they are discovered later and added over time.
 
 .. version-filter::
-  :default: v2024-12-00-pvw2
+  :default: v2024-12-00
   :container: dl/dt
   :tags: [("evk9mimx8ulp", "EVK9-MIMX8ULP"),
       ("evkbimxrt1050", "EVKB-IMXRT1050"),
@@ -680,7 +680,7 @@ The wifi_webconfig example can get stuck after AP to client switch
 
     **Affected platforms:** 
 
-.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00
+.. rst-class:: hideable v2024-12-00
 
 MCUBoot OTA examples: Encrypted XIP using IPED causes device reset
  
@@ -694,7 +694,7 @@ MCUBoot OTA examples: Encrypted XIP using IPED causes device reset
 	**Affected toolchains**: All    
     **Affected platforms**: frdmrw612, rdrw612bga
 
-.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00
+.. rst-class:: hideable v2024-12-00
  
 MCUBoot OTA examples: Encrypted XIP using IPED causes device reset during "Initializing WiFi connection..."
  
@@ -704,7 +704,7 @@ MCUBoot OTA examples: Encrypted XIP using IPED causes device reset during "Initi
 	**Affected toolchains**: mcux, armgcc, mdk
     **Affected platforms**: frdmrw612, rdrw612bga
 
-.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00
+.. rst-class:: hideable v2024-12-00
 
 MCUBoot OTA examples: Encrypted XIP using IPED causes a hard fault during OTA update
 	The issue may happens when three slot mode is used in specific toolchains.
