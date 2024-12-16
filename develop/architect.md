@@ -4,7 +4,7 @@
 
 The MCUXpresso Software Development Kit (SDK) provides comprehensive development solutions designed to help accelerate embedded system development of applications based on MCUs from NXP. The MCUXpresso SDK includes a flexible set of peripheral drivers designed to speed up and simplify development of embedded applications. Along with the peripheral drivers, the MCUXpresso SDK provides an extensive set of example applications covering everything from basic peripheral use cases to full technology demonstrations. The MCUXpresso SDK contains optional RTOS integrations such as FreeRTOS, and various other middleware to support rapid development.  
 
-The MCUXpresso SDK architecture is built around the five key components listed below:
+The  MCUXpresso SDK architecture is built around the five key components listed below:
 
 1.  **CMSIS** - Arm Cortex Microcontroller Software Interface Standard Core: Device headers, Math/DSP libraries
 
