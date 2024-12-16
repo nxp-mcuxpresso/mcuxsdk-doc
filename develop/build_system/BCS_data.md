@@ -11,9 +11,11 @@ Since Kconfig data are configurable, then there are 3 ways to provide the config
 1. Kconfig default value
 
    Inside the Kconfig file, for each symbol, default value must be provided. In this way, any symbol will anyway gets a default value in any cases if the symbol dependency has been satisfied.
+
 2. prj.conf
 
-   For **visible** Kconfig symbols, you can directly set symbol=value in `prj.conf` to do the configuration. The `prj.conf`s placed in designated places will be taken as Kconfig process input with priority. Please refer [prj.conf](#prj-conf) for details.
+   For **visible** Kconfig symbols, you can directly set symbol=value in `prj.conf` to do the configuration. The `prj.conf` is placed in designated places will be taken as Kconfig process input with priority. Please refer [prj.conf](./Configuration_System.md#prj-conf) for details.
+
 3. Kconfig.defconfig
 
    For invisible Kconfig symbols, prj.conf won't take effect. Please use `Kconfig.defconf` to redefine the symbol without type but with new default value.
@@ -220,7 +222,7 @@ config HELLO_WORLD_EXAMPLE_MACRO
 2. Set `mainmenu` to give the GUI title
 3. Set your example specific configurations
 
-**Note, the Kconfig process will take example specific Kconfig as entry point with priority. If not provided, then take the <mcu-sdk-3.0>/Kconfig instead. So if your example doesn't have Kconfig contents, please don't keep it.**
+**Note, the Kconfig process will take example specific Kconfig as entry point with priority. If not provided, then take the <mcuxsdk>/Kconfig instead. So if your example doesn't have Kconfig contents, please don't keep it.**
 
 ### Dependency
 
@@ -478,7 +480,7 @@ Source level dependency is achieved through the CMake extension, like
     )
 ```
 
-Please refer the [mcux_add_source/mcux_add_include extension arguments](#source-and-include) for supported dependency items.
+Please refer the [mcux_add_source/mcux_add_include extension arguments](./Build_System.md#source-and-include) for supported dependency items.
 
 ### Variables
 
@@ -548,7 +550,7 @@ Except for the above variables, there are variables which are generated in the c
 | ---------------------- | ---------------------------------------- |
 | MCUX_SDK_PROJECT_NAME  | The processed example name, it equals `PROJECT_NAME`+`core_id_suffix_name` |
 | APPLICATION_SOURCE_DIR | Project CMakelists.txt directory like examples/demo_apps/hello_world |
-| APPLICATION_BINARY_DIR | Output build directory like `<mcu-sdk-3.0>/build` |
+| APPLICATION_BINARY_DIR | Output build directory like `<mcuxsdk>/build` |
 
 #### Customized Variables
 
@@ -569,7 +571,7 @@ MCUXpresso SDK repo CMake and Kconfig data are composed of arch, boards, devices
 
 #### Arch Data
 
-MCUXpresso SDK support all mainstream soc architecture like ARM, Riscv, DSC. The soc architecture specific data are recorded in `<mcu-sdk-3.0>/arch/<arch>` folder.
+MCUXpresso SDK support all mainstream soc architecture like ARM, Riscv, DSC. The soc architecture specific data are recorded in `<mcuxsdk>/arch/<arch>` folder.
 
 Here is the hierarchy of arch data folder:
 
@@ -837,7 +839,7 @@ The supported toolchains and build configuration targets for an example can be g
     1. If the data attribute is empty, then the board level toolchains and build configuration targets are the example ones.
     2. If the data attribute exists, "+" to add extra toolchains and build configuration targets pairs from board ones. "-" to reduce extra ones from board ones.
 
-A detailed [json schema](https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-3.0/browse/scripts/data_schema) is provided for the example level example.yml, please review.
+A detailed json schema is provided in mcuxsdk/scripts/data_schema folder for the example level example.yml, please review.
 
 #### Driver Data
 
@@ -950,4 +952,4 @@ endmenu
 
 The CMake include and Kconfig rsource(load) are generally aligned which means they shall stay together corresponding each other.
 
-[//]: # (For other CMake based BS which wants to integrate MCUXpresso SDK, it may needs to set up the new assembly point file for CMake and Kconfig files in this repo.)
+For other CMake based BS which wants to integrate MCUXpresso SDK, it may needs to set up the new assembly point file for CMake and Kconfig files in this repo.

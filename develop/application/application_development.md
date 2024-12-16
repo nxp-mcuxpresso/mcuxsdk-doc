@@ -11,13 +11,13 @@ In MCUXpresso SDK, based on whether supporting the hierarchical configuration fo
 
 ### Repository Example
 
-Repository example CMakelists.txt is located inside `mcu-sdk-3.0/examples/<example-category>/<example>`or `mcu-sdk-3.0/examples_int/<example-category>/<example>` folder, like the hello_world CMakelists.txt is located in `mcu-sdk-3.0/examples/demo_apps/hello_world`.
+Repository example CMakelists.txt is located inside `mcuxsdk/examples/<example-category>/<example>`or `mcuxsdk/examples_int/<example-category>/<example>` folder, like the hello_world CMakelists.txt is located in `mcuxsdk/examples/demo_apps/hello_world`.
 
 ```
 sdk_next/
 ├─── .west/
 │    └─── config
-└─── mcu-sdk-3.0/
+└─── mcuxsdk/
      ├── arch/
      ├── cmake/
      ├── examples
@@ -51,7 +51,7 @@ So following prj.conf files are taken into examples to do different level config
 | examples/\_boards/evkmimxrt1170/demo_apps/prj.conf | Apply for all evkmimxrt1170 demo apps examples |
 | examples/\_boards/evkmimxrt1170/demo_apps/hello_world/prj.conf | Apply for evkmimxrt1170 hello_world examples |
 
-The deeper path of prj.conf, the higher priority it has. You can refer the chapter [prj.conf.](#Kconfig-Process-Flow).
+The deeper path of prj.conf, the higher priority it has. You can refer the chapter [prj.conf.](../build_system/Configuration_System.md#kconfig-process-flow)
 
 Note, such hierarchical configuration must be specified with "PROJECT_BOARD_PORT_PATH" and only supports examples under "examples" folder, that is the standard repository example.
 
@@ -59,13 +59,13 @@ Note, such hierarchical configuration must be specified with "PROJECT_BOARD_PORT
 
 Unlike standard repository examples, freestanding examples don't support hierarchical configuration for board porting, so there is no "PROJECT_BOARD_PORT_PATH" in "project" macro and there is no location restriction for freestanding example which means it can be placed anywhere.
 
-- Inside mcu-sdk-3.0 repo
+- Inside mcuxsdk repo
 
   ```yaml
   sdk_next/
   ├─── .west/
   │    └─── config
-  └─── mcu-sdk-3.0/
+  └─── mcuxsdk/
        ├── arch/
        ├── cmake/
        ├── <any folder>/
@@ -75,14 +75,14 @@ Unlike standard repository examples, freestanding examples don't support hierarc
        │       ├── prj.conf
        │       ├── hello_world.c
   ```
-- Outside mcu-sdk-3.0 repo
+- Outside mcuxsdk repo
 
   ```
   <home>/
   ├─── sdk_next/
   │     ├─── .west/
   │     │    └─── config
-  │     ├── mcu-sdk-3.0/
+  │     ├── mcuxsdk/
   │     └── ...
   │
   └─── app/
@@ -146,7 +146,7 @@ find_package(McuxSDK 24.12.00 EXACT REQUIRED)
 project(hello_world LANGUAGES C CXX ASM)
 ```
 
-Please refer [McuxSDK CMake Package](#McuxSDK-CMake-Package) for details.
+Please refer [McuxSDK CMake Package](./integration.md#mcuxsdk-cmake-package) for details.
 
 ### Standalone Example
 
@@ -171,12 +171,12 @@ west build -b frdmk64f ./examples/demo_apps/hello_world -p always --config debug
 
 You can find IAR project in build folder with source code.
 
-![iar_standalone_project](./_doc/iar_standalone_project.png)
+![iar_standalone_project](../build_system/_doc/iar_standalone_project.png)
 
 Note:
 
 1. **The standalone project supports repository examples and freestanding examples using the explicitly include root CMakeLists.txt. Freestanding examples using McuxSDK CMake package do not have standalone project feature.**
-2. The default destination folder is mcu-sdk-3.0/build/${toolchain}. You can also specify the destination folder with command line parameter "-d" .
+2. The default destination folder is mcuxsdk/build/${toolchain}. You can also specify the destination folder with command line parameter "-d" .
 3. You can only create a project for a specific toolchain and config in one CMake configuration context. You should remove CMake build folder or run with "-p always" if changing toolchain or config
 4. If the CMake has generated build artifacts, you can directly type "west build -t standalone_project" to generate.
 
@@ -331,7 +331,7 @@ If you find one repository example functions are similar to your project and wan
 
 ## Enable An Example
 
-Please firstly make sure that the target board and device data are ready, then follow the example CMakelists.txt pattern in [Project](#project) chapter and make your own one.
+Please firstly make sure that the target board and device data are ready, then follow the example CMakeLists.txt pattern in [Project](../build_system/BCS_data.md#project) chapter and make your own one.
 
 If the default board and device data and configuration cannot satisfy, then you need to do customization for the certain board or device or both.
 
@@ -339,7 +339,7 @@ BCS provides following ways to do the customization.
 
 1. Reconfig CMake
 
-   For example, the hello_world example CMakelists.txt is defined in "examples/demo_apps/hello_world". Inside it, there are 2 optional included reconfig.cmake, like
+   For example, the hello_world example CMakeLists.txt is defined in "examples/demo_apps/hello_world". Inside it, there are 2 optional included reconfig.cmake, like
 
    ```cmake
    include(${SdkRootDirPath}/examples/demo_apps/reconfig.cmake OPTIONAL)
@@ -351,10 +351,10 @@ BCS provides following ways to do the customization.
 
    For example, if you add a examples/_boards/frdmk64f/demo_apps/reconfig.cmake, then you should be awared of that this reconfig.cmake shall apply for all demo_apps in frdmk64f.
 
-   In these reconfig.cmake, [remove](#remove) extensions can be used to remove board/device common data and settings. After removing the previous data and settings, customization data and settings can be added.
+   In these reconfig.cmake, [remove](../build_system/Build_System.md#remove) extensions can be used to remove board/device common data and settings. After removing the previous data and settings, customization data and settings can be added.
 2. prj.conf
 
-   For component selection and configuration, you can use different level prj.conf to achieve it. Refer the priority level in [prj.conf](#prj-conf) to set the data.
+   For component selection and configuration, you can use different level prj.conf to achieve it. Refer the priority level in [prj.conf](../build_system/Configuration_System.md#prj-conf) to set the data.
 
 Remember to register the example in example.yml so that build system, CI and IDE will know that the examples are enabled in certain boards.
 

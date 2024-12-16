@@ -7,3 +7,4 @@ Developing with MCUXSDK
 
    Application Development <application_development.md>
    SDK Integration <integration.md>
+   West Extension <west.md>
