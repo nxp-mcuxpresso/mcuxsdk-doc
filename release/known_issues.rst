@@ -289,7 +289,7 @@ New Project Wizard compile failure
 
     **Note:** Most of middleware components have complex dependencies and are not fully supported in new project wizard. Adding a middleware component may result in compile failure.
 
-.. rst-class:: hideable v2024-12-00-pvw2 evkbmimxrt1170 evkbmimxrt1160
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 evkbmimxrt1170 evkbmimxrt1160
 CMSIS PACK new project compile failure
     The generated configuration cannot be applied globally. The components, serial_manager_usb_cdc_virtual and serial_manager_usb_cdc_virtual_xxx \(xxx means core variants like cm0plus, cm33, cm4, and cm33_nodsp\) are unsupported for new project wizard of CMSIS pack and will lead to compile failure if selected while creating new project\(s\).
 
@@ -302,35 +302,35 @@ Low speed devices not supported
 
     **Affected platforms:**  mimxrt685audevk rdrw612bga
 
-.. rst-class:: hideable v2024-12-00-pvw2 mimxrt685audevk rdrw612bga lpcxpresso54s018 lpcxpresso54s018
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 mimxrt685audevk rdrw612bga lpcxpresso54s018 lpcxpresso54s018
     
 IAR cannot debug RAM application with J-Link
     Currently, IAR will call J-Link reset after the application is downloaded to SRAM, but such operation will cause SRAM data lost.
 
     **Affected platforms:** mimxrt685audevk rdrw612bga lpcxpresso54s018 lpcxpresso54s018m
 
-.. rst-class:: hideable v2024-12-00-pvw2 mimxrt685audevk rdrw612bga 
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 mimxrt685audevk rdrw612bga 
 
 DSP_rtp_demo failure
     The dsp_rtp_demo streaming fails after several minutes with timeout from the DSP side. The issue is probably caused by the incompatibility of the codec and the new XAF version.
 
     **Affected platforms:** mimxrt685audevk rdrw612bga 
 
-.. rst-class:: hideable v2024-12-00-pvw2 evkmimxrt1015 evkmimxrt1020 evkmimxrt1024 evkmimxrt1060 evkmimxrt1064
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 evkmimxrt1015 evkmimxrt1020 evkmimxrt1024 evkmimxrt1060 evkmimxrt1064
 
 RAM targets build issue in CMSIS bsp pack
     CMSIS pack does not support different macro definitions for different targets, all RAM targets for projects inside CMSIS BSP PACKs for RT10XX boards will get the same macro definitions with Flash targets, resulting in build failure. To pass build for RAM targets, manually update the XIP_EXTERNAL_FLASH and XIP_BOOT_HEADER_ENABLE value to 0 in RTE_Components.h.
 
     **Affected platforms:** evkmimxrt1015 evkmimxrt1020 evkmimxrt1024 evkmimxrt1060 evkmimxrt1064
 
-.. rst-class:: hideable v2024-12-00-pvw2 evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1024 evkmimxrt1060 evkmimxrt1064
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1024 evkmimxrt1060 evkmimxrt1064
 
 Non XIP target debug issue on toolchain MDK
     When debugging non XIP targets in flash boot mode, if application changes any settings which have impacts on flexspi, the build output window might show “Debug access failed” when start debugging next time. It is recommended to keep the board in serial downloader mode when debugging non XIP targets.
 
     **Affected platforms:** evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1024 evkmimxrt1060 evkmimxrt1064
 
-.. rst-class:: hideable v2024-12-00-pvw2 evkbmimxrt1160 evkbmimxrt1170
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 evkbmimxrt1160 evkbmimxrt1170
 
 MCUXpresso IDE limitation
     **Cannot debug cm4 sdram related demos with CMSIS-DAP.** MCUXpresso IDE does not support initialization of sdram when debugging.
@@ -338,21 +338,21 @@ MCUXpresso IDE limitation
 
     **Affected platforms:** evkbmimxrt1160 evkbmimxrt1170
 
-.. rst-class:: hideable v2024-12-00-pvw2 evkbmimxrt1160 evkbmimxrt1170
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 evkbmimxrt1160 evkbmimxrt1170
 
 IAR debug limitation
     CM4 flash target demos cannot be debugged on IAR with JLINK.
 
     **Affected platforms:** evkbmimxrt1160 evkbmimxrt1170
 
-.. rst-class:: hideable v2024-12-00-pvw2 evkbmimxrt1160 evkbmimxrt1170
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 evkbmimxrt1160 evkbmimxrt1170
 
 Extra option required when using CMSIS-DAP to debug
     When using CMSIS-DAP to debug CM4 sdram related target in IAR, such as flexspi_nor_sdram and sdram_txt, an extra option must be specified in the debugger settings. For details, see [IAR debug limitation](iar_debug_limitation.md).
 
     **Affected platforms:** evkbmimxrt1160 evkbmimxrt1170
 
-.. rst-class:: hideable v2024-12-00-pvw2 evkbmimxrt1060 evkbmimxrt1064
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 evkbmimxrt1060 evkbmimxrt1064
 
 Corrupted data in freertos_lpspi_b2b \(slave\) example
     Corrupted data in freertos_lpspi_b2b\(slave\) example.
@@ -363,7 +363,7 @@ Corrupted data in freertos_lpspi_b2b \(slave\) example
     
     **Workaround:** Changing the optimization level from -01 to -00 can avoid the issue. However, the optimization level -O1 is not the root cause
 
-.. rst-class:: hideable v2024-12-00-pvw2 frdmk32l2a4s frdmmcxc041
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 frdmk32l2a4s frdmmcxc041
 
 USBFS controller issue
     Because of the USBFS controller design issues, the USB host suspend/resume demos \(usb_suspend_resume_host_hid_mouse\) of the full speed controller do not support the low speed device directly
@@ -371,7 +371,7 @@ USBFS controller issue
     **Affected platforms:** frdmk32l2a4s frdmmcxc041
 
 
-.. rst-class:: hideable v2024-12-00-pvw2 frdmk32l2b frdmmcxc242 frdmmcxc444
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 frdmk32l2b frdmmcxc242 frdmmcxc444
 
 FreeRTOS issue
     When generating a new FreeRTOS project with New Project Wizard tool, the user should deassert the macro option "configUSE_PORT_OPTIMISED_TASK_SELECTION” in the “FreeRTOSConfig.h” file while it is not being used in the template project for some Cortex-M0+ devices or it may not pass the compiling.
@@ -396,42 +396,42 @@ FreeRTOS issue
 
     |
 
-.. rst-class:: hideable v2024-12-00-pvw2 lpcxpresso54s018 lpcxpresso54s018m
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 lpcxpresso54s018 lpcxpresso54s018m
 
 USB high-speed interrupt endpoint issue
     If the user wants to use a high-speed interrupt endpoint, the maximum packet size should be 512 bytes.
 
     **Affected platforms:** lpcxpresso54s018 lpcxpresso54s018m
 
-.. rst-class:: hideable v2024-12-00-pvw2 lpcxpresso54s018
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 lpcxpresso54s018
 
 Debug SRAM target with J-Link on MCUXpresso IDE issue
     If using the J-Link to Debug SRAM target on the IDE, when clicking the Restart button, the debug fails. The issue is caused because the integrity of the SRAM image cannot be guaranteed after it has been executed, and the MCUXpresso IDE does not reload the code before restarting. Plain load images \(images loaded from external SPI flash to SRAMX by the ROM bootloader then executed\) cannot be debugged using MCUXpresso version 11.0.0. Code should be developed using the SRAM debug method, then programmed into flash once debugging is completed. For more information, see the Getting Started with MCUXpresso SDK User’s Guide \(document MCUXSDKGSUG\).
 
     **Affected platforms:** lpcxpresso54s018
 
-.. rst-class:: hideable evkbimxrt1050 v2024-12-00-pvw2 frdmke17z evkbimxrt1050 evkmcimx7ulp evkmimx8mm evkmimx8mn evkmimx8mp evkmimx8mq evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1064 evkmimxrt595 evkmimxrt685 evkbmimxrt1060 evkcmimxrt1060 frdmk22f frdmk32l2a4s frdmk32l2b frdmk32l3a6 frdmke02z40m frdmke16z lpcxpresso54s018 lpc845breakout lpcxpresso54s018m lpcxpresso55s06 lpcxpresso55s28 lpcxpresso55s69 lpcxpresso802 lpcxpresso804 evkmimxrt1024 eevkbmimxrt1060 evkcmimxrt1060 evkmimxrt1160 evkbmimxrt1170 twrkm34z50mv3 twrkm34z75m frdmmcxc242 frdmk22f lpcxpresso51u68 lpcxpresso54628
+.. rst-class:: hideable evkbimxrt1050 v2024-12-00-pvw2 v2024-12-00 frdmke17z evkbimxrt1050 evkmcimx7ulp evkmimx8mm evkmimx8mn evkmimx8mp evkmimx8mq evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1064 evkmimxrt595 evkmimxrt685 evkbmimxrt1060 evkcmimxrt1060 frdmk22f frdmk32l2a4s frdmk32l2b frdmk32l3a6 frdmke02z40m frdmke16z lpcxpresso54s018 lpc845breakout lpcxpresso54s018m lpcxpresso55s06 lpcxpresso55s28 lpcxpresso55s69 lpcxpresso802 lpcxpresso804 evkmimxrt1024 eevkbmimxrt1060 evkcmimxrt1060 evkmimxrt1160 evkbmimxrt1170 twrkm34z50mv3 twrkm34z75m frdmmcxc242 frdmk22f lpcxpresso51u68 lpcxpresso54628
 
 Cannot add SDK components into FreeRTOS projects
     It is not possible to add any SDK components into FreeRTOS project using the MCUXpresso IDE New Project wizard.
 
     **Affected platforms:** frdmke17z frdmke17z evkbimxrt1050 evkmcimx7ulp evkmimx8mm evkmimx8mn evkmimx8mp evkmimx8mq evkmimxrt1010 evkmimxrt1015 evkmimxrt1020 evkmimxrt1064 evkmimxrt595 evkmimxrt685 evkbmimxrt1060 evkcmimxrt1060 frdmk22f frdmk32l2a4s frdmk32l2b frdmk32l3a6 frdmke02z40m frdmke16z lpcxpresso54s018 lpc845breakout lpcxpresso54s018m lpcxpresso55s06 lpcxpresso55s28 lpcxpresso55s69 lpcxpresso802 lpcxpresso804 evkmimxrt1024 eevkbmimxrt1060 evkcmimxrt1060 evkmimxrt1160 evkbmimxrt1170 twrkm34z50mv3 twrkm34z75m frdmmcxc242 frdmk22f pcxpresso51u68 lpcxpresso54628
 
-.. rst-class:: hideable v2024-12-00-pvw2 evkbimxrt1050 evkmimxrt1010 evkmimxrt1020 evkmimxrt1024 frdmk32l2a4s lpcxpresso55s28
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 evkbimxrt1050 evkmimxrt1010 evkmimxrt1020 evkmimxrt1024 frdmk32l2a4s lpcxpresso55s28
 
 safety_iec60730b cloned project fails to build
     When you use the MCUXpresso Config Tool to clone the "safety_iec60730b" project in MCUXpresso SDK package, the created project fails to build. The build fails because the post-build setup for CRC is incorrect. Therefore, It is recommended to use the "safety_iec60730b" project in MCUXpresso SDK package.
 
-    **Affected platforms:** evkbimxrt1050 v2024-12-00-pvw2 evkbimxrt1050 evkmimxrt1010 evkmimxrt1020 evkmimxrt1024 frdmk32l2a4s lpcxpresso55s28
+    **Affected platforms:** evkbimxrt1050 v2024-12-00-pvw2 v2024-12-00 evkbimxrt1050 evkmimxrt1010 evkmimxrt1020 evkmimxrt1024 frdmk32l2a4s lpcxpresso55s28
 
-.. rst-class:: hideable v2024-12-00-pvw2 frdmk22f frdmke15z
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 frdmk22f frdmke15z
 
 Importing FTM_PDB_ADC16 project into MCUXpresso Config tool reports FTM driver error
     When you import the FTM_PDB_ADC16 project using the MCUXpresso Config Tool an error is prompted. The error prompts that the FTM driver is not aligned with the peripheral components. It is recommended not to import this project into the MCUXpresso Config Tool.
 
     **Affected platforms:** frdmk22f frdmke15z
 
-.. rst-class:: hideable v2024-12-00-pvw2 k32w148evk
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 k32w148evk
 
 Build warning in freertos_tickless example
     A build warning appears in the freertos_tickless example while working in the ArmGCC environment.
@@ -440,7 +440,7 @@ Build warning in freertos_tickless example
 
     **Affected platforms:** k32w148evk
 
-.. rst-class:: hideable v2024-12-00-pvw2 frdmk32l2a4s frdmk32l2b frdmk32l3a6 
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 frdmk32l2a4s frdmk32l2b frdmk32l3a6 
 
 Example freertos_lpspi fail before the console output
     The example freertos_lpspi fails before the message "LPSPI master transfer completed successfully." appears in the console output.
@@ -465,7 +465,7 @@ Example freertos_lpspi fail before the console output
 
     **Affected platforms:** frdmk32l2a4s frdmk32l2b frdmk32l3a6 
 
-.. rst-class:: hideable v2024-12-00-pvw2 lpcxpresso54s018
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 lpcxpresso54s018
 
 Example freertos_spi fails in MCUXpresso IDE
     The example freertos_spi fails in the MCUXpresso IDE environment.
@@ -501,7 +501,7 @@ Some Azure examples cannot finish PHY Initializing on MCUXpresso
 
     **Affected platforms:** 
 
-.. rst-class:: hideable v2024-12-00-pvw2 mimxrt685audevk mimxrt700evk
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 mimxrt685audevk mimxrt700evk
 
 
 lwip_httpssrv_ota_wifi example fails to accept the new image on EVKMIMXRT685
@@ -510,42 +510,42 @@ lwip_httpssrv_ota_wifi example fails to accept the new image on EVKMIMXRT685
     **Affected platforms:** mimxrt685audevk mimxrt700evk
 
 
-.. rst-class:: hideable v2024-12-00-pvw2 mimxrt685audevk mimxrt700evk
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 mimxrt685audevk mimxrt700evk
 
 Board may reset itself when running SD card related cases
     Board may reset itself when running SD card related cases. However, the issue is not reproduced if more power supply is connected.
 
     **Affected platforms:** mimxrt685audevk mimxrt700evk
 
-.. rst-class:: hideable evkbimxrt1050 v2024-12-00-pvw2 rdrw612bga
+.. rst-class:: hideable evkbimxrt1050 v2024-12-00-pvw2 v2024-12-00 rdrw612bga
 
 usb_device_mtp example cannot boot on Keil MDK µVision
     After reset, the usb_device_mtp and usb_device_mtp_lite examples cannot boot successfully when using Keil MDK µVision. Adding the *--predefine="-DXIP_BOOT_HEADER_ENABLE=1"* into **Options for target \> Linker \> Misc controls** can fix this issue.
 
     **Affected platforms:** rdrw612bga
 
-.. rst-class:: hideable v2024-12-00-pvw2 rdrw612bga frdmrw612 evkmimxrt1160 evkbmimxrt1170 evkbmimxrt1060 evkcmimxrt1060
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 rdrw612bga frdmrw612 evkmimxrt1160 evkbmimxrt1170 evkbmimxrt1060 evkcmimxrt1060
 
 Log output may be mixed in shell/hfp example
     When multiple tasks print the log, the serial port terminal output has the probability to appear mixed.
 
     **Affected platforms:** rdrw612bga frdmrw612 evkmimxrt1160 evkbmimxrt1170 evkbmimxrt1060 evkcmimxrt1060
 
-.. rst-class:: hideable v2024-12-00-pvw2 rdrw612bga frdmrw612 evkmimxrt1160 evkbmimxrt1170 evkbmimxrt1060 evkcmimxrt1060
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 rdrw612bga frdmrw612 evkmimxrt1160 evkbmimxrt1170 evkbmimxrt1060 evkcmimxrt1060
 
 LE encryption failure causes connection to fail
     There can be a corner case when LE link encryption can fail. This occurs when device under test \(DUT\); RT Bluetooth controller here, while waiting for the response to LL_SLAVE_FEATURES_REQ, instead receives the LL_ENC_REQ response from a remote device. This causes deadlock scenario where DUT and remote devices are stuck waiting for response from peer.
 
     **Affected platforms:** rdrw612bga frdmrw612 evkmimxrt1160 evkbmimxrt1170 evkbmimxrt1060 evkcmimxrt1060
 
-.. rst-class:: hideable v2024-12-00-pvw2  rdrw612bga frdmrw612 evkmimxrt1160 evkbmimxrt1170 evkbmimxrt1060 evkcmimxrt1060
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 rdrw612bga frdmrw612 evkmimxrt1160 evkbmimxrt1170 evkbmimxrt1060 evkcmimxrt1060
 
 Connection disconnects with 7.5 ms connection interval
     When wireless example works as a peripheral, the central role with 7. 5 ms connection interval connects to the wireless example. However, when using the 6th/7th/8th central to connect the wireless example, all the previous connections with the previous centrals are disconnected. When wireless example works as central and the connection interval is 7.5 ms, the 4th peripheral is not scanned.
 
     **Affected platforms:**  rdrw612bga frdmrw612 evkmimxrt1160 evkbmimxrt1170 evkbmimxrt1060 evkcmimxrt1060
 
-.. rst-class:: hideable v2024-12-00-pvw2 rdrw612bga frdmrw612 evkmimxrt1160 evkbmimxrt1170 evkbmimxrt1060 evkcmimxrt1060
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 rdrw612bga frdmrw612 evkmimxrt1160 evkbmimxrt1170 evkbmimxrt1060 evkcmimxrt1060
 
 a2dp sink demo: Noise may occur when phone plays music with other operations
     Noise may occur when phone plays music with other operations. For example:
@@ -554,7 +554,7 @@ a2dp sink demo: Noise may occur when phone plays music with other operations
 
     **Affected platforms:** rdrw612bga frdmrw612 evkmimxrt1160 evkbmimxrt1170 evkbmimxrt1060 evkcmimxrt1060
 
-.. rst-class:: hideable v2024-12-00-pvw2 rdrw612bga frdmrw612
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 rdrw612bga frdmrw612
 
 Volume is very loud from codec in the a2dp sink and hfp demos
     After connecting to the phone and playing music or calling, the codec volume is very loud.
@@ -583,26 +583,26 @@ Wireless EdgeFast_Bluetooth stack is not supported by any kits
 
     **Affected platforms:** evkmimxrt1170
     
- .. rst-class:: hideable evkmimxrt685 v2024-12-00-pvw2   
+ .. rst-class:: hideable evkmimxrt685 v2024-12-00-pvw2 v2024-12-00   
     Wireless EdgeFast_Bluetooth stack is not supported by any kits   
          Wireless EdgeFast_Bluetooth stack can be downloaded by EVK-MIMXRT685-AGM01 and EVK-MIMXRT685-OM13790HOST in [https://mcuxpresso.nxp.com/en/welcome](https://mcuxpresso.nxp.com/en/welcome). However, it is not supported in these kits.
 
     **Affected platforms:** evkmimxrt685
     
-.. rst-class:: hideable evkmimxrt595 v2024-12-00-pvw2  
+.. rst-class:: hideable evkmimxrt595 v2024-12-00-pvw2 v2024-12-00   
     Wireless EdgeFast_Bluetooth stack is not supported by any kits 
         Wireless EdgeFast_Bluetooth stack can be downloaded by EVK-MIMXRT595-AGM01 and EVK-MIMXRT595-OM13790HOST in [https://mcuxpresso.nxp.com/en/welcome](https://mcuxpresso.nxp.com/en/welcome). However, it is not supported in these kits.
 
     **Affected platforms:** evkmimxrt595
 
-.. rst-class:: hideable v2024-12-00-pvw2 evkmimxrt1160
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 evkmimxrt1160
 
 aws_httpscli_corehttp example for evkmimxrt1160 issue in MCUXpressoIDE release target
     The *aws_httpscli_corehttp* example for evkmimxrt1160 does not work correctly in MCUXpressoIDE release target. Use the debug target only in this IDE.
 
     **Affected platforms:** evkmimxrt1160
 
-.. rst-class:: hideable v2024-12-00-pvw2 evkbmimxrt1170
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 evkbmimxrt1170
 
 Insufficient heap in ota_demo examples
     The ota_demo examples, especially ota_demo_wifi, may run out of heap in the out-of-the-box configuration.
@@ -624,7 +624,7 @@ Debug and sdram_debug version of lwip_ipv4_ipv6_echo_freertos@cm4 project cannot
 
     **Affected platforms:** 
 
-.. rst-class:: hideable v2024-12-00-pvw2 evkmimxrt1060
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 evkmimxrt1060
 
 Debugger cannot connect to target board when connecting TP11 of RT1060 to J11 \(pin 2\) of AW-AM510 uSD wireless module
     To download hands-free or handsfree_ag example to RT1060, J11 \(pin 2\) should only be connected to TP11 after downloading executable file to target board.
@@ -644,7 +644,7 @@ SEGGER J-Link debugger usage problem
     2.  Power the board and start the debugger for use.
     3.  To restart the debugger, stop the debugger, power off the board, and repeat step \#2.
 
-.. rst-class:: hideable v2024-12-00-pvw2 frdmmcxc041 frdmmcxc242 frdmmcxc444
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 frdmmcxc041 frdmmcxc242 frdmmcxc444
 
 USB PID issue
     Because the PID of all USB device examples is updated, uninstall the device drivers and then reinstall when the device \(with new PID\) is plugged in the first time.
@@ -652,22 +652,21 @@ USB PID issue
     **Affected platforms:** frdmmcxc041 frdmmcxc242 frdmmcxc444
 
 
-.. rst-class:: hideable v2024-12-00-pvw2 
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 
 
 CMSIS-PACK svd issue
     CMSIS-PACK DFP installation takes a while. When installing cmsis-pack DFP, Keil MDK processes the MCU SVD file. The large size of SVD file takes considerable time to finish this conversion. During the installation, the progress appears stalled. However, it finishes after approximately 20 minutes.
 
     **Affected platforms:** 
 
-
-.. rst-class:: hideable v2024-12-00-pvw2 lpcxpresso54s018m
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 lpcxpresso54s018m
 
 littlefs_shell does not produce output
     littlefs_shell example compiled by armgcc does not produce debug console output on LPCXpresso54S018M board. Root cause is unknown.
 
     **Affected platforms:** lpcxpresso54s018m
 
-.. rst-class:: hideable v2024-12-00-pvw2 k32w148evk
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00 k32w148evk
 
 Only FreeRTOS is tested for RTOS support
     This release only supports the FreeRTOS kernel and a bare-metal non-preemptive task scheduler.
@@ -682,7 +681,7 @@ The wifi_webconfig example can get stuck after AP to client switch
     **Affected platforms:** 
 
 
-.. rst-class:: hideable v2024-12-00-pvw2
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00
 
 MCUBoot OTA examples: Encrypted XIP using IPED causes device reset
  
@@ -696,7 +695,7 @@ MCUBoot OTA examples: Encrypted XIP using IPED causes device reset
 	**Affected toolchains**: All    
     **Affected platforms**: frdmrw612, rdrw612bga
 
-.. rst-class:: hideable v2024-12-00-pvw2
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00
  
 MCUBoot OTA examples: Encrypted XIP using IPED causes device reset during "Initializing WiFi connection..."
  
@@ -706,7 +705,7 @@ MCUBoot OTA examples: Encrypted XIP using IPED causes device reset during "Initi
 	**Affected toolchains**: mcux, armgcc, mdk
     **Affected platforms**: frdmrw612, rdrw612bga
 
-.. rst-class:: hideable v2024-12-00-pvw2
+.. rst-class:: hideable v2024-12-00-pvw2 v2024-12-00
 
 MCUBoot OTA examples: Encrypted XIP using IPED causes a hard fault during OTA update
 	The issue may happens when three slot mode is used in specific toolchains.
