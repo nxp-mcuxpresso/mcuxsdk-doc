@@ -259,10 +259,10 @@ modules:
   mid_usb:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/usb/*'
+    - root: .
+      pattern: 'middleware/usb/docs/*'
   mid_edgefast_bluetooth:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/edgefast_bluetooth/*'
+    - root: .
+      pattern: 'middleware/edgefast_bluetooth/docs/*'
