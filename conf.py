@@ -422,7 +422,7 @@ if os.path.exists(os.path.join(DOC_BASE, "internal")):
     html_logo = str(DOC_BASE / "internal" / "images" / "nxp_logo_small.png")
     html_favicon = str(DOC_BASE / "internal" / "images" / "nxp_logo_small.png")
 html_static_path = static_path
-html_last_updated_fmt = "%b %d, %Y"
+html_last_updated_fmt = "%b %d, %Y %H:%M%z"
 html_domain_indices = False
 html_split_index = True
 html_show_sourcelink = False
