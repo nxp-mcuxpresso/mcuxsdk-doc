@@ -33,6 +33,8 @@ external_contents:
 - root: 'docs'
   pattern: 'middleware/audio_voice/maestro/*'
 - root: 'docs'
+  pattern: 'middleware/audio_voice/components/*'
+- root: 'docs'
   pattern: 'middleware/aws_iot/*'
 - root: 'docs'
   pattern: 'middleware/multicore/*'
@@ -180,6 +182,31 @@ modules:
       pattern: 'middleware/audio_voice/maestro/*.md'
     - root: .
       pattern: 'middleware/audio_voice/maestro/doxygen/*'
+    - root: .
+      pattern: 'middleware/audio_voice/maestro/zephyr/README.rst'
+    - root: .
+      pattern: 'middleware/audio_voice/maestro/zephyr/samples/record_ram/README.rst'
+    - root: .
+      pattern: 'middleware/audio_voice/maestro/zephyr/samples/record_vit/README.rst'
+    - root: .
+      pattern: 'middleware/audio_voice/maestro/zephyr/tests/encoder/README.rst'
+    - root: .
+      pattern: 'middleware/audio_voice/maestro/zephyr/tests/memToMem/README.rst'
+    - root: .
+      pattern: 'middleware/audio_voice/maestro/zephyr/tests/decoder/README.rst'
+    # - root: .
+    #   pattern: 'middleware/audio_voice/maestro/rn/*.md'
+    # - root: .
+    #   pattern: 'middleware/audio_voice/maestro/rn/topics/*.md'
+  mid_ssrc:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/audio_voice/components/README.md'
+    - root: .
+      pattern: 'middleware/audio_voice/components/ssrc/doc/topics/*.md'
+    - root: .
+      pattern: 'middleware/audio_voice/components/ssrc/doc/*.md'
   mid_multicore:
     default: true
     external_contents:

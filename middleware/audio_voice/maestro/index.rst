@@ -7,4 +7,4 @@ Maestro audio framework
    :maxdepth: 1
    :glob:
 
-   maestro <README.md>
+   Introduction <README.md>
