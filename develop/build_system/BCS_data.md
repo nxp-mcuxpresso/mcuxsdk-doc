@@ -953,3 +953,42 @@ endmenu
 The CMake include and Kconfig rsource(load) are generally aligned which means they shall stay together corresponding each other.
 
 For other CMake based BS which wants to integrate MCUXpresso SDK, it may needs to set up the new assembly point file for CMake and Kconfig files in this repo.
+
+### Flash and Debug Data
+
+Like Zephyr, BS supports setting up configuration for flash runners (invoked from west flash) which allows for customizing how commands are used when programming boards.
+
+#### board_runner.cmake
+
+`${SdkRootDirPath}/examples/_boards/<board>/board_runner.cmake` is loaded by `${SdkRootDirPath}/cmake/extension/run.cmake` , which is used to get runner arguments and what kind of runners are supported for this board. Here is an example:
+
+```cmake
+# set runner speicfic arguments
+board_runner_args(jlink "--device=${CONFIG_MCUX_TOOLCHAIN_JLINK_CPU_IDENTIFIER}")
+board_runner_args(linkserver "--device=${CONFIG_MCUX_HW_DEVICE_ID}:MIMXRT1170-EVKB")
+board_runner_args(linkserver "--core=${core_id}")
+
+# load board supported runner cmake file
+include(${SdkRootDirPath}/cmake/extension/runner/jlink.board.cmake)
+include(${SdkRootDirPath}/cmake/extension/runner/linkserver.board.cmake)
+```
+
+In this example, `board_runner_args` is used to pass runner-specific arguments, runner cmake files are load from `${SdkRootDirPath}/cmake/extension/runner/` which indicates the supported runners.
+
+***The first included runner cmake will be set as the default runner for both flash and debug***. If you want to set another default runner. Please set following variable in board's variable.cmake:
+
+```cmake
+mcux_set_variable(BOARD_FLASH_RUNNER "linkserver")
+mcux_set_variable(BOARD_DEBUG_RUNNER "jlink")
+```
+
+To let the runners get correct flash address, MCUXpresso SDK developer should maintain Kconfig variable `FLASH_BASE_ADDRESS` in `devices/${soc_portfolio}/${soc_series}/${device}/(${core_id})/prj.conf`:
+
+```bash
+CONFIG_FLASH_BASE_ADDRESS=0x30000400
+```
+
+If your project has specific setting, please override this config item in ${project_board_port_path}/prj.conf.
+
+
+
