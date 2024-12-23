@@ -1,53 +1,27 @@
 # IDE Project Generation
 
-CMake is a text-oriented tool that uses the command-line, for many developers, especially those who are used to working on Windows operating system with 
-IDE such as IAR and so on, this is not a great experience for coding and debugging. Therefore, we provide CMake target guiproject/standalone_project to 
-create IDE GUI project, which analyzes the build.ninja file to get source files, include path, assembler/compiler/linker flags and set them into project 
-template files. Currently, the meta build system supports GUI project generation for specific IAR, MDK, Xtensa and CodeWarrior.
+CMake is a text-oriented tool that uses the command-line. For many developers especially those who get used to working on Windows operating system with IDE such as IAR or MDK, the user experience for coding and debugging is not good. Therefore, we provide CMake targets guiproject and standalone_project to create IDE GUI project which analyzes the build.ninja file to get source files, include path, assembler/compiler/linker flags and set them into project 
+template files. The build system supports GUI project generation for IAR, MDK, Xtensa and CodeWarrior.
 
 ## Usage
 
-### Prerequisite
+### Ruby environment
 
-1. Ruby environment
-
-   Currently, we have not implemented all features through Python. So, in order to generate IDE GUI projects, you have to prepare the ruby 3.1 environment.
-   Please refer to  [Ruby environment setup](./misc/Ruby_environment_set_up.md/#Ruby-Environment-Setup).
-
-2. Project templates
-
-   Project template files are prepared in mcuxsdk/scripts/guigenerator/templates. You need to set `project-templates` for specific toolchain in `examples/${board}/IDE.yml` for single core devices,
-   or `examples/${board}/${core_id}/IDE.yml` for multicore devices. For example:
-    ``` yaml
-   # mcuxsdk/examples/evkbmimxrt1170/cm4/IDE.yml
-    mdk:
-      project-templates:
-        - scripts/guigenerator/templates/mdk/app_evkbmimxrt1170/app_evkbmimxrt1170_cm4.uvprojx
-        - scripts/guigenerator/templates/mdk/app_evkbmimxrt1170/app_evkbmimxrt1170_cm4.uvoptx
-    
-    iar:
-      project-templates:
-        - scripts/guigenerator/templates/iar/app_cmsisdap/generic.ewp
-        - scripts/guigenerator/templates/iar/app_cmsisdap/generic.ewd
-        - scripts/guigenerator/templates/iar/general.eww
-    ```
-   You can also set project level template files in IDE.yml from board project folder to override the one from board level.
-
+The IDE GUI project generation is implemented in ruby, please refer [Ruby environment setup](#ruby-environment-setup) to setup environment.
 
 3. Make sure the CMake project can configure done without errors. The IDE GUI Project Generation script consumes build.ninja to obtain all information. You must ensure build.ninja is generated completely correctly for further process.
 
-### linked project
+### GUI project
 
-It's quite easy for you to generate a GUI linked project, only "--toolchain [iar|mdk|xtensa] -t guiproject" is required for west command. It tells CMake to run guiproject target to generate project files for specific toolchain. The linked project
-files are located in build_dir/${toolchain} folder,  it uses relative path to refer source files and include path in repo.
+It's quite easy for you to generate a GUI linked project, only `--toolchain [iar|mdk|xtensa] -t guiproject` is required in the west command. It tells CMake to run guiproject target to generate project files for specific toolchain. The GUI project files are located in `build/${toolchain}` folder,  it uses relative path to refer source files and include path in repository.
 
-If you are running a pristine build, please specify board/examples/toolchain/core_id on the command line. For example:
+If you are running a pristine build, please specify board/examples/toolchain/core_id on the command line, for example:
 
 ```bash
-west build -b evkmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug -p always -t guiproject
+west build -b evkbmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug -p always -t guiproject
 ```
 
-If you have run "west build" command, there is a simpler and faster command:
+If you have run `west build` command, there is a simpler and faster command:
 
 ```bash
 west build -t guiproject
@@ -57,110 +31,51 @@ After the command runs, the project files are generated into the compilation dir
 
 ![gui_project](./_doc/gui_project.gif)
 
-> [!NOTE]
->
-> 1. Currently only IAR, MDK and Xtensa are supported, but we will support other toolchains in the future.
-> 2. Generally, SDK package project build issue can be reproduced quickly with guiproject, no need to create a new package locally.
-
 ### Standalone Example
 
-The linked project is lightweight and fast when generation. However, it uses the file in the repo, which means if you want to share the linked project with others,  both sides need to have a mcuxsdk repo, as well as keep the relative paths of the linked projects the same. But if other developer does not have the repo, it is not feasible to zip all repository into a package file and send it over email.
-
-Based on this requirement, the meta build system can export standalone project from the repository. The project contains everything necessary for a single project, keeps same folder structure comparing with repository, which does not rely on meta build system.
-
-To accomplish this, we extend the guiproject generation script for linked project generation process, create a new CMake target `standalone_project`. When generating the corresponding IDE project, for example, .ewp file for IAR, .uvprojx for Keil, the script will copy all the files needed from repo to `build_dir/${toolchain}` folder and transfer path setting for these files. Then you can share the project inside build_dir/${toolchain} with other developers.
-
-The standalone project can be generated with west command line parameters "-t standalone_project". For example:
-
-```
-west build -b frdmk64f ./examples/demo_apps/hello_world -p always --config debug --toolchain iar -t standalone_project
-```
-
-You can find IAR project in build folder with source code.
-
-![iar_standalone_project](./_doc/iar_standalone_project.png)
-
-Note:
-
-1. The default project folder is mcuxsdk/build/${toolchain}. You can also specify the destination folder with command line parameter "-d" .
-2. In one CMake configuration context, you can only create a project for a specific toolchain and specific config such as `debug` or `flexspi_nor_debug`. You should remove CMake build folder or run west command with "-p always" if changing toolchain or config.
-3. If the CMake has generated build artifacts, you can just type "west build -t standalone_project"
+Please refer [Standalone Example](./../sdk/example_development.md#standalone-examples) chapter.
 
 ## IDE Setting Data
 
 ### IDE.yml
-The meta build system support GUI project, the build information of assembler/compiler/linker comes from  artifacts of CMake configuration, more specifically, the build.ninja file. However, it is not enough for build system. Since the IDE will provide rich download debugging capabilities, we need to record this additional information.
+For GUI project, the build information of assembler/compiler/linker comes from artifacts of CMake configuration, more specifically, the build.ninja file. However, it is not enough for build system. Since the IDE will provide rich download debugging capabilities, we need to record this additional information. The IDE related data are recorded in IDE.yml.
 
-The IDE related data are recorded in IDE.yml. These yml files are are automatically loaded and merged by the meta build system in a certain order and do not need to be manually loaded by the user. The loading sequence is:
+#### Load Sequence
 
-1. devices/IDE.yml
-2. devices/\<soc_series>/IDE.yml
-3. devices/\<soc_series>/\<device>/IDE.yml
-4. devices/\<soc_series>/\<device>/\<core_id>/IDE.yml
-5. examples/IDE.yml
-6. examples/_boards/IDE.yml
-7. examples/_boards/\<board>/IDE.yml
-8. examples/_boards/\<board>/\<core_id>/IDE.yml
-9. examples/\<example_category>/IDE.yml
-10. examples/\<example_category>/\<example>/IDE.yml
-11. examples/_boards/\<board>/\<example_category>/IDE.yml
-12. examples/_boards/\<board>/\<example_category>/\<example>/IDE.yml
-13. examples/_boards/\<board>/\<example_category>/\<example>/\<core_id>/IDE.yml
+The IDE yml files are are automatically loaded and merged by the build system in a certain order and do not need to be manually loaded by the user. The loading sequence is:
+
+    1. devices/IDE.yml
+    2. devices/<soc_series>/IDE.yml
+    3. devices/<soc_series>/<device>/IDE.yml
+    4. devices/<soc_series>/<device>/<core_id>/IDE.yml
+    5. examples/IDE.yml
+    6. examples/_boards/IDE.yml
+    7. examples/_boards/<board>/IDE.yml
+    8. examples/_boards/<board>/<core_id>/IDE.yml
+    9. examples/<example_category>/IDE.yml
+    10. examples/<example_category>/<example>/IDE.yml
+    11. examples/_boards/<board>/<example_category>/IDE.yml
+    12. examples/_boards/<board>/<example_category>/<example>/IDE.yml
+    13. examples/_boards/<board>/<example_category>/<example>/<core_id>/IDE.yml
 
 For shield, it is like
 
-1. devices/IDE.yml
-2. devices/\<soc_series>/IDE.yml
-3. devices/\<soc_series>/\<device>/IDE.yml
-4. devices/\<soc_series>/\<device>/\<core_id>/IDE.yml
-5. examples/IDE.yml
-6. examples/_boards/IDE.yml
-7. examples/_boards/\<board>/IDE.yml
-8. examples/_boards/\<board>/\<core_id>/IDE.yml
-9. examples/\<shield_example_category>/IDE.yml
-10. examples/\<shield_example_category>/\<example>/IDE.yml
-11. examples/_boards/\<board>/\<shield>/IDE.yml
-12. examples/_boards/\<board>/\<shield>/\<shield_example_category>/IDE.yml
-13. examples/_boards/\<board>/\<shield>/\<shield_example_category>/\<example>/IDE.yml
-14. examples/_boards/\<board>/\<shiedl>/\<shield_example_category>/\<example>/\<core_id>/IDE.yml
+    1. devices/IDE.yml
+    2. devices/<soc_series>/IDE.yml
+    3. devices/<soc_series>/<device>/IDE.yml
+    4. devices/<soc_series>/<device>/<core_id>/IDE.yml
+    5. examples/IDE.yml
+    6. examples/_boards/IDE.yml
+    7. examples/_boards/<board>/IDE.yml
+    8. examples/_boards/<board>/<core_id>/IDE.yml
+    9. examples/<shield_example_category>/IDE.yml
+    10. examples/<shield_example_category>/<example>/IDE.yml
+    11. examples/_boards/<board>/<shield>/IDE.yml
+    12. examples/_boards/<board>/<shield>/<shield_example_category>/IDE.yml
+    13. examples/_boards/<board>/<shield>/<shield_example_category>/<example>/IDE.yml
+    14. examples/_boards/<board>/<shiedl>/<shield_example_category>/<example>/<core_id>/IDE.yml
 
-Note:
-
-- These loading files are optional, there is no problem even if it is not provided
-
-The settings in IDE.yml will be merged as load sequence. If same setting is set in different files,  settings loaded later will override settings loaded earlier, no matter setting data value structure is string, boolean or array. For example, there are two data sections:
-
-```yaml
-# load firstly
-A:
-  B:
-    - B1
-    - B2
-  C: C1
-  D: true
-  E: E1
-```
-```yaml
-# load secondly
-A:
-  B:
-    - B3
-  C: C2
-  D: false
-  F: F1
-```
-
-This two sections will be merged to:
-
-```yaml
-A:
-  B:
-    - B3
-  C: C2
-  D: false
-  E: E1
-  F: F1
-```
+These IDE.yml files are optional. The higher load sequence, the higher priority. High priority IDE.yml will override low priority IDE.yml data.
 
 There are 3 kinds of IDE data: project templates, IDE option and Special functional files.
 
@@ -179,17 +94,17 @@ If you want to replace previous setting, just reset the setting in files loaded 
 Here is the example:
 
 ```yaml
-# mcuxsdk/boards/evkmimxrt1170/cm7/IDE.yml
+# mcuxsdk/boards/evkbmimxrt1170/cm7/IDE.yml
 mdk:
   project-templates:
-    - scripts/guigenerator/templates/mdk/app_evkmimxrt1170/app_evkmimxrt1170.uvprojx
-    - scripts/guigenerator/templates/mdk/app_evkmimxrt1170/app_evkmimxrt1170.uvoptx
+    - scripts/guigenerator/templates/mdk/app_evkbmimxrt1170/app_evkbmimxrt1170.uvprojx
+    - scripts/guigenerator/templates/mdk/app_evkbmimxrt1170/app_evkbmimxrt1170.uvoptx
 iar:
   project-templates:
     - scripts/guigenerator/templates/iar/app_cmsisdap/generic.ewp
     - scripts/guigenerator/templates/iar/app_cmsisdap/generic.ewd
     - scripts/guigenerator/templates/iar/general.eww
-# mcuxsdk/boards/evkmimxrt1170/demo_apps/hello_world/cm7/IDE.yml
+# mcuxsdk/boards/evkbmimxrt1170/demo_apps/hello_world/cm7/IDE.yml
 iar:
   project-templates: # Accodring to load sequence, this setting will take effect
     - scripts/guigenerator/templates/iar/app_jlinkswd/generic.ewp
@@ -206,7 +121,7 @@ You can set IDE option for specific toolchain and specific target. If the settin
 Here is the example:
 
 ```yaml
-# mcuxsdk/boards/evkmimxrt1170/cm7/IDE.yml
+# mcuxsdk/boards/evkbmimxrt1170/cm7/IDE.yml
 iar:
   config:
     __common__:
@@ -234,7 +149,7 @@ Here is the example:
 ```yaml
 macro-file: #setction name
   files:
-  - source: examples/_boards/${board}/evkmimxrt1170_cm7.mac
+  - source: examples/_boards/${board}/evkbmimxrt1170_cm7.mac
     attribute: macro-file
     toolchains: iar
 ```
@@ -244,7 +159,7 @@ Note: If you want to replace the script with the new one, please record them in 
 ```yaml
 macro-file: #setction name
   files:
-    - source: examples/_boards/${board}/evkmimxrt1170_connect_cm7.mac
+    - source: examples/_boards/${board}/evkbmimxrt1170_connect_cm7.mac
       attribute: macro-file
       toolchains: iar
 ```
@@ -760,4 +675,102 @@ iar:
   project_language: auto
 mdk:
   project_language: cpp
+```
+
+## Ruby Environment Setup
+
+**For IDE GUI project generation, ruby version equal or later than `3.1.2` is required.**
+
+### Use Provided Portable Ruby Environment(recommended)
+
+You can simply run `west install_ruby` to get a portable version of ruby with all required gems. It supports following platforms:
+
+- Windows
+- x86_64-LInux with **glibc >= 2.17**, compatible with most modern Linux distributions.
+- MacOS Big Sur or later (including M series chip).
+
+By default, portable_ruby will be extracted to `~/portable-ruby` for Linux/macOS and `C:\portable_ruby` for Windows. You can use `west install_ruby -o <path>` if you want to extract it to another place.
+
+The `bin` dir of portable_ruby will be automatically added to your user PATH in Windows. 
+For Linux/macOS, please follow the guide in command line to add it to your shell profile:
+
+```bash
+# You have already install the latest portable ruby
+# The active ruby is /home/user_name/.rbenv/shims/ruby
+# Please append following line in your shell profile like .zshrc or .bashrc:
+export PATH=/home/user_name/portable-ruby/3.1.4/bin:$PATH
+```
+
+### Install Ruby Environment by Yourself
+
+#### For Windows
+
+- Please download Ruby 3.1.x from <https://rubyinstaller.org/downloads/>, choose 32-bit or 64-bit according to your PC OS and **Ruby+Devkit** for simpler MSYS integration.
+
+> ruby installer package **with DEVKIT** can avoid most network issues during the installation of **MSYS2 and MINGW development toolchains**.
+
+- After download, install ruby in your PC:
+
+  ![ruby_310_installer](./_doc/ruby_310_installer.png)
+
+- Please select MSYS2 development toolchain
+
+  ![ruby_310_installer2](./_doc/ruby_310_installer2.png)
+
+- Tick "Run 'ridk install' to set up MSYS2 and development toolchain."
+
+  ![310_ridk_install](./_doc/ruby_310_ridk_install.png)
+
+- Choose the 3rd **MSYS2 and MINGW development toolchains**
+
+  ![3](./_doc/ruby_310_msys2.png)
+
+- Ignore the warnings and errors. When finished, it will print successed, then you can close the window.
+
+  ![4](./_doc/ruby_310_sucess.png)
+
+- Till now, ruby together with gem is ready, you can see check by:
+
+  ![ruby_v](./_doc/ruby_v.png)
+
+  You may need to restart/signout your OS to make environment variable work.
+
+#### For Linux/MacOS
+
+Please use the version manager tool [rbenv](https://github.com/rbenv/rbenv). It can help you avoid the complex configuration of package managers of different linux distribution.
+
+If your platform does not support `rbenv`, please refer https://www.ruby-lang.org/en/documentation/installation/
+
+#### Install necessary Gems
+
+Before you start install, please make sure you get the proper source for ruby gem. The default source is <https://rubygems.org/> . You can run
+
+```bash
+gem source -l
+```
+
+to get
+
+![ruby_gem_default_source](./_doc/ruby_gem_default_source.png)
+
+It is quite slow for China developers. For China developers, you can add additional source like
+
+```bash
+gem sources -r https://rubygems.org
+# You can google for the best source according to your network status
+gem sources -a https://mirrors.tuna.tsinghua.edu.cn/rubygems/
+```
+
+For developers who cannot access the default gem source, please edit the source line of the mcuxsdk/scripts/guigenerator/Gemfile to use an accessible source.
+
+Install the latest RubyGems (This is **critical** to ensure you can get precompiled gems):
+
+```bash
+gem update --system
+```
+
+Then cd into `mcuxsdk/scripts/guigenerator` and run:
+
+```bash
+bundle install
 ```

@@ -1,9 +1,8 @@
-
 # Platform Library
 
 ## Overview
 
-Device platform library example is device specific example which shares the general build system mechanism for example creation and configuration. They are all located in examples_int repo folder.
+Device platform library examples are device specific example which share the general build system mechanism for example creation and configuration. They are all located in examples_int repo folder.
 
 Take MIMXRT1176 as an example, the cmd to run is like:
 
@@ -13,9 +12,9 @@ west build --device MIMXRT1176 examples_int/platformlib -Dcore_id=cm7 --enable-a
 west build --device MIMXRT1176 examples_int/platformlib -Dcore_id=cm7 --enable-all-drivers -p --toochain=mdk
 ```
 
-## CMake
+## CMakeLists.txt
 
-The platform library example CMakeLists.txt is located in examples_int/platformlib.
+The platform library example CMakeLists.txt is located in `examples_int/platformlib`.
 
 Here is its contents:
 
@@ -42,7 +41,7 @@ include(${SdkRootDirPath}/examples_int/_devices/${device}/platformlib/${multicor
 
 ### Overview
 
-Platform library example has its own Kconfig only "source" drivers and device.
+Platform library example has its own Kconfig only "source" `drivers` and `device`.
 
 ```
 mainmenu "Mcux platform library"
@@ -54,7 +53,7 @@ source "${SdkRootDirPath}/devices/Kconfig"
 
 ### Driver selection
 
-`--enable-all-drivers` feature is provided to automatically selected all depended drivers for designated device based on the Kconfig.chip IP information. It will add "default y" for all Kconfig symbols starting with MCUX_COMPONENT_driver prefix if there is "default" provided so that if the driver dependency is satisfied for the device, then it will be added into build tree.
+`--enable-all-drivers` feature is provided to automatically selected all depended drivers for designated device based on the Kconfig.chip IP information. It will add `default y` for all Kconfig symbols starting with MCUX_COMPONENT_driver prefix if there is `default` provided so that if the driver dependency is satisfied for the device, then it will be added into build tree.
 
 The common prj.conf for platform library example sets CMSIS, system and startup components to y:
 
@@ -130,4 +129,4 @@ mcux_platformlib:
     MIMXRT1176@cm7: []
 ```
 
-It uses the mcux_platformlib/contents/toolchains to specify the basic toolchains and build configurations it supports. Extra device specific toolchains and build configurations are specified in "devices" hash data just like "boards" for board examples.
+It uses the `mcux_platformlib/contents/toolchains` to specify the basic toolchains and build configurations it supports. Extra device specific toolchains and build configurations are specified in `devices` hash data just like `boards` for board examples.
