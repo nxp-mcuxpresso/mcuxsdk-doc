@@ -7,7 +7,7 @@
    You can use `--log-level=debug` to get detailed steps of cmake adding source/include/configuration. A cmd example is like
 
    ```bash
-   west build -b evkmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm4 --log-level=debug
+   west build -b evkbmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm4 --log-level=debug
    ```
 
    The logs look like
