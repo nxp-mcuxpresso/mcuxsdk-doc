@@ -175,6 +175,11 @@ modules:
     external_contents:
     - root: .
       pattern: 'middleware/lvgl/docs/integration/chip/nxp.rst'
+  mid_wifi_nxp:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/wifi_nxp/docs/*'
   mid_maestro:
     default: true
     external_contents:
