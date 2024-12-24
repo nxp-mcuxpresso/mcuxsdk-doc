@@ -13,7 +13,6 @@ Build And Configuration System
    Frequently Asked Questions <Frequently_Asked_Questions.md>
 
 .. only:: internal_doc
-
    .. toctree::
       :maxdepth: 1
       :caption: Internal Doc
