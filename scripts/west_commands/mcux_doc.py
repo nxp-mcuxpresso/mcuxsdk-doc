@@ -92,7 +92,7 @@ class MCUXDoc(WestCommand):
         )
         parser.add_argument(
             '--example_scope', action='store', type=str, default='',
-            help='Examples for document creation, like examples/src/demo_apps'
+            help='Examples for document creation, like examples/demo_apps'
         )
 
         return parser           # gets stored as self.parser

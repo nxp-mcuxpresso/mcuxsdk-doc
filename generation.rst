@@ -164,6 +164,31 @@ To enable this mode, set the following option when invoking ``west doc``::
    e,g. -t gsd,dev_.* will only build the HTML with gsd module and other modules
    starts with dev_
 
+Custimizing Example Readme Scope
+================================
+
+MCUXpresso SDK provides plenty of example projects, building all example readme
+document needs long time. We provide an option to only build some specific
+examples, then developer can test the required example readme quickly.
+
+Use ``--example_scope=`` when invoking ``west doc`` to specify the example scope:
+
+.. code-block:: console
+
+   cd ~/mcuxpresso-sdk/mcuxsdk/docs
+
+   # To generate example readme for all the examples in folder examples/demo_apps
+   west doc html -t examples --example_scope=examples/demo_apps
+
+
+.. note::
+
+   When using ``--example_scope=``, the example readme won't be shown in the html
+   mainpage. You need to go to folder ``_build/html/examples`` to see the result.
+   For example, if ``--example_scope=examples/demo_apps``, then open
+   ``_build/html/examples/demo_apps/index.html`` to see the result.
+
+
 Viewing generated documentation locally
 ***************************************
 
