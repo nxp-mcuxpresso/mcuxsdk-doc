@@ -114,31 +114,6 @@ function(add_doc_target name)
 endfunction()
 
 #-------------------------------------------------------------------------------
-# Doxygen (standalone)
-
-message(STATUS "Config Doxygen Setup")
-find_package(Doxygen REQUIRED dot)
-list(APPEND SHPINX_ENV DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE})
-set(DOXY_OUT ${CMAKE_CURRENT_BINARY_DIR}/doxygen)
-message(STATUS "DOXY_OUT: ${DOXY_OUT}")
-set(DOXYFILE_IN ${CMAKE_CURRENT_LIST_DIR}/drivers/Doxyfile_lib_PDF_RM_Drivers)
-set(DOXYFILE_OUT ${CMAKE_CURRENT_BINARY_DIR}/sdk.doxyfile)
-
-configure_file(${DOXYFILE_IN} ${DOXYFILE_OUT} @ONLY)
-
-add_custom_target(
-  doxygen
-  COMMAND
-    ${DOXYGEN_EXECUTABLE} ${DOXYFILE_OUT}
-  COMMENT "Running Doxygen..."
-)
-
-set_target_properties(
-  doxygen
-  PROPERTIES
-    ADDITIONAL_CLEAN_FILES "${DOXY_OUT}"
-)
-
 #-------------------------------------------------------------------------------
 # html
 

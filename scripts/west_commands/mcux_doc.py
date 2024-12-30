@@ -94,6 +94,10 @@ class MCUXDoc(WestCommand):
             '--example_scope', action='store', type=str, default='',
             help='Examples for document creation, like examples/demo_apps'
         )
+        parser.add_argument(
+            '--doxygen', action='store_true', default=False,
+            help='enable doxygen run'
+        )
 
         return parser           # gets stored as self.parser
 
@@ -131,6 +135,8 @@ class MCUXDoc(WestCommand):
             elif target == 'config':
                 defines = args.defines
                 tags = 'internal_doc' if args.internal else 'external_doc'
+                if args.doxygen:
+                    tags += ',' +'doxygen'
                 if args.tags:
                     tags += ',' + args.tags
 
