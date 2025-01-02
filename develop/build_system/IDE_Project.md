@@ -9,8 +9,6 @@ template files. The build system supports GUI project generation for IAR, MDK, X
 
 The IDE GUI project generation is implemented in ruby, please refer [Ruby environment setup](#ruby-environment-setup) to setup environment.
 
-3. Make sure the CMake project can configure done without errors. The IDE GUI Project Generation script consumes build.ninja to obtain all information. You must ensure build.ninja is generated completely correctly for further process.
-
 ### GUI project
 
 It's quite easy for you to generate a GUI linked project, only `--toolchain [iar|mdk|xtensa] -t guiproject` is required in the west command. It tells CMake to run guiproject target to generate project files for specific toolchain. The GUI project files are located in `build/${toolchain}` folder,  it uses relative path to refer source files and include path in repository.
@@ -85,7 +83,7 @@ The project template files are the most basic and original IDE definition files 
 
 ![project_template_file](./_doc/project_template_file.png)
 
-Currently, only IAR and Keil MDK are supported. For IAR, the *.ewp and *.ewd are necessary. For Keil MDK, we have provided project template files for each board, you need to set *.uvprojx and *.uvoptx.
+Currently, only IAR and Keil MDK are supported. For IAR, the `*.ewp` and `*.ewd` are necessary. For Keil MDK, we have provided project template files for each board, you need to set `*.uvprojx` and `*.uvoptx`.
 
 To record such files in CMake, you need to record them under specific toolchain with "project-templates" field.
 
@@ -688,6 +686,8 @@ You can simply run `west install_ruby` to get a portable version of ruby with al
 - Windows
 - x86_64-LInux with **glibc >= 2.17**, compatible with most modern Linux distributions.
 - MacOS Big Sur or later (including M series chip).
+
+> The west extension `install_ruby` is implemented in core repo `scripts` folder. You should firstly run `west config commands.allow_extensions true` to enable west extensions otherwise you will get error "unknown command install_ruby".
 
 By default, portable_ruby will be extracted to `~/portable-ruby` for Linux/macOS and `C:\portable_ruby` for Windows. You can use `west install_ruby -o <path>` if you want to extract it to another place.
 
