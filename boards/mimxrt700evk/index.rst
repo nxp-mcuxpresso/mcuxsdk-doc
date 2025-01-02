@@ -35,11 +35,3 @@ Getting Started
    :caption: Getting Started with Xplorer for MIMXRT700-EVK
 
    gettingStartedXplorer/gsxindex.md
-
-Release Notes
-****************
-.. toctree::
-   :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for MIMXRT700-EVK
-
-   releaseNotes/rnindex.md
