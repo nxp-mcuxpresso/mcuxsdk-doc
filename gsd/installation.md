@@ -181,8 +181,6 @@ For installation, you can refer to the guideline as below, which is referenced f
   choco install doxygen.install graphviz strawberryperl miktex rsvg-convert imagemagick
   ```
 
-.. _tool-installation-check:
-
 ## Tool installation check
 Once installed, open a terminal or command prompt and type the associated command to verify the installation.
 
