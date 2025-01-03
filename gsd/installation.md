@@ -41,7 +41,7 @@ pip install west>=1.2.0
 
 Follow the [CMake](https://cmake.org/getting-started/) doc to install CMake. The minimum version is ***3.30.0***.
 
-Use `cmake --version` to check the version if you have a versio installed.
+Use `cmake --version` to check the version if you have a version installed.
 
 ### Ninja
 
