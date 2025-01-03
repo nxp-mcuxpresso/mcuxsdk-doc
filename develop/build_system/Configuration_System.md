@@ -176,6 +176,21 @@ For such customized header files, there are 2 ways to include them into build tr
 
 To support MCUXpresso SDK development, we introduce some customized Kconfig rules. These rules could be used together.
 
+### Introduce Component, Project Segment and Dependency Definition Symbols
+
+To support [Componentization](../sdk/component_development.md#Componentization) and [Complex Dependency](./Dependency.md), we introduce some customized Kconfig symbol definitions with the following namings:
+
+| Naming                                   | Functionality                            |
+| ---------------------------------------- | ---------------------------------------- |
+| `MCUX_COMPONENT_<component name>`        | Specify the Kconfig symbol is a component. |
+| `MCUX_PRJSEG_<project segment name>`     | Specify the Kconfig symbol is a project segment. |
+| `MCUX_HAS_COMPONENT_<component name>`    | Specify the dependency for component.    |
+| `MCUX_DEPENDENCY_COMPONENT_<component name1>_DEPEND_<component name2>` | Specify the dependency of component 1 on component 2, mainly used to display the dependency in `choice` symbol. |
+| `MCUX_HW_<hardware information>`         | Specify the hardware information, mainly for dependency purpose. The device Kconfig.chip is the major definition file for such Kconfig symbol. |
+
+The above naming Kconfig symbols are used to define components, project segments and the dependencies.
+**All Kconfig symbols with above naming prefix `MCUX_` will be intentionally removed out of the generated config header file. All other Kconfig symbols will be regarded as compile and link used macros and generated into header file to be involved  in the build process.**
+
 ### Remove `CONFIG_` Prefix for Macro Name
 
 Kconfig by default will add `CONFIG_` prefix to macros in the generated header files. However, this prefix doesn't work for some middlewares or RTOSes, like fafts and freertos. Their sources complication cannot work with macros with prefix `CONFIG_` . To support such cases, we introduced a mechanism to forbid adding `CONFIG_` prefix in the macros: in the `help` of the Kconfig symbol, `No prefix in generated macro` shall be provided, like
