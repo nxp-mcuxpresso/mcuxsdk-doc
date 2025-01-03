@@ -94,3 +94,17 @@ There are following components which are already enabled in MCUXpresso SDK: driv
 > Base device and board specific drivers and components are located in the target device and board folder.
 
 All software components are involved into build tree through the root `mcuxsdk/CMakeLists.txt` and `mcuxsdk/Kconfig.mcuxpresso`. You can check them with Kconfig GUI and select needed components into your example.
+
+## Component Naming
+
+As you can see, in our build system, all components naming is in format `MCUX_COMPONENT_<name>` . The `MCUX_COMPONENT_` prefix specifies the data section is a software component. About the specific component name, currently they are generally following the format `<major type>.<minor types>.<name>`. The dot is used to separate component type and name. The minor type(s) is **optional** and can be more than one like `driver.uart` , `middleware.fatfs` and `middleware.fatfs.mmc`.
+Most frequently used major types are:
+
+| Major Types | Explanation            | Examples                                 |
+| ----------- | ---------------------- | ---------------------------------------- |
+| driver      | Base SDK drivers       | driver.uart, driver.clock                |
+| component   | SDK components         | component.serial_manager,  component.serial_manager_spi |
+| utilities   | SDK utility            | utilities.gcov,  utilities.unity         |
+| middleware  | Middlewares and RTOSes | middleware.fatfs, middleware.freertos-kernel |
+
+The above naming conversations are across both cmakes and Kconfigs. For Kconfig, normally all Kconfig symbols will be generated into header files as macros, so there will be macros like `CONFIG_MCUX_COMPONENT_component.serial_manager=1` in the generated header file which will cause build failure because C language identifiers cannot contain punctuation mark dot. To resolve this, our build system intentionally remove such component naming symbols from generated header file. Please check [MCUXpresso SDK Customized Kconfig Rules](../build_system/Configuration_System.md#mcuxpresso-sdk-customized-kconfig-rules) for more rules and details.
