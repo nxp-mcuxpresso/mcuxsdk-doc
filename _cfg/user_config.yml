@@ -298,3 +298,12 @@ modules:
     external_contents:
     - root: .
       pattern: 'middleware/edgefast_bluetooth/docs/*'
+  mid_eiq:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/eiq/docs/*'
+    - root: .
+      pattern: 'middleware/eiq/tensorflow-lite/docs/*'
+    - root: .
+      pattern: 'middleware/eiq/mpp/docs/*'
