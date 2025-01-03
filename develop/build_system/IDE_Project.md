@@ -554,6 +554,7 @@ Supported option for IAR are:
       ```
 
       ![debugger_extra_options](./_doc/ide_option_debugger_extra_options.png)
+
 - Download Extra Image
 
   For multicore project, usually there are extra image needed when debugging, IAR support this setting, you can use `download-extra-image` to configure. For example
@@ -569,6 +570,30 @@ Supported option for IAR are:
   ```
 
   ![download_extra_image](./_doc/ide_option_download_extra_image.png)
+
+- Verify download
+  If you want to verify the code image with contents read back from target memory, you can set `verify_download` to true. For example:
+    ```yaml
+    iar:
+      config:
+        debug:
+          debugger_setting:
+            verify_download: true
+    ```
+
+![verify_download](./_doc/ide_option_iar_verify_download.png)
+
+- Suppress download
+
+    If you want to disable the downloading of the code to preserve the content of the flash, you can set `suppress_download` to true. For example:
+    ```yaml
+    iar:
+      config:
+        debug:
+          debugger_setting:
+            suppress_download: true
+    ```
+    ![suppress_download](./_doc/ide_option_iar_suppress_download.png)
 
 ### IDE Script Setting
 
