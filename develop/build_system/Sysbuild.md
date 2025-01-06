@@ -4,7 +4,7 @@ Sysbuild is a higher-level build system that can be used to combine multiple oth
 
 ## Sysbuild files
 
-To include sub projects into building system, you must prepare `sysbuild.cmake` into main project folder. Sub projects can be located anywhere which are imported by `ExternalMCUXProject_Add` command inside sysbuild.cmake. 
+To include sub projects into building system, you must prepare `sysbuild.cmake` into main project folder. Sub projects can be located anywhere which are imported by `ExternalMCUXProject_Add` command inside `sysbuild.cmake`. 
 
 Take multicore hello_world for example:
 
@@ -24,11 +24,11 @@ ExternalMCUXProject_Add(
 add_dependencies(${DEFAULT_IMAGE} hello_world_secondary_core)
 ```
 
-The `${APP_DIR}` means the build directory of primary project and `${DEFAULT_IMAGE}` indicates the primary project tagret. The build sequence can be determined by [add_dependencies](https://cmake.org/cmake/help/latest/command/add_dependencies.html#add-dependencies) function in sysbuild.cmake.
+The `${APP_DIR}` means the build directory of primary project and `${DEFAULT_IMAGE}` indicates the primary project target. The build sequence can be determined by [add_dependencies](https://cmake.org/cmake/help/latest/command/add_dependencies.html#add-dependencies) function in `sysbuild.cmake`.
 
-The variables with `SB_` prefix in sysbuild.cmake can be defined before adding sub projects. Or you can pass them with west command `-D`.
+The variables with `SB_` prefix in `sysbuild.cmake` can be defined before adding sub projects. Or you can pass them with west command `-D`.
 
-In practice it is more common to set these variables automatically via kconfig to support multiple platforms in a more flexible way. For example, you can prepare a Kconfig.sysbuild in main project folder:
+In practice it is more common to set these variables automatically via kconfig to support multiple platforms in a more flexible way. For example, you can prepare a `Kconfig.sysbuild` in main project folder:
 
 ```bash
 # examples/middleware/multicore/multicore_examples/hello_world/primary/Kconfig.sysbuild
@@ -52,23 +52,24 @@ config secondary_toolchain
     default "$(toolchain)"
 ```
 
-Sysbuild is used to organize project build sequence, about how images are linked together is set by the project's own cmakelsist.txt. For example, you must import the secondary core binary in the CMakeLists.txt of primary project:
+Sysbuild is used to organize project build sequence, about how images are linked together is set by the project's own CMakeLists.txt. For example, you must import the secondary core binary in the CMakeLists.txt of primary project:
 
 ```cmake
 # examples/multicore_examples/hello_world/secondary/CMakeLists.txt
 mcux_convert_binary(
-        TOOLCHAINS armgcc mdk iar
-        BINARY ${APPLICATION_BINARY_DIR}/${CONFIG_TOOLCHAIN}/core1_image.bin
+    TOOLCHAINS armgcc mdk iar
+    BINARY ${APPLICATION_BINARY_DIR}/${CONFIG_TOOLCHAIN}/core1_image.bin
 )
+
 # examples/multicore_examples/hello_world/primary/CMakeLists.txt
 mcux_add_iar_configuration(
-        LD "--image_input=${APPLICATION_BINARY_DIR}/../hello_world_secondary_core/iar/core1_image.bin,_core1_image,__core1_image,4 "
+    LD "--image_input=${APPLICATION_BINARY_DIR}/../hello_world_secondary_core/iar/core1_image.bin,_core1_image,   __core1_image,4 "
 )
 ```
 
 ## Build command
 
-To enable sysbuild, only `--sysbuild` is needed when you run the main project:
+To enable sysbuild, only `--sysbuild` is needed when you build the main project:
 
 ```bash
 west build -b evkbmimxrt1170 --sysbuild ./examples/multicore_examples/hello_world/primary -Dcore_id=cm7  --config flexspi_nor_debug --toolchain=armgcc -p always

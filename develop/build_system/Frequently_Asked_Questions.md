@@ -16,7 +16,7 @@
 
 2. How to replace the default linker file with the customized one?
 
-   Generally, when you type "--config=<CMAKE_BUILD_TYPE>" in the command line, the cmake settings inside mcuxsdk/arch/arm/target folder will take effect. The link file for the corresponding config is then used.
+   Generally, when you type `--config=<CMAKE_BUILD_TYPE>` in the command line, the cmake settings inside `mcuxsdk/arch/arm/target` folder will take effect. The link file for the corresponding config is then used.
    If running with "--log-level=debug" in the command line, you can find the log, such as:
    ```text
    -- DEBUG: Add -T C:/git_repo/migrate_sdk_repo/mcuxsdk/devices/Kinetis/MK64F12/gcc/MK64FN1M0xxx12_flash.ld to LD flags, load from CMakefile: C:/git_repo/migrate_sdk_repo/mcuxsdk/arch/arm/target/flash.cmake
@@ -106,13 +106,13 @@
 
     ![board_select_device_part](./_doc/gui_project_undefined_device.png)
 
-    Please check the variable MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER and MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER in mcuxsdk\devices\${soc_series}\${device}\Kconfig.chip, make sure it's a valid device idenditier. 
+    Please check the variable `MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER` and `MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER` in `mcuxsdk/devices/${soc_series}/${device}/Kconfig.chip`, make sure it's a valid device identifier. 
 
 ## BUILD
 
 1. Why does GUI project build pass but fail on the command line?
 
-    To create GUI project, the script parses build.ninja and set them in project template file. There may be some presets in the template file that make your project compile successfully, but they will not be used by CMake. So you need to compare the build options in the GUI project with those in build.ninja and add missing assembler/compiler/linker flags in CMake.
+    To create GUI project, the script parses `build.ninja` and set them in project template file. There may be some presets in the template file that make your project compile successfully, but they will not be used by CMake. So you need to compare the build options in the GUI project with those in `build.ninja` and add missing assembler/compiler/linker flags in CMake.
 
     For IAR project, you can check build options by setting log level to `All`.
     ![board_select_device_part](./_doc/IAR_GUI_all_build_option.png)
@@ -139,4 +139,4 @@
         section DataQuickAccess
         };
     ```
-    However, meta build system use CMake and Ninja, in some of low version CMake and Ninja, the generated object has `.c.o` extesion name. This misalignment will cause the link configuration not to take effect. So please make sure the minimum version for CMake is 3.30.0, and 1.12.1 for Ninja.
+    However, meta build system use CMake and Ninja, in some of low version CMake and Ninja, the generated object has `.c.o` extesion name. This misalignment will cause the link configuration not to take effect. So please make sure the minimum version for CMake is `3.30.0`, and `1.12.1` for Ninja.

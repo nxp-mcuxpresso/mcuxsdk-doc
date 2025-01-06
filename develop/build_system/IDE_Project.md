@@ -1,6 +1,6 @@
 # IDE Project Generation
 
-CMake is a text-oriented tool that uses the command-line. For many developers especially those who get used to working on Windows operating system with IDE such as IAR or MDK, the user experience for coding and debugging is not good. Therefore, we provide CMake targets guiproject and standalone_project to create IDE GUI project which analyzes the build.ninja file to get source files, include path, assembler/compiler/linker flags and set them into project 
+CMake is a text-oriented tool that uses the command-line. For many developers especially those who get used to working on Windows operating system with IDE such as IAR or MDK, the user experience for coding and debugging is not good. Therefore, we provide CMake targets guiproject and standalone_project to create IDE GUI project which analyzes the `build.ninja` file to get source files, include path, assembler/compiler/linker flags and set them into project 
 template files. The build system supports GUI project generation for IAR, MDK, Xtensa and CodeWarrior.
 
 ## Usage
@@ -11,7 +11,7 @@ The IDE GUI project generation is implemented in ruby, please refer [Ruby enviro
 
 ### GUI project
 
-It's quite easy for you to generate a GUI linked project, only `--toolchain [iar|mdk|xtensa] -t guiproject` is required in the west command. It tells CMake to run guiproject target to generate project files for specific toolchain. The GUI project files are located in `build/${toolchain}` folder,  it uses relative path to refer source files and include path in repository.
+It's quite easy for you to generate a GUI linked project, only `--toolchain [iar|mdk|xtensa] -t guiproject` is required in the west command. It tells CMake to run guiproject target to generate project files for specific toolchain. The GUI project files are located in `build/${toolchain}` folder, it uses relative path to refer source files and include path in repository.
 
 If you are running a pristine build, please specify board/examples/toolchain/core_id on the command line, for example:
 
@@ -36,7 +36,7 @@ Please refer [Standalone Example](./../sdk/example_development.md#standalone-exa
 ## IDE Setting Data
 
 ### IDE.yml
-For GUI project, the build information of assembler/compiler/linker comes from artifacts of CMake configuration, more specifically, the build.ninja file. However, it is not enough for build system. Since the IDE will provide rich download debugging capabilities, we need to record this additional information. The IDE related data are recorded in IDE.yml.
+For GUI project, the build information of assembler/compiler/linker comes from artifacts of CMake configuration, more specifically, the `build.ninja` file. However, it is not enough for build system. Since the IDE will provide rich download debugging capabilities, we need to record this additional information. The IDE related data are recorded in IDE.yml.
 
 #### Load Sequence
 
@@ -71,7 +71,7 @@ For shield, it is like
     11. examples/_boards/<board>/<shield>/IDE.yml
     12. examples/_boards/<board>/<shield>/<shield_example_category>/IDE.yml
     13. examples/_boards/<board>/<shield>/<shield_example_category>/<example>/IDE.yml
-    14. examples/_boards/<board>/<shiedl>/<shield_example_category>/<example>/<core_id>/IDE.yml
+    14. examples/_boards/<board>/<shield>/<shield_example_category>/<example>/<core_id>/IDE.yml
 
 These IDE.yml files are optional. The higher load sequence, the higher priority. High priority IDE.yml will override low priority IDE.yml data.
 
@@ -177,10 +177,10 @@ Assembler/Compiler/Linker flags are set with following CMake configuration funct
 For example, the following code sets optimization level for IAR compiler:
 
 ```cmake
-    mcux_add_iar_configuration(
-        TARGETS flexspi_nor_debug
-        CC "-Ol"
-        )
+mcux_add_iar_configuration(
+    TARGETS flexspi_nor_debug
+    CC "-Ol"
+    )
 ```
 
 In the following sections, the commonly used settings are described.
@@ -239,36 +239,37 @@ If your project needs different optimization level, please remove the default on
 
 Macro is used to preprocess source files, it is a common setting for assembler/compiler. You can use CMake configuration function defined in  [Configuration](./Build_System.md#configuration) to set macro definition.
 
-The macro definition follow the pattern "-Dname=value", or "-Dname" if no value provided.
+The macro definition follow the pattern `-Dname=value`, or `-Dname` if no value provided.
 
 For example:
 
 ```cmake
-    mcux_add_iar_configuration(
-        TARGETS flexspi_nor_debug
-        AS "-DDEBUG"
-        CC "-DDEBUG -DXIP_EXTERNAL_FLASH=1 -DFSL_SDK_DRIVER_QUICK_ACCESS_ENABLE=1"
-        CX "-DDEBUG"
-        )
+mcux_add_iar_configuration(
+    TARGETS flexspi_nor_debug
+    AS "-DDEBUG"
+    CC "-DDEBUG -DXIP_EXTERNAL_FLASH=1 -DFSL_SDK_DRIVER_QUICK_ACCESS_ENABLE=1"
+    CX "-DDEBUG"
+    )
 ```
 
 Furthermore, `mcux_add_macro` can be used to simply the setting  to omit `-D` prefix. For example:
 
 ```cmake
 mcux_add_macro(
-  CC "XIP_BOOT_HEADER_ENABLE=1"
-  TARGETS flexspi_nor_debug flexspi_nor_release
-  TOOLCHAINS mdk
+    CC "XIP_BOOT_HEADER_ENABLE=1"
+    TARGETS flexspi_nor_debug flexspi_nor_release
+    TOOLCHAINS mdk
 )
 ```
 
 #### Heap Stack setting
 
 Heap and stack is setting by linker script. Generally SDK use symbol `__stack_size__`and `__heap_size__` to set the size. To simplify heap stack setting, `mcux_add_linker_symbol` provides an unify way to set linker symbol for different toolchain. For example:
+
 ```cmake
-    mcux_add_linker_symbol(
-      SYMBOLS "__stack_size__=0x3000 __heap_size__=0x3000"
-    )
+mcux_add_linker_symbol(
+    SYMBOLS "__stack_size__=0x3000 __heap_size__=0x3000"
+)
 ```
 
 This setting is equivalent to setting with `mcux_add_${toolchain}_configuration` function:
@@ -282,7 +283,7 @@ This setting is equivalent to setting with `mcux_add_${toolchain}_configuration`
   ```cmake
   mcux_add_iar_configuration(
       LD "--config_def=__stack_size__=0x3000 --config_def=__heap_size__=0x3000"
-      )
+  )
   ```
 - MDK
 
@@ -292,7 +293,7 @@ This setting is equivalent to setting with `mcux_add_${toolchain}_configuration`
 
   ```cmake
   mcux_add_mdk_configuration(
-  	LD "--predefine=\"-D__stack_size__=0x3000\" --predefine=\"-D__heap_size__=0x3000\""
+  	  LD "--predefine=\"-D__stack_size__=0x3000\" --predefine=\"-D__heap_size__=0x3000\""
   )
   ```
 - ARMGCC
@@ -303,7 +304,7 @@ This setting is equivalent to setting with `mcux_add_${toolchain}_configuration`
 
   ```cmake
   mcux_add_armgcc_configuration(
-  	LD "-Xlinker --defsym=__stack_size__=0x3000 -Xlinker --defsym=__heap_size__=0x3000"
+  	  LD "-Xlinker --defsym=__stack_size__=0x3000 -Xlinker --defsym=__heap_size__=0x3000"
   )
   ```
 
@@ -444,9 +445,9 @@ Here is an example:
 
 ```cmake
 mcux_add_iar_configuration(
-	CC "--dlib_config full"
-	LD "--redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull --redirect __write=__write_buffered"
-	)
+	  CC "--dlib_config full"
+    LD "--redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull --redirect __write=__write_buffered"
+)
 ```
 
 ![](./_doc/ide_option_iar_io_options.png)
@@ -689,7 +690,7 @@ Supported attribute for script files are:
 
 ### IDE language Setting
 
-For GUI project, project language can be set to "c" or "cpp" in IDE.yml with "project_language" field. If not set, the default is c. For IAR C++ project, generally you can set project language to "auto" to let the compiler decide how to compile.
+For GUI project, project language can be set to `c` or `cpp` in IDE.yml with `project_language` field. If not set, the default is `c`. For IAR C++ project, generally you can set project language to `auto` to let the compiler decide how to compile.
 
 For example:
 
