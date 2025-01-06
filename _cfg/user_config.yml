@@ -288,6 +288,11 @@ modules:
     external_contents:
     - root: 'docs'
       pattern: 'middleware/wireless/Bluetooth/*'
+  mid_wifi_serial:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/wireless/wifi_serial/*'
   mid_usb:
     default: true
     external_contents:
