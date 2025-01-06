@@ -4,3 +4,46 @@
 .version{
     color: black !important;
 }
+
+/* Audio framework specification page */
+div.wy-table-responsive .audio_FW_spec_table {
+	margin-bottom: 10px !important;
+}
+
+.audio_FW_spec_table,
+.audio_FW_spec_table th,
+.audio_FW_spec_table td {
+	text-align:center;
+	border: 1px solid black;
+	border-collapse: collapse;
+	color: black;
+}
+.version{
+    color: black !important;
+}
+
+.audio_FW_spec_table th,
+.audio_FW_spec_table td {
+	padding-left: .5em;
+	padding-right: .5em;
+}
+
+.audio_FW_spec_table th {
+	background-color: #3ECAFB !important;
+	color:white;
+}
+
+.audio_FW_spec_table_supported {
+	background-color: #00A700 !important;
+	color: black;
+}
+
+.audio_FW_spec_table_modification {
+	background-color: #69CA00 !important;
+	color: black;
+}
+
+.audio_FW_spec_table_limited {
+	background-color: #F9B500 !important;
+	color: black;
+}
