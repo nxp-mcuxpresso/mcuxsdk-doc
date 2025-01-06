@@ -25,7 +25,7 @@ There are 2 ways to use the McuxSDK CMake package:
 
 ### Create Example With `find_package(McuxSDK)`
 
-When using McuxSDK CMake package, you just simply needs to write `find_package(McuxSDK)` in the beginning of the application `CMakeLists.txt` file, then build system will get all needed drivers, components and middlewares for designated devices and boards and build them into a static library called `McuxSDK`.  This `McuxSDK` has been linked to target `app` in advance, you only need to add the example specific sources/include/configuration.
+When using McuxSDK CMake package, you just simply needs to write `find_package(McuxSDK)`  at the beginning of the application `CMakeLists.txt` file, then build system will get all needed drivers, components and middlewares for designated devices and boards and build them into a static library called `McuxSDK`.  This `McuxSDK` has been linked to target `app` in advance, you only need to add the example specific sources/include/configuration.
 
 Here is an example:
 
@@ -49,7 +49,7 @@ mcux_add_include(
 
 If you use native cmake `target_` function with target `app`, then the sources/includes/configurations are added for target `app`. If you use NXP cmake extension to add sources/includes/configurations, then the data and files are added into target `McuxSDK`, a static library, which will be linked to `app` finally.
 
-If there is no special instruction, the app target will use default provided linker by MCUXpresso SDK if it is an executable. If you want to use your own linker, then please add `CUSTOM_LINKER TRUE` in the `project` like the following and then add your own linker.
+If there is no special instruction, the app target will use default provided linker script by MCUXpresso SDK if it is an executable. If it doesn't satisfy your needs, then please add `CUSTOM_LINKER TRUE` in the `project` like the following and then add your own linker script.
 
 ```cmake
 project(hello_world LANGUAGES C CXX ASM CUSTOM_LINKER TRUE)

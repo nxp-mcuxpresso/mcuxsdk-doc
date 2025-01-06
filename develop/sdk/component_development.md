@@ -8,12 +8,13 @@ In addition to the sources, one software component always contains CMakeLists.tx
 
 ## CMakeLists.txt
 
-In CMakeLists.txt, component data shall be recorded inside a `if-endif` guard. The `if `condition shall be with prefix `CONFIG_MCUX_COMPONENT `to specify the following data belongs to a software component. The component name is right next to it. Please note that nested `if-endif` is not supported, and the `if` condition shall only contain one component name, combined condition with `||` or `&&` is not supported either.
+In CMakeLists.txt, component data shall be recorded inside a `if-endif` guard. The condition of the `if` statement is the combination of the `CONFIG_MCUX_COMPONENT_` prefix and the component name, which indicates everything insides the `if-endif` section belongs to a software component.
+Please note that nested `if-endif` is not supported, and the `if` condition shall only contain one component name, combined condition with `||` or `&&` is not supported either.
 
 Here is the driver.uart CMakeLists.txt:
 
 ```cmake
-if (CONFIG_MCUX_COMPONENT_driver.uart) # component name
+if (CONFIG_MCUX_COMPONENT_driver.uart) # component name is driver.uart
 
     # component version
     mcux_component_version(2.5.1)
@@ -29,7 +30,7 @@ if (CONFIG_MCUX_COMPONENT_driver.uart) # component name
 endif()
 ```
 
-If a component definition is split into several cmake files, please use the same `if-endif` guard in all files data.
+If a component definition is split into several cmake files, please use the same `if(CONFIG_MCUX_COMPONENT_<component name>)-endif` guard in all files data.
 
 ## Kconfig
 
@@ -87,6 +88,8 @@ menu "freertos-kernel(FreeRTOSConfig.h)"
 endmenu
 ```
 
+Component macro configurations will be generated in header files. Please refer to [Config Headers](../build_system/Configuration_System.md#config-headers) chapter for details.
+
 ## Supported Components
 
 There are following components which are already enabled in MCUXpresso SDK: drivers, components/utilities, middlewares and RTOS. They are located under `mcuxsdk/drivers`, `mcuxsdk/components`, `mcuxsdk/middlewares` and `mcuxsdk/rtos`.
@@ -97,7 +100,7 @@ All software components are involved into build tree through the root `mcuxsdk/C
 
 ## Component Naming
 
-As you can see, in our build system, all components naming is in format `MCUX_COMPONENT_<name>` . The `MCUX_COMPONENT_` prefix specifies the data section is a software component. About the specific component name, currently they are generally following the format `<major type>.<minor types>.<name>`. The dot is used to separate component type and name. The minor type(s) is **optional** and can be more than one like `driver.uart` , `middleware.fatfs` and `middleware.fatfs.mmc`.
+As you can see, in our build system, all components naming is in format `MCUX_COMPONENT_<name>` . The `MCUX_COMPONENT_` prefix indicates that the data section is a software component. About the specific component name, currently they are generally following the format `<major type>.<minor types>.<name>`. The dot is used to separate component type and name. The minor type(s) is **optional** and can be more than one like `driver.uart` , `middleware.fatfs` and `middleware.fatfs.mmc`.
 Most frequently used major types are:
 
 | Major Types | Explanation            | Examples                                 |
@@ -107,4 +110,4 @@ Most frequently used major types are:
 | utilities   | SDK utility            | utilities.gcov,  utilities.unity         |
 | middleware  | Middlewares and RTOSes | middleware.fatfs, middleware.freertos-kernel |
 
-The above naming conversations are across both cmakes and Kconfigs. For Kconfig, normally all Kconfig symbols will be generated into header files as macros, so there will be macros like `CONFIG_MCUX_COMPONENT_component.serial_manager=1` in the generated header file which will cause build failure because C language identifiers cannot contain punctuation mark dot. To resolve this, our build system intentionally remove such component naming symbols from generated header file. Please check [MCUXpresso SDK Customized Kconfig Rules](../build_system/Configuration_System.md#mcuxpresso-sdk-customized-kconfig-rules) for more rules and details.
+The above naming convention applies to both cmakes and Kconfigs. For Kconfig, normally all Kconfig symbols will be generated into header files as macros, so there will be macros like `CONFIG_MCUX_COMPONENT_component.serial_manager=1` in the generated header file which will cause build failure because C language identifiers cannot contain punctuation mark dot. To resolve this, our build system intentionally remove such component naming symbols from generated header file. Please check [MCUXpresso SDK Customized Kconfig Rules](../build_system/Configuration_System.md#mcuxpresso-sdk-customized-kconfig-rules) for more rules and details.

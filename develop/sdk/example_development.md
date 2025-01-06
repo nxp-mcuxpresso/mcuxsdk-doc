@@ -21,7 +21,7 @@ Based on the cmake built-in macro `project`, we customize the `project` to provi
 
 | Argument Name           | Argument Type | Explanation                              |
 | ----------------------- | ------------- | ---------------------------------------- |
-| PROJECT_BOARD_PORT_PATH | Single        | Path for board porting files and data.<br />Only applied for board examples. |
+| PROJECT_BOARD_PORT_PATH | Single        | Path for board porting files and data.<br />Only applied for examples with board-specific configuration.|
 | PROJECT_TYPE            | Single        | Specify the project type, can be `EXECUTABLE` or `LIBRARY` or `LIBRARY_OBJECT`.<br />The default is `EXECUTABLE`. |
 | CUSTOM_PRJ_CONF_PATH    | Multiple      | Specify customized prj.conf search paths. |
 
@@ -76,7 +76,7 @@ config HELLO_WORLD_EXAMPLE_MACRO
 
 ## prj.conf
 
-prj.conf here specifies the example specific configuration values for Kconfig symbols. It will be merged together with other device, board and shield prj.conf values to produce the final configurations.
+prj.conf here specifies the example specific configuration values for Kconfig symbols. It will be merged together with other prj.conf values from device, board and shield to produce the final configurations.
 
 See [prj.conf](../build_system/Configuration_System.md#prj-conf) for more details.
 
@@ -178,7 +178,7 @@ sdk_next/
 
 For MCUXpresso SDK officially supported boards, the board porting has been done for all board supported examples in a hierarchical way. In any repository example CMakeLists.txt `project` macro, the `PROJECT_BOARD_PORT_PATH` is provided to specify the root board porting path. All the prj.conf files inside each sub folder of `PROJECT_BOARD_PORT_PATH` will be processed during the example build, they are hierarchically configuring the example in different levels.
 
-Take evkbmimxrt1170 hello_world porting for example, in the hello_world CMakeLists.txt, we have `PROJECT_BOARD_PORT_PATH` as `examples/_boards/${board}/demo_apps/hello_world` as the following:
+Take evkbmimxrt1170 hello_world porting for example, in the hello_world CMakeLists.txt, we have set `PROJECT_BOARD_PORT_PATH` as `examples/_boards/${board}/demo_apps/hello_world` as the following:
 
 ```cmake
 project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH examples/_boards/${board}/demo_apps/hello_world)
@@ -254,7 +254,7 @@ The default prj.conf list is like
 9. <example location>/prj.conf # The example itself configuration
 ```
 
-The freestanding examples may don't need the default pin mux and hardware_init/app prj.conf setting, you can disable them by
+The freestanding examples may don't need the default pin mux and hardware_init/app prj.conf setting, you can disable them in `<example location>/prj.conf`:
 
 ```
 CONFIG_MCUX_PRJSEG_module.board.pinmux_project_folder=n
@@ -434,11 +434,11 @@ If you find one repository example functions are similar to your example and wan
       west build -b evkbmimxrt1170 <new workspace>/hello_world -Dcore_id=cm7 --toolchain=iar
       ```
 
-      Please run west cmd inside mcuxsdk. If you want to run west from your workspace, you can run `mcuxsdk/mcux-env.cmd` or `mcuxsdk/mcux-env.sh` to set up the environment variable otherwise west cannot find mcuxsdk.
+      Please run west cmd inside mcuxsdk workspace. If you want to run west from your workspace, you can run `mcuxsdk/mcux-env.cmd` or `mcuxsdk/mcux-env.sh` to set up the environment variable otherwise west cannot find mcuxsdk.
    2. Using native cmake cmd in your workspace:
 
       ```bash
-      cmake -S <new workspace>/hello_world -B build -G Ninja -Dboard=evkbmimxrt1170 -Dcore_id=cm7 -DCMAKE_BUILD_TYPE=debug -DCONFIG_TOOLCHAIN=iar -DSdkRootDirPath=mcuxsdk-root
+      cmake -S <new workspace>/hello_world -B build -G Ninja -Dboard=evkbmimxrt1170 -Dcore_id=cm7 -DCMAKE_BUILD_TYPE=debug -DCONFIG_TOOLCHAIN=iar -DSdkRootDirPath=path/to/mcuxsdk-root
       ```
 
       The `-S` specifies the example folder containing CMakeLists.txt.
@@ -455,27 +455,27 @@ If you find one repository example functions are similar to your example and wan
 
       The `-DCONFIG_TOOLCHAIN=iar` specifies the toolchain is iar, equal with `--toolchain=iar` in west cmd.
 
-      The `-DSdkRootDirPath=mcuxsdk-root` specifies the SDK root location. In west cmd, build system will automatically get the SDK root.
+      The `-DSdkRootDirPath=path/to/mcuxsdk-root` specifies the SDK root location. In west cmd, build system will automatically get the SDK root.
 
-      After, you can cd into `build` and run `ninja`.
+      After running the CMake command, you can cd into `build` and run `ninja`.
 
 ## Component Configuration in Project Construction and Build
 
 There are following ways to do component configuration in the project construction and build
 
-1. Use Kconfig to do RTE configuration for the component set
+1. Use Kconfig to do configuration for the component set
 2. Use the prepared customized configuration header file for the component set in the example root
 3. Use the component default provided configuration header file
 
-   > For a component, Kconfig must be provided, otherwise the component won't be involved into the build tree anyway, but it is not required that component Kconfig must have concrete configurations. You can still put configurations like macro definitions in the header file.
+   > For a component, it must be defined in Kconfig, otherwise the component won't be involved into the build tree anyway, but it is not required that component Kconfig item must have concrete configurations. You can still put configurations like macro definitions in the header file.
    >
 
 To make the above ways coexist in a component set, a component set(especially middleware components) shall do the following steps:
 
-1. Prepare a `config` component to hold the default configuration file for the component set. The configuration file shall be marked with `CONFIG: TRUE` and the include shall be with `TARGET_FILES`.  The `config` header file has lowest priority in the build system, if any same name header file is provided in the example root, then it won't be included. This `config` component shall be selected by the root component of the component set, then it can always be selected. So if the customized configuration is not provided for that component, the project can still build with default configuration.
-2. Prepare a project segment to hold all Kconfig configuration symbols for the component set. All the configuration symbols shall be set to generated into designated header file with the same name as component default configuration.
+1. Prepare a `config` component to hold the default configuration file for the component set. `config` component means the component files shall be marked with `CONFIG: TRUE`, and if the config file is a header file, the include path shall use `TARGET_FILES` to identify the file that corresponds to the path.  The `config` header file has lowest priority in the build system, if any same name header file is provided in the example root, then it won't be included. This `config` component shall be selected by the core component of the component set, then it can always be selected. So if the customized configuration is not provided for that component, the project can still build with default configuration provided by `config` component.
+2. Prepare a project segment in Kconfig file to hold all Kconfig configuration symbols for the component set. All the configuration symbols shall be set to be generated into a designated header file with the same name as component default configuration file.
 
-If you want to use Kconfig to do RTE configuration, then the project segment shall be set to `y`. The generated configuration header name shall be set in Kconfig and be the same with component default configuration head file so that it will override the component default one. The project segment can depend on the root component of the component set so that it  can involve root component of the set.
+If you want to use Kconfig to do configuration, then the project segment shall be set to `y`. The generated configuration header name shall be set in Kconfig and be the same with component default configuration header file so that it will override the component default one. The project segment can depend on the core component of the component set so that it  can involve core component of the set.
 If you don't want to use Kconfig but want to directly provide a configuration header, then project segment should be set to `n`, the directly provided configuration header shall be put in the root of project.
 
 ## Create an Example
@@ -639,7 +639,8 @@ Like the component, in cmake files, project segment data shall be recorded insid
 Here is one project segment cmake example:
 
 ```cmake
-if (CONFIG_MCUX_PRJSEG_module.board.clock)
+if (CONFIG_MCUX_PRJSEG_module.board.clock)  # project segment name is module.board.clock
+    # project segment data
     mcux_add_source(
         BASE_PATH ${SdkRootDirPath}
         SOURCES boards/${board}/clock_config.h
