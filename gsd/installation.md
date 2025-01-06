@@ -60,58 +60,71 @@ Kconfig is installed during python library installation
 
 Install ruby for GUI project generation and standalone project generation. Follow the guide [ruby environment setup](../develop/build_system/IDE_Project.md#ruby-environment-setup).
 
-### Compiler
-
-> If you don't need to evaluate a specific compiler,  you can skip that step.
-
-#### ARMGCC
-
-Download and install ARMGCC from [Arm GNU Toolchain Downloads](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads)
+### Toolchain
 
 #### IAR
 
-Download and install IAR toolchain [IAR Embedded Workbench for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/)
+Download and install IAR toolchain referring [IAR Embedded Workbench for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
 
 #### MDK
 
-Download and install MDK toolchain [MDK](https://developer.arm.com/documentation/109350/v6/What-is-MDK-/Download-options).
+Download and install MDK toolchain referring [MDK Installation](https://developer.arm.com/documentation/109350/v6/Installation?lang=en).
+
+#### ARMGCC
+
+Download and install ARMGCC toolchain referring [Arm GNU Toolchain Downloads](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads).
+
+#### ARMCLANG
+
+Download and install armclang toolchain referring [Installing Arm Compiler for Embedded](https://developer.arm.com/documentation/100748/0618/Getting-Started/Installing-Arm-Compiler-for-Embedded).
+
+#### Zephyr
+
+Download and install Zephyr SDK referring [Zephyr SDK](https://docs.zephyrproject.org/latest/develop/toolchains/zephyr_sdk.html#).
 
 #### Codewarrior
 
-Download and install CodeWarrior toolchain from [NXP CodeWarrior](https://www.nxp.com/design/design-center/software/development-software/codewarrior-development-tools:CW_HOME).
+Download and install CodeWarrior toolchain referring [NXP CodeWarrior](https://www.nxp.com/design/design-center/software/development-software/codewarrior-development-tools:CW_HOME).
 
 #### Xtensa
 
-Download and install Xtensa toolchain from [Tensilica Tools](https://tensilicatools.com/platforms/).
+Download and install Xtensa toolchain referring [Tensilica Tools](https://tensilicatools.com/platforms/).
 
 #### NXP S32Compiler RISC-V Zen-V
 
-Download and install NXP S32Compiler RISC-V Zen-V compiler from [NXP Website](https://www.nxp.com.cn/search?keyword=NXP%2520S32Compiler%2520RISC-V&start=0)
+Download and install NXP S32Compiler RISC-V Zen-V compiler referring [NXP Website](https://www.nxp.com.cn/search?keyword=NXP%2520S32Compiler%2520RISC-V&start=0)
 
 #### Environment Variables
 
-After you installed the compilers, to make the west build recognize them, you need to register them in the system environment variables:
+After you installed the toolchains, to make the west build recognize them, you need to register them in the system environment variables:
 
-| Toolchain                    | Environment variable   | Example                                  | Cmd Line Argument           |
+| Toolchain                    | Environment Variable   | Example                                  | Cmd Line Argument           |
 | ---------------------------- | ---------------------- | ---------------------------------------- | :-------------------------- |
-| IAR                          | IAR_DIR                | C:\iar for Windows OR /opt/iarsystems/bxarm-9.40.2 for Linux | --toolchain iar             |
-| MDK                          | MDK_DIR                | C:\Keil_v5 for Windows OR /usr/local/ArmCompilerforEmbedded6.21 for Linux | --toolchain mdk             |
-| MDK                          | ARMCLANG_DIR           | C:\ArmCompilerforEmbedded6.22 for Windows OR /usr/local/ArmCompilerforEmbedded6.21 for Linux | --toolchain mdk             |
-| Armgcc                       | ARMGCC_DIR             | C:\armgcc                                | --toolchain armgcc(default) |
-| CodeWarrior                  | CW_DIR                 | C:\Freescale\CW MCU v11.2                | --toolchain codewarrior     |
-| Xtensa                       | XCC_DIR                | C:\xtensa\XtDevTools\install\tools\RI-2023.11-win32\XtensaTools | --toolchain xtensa          |
-| Zephyr                       | ZEPHYR_SDK_INSTALL_DIR |                                          | --toolchain zephyr          |
-| NXP S32Compiler RISC-V Zen-V | RISCVLLVM_DIR          | c:/riscv-llvm-win32_b298_b298_2024.08.12 for Windows OR /opt/riscv-llvm-linux-x64_b298_b298_2024.08.12 for Linux | --toolchain riscvllvm       |
+| IAR                          | IAR_DIR                | `C:\iar` for Windows<br />`/opt/iarsystems/bxarm-9.40.2` for Linux | --toolchain iar             |
+| MDK                          | MDK_DIR                | `C:\Keil_v5` for Windows.<br />MDK is not officially supported with Linux. | --toolchain mdk             |
+| Armgcc                       | ARMGCC_DIR             | `C:\armgcc` for windows<br />`/usr` for Linux. Typically  `arm-none-eabi-*` is installed under `/usr/bin` | --toolchain armgcc(default) |
+| Armclang                     | ARMCLANG_DIR           | `C:\ArmCompilerforEmbedded6.22` for Windows<br />`/opt/ArmCompilerforEmbedded6.21` for Linux | --toolchain mdk             |
+| Zephyr                       | ZEPHYR_SDK_INSTALL_DIR | `c:\NXP\zephyr-sdk-<version>` for windows<br />`/opt/zephyr-sdk-<version>` for Linux | --toolchain zephyr          |
+| CodeWarrior                  | CW_DIR                 | `C:\Freescale\CW MCU v11.2` for windows<br />CodeWarrior is not supported with Linux | --toolchain codewarrior     |
+| Xtensa                       | XCC_DIR                | `C:\xtensa\XtDevTools\install\tools\RI-2023.11-win32\XtensaTools` for windows<br />`/opt/xtensa/XtDevTools/install/tools/RI-2023.11-Linux/XtensaTools` for Linux | --toolchain xtensa          |
+|                              |                        |                                          |                             |
+| NXP S32Compiler RISC-V Zen-V | RISCVLLVM_DIR          | `c:/riscv-llvm-win32_b298_b298_2024.08.12` for Windows<br />`/opt/riscv-llvm-Linux-x64_b298_b298_2024.08.12` for Linux | --toolchain riscvllvm       |
 
-- For MDK toolchain, only armclang compiler is supported. There are 2 environment variables MDK_DIR and ARMCLANG_DIR for it. Since most Keil users will install MDK IDE instead of standalone armclang compiler, the MDK_DIR has higher priority than ARMCLANG_DIR.
-- For Xtensa toolchain, please set XTENSA_CORE environment, depends on your devices, here's the list for your reference| Device core      | environment varibale value |
+- The `<toolchain>_DIR` is the root installation folder.
+
+- MDK toolchain using armclang only officially supports Windows. For Linux development, please directly use armclang toolchain. In Windows, since most Keil users will install MDK IDE instead of standalone armclang toolchain, the `MDK_DIR` has higher priority than `ARMCLANG_DIR`.
+
+- For Xtensa toolchain, please set the `XTENSA_CORE` environment variable. Here's an example list:
+
+  | Device Core      | `XTENSA_CORE`              |
   | ---------------- | -------------------------- |
-  | RT500 fusion1    | nxp_rt500_RI23_11_newlib   |
-  | RT600 hifi4      | nxp_rt600_RI23_11_newlib   |
-  | RT700 hifi1      | rt700_hifi1_RI23_11_nlib   |
-  | RT700 hifi1      | rt700_hifi4_RI23_11_nlib   |
-  | i.MX8ULP fusion1 | fusion_nxp02_dsp_prod      |
-- In Windows, the short path name is used in environment variables. If any toolchain is using the long path name, you can open a command window from the toolchain folder and use below command to get the short path name: `for %i in (.) do echo %~fsi`
+  | RT500 fusion1    | `nxp_rt500_RI23_11_newlib` |
+  | RT600 hifi4      | `nxp_rt600_RI23_11_newlib` |
+  | RT700 hifi1      | `rt700_hifi1_RI23_11_nlib` |
+  | RT700 hifi4      | `t700_hifi4_RI23_11_nlib`  |
+  | i.MX8ULP fusion1 | `fusion_nxp02_dsp_prod`    |
+
+- In Windows, the short path is used in environment variables. If any toolchain is using the long path, you can open a command window from the toolchain folder and use below command to get the short path: `for %i in (.) do echo %~fsi`
 
 ## Document Installation
 
