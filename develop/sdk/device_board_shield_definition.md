@@ -113,7 +113,7 @@ All examples under the board share the toolchains and targets in the board examp
 
 ## Shield
 
-Shield is an addon which is attached to a board to extend its features and functionalities. All shields are put under its mother board folder. The structure is like
+Shield is an addon which is attached to a board to extend its features and functionalities. All shields folder are put under its mother board folder. The structure is like
 
 ```yaml
 _boards:
