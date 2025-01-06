@@ -152,10 +152,10 @@ Here is the argument table:
 | ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`. <br /> If not provided, the final source path equals `${CMAKE_CURRENT_LIST_DIR}` + `SOURCES`. <br />This is usually used in abstracted `.cmake` files which are not placed together with real sources. For sources or includes in CMakeLists.txt which are usually put together with real sources, no need to add it. |
 | CONFIG        | Single        | `true` or `false`, case insensitive. <br />Specify that the source is a config file. If build system finds a file with the same name, it will replace the config file. Please note if the config file is a header file, you need to record the file in `TARGET_FILES` when adding the path for that header file with `mcux_add_include`.                                                   |
-| PREINCLUDE    | Single        | `true` or `false`, case insensitive. Specify that the header is a preinclude header. This is only for mcux_add_source.                                                                                                                                                                                                                                                                          |
-| EXCLUDE       | Single        | `true` or `false`, case insensitive. Specify the source shall be excluded from build. This is only for mcux_add_source                                                                                                                                                                                                                                                                          |
+| PREINCLUDE    | Single        | `true` or `false`, case insensitive. Specify that the header is a preinclude header. This is only for `mcux_add_source`.                                                                                                                                                                                                                                                                          |
+| EXCLUDE       | Single        | `true` or `false`, case insensitive. Specify the source shall be excluded from build. This is only for `mcux_add_source`                                                                                                                                                                                                                                                                          |
 | SOURCES       | Multiple      | The sources. This is only for `mcux_add_source`. If there are multiple sources, please separate them with whitespace.                                                                                                                                                                                                                                                                             |
-| SCOPE         | Single        | Specify the source scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for mcux_add_source and take same effect as target_sources scope. The default scope is PRIVATE.                                                                                                                                                                                                                             |
+| SCOPE         | Single        | Specify the source scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for `mcux_add_source` and take same effect as target_sources scope. The default scope is PRIVATE.                                                                                                                                                                                                                             |
 | INCLUDES      | Multiple      | The includes. This is only for `mcux_add_include`. If there are multiple includes, please separate them with whitespace.                                                                                                                                                                                                                                                                          |
 | TARGET_FILES  | Multiple      | This is only for `mcux_add_include`, which indicates the path is for the target header file. The base name of the file without parent folder path is accepted. Please note target header files must be added by `mcux_add_source` and marked `CONFIG TRUE`.                                                                                                                                   |
 | COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.<br />The supported compilers include armclang, iar, gcc, xcc, mwcc56800e, riscvllvm.                                                                                                                                                                                                                             |
@@ -177,7 +177,7 @@ Here is one example:
 
 ```cmake
 # In drivers/uart/CMakelists.txt
-if (CONFIG_MCUX_COMPONENT_driver.uart)
+if(CONFIG_MCUX_COMPONENT_driver.uart)
     # with wildcard, it can be this way
     mcux_add_source(
         SOURCES *.*
@@ -201,14 +201,14 @@ Add header files search path for codewarrior system libraries.
 Here is one example
 
 ```cmake
-    mcux_add_codewarrior_sys_include(
-        SYS_SEARCH_PATH 
-        "\"${MCUToolsBaseDir}/DSP56800x_EABI_Tools/M56800E Support/runtime_56800E/include\""
-        "\"${MCUToolsBaseDir}/DSP56800x_EABI_Tools/M56800E Support/msl/MSL_C/MSL_Common/Include\""
-        "\"${MCUToolsBaseDir}/DSP56800x_EABI_Tools/M56800E Support/msl/MSL_C/DSP_56800E/prefix\""
-        SYS_PATH_RECURSIVELY 
-        "\"${MCUToolsBaseDir}/DSP56800x_EABI_Tools/M56800E Support\""
-    )
+mcux_add_codewarrior_sys_include(
+    SYS_SEARCH_PATH 
+    "\"${MCUToolsBaseDir}/DSP56800x_EABI_Tools/M56800E Support/runtime_56800E/include\""
+    "\"${MCUToolsBaseDir}/DSP56800x_EABI_Tools/M56800E Support/msl/MSL_C/MSL_Common/Include\""
+    "\"${MCUToolsBaseDir}/DSP56800x_EABI_Tools/M56800E Support/msl/MSL_C/DSP_56800E/prefix\""
+    SYS_PATH_RECURSIVELY 
+    "\"${MCUToolsBaseDir}/DSP56800x_EABI_Tools/M56800E Support\""
+)
 ```
 
 #### mcux_add_library
@@ -219,7 +219,7 @@ Specify the library to be linked.
 | ------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final library path equals `BASE_PATH` + `LIB`s.<br />If not provided, the final library path equals `${CMAKE_CURRENT_LIST_DIR}` + `LIBS`. <br />This is usually used in abstracted `.cmake` files which are not placed together with real libraries. For CMakeLists.txt which is usually put together with real libraries, no need to add it. |
 | LIBS          | Multiple      | The libraries to be added                                                                                                                                                                                                                                                                                                                                                  |
-| SCOPE         | Single        | Specify the library scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for mcux_add_library and take same effect as target_link_libraries scope. The default scope is PRIVATE.                                                                                                                                                                                           |
+| SCOPE         | Single        | Specify the library scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for `mcux_add_library` and take same effect as target_link_libraries scope. The default scope is PRIVATE.                                                                                                                                                                                           |
 | TOOLCHAINS    | Multiple      | The toolchains. It means the library only supports the listed toolchains.<br />The supported toolchains include iar, mdk, armgcc, xcc, codewarrior.                                                                                                                                                                                                                       |
 | CORES         | Multiple      | The cores. It means the library only supports the listed cores.<br />The supported cores include cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp.                                                                                                                                                                                |
 | CORE_IDS      | Multiple      | The core_ids. It means the library only supports the listed core_ids. This is usually to distinguish the support for core in multicore device.                                                                                                                                                                                                                            |
@@ -237,10 +237,10 @@ Specify the library to be linked.
 Here is one example:
 
 ```cmake
-    mcux_add_library(
-        LIBS lib/kw45b41/kw45b41_nbu_libthreadx.a
-        TOOLCHAINS iar
-    )
+mcux_add_library(
+    LIBS lib/kw45b41/kw45b41_nbu_libthreadx.a
+    TOOLCHAINS iar
+)
 ```
 
 The library can also be added by `mcux_add_configuration`. However it requires the absolute path and does not support source level dependency condition. Therefore, `mcux_add_library` is preferred for library adding.
@@ -277,21 +277,21 @@ Here is one example
 
 ```cmake
 mcux_add_iar_linker_script(
-        TARGETS debug release
-        BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_portfolio}/${soc_series}/${device}/iar/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
+    TARGETS debug release
+    BASE_PATH ${SdkRootDirPath}
+    LINKER devices/${soc_portfolio}/${soc_series}/${device}/iar/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
 )
 
 mcux_add_armgcc_linker_script(
-        TARGETS debug release
-        BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_portfolio}/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
+    TARGETS debug release
+    BASE_PATH ${SdkRootDirPath}
+    LINKER devices/${soc_portfolio}/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
 )
 
 mcux_add_mdk_linker_script(
-        TARGETS debug release
-        BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_portfolio}/${soc_series}/${device}/arm/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
+    TARGETS debug release
+    BASE_PATH ${SdkRootDirPath}
+    LINKER devices/${soc_portfolio}/${soc_series}/${device}/arm/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
 )
 ```
 
@@ -309,9 +309,9 @@ Please remember to set `TARGETS` for the linker, otherwise the linker will be en
 | CC            | Single        | The c compiler macros.                                                 |
 | CX            | Single        | The cxx compiler macros.                                               |
 
-Note:
+**Note**:
 
-1. mcux_add_macro automatically prefixes the macros that do not have the `-D` prefix and duplicated macros will be removed
+1. `mcux_add_macro` automatically prefixes the macros that do not have the `-D` prefix and duplicated macros will be removed
 
    Here is one example
 
@@ -320,7 +320,7 @@ Note:
        CC "FOO -DFOO -DBAR=1" # Equals -DFOO -DBAR=1
    )
    ```
-2. For all macros added by mcux_add_configuration or mcux_add_macro, if there are the duplicated macro names without value, like `-DA -DA`, or with the same value, like `-DC=3 -DC=3`, only one macro will be kept. If there are duplicated macro name with different values, build system will use the last one.
+2. For all macros added by `mcux_add_configuration` or `mcux_add_macro`, if there are the duplicated macro names without value, like `-DA -DA`, or with the same value, like `-DC=3 -DC=3`, only one macro will be kept. If there are duplicated macro name with different values, build system will use the last one.
 3. If you want to set macro for assembler, c compiler and cpp compiler at the same time, there is an easy way to omit AS/CC/CX parameters:
 
    ```cmake
@@ -331,14 +331,14 @@ Note:
 4. If the vaule of macro contains quotation marks, please use the escape symbol for them, for example:
 
    ```cmake
-     mcux_add_macro(
-         CC "-DMBEDTLS_CONFIG_FILE=\\\"ksdk_mbedtls_config.h\\\""
-     )
+   mcux_add_macro(
+       CC "-DMBEDTLS_CONFIG_FILE=\\\"ksdk_mbedtls_config.h\\\""
+   )
    ```
 
 #### mcux_add_linker_symbol
 
-The CMake function mcux_add_configuration requires the complete toolchain setting. For linker macro setting, you have to add prefix for linker symbol. The prefix may be different for each linker. For example, `--config_def=` for iar, `--predefine=` for mdk. To be convenient to set linker symbol for all toolchains, `mcux_add_linker_symbol` is provided.
+The CMake function `mcux_add_configuration` requires the complete toolchain setting. For linker macro setting, you have to add prefix for linker symbol. The prefix may be different for each linker. For example, `--config_def=` for iar, `--predefine=` for mdk. To be convenient to set linker symbol for all toolchains, `mcux_add_linker_symbol` is provided.
 
 | Argument Name | Argument Type | Explanation                                                            |
 | ------------- | ------------- | ---------------------------------------------------------------------- |
@@ -381,23 +381,23 @@ Here is one example
 
 ```cmake
 mcux_add_configuration(
-        TARGETS release
-        TOOLCHAINS IAR
-        AS "-M\"<>\" -w+ -s -j"
-        CC "--diag_suppress=Pa082,Pa050 --endian=little -e --use_c++_inline --silent"
-        CX "--diag_suppress=Pa082,Pa050 --endian=little -e --c++ --silent"
+    TARGETS release
+    TOOLCHAINS IAR
+    AS "-M\"<>\" -w+ -s -j"
+    CC "--diag_suppress=Pa082,Pa050 --endian=little -e --use_c++_inline --silent"
+    CX "--diag_suppress=Pa082,Pa050 --endian=little -e --c++ --silent"
 )
 ```
 
 #### mcux_add_iar_configuration\mcux_add_mdk_configuration\mcux_add_armgcc_configuration\mcux_add_xcc_configuration\mcux_add_codewarrior_configuration
 
-Very similar with mcux_add_configuration, just for specified toolchain.
+Very similar with `mcux_add_configuration`, just for specified toolchain.
 
 ### Pre/Post Build Command
 
 #### mcux_add_custom_command
 
-CMake provides built-in function `add_custom_command` which is useful for performing an operation before or after building the target by setting `PRE_BUILD | PRE_LINK | POST_BUILD` parameters. For more details, please refer to [add_custom_command](https://cmake.org/cmake/help/latest/command/add_custom_command.html#add-custom-command). Based on this function, build system provides customized CMake function mcux_add_custom_command to set pre/post build command for specific targets and toolchains.
+CMake provides built-in function `add_custom_command` which is useful for performing an operation before or after building the target by setting `PRE_BUILD` | `PRE_LINK` | `POST_BUILD` parameters. For more details, please refer to [add_custom_command](https://cmake.org/cmake/help/latest/command/add_custom_command.html#add-custom-command). Based on this function, build system provides customized CMake function `mcux_add_custom_command` to set pre/post build command for specific targets and toolchains.
 
 It shall only be used in the project CMakelists.txt, not the component one.
 
@@ -405,40 +405,40 @@ It shall only be used in the project CMakelists.txt, not the component one.
 | ----------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | TARGETS           | Multiple      | Supported build targets. If not provided, then supporting all targets                                                                                |
 | TOOLCHAINS        | Multiple      | Supported toolchains. If not provided, then supporting all toolchains                                                                                |
-| BUILD_EVENT       | Single        | Specify the time when the command is executed, can be PRE_COMPILE/PRE_BUILD/PRE_LINK /POST_BUILD. The default setting is POST_BUILD                  |
-| BUILD_COMMAND     | Multiple      | Specify the command-line(s) to execute. The format is same as CMake built-in function add_custom_command, do not wrap the command with double quotes |
-| BYPRODUCTS        | Multiple      | Specify the files to be generated by command. It can be omitted if the directory of  the generated files exist.                                      |
+| BUILD_EVENT       | Single        | Specify the time when the command is executed, can be `PRE_COMPILE`/`PRE_BUILD`/`PRE_LINK`/`POST_BUILD`. The default setting is `POST_BUILD`                  |
+| BUILD_COMMAND     | Multiple      | Specify the command-line(s) to execute. The format is same as CMake built-in function `add_custom_command`, do not wrap the command with double quotes |
+| BYPRODUCTS        | Multiple      | Specify the files to be generated by command. It can be omitted if the directory of the generated files exist.                                      |
 | WORKING_DIRECTORY | Single        | Specify the working directory to execute the command. The default directory is `${CMAKE_BINARY_DIR}`.                                              |
 
 Here is one example:
 
 ```cmake
 mcux_add_custom_command(
-        TARGETS debug release
-        TOOLCHAINS armgcc
-        BUILD_EVENT  PRE_BUILD
-        BUILD_COMMAND ${TOOLCHAIN_DIR}/bin/arm-none-eabi-gcc -E -P -xc -I${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/target/nxp/evkmimxrt685/partition -I${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common ${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common/gcc/tfm_common_ns.ld -o ${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common/gcc/tfm_common_ns_pre.ld
+    TARGETS debug release
+    TOOLCHAINS armgcc
+    BUILD_EVENT  PRE_BUILD
+    BUILD_COMMAND ${TOOLCHAIN_DIR}/bin/arm-none-eabi-gcc -E -P -xc -I${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/target/nxp/evkmimxrt685/partition -I${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common ${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common/gcc/tfm_common_ns.ld -o ${SdkRootDirPath}/middleware/tfm/tf-m/platform/ext/common/gcc/tfm_common_ns_pre.ld
 )
 ```
 
-According to [add_custom_command](https://cmake.org/cmake/help/latest/command/add_custom_command.html), for Ninja and Make generator, the `PRE_BUILD` behaves the same as PRE_LINK. Therefore, If you want to create files which is used for compilation, build system has provided a specific build event parameter `PRE_COMPILE` to simplify and unify custom command setting, for example:
+According to [add_custom_command](https://cmake.org/cmake/help/latest/command/add_custom_command.html), for Ninja and Make generator, the `PRE_BUILD` behaves the same as `PRE_LINK`. Therefore, If you want to create files which is used for compilation, build system has provided a specific build event parameter `PRE_COMPILE` to simplify and unify custom command setting, for example:
 
 ```cmake
 mcux_add_custom_command(
-        BUILD_EVENT PRE_COMPILE
-        BUILD_COMMAND 
-        sh ../middleware/wireless/zigbee/tools/ZPSConfig/Source/ZPSConfig
-        -n coordinator
-        -e LITTLE_ENDIAN
-        -t JN518x
-        -l ../middleware/wireless/zigbee/platform/K32W1/libs/libZPSNWK.a
-        -a ../middleware/wireless/zigbee/platform/K32W1/libs/libZPSAPL.a
-        -f ../middleware/wireless/zigbee/examples/zigbee_coordinator/src/coordinator.zpscfg
-        -o ../middleware/wireless/zigbee/examples/zigbee_coordinator/src/
-        BYPRODUCTS
-        ../middleware/wireless/zigbee/examples/zigbee_coordinator/src/zps_gen.c
-        ../middleware/wireless/zigbee/examples/zigbee_coordinator/src/zps_gen.h
-    )
+    BUILD_EVENT PRE_COMPILE
+    BUILD_COMMAND 
+    sh ../middleware/wireless/zigbee/tools/ZPSConfig/Source/ZPSConfig
+    -n coordinator
+    -e LITTLE_ENDIAN
+    -t JN518x
+    -l ../middleware/wireless/zigbee/platform/K32W1/libs/libZPSNWK.a
+    -a ../middleware/wireless/zigbee/platform/K32W1/libs/libZPSAPL.a
+    -f ../middleware/wireless/zigbee/examples/zigbee_coordinator/src/coordinator.zpscfg
+    -o ../middleware/wireless/zigbee/examples/zigbee_coordinator/src/
+    BYPRODUCTS
+    ../middleware/wireless/zigbee/examples/zigbee_coordinator/src/zps_gen.c
+    ../middleware/wireless/zigbee/examples/zigbee_coordinator/src/zps_gen.h
+)
 ```
 
 ### Remove
@@ -453,8 +453,8 @@ Remove configuration for all toolchains with specified build targets.
 | ------------- | ------------- | --------------------------------------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
 | TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
-| LIB           | Multiple      | The library, the full path                                            |
-| AS            | Single        | The assemble compiler flag                                            |
+| LIB           | Multiple      | The full path of the library                                          |
+| AS            | Single        | The assemble compiler flags                                           |
 | CC            | Single        | The c compiler flags                                                  |
 | CX            | Single        | The cxx compiler flags                                                |
 | LD            | Single        | The linker flags                                                      |
@@ -465,16 +465,16 @@ Here is one example:
 
 ```cmake
 mcux_remove_configuration(
-        TARGETS release
-        AS "-DMCUXPRESSO_SDK -DNDEBUG"
-        CC "-DMCUXPRESSO_SDK -DNDEBUG"
-        CX "-DMCUXPRESSO_SDK -DNDEBUG"
+    TARGETS release
+    AS "-DMCUXPRESSO_SDK -DNDEBUG"
+    CC "-DMCUXPRESSO_SDK -DNDEBUG"
+    CX "-DMCUXPRESSO_SDK -DNDEBUG"
 )
 ```
 
 #### mcux_remove_iar_configuration/mcux_remove_mdk_configuration/mcux_remove_armgcc_configuration
 
-Very similar with mcux_remove_configuration, just for specified toolchain.
+Very similar with `mcux_remove_configuration`, just for specified toolchain.
 
 #### mcux_remove_macro
 
@@ -499,10 +499,10 @@ mcux_remove_macro(CC "TESTMACRO")
 
 Remove linker symbol for all toolchains with specified build targets.
 
-| Argument Name | Argument Type | Explanation                                                          |
-| ------------- | ------------- | -------------------------------------------------------------------- |
-| TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all target |
-| SYMBOLS       | Single        | The linker symbols to be removed                                     |
+| Argument Name | Argument Type | Explanation                                                           |
+| ------------- | ------------- | --------------------------------------------------------------------- |
+| TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
+| SYMBOLS       | Single        | The linker symbols to be removed                                      |
 
 Here is one example:
 
@@ -517,28 +517,28 @@ mcux_remove_linker_symbol(
 | Argument Name | Argument Type | Explanation                                                                                                                                                   |
 | ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | TARGETS       | Multiple      | The build targets, like debug release                                                                                                                         |
-| BASE_PATH     | Single        | If provided, the final linker path equals BASE_PATH + LINKER. This is usually used in abstracted .cmake files which are not placed together with real linker. |
+| BASE_PATH     | Single        | If provided, the final linker path equals `BASE_PATH` + `LINKER`. This is usually used in abstracted .cmake files which are not placed together with real linker. |
 | LINKER        | Single        | The linker path                                                                                                                                               |
 
 Here is one example:
 
 ```cmake
 mcux_remove_iar_linker_script(
-        TARGETS debug release
-        BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_portfolio}/${soc_series}/${device}/iar/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
+    TARGETS debug release
+    BASE_PATH ${SdkRootDirPath}
+    LINKER devices/${soc_portfolio}/${soc_series}/${device}/iar/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.icf
 )
 
 mcux_remove_armgcc_linker_script(
-        TARGETS debug release
-        BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_portfolio}/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
+    TARGETS debug release
+    BASE_PATH ${SdkRootDirPath}
+    LINKER devices/${soc_portfolio}/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
 )
 
 mcux_remove_mdk_linker_script(
-        TARGETS debug release
-        BASE_PATH ${SdkRootDirPath}
-        LINKER devices/${soc_portfolio}/${soc_series}/${device}/arm/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
+    TARGETS debug release
+    BASE_PATH ${SdkRootDirPath}
+    LINKER devices/${soc_portfolio}/${soc_series}/${device}/arm/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.scf
 )
 ```
 
@@ -556,11 +556,11 @@ Here is one example:
 
 ```cmake
 mcux_project_remove_source(
-  SOURCES hello_world.c
+    SOURCES hello_world.c
 )
 
 mcux_project_remove_include(
-  INCLUDES .
+    INCLUDES .
 )
 ```
 
@@ -570,15 +570,15 @@ Remove libraries. It will take effect no matter the library was added before or 
 
 | Argument Name  | Argument Type | Explanation                                                                                                                                      |
 | -------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| BASE_PATH      | Single        | If provided, the final source path equals `BASE_PATH` + `LIBS`. Otherwise the actual path is relative to ${CMAKE_CURRENT_LIST_DIR} |
+| BASE_PATH      | Single        | If provided, the final source path equals `BASE_PATH` + `LIBS`. Otherwise the actual path is relative to `${CMAKE_CURRENT_LIST_DIR}` |
 | LIBS           | Multiple      | The library files to be removed                                                                                                                  |
 
 Here is one example:
 
 ```cmake
 mcux_remove_library(
-  BASE_PATH ${SdkRootDirPath}
-  SOURCES devices/${soc_portfolio}/${soc_series}/${device}/iar/iar_lib_power.a
+    BASE_PATH ${SdkRootDirPath}
+    SOURCES devices/${soc_portfolio}/${soc_series}/${device}/iar/iar_lib_power.a
 )
 ```
 
@@ -586,7 +586,7 @@ mcux_remove_library(
 
 #### mcux_set_variable
 
-Set variable with **global scope**. It requests that variable defined by mcux_set_variable must be unique. Build system will report error if there are duplicated variables defined with `mcux_set_variable`.
+Set variable with **global scope**. It requests that variable defined by `mcux_set_variable` must be unique. Build system will report error if there are duplicated variables defined with `mcux_set_variable`.
 
 Here is one example:
 
