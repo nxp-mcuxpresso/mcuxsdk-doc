@@ -26,7 +26,7 @@ Kconfig processor will give detailed warnings about unsatisfied component select
 
 ### Practice Recommendation
 
-- For software components depending on hardware related dependency items like board, device, device_id, please use `depends on`. In this way, for any component whose hardware dependencies are not satisfied, it will not be showed so that not bloat the Kconfig GUI.
+- For software components depending on hardware related dependency items like `board`, `device`, `device_id`, please use `depends on`. In this way, for any component whose hardware dependencies are not satisfied, it will not be showed so that not bloat the Kconfig GUI.
 - For software components depending on software component, priority to use `select`. It helps to auto select component dependency.
 - For cycle dependency case like FOO needs to `select` BAR and BAR needs to `select` FOO, since Kconfig doesn't support cycle dependency, so you cannot use mutually `select` between FOO and BAR. The recommendation is use both `select` and `depends on`. For example, FOO `select` BAR and BAR `depends on` FOO. In this way, when you  tick FOO, then BAR will be automatically selected. When FOO dependency is not satisfied, BAR cannot be showed.
 - If there are `any of` dependencies, `choice` can satisfy the need.
@@ -55,12 +55,12 @@ Following Harry dependency items are provided for components to `depends on`:
 Source level dependency is achieved through the CMake extension, like
 
 ```cmake
-    mcux_add_source(
-        SOURCES portable/GCC/ARM_CM0/port.c
-        # The following 2 lines mean port.c only supports cm0p core and toolchain armgcc, mcux and mdk
-        CORES cm0p
-        TOOLCHAINS armgcc mcux mdk
-    )
+mcux_add_source(
+    SOURCES portable/GCC/ARM_CM0/port.c
+    # The following 2 lines mean port.c only supports cm0p core and toolchain armgcc, mcux and mdk
+    CORES cm0p
+    TOOLCHAINS armgcc mcux mdk
+)
 ```
 
 Please refer the [mcux_add_source/mcux_add_include extension arguments](./Build_System.md#source-and-include) for supported dependency items.

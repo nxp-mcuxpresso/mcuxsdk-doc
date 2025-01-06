@@ -4,7 +4,7 @@
 
 [Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html) is a selection-based configuration system originally developed for the Linux kernel which now found more and more use in other projects beyond the Linux kernel.
 
-**In MCUXpresso SDK, Kconfig is used to config the build in run time which includes component selection with dependency resolve, component configuration with feature enable, disable and customization.**
+**In MCUXpresso SDK, Kconfig is used to config the build in runtime which includes component selection with dependency resolve, component configuration with feature enable, disable and customization.**
 
 You can interact with Kconfig via a curses or graphical menu interface, usually invoked by running `west build -t guiconfig` after you have already run passed the CMake configuration process. In this interface, the user selects the options and features desired, and saves a configuration file which is then used as an input to the build process.
 
@@ -57,7 +57,7 @@ The prj.conf search paths can be provided through 3 ways with priority.
 
 - Default prj.conf search paths
 
-  For all project build, the following path prj.conf will anyway be collected into the build. They are related to device, board and example board specific part. The priority is from low to high. High priority prj.conf data will override low priority prj.conf data.
+  For all project build, the following prj.conf paths will anyway be collected into the build. They are related to device, board and example board specific part. The priority is from low to high. High priority prj.conf data will override low priority prj.conf data.
 
   ```
   1. devices/prj.conf
@@ -99,9 +99,9 @@ The prj.conf search paths can be provided through 3 ways with priority.
   ```cmake
   project(hello_world LANGUAGES C CXX ASM NO_DEFAULT_CONFIG)
   ```
-- Specify customized prj.conf search path(s) in project CMakelists.txt `project` with `CUSTOM_PRJ_CONF_PATH`
+- Specify customized prj.conf search path(s) in project CMakeLists.txt `project` with `CUSTOM_PRJ_CONF_PATH`
 
-  The `CUSTOM_PRJ_CONF_PATH` argument can be used in project CMakelists.txt `project` macro to specify the customized prj.conf search paths and they have higher priority than the default prj.conf search paths.
+  The `CUSTOM_PRJ_CONF_PATH` argument can be used in project CMakeLists.txt `project` macro to specify the customized prj.conf search paths and they have higher priority than the default prj.conf search paths.
 
   It could be either relative path or absolute path. For relative path, the root is the MCUXpresso SDK root.
 
@@ -126,12 +126,12 @@ The prj.conf search paths can be provided through 3 ways with priority.
 
 **.config will be read back by cmake after generated. It has all the resolved device, board, drivers, components, middlewares Kconfig symbols and values. Its contents will be filtered to get the dependency satisfied components and project segments symbols, such symbols will be put into later cmake process so that cmake knows which components and project segments data shall be included into the build process.**
 
-> All the components and project segments Kconfig symbols start with CONFIG_MCUX_COMPONENT_ or CONFIG_MCUX_PRJSEG_. They won't be generated into config header files.
+> All the components and project segments Kconfig symbols start with `CONFIG_MCUX_COMPONENT_` or `CONFIG_MCUX_PRJSEG_`. They won't be generated into config header files.
 
 **For example, if `CONFIG_MCUX_COMPONENT_driver.uart` is `y` in .config, then the following sources and includes will be added into the build during cmake process, otherwise not.**
 
 ```cmake
-if (CONFIG_MCUX_COMPONENT_driver.uart)
+if(CONFIG_MCUX_COMPONENT_driver.uart)
     mcux_add_source(
         SOURCES fsl_uart.h 
                 fsl_uart.c
@@ -146,7 +146,7 @@ endif()
 
 The Kconfig symbols and the values related to compile and link will be generated into config header files placed in build binary folder.
 
-> Except Kconfig symbols starting with CONFIG_MCUX_, all other Kconfig symbols with their values will be generated into config header files.
+> Except Kconfig symbols starting with `CONFIG_MCUX_`, all other Kconfig symbols with their values will be generated into config header files.
 
 If you want your components configuration Kconfig symbols and values to be generated into designated header file, you can set Kconfig menu with header name. Here is an example with Freertos kernel.
 
@@ -195,7 +195,7 @@ The above naming Kconfig symbols are used to define components, project segments
 
 Kconfig by default will add `CONFIG_` prefix to macros in the generated header files. However, this prefix doesn't work for some middlewares or RTOSes, like fafts and freertos. Their sources complication cannot work with macros with prefix `CONFIG_` . To support such cases, we introduced a mechanism to forbid adding `CONFIG_` prefix in the macros: in the `help` of the Kconfig symbol, `No prefix in generated macro` shall be provided, like
 
-```
+```bash
 config RAM_DISK_ENABLE
     bool "RAM"
     default y if MCUX_COMPONENT_middleware.fatfs.ram
@@ -224,7 +224,7 @@ config CHIP_DEVICE_PRODUCT_NAME
 
 To get rid of the escape characters, we introduce the mechanism: for string type Kconfig, if `Macro value is in quotes` is provided in `help`, then quotes will be kept in the generated macro. The above CHIP_DEVICE_PRODUCT_NAME can be wrote this way:
 
-```
+```bash
 config CHIP_DEVICE_PRODUCT_NAME
     string "Product name"
     default "not-specified"
@@ -245,7 +245,7 @@ Unlike C, Kconfig only provides integer data types. If you want to mark data as 
 
 Here is an example, the following Kconfig symbol
 
-```
+```bash
 config USB_DEVICE_CONFIG_HID
     int "HID (Human Interface Device) Instance Count"
     default 0
