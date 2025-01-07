@@ -1,9 +1,5 @@
 # Build System Based on CMake
 
-## Overview
-
-MCUXpresso SDK build system is based on [CMake](https://cmake.org/). Beyond traditional CMake features, MCUXpresso build system also integrates some useful functionalities like IDE project generation and standalone project generation.
-
 ## Build Process Flow
 
 Broadly speaking, the build process flow can be divided into Kconfig process and CMake process.
@@ -148,26 +144,26 @@ For include path, the following functions are provided:
 
 Here is the argument table:
 
-| Argument Name | Argument Type | Explanation                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`. <br /> If not provided, the final source path equals `${CMAKE_CURRENT_LIST_DIR}` + `SOURCES`. <br />This is usually used in abstracted `.cmake` files which are not placed together with real sources. For sources or includes in CMakeLists.txt which are usually put together with real sources, no need to add it. |
-| CONFIG        | Single        | `true` or `false`, case insensitive. <br />Specify that the source is a config file. If build system finds a file with the same name, it will replace the config file. Please note if the config file is a header file, you need to record the file in `TARGET_FILES` when adding the path for that header file with `mcux_add_include`.                                                   |
-| PREINCLUDE    | Single        | `true` or `false`, case insensitive. Specify that the header is a preinclude header. This is only for `mcux_add_source`.                                                                                                                                                                                                                                                                          |
-| EXCLUDE       | Single        | `true` or `false`, case insensitive. Specify the source shall be excluded from build. This is only for `mcux_add_source`                                                                                                                                                                                                                                                                          |
-| SOURCES       | Multiple      | The sources. This is only for `mcux_add_source`. If there are multiple sources, please separate them with whitespace.                                                                                                                                                                                                                                                                             |
-| SCOPE         | Single        | Specify the source scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for `mcux_add_source` and take same effect as target_sources scope. The default scope is PRIVATE.                                                                                                                                                                                                                             |
-| INCLUDES      | Multiple      | The includes. This is only for `mcux_add_include`. If there are multiple includes, please separate them with whitespace.                                                                                                                                                                                                                                                                          |
-| TARGET_FILES  | Multiple      | This is only for `mcux_add_include`, which indicates the path is for the target header file. The base name of the file without parent folder path is accepted. Please note target header files must be added by `mcux_add_source` and marked `CONFIG TRUE`.                                                                                                                                   |
-| COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.<br />The supported compilers include armclang, iar, gcc, xcc, mwcc56800e, riscvllvm.                                                                                                                                                                                                                             |
-| TOOLCHAINS    | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.<br />The supported toolchains include iar, mdk, armgcc, xcc, codewarrior, riscvllvm.                                                                                                                                                                                                                           |
-| CORES         | Multiple      | The cores. It means the source or include only supports the listed cores.<br />The supported cores include cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp, etc.                                                                                                                                                                                         |
-| CORE_IDS      | Multiple      | The core_ids. It means the source or include only supports the listed core_ids. This is usually to distinguish the support for core in multicore device.                                                                                                                                                                                                                                           |
-| DEVICES       | Multiple      | The devices. It means the source or include only supports the listed device, like MIMXRT1176.                                                                                                                                                                                                                                                                                                       |
-| DEVICE_IDS    | Multiple      | The device ids. It means the source or include only supports the listed device id, like MIMXRT1176xxxxx.                                                                                                                                                                                                                                                                                            |
-| FPU           | Multiple      | The fpu. It means the source or include only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU.                                                                                                                                                                                                                                                                             |
-| DSP           | Multiple      | The dsp. It means the source or include only supports the listed dsp. dsp enum values are NO_DSP and HAS_DSP.                                                                                                                                                                                                                                                                                       |
-| TRUSTZONE     | Multiple      | The trustzone, enum values are TZ and  NO_TZ. TZ means the source or include are only enabled on device with SAU, NO_TZ means they are only enabled on device without SAU.                                                                                                                                                                                                                          |
-| COMPONENTS    | Multiple      | The components. It means the source or include only supports the listed components.                                                                                                                                                                                                                                                                                                                 |
+| CONFIG        | Single        | `true` or `false`, case insensitive. <br />Specify that the source is a config file. If build system finds a file with the same name, it will replace the config file. Please note if the config file is a header file, you need to record the file in `TARGET_FILES` when adding the path for that header file with `mcux_add_include`. |
+| PREINCLUDE    | Single        | `true` or `false`, case insensitive. Specify that the header is a preinclude header. This is only for `mcux_add_source`. |
+| EXCLUDE       | Single        | `true` or `false`, case insensitive. Specify the source shall be excluded from build. This is only for `mcux_add_source` |
+| SOURCES       | Multiple      | The sources. This is only for `mcux_add_source`. If there are multiple sources, please separate them with whitespace. |
+| SCOPE         | Single        | Specify the source scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for `mcux_add_source` and take same effect as target_sources scope. The default scope is PRIVATE. |
+| INCLUDES      | Multiple      | The includes. This is only for `mcux_add_include`. If there are multiple includes, please separate them with whitespace. |
+| TARGET_FILES  | Multiple      | This is only for `mcux_add_include`, which indicates the path is for the target header file. The base name of the file without parent folder path is accepted. Please note target header files must be added by `mcux_add_source` and marked `CONFIG TRUE`. |
+| COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.<br />The supported compilers include armclang, iar, gcc, xcc, mwcc56800e, riscvllvm. |
+| TOOLCHAINS    | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.<br />The supported toolchains include iar, mdk, armgcc, xcc, codewarrior, riscvllvm. |
+| CORES         | Multiple      | The cores. It means the source or include only supports the listed cores.<br />The supported cores include cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp, etc. |
+| CORE_IDS      | Multiple      | The core_ids. It means the source or include only supports the listed core_ids. This is usually to distinguish the support for core in multicore device. |
+| DEVICES       | Multiple      | The devices. It means the source or include only supports the listed device, like MIMXRT1176. |
+| DEVICE_IDS    | Multiple      | The device ids. It means the source or include only supports the listed device id, like MIMXRT1176xxxxx. |
+| FPU           | Multiple      | The fpu. It means the source or include only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU. |
+| DSP           | Multiple      | The dsp. It means the source or include only supports the listed dsp. dsp enum values are NO_DSP and HAS_DSP. |
+| TRUSTZONE     | Multiple      | The trustzone, enum values are TZ and  NO_TZ. TZ means the source or include are only enabled on device with SAU, NO_TZ means they are only enabled on device without SAU. |
+| COMPONENTS    | Multiple      | The components. It means the source or include only supports the listed components. |
 
 Wildcard `*.<extension>` is supported in `mcux_add_source`, frequently used ones are `*.*`, `*.c` and `*.h`.
 
@@ -192,10 +188,10 @@ endif()
 
 Add header files search path for codewarrior system libraries.
 
-| Argument Name        | Argument Type | Explanation                                                                     |
-| -------------------- | ------------- | ------------------------------------------------------------------------------- |
-| TARGETS              | Multiple      | The build targets, like debug release                                           |
-| SYS_SEARCH_PATH      | Multiple      | The path to be searched for header files                                        |
+| Argument Name        | Argument Type | Explanation                              |
+| -------------------- | ------------- | ---------------------------------------- |
+| TARGETS              | Multiple      | The build targets, like debug release    |
+| SYS_SEARCH_PATH      | Multiple      | The path to be searched for header files |
 | SYS_PATH_RECURSIVELY | Multiple      | The path and all the subdirectories to be searched recursively for header files |
 
 Here is one example
@@ -215,24 +211,24 @@ mcux_add_codewarrior_sys_include(
 
 Specify the library to be linked.
 
-| Argument Name | Argument Type | Explanation                                                                                                                                                                                                                                                                                                                                                                |
-| ------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final library path equals `BASE_PATH` + `LIB`s.<br />If not provided, the final library path equals `${CMAKE_CURRENT_LIST_DIR}` + `LIBS`. <br />This is usually used in abstracted `.cmake` files which are not placed together with real libraries. For CMakeLists.txt which is usually put together with real libraries, no need to add it. |
-| LIBS          | Multiple      | The libraries to be added                                                                                                                                                                                                                                                                                                                                                  |
-| SCOPE         | Single        | Specify the library scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for `mcux_add_library` and take same effect as target_link_libraries scope. The default scope is PRIVATE.                                                                                                                                                                                           |
-| TOOLCHAINS    | Multiple      | The toolchains. It means the library only supports the listed toolchains.<br />The supported toolchains include iar, mdk, armgcc, xcc, codewarrior.                                                                                                                                                                                                                       |
-| CORES         | Multiple      | The cores. It means the library only supports the listed cores.<br />The supported cores include cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp.                                                                                                                                                                                |
-| CORE_IDS      | Multiple      | The core_ids. It means the library only supports the listed core_ids. This is usually to distinguish the support for core in multicore device.                                                                                                                                                                                                                            |
-| DEVICES       | Multiple      | The devices. It means the library only supports the listed device, like MIMXRT1176.                                                                                                                                                                                                                                                                                        |
-| DEVICE_IDS    | Multiple      | The device ids. It means the library only supports the listed device id, like MIMXRT1176xxxxx.                                                                                                                                                                                                                                                                             |
-| FPU           | Multiple      | The fpu. It means the library only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU.                                                                                                                                                                                                                                                              |
-| DSP           | Multiple      | The dsp. It means the library only supports the listed dsp. dsp enum values are NO_DSP and HAS_DSP                                                                                                                                                                                                                                                                         |
-| TRUSTZONE     | Multiple      | The trustzone, enum values are TZ and  NO_TZ. TZ means the libraries are only enabled on device with SAU, NO_TZ means they are only enabled on device without SAU.                                                                                                                                                                                                         |
-| COMPONENTS    | Multiple      | The components. It means the library only supports the listed components.                                                                                                                                                                                                                                                                                                  |
-| GENERATED     | Single        | `TRUE` or `FALSE`<br />Specify the library is generated by other project. This is necessary for KEX package.                                                                                                                                                                                                                                                           |
-| EXCLUDE       | Single        | `TRUE` or `FALSE`<br />Specify the library is exclude from linking.                                                                                                                                                                                                                                                                                                   |
-| HIDDEN        | Single        | `TRUE` or `FALSE`<br />Specify the library is hidden from GUI project.                                                                                                                                                                                                                                                                                                 |
-| TARGETS       | Multiple      | Specify the library is for designated build configuration targets.                                                                                                                                                                                                                                                                                                         |
+| LIBS          | Multiple      | The libraries to be added                |
+| SCOPE         | Single        | Specify the library scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for `mcux_add_library` and take same effect as target_link_libraries scope. The default scope is PRIVATE. |
+| TOOLCHAINS    | Multiple      | The toolchains. It means the library only supports the listed toolchains.<br />The supported toolchains include iar, mdk, armgcc, xcc, codewarrior. |
+| CORES         | Multiple      | The cores. It means the library only supports the listed cores.<br />The supported cores include cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp. |
+| CORE_IDS      | Multiple      | The core_ids. It means the library only supports the listed core_ids. This is usually to distinguish the support for core in multicore device. |
+| DEVICES       | Multiple      | The devices. It means the library only supports the listed device, like MIMXRT1176. |
+| DEVICE_IDS    | Multiple      | The device ids. It means the library only supports the listed device id, like MIMXRT1176xxxxx. |
+| FPU           | Multiple      | The fpu. It means the library only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU. |
+| DSP           | Multiple      | The dsp. It means the library only supports the listed dsp. dsp enum values are NO_DSP and HAS_DSP |
+| TRUSTZONE     | Multiple      | The trustzone, enum values are TZ and  NO_TZ. TZ means the libraries are only enabled on device with SAU, NO_TZ means they are only enabled on device without SAU. |
+| COMPONENTS    | Multiple      | The components. It means the library only supports the listed components. |
+| GENERATED     | Single        | `TRUE` or `FALSE`<br />Specify the library is generated by other project. This is necessary for KEX package. |
+| EXCLUDE       | Single        | `TRUE` or `FALSE`<br />Specify the library is exclude from linking. |
+| HIDDEN        | Single        | `TRUE` or `FALSE`<br />Specify the library is hidden from GUI project. |
+| TARGETS       | Multiple      | Specify the library is for designated build configuration targets. |
 
 Here is one example:
 
@@ -267,11 +263,11 @@ mcux_convert_binary(
 
 Add linker for toolchain.
 
-| Argument Name | Argument Type | Explanation                                                                                                                                                           |
-| ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TARGETS       | Multiple      | The build targets, like debug release.                                                                                                                                |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | The build targets, like debug release.   |
 | BASE_PATH     | Single        | If provided, the final linker path equals `BASE_PATH` + `LINKER`. This is usually used in abstracted .cmake files which are not placed together with real linker. |
-| LINKER        | Single        | The linker path                                                                                                                                                       |
+| LINKER        | Single        | The linker path                          |
 
 Here is one example
 
@@ -301,13 +297,13 @@ Please remember to set `TARGETS` for the linker, otherwise the linker will be en
 
 #### mcux_add_macro
 
-| Argument Name | Argument Type | Explanation                                                            |
-| ------------- | ------------- | ---------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets. |
 | TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains. |
-| AS            | Single        | The assemble compiler macros.                                          |
-| CC            | Single        | The c compiler macros.                                                 |
-| CX            | Single        | The cxx compiler macros.                                               |
+| AS            | Single        | The assemble compiler macros.            |
+| CC            | Single        | The c compiler macros.                   |
+| CX            | Single        | The cxx compiler macros.                 |
 
 **Note**:
 
@@ -340,10 +336,10 @@ Please remember to set `TARGETS` for the linker, otherwise the linker will be en
 
 The CMake function `mcux_add_configuration` requires the complete toolchain setting. For linker macro setting, you have to add prefix for linker symbol. The prefix may be different for each linker. For example, `--config_def=` for iar, `--predefine=` for mdk. To be convenient to set linker symbol for all toolchains, `mcux_add_linker_symbol` is provided.
 
-| Argument Name | Argument Type | Explanation                                                            |
-| ------------- | ------------- | ---------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets. |
-| SYMBOLS       | Multiple      | The linker symbols.                                                    |
+| SYMBOLS       | Multiple      | The linker symbols.                      |
 
 For example:
 
@@ -365,15 +361,15 @@ For compatibility, it's also supported to wrap all symbols in double quotes.
 
 Add configuration for all toolchains with specified build targets.
 
-| Argument Name | Argument Type | Explanation                                                           |
-| ------------- | ------------- | --------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
 | TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
-| LIB           | Multiple      | The library, the full path                                            |
-| AS            | Single        | The assemble compiler flag                                            |
-| CC            | Single        | The c compiler flags                                                  |
-| CX            | Single        | The cxx compiler flags                                                |
-| LD            | Single        | The linker flags                                                      |
+| LIB           | Multiple      | The library, the full path               |
+| AS            | Single        | The assemble compiler flag               |
+| CC            | Single        | The c compiler flags                     |
+| CX            | Single        | The cxx compiler flags                   |
+| LD            | Single        | The linker flags                         |
 
 Please use native compiler flags of the compilers.
 
@@ -401,14 +397,14 @@ CMake provides built-in function `add_custom_command` which is useful for perfor
 
 It shall only be used in the project CMakelists.txt, not the component one.
 
-| Argument Name     | Argument Type | Explanation                                                                                                                                          |
-| ----------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TARGETS           | Multiple      | Supported build targets. If not provided, then supporting all targets                                                                                |
-| TOOLCHAINS        | Multiple      | Supported toolchains. If not provided, then supporting all toolchains                                                                                |
-| BUILD_EVENT       | Single        | Specify the time when the command is executed, can be `PRE_COMPILE`/`PRE_BUILD`/`PRE_LINK`/`POST_BUILD`. The default setting is `POST_BUILD`                  |
+| Argument Name     | Argument Type | Explanation                              |
+| ----------------- | ------------- | ---------------------------------------- |
+| TARGETS           | Multiple      | Supported build targets. If not provided, then supporting all targets |
+| TOOLCHAINS        | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
+| BUILD_EVENT       | Single        | Specify the time when the command is executed, can be `PRE_COMPILE`/`PRE_BUILD`/`PRE_LINK`/`POST_BUILD`. The default setting is `POST_BUILD` |
 | BUILD_COMMAND     | Multiple      | Specify the command-line(s) to execute. The format is same as CMake built-in function `add_custom_command`, do not wrap the command with double quotes |
-| BYPRODUCTS        | Multiple      | Specify the files to be generated by command. It can be omitted if the directory of the generated files exist.                                      |
-| WORKING_DIRECTORY | Single        | Specify the working directory to execute the command. The default directory is `${CMAKE_BINARY_DIR}`.                                              |
+| BYPRODUCTS        | Multiple      | Specify the files to be generated by command. It can be omitted if the directory of the generated files exist. |
+| WORKING_DIRECTORY | Single        | Specify the working directory to execute the command. The default directory is `${CMAKE_BINARY_DIR}`. |
 
 Here is one example:
 
@@ -449,15 +445,15 @@ Besides adding data, the build system also supports removing defined data. For e
 
 Remove configuration for all toolchains with specified build targets.
 
-| Argument Name | Argument Type | Explanation                                                           |
-| ------------- | ------------- | --------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
 | TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
-| LIB           | Multiple      | The full path of the library                                          |
-| AS            | Single        | The assemble compiler flags                                           |
-| CC            | Single        | The c compiler flags                                                  |
-| CX            | Single        | The cxx compiler flags                                                |
-| LD            | Single        | The linker flags                                                      |
+| LIB           | Multiple      | The full path of the library             |
+| AS            | Single        | The assemble compiler flags              |
+| CC            | Single        | The c compiler flags                     |
+| CX            | Single        | The cxx compiler flags                   |
+| LD            | Single        | The linker flags                         |
 
 Please use native compiler flags of the compilers.
 
@@ -480,13 +476,13 @@ Very similar with `mcux_remove_configuration`, just for specified toolchain.
 
 Remove macros for all toolchains with specified build targets.
 
-| Argument Name | Argument Type | Explanation                                                           |
-| ------------- | ------------- | --------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
 | TOOLCHAINS    | Multiple      | Supported toolchains. If not provided, then supporting all toolchains |
-| AS            | Single        | The assemble compiler macros                                          |
-| CC            | Single        | The c compiler macros                                                 |
-| CX            | Single        | The cxx compiler macros                                               |
+| AS            | Single        | The assemble compiler macros             |
+| CC            | Single        | The c compiler macros                    |
+| CX            | Single        | The cxx compiler macros                  |
 
 `mcux_remove_macro` automatically prefixes macros that do not have the `-D` prefix
 Here is one example:
@@ -499,10 +495,10 @@ mcux_remove_macro(CC "TESTMACRO")
 
 Remove linker symbol for all toolchains with specified build targets.
 
-| Argument Name | Argument Type | Explanation                                                           |
-| ------------- | ------------- | --------------------------------------------------------------------- |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | TARGETS       | Multiple      | Supported build targets. If not provided, then supporting all targets |
-| SYMBOLS       | Single        | The linker symbols to be removed                                      |
+| SYMBOLS       | Single        | The linker symbols to be removed         |
 
 Here is one example:
 
@@ -514,11 +510,11 @@ mcux_remove_linker_symbol(
 
 #### mcux_remove_iar_linker_script/mcux_remove_mdk_linker_script/mcux_remove_armgcc_linker_script/mcux_remove_codewarrior_linker_script
 
-| Argument Name | Argument Type | Explanation                                                                                                                                                   |
-| ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TARGETS       | Multiple      | The build targets, like debug release                                                                                                                         |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TARGETS       | Multiple      | The build targets, like debug release    |
 | BASE_PATH     | Single        | If provided, the final linker path equals `BASE_PATH` + `LINKER`. This is usually used in abstracted .cmake files which are not placed together with real linker. |
-| LINKER        | Single        | The linker path                                                                                                                                               |
+| LINKER        | Single        | The linker path                          |
 
 Here is one example:
 
@@ -546,11 +542,11 @@ mcux_remove_mdk_linker_script(
 
 Remove project source or include.
 
-| Argument Name | Argument Type | Explanation                                                                                                                                                                                                                                                                          |
-| ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`. This is usually used in abstracted .cmake files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
-| INCLUDES      | Multiple      | The include path.                                                                                                                                                                                                                                                                    |
-| SOURCES       | Multiple      | The source path.                                                                                                                                                                                                                                                                     |
+| INCLUDES      | Multiple      | The include path.                        |
+| SOURCES       | Multiple      | The source path.                         |
 
 Here is one example:
 
@@ -568,10 +564,10 @@ mcux_project_remove_include(
 
 Remove libraries. It will take effect no matter the library was added before or after this statement.
 
-| Argument Name  | Argument Type | Explanation                                                                                                                                      |
-| -------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| BASE_PATH      | Single        | If provided, the final source path equals `BASE_PATH` + `LIBS`. Otherwise the actual path is relative to `${CMAKE_CURRENT_LIST_DIR}` |
-| LIBS           | Multiple      | The library files to be removed                                                                                                                  |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `LIBS`. Otherwise the actual path is relative to `${CMAKE_CURRENT_LIST_DIR}` |
+| LIBS          | Multiple      | The library files to be removed          |
 
 Here is one example:
 

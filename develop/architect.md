@@ -3,7 +3,7 @@
 ## Introduction
 
 The MCUXpresso Software Development Kit (SDK) provides comprehensive
-software support for Kinetis and LPC Microcontrollers. The MCUXpresso
+software support for Kinetis, LPC, MCX, i.MX, RT, DSC, EZHV Microcontrollers and DSPs. The MCUXpresso
 SDK includes a flexible set of peripheral drivers designed to speed up
 and simplify development of embedded applications. Along with the
 peripheral drivers, the MCUXpresso SDK provides an extensive and rich
@@ -30,6 +30,8 @@ below.
 6.  Demo Applications based on the MCUXpresso SDK
 
 ![](media/Kinetis_SDK_Block_Diagram.jpg)
+
+MCUXpresso SDK provides a powerful and robust [build and configuration system](#build-and-configuration-system) which covers all aspects of the software development.
 
 ## CMSIS Support
 
@@ -378,6 +380,19 @@ updated for each configuration tool update.
 boards/\<board\>/project_tempalate
 
 devices/\<soc\>/project_template
+
+## Build and Configuration System
+
+MCUXpresso SDK build and configuration system is based on [CMake](https://cmake.org/) and [Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html). It serves every aspect of the software development:
+
+- Toolchain setup
+- Device enablement
+- Board enablement
+- Shield enablement
+- Component configuration and integration
+- Example configuration, complication, download and debug
+
+All software data are recorded in cmake, Kconfig and misc yaml files. All functionality commands and arguments have been integrated into MCUXpresso `west` extension which can be easily used. Please refer [Build and Configuration System](build_system/index.rst) for more details.
 
 ## Documentation
 
