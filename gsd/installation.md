@@ -102,7 +102,7 @@ After you installed the toolchains, to make the west build recognize them, you n
 | Toolchain                    | Environment Variable   | Example                                  | Cmd Line Argument           |
 | ---------------------------- | ---------------------- | ---------------------------------------- | :-------------------------- |
 | IAR                          | IAR_DIR                | `C:\iar` for Windows<br />`/opt/iarsystems/bxarm-9.40.2` for Linux | --toolchain iar             |
-| MDK                          | MDK_DIR                | `C:\Keil_v5` for Windows.<br />MDK is not officially supported with Linux. | --toolchain mdk             |
+| MDK                          | MDK_DIR                | `C:\Keil_v5` for Windows.<br />MDK IDE is not officially supported with Linux. | --toolchain mdk             |
 | Armgcc                       | ARMGCC_DIR             | `C:\armgcc` for windows<br />`/usr` for Linux. Typically  `arm-none-eabi-*` is installed under `/usr/bin` | --toolchain armgcc(default) |
 | Armclang                     | ARMCLANG_DIR           | `C:\ArmCompilerforEmbedded6.22` for Windows<br />`/opt/ArmCompilerforEmbedded6.21` for Linux | --toolchain mdk             |
 | Zephyr                       | ZEPHYR_SDK_INSTALL_DIR | `c:\NXP\zephyr-sdk-<version>` for windows<br />`/opt/zephyr-sdk-<version>` for Linux | --toolchain zephyr          |
@@ -113,7 +113,7 @@ After you installed the toolchains, to make the west build recognize them, you n
 
 - The `<toolchain>_DIR` is the root installation folder.
 
-- MDK toolchain using armclang only officially supports Windows. For Linux development, please directly use armclang toolchain. In Windows, since most Keil users will install MDK IDE instead of standalone armclang toolchain, the `MDK_DIR` has higher priority than `ARMCLANG_DIR`.
+- MDK IDE using armclang toolchain only officially supports Windows. In Linux, please directly use armclang toolchain by setting `ARMCLANG_DIR`. In Windows, since most Keil users will install MDK IDE instead of standalone armclang toolchain, the `MDK_DIR` has higher priority than `ARMCLANG_DIR`.
 
 - For Xtensa toolchain, please set the `XTENSA_CORE` environment variable. Here's an example list:
 
