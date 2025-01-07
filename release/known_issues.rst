@@ -724,3 +724,12 @@ Fail to set security after building connection with peer device and failed ratio
   **Affected modules**: 1XK_M2 1ZM_M2 2EL_M2
 
   **Affected platforms:** evkmimxrt1180 evkbmimxrt1170 mcxn9xxevk mimxrt685audevk evkbimxrt1050 evkcmimxrt1060 evkmimxrt1040 evkmimxrt685 evkmimxrt595
+
+.. rst-class:: hideable v2024-12-00 evkmimxrt1180
+
+Example hello_world_ns fails with mdk toolchain
+    The example hello_world_ns fails with mdk toolchain while switching to the non-secure world.
+
+    **Examples**: hello_world_ns, hello_world_s
+    **Affected toolchains**: mdk
+    **Affected platforms**: evkmimxrt1180
