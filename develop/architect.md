@@ -18,6 +18,8 @@ The MCUXpresso SDK architecture is built around the five key components listed b
 
 ![](media/Kinetis_SDK_Block_Diagram.jpg)
 
+MCUXpresso SDK provides a powerful and robust [build and configuration system](#build-and-configuration-system) which covers all aspects of the software development.
+
 ## CMSIS Support
 
 The MCUXpresso SDK CMSIS folder provides NXP support for the [Arm CMSIS Core](http://www.keil.com/pack/doc/cmsis/Core/html/index.html) standard. Along with SoC and peripheral header files, the SDK also includes common CMSIS header files for the Arm Cortex-M cores and the math and DSP libraries. The CMSIS DSP library source code is included for reference. 
@@ -277,6 +279,19 @@ The Project templates are located in:
 - `/devices/<soc\>/\<soc_family\>/\<soc_name>/`   
 
 **_NOTE_** The project template files must be verified to be compatible with a specific release version of the MCUXpresso Config Tool.
+
+## Build and Configuration System
+
+MCUXpresso SDK build and configuration system is based on [CMake](https://cmake.org/) and [Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html). It serves every aspect of the software development:
+
+- Toolchain setup
+- Device enablement
+- Board enablement
+- Shield enablement
+- Component configuration and integration
+- Example configuration, complication, download and debug
+
+All software data are recorded in cmake, Kconfig and misc yaml files. All functionality commands and arguments have been integrated into MCUXpresso `west` extension which can be easily used. Please refer [Build and Configuration System](build_system/index.rst) for more details.
 
 ## Documentation
 
