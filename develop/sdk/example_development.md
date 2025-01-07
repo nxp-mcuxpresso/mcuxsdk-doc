@@ -327,7 +327,26 @@ If your example already has generated build artifacts, you can directly type `we
 
 ### Convert a Repository Example to a Freestanding Example
 
-If you find one repository example functions are similar to your example and want to copy it from SDK repository into your own workspace as a freestanding example to start the development, here are the steps with evkbmimxrt1170 hello_world as an example:
+If you find one repository example functions are similar to your example and want to copy it from SDK repository into your own workspace as a freestanding example to start the development. You can use `west export_app` extension or manually convert it. Here take evkbmimxrt1170's hello_world example to demostrate how to get a freestanding example in above two ways.
+
+#### West extension export_app
+
+We provide `west export_app` extension to help developers quickly convert a repository example to a freestanding one without additional efforts on copying files or updating configurations. The usage is quite simple:
+
+```bash
+west export_app examples/demo_apps/hello_world -b evkbmimxrt1170 --core_id cm7 -o <new workspace>
+```
+
+Then you can get output like this:
+```bash
+=== Successfully create the freestanding project, see <new workspace>/examples/demo_apps/hello_world/CMakeLists.txt.
+=== you can use following command to build it.
+west build -b evkbmimxrt1170 -p always <new workspace>/examples/demo_apps/hello_world -DPrjRootDirPath=<new workspace> -d <new workspace>/build -Dcore_id=cm7
+```
+
+**NOTE**: `--build` parameter can tell the extension build the freestanding example after convertion.
+
+#### Manual Convertion
 
 1. Copy hello_world specific sources, CMakelists.txt and Kconfig into your workspace folder: `mcuxsdk/examples/demo_apps/hello_world/*` =>  `<new workspace>/hello_world/*`
 2. Update CMakeLists.txt: adjust paths and remove the `PROJECT_BOARD_PORT_PATH` from `project` macro
@@ -380,7 +399,7 @@ If you find one repository example functions are similar to your example and wan
 
    The `project_board_port_path` can be updated with true value like `examples/_boards/evkbmimxrt1170/demo_apps/hello_world`. Here is the updated Kconfig:
 
-   ```
+   ```bash
    # It is optional to provide example specific Kconfig.
    mainmenu "Hello World"
 
