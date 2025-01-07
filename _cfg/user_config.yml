@@ -164,6 +164,8 @@ modules:
       pattern: 'middleware/wireless/framework/*.md'
     - root: .
       pattern: 'middleware/wireless/framework/**/*.md'
+    - root: .
+      pattern: 'middleware/wireless/framework/**/*.PNG'
   mid_lwip:
     default: true
     external_contents:
