@@ -852,3 +852,14 @@ Example prince_rom does not complete successfully after the `Press any key to co
     **Affected toolchains:** iar
 
     **Affected platforms:** lpcxpresso55s36
+
+.. rst-class:: hideable v2024-12-00 v2024-12-00-pvw2 frdmmcxn947 mcxn9xxevk mcxn5xxevk
+
+The iped example does not complete successfully
+    The iped example fails at multiple points.
+
+    **Examples:** iped
+
+    **Affected toolchains:** All
+
+    **Affected platforms:** frdmmcxn947, mcxn9xxevk, mcxn5xxevk
