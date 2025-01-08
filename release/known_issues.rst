@@ -816,3 +816,28 @@ EdgeFast_Bluetooth handsfree example codec init fail
     **Workaround**: Manually release the I2C bus by temporarily configuring the I2C pin as GPIO before codec initialization
     **Examples**: handsfree, handsfree_ag
     **Affected platforms**: mimxrt700evk
+
+.. rst-class:: hideable v2024-12-00 evk9mimx8ulp evkmimx8ulp evkmimxrt595 evkmimxrt685 frdmmcxn236 frdmmcxn947 frdmmcxw71 k32w148evk mcxw72evk kw47evk kw45b41zevk kw45b41zloc lpcxpresso55s06 lpcxpresso55s16 lpcxpresso55s36 lpcxpresso55s69 mcimx93autoevk mcimx93evk mcimx93qsb mcxn5xxevk mcxn9xxevk mimxrt685audevk evkmimxrt1180
+
+Examples hello_world_ns, secure_faults_ns, and secure_faults_trdc_ns have incorrect library path in GUI projects
+    When the affected examples are generated as GUI projects, the library linking the secure and non-secure worlds has an incorrect path set.
+    This causes linking errors during project compilation.
+
+    **Examples:** hello_world_ns, hello_world_s, secure_faults_ns, secure_faults_s, secure_faults_trdc_ns, secure_faults_trdc_s
+
+    **Affected toolchains:** mdk, iar
+
+    **Affected platforms:** evk9mimx8ulp, evkmimx8ulp, evkmimxrt595, evkmimxrt685, frdmmcxn236, frdmmcxn947, frdmmcxw71, k32w148evk, mcxw72evk, kw47evk, kw45b41zevk, kw45b41zloc, lpcxpresso55s06, lpcxpresso55s16, lpcxpresso55s36, lpcxpresso55s69, mcimx93autoevk, mcimx93evk, mcimx93qsb, mcxn5xxevk, mcxn9xxevk, mimxrt685audevk, evkmimxrt1180
+
+    **Workaround:** In the IDE project settings for the non-secure (`_ns`) project, find the linked library (named `hello_world_s_CMSE_lib.o`, or similar, depending on the example project) and replace the path to the library with `<build_directory>/<secure_world_project_folder>/<IDE>/`, replacing the subdirectory names with the build directory, the secure world project name, and IDE name.
+
+.. rst-class:: hideable v2024-12-00 mcxn5xxevk frdmmcxn947 mcxn9xxevk rdrw612bga frdmrw612
+
+Example mbedtls_benchmark may hang on some targets on devices with ELS acceleration
+    Some targets of ELS accelerated devices may experience runtime issues when run with the default configuration of the mbedtls_benchmark application.
+
+    **Examples:** mbedtls_benchmark
+
+    **Affected toolchains:** All
+
+    **Affected platforms:** mcxn5xxevk, frdmmcxn947, mcxn9xxevk, rdrw612bga, frdmrw612
