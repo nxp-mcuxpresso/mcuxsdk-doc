@@ -774,3 +774,11 @@ The aws_examples don't work
 
     **Affected toolchains:** mcux
     **Affected platforms:** evkmimxrt1180
+
+.. rst-class:: hideable lpcxpresso54628 lpcxpresso54s018m v2024-12-00
+
+The aws_shadow_enet doesn't work
+    The example ends with message: xEventGroupSetBitsFromISR failed, increase configTIMER_QUEUE_LENGTH or configTIMER_TASK_PRIORITY.
+
+    **Affected toolchains:** mcux, mdk
+    **Affected platforms:** lpcxpresso54628, lpcxpresso54s018m
