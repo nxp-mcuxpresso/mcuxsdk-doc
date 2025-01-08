@@ -790,3 +790,11 @@ The aws_shadow_wifi_serial doesn't work
 
     **Affected toolchains:** mcux
     **Affected platforms:** lpcxpresso54s018m
+
+.. rst-class:: hideable lpcxpresso55s69 v2024-12-00
+
+The i2c_read_accel_value_transfer doesn't work
+    The example has problem with identification of accelerometer.
+
+    **Affected toolchains:** mcux, iar, mdk, armgcc
+    **Affected platforms:** lpcxpresso55s69
