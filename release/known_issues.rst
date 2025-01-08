@@ -841,3 +841,14 @@ Example mbedtls_benchmark may hang on some targets on devices with ELS accelerat
     **Affected toolchains:** All
 
     **Affected platforms:** mcxn5xxevk, frdmmcxn947, mcxn9xxevk, rdrw612bga, frdmrw612
+
+.. rst-class:: hideable v2024-12-00 lpcxpresso55s36
+
+Example prince_rom does not complete successfully after the `Press any key to continue` message
+    The prince_rom example hangs after prompting the user to press a button to continue program execution.
+
+    **Examples:** prince_rom
+
+    **Affected toolchains:** iar
+
+    **Affected platforms:** lpcxpresso55s36
