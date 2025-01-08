@@ -733,3 +733,12 @@ Example hello_world_ns fails with mdk toolchain
     **Examples**: hello_world_ns, hello_world_s
     **Affected toolchains**: mdk
     **Affected platforms**: evkmimxrt1180
+
+.. rst-class:: hideable evkcmimxrt1060 evkbmimxrt1170 v2024-12-00
+
+The wifi_webconfig example can crash while obtaining IP address
+    This issue can occur during DHCP handshake or other networking activity.
+
+	**Examples**: wifi_webconfig
+	**Affected toolchains**: mdk, mcux
+    **Affected platforms**: evkcmimxrt1060, evkbmimxrt1170
