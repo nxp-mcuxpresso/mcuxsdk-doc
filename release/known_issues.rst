@@ -753,8 +753,16 @@ The aws_shadow_wifi_nxp example doesn't work
 
 .. rst-class:: hideable mimxrt700evk v2024-12-00
 
-The flexio_spi_int_b2b flexio_spi_edma_b2b examples doesn't work
+The flexio_spi_int_b2b flexio_spi_edma_b2b examples don't work
     Boards cannot transfer data successfully.
 
     **Affected toolchains:** armgcc, mdk
     **Affected platforms:** mimxrt700evk
+
+.. rst-class:: hideable evkmimxrt1160 evkbmimxrt1170 v2024-12-00
+
+The cmsis_lpi2c_edma_b2b_transfer examples don't work correctly on CM4 core.
+    Boards cannot transfer data successfully.
+
+    **Affected toolchains:** mcux
+    **Affected platforms:** evkmimxrt1160, evkbmimxrt1170
