@@ -739,6 +739,14 @@ Example hello_world_ns fails with mdk toolchain
 The wifi_webconfig example can crash while obtaining IP address
     This issue can occur during DHCP handshake or other networking activity.
 
-	**Examples**: wifi_webconfig
-	**Affected toolchains**: mdk, mcux
-    **Affected platforms**: evkcmimxrt1060, evkbmimxrt1170
+    **Examples:** wifi_webconfig
+    **Affected toolchains:** mdk, mcux
+    **Affected platforms:** evkcmimxrt1060, evkbmimxrt1170
+
+.. rst-class:: hideable mimxrt700evk v2024-12-00
+
+The aws_shadow_wifi_nxp example doesn't work
+    The example ends with message: Failed to initialize file system.
+
+    **Affected toolchains:** mcux
+    **Affected platforms:** mimxrt700evk
