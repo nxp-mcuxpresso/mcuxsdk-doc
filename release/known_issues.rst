@@ -863,3 +863,14 @@ The iped example does not complete successfully
     **Affected toolchains:** All
 
     **Affected platforms:** frdmmcxn947, mcxn9xxevk, mcxn5xxevk
+
+.. rst-class:: hideable v2024-12-00 evkmimxrt1015 evkmimxrt1020 evkbimxrt1050 evkmimxrt1024
+
+The bee example does not complete successfully on MCUXpresso IDE
+    The bee example fails when built and run via MCUXpresso IDE due to misconfigured default memory configuration.
+
+    **Examples:** bee
+
+    **Affected toolchains:** mcux
+
+    **Affected platforms:** evkmimxrt1015, evkmimxrt1020, evkbimxrt1050, evkmimxrt1024
