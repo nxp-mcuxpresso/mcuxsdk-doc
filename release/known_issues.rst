@@ -782,3 +782,11 @@ The aws_shadow_enet doesn't work
 
     **Affected toolchains:** mcux, mdk
     **Affected platforms:** lpcxpresso54628, lpcxpresso54s018m
+
+.. rst-class:: hideable lpcxpresso54s018m v2024-12-00
+
+The aws_shadow_wifi_serial doesn't work
+    The example has problem with TLS connection.
+
+    **Affected toolchains:** mcux
+    **Affected platforms:** lpcxpresso54s018m
