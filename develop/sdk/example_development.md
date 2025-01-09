@@ -349,7 +349,7 @@ west build -b evkbmimxrt1170 -p always <new workspace>/examples/demo_apps/hello_
 #### Manual Convertion
 
 1. Copy hello_world specific sources, CMakelists.txt and Kconfig into your workspace folder: `mcuxsdk/examples/demo_apps/hello_world/*` =>  `<new workspace>/hello_world/*`
-2. Update CMakeLists.txt: adjust paths and remove the `PROJECT_BOARD_PORT_PATH` from `project` macro
+2. Update CMakeLists.txt: adjust paths and remove the `PROJECT_BOARD_PORT_PATH` from `project` macro, but since many [project segment](#project-segment) data uses the `project_board_port_path` which is inherited from the `project` macro  `PROJECT_BOARD_PORT_PATH`, extra definition for `project_board_port_path` shall be provided.
 
    - If using explicitly include SDK root CMakeList.txt way, then the CMakeLists.txt is
 
@@ -358,6 +358,8 @@ west build -b evkbmimxrt1170 -p always <new workspace>/examples/demo_apps/hello_
      include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
      # No PROJECT_BOARD_PORT_PATH in project
      project(hello_world LANGUAGES C CXX ASM)
+     # define the project_board_port_path
+     mcux_set_variable(project_board_port_path examples/_boards/${board}/multicore_examples/hello_world)
      include(${SdkRootDirPath}/CMakeLists.txt)
      mcux_add_source(
          SOURCES hello_world.c
@@ -378,6 +380,8 @@ west build -b evkbmimxrt1170 -p always <new workspace>/examples/demo_apps/hello_
       cmake_minimum_required(VERSION 3.30.0)
       find_package(McuxSDK 3.0.0 EXACT REQUIRED)
       project(hello_world LANGUAGES C CXX ASM)
+      # define the project_board_port_path
+      mcux_set_variable(project_board_port_path examples/_boards/${board}/multicore_examples/hello_world)
       mcux_add_source(
        SOURCES
          hello_world.c
