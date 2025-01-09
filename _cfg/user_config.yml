@@ -332,3 +332,8 @@ modules:
     external_contents:
     - root: 'docs'
       pattern: 'middleware/wireless/Zigbee/*'
+  mid_ieee:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/wireless/IEEE/*'
