@@ -327,3 +327,8 @@ modules:
     external_contents:
     - root: .
       pattern: 'middleware/edgefast_bluetooth/docs/*'
+  mid_zigbee:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/wireless/Zigbee/*'
