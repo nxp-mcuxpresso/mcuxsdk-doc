@@ -733,7 +733,14 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/aoi/doxygen/aoi.dox \
+INPUT = @SDK_BASE@/devices/MCX/MCXA/MCXA156/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/MCX/MCXA/MCXA156/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/MCX/MCXA/MCXA156/drivers/fsl_edma_soc.h \
+        @SDK_BASE@/devices/MCX/MCXA/MCXA156/drivers/fsl_inputmux_connections.h \
+        @SDK_BASE@/devices/MCX/MCXA/MCXA156/drivers/doxygen/reset.dox \
+        @SDK_BASE@/devices/MCX/MCXA/MCXA156/drivers/fsl_reset.h \
+        @SDK_BASE@/devices/MCX/MCXA/MCXA156/drivers/fsl_trdc_soc.h \
+        @SDK_BASE@/drivers/aoi/doxygen/aoi.dox \
         @SDK_BASE@/drivers/aoi/fsl_aoi.h \
         @SDK_BASE@/drivers/cdog/doxygen/cdog.dox \
         @SDK_BASE@/drivers/cdog/fsl_cdog.h \
@@ -938,7 +945,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/aoi/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXA/MCXA156/drivers/doxygen \
+             @SDK_BASE@/drivers/aoi/doxygen \
              @SDK_BASE@/drivers/cdog/doxygen \
              @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/crc/doxygen \

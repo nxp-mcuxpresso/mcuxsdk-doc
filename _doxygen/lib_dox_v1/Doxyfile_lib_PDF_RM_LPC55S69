@@ -733,7 +733,15 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/anactrl/doxygen/anactrl.dox \
+INPUT = @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/fsl_fro_calib.h \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/fsl_inputmux_connections.h \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/doxygen/power.dox \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/fsl_power.h \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/doxygen/reset.dox \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/fsl_reset.h \
+        @SDK_BASE@/drivers/anactrl/doxygen/anactrl.dox \
         @SDK_BASE@/drivers/anactrl/fsl_anactrl.h \
         @SDK_BASE@/drivers/casper/doxygen/casper.dox \
         @SDK_BASE@/drivers/casper/fsl_casper.h \
@@ -818,6 +826,11 @@ INPUT = @SDK_BASE@/drivers/anactrl/doxygen/anactrl.dox \
         @SDK_BASE@/drivers/flexcomm/usart/fsl_usart_dma.h \
         @SDK_BASE@/drivers/flexcomm/usart/doxygen/usart.dox \
         @SDK_BASE@/drivers/flexcomm/usart/fsl_usart.h \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/fsl_fro_calib.h \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/fsl_inputmux_connections.h \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/fsl_power.h \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/fsl_reset.h \
         @SDK_BASE@/drivers/anactrl/fsl_anactrl.h \
         @SDK_BASE@/drivers/casper/fsl_casper.h \
         @SDK_BASE@/drivers/cmp_1/fsl_cmp.h \
@@ -968,7 +981,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/anactrl/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/LPC/LPC5500/LPC55S69/drivers/doxygen \
+             @SDK_BASE@/drivers/anactrl/doxygen \
              @SDK_BASE@/drivers/casper/doxygen \
              @SDK_BASE@/drivers/cmp_1/doxygen \
              @SDK_BASE@/drivers/common/doxygen \

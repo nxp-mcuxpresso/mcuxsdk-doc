@@ -733,7 +733,14 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/camera_csr/doxygen/camera_csr.dox \
+INPUT = @SDK_BASE@/devices/i.MX/i.MX95/MIMX9596/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/i.MX/i.MX95/MIMX9596/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/i.MX/i.MX95/MIMX9596/drivers/fsl_edma_soc.h \
+        @SDK_BASE@/devices/i.MX/i.MX95/MIMX9596/drivers/doxygen/iomuxc.dox \
+        @SDK_BASE@/devices/i.MX/i.MX95/MIMX9596/drivers/fsl_iomuxc.h \
+        @SDK_BASE@/devices/i.MX/i.MX95/MIMX9596/drivers/fsl_memory.h \
+        @SDK_BASE@/devices/i.MX/i.MX95/MIMX9596/drivers/fsl_trdc_soc.h \
+        @SDK_BASE@/drivers/camera_csr/doxygen/camera_csr.dox \
         @SDK_BASE@/drivers/camera_csr/fsl_camera_csr.h \
         @SDK_BASE@/drivers/common/doxygen/common.dox \
         @SDK_BASE@/drivers/common/fsl_common.h \
@@ -968,7 +975,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/camera_csr/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX95/MIMX9596/drivers/doxygen \
+             @SDK_BASE@/drivers/camera_csr/doxygen \
              @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/dpu_1/doxygen \
              @SDK_BASE@/drivers/edma4/doxygen \

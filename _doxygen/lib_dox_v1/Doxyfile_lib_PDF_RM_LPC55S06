@@ -733,7 +733,14 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/anactrl/doxygen/anactrl.dox \
+INPUT = @SDK_BASE@/devices/LPC/LPC5500/LPC55S06/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S06/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S06/drivers/fsl_inputmux_connections.h \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S06/drivers/doxygen/power.dox \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S06/drivers/fsl_power.h \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S06/drivers/doxygen/reset.dox \
+        @SDK_BASE@/devices/LPC/LPC5500/LPC55S06/drivers/fsl_reset.h \
+        @SDK_BASE@/drivers/anactrl/doxygen/anactrl.dox \
         @SDK_BASE@/drivers/anactrl/fsl_anactrl.h \
         @SDK_BASE@/drivers/casper/doxygen/casper.dox \
         @SDK_BASE@/drivers/casper/fsl_casper.h \
@@ -920,7 +927,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/anactrl/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/LPC/LPC5500/LPC55S06/drivers/doxygen \
+             @SDK_BASE@/drivers/anactrl/doxygen \
              @SDK_BASE@/drivers/casper/doxygen \
              @SDK_BASE@/drivers/cdog/doxygen \
              @SDK_BASE@/drivers/cmp_1/doxygen \

@@ -733,7 +733,10 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/common/doxygen/common.dox \
+INPUT = @SDK_BASE@/devices/DSC/MC56F83xxx/MC56F83789/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/DSC/MC56F83xxx/MC56F83789/drivers/fsl_flash.h \
+        @SDK_BASE@/devices/DSC/MC56F83xxx/MC56F83789/drivers/fsl_sim.h \
+        @SDK_BASE@/drivers/common/doxygen/common.dox \
         @SDK_BASE@/drivers/common/fsl_common.h \
         @SDK_BASE@/drivers/common/fsl_common_dsc.h \
         @SDK_BASE@/drivers/dsc_cadc/fsl_cadc.h \
@@ -866,7 +869,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/common/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/DSC/MC56F83xxx/MC56F83789/drivers/doxygen \
+             @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/dsc_cadc/doxygen \
              @SDK_BASE@/drivers/dsc_cmp/doxygen \
              @SDK_BASE@/drivers/dsc_cop/doxygen \

@@ -733,7 +733,30 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/cdog/doxygen/cdog.dox \
+INPUT = @SDK_BASE@/devices/Wireless/RW/RW612/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/doxygen/i2s_bridge.dox \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/fsl_i2s_bridge.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/fsl_inputmux_connections.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/doxygen/io_mux.dox \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/fsl_io_mux.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/doxygen/iped.dox \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/fsl_iped.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/fsl_memory.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/doxygen/ocotp.dox \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/fsl_ocotp.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/doxygen/power.dox \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/fsl_power.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/doxygen/reset.dox \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/fsl_reset.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/romapi/bootloader/fsl_romapi.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/romapi/flexspi/fsl_romapi_flexspi.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/romapi/iap/fsl_kb_api.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/romapi/iap/fsl_romapi_iap.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/romapi/iap/fsl_sbloader_v3.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/romapi/nboot/fsl_romapi_nboot.h \
+        @SDK_BASE@/devices/Wireless/RW/RW612/drivers/romapi/otp/fsl_romapi_otp.h \
+        @SDK_BASE@/drivers/cdog/doxygen/cdog.dox \
         @SDK_BASE@/drivers/cdog/fsl_cdog.h \
         @SDK_BASE@/drivers/cns_acomp/doxygen/acomp.dox \
         @SDK_BASE@/drivers/cns_acomp/fsl_acomp.h \
@@ -932,7 +955,13 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/cdog/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/Wireless/RW/RW612/drivers/doxygen \
+             @SDK_BASE@/devices/Wireless/RW/RW612/drivers/romapi/bootloader/doxygen \
+             @SDK_BASE@/devices/Wireless/RW/RW612/drivers/romapi/flexspi/doxygen \
+             @SDK_BASE@/devices/Wireless/RW/RW612/drivers/romapi/iap/doxygen \
+             @SDK_BASE@/devices/Wireless/RW/RW612/drivers/romapi/nboot/doxygen \
+             @SDK_BASE@/devices/Wireless/RW/RW612/drivers/romapi/otp/doxygen \
+             @SDK_BASE@/drivers/cdog/doxygen \
              @SDK_BASE@/drivers/cns_acomp/doxygen \
              @SDK_BASE@/drivers/cns_adc/doxygen \
              @SDK_BASE@/drivers/cns_dac/doxygen \

@@ -733,7 +733,11 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/acmp_1/doxygen/acmp.dox \
+INPUT = @SDK_BASE@/devices/Kinetis/KE/MKE02Z4/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/Kinetis/KE/MKE02Z4/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/Kinetis/KE/MKE02Z4/drivers/doxygen/port.dox \
+        @SDK_BASE@/devices/Kinetis/KE/MKE02Z4/drivers/fsl_port.h \
+        @SDK_BASE@/drivers/acmp_1/doxygen/acmp.dox \
         @SDK_BASE@/drivers/acmp_1/fsl_acmp.h \
         @SDK_BASE@/drivers/adc_5v12b_ll18_015/doxygen/adc.dox \
         @SDK_BASE@/drivers/adc_5v12b_ll18_015/fsl_adc.h \
@@ -874,7 +878,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/acmp_1/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/Kinetis/KE/MKE02Z4/drivers/doxygen \
+             @SDK_BASE@/drivers/acmp_1/doxygen \
              @SDK_BASE@/drivers/adc_5v12b_ll18_015/doxygen \
              @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/crc/doxygen \

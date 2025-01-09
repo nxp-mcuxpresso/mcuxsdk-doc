@@ -733,7 +733,9 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/ccm32k/doxygen/ccm32k.dox \
+INPUT = @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/fsl_clock.h \
+        @SDK_BASE@/drivers/ccm32k/doxygen/ccm32k.dox \
         @SDK_BASE@/drivers/ccm32k/fsl_ccm32k.h \
         @SDK_BASE@/drivers/ce/fsl_ce.h \
         @SDK_BASE@/drivers/ce/fsl_ce_basic.h \
@@ -847,6 +849,7 @@ INPUT = @SDK_BASE@/drivers/ccm32k/doxygen/ccm32k.dox \
         @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart_edma.h \
         @SDK_BASE@/drivers/flexio/uart/doxygen/flexio_uart.dox \
         @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart.h \
+        @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/fsl_clock.h \
         @SDK_BASE@/drivers/ccm32k/fsl_ccm32k.h \
         @SDK_BASE@/drivers/ce/fsl_ce.h \
         @SDK_BASE@/drivers/ce/fsl_ce_basic.h \
@@ -1017,7 +1020,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/ccm32k/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/doxygen \
+             @SDK_BASE@/drivers/ccm32k/doxygen \
              @SDK_BASE@/drivers/ce/doxygen \
              @SDK_BASE@/drivers/ce/firmware/doxygen \
              @SDK_BASE@/drivers/cmc/doxygen \

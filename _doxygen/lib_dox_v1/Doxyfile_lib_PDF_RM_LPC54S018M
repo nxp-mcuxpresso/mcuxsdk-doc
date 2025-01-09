@@ -733,7 +733,15 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/aes/doxygen/aes.dox \
+INPUT = @SDK_BASE@/devices/LPC/LPC54000/LPC54S018M/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/LPC/LPC54000/LPC54S018M/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/LPC/LPC54000/LPC54S018M/drivers/fsl_fro_calib.h \
+        @SDK_BASE@/devices/LPC/LPC54000/LPC54S018M/drivers/fsl_inputmux_connections.h \
+        @SDK_BASE@/devices/LPC/LPC54000/LPC54S018M/drivers/doxygen/power.dox \
+        @SDK_BASE@/devices/LPC/LPC54000/LPC54S018M/drivers/fsl_power.h \
+        @SDK_BASE@/devices/LPC/LPC54000/LPC54S018M/drivers/doxygen/reset.dox \
+        @SDK_BASE@/devices/LPC/LPC54000/LPC54S018M/drivers/fsl_reset.h \
+        @SDK_BASE@/drivers/aes/doxygen/aes.dox \
         @SDK_BASE@/drivers/aes/fsl_aes.h \
         @SDK_BASE@/drivers/common/doxygen/common.dox \
         @SDK_BASE@/drivers/common/fsl_common.h \
@@ -779,7 +787,6 @@ INPUT = @SDK_BASE@/drivers/aes/doxygen/aes.dox \
         @SDK_BASE@/drivers/mcan/fsl_mcan.h \
         @SDK_BASE@/drivers/mrt/doxygen/mrt.dox \
         @SDK_BASE@/drivers/mrt/fsl_mrt.h \
-        @SDK_BASE@/drivers/mx25/doxygen/mx25.dox \
         @SDK_BASE@/drivers/mx25/fsl_mx25.h \
         @SDK_BASE@/drivers/otp/doxygen/otp.dox \
         @SDK_BASE@/drivers/otp/fsl_otp.h \
@@ -925,7 +932,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/aes/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/LPC/LPC54000/LPC54S018M/drivers/doxygen \
+             @SDK_BASE@/drivers/aes/doxygen \
              @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/ctimer/doxygen \
              @SDK_BASE@/drivers/dmic/doxygen \

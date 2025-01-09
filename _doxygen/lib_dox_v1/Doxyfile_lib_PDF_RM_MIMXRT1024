@@ -733,7 +733,11 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/adc_12b1msps_sar/doxygen/adc.dox \
+INPUT = @SDK_BASE@/devices/RT/RT1020/MIMXRT1024/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/RT/RT1020/MIMXRT1024/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/RT/RT1020/MIMXRT1024/drivers/doxygen/iomuxc.dox \
+        @SDK_BASE@/devices/RT/RT1020/MIMXRT1024/drivers/fsl_iomuxc.h \
+        @SDK_BASE@/drivers/adc_12b1msps_sar/doxygen/adc.dox \
         @SDK_BASE@/drivers/adc_12b1msps_sar/fsl_adc.h \
         @SDK_BASE@/drivers/adc_etc/doxygen/adc_etc.dox \
         @SDK_BASE@/drivers/adc_etc/fsl_adc_etc.h \
@@ -958,7 +962,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/adc_12b1msps_sar/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/RT/RT1020/MIMXRT1024/drivers/doxygen \
+             @SDK_BASE@/drivers/adc_12b1msps_sar/doxygen \
              @SDK_BASE@/drivers/adc_etc/doxygen \
              @SDK_BASE@/drivers/aipstz/doxygen \
              @SDK_BASE@/drivers/aoi/doxygen \

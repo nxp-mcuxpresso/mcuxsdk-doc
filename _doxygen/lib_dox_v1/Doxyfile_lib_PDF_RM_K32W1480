@@ -733,7 +733,9 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/ccm32k/doxygen/ccm32k.dox \
+INPUT = @SDK_BASE@/devices/Wireless/K32W/K32W1480/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/Wireless/K32W/K32W1480/drivers/fsl_clock.h \
+        @SDK_BASE@/drivers/ccm32k/doxygen/ccm32k.dox \
         @SDK_BASE@/drivers/ccm32k/fsl_ccm32k.h \
         @SDK_BASE@/drivers/cmc/doxygen/cmc.dox \
         @SDK_BASE@/drivers/cmc/fsl_cmc.h \
@@ -940,7 +942,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/ccm32k/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/Wireless/K32W/K32W1480/drivers/doxygen \
+             @SDK_BASE@/drivers/ccm32k/doxygen \
              @SDK_BASE@/drivers/cmc/doxygen \
              @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/crc/doxygen \

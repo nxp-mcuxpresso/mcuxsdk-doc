@@ -733,7 +733,11 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/common/doxygen/common.dox \
+INPUT = @SDK_BASE@/devices/i.MX/i.MX93/MIMX9352/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/i.MX/i.MX93/MIMX9352/drivers/fsl_edma_soc.h \
+        @SDK_BASE@/devices/i.MX/i.MX93/MIMX9352/drivers/fsl_iomuxc.h \
+        @SDK_BASE@/devices/i.MX/i.MX93/MIMX9352/drivers/fsl_memory.h \
+        @SDK_BASE@/drivers/common/doxygen/common.dox \
         @SDK_BASE@/drivers/common/fsl_common.h \
         @SDK_BASE@/drivers/common/fsl_common_arm.h \
         @SDK_BASE@/drivers/edma4/doxygen/edma.dox \
@@ -944,7 +948,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/common/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX93/MIMX9352/drivers/doxygen \
+             @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/edma4/doxygen \
              @SDK_BASE@/drivers/enet/doxygen \
              @SDK_BASE@/drivers/enet_qos/doxygen \

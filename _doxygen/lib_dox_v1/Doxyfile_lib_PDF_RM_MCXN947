@@ -733,7 +733,47 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/cdog/doxygen/cdog.dox \
+INPUT = @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_efuse.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash_ffr.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flexspi_nor_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_mem_interface.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_sbloader.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_sbloader_v3.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot_hal.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/runbootloader/fsl_runbootloader.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_mem_interface.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_sbloader.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_sbloader_v3.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash_ffr.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flexspi_nor_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot_hal.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot_hal.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_mem_interface.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_sbloader.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_sbloader_v3.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash_ffr.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flexspi_nor_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot_hal.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/runbootloader/fsl_runbootloader.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_efuse.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash_ffr.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flexspi_nor_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/fsl_edma_soc.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/fsl_inputmux_connections.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/doxygen/reset.dox \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/fsl_reset.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/fsl_trdc_soc.h \
+        @SDK_BASE@/drivers/cdog/doxygen/cdog.dox \
         @SDK_BASE@/drivers/cdog/fsl_cdog.h \
         @SDK_BASE@/drivers/common/doxygen/common.dox \
         @SDK_BASE@/drivers/common/fsl_common.h \
@@ -921,6 +961,44 @@ INPUT = @SDK_BASE@/drivers/cdog/doxygen/cdog.dox \
         @SDK_BASE@/drivers/lpflexcomm/lpuart/fsl_lpuart_edma.h \
         @SDK_BASE@/drivers/tsi/tsi_v6/doxygen/tsi_v6.dox \
         @SDK_BASE@/drivers/tsi/tsi_v6/fsl_tsi_v6.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_efuse.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash_ffr.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flexspi_nor_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_mem_interface.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_sbloader.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_sbloader_v3.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot_hal.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/runbootloader/fsl_runbootloader.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_mem_interface.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_sbloader.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_sbloader_v3.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash_ffr.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flexspi_nor_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot_hal.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot_hal.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_mem_interface.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_sbloader.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/fsl_sbloader_v3.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash_ffr.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flexspi_nor_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/fsl_nboot_hal.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/runbootloader/fsl_runbootloader.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_efuse.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flash_ffr.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/fsl_flexspi_nor_flash.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/fsl_edma_soc.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/fsl_inputmux_connections.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/fsl_reset.h \
+        @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/fsl_trdc_soc.h \
         @SDK_BASE@/drivers/cdog/fsl_cdog.h \
         @SDK_BASE@/drivers/common/fsl_common.h \
         @SDK_BASE@/drivers/common/fsl_common_arm.h \
@@ -1125,7 +1203,12 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/cdog/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/flash/doxygen \
+             @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/mem_interface/doxygen \
+             @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/nboot/doxygen \
+             @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/romapi/runbootloader/doxygen \
+             @SDK_BASE@/devices/MCX/MCXN/MCXN947/drivers/doxygen \
+             @SDK_BASE@/drivers/cdog/doxygen \
              @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/crc/doxygen \
              @SDK_BASE@/drivers/ctimer/doxygen \

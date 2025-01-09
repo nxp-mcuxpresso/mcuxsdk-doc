@@ -733,7 +733,19 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
+INPUT = @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_dsp.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_edma_soc.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_inputmux_connections.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/doxygen/iopctl.dox \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_iopctl.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_soc_mipi_dsi.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/doxygen/power.dox \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_power.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/doxygen/reset.dox \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_reset.h \
+        @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/acmp/fsl_acmp.h \
         @SDK_BASE@/drivers/cdog/doxygen/cdog.dox \
         @SDK_BASE@/drivers/cdog/fsl_cdog.h \
@@ -829,6 +841,20 @@ INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/lpflexcomm/lpuart/fsl_lpuart.h \
         @SDK_BASE@/drivers/lpflexcomm/lpuart/doxygen/lpuart_edma.dox \
         @SDK_BASE@/drivers/lpflexcomm/lpuart/fsl_lpuart_edma.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_dsp.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_edma_soc.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_ezhv.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_inputmux_connections.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_iopctl.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_soc_mipi_dsi.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_power.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/fsl_reset.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/romapi/bootloader/fsl_romapi.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/romapi/otp/fsl_romapi_otp.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/romapi/nboot/fsl_romapi_nboot.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/romapi/iap/fsl_romapi_iap.h \
+        @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/romapi/iap/fsl_sbloader_v3.h \
         @SDK_BASE@/drivers/acmp/fsl_acmp.h \
         @SDK_BASE@/drivers/cdog/fsl_cdog.h \
         @SDK_BASE@/drivers/common/fsl_common.h \
@@ -1004,7 +1030,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/acmp/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/doxygen \
+             @SDK_BASE@/drivers/acmp/doxygen \
              @SDK_BASE@/drivers/cdog/doxygen \
              @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/ctimer/doxygen \
@@ -1041,6 +1068,10 @@ IMAGE_PATH = @SDK_BASE@/drivers/acmp/doxygen \
              @SDK_BASE@/drivers/lpflexcomm/lpi2c/doxygen \
              @SDK_BASE@/drivers/lpflexcomm/lpspi/doxygen \
              @SDK_BASE@/drivers/lpflexcomm/lpuart/doxygen \
+             @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/romapi/bootloader/doxygen \
+             @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/romapi/otp/doxygen \
+             @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/romapi/nboot/doxygen \
+             @SDK_BASE@/devices/RT/RT700/MIMXRT798S/drivers/romapi/iap/doxygen \
              @SDK_BASE@/drivers/crc/doxygen \
              @SDK_BASE@/drivers/itrc/doxygen \
              @SDK_BASE@/drivers/lpc_freqme/doxygen \

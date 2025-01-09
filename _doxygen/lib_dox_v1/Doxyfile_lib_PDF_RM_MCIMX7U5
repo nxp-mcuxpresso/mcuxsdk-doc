@@ -733,7 +733,9 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
+INPUT = @SDK_BASE@/devices/i.MX/i.MX7ULP/MCIMX7U5/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/i.MX/i.MX7ULP/MCIMX7U5/drivers/fsl_iomuxc.h \
+        @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/acmp/fsl_acmp.h \
         @SDK_BASE@/drivers/common/doxygen/common.dox \
         @SDK_BASE@/drivers/common/fsl_common.h \
@@ -952,7 +954,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/acmp/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX7ULP/MCIMX7U5/drivers/doxygen \
+             @SDK_BASE@/drivers/acmp/doxygen \
              @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/crc/doxygen \
              @SDK_BASE@/drivers/dac12/doxygen \

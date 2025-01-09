@@ -733,7 +733,23 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
+INPUT = @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/doxygen/pmu.dox \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_pmu.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_dcdc.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/ecat/fsl_ecat.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_edma_soc.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_ele_base_api.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_gpc.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/doxygen/iomuxc.dox \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_iomuxc.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_memory.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_misc.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/romapi/fsl_romapi.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/doxygen/soc_src.dox \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_soc_src.h \
+        @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/acmp/fsl_acmp.h \
         @SDK_BASE@/drivers/aoi/doxygen/aoi.dox \
         @SDK_BASE@/drivers/aoi/fsl_aoi.h \
@@ -880,6 +896,18 @@ INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart.h \
         @SDK_BASE@/drivers/flexspi/flexspi_dma3/doxygen/flexspi_edma.dox \
         @SDK_BASE@/drivers/flexspi/flexspi_dma3/fsl_flexspi_edma.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_pmu.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_dcdc.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/ecat/fsl_ecat.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_edma_soc.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_ele_base_api.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_gpc.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_iomuxc.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_memory.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_misc.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/romapi/fsl_romapi.h \
+        @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/fsl_soc_src.h \
         @SDK_BASE@/drivers/acmp/fsl_acmp.h \
         @SDK_BASE@/drivers/aoi/fsl_aoi.h \
         @SDK_BASE@/drivers/asrc/fsl_asrc_edma.h \
@@ -1069,7 +1097,10 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/acmp/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/doxygen \
+             @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/ecat/doxygen \
+             @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/romapi/doxygen \
+             @SDK_BASE@/drivers/acmp/doxygen \
              @SDK_BASE@/drivers/aoi/doxygen \
              @SDK_BASE@/drivers/asrc/doxygen \
              @SDK_BASE@/drivers/bbnsm/doxygen \

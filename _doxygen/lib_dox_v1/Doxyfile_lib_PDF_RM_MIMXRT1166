@@ -733,7 +733,15 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
+INPUT = @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/doxygen/iomuxc.dox \
+        @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/fsl_iomuxc.h \
+        @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/fsl_soc_mipi_csi2rx.h \
+        @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/fsl_soc_mipi_dsi.h \
+        @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/romapi/fsl_romapi.h \
+        @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/flexram/fsl_flexram_allocate.h \
+        @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/acmp/fsl_acmp.h \
         @SDK_BASE@/drivers/adc_etc/doxygen/adc_etc.dox \
         @SDK_BASE@/drivers/adc_etc/fsl_adc_etc.h \
@@ -899,6 +907,12 @@ INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart_edma.h \
         @SDK_BASE@/drivers/flexio/uart/doxygen/flexio_uart.dox \
         @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart.h \
+        @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/fsl_iomuxc.h \
+        @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/fsl_soc_mipi_csi2rx.h \
+        @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/fsl_soc_mipi_dsi.h \
+        @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/romapi/fsl_romapi.h \
+        @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/flexram/fsl_flexram_allocate.h \
         @SDK_BASE@/drivers/acmp/fsl_acmp.h \
         @SDK_BASE@/drivers/adc_etc/fsl_adc_etc.h \
         @SDK_BASE@/drivers/aoi/fsl_aoi.h \
@@ -1091,7 +1105,10 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/acmp/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/doxygen \
+             @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/romapi/doxygen \
+             @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/flexram/doxygen \
+             @SDK_BASE@/drivers/acmp/doxygen \
              @SDK_BASE@/drivers/adc_etc/doxygen \
              @SDK_BASE@/drivers/aoi/doxygen \
              @SDK_BASE@/drivers/asrc/doxygen \

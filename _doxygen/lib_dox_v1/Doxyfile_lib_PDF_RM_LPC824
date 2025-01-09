@@ -733,7 +733,16 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/common/doxygen/common.dox \
+INPUT = @SDK_BASE@/devices/LPC/LPC800/LPC824/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/LPC/LPC800/LPC824/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/LPC/LPC800/LPC824/drivers/fsl_inputmux_connections.h \
+        @SDK_BASE@/devices/LPC/LPC800/LPC824/drivers/doxygen/power.dox \
+        @SDK_BASE@/devices/LPC/LPC800/LPC824/drivers/fsl_power.h \
+        @SDK_BASE@/devices/LPC/LPC800/LPC824/drivers/doxygen/reset.dox \
+        @SDK_BASE@/devices/LPC/LPC800/LPC824/drivers/fsl_reset.h \
+        @SDK_BASE@/devices/LPC/LPC800/LPC824/drivers/fsl_swm_connections.h \
+        @SDK_BASE@/devices/LPC/LPC800/LPC824/drivers/fsl_syscon_connections.h \
+        @SDK_BASE@/drivers/common/doxygen/common.dox \
         @SDK_BASE@/drivers/common/fsl_common.h \
         @SDK_BASE@/drivers/common/fsl_common_arm.h \
         @SDK_BASE@/drivers/flexcomm/doxygen/flexcomm.dox \
@@ -890,7 +899,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/common/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/LPC/LPC800/LPC824/drivers/doxygen \
+             @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/flexcomm/doxygen \
              @SDK_BASE@/drivers/iap/doxygen \
              @SDK_BASE@/drivers/inputmux/doxygen \

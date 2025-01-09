@@ -733,7 +733,9 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/adc16/doxygen/adc16.dox \
+INPUT = @SDK_BASE@/devices/Kinetis/K32L/K32L2A41A/drivers/doxygen/clock.dox \
+        @SDK_BASE@/devices/Kinetis/K32L/K32L2A41A/drivers/fsl_clock.h \
+        @SDK_BASE@/drivers/adc16/doxygen/adc16.dox \
         @SDK_BASE@/drivers/adc16/fsl_adc16.h \
         @SDK_BASE@/drivers/cmp/doxygen/cmp.dox \
         @SDK_BASE@/drivers/cmp/fsl_cmp.h \
@@ -951,7 +953,8 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/adc16/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/Kinetis/K32L/K32L2A41A/drivers/doxygen \
+             @SDK_BASE@/drivers/adc16/doxygen \
              @SDK_BASE@/drivers/cmp/doxygen \
              @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/crc/doxygen \

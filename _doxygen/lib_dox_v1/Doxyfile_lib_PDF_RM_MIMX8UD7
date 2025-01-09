@@ -733,7 +733,33 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
+INPUT = @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_iomuxc.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_memory.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_reset.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_sentinel.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_soc_mipi_dsi.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_upower.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/upower/upower_soc_defs.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/upower/pmic_model.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/upower/upmu.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/upower/upower_api.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/upower/upower_defs.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/upower/upwr_pmic_defs.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_iomuxc.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_memory.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_reset.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_sentinel.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_soc_mipi_dsi.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/fsl_upower.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/upower/upower_soc_defs.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/upower/pmic_model.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/upower/upmu.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/upower/upower_api.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/upower/upower_defs.h \
+        @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/upower/upwr_pmic_defs.h \
+        @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/acmp/fsl_acmp.h \
         @SDK_BASE@/drivers/bbnsm/doxygen/bbnsm.dox \
         @SDK_BASE@/drivers/bbnsm/fsl_bbnsm.h \
@@ -969,7 +995,9 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/drivers/acmp/doxygen \
+IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/doxygen \
+             @SDK_BASE@/devices/i.MX/i.MX8ULP/MIMX8UD7/drivers/upower/doxygen \
+             @SDK_BASE@/drivers/acmp/doxygen \
              @SDK_BASE@/drivers/bbnsm/doxygen \
              @SDK_BASE@/drivers/casper/doxygen \
              @SDK_BASE@/drivers/cmc/doxygen \
