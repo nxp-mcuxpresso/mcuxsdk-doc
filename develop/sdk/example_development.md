@@ -334,7 +334,7 @@ If you find one repository example functions are similar to your example and wan
 We provide `west export_app` extension to help developers quickly convert a repository example to a freestanding one without additional efforts on copying files or updating configurations. The usage is quite simple:
 
 ```bash
-west export_app examples/demo_apps/hello_world -b evkbmimxrt1170 --core_id cm7 -o <new workspace>
+west export_app examples/demo_apps/hello_world -b evkbmimxrt1170 -Dcore_id=cm7 -o <new workspace>
 ```
 
 Then you can get output like this:
