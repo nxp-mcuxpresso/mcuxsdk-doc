@@ -20,4 +20,5 @@ As illustrated in previous chapters, MCUXpresso SDK is based on CMake and Kconfi
       :maxdepth: 1
       :caption: Internal Doc
 
+      Internal Example, Device and Board Development <internal_example_device_board_development.md>
       Platform Library <platform_library.md>
