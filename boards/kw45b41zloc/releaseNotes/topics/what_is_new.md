@@ -1,12 +1,11 @@
 # What is new
 
-The following changes have been implemented compared to the previous SDK release version \(2.16.100\).
+The following changes have been implemented compared to the previous SDK release version \(24.12.00-pvw2\).
 
 
 -   **Bluetooth LE host stack and applications**
-    -  Added initial experimental support for Bluetooth LE host feature: Periodic Advertising with Responses \(PAwR\)
-    -  Added initial experimental support for Bluetooth LE host feature: Encrypted Advertising Data \(EAD\)
     -  Minor fixes and stability improvements
+    -  Documentation updates
 
 -   **Bluetooth LE controller**
     -  Added initial experimental support for Bluetooth LE Controller feature: Periodic Advertising with Responses \(PAwR)\
