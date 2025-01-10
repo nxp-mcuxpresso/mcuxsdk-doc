@@ -705,7 +705,7 @@ mdk:
 
 **For IDE GUI project generation, ruby version equal or later than `3.1.2` is required.**
 
-### Use Provided Portable Ruby Environment(recommended)
+### Use Provided Portable Ruby Environment (recommended)
 
 You can simply run `west install_ruby` to get a portable version of ruby with all required gems. It supports following platforms:
 
@@ -713,7 +713,9 @@ You can simply run `west install_ruby` to get a portable version of ruby with al
 - x86_64-LInux with **glibc >= 2.17**, compatible with most modern Linux distributions.
 - MacOS Big Sur or later (including M series chip).
 
-> The west extension `install_ruby` is implemented in core repo `scripts` folder, please refer [Get MCUXpresso SDK Repo](../../gsd/installation.md#get-mcuxpresso-sdk-repo) to setup the repository. After the repository is ready, you should firstly run `west config commands.allow_extensions true` to enable west extensions otherwise you will get error "unknown command install_ruby".
+```{important}
+The west extension `install_ruby` is implemented in core repo `scripts` folder, please refer [Get MCUXpresso SDK Repo](../../gsd/installation.md#get-mcuxpresso-sdk-repo) to setup the repository. After the repository is ready, you should firstly run `west config commands.allow_extensions true` to enable west extensions otherwise you will get error <span style="color:red">unknown command install_ruby</span>.
+```
 
 By default, portable_ruby will be extracted to `~/portable-ruby` for Linux/macOS and `C:\portable_ruby` for Windows. You can use `west install_ruby -o <path>` if you want to extract it to another place.
 

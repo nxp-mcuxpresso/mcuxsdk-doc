@@ -238,6 +238,9 @@ west init -m https://github.com/nxp-mcuxpresso/mcuxsdk-manifests/ mcuxpresso-sdk
 # Update the west projects
 cd mcuxpresso-sdk
 west update
+
+# Allow the usage of west extensions provided by MCUXpresso SDK
+west config commands.allow_extensions true
 ```
 
 # Install Python Dependency
