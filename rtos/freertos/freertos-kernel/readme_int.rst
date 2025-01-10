@@ -1,7 +1,7 @@
 .. _freertos-kernel-int:
 
-Readme
-######
+FreeRTOS kernel Readme
+######################
 
 .. toctree::
    :maxdepth: 1

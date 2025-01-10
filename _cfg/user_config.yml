@@ -223,9 +223,25 @@ modules:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/multicore/rpmsg-lite/*.md'
+      pattern: 'middleware/multicore/*.md'
     - root: .
-      pattern: 'middleware/multicore/rpmsg-lite/doc/*'
+      pattern: 'middleware/multicore/mcuxsdk-doc/MCSDK_ReleaseNotes/*.md'
+    - root: .
+      pattern: 'middleware/multicore/mcuxsdk-doc/MCSDK_ReleaseNotes/topics/*.md'
+    - root: .
+      pattern: 'middleware/multicore/mcuxsdk-doc/MCSDK_GettingStarted/*.md'
+    - root: .
+      pattern: 'middleware/multicore/mcuxsdk-doc/MCSDK_GettingStarted/topics/*.md'
+    - root: .
+      pattern: 'middleware/multicore/mcuxsdk-doc/MCSDK_GettingStarted/images/*.*'
+    - root: .
+      pattern: 'middleware/multicore/mcuxsdk-doc/eRPC_GettingStarted/*.md'
+    - root: .
+      pattern: 'middleware/multicore/mcuxsdk-doc/eRPC_GettingStarted/topics/*.md'
+    - root: .
+      pattern: 'middleware/multicore/mcuxsdk-doc/eRPC_GettingStarted/images/*.*'
+    - root: .
+      pattern: 'middleware/multicore/rpmsg-lite/*.md'
     - root: .
       pattern: 'middleware/multicore/rpmsg-lite/doxygen/*'
     - root: .
@@ -259,6 +275,12 @@ modules:
     external_contents:
     - root: .
       pattern: 'rtos/freertos/freertos-kernel/README.md'
+    - root: .
+      pattern: 'rtos/freertos/freertos-kernel/README_mcuxsdk.md'
+    - root: .
+      pattern: 'rtos/freertos/freertos-kernel/CHANGELOG_mcuxsdk.md'
+    - root: .
+      pattern: 'rtos/freertos/freertos-kernel/mcuxsdk-doc/*.*'
     - root: .
       pattern: 'rtos/freertos/backoffalgorithm/README.md'
     - root: .
