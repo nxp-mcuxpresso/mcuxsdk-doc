@@ -9,4 +9,6 @@ Open source RTOS kernel for small devices.
    :maxdepth: 1
    :glob:
 
+   readme_mcuxsdk_int.rst
+   changelog_mcuxsdk_int.rst
    readme_int.rst
