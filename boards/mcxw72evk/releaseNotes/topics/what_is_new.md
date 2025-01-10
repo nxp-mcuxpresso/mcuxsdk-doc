@@ -30,6 +30,8 @@ The following changes have been implemented compared to the previous SDK release
             - Misra fixes
 
 -   **Zigbee and IEEE 802.15.4**
-    -  Minor fixes for Zigbee PRO R22 configuration.
-    -  Zigbee Pro 2023 Configuration is not supported in this release.
-    
+    -  802.15.4 low power enabled
+    -  Added Zigbee Pro 2023 experimental and examples applications for ZC, ZR, ZED
+    -  Introduced experimental support for MAC split architecture with FreeRTOS host stack and examples applications for ZC, ZR, ZED
+    -  Minor fixes for Zigbee PRO R22 configuration
+    -  Fixed the size of TLVs for Node_desc_req in R23 examples
