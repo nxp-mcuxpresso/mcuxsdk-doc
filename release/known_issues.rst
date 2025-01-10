@@ -874,3 +874,14 @@ The bee example does not complete successfully on MCUXpresso IDE
     **Affected toolchains:** mcux
 
     **Affected platforms:** evkmimxrt1015, evkmimxrt1020, evkbimxrt1050, evkmimxrt1024
+
+.. rst-class:: hideable v2024-12-00 kw45b41zloc
+
+The freertos_lpuart example does not complete successfully
+    The example hangs after console output 'FreeRTOS LPUART driver example'.
+
+    **Examples:** freertos_lpuart
+
+    **Affected toolchains:** All
+
+    **Affected platforms:** kw45b41zloc
