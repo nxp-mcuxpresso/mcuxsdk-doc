@@ -885,3 +885,14 @@ The freertos_lpuart example does not complete successfully
     **Affected toolchains:** All
 
     **Affected platforms:** kw45b41zloc
+
+The freertos_tickless example does not complete successfully
+    The example does not perform as expected (Ticks do not printed on the console or the application does not wake up from the sleep mode).
+
+    **Examples:** freertos_tickless
+
+    **Affected toolchains:** All
+
+    **Affected platforms:** frdmrw612, evkmcimx7ulp, evkmimx8mn, evkmimx8mnddr3l, evkmimx8mq, frdmk32l3a6, kw45b41zloc
+
+.. rst-class:: hideable v2024-12-00
