@@ -337,8 +337,7 @@ modules:
     external_contents:
     - root: 'docs'
       pattern: 'middleware/wireless/WiFi/*'
-  
-mid_usb:
+  mid_usb:
     default: true
     external_contents:
     - root: .
