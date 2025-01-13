@@ -14,7 +14,7 @@ Support for FreeRTOS available within the MCUXpresso SDK.
 
 
 
-The i.MX RT1060 Evaluation Kit is supported by Zephyr OS for developing the Internet of Things with a free, open-source embedded operating system. Click`here <https://docs.zephyrproject.org/latest/boards/arm/mimxrt1060_evk/doc/index.html?highlight=mimxrt1060_evk>`__to learn more.
+The i.MX RT1060 Evaluation Kit is supported by Zephyr OS for developing the Internet of Things with a free, open-source embedded operating system.
 
 
 
