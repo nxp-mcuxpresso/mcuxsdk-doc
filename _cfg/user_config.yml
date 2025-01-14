@@ -89,10 +89,10 @@ modules:
   drivers:
     default: true
     external_contents:
-    - root: docs
-      pattern: drivers/*
-  release:
-    default: true
+    - root: 'docs'
+      pattern: 'drivers/*'
+  releases:
+    default: True
     external_contents:
     - root: docs
       pattern: release/*
