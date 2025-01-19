@@ -46,7 +46,7 @@ west build -b frdmk22f examples/demo_apps/hello_world --config release
 For multicore devices, you shall specify the corresponding core id by passing the command line argument `-Dcore_id`. For example
 
 ```bash
-west build -b evkmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug
+west build -b evkbmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug
 ```
 
 For shield, please use the `--shield` to specify the shield to run, like
@@ -60,18 +60,18 @@ west build -b mimxrt700evk --shield a8974 examples examples/issdk_examples/senso
 To support multicore project building, we ported Sysbuild from Zephyr. It supports combine multiple projects for compilation. You can build all projects by adding `--sysbuild` for main application. For example:
 
 ```bash
-west build -b evkmimxrt1170 --sysbuild ./examples/middleware/multicore/multicore_examples/hello_world/primary -Dcore_id=cm7 --config flexspi_nor_debug -p always
+west build -b evkbmimxrt1170 --sysbuild ./examples/multicore_examples/hello_world/primary -Dcore_id=cm7  --config flexspi_nor_debug --toolchain=armgcc -p always
 ```
 For more details, please refer to [System build](../develop/build_system/Sysbuild.md#sysbuild).
 
-## Config a project
+## Config a Project
 
 Example in MCUXpresso SDK is configured and tested with pre-defined configuration. You can follow steps blow to change the configuration.
 
 1. Run cmake configuration
 
 ```bash
-west build -b frdmk22f examples/demo_apps/hello_world --cmake-only
+west build -b evkbmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm7 --cmake-only -p
 ```
 
 Please note the project will be built without `--cmake-only` parameter.
@@ -108,3 +108,18 @@ Start a gdb interface by following command:
 ```bash
 west debug -r linkserver
 ```
+## Work with IDE Project
+
+The above build functionalities are all with CLI. If you want to use the toolchain IDE to work to enjoy the better user experience especially for debugging or you are already used to develop with IDEs like  IAR, MDK, Xtensa and CodeWarrior in the embedded world, you can play with our [IDE project generation](../develop/build_system/IDE_Project.md) functionality.
+
+This is the cmd to generate the evkbmimxrt1170 hello_world IAR IDE project files.
+
+```bash
+west build -b evkbmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug -p always -t guiproject
+```
+
+By default, the IDE project files are generated in `mcuxsdk/build/<toolchain>` folder, you can open the project file with the IDE tool to work:
+
+![gui_project](../develop/build_system/_doc/gui_project.gif)
+
+Note, please follow the [Installation](./installation.md) to setup the environment especially make sure that [ruby](./installation.md/ruby) has been installed.
