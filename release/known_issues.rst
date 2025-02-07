@@ -16,7 +16,7 @@ A known issue can list one or both of the following entries:
   Sometimes, they are discovered later and added over time.
 
 .. version-filter::
-  :default: v2024-12-00
+  :default: v2025-03-00-pvw2
   :container: dl/dt
   :tags: [("evk9mimx8ulp", "EVK9-MIMX8ULP"),
       ("evkbimxrt1050", "EVKB-IMXRT1050"),
@@ -909,3 +909,17 @@ TF-M secure and EL2GO examples incorrect path in "Download extra image" with iar
             1.) Flash secure and non secure bins via Jlink or SPSDK after the build with IDE and providing with correct paths of secure and non-secure binaries.
             or
             2.) Add {target} debug/release in path of "Download extra image" for iar and  for MDK in xxx_flashdownload.ini file.
+
+.. rst-class:: hideable v2025-03-00-pvw2 mimxrt700evk
+
+XAF_playback limitation
+    SBC decoder is not working on the hifi4 core of RT700.
+
+    **Affected platforms:** mimxrt700evk
+
+.. rst-class:: hideable v2025-03-00-pvw2
+
+Maestro_playback limitation
+    FLAC decoder has missing samples in the beginning of the stream when sample rate convertor is enabled (by default).
+
+    **Workaround:** Disabling the sample rate convertor can fix the issue (Remove the SSRC_PROC from project defined symbols).
