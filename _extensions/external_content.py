@@ -115,9 +115,10 @@ def sync_contents(app: Sphinx) -> None:
         prefix_src, glob = content
         for src in prefix_src.glob(glob):
             if src.is_dir():
-                to_copy.extend(
-                    [(f, prefix_src) for f in src.glob("**/*") if not f.is_dir()]
-                )
+                if not str(src).endswith(".git"):
+                    to_copy.extend(
+                        [(f, prefix_src) for f in src.glob("**/*") if not f.is_dir()]
+                    )
             else:
                 to_copy.append((src, prefix_src))
 

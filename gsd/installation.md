@@ -39,70 +39,79 @@ pip install -U west
 
 ## Build And Configuration System
 
-### [CMake](https://cmake.org/)
+### CMake
 
-It is strongly recommended to use CMake version equal or later than `3.30.0`. You can get latest CMake distributions from [the official CMake download page](https://cmake.org/download/).
+Follow the [CMake](https://cmake.org/getting-started/) doc to install CMake. The minimum version is `3.30.0`.
 
-For Windows, you can directly use the .msi installer like [cmake-3.31.4-windows-x86_64.msi](https://github.com/Kitware/CMake/releases/download/v3.31.4/cmake-3.31.4-windows-x86_64.msi) to install.
+Use `cmake --version` to check the version if you have a version installed.
 
-For Linux, CMake can be installed using the system package manager or by getting binaries from [the official CMake download page](https://cmake.org/download/).
+### Ninja
 
-After installation, you can use `cmake --version` to check the version.
+Install the [Ninja](https://ninja-build.org/). Please use the ninja version equal or greater than `1.12.1`.
 
-### [Ninja](https://ninja-build.org/)
+Use `ninja --version` to check the version if you have a version installed.
 
-Please use the ninja version equal or later than `1.12.1`.
+### Kconfig
 
-By default, Windows comes with the Ninja program. If the default Ninja version is too old, you can directly download the [ninja binary](https://github.com/ninja-build/ninja/releases) and register the ninja executor location path into your system path variable to work.
+Kconfig is installed during python library installation
 
-For Linux, you can use your [system package manager](https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages) or you can directly download the [ninja binary](https://github.com/ninja-build/ninja/releases) to work.
+### Ruby - Optional
 
-After installation, you can use `ninja --version` to check the version.
+**If you don't need GUI based IAR/MDK project, skip this step.**
 
-### [Kconfig](https://docs.kernel.org/kbuild/kconfig-language.html)
-
-MCUXpresso SDK uses Kconfig python implementation. We customize it based on our needs and integrate it into our [build and configuration system](../develop/build_system/index.rst). The Kconfiglib sources are placed under `mcuxsdk/scripts/kconfig` folder.
-
-Please make sure [python](#python) environment is setup ready then you can use the Kconfig.
-
-### [Ruby](https://www.ruby-lang.org/en/)
-
-Our build system supports [IDE project generation](../develop/build_system/IDE_Project.md) for iar, mdk, codewarrior and xtensa to provide OOBE from build to debug. This feature is implemented with ruby. You can follow the guide [ruby environment setup](../develop/build_system/IDE_Project.md#ruby-environment-setup) to setup the ruby environment. Since we provide a built-in portable ruby, it is just a simple one cmd installation.
-
-If you only work with CLI, you can skip this step.
+Install ruby for GUI project generation and standalone project generation. Follow the guide [ruby environment setup](../develop/build_system/IDE_Project.md#ruby-environment-setup).
 
 ### Toolchain
 
-MCUXpresso SDK supports all mainstream toolchains for embedded development. You can install your used or interested toolchains following the guides.
+#### IAR
 
-| Toolchain                    | Download and Installation Guide          | Note                        |
-| ---------------------------- | ---------------------------------------- | --------------------------- |
-| Armgcc                       | [Arm GNU Toolchain Install Guide](https://learn.arm.com/install-guides/gcc/arm-gnu/) | ARMGCC is default toolchain |
-| IAR                          | [IAR Installation and Licensing quick reference guide](https://www.iar.com/siteassets/knowledge/support/tech-notes/qr_lms2.pdf) |                             |
-| MDK                          | [MDK Installation](https://developer.arm.com/documentation/109350/v6/Installation?lang=en) |                             |
-| Armclang                     | [Installing Arm Compiler for Embedded](https://developer.arm.com/documentation/100748/0618/Getting-Started/Installing-Arm-Compiler-for-Embedded) |                             |
-| Zephyr                       | [Zephyr SDK](https://docs.zephyrproject.org/latest/develop/toolchains/zephyr_sdk.html#) |                             |
-| Codewarrior                  | [NXP CodeWarrior](https://www.nxp.com/design/design-center/software/development-software/codewarrior-development-tools:CW_HOME) |                             |
-| Xtensa                       | [Tensilica Tools](https://tensilicatools.com/platforms/) |                             |
-| NXP S32Compiler RISC-V Zen-V | [NXP Website](https://www.nxp.com/search?keyword=NXP%2520S32Compiler%2520RISC-V&start=0) |                             |
+Download and install IAR toolchain referring [IAR Embedded Workbench for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
+
+#### MDK
+
+Download and install MDK toolchain referring [MDK Installation](https://developer.arm.com/documentation/109350/v6/Installation?lang=en).
+
+#### ARMGCC
+
+Download and install ARMGCC toolchain referring [Arm GNU Toolchain Downloads](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads).
+
+#### ARMCLANG
+
+Download and install armclang toolchain referring [Installing Arm Compiler for Embedded](https://developer.arm.com/documentation/100748/0618/Getting-Started/Installing-Arm-Compiler-for-Embedded).
+
+#### Zephyr
+
+Download and install Zephyr SDK referring [Zephyr SDK](https://docs.zephyrproject.org/latest/develop/toolchains/zephyr_sdk.html#).
+
+#### Codewarrior
+
+Download and install CodeWarrior toolchain referring [NXP CodeWarrior](https://www.nxp.com/design/design-center/software/development-software/codewarrior-development-tools:CW_HOME).
+
+#### Xtensa
+
+Download and install Xtensa toolchain referring [Tensilica Tools](https://tensilicatools.com/platforms/).
+
+#### NXP S32Compiler RISC-V Zen-V
+
+Download and install NXP S32Compiler RISC-V Zen-V compiler referring [NXP Website](https://www.nxp.com.cn/search?keyword=NXP%2520S32Compiler%2520RISC-V&start=0)
+
+#### Environment Variables
 
 After you installed the toolchains, to make the west build recognize them, you need to register them in the system environment variables:
 
-| Toolchain                    | Environment Variable   | Example                                  | Cmd Line Argument       |
-| ---------------------------- | ---------------------- | ---------------------------------------- | :---------------------- |
-| Armgcc                       | ARMGCC_DIR             | `C:\armgcc` for windows<br />`/usr` for Linux. Typically  `arm-none-eabi-*` is installed under `/usr/bin` | --toolchain armgcc      |
-| IAR                          | IAR_DIR                | `C:\iar\ewarm-9.60.3` for Windows<br />`/opt/iarsystems/bxarm-9.60.3` for Linux | --toolchain iar         |
-| MDK                          | MDK_DIR                | `C:\Keil_v5` for Windows.<br />MDK IDE is not officially supported with Linux. | --toolchain mdk         |
-| Armclang                     | ARMCLANG_DIR           | `C:\ArmCompilerforEmbedded6.22` for Windows<br />`/opt/ArmCompilerforEmbedded6.21` for Linux | --toolchain mdk         |
-| Zephyr                       | ZEPHYR_SDK_INSTALL_DIR | `c:\NXP\zephyr-sdk-<version>` for windows<br />`/opt/zephyr-sdk-<version>` for Linux | --toolchain zephyr      |
-| CodeWarrior                  | CW_DIR                 | `C:\Freescale\CW MCU v11.2` for windows<br />CodeWarrior is not supported with Linux | --toolchain codewarrior |
-| Xtensa                       | XCC_DIR                | `C:\xtensa\XtDevTools\install\tools\RI-2023.11-win32\XtensaTools` for windows<br />`/opt/xtensa/XtDevTools/install/tools/RI-2023.11-Linux/XtensaTools` for Linux | --toolchain xtensa      |
-|                              |                        |                                          |                         |
-| NXP S32Compiler RISC-V Zen-V | RISCVLLVM_DIR          | `C:\riscv-llvm-win32_b298_b298_2024.08.12` for Windows<br />`/opt/riscv-llvm-Linux-x64_b298_b298_2024.08.12` for Linux | --toolchain riscvllvm   |
+| Toolchain                    | Environment Variable   | Example                                  | Cmd Line Argument           |
+| ---------------------------- | ---------------------- | ---------------------------------------- | :-------------------------- |
+| IAR                          | IAR_DIR                | `C:\iar` for Windows<br />`/opt/iarsystems/bxarm-9.40.2` for Linux | --toolchain iar             |
+| MDK                          | MDK_DIR                | `C:\Keil_v5` for Windows.<br />MDK IDE is not officially supported with Linux. | --toolchain mdk             |
+| Armgcc                       | ARMGCC_DIR             | `C:\armgcc` for windows<br />`/usr` for Linux. Typically  `arm-none-eabi-*` is installed under `/usr/bin` | --toolchain armgcc(default) |
+| Armclang                     | ARMCLANG_DIR           | `C:\ArmCompilerforEmbedded6.22` for Windows<br />`/opt/ArmCompilerforEmbedded6.21` for Linux | --toolchain mdk             |
+| Zephyr                       | ZEPHYR_SDK_INSTALL_DIR | `c:\NXP\zephyr-sdk-<version>` for windows<br />`/opt/zephyr-sdk-<version>` for Linux | --toolchain zephyr          |
+| CodeWarrior                  | CW_DIR                 | `C:\Freescale\CW MCU v11.2` for windows<br />CodeWarrior is not supported with Linux | --toolchain codewarrior     |
+| Xtensa                       | XCC_DIR                | `C:\xtensa\XtDevTools\install\tools\RI-2023.11-win32\XtensaTools` for windows<br />`/opt/xtensa/XtDevTools/install/tools/RI-2023.11-Linux/XtensaTools` for Linux | --toolchain xtensa          |
+|                              |                        |                                          |                             |
+| NXP S32Compiler RISC-V Zen-V | RISCVLLVM_DIR          | `C:\riscv-llvm-win32_b298_b298_2024.08.12` for Windows<br />`/opt/riscv-llvm-Linux-x64_b298_b298_2024.08.12` for Linux | --toolchain riscvllvm       |
 
-- The `<toolchain>_DIR` is the root installation folder, not the binary location folder. For IAR, it is directory containing following installation folders:
-
-  ![](./images/iar_install.PNG)
+- The `<toolchain>_DIR` is the root installation folder.
 
 - MDK IDE using armclang toolchain only officially supports Windows. In Linux, please directly use armclang toolchain by setting `ARMCLANG_DIR`. In Windows, since most Keil users will install MDK IDE instead of standalone armclang toolchain, the `MDK_DIR` has higher priority than `ARMCLANG_DIR`.
 

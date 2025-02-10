@@ -7,7 +7,6 @@ The following steps guide you through opening the `hello_world` example applicat
     ```
     <install_dir>/boards/<board_name>/<example_type>/<application_name>/iar
     ```
-
     Using the i.MX 8M Plus EVK board as an example, the workspace is located in:
 
     ```
@@ -18,13 +17,9 @@ The following steps guide you through opening the `hello_world` example applicat
 
     |![](../images/demo_build_target_selection_8mm.bmp "Demo build target selection")
 
-|
-
-3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](build_an_example_application_002.md#DEVICEMANAGSER).
+3.  To build the demo application, click **Make**, highlighted in red in the following figure.
 
     |![](../images/build_the_demo_application_8mm.bmp "Building the demo application")
-
-|
 
 4.  The build completes without errors.
 5.  Copy it to the UUU tool directory.

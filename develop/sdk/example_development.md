@@ -19,12 +19,11 @@ CMakeLists.txt defines the sources, includes and static configurations.
 
 Based on the cmake built-in macro `project`, we customize the `project` to provide the following additional arguments:
 
-| Argument Name            | Argument Type | Explanation                                                                                                         |
-| ------------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------- |
-| PROJECT_BOARD_PORT_PATH  | Single        | Path for board porting files and data.<br />Only applied for examples with board-specific configuration.       |
-| PROJECT_DEVICE_PORT_PATH | Single        | Path for device porting files and data.<br />Only applied for examples with device-specific configuration.     |
-| PROJECT_TYPE             | Single        | Specify the project type, can be `EXECUTABLE` or `LIBRARY` or `LIBRARY_OBJECT`.<br />The default is `EXECUTABLE`. |
-| CUSTOM_PRJ_CONF_PATH     | Multiple      | Specify customized prj.conf search paths.                                                                           |
+| Argument Name           | Argument Type | Explanation                              |
+| ----------------------- | ------------- | ---------------------------------------- |
+| PROJECT_BOARD_PORT_PATH | Single        | Path for board porting files and data.<br />Only applied for examples with board-specific configuration.|
+| PROJECT_TYPE            | Single        | Specify the project type, can be `EXECUTABLE` or `LIBRARY` or `LIBRARY_OBJECT`.<br />The default is `EXECUTABLE`. |
+| CUSTOM_PRJ_CONF_PATH    | Multiple      | Specify customized prj.conf search paths. |
 
 Here is the hello_world CMakeLists.txt:
 
@@ -34,7 +33,7 @@ cmake_minimum_required(VERSION 3.30.0)
 include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
 
 # Specify the project
-project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH ${board_root}/${board}/demo_apps/hello_world)
+project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH examples/_boards/${board}/demo_apps/hello_world)
 
 # Include device, board, drivers, components, middlewares, RTOS
 include(${SdkRootDirPath}/CMakeLists.txt)
@@ -103,8 +102,8 @@ hello_world:
         and further development.
       example_readme:
       - examples/demo_apps/hello_world/readme.md
-      - ${board_root}/${board}/demo_apps/hello_world/example_board_readme.md
-      - ${board_root}/${board}/examples_shared_readme.md
+      - examples/_boards/${board}/demo_apps/hello_world/example_board_readme.md
+      - examples/_boards/${board}/examples_shared_readme.md
   boards:
     evk9mimx8ulp@cm33: []
     evkbimxrt1050:
@@ -130,7 +129,7 @@ hello_world:
 
 The supported toolchains and build configuration targets for an example can be got in the following way:
 
-1. Get the designated board example.yml to get the board default supported toolchains and build configuration targets from [board.toolchains](device_board_shield_definition.md#board).
+1. Get the designated board example.yml to get the board default supported toolchains and build configuration targets from [board.toolchains](./device_board_shield_definition.md#board).
 
    > This is for board examples. For device examples, it should be the device example.yml. We don't have such cases public yet.
    >
@@ -143,20 +142,14 @@ The `mcuxsdk/scripts/data_schema/example_decription_schema.json` is provided to 
 
 ## Example Types
 
-### Board Examples and Device Examples
-
-MCUXpresso SDK supports both board examples and device examples. The board examples are based on board and the mounted device while device examples only use target device without board. For [hierarchical configuration for porting](#hierarchical-configuration-for-board-porting), board examples use PROJECT_BOARD_PORT_PATH, device examples use PROJECT_DEVICE_PORT_PATH.
-
-> Since most examples are board examples, we will focus on board examples for illustration in later chapters.
-
 ### Repository Examples and Freestanding Examples
 
 In MCUXpresso SDK, based on whether supporting the hierarchical configuration for board and device porting, we can distinguish 2 types examples: repository and freestanding examples.
 
 | Example Type | Support hierarchical configuration for board porting | CMakeLists.txt Location |
-| ------------ | ---------------------------------------------------- | ----------------------- |
-| Repository   | Yes                                                  | Under mcuxsdk/examples  |
-| freestanding | No                                                   | No restriction.         |
+| ------------ | ---------------------------------------- | ----------------------- |
+| Repository   | Yes                                      | Under mcuxsdk/examples  |
+| freestanding | No                                       | No restriction.         |
 
 #### Repository Examples
 
@@ -193,19 +186,19 @@ project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH examples/_boards
 
 So following prj.conf files are taken into examples to do different level configurations.
 
-| prj.conf                                                        | Application scope of configuration              |
-| --------------------------------------------------------------- | ----------------------------------------------- |
-| examples/prj.conf                                               | Apply for all examples                          |
-| examples/\_boards/prj.conf                                      | Apply for all NXP official boards examples      |
-| examples/\_boards/evkbmimxrt1170/prj.conf                       | Apply for all evkbmimxrt1170 examples           |
-| examples/\_boards/evkbmimxrt1170/demo_apps/prj.conf             | Apply for all evkbmimxrt1170 demo apps examples |
-| examples/\_boards/evkbmimxrt1170/demo_apps/hello_world/prj.conf | Apply for evkbmimxrt1170 hello_world examples   |
+| prj.conf                                 | Application scope of configuration       |
+| ---------------------------------------- | ---------------------------------------- |
+| examples/prj.conf                        | Apply for all examples                   |
+| examples/\_boards/prj.conf               | Apply for all NXP official boards examples |
+| examples/\_boards/evkbmimxrt1170/prj.conf | Apply for all evkbmimxrt1170 examples    |
+| examples/\_boards/evkbmimxrt1170/demo_apps/prj.conf | Apply for all evkbmimxrt1170 demo apps examples |
+| examples/\_boards/evkbmimxrt1170/demo_apps/hello_world/prj.conf | Apply for evkbmimxrt1170 hello_world examples |
 
 The deeper path of prj.conf, the higher priority it has.
 
 #### Freestanding Examples
 
-Unlike standard repository examples, freestanding examples don't support hierarchical configuration for the board or device porting, so there is no `PROJECT_BOARD_PORT_PATH` or `PROJECT_DEVICE_PORT_PATH`  in the `project` macro and there is no location restriction for freestanding examples which means they can be placed anywhere.
+Unlike standard repository examples, freestanding examples don't support hierarchical configuration for the board or device porting, so there is no `PROJECT_BOARD_PORT_PATH` in the `project` macro and there is no location restriction for freestanding examples which means they can be placed anywhere.
 
 - Inside mcuxsdk repo
 
@@ -327,26 +320,7 @@ If your example already has generated build artifacts, you can directly type `we
 
 ### Convert a Repository Example to a Freestanding Example
 
-If you find one repository example functions are similar to your example and want to copy it from SDK repository into your own workspace as a freestanding example to start the development. You can use `west export_app` extension or manually convert it. Here take evkbmimxrt1170's hello_world example to demostrate how to get a freestanding example in above two ways.
-
-#### West extension export_app
-
-We provide `west export_app` extension to help developers quickly convert a repository example to a freestanding one without additional efforts on copying files or updating configurations. The usage is quite simple:
-
-```bash
-west export_app examples/demo_apps/hello_world -b evkbmimxrt1170 -Dcore_id=cm7 -o <new workspace>
-```
-
-Then you can get output like this:
-```bash
-=== Successfully create the freestanding project, see <new workspace>/examples/demo_apps/hello_world/CMakeLists.txt.
-=== you can use following command to build it.
-west build -b evkbmimxrt1170 -p always <new workspace>/examples/demo_apps/hello_world -DPrjRootDirPath=<new workspace> -d <new workspace>/build -Dcore_id=cm7
-```
-
-**NOTE**: `--build` parameter can tell the extension build the freestanding example after convertion.
-
-#### Manual Convertion
+If you find one repository example functions are similar to your example and want to copy it from SDK repository into your own workspace as a freestanding example to start the development, here are the steps with evkbmimxrt1170 hello_world as an example:
 
 1. Copy hello_world specific sources, CMakelists.txt and Kconfig into your workspace folder: `mcuxsdk/examples/demo_apps/hello_world/*` =>  `<new workspace>/hello_world/*`
 2. Update CMakeLists.txt: adjust paths and remove the `PROJECT_BOARD_PORT_PATH` from `project` macro, but since many [project segment](#project-segment) data uses the `project_board_port_path` which is inherited from the `project` macro  `PROJECT_BOARD_PORT_PATH`, extra definition for `project_board_port_path` shall be provided.
@@ -403,7 +377,7 @@ west build -b evkbmimxrt1170 -p always <new workspace>/examples/demo_apps/hello_
 
    The `project_board_port_path` can be updated with true value like `examples/_boards/evkbmimxrt1170/demo_apps/hello_world`. Here is the updated Kconfig:
 
-   ```bash
+   ```
    # It is optional to provide example specific Kconfig.
    mainmenu "Hello World"
 
@@ -521,7 +495,7 @@ There are following ways to do the customization.
    In the example CMakeLists.txt, there is such line
 
    ```cmake
-   include(${SdkRootDirPath}/${board_root}/${board}/demo_apps/hello_world/reconfig.cmake OPTIONAL)
+   include(${SdkRootDirPath}/examples/_boards/${board}/demo_apps/hello_world/reconfig.cmake OPTIONAL)
    ```
 
    This is the board port cmake. Any board specific configurations can be added in it.
@@ -701,7 +675,7 @@ Unlike the component dependency, the dependency for project segment is simple, j
 
 There are already many project segments defined in mcuxsdk, here is the frequently used project segments table.
 
-| Location         | Functionality                                                                                                                                    |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| arch             | The predefined settings and configurations of different SOC architectures                                                                        |
+| Location         | Functionality                            |
+| ---------------- | ---------------------------------------- |
+| arch             | The predefined settings and configurations of different SOC architectures |
 | examples/_common | Commonly shared example board modules like board file, pinmux, clock config, etc.<br />Commonly shared example board components like flash, etc. |

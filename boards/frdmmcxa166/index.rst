@@ -6,11 +6,19 @@ FRDM-MCXA166
 Overview
 ********
 
-| The NXP FRDM-MCXA166 is a development board for the MCXA166 180MHz Arm Cortex-M33 microcontroller.
+The FRDM-MCXA166 board is a design and evaluation platform based on the NXP MCXA166 microcontroller
+(MCU). The MCXA166 MCU is a low-power microcontroller for industrial and consumer Internet of Things
+(IoT) applications. It has one Arm Cortex-M33 core running at speeds of up to 180 MHz. It supports industrial
+communication protocol, brushless direct current (BLDC) motor / permanent magnet synchronous motor
+(PMSM) control, and integrated sensor interfaces (I2C, and SPI).
 
+The board is compatible with Arduino boards (Arduino UNO R3 and Arduino A4/A5), motor control boards
+(FRDM-MC-LVBLDC and FRDM-MC-LVPMSM), Mikroe click boards, and Pmod boards. It can be used with a
+wide range of development tools, including NXP MCUXpresso IDE, IAR Embedded Workbench, and Arm Keil
+MDK. The board is lead-free and RoHS-compliant.
 
-
-` <https://mir.nxp.com/log/record?refType=board&amp;refId=241&amp;column=overview>`__
+For debugging the MCXA166 MCU, the FRDM-MCXA166 board uses an onboard (OB) debug probe, MCU-Link
+OB, which is based on another NXP MCU: LPC55S69
 
 
 

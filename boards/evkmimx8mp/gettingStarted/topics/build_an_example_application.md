@@ -6,8 +6,6 @@ To build an example application, follow these steps.
 
     |![](../images/launch_command_prompt_20.jpg "Launch command prompt")
 
-|
-
 2.  Change the directory to the example application project directory, which has a path similar to the following:
 
     ```
@@ -20,12 +18,9 @@ To build an example application, follow these steps.
     <install_dir>/boards/evkmimx8mp/demo_apps/hello_world/armgcc
     ```
 
-3.  Type **build\_debug.bat** on the command line or double click on the `build_debug.bat` file in Windows Explorer to perform the build. The output is as shown in [Figure 2](build_an_example_application.md#HELLOWORLDBUILDSUCCESS).
+3.  Type **build\_debug.bat** on the command line or double click on the `build_debug.bat` file in Windows Explorer to perform the build. The output is as shown in the following figure.
 
     |![](../images/hello_world_demo_build_successful_imx8mp.png "hello_world demo build successful")
-
-|
-
 
 **Parent topic:**[Windows OS host](../topics/windows_os_host.md)
 
