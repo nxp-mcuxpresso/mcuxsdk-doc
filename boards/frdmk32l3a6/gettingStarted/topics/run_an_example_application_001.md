@@ -1,5 +1,7 @@
 # Run an example application
 
+**NOTE: Single cm0plus examples can only be debugged when booting as primary core.**
+
 To download and run the application, perform these steps:
 
 1.  See the table in []() to determine the debug interface that comes loaded on your specific hardware platform.

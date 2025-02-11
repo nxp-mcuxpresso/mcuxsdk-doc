@@ -18,7 +18,7 @@ include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
 # 5. Load device variable
 # Kconfig needs board and device variables to work. With board and device variable, cmake has the environment to start Kconfig. This execution will be done in the following "project"
 
-project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH ${board_root}/${board}/demo_apps/hello_world)
+project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH examples/_boards/${board}/demo_apps/hello_world)
 ## In this "project" macro, build system does the following work
 # 6. Add execution cmake target
 # 7. Add pristine cmake target
@@ -48,7 +48,7 @@ mcux_add_include(
 )
 
 # get board porting sources and configuration data
-include(${SdkRootDirPath}/${board_root}/${board}/demo_apps/hello_world/reconfig.cmake OPTIONAL)
+include(${SdkRootDirPath}/examples/_boards/${board}/demo_apps/hello_world/reconfig.cmake OPTIONAL)
 
 # Convert binary to bin format
 mcux_convert_binary(BINARY ${APPLICATION_BINARY_DIR}/${MCUX_SDK_PROJECT_NAME}.bin)

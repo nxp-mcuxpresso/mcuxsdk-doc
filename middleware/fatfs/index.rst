@@ -3,7 +3,8 @@
 FatFs
 #####################
 
-FatFs filesystem.
-
 .. toctree::
    :maxdepth: 1
+   :glob:
+
+   README.md

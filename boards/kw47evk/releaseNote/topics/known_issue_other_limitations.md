@@ -1,12 +1,6 @@
 # Other limitations
 
 -   Documentation may not be fully updated to refer to KW47 devices.
--   The following Connectivity Framework configurations are experimental and not recommended for mass production:
-
-    -   Power down mode on application power domain.
-
-    -   XTAL32K less board with FRO32K support.
-
 -   GenFSK Connectivity\_test application is not operational with ARMGCC compiler.
 -   GenFSK `Connectivity_test` application is not operational with Low Power enabled.
 -   Serial manager is only supported on UART \(not I2C nor SPI\).
@@ -21,6 +15,11 @@
     In MCUXpresso IDE, the option is in **LinkServer Debugger** -\> **Advanced Settings** -\> **Wirespeed \(Hz\)**.
 
 -   If the configuration tool is used to clone `tfm-related` projects, there is a problem that *region\_defs.h* cannot be found in the cloned project.
+-   Not supported features:
+    -   Platform low power modes not fully enabled in this release.
+    -   FRO32K mode not fully supported in this release.
+-   Low power reference design applications are not supported for the armgcc toolchain from zip archives. Please use MCUXpresso IDE or IAR toolchains for development using these applications.
+-   Some connection events may be missed by the NBU core firmware when an asynchronous wake up is triggered from the application core.
 
 **Parent topic:**[Known issues](../topics/known_issues.md)
 

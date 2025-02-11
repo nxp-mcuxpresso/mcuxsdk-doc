@@ -262,7 +262,7 @@ modules:
     vcs_link:
     - pattern: "middleware/mcuboot_opensource/.*md"
       replace_prefix: "middleware/mcuboot_opensource/"
-      link: "https://github.com/nxp-mcuxpresso/mcuboot_opensource/"
+      link: "https://github.com/nxp-mcuxpresso/mcuboot"
   mid_freertos_drivers:
     default: true
     external_contents:
@@ -317,6 +317,26 @@ modules:
     external_contents:
     - root: 'docs'
       pattern: 'middleware/wireless/Bluetooth/*'
+  mid_wifi_serial:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/wireless/wifi_serial/*'
+  mid_wireless_rn:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/wireless/Release_Notes/*'
+  mid_wireless_doc:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/wireless/*'
+  mid_wifi:
+    default: true
+    external_contents:
+    - root: 'docs'
+      pattern: 'middleware/wireless/WiFi/*'
   mid_usb:
     default: true
     external_contents:
@@ -337,3 +357,12 @@ modules:
     external_contents:
     - root: 'docs'
       pattern: 'middleware/wireless/IEEE/*'
+  mid_eiq:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/eiq/docs/*'
+    - root: .
+      pattern: 'middleware/eiq/tensorflow-lite/docs/*'
+    - root: .
+      pattern: 'middleware/eiq/mpp/docs/*'

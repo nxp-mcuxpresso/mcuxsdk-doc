@@ -11,3 +11,6 @@ This section describes the steps to download the flash.bin to sd and emmc, run t
 :heading-offset: 1
 ```
 
+```{include} ../topics/debug_an_example_application_with_iar.md
+:heading-offset: 1
+```

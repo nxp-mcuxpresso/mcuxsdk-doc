@@ -230,7 +230,7 @@ The assembly point for all cmakes is the root CMakeLists.txt. It looks like
 
 ```cmake
 # Load device CMakeLists.txt
-mcux_add_cmakelists(${SdkRootDirPath}/${device_root}/${soc_portfolio}/${soc_series}/${device})
+mcux_add_cmakelists(${SdkRootDirPath}/devices/${soc_portfolio}/${soc_series}/${device})
 
 # Load board CMakeLists.txt
 mcux_add_cmakelists(${SdkRootDirPath}/examples/)

@@ -33,7 +33,7 @@ from sphinx.cmd.build import get_parser
 import sphinx_rtd_theme
 from functools import reduce
 from pprint import pprint
-import chardet
+import chardet,configparser
 
 # -- MCUXpresso SDK Configuration Data ----------------------------------------
 SDK_BASE = Path(__file__).absolute().parents[1]
@@ -150,6 +150,21 @@ class MCUXDocConfig:
                     self.module_tags.append(module_name)
         for module in self.module_tags:
             print(f'  [+] {module}')
+        
+        #collect URL map
+        self.url_map = {}
+        if self.is_internal_doc:
+            internal_config = os.path.join(SDK_BASE, "..", "bifrost", ".gitconfig")
+            if os.path.exists(internal_config):
+                config = configparser.ConfigParser(strict=False)
+                config.read(internal_config)
+                for section in config.sections():
+                    for key, value in config.items(section):
+                        match = re.search(r'(?P<server_url>.+)/(?P<project>.+)/(?P<reponame>.+).git', section.replace("url ","").strip('"'))
+                        server_url = match.group("server_url").replace("ssh://git@","https://")
+                        project = match.group("project")
+                        reponame = match.group("reponame")
+                        self.url_map[value] = f'{server_url}/projects/{project.upper()}/repos/{reponame}'
 
     def iter_configs(self):
         for module_name, module_config in self.config['modules'].items():
@@ -247,6 +262,11 @@ class MCUXDocConfig:
     def external_content_keep(self):
         return []
 
+    def get_repo_url(self, mod_vcs):
+        if not self.url_map:
+            return mod_vcs
+        else:
+            mod_vcs["link"] = self.url_map[mod_vcs["link"].rstrip('/')]
     @property
     def vcs_link(self):
         print('-- Collect VCS Link')
@@ -254,19 +274,15 @@ class MCUXDocConfig:
 
         for module_name, module_config in self.iter_modules():
             mod_links = self.get_mod_config(module_name, module_config, 'vcs_link')
-            # links.update({
-            #     item["pattern"]: item["link"] for item in mod_links
-            # })
             links.extend(mod_links)
-
-        # links.update({
-        #     item["pattern"]: item["link"] for item in self.config.get('vcs_link', [])
-        # })
 
         links.extend(
            self.config.get('vcs_link', [{}])
         )
 
+        for link in links:
+            self.get_repo_url(link)
+        
         print(f"VCS links {links}")
         return links
 
@@ -422,7 +438,7 @@ if os.path.exists(os.path.join(DOC_BASE, "internal")):
     html_logo = str(DOC_BASE / "internal" / "images" / "nxp_logo_small.png")
     html_favicon = str(DOC_BASE / "internal" / "images" / "nxp_logo_small.png")
 html_static_path = static_path
-html_last_updated_fmt = "%b %d, %Y"
+html_last_updated_fmt = "%b %d, %Y %H:%M%z"
 html_domain_indices = False
 html_split_index = True
 html_show_sourcelink = False
@@ -451,7 +467,8 @@ html_context = {
     "display_vcs_link": True,
 }
 
-if mcux_config.is_internal_doc:
+is_internal_doc = mcux_config.is_internal_doc
+if is_internal_doc:
     html_context["versions"] = ( ("latest", "/mcuxsdk-internal/latest/html/"),
         ("24.12.00-pvw2", "/mcuxsdk-internal/24.12.00-pvw2/html/"),)
 else:
@@ -462,9 +479,8 @@ else:
 # -- Options for vcs_link ------------------------------------------
 if 'vcs_link' in extensions:
     vcs_link_prefixes = mcux_config.vcs_link
-    vcs_link_version = f"v{version}" if is_release else "main"
+    vcs_link_version = f"release/{version}" if is_release else "main"
 
-#vcs_link_base_url = "https://bitbucket.sw.nxp.com/projects/SCM/repos/mcu-sdk-doc/browse"
 
 # -- Options for zephyr.external_content ----------------------------------
 if 'external_content' in extensions:

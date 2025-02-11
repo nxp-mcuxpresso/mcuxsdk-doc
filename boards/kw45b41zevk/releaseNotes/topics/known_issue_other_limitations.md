@@ -22,5 +22,7 @@
 
 -   If the configuration tool is used to clone `tfm-related` projects, there is a problem that *region\_defs.h* cannot be found in the cloned project.
 
+-   Low power reference design applications are not supported for the armgcc toolchain from zip archives. Please use MCUXpresso IDE or IAR toolchains for development using these applications.
+
 **Parent topic:**[Known issues](../topics/known_issues.md)
 
