@@ -315,8 +315,10 @@ modules:
   mid_ble:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/wireless/Bluetooth/*'
+    - root: .
+      pattern: 'middleware/wireless/bluetooth/index.rst'
+    - root: .
+      pattern: 'middleware/wireless/bluetooth/doc/**/*.*'
   mid_wifi_serial:
     default: true
     external_contents:
