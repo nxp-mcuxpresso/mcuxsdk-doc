@@ -45,6 +45,12 @@ external_contents:
   pattern: 'middleware/lwip/*'
 - root: 'docs'
   pattern: 'middleware/lvgl/index.rst'
+- root: 'docs'
+  pattern: 'middleware/vglite/index.rst'
+- root: 'docs'
+  pattern: 'middleware/vglite/**/*.md'
+- root: 'docs'
+  pattern: 'middleware/vglite/**/*.png'
 - root: docs
   pattern: 'generation.rst'
 - root: docs
