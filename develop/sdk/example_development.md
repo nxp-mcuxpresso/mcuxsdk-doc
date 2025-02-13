@@ -21,7 +21,7 @@ Based on the cmake built-in macro `project`, we customize the `project` to provi
 
 | Argument Name           | Argument Type | Explanation                              |
 | ----------------------- | ------------- | ---------------------------------------- |
-| PROJECT_BOARD_PORT_PATH | Single        | Path for board porting files and data.<br />Only applied for examples with board-specific configuration.|
+| PROJECT_BOARD_PORT_PATH | Single        | Path for board porting files and data.<br />Only applied for examples with board-specific configuration. |
 | PROJECT_TYPE            | Single        | Specify the project type, can be `EXECUTABLE` or `LIBRARY` or `LIBRARY_OBJECT`.<br />The default is `EXECUTABLE`. |
 | CUSTOM_PRJ_CONF_PATH    | Multiple      | Specify customized prj.conf search paths. |
 
@@ -527,6 +527,10 @@ west build -b evkbmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm7 --tool
 
 # Build flexspi_nor_debug target
 west build -b evkbmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm7 --config flexspi_nor_debug
+
+# Switch device
+west build -b frdmk22f examples/demo_apps/hello_world --device MK22F12810
+west build -b evkbmimxrt1170 examples/demo_apps/hello_world --device=MIMXRT1175 -Dcore_id=cm7 --config flexspi_nor_debug
 ```
 
 For shield, please use the `--shield` to specify the shield to build, like

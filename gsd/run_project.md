@@ -29,18 +29,20 @@ Compared to zephyr's west build, MCUXpresso SDK's west build command provides fo
 Here are some typical usage for generating a SDK example:
 
 ```bash
-# Generate example with default settings
+# Generate example with default settings, default used device is the mainset MK22F51212
 west build -b frdmk22f examples/demo_apps/hello_world
 
 # Just print cmake commands, do not execute it
 west build -b frdmk22f examples/demo_apps/hello_world --dry-run
 
-# Generate other toolchain like iar, default armgcc
+# Generate example with other toolchain like iar, default armgcc
 west build -b frdmk22f examples/demo_apps/hello_world --toolchain iar
 
-# Generate config type, default debug
+# Generate example with other config type, default debug
 west build -b frdmk22f examples/demo_apps/hello_world --config release
 
+# Generate example with other devices with --device
+west build -b frdmk22f examples/demo_apps/hello_world --device MK22F12810 --config release
 ```
 
 For multicore devices, you shall specify the corresponding core id by passing the command line argument `-Dcore_id`. For example
