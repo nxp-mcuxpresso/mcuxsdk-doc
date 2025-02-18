@@ -33,7 +33,9 @@ Here is the cmake files stored variable table:
 | -------------------- | ---- | ---------------------------------------- | ---------------------------------------- | ----------------- |
 | SdkRootDirPath       |      | SDK root directory<br />Specify sdk root path | Automatically set by build system        | CMake             |
 | board                |      | board name, like evkbmimxrt1170          | Provided in cli argument, also need to record it in board<br /> variable cmake | CMake and Kconfig |
+| board_root           |      | board root folder<br />For public boards, it is `examples/_boards`<br />For internal boards, it is `examples_int/_boards` | Board variable cmake                     | CMake and Kconfig |
 | device               |      | device name, like MIMXRT1176             | Device variable cmake                    | CMake and Kconfig |
+| device_root          |      | device root folder<br />For public devices, it is `devices`<br />For internal devices, it is `devices_int` | Device variable cmake                    | CMake and Kconfig |
 | soc_series           |      | soc series, like RT1170                  | Device variable cmake                    | CMake and Kconfig |
 | soc_portfolio        |      | soc portfolio, like RT                   | Soc portfolio variable cmake             | CMake and Kconfig |
 | soc_periph           |      | soc periph, like periph                  | Device variable cmake                    | CMake and Kconfig |

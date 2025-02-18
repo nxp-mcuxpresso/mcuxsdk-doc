@@ -16,7 +16,7 @@ Here is the system architecture:
 
 ![](./_doc/build_system_arch.PNG)
 
-[CMake](https://cmake.org/) is used to manage the whole build process. [Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html) is used to do component selection with dependency resolve, component configuration with feature enable, disable and customization. Misc generators can be inserted into CMake configurator to extend features like standalone project generation.
+[CMake](https://cmake.org/) is used to manage the whole build process. [Kconfig](https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html) is used to do component selection with dependency resolve, component configuration with feature enable, disable and customization. Misc generators can be inserted into CMake configurator to extend features like IDE project generation.
 
 The input files are
 
