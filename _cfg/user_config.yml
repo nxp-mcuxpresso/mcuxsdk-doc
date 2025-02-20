@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=mcux_doc_config_schema.json
 project: mcuxsdk
-copyright: '2024, NXP'
+copyright: '2025, NXP'
 author: 'NXP'
 extensions:
 - sphinx_rtd_theme

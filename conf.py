@@ -28,7 +28,7 @@ import sys
 from pathlib import Path
 import re
 import textwrap
-import yaml
+import yaml,json
 from sphinx.cmd.build import get_parser
 import sphinx_rtd_theme
 from functools import reduce
@@ -468,12 +468,14 @@ html_context = {
 }
 
 is_internal_doc = mcux_config.is_internal_doc
+with open(DOC_BASE / "versions.json", "r", encoding="utf-8") as f:
+    versions_data = json.load(f)
 if is_internal_doc:
-    html_context["versions"] = ( ("latest", "/mcuxsdk-internal/latest/html/"),
-        ("24.12.00-pvw2", "/mcuxsdk-internal/24.12.00-pvw2/html/"),)
+    version_list = [(version, f"/mcuxsdk-internal/{version}/html/") for version in versions_data]
 else:
-    html_context["versions"] = ( ("latest", "/mcuxsdk/latest/html/"),
-        ("24.12.00-pvw2", "/mcuxsdk/24.12.00-pvw2/html/"),)
+    version_list = [(version, f"/mcuxsdk/{version}/html/") for version in versions_data]
+    
+html_context["versions"] = tuple(version_list)
 
 
 # -- Options for vcs_link ------------------------------------------
