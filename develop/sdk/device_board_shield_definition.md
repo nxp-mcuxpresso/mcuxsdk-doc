@@ -135,6 +135,8 @@ The shield shares the board example.yml for toolchains and targets support. The 
 
 ## Device
 
+### Data
+
 Device data stays in `devices` folder. Here is the device data hierarchy demonstrated with single core device MK22F51212 and multicore device MIMXRT1176
 
 ```yaml
@@ -221,6 +223,223 @@ devices:
     prj.conf: Components selection and configuration by all RT series
   prj.conf: Components selection and configuration by all devices
 ```
+
+### Switch a Device For a Board Example Build
+
+The device dedicated startup, linker, system, feature files are recorded in cmake files with variables defined in the device Kconfig.chip. Here is the typical device_header.cmake for system and startup:
+
+```cmake
+# device spcific drivers for single core device
+if(CONFIG_MCUX_COMPONENT_device.CMSIS)
+
+    mcux_add_source(BASE_PATH ${SdkRootDirPath}/${device_root}/${soc_portfolio}/${soc_series}/${device} SOURCES fsl_device_registers.h
+                    "${CONFIG_MCUX_HW_DEVICE_CORE}.h" "${CONFIG_MCUX_HW_DEVICE_CORE}_features.h" "${CONFIG_MCUX_HW_DEVICE_CORE}_COMMON.h" "../${soc_periph}/*.h")
+
+    mcux_add_include(BASE_PATH ${SdkRootDirPath}/${device_root}/${soc_portfolio}/${soc_series}/${device} INCLUDES .)
+    mcux_add_include(BASE_PATH ${SdkRootDirPath}/${device_root}/${soc_portfolio}/${soc_series}/${soc_periph} INCLUDES .)
+
+endif()
+
+if(CONFIG_MCUX_COMPONENT_device.system)
+    mcux_add_source(BASE_PATH ${SdkRootDirPath}/${device_root}/${soc_portfolio}/${soc_series}/${device} SOURCES system_${CONFIG_MCUX_HW_DEVICE_CORE}.c
+                    system_${CONFIG_MCUX_HW_DEVICE_CORE}.h)
+
+    mcux_add_include(BASE_PATH ${SdkRootDirPath}/${device_root}/${soc_portfolio}/${soc_series}/${device} INCLUDES .)
+
+endif()
+
+if(CONFIG_MCUX_COMPONENT_device.startup)
+
+    mcux_add_source(
+        BASE_PATH
+        ${SdkRootDirPath}/${device_root}/${soc_portfolio}/${soc_series}/${device}
+        SOURCES
+        iar/startup_${CONFIG_MCUX_HW_DEVICE_CORE}.s
+        TOOLCHAINS
+        iar
+        CONFIG
+        true)
+
+    mcux_add_source(
+        BASE_PATH
+        ${SdkRootDirPath}/${device_root}/${soc_portfolio}/${soc_series}/${device}
+        SOURCES
+        gcc/startup_${CONFIG_MCUX_HW_DEVICE_CORE}.S
+        TOOLCHAINS
+        armgcc
+        CONFIG
+        true)
+
+    mcux_add_source(
+        BASE_PATH
+        ${SdkRootDirPath}/${device_root}/${soc_portfolio}/${soc_series}/${device}
+        SOURCES
+        arm/startup_${CONFIG_MCUX_HW_DEVICE_CORE}.S
+        TOOLCHAINS
+        mdk
+        CONFIG
+        true)
+
+endif()
+```
+
+Here is the Kconfig.chip for MK22F51212:
+
+```
+config MCUX_HW_CORE
+    string
+    default "cm4f"
+
+config MCUX_HW_CORE_CM4F
+    bool
+    default y
+
+config MCUX_HW_CORE_ID
+    string
+    default "core0"
+
+config MCUX_HW_CORE_ID_CORE0
+    bool
+    default y
+
+config MCUX_HW_DEVICE_CORE
+    string
+    default "MK22F51212"
+
+config MCUX_HW_FPU
+    string
+    default "SP_FPU"
+
+config MCUX_HW_FPU_TYPE
+    string
+    default "fpv4_sp"
+
+config MCUX_HW_FPV4_SP
+    bool
+    default y
+
+config MCUX_HW_INT_PRIO_BITS
+    int
+    default 4
+
+config MCUX_HW_SOC_SERIES_KINETIS
+    bool
+    default y
+
+config MCUX_HW_SOC_SINGLECORE_DEVICE
+    bool
+    default y
+
+# device related
+
+config MCUX_HW_DEVICE_ID_MK22FN512xxx12
+    bool
+
+choice MCUX_HW_DEVICE_PART_MK22F51212
+    prompt "Device MK22F51212 Part"
+    config MCUX_HW_DEVICE_PART_MK22FN512VDC12
+    bool "MK22FN512VDC12"
+    select MCUX_HW_DEVICE_ID_MK22FN512xxx12
+    config MCUX_HW_DEVICE_PART_MK22FN512VLL12
+    bool "MK22FN512VLL12"
+    select MCUX_HW_DEVICE_ID_MK22FN512xxx12
+    config MCUX_HW_DEVICE_PART_MK22FN512VLH12
+    bool "MK22FN512VLH12"
+    select MCUX_HW_DEVICE_ID_MK22FN512xxx12
+    config MCUX_HW_DEVICE_PART_MK22FN512VFX12
+    bool "MK22FN512VFX12"
+    select MCUX_HW_DEVICE_ID_MK22FN512xxx12
+    config MCUX_HW_DEVICE_PART_MK22FN512CAP12
+    bool "MK22FN512CAP12"
+    select MCUX_HW_DEVICE_ID_MK22FN512xxx12
+    config MCUX_HW_DEVICE_PART_MK22FN512VMP12
+    bool "MK22FN512VMP12"
+    select MCUX_HW_DEVICE_ID_MK22FN512xxx12
+endchoice
+
+config MCUX_HW_DEVICE_ID
+    string
+    default "MK22FN512xxx12" if MCUX_HW_DEVICE_ID_MK22FN512xxx12
+
+config MCUX_HW_DEVICE_PART
+    string
+    default "MK22FN512VDC12" if MCUX_HW_DEVICE_PART_MK22FN512VDC12
+    default "MK22FN512VLL12" if MCUX_HW_DEVICE_PART_MK22FN512VLL12
+    default "MK22FN512VLH12" if MCUX_HW_DEVICE_PART_MK22FN512VLH12
+    default "MK22FN512VFX12" if MCUX_HW_DEVICE_PART_MK22FN512VFX12
+    default "MK22FN512CAP12" if MCUX_HW_DEVICE_PART_MK22FN512CAP12
+    default "MK22FN512VMP12" if MCUX_HW_DEVICE_PART_MK22FN512VMP12
+
+# For chipmodel generated files
+config MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX
+    string
+    default "MK22FN512xxx12" if MCUX_HW_DEVICE_ID_MK22FN512xxx12
+
+config MCUX_TOOLCHAIN_MCUX_STARTUP
+    string
+    default "mk22f51212"
+
+# Toolchain related
+
+config MCUX_TOOLCHAIN_IAR_CPU_IDENTIFIER
+    string
+    default "MK22FN512xxx12" if MCUX_HW_DEVICE_ID_MK22FN512xxx12
+
+config MCUX_TOOLCHAIN_MDK_CPU_IDENTIFIER
+    string
+    default "MK22FN512VDC12" if MCUX_HW_DEVICE_PART_MK22FN512VDC12
+    default "MK22FN512VLL12" if MCUX_HW_DEVICE_PART_MK22FN512VLL12
+    default "MK22FN512VLH12" if MCUX_HW_DEVICE_PART_MK22FN512VLH12
+    default "MK22FN512VFX12" if MCUX_HW_DEVICE_PART_MK22FN512VFX12
+    default "MK22FN512CAP12" if MCUX_HW_DEVICE_PART_MK22FN512CAP12
+    default "MK22FN512VMP12" if MCUX_HW_DEVICE_PART_MK22FN512VMP12
+
+config MCUX_TOOLCHAIN_JLINK_CPU_IDENTIFIER
+    string
+    default "MK22FN512xxx12"
+```
+
+In a build, when the device is set down, then the corresponding device cmake and Kconfig will be loaded, so that device dedicated linker, startup, system, feature files will get the correct variable name and involved into build.
+
+So how a device is chosen for a board build?
+
+For a typical board example build without designating the device:
+
+```bash
+west build -b frdmk22f examples/demo_apps/hello_world -p
+```
+
+The target device is set through the device in the board variable.cmake:
+
+```cmake
+if (NOT DEFINED device)
+    mcux_set_variable(device MK22F51212) # default device is set in the board.cmake
+endif()
+
+include(${SdkRootDirPath}/devices/Kinetis/K/${device}/variable.cmake)
+```
+
+The default device is usually the main set of the device family. If you want to or need to try subset device, you can use `--device` argument, like 
+
+```bash
+west build -b frdmk22f examples/demo_apps/hello_world --device MK22F12810
+```
+
+Then the MK22F12810 dedicated startup, linker, system and feature files will be used for this build.
+
+### Switch a Device Part For a Board Example Build
+
+When the device is set down through cmake, you can use Kconfig to switch device part.
+
+With the following cmd, you can start the Kconfig GUI:
+
+```bash
+west build -b frdmk22f examples/demo_apps/hello_world -t guiconfig -p
+```
+
+![](../build_system/_doc/switch_device_part.PNG)
+
+Then you can select different device part in the Kconfig, save it and `west build`.
 
 ## Assembly Point
 

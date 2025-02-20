@@ -19,12 +19,12 @@ CMakeLists.txt defines the sources, includes and static configurations.
 
 Based on the cmake built-in macro `project`, we customize the `project` to provide the following additional arguments:
 
-| Argument Name            | Argument Type | Explanation                                                                                                         |
-| ------------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------- |
-| PROJECT_BOARD_PORT_PATH  | Single        | Path for board porting files and data.<br />Only applied for examples with board-specific configuration.       |
-| PROJECT_DEVICE_PORT_PATH | Single        | Path for device porting files and data.<br />Only applied for examples with device-specific configuration.     |
+| Argument Name            | Argument Type | Explanation                              |
+| ------------------------ | ------------- | ---------------------------------------- |
+| PROJECT_BOARD_PORT_PATH  | Single        | Path for board porting files and data.<br />Only applied for examples with board-specific configuration. |
+| PROJECT_DEVICE_PORT_PATH | Single        | Path for device porting files and data.<br />Only applied for examples with device-specific configuration. |
 | PROJECT_TYPE             | Single        | Specify the project type, can be `EXECUTABLE` or `LIBRARY` or `LIBRARY_OBJECT`.<br />The default is `EXECUTABLE`. |
-| CUSTOM_PRJ_CONF_PATH     | Multiple      | Specify customized prj.conf search paths.                                                                           |
+| CUSTOM_PRJ_CONF_PATH     | Multiple      | Specify customized prj.conf search paths. |
 
 Here is the hello_world CMakeLists.txt:
 
@@ -154,9 +154,9 @@ MCUXpresso SDK supports both board examples and device examples. The board examp
 In MCUXpresso SDK, based on whether supporting the hierarchical configuration for board and device porting, we can distinguish 2 types examples: repository and freestanding examples.
 
 | Example Type | Support hierarchical configuration for board porting | CMakeLists.txt Location |
-| ------------ | ---------------------------------------------------- | ----------------------- |
-| Repository   | Yes                                                  | Under mcuxsdk/examples  |
-| freestanding | No                                                   | No restriction.         |
+| ------------ | ---------------------------------------- | ----------------------- |
+| Repository   | Yes                                      | Under mcuxsdk/examples  |
+| freestanding | No                                       | No restriction.         |
 
 #### Repository Examples
 
@@ -193,13 +193,13 @@ project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH examples/_boards
 
 So following prj.conf files are taken into examples to do different level configurations.
 
-| prj.conf                                                        | Application scope of configuration              |
-| --------------------------------------------------------------- | ----------------------------------------------- |
-| examples/prj.conf                                               | Apply for all examples                          |
-| examples/\_boards/prj.conf                                      | Apply for all NXP official boards examples      |
-| examples/\_boards/evkbmimxrt1170/prj.conf                       | Apply for all evkbmimxrt1170 examples           |
-| examples/\_boards/evkbmimxrt1170/demo_apps/prj.conf             | Apply for all evkbmimxrt1170 demo apps examples |
-| examples/\_boards/evkbmimxrt1170/demo_apps/hello_world/prj.conf | Apply for evkbmimxrt1170 hello_world examples   |
+| prj.conf                                 | Application scope of configuration       |
+| ---------------------------------------- | ---------------------------------------- |
+| examples/prj.conf                        | Apply for all examples                   |
+| examples/\_boards/prj.conf               | Apply for all NXP official boards examples |
+| examples/\_boards/evkbmimxrt1170/prj.conf | Apply for all evkbmimxrt1170 examples    |
+| examples/\_boards/evkbmimxrt1170/demo_apps/prj.conf | Apply for all evkbmimxrt1170 demo apps examples |
+| examples/\_boards/evkbmimxrt1170/demo_apps/hello_world/prj.conf | Apply for evkbmimxrt1170 hello_world examples |
 
 The deeper path of prj.conf, the higher priority it has.
 
@@ -553,6 +553,10 @@ west build -b evkbmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm7 --tool
 
 # Build flexspi_nor_debug target
 west build -b evkbmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm7 --config flexspi_nor_debug
+
+# Switch device
+west build -b frdmk22f examples/demo_apps/hello_world --device MK22F12810
+west build -b evkbmimxrt1170 examples/demo_apps/hello_world --device=MIMXRT1175 -Dcore_id=cm7 --config flexspi_nor_debug
 ```
 
 For shield, please use the `--shield` to specify the shield to build, like
@@ -701,7 +705,7 @@ Unlike the component dependency, the dependency for project segment is simple, j
 
 There are already many project segments defined in mcuxsdk, here is the frequently used project segments table.
 
-| Location         | Functionality                                                                                                                                    |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| arch             | The predefined settings and configurations of different SOC architectures                                                                        |
+| Location         | Functionality                            |
+| ---------------- | ---------------------------------------- |
+| arch             | The predefined settings and configurations of different SOC architectures |
 | examples/_common | Commonly shared example board modules like board file, pinmux, clock config, etc.<br />Commonly shared example board components like flash, etc. |
