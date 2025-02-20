@@ -7,4 +7,4 @@ Wireless RN
    :maxdepth: 1
    :caption: Wireless SoC features and release notes for FreeRTOS
    
-   rn-index.md
+   rnindex.md
