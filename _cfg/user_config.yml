@@ -325,6 +325,8 @@ modules:
       pattern: 'middleware/wireless/bluetooth/index.rst'
     - root: .
       pattern: 'middleware/wireless/bluetooth/doc/**/*.*'
+    - root: .
+      pattern: 'middleware/wireless/bluetooth/CHANGELOG.md'
   mid_wifi_bluetooth_802.15.4:
     default: true
     external_contents:
