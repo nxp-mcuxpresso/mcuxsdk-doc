@@ -113,5 +113,4 @@
 
 [^3] Feature not enabled by default in the SDK. Refer to [Feature enable and memory impact](feature_enable_and_memory_impact.md) for the macro to enable the feature and the impact on the memory when enabling the feature.
 
-[^4] Read more about NCP feature in [5](references.md#item_um12133).
-
+[^4] Read more about NCP feature in [References](references.md#item_um12133).

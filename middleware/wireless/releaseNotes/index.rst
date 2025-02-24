@@ -1,7 +1,7 @@
 .. _wireless_rn:
  
-Wireless RN
-############
+Release notes
+#############
  
 .. toctree::
    :maxdepth: 1

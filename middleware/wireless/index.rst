@@ -1,7 +1,7 @@
 .. _wireless_doc:
 
-Wireless connecctivity (Wi-Fi + Bluetooth + 802.15.4) documents
-################################################################
+User manuals
+############
 
 * `User manual-UM11441: Getting Started with NXP-based Wireless Modules and i.MX RT Platforms <https://www.nxp.com/webapp/Download?colCode=UM11441>`
 * `User manual-UM11442: NXP Wi-Fi and Bluetooth Demo Applications for i.MX RT Platforms <../../_static/wireless/UM11442-NXP-Wi-Fi-and-Bluetooth-Demo-Applications-for-i.MX-RT-platforms-User-Guide.pdf>`

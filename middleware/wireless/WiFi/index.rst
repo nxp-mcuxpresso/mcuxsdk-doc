@@ -1,6 +1,6 @@
 .. _wifi:
 
-WiFi documents
+Wi-Fi documents
 ###############
 
 * `Link AN12918-Wi-Fi-Tx-Power-Table-and-Channel-Scan-Management-for-i.MX-RT-SDK.pdf <https://www.nxp.com/docs/en/application-note/AN12918.pdf>`_

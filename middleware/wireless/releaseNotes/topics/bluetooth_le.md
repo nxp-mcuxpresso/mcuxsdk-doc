@@ -27,35 +27,35 @@
 |Bluetooth 5.0 support|Low Energy long range|N|Y|Y|Y|Y|
 |Bluetooth 5.0 support|Low Energy periodic advertisement|N|Y|Y|Y|Y|
 |Bluetooth 5.2 support|Low Energy power control|N|N|Y|Y|Y|
-|Bluetooth LE audio support[^1^2]|Isochronous channel|N|N|Y|Y|Y|
-|Bluetooth LE audio support[^1^2]|Broadcast LE Audio BIS source|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Broadcast LE Audio BIS sink|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Broadcast LE Audio BIG Validation|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Broadcast LE Audio Phy: 1M/2M/ coded|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Broadcast LE Audio framed mode|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Broadcast LE Audio unframed mode|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Broadcast LE Audio sequential packing|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Broadcast LE Audio: Mono and Stereo|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Broadcast LE Audio BIS encrypted audio|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Broadcast LE Audio BIS unencrypted audio|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Unicast LE Audio CIS source|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Unicast LE Audio CIS sink|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Unicast LE Audio CIG validation|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Unicast LE Audio CIS synchronization|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Unicast LE Audio Phy: 1M/2M/ coded|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Unicast LE Audio framed mode|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Unicast LE Audio unframed mode|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Unicast LE Audio sequential packing|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Unicast LE Audio: mono and stereo|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Unicast LE Audio CIS encrypted audio|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Unicast LE Audio CIS unencrypted audio|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Unicast LE Audio TX/RX and bidirectional traffic|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|ISO interval for LE Audio: 7.5ms 10ms 20ms 30ms|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|Sampling frequency for LE Audio: 8kHz 16kHz 24kHz, 32kHz, 44.1kHz, 48kHz|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|LE Audio Auracast use cases: Auracast streaming 2 BISes|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|LE Audio Unicast use cases: Unicast streaming 2 CISes|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|LE Audio Unicast Use cases: Unicast streaming 4 CISes|N|N|Y|N|Y|
-|Bluetooth LE audio support[^1^2]|A2DP + Auracast/Unicast Bridge use cases – CIS/BIS|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Isochronous channel|N|N|Y|Y|Y|
+|Bluetooth LE audio support[^1] [^2]|Broadcast LE Audio BIS source|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Broadcast LE Audio BIS sink|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Broadcast LE Audio BIG Validation|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Broadcast LE Audio Phy: 1M/2M/ coded|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Broadcast LE Audio framed mode|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Broadcast LE Audio unframed mode|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Broadcast LE Audio sequential packing|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Broadcast LE Audio: Mono and Stereo|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Broadcast LE Audio BIS encrypted audio|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Broadcast LE Audio BIS unencrypted audio|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Unicast LE Audio CIS source|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Unicast LE Audio CIS sink|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Unicast LE Audio CIG validation|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Unicast LE Audio CIS synchronization|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Unicast LE Audio Phy: 1M/2M/ coded|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Unicast LE Audio framed mode|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Unicast LE Audio unframed mode|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Unicast LE Audio sequential packing|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Unicast LE Audio: mono and stereo|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Unicast LE Audio CIS encrypted audio|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Unicast LE Audio CIS unencrypted audio|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Unicast LE Audio TX/RX and bidirectional traffic|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|ISO interval for LE Audio: 7.5ms 10ms 20ms 30ms|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|Sampling frequency for LE Audio: 8kHz 16kHz 24kHz, 32kHz, 44.1kHz, 48kHz|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|LE Audio Auracast use cases: Auracast streaming 2 BISes|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|LE Audio Unicast use cases: Unicast streaming 2 CISes|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|LE Audio Unicast Use cases: Unicast streaming 4 CISes|N|N|Y|N|Y|
+|Bluetooth LE audio support[^1] [^2]|A2DP + Auracast/Unicast Bridge use cases – CIS/BIS|N|N|Y|N|Y|
 |BCA TDM Coexistence mode \(shared antenna\)|STA + Bluetooth coexistence|Y|Y|Y|N|Y|
 |BCA TDM Coexistence mode \(shared antenna\)|STA + Bluetooth LE coexistence|Y|Y|Y|Y|Y|
 |BCA TDM Coexistence mode \(shared antenna\)|STA + Bluetooth + Bluetooth LE coexistence|Y|Y|Y|N|Y|
