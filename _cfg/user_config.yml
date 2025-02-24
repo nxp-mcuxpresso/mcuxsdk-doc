@@ -330,11 +330,6 @@ modules:
     external_contents:
     - root: 'docs'
       pattern: 'middleware/wireless/WiFi-Bluetooth-802.15.4/*' 
-  mid_wireless_rn:
-    default: true
-    external_contents:
-    - root: 'docs'
-      pattern: 'middleware/wireless/Release_Notes/*'
   mid_usb:
     default: true
     external_contents:

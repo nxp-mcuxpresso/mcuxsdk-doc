@@ -1,6 +1,0 @@
-# Package information
-
--   SDK version: 24.12.00
-
-**Parent topic:**[RW610/RW612 release notes](../topics/rw610-rw612-release-notes.md)
-
