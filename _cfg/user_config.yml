@@ -330,16 +330,6 @@ modules:
     external_contents:
     - root: 'docs'
       pattern: 'middleware/wireless/Release_Notes/*'
-  mid_wireless_doc:
-    default: true
-    external_contents:
-    - root: 'docs'
-      pattern: 'middleware/wireless/*'
-  mid_wifi:
-    default: true
-    external_contents:
-    - root: 'docs'
-      pattern: 'middleware/wireless/WiFi/*'
   mid_usb:
     default: true
     external_contents:
