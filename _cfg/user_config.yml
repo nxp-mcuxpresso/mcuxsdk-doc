@@ -325,11 +325,6 @@ modules:
       pattern: 'middleware/wireless/bluetooth/index.rst'
     - root: .
       pattern: 'middleware/wireless/bluetooth/doc/**/*.*'
-  mid_wifi_serial:
-    default: true
-    external_contents:
-    - root: 'docs'
-      pattern: 'middleware/wireless/wifi_serial/*'
   mid_wireless_rn:
     default: true
     external_contents:
