@@ -23,10 +23,10 @@ INFO: [   7][west build -p always examples/demo_apps/hello_world --toolchain arm
 Use `west build -h` to see help information for west build command.
 Compared to zephyr's west build, MCUXpresso SDK's west build command provides following additional options for mcux examples:
 
-- --toolchain: specify the toolchain for this build, default `armgcc`.
-- --config: value for `CMAKE_BUILD_TYPE`, default debug.
+- `--toolchain`: specify the toolchain for this build, default `armgcc`.
+- `--config`: value for `CMAKE_BUILD_TYPE`, default debug.
 
-Here are some typical usage for generating a SDK example:
+Here are some typical usages for generating a SDK example:
 
 ```bash
 # Generate example with default settings, default used device is the mainset MK22F51212
