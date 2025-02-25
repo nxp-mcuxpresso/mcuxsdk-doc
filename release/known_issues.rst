@@ -792,7 +792,7 @@ The i2c_read_accel_value_transfer doesn't work
     **Affected toolchains:** mcux, iar, mdk, armgcc
     **Affected platforms:** lpcxpresso55s69
 
-.. rst-class:: hideable lpc845breakout lpcxpresso860max v2024-12-00
+.. rst-class:: hideable lpc845breakout lpcxpresso860max v2024-12-00 v2025-03-00-pvw2
 
 The spi_transfer_interrupt examples don't work
     Boards cannot transfer data successfully.
