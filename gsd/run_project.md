@@ -18,13 +18,15 @@ INFO: [   7][west build -p always examples/demo_apps/hello_world --toolchain arm
 
 ```
 
+The supported toolchains and build targets for an example are decided by the example-self example.yml and board example.yml, please refer [Example Toolchains and Targets](../develop/sdk/example_development.md#example-toolchains-and-targets) for more details.
+
 ## Build the project
 
 Use `west build -h` to see help information for west build command.
 Compared to zephyr's west build, MCUXpresso SDK's west build command provides following additional options for mcux examples:
 
 - `--toolchain`: specify the toolchain for this build, default `armgcc`.
-- `--config`: value for `CMAKE_BUILD_TYPE`, default debug.
+- `--config`: value for `CMAKE_BUILD_TYPE`. If not provided, build system will get all the example supported build targets and use the first debug target as the default one. Please refer [Example Toolchains and Targets](../develop/sdk/example_development.md#example-toolchains-and-targets) for more details about example supported build targets.
 
 Here are some typical usages for generating a SDK example:
 
@@ -38,7 +40,7 @@ west build -b frdmk22f examples/demo_apps/hello_world --dry-run
 # Generate example with other toolchain like iar, default armgcc
 west build -b frdmk22f examples/demo_apps/hello_world --toolchain iar
 
-# Generate example with other config type, default debug
+# Generate example with other config type
 west build -b frdmk22f examples/demo_apps/hello_world --config release
 
 # Generate example with other devices with --device
