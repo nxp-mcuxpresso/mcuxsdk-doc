@@ -760,7 +760,7 @@ The cmsis_lpi2c_edma_b2b_transfer examples don't work correctly on CM4 core.
     **Affected toolchains:** mcux
     **Affected platforms:** evkmimxrt1160, evkbmimxrt1170
 
-.. rst-class:: hideable evkmimxrt1180 v2024-12-00
+.. rst-class:: hideable evkmimxrt1180 v2024-12-00 v2025-03-00-pvw2
 
 The aws_examples don't work
     The example stucks during TLS connection.
