@@ -1,6 +1,6 @@
 .. _imx95verdinevk:
 
-imx95verdinevk
+IMX95VERDINEVK
 ##############
 
 Overview
