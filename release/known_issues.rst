@@ -744,7 +744,7 @@ The aws_shadow_wifi_nxp example doesn't work
     **Affected toolchains:** mcux
     **Affected platforms:** mimxrt700evk
 
-.. rst-class:: hideable mimxrt700evk v2024-12-00
+.. rst-class:: hideable mimxrt700evk v2024-12-00 v2025-03-00-pvw2
 
 The flexio_spi_int_b2b flexio_spi_edma_b2b examples don't work
     Boards cannot transfer data successfully.
