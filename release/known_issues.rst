@@ -800,7 +800,7 @@ The spi_transfer_interrupt examples don't work
     **Affected toolchains:** mcux
     **Affected platforms:** lpc845breakout, lpcxpresso860max
 
-.. rst-class:: hideable lpcxpresso54s018 v2024-12-00
+.. rst-class:: hideable lpcxpresso54s018 v2024-12-00 v2025-03-00-pvw2
 
 The usart_wakeup_deepsleep doesn't work
     The example doesn't work.
