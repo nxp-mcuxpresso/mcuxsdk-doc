@@ -28,3 +28,7 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK for FRDM-KE15Z
 
    ../../commongs/gettingStarted/gsindex.md
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for FRDM-KE15Z <../../../release/index>`

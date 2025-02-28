@@ -33,3 +33,7 @@ Getting Started
 
    gettingStarted/gsindex.md
 
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for FRDM-K32L2A4S <../../../release/index>`

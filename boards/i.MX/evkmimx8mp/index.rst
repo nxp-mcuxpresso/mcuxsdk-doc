@@ -29,3 +29,7 @@ Getting Started
 
    gettingStarted/gsindex.md
 
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for EVK-MIMX8MP <../../../release/index>`

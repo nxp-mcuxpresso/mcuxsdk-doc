@@ -28,3 +28,6 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK for MCX-N5XX-EVK
 
    ../mcxn9xxevk/gettingStarted/gsindex.md
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for MCX-N5XX-EVK <../../../release/index>`

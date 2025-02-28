@@ -27,3 +27,7 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK for FRDM-K32L3A6
 
    gettingStarted/gsindex.md
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for FRDM-K32L3A6 <../../../release/index>`

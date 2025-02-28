@@ -35,3 +35,7 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK for LPCXpresso54628
 
    ../../commongs/gettingStarted/gsindex.md
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for LPCXpresso54628 <../../../release/index>`

@@ -28,3 +28,7 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK for FRDM-MCXA156
 
    ../../commongs/gettingStarted/gsindex.md
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for FRDM-MCXA156 <../../../release/index>`

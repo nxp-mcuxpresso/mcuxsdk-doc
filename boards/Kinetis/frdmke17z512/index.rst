@@ -28,3 +28,7 @@ Getting Started
 
    gettingStarted/gsindex.md
 
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for FRDM-KE17Z512 <../../../release/index>`

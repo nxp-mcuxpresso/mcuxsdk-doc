@@ -27,3 +27,7 @@ Getting Started
    :caption: Getting Started with MCUXpresso for EVK-MIMX8MNDDR3L
 
    gettingStarted/gsindex.md
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for EVK-MIMX8MNDDR3L <../../../release/index>`

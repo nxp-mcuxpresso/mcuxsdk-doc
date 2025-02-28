@@ -40,3 +40,7 @@ Getting Started
 
    gettingStarted/gsindex.md
 
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for MIMXRT1060-EVKC <../../../release/index>`

@@ -27,3 +27,7 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK for LPC845BREAKOUT
 
    ../../commongs/gettingStarted/gsindex.md
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for LPC845BREAKOUT <../../../release/index>`

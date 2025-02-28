@@ -26,3 +26,7 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK TWR-KM34Z50MV3
 
    ../../commongs/gettingStarted/gsindex.md
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for TWR-KM34Z50MV3 <../../../release/index>`

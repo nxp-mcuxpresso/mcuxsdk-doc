@@ -27,3 +27,7 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK for EVK-MCIMX7ULP
 
    gettingStarted/gsindex.md
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for EVK-MCIMX7ULP <../../../release/index>`

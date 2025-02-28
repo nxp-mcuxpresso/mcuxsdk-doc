@@ -35,3 +35,7 @@ Getting Started
 
 
 
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for LPCXpresso860MAX <../../../release/index>`

@@ -35,3 +35,7 @@ Getting Started
    :caption: Getting Started with Xplorer for MIMXRT700-EVK
 
    gettingStartedXplorer/gsxindex.md
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for MIMXRT700-EVK <../../../release/index>`

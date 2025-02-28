@@ -36,3 +36,6 @@ Getting Started
    :caption: Getting Started with Xplorer for EVK-MIMXRT685
 
    gettingStartedXplorer/gsxindex.md
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for MIMXRT685-AUD-EVK <../../../release/index>`

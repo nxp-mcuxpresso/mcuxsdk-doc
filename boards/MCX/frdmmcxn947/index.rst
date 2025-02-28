@@ -28,3 +28,7 @@ Getting Started
 
    ../mcxn9xxevk/gettingStarted/gsindex.md
 
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for FRDM-MCXN947 <../../../release/index>`

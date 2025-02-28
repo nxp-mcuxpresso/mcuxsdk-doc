@@ -36,3 +36,6 @@ Getting Started
 
    gettingStartedXplorer/gsxindex.md
    
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for EVK-MIMXRT595 <../../../release/index>`

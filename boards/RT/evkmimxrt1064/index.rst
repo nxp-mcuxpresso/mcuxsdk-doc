@@ -31,3 +31,7 @@ Getting Started
 
 
 
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for EVK-MIMXRT1064 <../../../release/index>`

@@ -28,3 +28,7 @@ Getting Started
 
    gettingStarted/gsindex.md
 
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for EVK-MIMXRT1020 <../../../release/index>`

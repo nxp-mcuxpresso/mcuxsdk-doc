@@ -6,7 +6,8 @@ MIMXRT1170-EVKB
 Overview
 ********
 
-
+
+
 
 
 .. image:: ./evkbmimxrt1170.png
@@ -27,3 +28,7 @@ Getting Started
 
    gettingStarted/gsindex.md
 
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for MIMXRT1170-EVKB <../../../release/index>`

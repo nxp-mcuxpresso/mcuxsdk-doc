@@ -35,3 +35,7 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK for MIMXRT1040-EVK
 
    gettingStarted/gsindex.md
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for MIMXRT1040-EVK <../../../release/index>`

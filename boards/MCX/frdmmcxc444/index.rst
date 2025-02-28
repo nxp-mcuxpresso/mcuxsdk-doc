@@ -28,3 +28,7 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK for FRDM-MCXC444
 
    ../../commongs/gettingStarted/gsindex.md
+
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for FRDM-MCXC444 <../../../release/index>`

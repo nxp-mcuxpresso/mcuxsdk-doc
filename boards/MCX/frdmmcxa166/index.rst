@@ -40,3 +40,6 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK 
 
    ../../commongs/gettingStarted/gsindex.md
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for FRDM-MCXA166 <../../../release/index>`

@@ -28,3 +28,6 @@ Getting Started
    :caption: Getting Started with MCUXpresso SDK for RD-RW61X
 
    gettingStarted/gsindex.md
+Release Notes
+****************
+:doc:`MCUXpresso SDK Release Notes for RD-RW612-BGA <../../../release/index>`
