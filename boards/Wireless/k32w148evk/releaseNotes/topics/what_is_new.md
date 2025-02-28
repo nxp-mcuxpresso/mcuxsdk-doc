@@ -73,13 +73,16 @@ The following changes have been implemented compared to the previous SDK release
 
     Details can be found in [CHANGELOG.md](../../../../../middleware/wireless/framework/CHANGELOG.md)
 
--   **Zigbee and IEEE 802.15.4**
-    -  Added Zigbee Pro 2023 and examples applications for ZC, ZR, ZED
-    -  Introduced experimental support for MAC split architecture with FreeRTOS host stack and examples applications for ZC, ZR, ZED 
-    -  Fixed PHY low power timer cancellation
-    -  Minor fixes for Zigbee PRO R22 configuration
-    -  Minor fixes and stability improvements for connectivity_test example application
-    -  Fixed the size of TLVs for Node_desc_req in R23 examples
-    -  Added experimental Zigbee NCP: coprocessor application and coordinator & router applications for imx8 and x86 platforms
+-   **IEEE 802.15.4**
+     - API cleanup: remove unmaintained slotted support
+     - support for MAC split architecture
+       - fix condition to enter low power
+     - minor fixes and stability improvements for connectivity_test example application
 
-
+-   **Zigbee**
+      - NCP Host Updates and fixes
+      - R23 fixes
+        - Device can't establish a new TCLK through ZDO Start Key Update procedure
+        - Security Start Key Update Request is not relayed to joining ZED in multi hop key negotiation
+      - propagate APS ACK to end-user application
+      - documentation updates
