@@ -30,4 +30,8 @@ Getting Started
    ../../commongs/gettingStarted/gsindex.md
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for TWR-KM34Z75M <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for TWR-KM34Z75M
+
+   releaseNotes/rnindex.md

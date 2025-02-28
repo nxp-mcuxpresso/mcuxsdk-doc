@@ -1,8 +1,7 @@
 # Supported development systems
 
-This release supports boards and devices listed in [Table 1](supported_development_systems.md#TABLE_SUPPORTEDBOARDS). The boards and devices in bold were tested in this release.
+This release supports board and devices listed in following table. The board and devices in bold were tested in this release.
 
 |Development boards|MCU devices|
-|------------------|-----------|
-|KW45B41Z-EVK board|KW45B41Z82, KW45B41Z83, KW45B41Z52, KW45B41Z53, KW45Z41082, KW45Z41083, KW45Z41052, KW45Z41053|
-
+|:--:              |:--:       |
+|**KW45B41Z-EVK**|KW45B41Z82AFPA, KW45B41Z82AFTA, KW45B41Z83AFPA,<br> **KW45B41Z83AFTA**, KW45B41Z52AFPA, KW45B41Z52AFTA,<br> KW45B41Z53AFPA, KW45B41Z53AFTA, KW45Z41052AFPA,<br> KW45Z41052AFTA, KW45Z41053AFPA, KW45Z41053AFTA,<br> KW45Z41082AFPA, KW45Z41082AFTA, KW45Z41083AFPA,<br> KW45Z41083AFTA|

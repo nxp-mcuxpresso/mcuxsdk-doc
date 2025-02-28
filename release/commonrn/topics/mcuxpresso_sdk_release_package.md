@@ -1,17 +1,16 @@
 # MCUXpresso SDK release package
 
-The MCUXpresso SDK release package content is aligned with the silicon subfamily it supports. This includes the boards, devices, documentation, and middleware.
+The MCUXpresso SDK release package content is aligned with the silicon subfamily it supports. This includes the boards, CMSIS, devices, documentation, middleware, and RTOS support.
 
-
-```{include} ../topics/device_support.md
-:heading-offset: 1
+```{include} ../../../release/commonrn/topics/device_support.md
+:heading-offset: 2
 ```
 
-```{include} ../topics/applicable_for_productrt1050_or_productrt1010_or_p_001.md
-:heading-offset: 1
+```{include} ../../../release/commonrn/topics/board_support.md
+:heading-offset: 2
 ```
 
-```{include} ../topics/applicable_for_productrt1050_or_productrt1010_or_p.md
-:heading-offset: 1
+```{include} ../../../release/commonrn/topics/demo_application_and_other_examples.md
+:heading-offset: 2
 ```
 

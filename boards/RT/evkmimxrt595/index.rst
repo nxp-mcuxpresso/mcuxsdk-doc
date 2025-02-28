@@ -38,4 +38,8 @@ Getting Started
    
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for EVK-MIMXRT595 <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for EVK-MIMXRT595
+
+   releaseNotes/rnindex.md

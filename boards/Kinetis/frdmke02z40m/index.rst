@@ -32,4 +32,8 @@ Getting Started
 
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for FRDM-KE02Z40M <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for FRDM-KE02Z40M
+
+   releaseNotes/rnindex.md

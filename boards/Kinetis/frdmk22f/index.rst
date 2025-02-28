@@ -32,4 +32,8 @@ Getting Started
 
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for FRDM-K22F <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for FRDM-K22F
+
+   releaseNotes/rnindex.md

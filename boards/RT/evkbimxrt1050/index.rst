@@ -31,4 +31,8 @@ Getting Started
  
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for EVKB-IMXRT1050 <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for EVKB-IMXRT1050
+
+   releaseNotes/rnindex.md

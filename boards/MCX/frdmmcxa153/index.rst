@@ -31,4 +31,8 @@ Getting Started
 
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for FRDM-MCXA153 <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for FRDM-MCXA153
+
+   releaseNotes/rnindex.md

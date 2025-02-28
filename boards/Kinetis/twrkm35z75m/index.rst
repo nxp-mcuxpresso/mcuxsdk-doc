@@ -30,4 +30,8 @@ Getting Started
 
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for TWR-KM35Z75M <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for TWR-KM35Z75M
+
+   releaseNotes/rnindex.md
