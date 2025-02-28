@@ -34,4 +34,8 @@ Getting Started
    gettingStarted/gsindex.md
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for LPCXpresso55S06 <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for LPCXpresso55S06
+
+   releaseNotes/rnindex.md

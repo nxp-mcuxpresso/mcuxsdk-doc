@@ -38,4 +38,8 @@ Getting Started
    gettingStartedXplorer/gsxindex.md
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for MIMXRT685-AUD-EVK <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for MIMXRT685-AUD-EVK
+
+   releaseNotes/rnindex.md

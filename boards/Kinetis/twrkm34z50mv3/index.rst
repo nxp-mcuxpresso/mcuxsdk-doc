@@ -29,4 +29,8 @@ Getting Started
 
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for TWR-KM34Z50MV3 <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for TWR-KM34Z50MV3
+
+   releaseNotes/rnindex.md

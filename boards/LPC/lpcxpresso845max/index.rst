@@ -30,4 +30,8 @@ Getting Started
    ../../commongs/gettingStarted/gsindex.md
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for LPCXpresso845MAX <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for LPCXpresso845MAX
+
+   releaseNotes/rnindex.md

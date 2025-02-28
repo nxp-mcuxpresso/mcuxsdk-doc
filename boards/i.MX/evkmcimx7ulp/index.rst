@@ -30,4 +30,8 @@ Getting Started
 
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for EVK-MCIMX7ULP <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for EVK-MCIMX7ULP
+
+   releaseNotes/rnindex.md

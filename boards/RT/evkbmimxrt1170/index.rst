@@ -31,4 +31,8 @@ Getting Started
 
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for MIMXRT1170-EVKB <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for MIMXRT1170-EVKB
+
+   releaseNotes/rnindex.md

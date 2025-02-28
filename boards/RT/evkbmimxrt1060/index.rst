@@ -41,4 +41,8 @@ Getting Started
    gettingStarted/gsindex.md
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for MIMXRT1060-EVKB <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for MIMXRT1060-EVKB
+
+   releaseNotes/rnindex.md

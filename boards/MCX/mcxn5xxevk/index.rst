@@ -30,4 +30,8 @@ Getting Started
    ../mcxn9xxevk/gettingStarted/gsindex.md
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for MCX-N5XX-EVK <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for MCX-N5XX-EVK
+
+   releaseNotes/rnindex.md

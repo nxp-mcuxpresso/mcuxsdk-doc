@@ -29,4 +29,8 @@ Getting Started
    gettingStarted/gsindex.md
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for EVK-MIMX8MM <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for EVK-MIMX8MM
+
+   releaseNotes/rnindex.md

@@ -29,4 +29,8 @@ Getting Started
    gettingStarted/gsindex.md
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for FRDM-KE16Z <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for FRDM-KE16Z
+
+   releaseNotes/rnindex.md

@@ -41,4 +41,8 @@ Getting Started
    ../../commongs/gettingStarted/gsindex.md
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for FRDM-MCXA276 <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for FRDM-MCXA276
+
+   releaseNotes/rnindex.md

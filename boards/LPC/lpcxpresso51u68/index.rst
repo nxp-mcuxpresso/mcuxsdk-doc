@@ -29,4 +29,8 @@ Getting Started
 
 Release Notes
 ****************
-:doc:`MCUXpresso SDK Release Notes for LPCXpresso51U68 <../../../release/index>`
+.. toctree::
+   :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for LPCXpresso51U68
+
+   releaseNotes/rnindex.md
