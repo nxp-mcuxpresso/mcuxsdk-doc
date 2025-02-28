@@ -1,14 +1,33 @@
 # What is new 
 
-MCUXpresso SDK version 24.12.00 is an early adopter release provided as preview for early development.
+MCUXpresso SDK version 25.03.00-pvw2 is an early adopter release provided as preview for early development.
 
 The following changes have been implemented compared to the previous SDK release version \(24.12.00-pvw2\).
 
--   **Bluetooth LE host stack and applications:**
-    -   Minor fixes and stability improvements
-    -   Documentation updates
- 
--   **Bluetooth LE controller:**
+-   **Bluetooth LE host stack and applications**
+    
+    #### Added
+	- PAWR support in **BLE Shell** sample application.
+	- PAWR support in **adv_ext_peripheral** and **adv_ext_central** sample applications.
+	- New sample applications for **FRDM-MCXW72**.
+	- **Gap_SetScanningCallback** API.
+	- Support for handover connection interval update command.
+
+	#### Changed
+	- Updated HID Device for **Windows 11** compatibility.
+	- Updated CCC demos to **Digital Key R4 spec version 1.0.0**.
+	- Improved RPA resolution at the **Host level**, now performed synchronously.
+	- Enhanced parsing of the **CS procedure** in Ranging Service.
+
+    #### Fixed
+	- Corrected parsing of the **PAST command** in FSCI GAP.
+	- Fixed **scan event reporting** in PAST scenario.
+	- Added an error case for `Gap_SetChannelMap` in the generic event handler.
+
+	    
+    Details can be found in [CHANGELOG.md](../../../../../middleware/wireless/bluetooth/CHANGELOG.md).
+
+-   **Bluetooth LE controller**
     -   Added support for Bluetooth LE Channel Sounding
     -   Minor fixes and stability improvements
 
