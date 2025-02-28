@@ -1,8 +1,8 @@
 # What is new
 
-MCUXpresso SDK version 24.12.00 is an early adopter release provided as preview for early development.
+MCUXpresso SDK version 25.03.00-pvw2 is an early adopter release provided as preview for early development.
 
-The following changes have been implemented compared to the previous SDK release version \(24.12.00-pvw2\).
+The following changes have been implemented compared to the previous SDK release version \(24.12.00\).
 
 
 -   **Bluetooth LE host stack and applications**
