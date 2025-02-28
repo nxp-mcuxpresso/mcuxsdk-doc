@@ -27,7 +27,6 @@ The following changes have been implemented compared to the previous SDK release
     Details can be found in [CHANGELOG.md](../../../../../middleware/wireless/bluetooth/CHANGELOG.md).
 
 -   **Bluetooth LE controller**
-    -  Added initial experimental support for Bluetooth LE Controller feature: Periodic Advertising with Responses \(PAwR)\
     -  Minor fixes and stability improvements
 
 -   **Transceiver Drivers (XCVR)**

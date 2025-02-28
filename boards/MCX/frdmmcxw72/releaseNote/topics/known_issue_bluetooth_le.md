@@ -9,11 +9,12 @@ Max number of connections supported : 8
 Potential instabilities particularly with short Connection Intervals
 
 Channel Sounding (CS) not supported: 
--	Mode 3 steps
 -	RTT with Random sequence
 -	RTT Random sequence NADM
--	Antenna Diversity with CS 1xN / Nx1 (with N >1 and N<=4)
+-   TX SNR
+-   LE 2M 2BT PHY
 -	More than one CS procedure in parallel
+-   Potential instabilities with small CS offset or small subevent interval
 
 **Parent topic:**[Known issues](../topics/known_issues.md)
 
