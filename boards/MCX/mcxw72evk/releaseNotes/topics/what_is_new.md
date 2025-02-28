@@ -14,7 +14,7 @@ The following changes have been implemented compared to the previous SDK release
 	- **Gap_SetScanningCallback** API.
 	- Support for handover connection interval update command.
 
-	#### Changed
+    #### Changed
 	- Updated HID Device for **Windows 11** compatibility.
 	- Updated CCC demos to **Digital Key R4 spec version 1.0.0**.
 	- Improved RPA resolution at the **Host level**, now performed synchronously.
