@@ -10,8 +10,6 @@ When this macro is set to ‘0'/FALSE, the Arm application and DSP application a
 
 Preparing an Arm core development environment is outside the scope of this document.
 
-**Note:** IAR Embedded Workbench may require a patch to enable compatibility with RT700. For details on the patch, contact NXP directly.
-
 **Note:** If you are using MCUXpresso, it is highly recommended to upgrade to latest version of the SDK and match the latest EVK board.
 
 **Parent topic:**[Run and Debug DSP Demo using Xplorer IDE](../topics/run_and_debug_dsp_demo_using_xplorer_ide.md)
