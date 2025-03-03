@@ -12,7 +12,7 @@ at <a href="http://www.nxp.com/products/software-and-tools/run-time-software/mcu
 
 <UL>
 <LI>Arm<sup>®</sup> and DSP standard libraries, and CMSIS-compliant device header files which provide direct access to the peripheral registers.
-<LI>Peripheral drivers that provide stateless, high-performance, ease-of-use APIs. Communication drivers provide higher-level transactional APIs for a higher-performance option.
+<LI>Peripheral drivers that provide high-performance, ease-of-use APIs. Communication drivers provide higher-level transactional APIs for a higher-performance option.
 <LI>RTOS wrapper driver built on top of MCUXpresso SDK peripheral drivers and leverage native RTOS services to better comply to the RTOS cases.
 <LI>Real time operation systems (RTOS) for FreeRTOS OS.
 <LI>Stacks and middleware in source or object formats including:
