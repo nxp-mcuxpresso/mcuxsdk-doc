@@ -21,12 +21,15 @@ MCU device and part on board is shown below:
  - PartNumber: MK22FN512VLH12
 
 
+Getting Started with MCUXpresso SDK for FRDM-K22F
+*************************************************
 Getting Started
 ****************
 Getting Started with MCUXpresso SDK for FRDM-K22F
 *************************************************
 .. toctree::
    :maxdepth: 1
+
    :caption: Getting Started with MCUXpresso SDK for FRDM-K22F
 
    
