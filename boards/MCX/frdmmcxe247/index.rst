@@ -34,10 +34,10 @@ Getting Started
    :maxdepth: 1
    :caption: Getting Started with MCUXpresso SDK for FRDM-MCXE247
 
-   ../commongs/gettingStarted/gsindex.md
+   ../../commongs/gettingStarted/gsindex.md
 
-Release Notes for FRDM-MCXE247
-******************************
+Release Notes
+****************
 
 **This is an Early Access Release (EAR) for FRDM-MCXE247 developement board. It shall be used for pre-production development only.**
 
@@ -48,10 +48,8 @@ Supported Development Tools
  - MCUXpresso for VS Code v25.03
  - GCC Arm Embedded Toolchain
 
-MCUXpresso SDK Release Notes
-============================
-
 .. toctree::
    :maxdepth: 1
+   :caption: MCUXpresso SDK Release Notes for FRDM-MCXE247
 
-   ../../release/index
+   releaseNotes/rnindex.md
