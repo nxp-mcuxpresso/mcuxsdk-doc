@@ -27,6 +27,10 @@ external_contents:
 - root: 'docs'
   pattern: 'middleware/index.rst'
 - root: 'docs'
+  pattern: 'middleware/wireless/index.rst'
+- root: 'docs'
+  pattern: 'middleware/audio_voice/index.rst'
+- root: 'docs'
   pattern: 'middleware/audio_voice/maestro/*'
 - root: 'docs'
   pattern: 'middleware/audio_voice/components/*'
@@ -260,9 +264,9 @@ modules:
     default: true
     external_contents:
     - root: .
-      pattern: middleware/mcuboot_opensource/docs/*.md
+      pattern: middleware/mcuboot_opensource/*.md
     vcs_link:
-    - pattern: middleware/mcuboot_opensource/.*md
+    - pattern: middleware/mcuboot_opensource/*.md
       replace_prefix: middleware/mcuboot_opensource/
       link: https://github.com/nxp-mcuxpresso/mcuboot
   mid_freertos_drivers:
