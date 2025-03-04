@@ -13,5 +13,4 @@ The example freertos_lpspi fails before the message "LPSPI master transfer compl
      CLK -- CLK
      PCS -- PCS
      SOUT -- SIN
-     SIN -- SOUT
-   ```   
+     SIN -- SOUT   ```   
