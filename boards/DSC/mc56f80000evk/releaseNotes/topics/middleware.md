@@ -1,6 +1,18 @@
 # Middleware
 
-The middleware folder contains the middleware, such as, freemaster and motor control. It depends on the middleware items chosen when the SDK is downloaded. There are demos under the board folder to demonstrate the usage of these middleware.
+```{include} ../../../../release/commonrn/topics/nxp_motor_control.md
+:heading-offset: 2
+```
 
-**Parent topic:**[MCUXpresso SDK release package](../topics/mcuxpresso_sdk_release_package.md)
+```{include} ../../../../release/commonrn/topics/nxp_usb_power_delivery.md
+:heading-offset: 2
+```
+
+```{include} ../../../../release/commonrn/topics/nxp_usb.md
+:heading-offset: 2
+```
+
+```{include} ../../../../release/commonrn/topics/nxp_freemaster.md
+:heading-offset: 2
+```
 
