@@ -1,8 +1,8 @@
 # Example freertos_lpspi fail before the console output
 
-    The example freertos_lpspi fails before the message "LPSPI master transfer completed successfully." appears in the console output.
+The example freertos_lpspi fails before the message "LPSPI master transfer completed successfully." appears in the console output.
 
-    Console output:
+  Console output:
 
     ```
     FreeRTOS LPSPI example start.
