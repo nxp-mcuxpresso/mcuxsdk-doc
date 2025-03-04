@@ -743,7 +743,6 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX8MN/MIMX8MN6/drivers/fsl_clock.h \
         @SDK_BASE@/drivers/easrc/fsl_asrc_sdma.h \
         @SDK_BASE@/drivers/easrc/doxygen/asrc.dox \
         @SDK_BASE@/drivers/easrc/fsl_asrc.h \
-        @SDK_BASE@/drivers/easrc/fsl_asrc_firmware.h \
         @SDK_BASE@/drivers/ecspi/doxygen/ecspi_sdma.dox \
         @SDK_BASE@/drivers/ecspi/fsl_ecspi_sdma.h \
         @SDK_BASE@/drivers/ecspi/doxygen/ecspi.dox \
