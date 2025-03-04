@@ -28,10 +28,10 @@
 ```{include} ../../../../release/commonrn/topics/release_contents.md
 :heading-offset: 1
 ```
-
-```{include} topics/known_issues.md
-:heading-offset: 1
-```
 ```{include} ./../../../release/commonrn/topics/known_issues_sel.md
 :heading-offset: 1
 ```
+```{include} topics/known_issues.md
+:heading-offset: 1
+```
+
