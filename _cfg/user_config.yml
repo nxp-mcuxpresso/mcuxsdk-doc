@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=mcux_doc_config_schema.json
 project: mcuxsdk
 copyright: '2025, NXP'
 author: 'NXP'
@@ -18,19 +17,19 @@ source_suffix:
   .rst: restructuredtext
   .readme: markdown
   .md: markdown
-ext_doxygen:
-  doxyfile: docs/drivers/Doxyfile_lib_PDF_RM_Drivers
-  fmt: True
-  fmt_vars: {}
 vcs_link:
-- pattern: ".*"
-  replace_prefix: ""
-  link: "https://github.com/nxp-mcuxpresso/mcuxsdk-doc"
+- pattern: .*
+  replace_prefix: ''
+  link: https://github.com/nxp-mcuxpresso/mcuxsdk-doc
 external_contents:
 - root: 'docs'
   pattern: 'index.rst'
 - root: 'docs'
   pattern: 'middleware/index.rst'
+- root: 'docs'
+  pattern: 'middleware/wireless/index.rst'
+- root: 'docs'
+  pattern: 'middleware/audio_voice/index.rst'
 - root: 'docs'
   pattern: 'middleware/audio_voice/maestro/*'
 - root: 'docs'
@@ -52,122 +51,123 @@ external_contents:
 - root: 'docs'
   pattern: 'middleware/vglite/**/*.png'
 - root: docs
-  pattern: 'generation.rst'
+  pattern: generation.rst
 - root: docs
-  pattern: 'develop/document/*'
+  pattern: develop/document/*
 - root: docs
-  pattern: 'rtos/index.rst'
+  pattern: rtos/index.rst
 - root: docs
-  pattern: 'rtos/*'
-- root: 'docs'
-  pattern: 'middleware/fatfs/*'
+  pattern: rtos/*
+- root: docs
+  pattern: middleware/fatfs/*
+- root: docs
+  pattern: drivers/*
+doxygen:
+  extensions:
+  - breathe
+  - doxyrunner
 modules:
   introduction:
-    default: True
+    default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'introduction/*'
+    - root: docs
+      pattern: introduction/*
   gsd:
-    default: True
+    default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'gsd/*'
+    - root: docs
+      pattern: gsd/*
     internal:
       external_contents:
       - root: ..
         pattern: bifrost/readme.md
-  doxygen:
-    default: false
-    extensions:
-    - breathe
-    - doxyrunner
   boards:
-    default: True
+    default: true
     external_contents:
     - root: docs
-      pattern: 'boards/*'
+      pattern: boards/*
   drivers:
-    default: True
+    default: true
     external_contents:
     - root: 'docs'
       pattern: 'drivers/*'
-  release:
+  releases:
     default: True
     external_contents:
-    - root: 'docs'
-      pattern: 'release/*'
+    - root: docs
+      pattern: release/*
   examples:
-    default: True
+    default: true
     external_contents:
     - root: .
-      pattern: 'examples/**/*.md'
+      pattern: examples/**/*.md
     - root: .
-      pattern: 'examples/**/*.jpg'
+      pattern: examples/**/*.jpg
     - root: .
-      pattern: 'examples/**/*.png'
+      pattern: examples/**/*.png
     - root: .
-      pattern: 'examples/**/index.rst'
+      pattern: examples/**/index.rst
     vcs_link:
     - pattern: examples/.*\.md
-      replace_prefix: "examples/"
-      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/"
+      replace_prefix: examples/
+      link: https://github.com/nxp-mcuxpresso/mcuxsdk-examples/
     - pattern: examples/.*\.rst
-      replace_prefix: "examples/"
-      link: "https://github.com/nxp-mcuxpresso/mcuxsdk-examples/"
+      replace_prefix: examples/
+      link: https://github.com/nxp-mcuxpresso/mcuxsdk-examples/
   contribute:
-    default: True
+    default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'contribute/*'
+    - root: docs
+      pattern: contribute/*
   bifrost:
-    default: True
+    default: true
     external_contents:
-    - root: '..'
-      pattern: 'bifrost/readme.md'
+    - root: ..
+      pattern: bifrost/readme.md
   dev_architect:
-    default: True
+    default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'develop/architect.md'
+    - root: docs
+      pattern: develop/architect.md
   dev_sdk:
-    default: True
+    default: true
     external_contents:
-      - root: 'docs'
-        pattern: 'develop/sdk/*'
+    - root: docs
+      pattern: develop/sdk/*
   dev_build_system:
-    default: True
+    default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'develop/build_system/*'
+    - root: docs
+      pattern: develop/build_system/*
     internal:
       external_contents:
-      - root: '.'
-        pattern: 'ecosystem/sdk_generator/doc_ecosystem/index.rst'
-      - root: '.'
-        pattern: 'ecosystem/sdk_generator/doc_ecosystem/*'
+      - root: .
+        pattern: ecosystem/sdk_generator/doc_ecosystem/index.rst
+      - root: .
+        pattern: ecosystem/sdk_generator/doc_ecosystem/*
   dev_document:
-    default: True
+    default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'develop/document/*'
+    - root: docs
+      pattern: develop/document/*
   mid_aws_iot:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/aws_iot/device-shadow/README.md'
+      pattern: middleware/aws_iot/device-shadow/README.md
     - root: .
-      pattern: 'middleware/aws_iot/device-defender/README.md'
+      pattern: middleware/aws_iot/device-defender/README.md
     - root: .
-      pattern: 'middleware/aws_iot/jobs/README.md'
+      pattern: middleware/aws_iot/jobs/README.md
     - root: .
-      pattern: 'middleware/aws_iot/ota/README.md'
+      pattern: middleware/aws_iot/ota/README.md
   mid_wireless_fwk:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/wireless/framework/index.rst'
+      pattern: middleware/wireless/framework/index.rst
     - root: .
-      pattern: 'middleware/wireless/framework/*.md'
+      pattern: middleware/wireless/framework/*.md
     - root: .
       pattern: 'middleware/wireless/framework/**/*.md'
     - root: .
@@ -176,55 +176,55 @@ modules:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/lwip/ChangeLogKSDK.txt'
+      pattern: middleware/lwip/ChangeLogKSDK.txt
     - root: .
-      pattern: 'middleware/lwip/port/README.md'
+      pattern: middleware/lwip/port/README.md
   mid_lvgl:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/lvgl/docs/integration/chip/nxp.rst'
+      pattern: middleware/lvgl/docs/integration/chip/nxp.rst
   mid_wifi_nxp:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/wifi_nxp/docs/*'
+      pattern: middleware/wifi_nxp/docs/*
   mid_maestro:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/audio_voice/maestro/*.md'
+      pattern: middleware/audio_voice/maestro/*.md
     - root: .
-      pattern: 'middleware/audio_voice/maestro/doxygen/*'
+      pattern: middleware/audio_voice/maestro/doxygen/*
     - root: .
-      pattern: 'middleware/audio_voice/maestro/zephyr/README.rst'
+      pattern: middleware/audio_voice/maestro/zephyr/README.rst
     - root: .
-      pattern: 'middleware/audio_voice/maestro/zephyr/samples/record_ram/README.rst'
+      pattern: middleware/audio_voice/maestro/zephyr/samples/record_ram/README.rst
     - root: .
-      pattern: 'middleware/audio_voice/maestro/zephyr/samples/record_vit/README.rst'
+      pattern: middleware/audio_voice/maestro/zephyr/samples/record_vit/README.rst
     - root: .
-      pattern: 'middleware/audio_voice/maestro/zephyr/tests/encoder/README.rst'
+      pattern: middleware/audio_voice/maestro/zephyr/tests/encoder/README.rst
     - root: .
-      pattern: 'middleware/audio_voice/maestro/zephyr/tests/memToMem/README.rst'
+      pattern: middleware/audio_voice/maestro/zephyr/tests/memToMem/README.rst
     - root: .
-      pattern: 'middleware/audio_voice/maestro/zephyr/tests/decoder/README.rst'
+      pattern: middleware/audio_voice/maestro/zephyr/tests/decoder/README.rst
   mid_avc:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/audio_voice/components/README.md'
+      pattern: middleware/audio_voice/components/README.md
     - root: .
-      pattern: 'middleware/audio_voice/components/ssrc/doc/topics/*.md'
+      pattern: middleware/audio_voice/components/ssrc/doc/topics/*.md
     - root: .
-      pattern: 'middleware/audio_voice/components/ssrc/doc/*.md'
+      pattern: middleware/audio_voice/components/ssrc/doc/*.md
     - root: .
-      pattern: 'middleware/audio_voice/components/decoders/aac/doc/*.md'
+      pattern: middleware/audio_voice/components/decoders/aac/doc/*.md
     - root: .
-      pattern: 'middleware/audio_voice/components/decoders/flac/doc/*.md'
+      pattern: middleware/audio_voice/components/decoders/flac/doc/*.md
     - root: .
-      pattern: 'middleware/audio_voice/components/decoders/mp3/doc/*.md'
+      pattern: middleware/audio_voice/components/decoders/mp3/doc/*.md
     - root: .
-      pattern: 'middleware/audio_voice/components/decoders/wav/doc/*.md'
+      pattern: middleware/audio_voice/components/decoders/wav/doc/*.md
   mid_multicore:
     default: true
     external_contents:
@@ -249,38 +249,38 @@ modules:
     - root: .
       pattern: 'middleware/multicore/rpmsg-lite/*.md'
     - root: .
-      pattern: 'middleware/multicore/rpmsg-lite/doxygen/*'
+      pattern: middleware/multicore/rpmsg-lite/doxygen/*
     - root: .
-      pattern: 'middleware/multicore/mcmgr/*.md'
+      pattern: middleware/multicore/mcmgr/*.md
     - root: .
-      pattern: 'middleware/multicore/mcmgr/doc/*'
+      pattern: middleware/multicore/mcmgr/doc/*
     - root: .
-      pattern: 'middleware/multicore/mcmgr/doxygen/*'
+      pattern: middleware/multicore/mcmgr/doxygen/*
     - root: .
-      pattern: 'middleware/multicore/erpc/*.md'
+      pattern: middleware/multicore/erpc/*.md
     - root: .
-      pattern: 'middleware/multicore/erpc/doxygen/*'
+      pattern: middleware/multicore/erpc/doxygen/*
   mid_mcuboot:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/mcuboot_opensource/docs/*.md'
+      pattern: middleware/mcuboot_opensource/*.md
     vcs_link:
-    - pattern: "middleware/mcuboot_opensource/.*md"
-      replace_prefix: "middleware/mcuboot_opensource/"
-      link: "https://github.com/nxp-mcuxpresso/mcuboot"
+    - pattern: middleware/mcuboot_opensource/*.md
+      replace_prefix: middleware/mcuboot_opensource/
+      link: https://github.com/nxp-mcuxpresso/mcuboot
   mid_freertos_drivers:
     default: true
     external_contents:
     - root: .
-      pattern: 'rtos/freertos/freertos-drivers/README.md'
+      pattern: rtos/freertos/freertos-drivers/README.md
     - root: .
-      pattern: 'rtos/freertos/freertos-drivers/CHANGELOG.md'
+      pattern: rtos/freertos/freertos-drivers/CHANGELOG.md
   rtos_freertos:
     default: true
     external_contents:
     - root: .
-      pattern: 'rtos/freertos/freertos-kernel/README.md'
+      pattern: rtos/freertos/freertos-kernel/README.md
     - root: .
       pattern: 'rtos/freertos/freertos-kernel/README_mcuxsdk.md'
     - root: .
@@ -290,34 +290,37 @@ modules:
     - root: .
       pattern: 'rtos/freertos/backoffalgorithm/README.md'
     - root: .
-      pattern: 'rtos/freertos/corehttp/README.md'
+      pattern: rtos/freertos/corehttp/README.md
     - root: .
-      pattern: 'rtos/freertos/corejson/README.md'
+      pattern: rtos/freertos/corejson/README.md
     - root: .
-      pattern: 'rtos/freertos/coremqtt/README.md'
+      pattern: rtos/freertos/coremqtt/README.md
     - root: .
-      pattern: 'rtos/freertos/coremqtt-agent/README.md'
+      pattern: rtos/freertos/coremqtt-agent/README.md
     - root: .
-      pattern: 'rtos/freertos/corepkcs11/README.md'
+      pattern: rtos/freertos/corepkcs11/README.md
     - root: .
-      pattern: 'rtos/freertos/freertos-plus-tcp/README.md'
+      pattern: rtos/freertos/freertos-plus-tcp/README.md
   mid_fatfs:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/fatfs/*'
+      pattern: middleware/fatfs/*
   mid_freemaster:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/freemaster/doc/index.md'
+      pattern: middleware/freemaster/doc/index.md
     - root: .
-      pattern: 'middleware/freemaster/doc/user_guide/*'
+      pattern: middleware/freemaster/doc/user_guide/*
   mid_issdk:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/issdk/*'
+    - root: docs
+      pattern: middleware/issdk/*
+    # doxygen_runner:
+    #   doxyfile: middleware/issdk/docs/apirm/ISSDK_Core-doxyfile-for HTML Publication.dxy
+    #   outdir: middleware/issdk
   mid_ble:
     default: true
     external_contents:
@@ -325,6 +328,8 @@ modules:
       pattern: 'middleware/wireless/bluetooth/index.rst'
     - root: .
       pattern: 'middleware/wireless/bluetooth/doc/**/*.*'
+    - root: .
+      pattern: 'middleware/wireless/bluetooth/CHANGELOG.md'
   mid_wifi_bluetooth_802.15.4:
     default: true
     external_contents:
@@ -334,7 +339,7 @@ modules:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/usb/docs/*'
+      pattern: middleware/usb/docs/*
   mid_edgefast_bluetooth:
     default: true
     external_contents:
@@ -348,14 +353,584 @@ modules:
   mid_ieee:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/wireless/IEEE/*'
+    - root: '.'
+      pattern: 'middleware/wireless/ieee-802.15.4/docs/index.rst'
+    - root: '.'
+      pattern: 'middleware/wireless/ieee-802.15.4/docs/**/**/*.*'
   mid_eiq:
     default: true
     external_contents:
     - root: .
-      pattern: 'middleware/eiq/docs/*'
+      pattern: middleware/eiq/docs/*
     - root: .
-      pattern: 'middleware/eiq/tensorflow-lite/docs/*'
+      pattern: middleware/eiq/tensorflow-lite/docs/*
     - root: .
-      pattern: 'middleware/eiq/mpp/docs/*'
+      pattern: middleware/eiq/mpp/docs/*
+  drivers_Kinetis_K32L_K32L2A41A:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Kinetis/K32L/K32L2A41A/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_K32L2A41A
+      outdir: drivers/Kinetis/K32L/K32L2A41A
+  drivers_Kinetis_K32L_K32L2B31A:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Kinetis/K32L/K32L2B31A/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_K32L2B31A
+      outdir: drivers/Kinetis/K32L/K32L2B31A
+  drivers_Kinetis_K32L_K32L3A60:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Kinetis/K32L/K32L3A60/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_K32L3A60
+      outdir: drivers/Kinetis/K32L/K32L3A60
+  drivers_Wireless_K32W_K32W1480:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Wireless/K32W/K32W1480/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_K32W1480
+      outdir: drivers/Wireless/K32W/K32W1480
+  drivers_Wireless_KW_KW45B41Z83:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Wireless/KW/KW45B41Z83/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_KW45B41Z83
+      outdir: drivers/Wireless/KW/KW45B41Z83
+  drivers_Wireless_KW_KW47B42ZB7:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Wireless/KW/KW47B42ZB7/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_KW47B42ZB7
+      outdir: drivers/Wireless/KW/KW47B42ZB7
+  drivers_LPC_LPC51U68_LPC51U68:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC51U68/LPC51U68/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC51U68
+      outdir: drivers/LPC/LPC51U68/LPC51U68
+  drivers_LPC_LPC54000_LPC54628:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC54000/LPC54628/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC54628
+      outdir: drivers/LPC/LPC54000/LPC54628
+  drivers_LPC_LPC54000_LPC54S018:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC54000/LPC54S018/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC54S018
+      outdir: drivers/LPC/LPC54000/LPC54S018
+  drivers_LPC_LPC54000_LPC54S018M:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC54000/LPC54S018M/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC54S018M
+      outdir: drivers/LPC/LPC54000/LPC54S018M
+  drivers_LPC_LPC5500_LPC55S06:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC5500/LPC55S06/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC55S06
+      outdir: drivers/LPC/LPC5500/LPC55S06
+  drivers_LPC_LPC5500_LPC55S16:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC5500/LPC55S16/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC55S16
+      outdir: drivers/LPC/LPC5500/LPC55S16
+  drivers_LPC_LPC5500_LPC55S28:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC5500/LPC55S28/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC55S28
+      outdir: drivers/LPC/LPC5500/LPC55S28
+  drivers_LPC_LPC5500_LPC55S36:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC5500/LPC55S36/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC55S36
+      outdir: drivers/LPC/LPC5500/LPC55S36
+  drivers_LPC_LPC5500_LPC55S69:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC5500/LPC55S69/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC55S69
+      outdir: drivers/LPC/LPC5500/LPC55S69
+  drivers_LPC_LPC800_LPC802:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC800/LPC802/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC802
+      outdir: drivers/LPC/LPC800/LPC802
+  drivers_LPC_LPC800_LPC804:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC800/LPC804/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC804
+      outdir: drivers/LPC/LPC800/LPC804
+  drivers_LPC_LPC800_LPC824:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC800/LPC824/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC824
+      outdir: drivers/LPC/LPC800/LPC824
+  drivers_LPC_LPC800_LPC845:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC800/LPC845/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC845
+      outdir: drivers/LPC/LPC800/LPC845
+  drivers_LPC_LPC800_LPC865:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/LPC/LPC800/LPC865/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC865
+      outdir: drivers/LPC/LPC800/LPC865
+  drivers_DSC_MC56F80xxx_MC56F80748:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/DSC/MC56F80xxx/MC56F80748/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MC56F80748
+      outdir: drivers/DSC/MC56F80xxx/MC56F80748
+  drivers_DSC_MC56F81xxx_MC56F81768:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/DSC/MC56F81xxx/MC56F81768/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MC56F81768
+      outdir: drivers/DSC/MC56F81xxx/MC56F81768
+  drivers_DSC_MC56F82xxx_MC56F82748:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/DSC/MC56F82xxx/MC56F82748/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MC56F82748
+      outdir: drivers/DSC/MC56F82xxx/MC56F82748
+  drivers_DSC_MC56F83xxx_MC56F83789:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/DSC/MC56F83xxx/MC56F83789/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MC56F83789
+      outdir: drivers/DSC/MC56F83xxx/MC56F83789
+  drivers_DSC_MC56F84xxx_MC56F84789:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/DSC/MC56F84xxx/MC56F84789/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MC56F84789
+      outdir: drivers/DSC/MC56F84xxx/MC56F84789
+  drivers_iMX_iMX7ULP_MCIMX7U5:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/iMX/iMX7ULP/MCIMX7U5/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCIMX7U5
+      outdir: drivers/iMX/iMX7ULP/MCIMX7U5
+  drivers_MCX_MCXA_MCXA153:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXA/MCXA153/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA153
+      outdir: drivers/MCX/MCXA/MCXA153
+  drivers_MCX_MCXA_MCXA156:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXA/MCXA156/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA156
+      outdir: drivers/MCX/MCXA/MCXA156
+  drivers_MCX_MCXA_MCXA166:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXA/MCXA166/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA166
+      outdir: drivers/MCX/MCXA/MCXA166
+  drivers_MCX_MCXA_MCXA276:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXA/MCXA276/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA276
+      outdir: drivers/MCX/MCXA/MCXA276
+  drivers_MCX_MCXC_MCXC041:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXC/MCXC041/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXC041
+      outdir: drivers/MCX/MCXC/MCXC041
+  drivers_MCX_MCXC_MCXC242:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXC/MCXC242/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXC242
+      outdir: drivers/MCX/MCXC/MCXC242
+  drivers_MCX_MCXC_MCXC444:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXC/MCXC444/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXC444
+      outdir: drivers/MCX/MCXC/MCXC444
+  drivers_MCX_MCXN_MCXN236:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXN/MCXN236/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXN236
+      outdir: drivers/MCX/MCXN/MCXN236
+  drivers_MCX_MCXN_MCXN547:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXN/MCXN547/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXN547
+      outdir: drivers/MCX/MCXN/MCXN547
+  drivers_MCX_MCXN_MCXN947:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXN/MCXN947/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXN947
+      outdir: drivers/MCX/MCXN/MCXN947
+  drivers_MCX_MCXW_MCXW716C:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXW/MCXW716C/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW716C
+      outdir: drivers/MCX/MCXW/MCXW716C
+  drivers_MCX_MCXW_MCXW727C:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXW/MCXW727C/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW727C
+      outdir: drivers/MCX/MCXW/MCXW727C
+  drivers_iMX_iMX8MP_MIMX8ML8:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/iMX/iMX8MP/MIMX8ML8/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX8ML8
+      outdir: drivers/iMX/iMX8MP/MIMX8ML8
+  drivers_iMX_iMX8MM_MIMX8MM6:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/iMX/iMX8MM/MIMX8MM6/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX8MM6
+      outdir: drivers/iMX/iMX8MM/MIMX8MM6
+  drivers_iMX_iMX8MN_MIMX8MN6:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/iMX/iMX8MN/MIMX8MN6/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX8MN6
+      outdir: drivers/iMX/iMX8MN/MIMX8MN6
+  drivers_iMX_iMX8M_MIMX8MQ6:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/iMX/iMX8M/MIMX8MQ6/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX8MQ6
+      outdir: drivers/iMX/iMX8M/MIMX8MQ6
+  drivers_iMX_iMX8ULP_MIMX8UD5:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/iMX/iMX8ULP/MIMX8UD5/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX8UD5
+      outdir: drivers/iMX/iMX8ULP/MIMX8UD5
+  drivers_iMX_iMX8ULP_MIMX8UD7:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/iMX/iMX8ULP/MIMX8UD7/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX8UD7
+      outdir: drivers/iMX/iMX8ULP/MIMX8UD7
+  drivers_iMX_iMX93_MIMX9322:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/iMX/iMX93/MIMX9322/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9322
+      outdir: drivers/iMX/iMX93/MIMX9322
+  drivers_iMX_iMX93_MIMX9352:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/iMX/iMX93/MIMX9352/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9352
+      outdir: drivers/iMX/iMX93/MIMX9352
+  drivers_iMX_iMX95_MIMX9596:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/iMX/iMX95/MIMX9596/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9596
+      outdir: drivers/iMX/iMX95/MIMX9596
+  drivers_RT_RT1010_MIMXRT1011:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT1010/MIMXRT1011/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1011
+      outdir: drivers/RT/RT1010/MIMXRT1011
+  drivers_RT_RT1015_MIMXRT1015:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT1015/MIMXRT1015/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1015
+      outdir: drivers/RT/RT1015/MIMXRT1015
+  drivers_RT_RT1020_MIMXRT1021:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT1020/MIMXRT1021/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1021
+      outdir: drivers/RT/RT1020/MIMXRT1021
+  drivers_RT_RT1020_MIMXRT1024:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT1020/MIMXRT1024/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1024
+      outdir: drivers/RT/RT1020/MIMXRT1024
+  drivers_RT_RT1040_MIMXRT1042:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT1040/MIMXRT1042/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1042
+      outdir: drivers/RT/RT1040/MIMXRT1042
+  drivers_RT_RT1050_MIMXRT1052:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT1050/MIMXRT1052/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1052
+      outdir: drivers/RT/RT1050/MIMXRT1052
+  drivers_RT_RT1060_MIMXRT1062:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT1060/MIMXRT1062/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1062
+      outdir: drivers/RT/RT1060/MIMXRT1062
+  drivers_RT_RT1064_MIMXRT1064:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT1064/MIMXRT1064/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1064
+      outdir: drivers/RT/RT1064/MIMXRT1064
+  drivers_RT_RT1160_MIMXRT1166:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT1160/MIMXRT1166/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1166
+      outdir: drivers/RT/RT1160/MIMXRT1166
+  drivers_RT_RT1170_MIMXRT1176:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT1170/MIMXRT1176/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1176
+      outdir: drivers/RT/RT1170/MIMXRT1176
+  drivers_RT_RT1180_MIMXRT1189:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT1180/MIMXRT1189/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1189
+      outdir: drivers/RT/RT1180/MIMXRT1189
+  drivers_RT_RT500_MIMXRT595S:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT500/MIMXRT595S/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT595S
+      outdir: drivers/RT/RT500/MIMXRT595S
+  drivers_RT_RT600_MIMXRT685S:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT600/MIMXRT685S/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT685S
+      outdir: drivers/RT/RT600/MIMXRT685S
+  drivers_RT_RT700_MIMXRT798S:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/RT/RT700/MIMXRT798S/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT798S
+      outdir: drivers/RT/RT700/MIMXRT798S
+  drivers_Kinetis_K_MK22F51212:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Kinetis/K/MK22F51212/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MK22F51212
+      outdir: drivers/Kinetis/K/MK22F51212
+  drivers_Kinetis_KE_MKE02Z4:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Kinetis/KE/MKE02Z4/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKE02Z4
+      outdir: drivers/Kinetis/KE/MKE02Z4
+  drivers_Kinetis_KE_MKE15Z7:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Kinetis/KE/MKE15Z7/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKE15Z7
+      outdir: drivers/Kinetis/KE/MKE15Z7
+  drivers_Kinetis_KE_MKE16Z4:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Kinetis/KE/MKE16Z4/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKE16Z4
+      outdir: drivers/Kinetis/KE/MKE16Z4
+  drivers_Kinetis_KE_MKE17Z7:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Kinetis/KE/MKE17Z7/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKE17Z7
+      outdir: drivers/Kinetis/KE/MKE17Z7
+  drivers_Kinetis_KE_MKE17Z9:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Kinetis/KE/MKE17Z9/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKE17Z9
+      outdir: drivers/Kinetis/KE/MKE17Z9
+  drivers_Kinetis_KM_MKM34Z7:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Kinetis/KM/MKM34Z7/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKM34Z7
+      outdir: drivers/Kinetis/KM/MKM34Z7
+  drivers_Kinetis_KM_MKM34ZA5:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Kinetis/KM/MKM34ZA5/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKM34ZA5
+      outdir: drivers/Kinetis/KM/MKM34ZA5
+  drivers_Kinetis_KM_MKM35Z7:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Kinetis/KM/MKM35Z7/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKM35Z7
+      outdir: drivers/Kinetis/KM/MKM35Z7
+  drivers_Wireless_RW_RW612:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/Wireless/RW/RW612/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_RW612
+      outdir: drivers/Wireless/RW/RW612

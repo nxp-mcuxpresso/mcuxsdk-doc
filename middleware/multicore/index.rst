@@ -9,9 +9,9 @@ Multicore Software Development Kit (MCSDK) is a Software Development Kit that pr
    :maxdepth: 1
    :glob:
 
-   Multicore SDK Release Notes <mcuxsdk-doc/MCSDK_ReleaseNotes/rnindex.md>
-   Multicore SDK Getting Started <mcuxsdk-doc/MCSDK_GettingStarted/ugindex.md>
-   Multicore SDK Changelog <CHANGELOG.md>
+   Release Notes <mcuxsdk-doc/MCSDK_ReleaseNotes/rnindex.md>
+   Getting Started <mcuxsdk-doc/MCSDK_GettingStarted/ugindex.md>
+   Changelog <CHANGELOG.md>
    RPMSG-Lite <rpmsg-lite/README>
    Changelog RPMSG-Lite <rpmsg-lite/CHANGELOG>
    Multicore Manager (mcmgr) <mcmgr/README>

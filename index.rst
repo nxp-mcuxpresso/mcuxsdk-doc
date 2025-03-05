@@ -46,6 +46,7 @@ for more details.
    :maxdepth: 1
    :caption: User Guide
 
+   Drivers <drivers/index.rst>
    Examples <examples/index.rst>
    Middlewares <middleware/index>
    RTOS <rtos/index>

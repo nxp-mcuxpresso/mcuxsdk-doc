@@ -1,0 +1,3 @@
+# Debug SRAM target with J-Link on MCUXpresso IDE issue 
+
+If using the J-Link to Debug SRAM target on the IDE, when clicking the Restart button, the debug fails. The issue is caused because the integrity of the SRAM image cannot be guaranteed after it has been executed, and the MCUXpresso IDE does not reload the code before restarting. Plain load images \(images loaded from external SPI flash to SRAMX by the ROM bootloader then executed\) cannot be debugged using MCUXpresso version 11.0.0. Code should be developed using the SRAM debug method, then programmed into flash once debugging is completed. For more information, see the Getting Started with MCUXpresso SDK User’s Guide \(document MCUXSDKGSUG\).

@@ -1,0 +1,1 @@
+-   MCUXpresso IDE, Rev. 24.12

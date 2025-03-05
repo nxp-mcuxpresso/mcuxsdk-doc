@@ -481,7 +481,7 @@ west build -b evkbmimxrt1170 -p always <new workspace>/examples/demo_apps/hello_
 
       The `-G Ninja` specifies the cmake generator is Ninja. In west cmd, Ninja is the default selected generator.
 
-      The `-DCMAKE_BUILD_TYPE=debug` specifies the build target is `debug`. In west cmd, `debug` is the default build target.
+      The `-DCMAKE_BUILD_TYPE=debug` specifies the build target is `debug`.
 
       The `-DCONFIG_TOOLCHAIN=iar` specifies the toolchain is iar, equal with `--toolchain=iar` in west cmd.
 

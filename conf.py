@@ -232,6 +232,9 @@ class MCUXDocConfig:
         print('-- Collect Extensions')
         my_extensions = self.config['extensions']
 
+        if self.is_run_doxygen:
+            my_extensions.extend(self.config["doxygen"]["extensions"])
+
         for module_name, module_config in self.iter_modules():
             mod_extensions = self.get_mod_config(module_name, module_config, 'extensions')
             my_extensions.extend(mod_extensions)
@@ -285,6 +288,31 @@ class MCUXDocConfig:
         
         print(f"VCS links {links}")
         return links
+
+    def doxygen_projects(self):
+        print('-- Collect information for doxygen projects')
+        doxygen_dicts = {}
+
+        for module_name, module_config in self.iter_modules():
+            mod_doxygen = self.get_mod_config(module_name, module_config, 'doxygen_runner')
+            if mod_doxygen:
+                doxygen_dicts[module_name] = mod_doxygen
+
+        if self.config.get('doxygen_runner'):
+            doxygen_dicts["common"] = self.config.get('doxygen_runner')
+
+        # update path for the config
+        for mod_name, mod_doxygen in doxygen_dicts.items():
+            mod_doxygen["doxyfile"] = os.path.join(SDK_BASE, mod_doxygen["doxyfile"])
+            mod_doxygen["outdir"] = os.path.join(DOC_BUILD, "doxygen", mod_doxygen["outdir"])
+        
+        print(f"doxygen projects {doxygen_dicts}")
+        return doxygen_dicts
+
+
+    @property
+    def is_run_doxygen(self):
+        return bool('doxygen' in self.user_tags)
 
 args = get_parser().parse_args()
 
@@ -366,20 +394,39 @@ latex_engine = "xelatex"
 
 # -- Options for doxyrunner plugin ---------------------------------
 
-if 'doxyrunner' in extensions:
+if 'doxyrunner' in extensions and mcux_config.is_run_doxygen:
     doxyrunner_doxygen = os.environ.get("DOXYGEN_EXECUTABLE", "doxygen")
-    doxyrunner_doxyfile = DOC_BASE / "drivers" / "Doxyfile_lib_PDF_RM_Drivers"
-    doxyrunner_outdir = DOC_BUILD / "doxygen"
+    doxyrunner_doxydicts = mcux_config.doxygen_projects()
+    # doxyrunner_doxyfile = DOC_BASE / "drivers" / "Doxyfile_lib_PDF_RM_Drivers"
+    # doxyrunner_outdir = DOC_BUILD / "doxygen"
     doxyrunner_fmt = True
     doxyrunner_fmt_vars = {"SDK_BASE": str(SDK_BASE)}
     doxyrunner_outdir_var = "DOXY_OUT"
 
-    print(f"doxygen runner configuration: {doxyrunner_outdir}")
+    # print(f"doxygen runner configuration: {doxyrunner_outdir}")
     # Breathe Configuration
-    breathe_projects = {"Drivers": str(doxyrunner_outdir / "xml")}
-    breathe_default_project = "Drivers"
+    breathe_projects = {}
+    print(doxyrunner_doxydicts)
+    
+    default_project=""
+    for mod_name, mod_doxygen in doxyrunner_doxydicts.items():
+        if not default_project:
+            default_project = mod_name
+        breathe_projects[mod_name] = f'{mod_doxygen["outdir"]}/xml'
+        print(f'breathe_projects[{mod_name}] = {mod_doxygen["outdir"]}/xml')
+    
+    breathe_default_project = default_project
     breathe_separate_member_pages = True
 
+    breathe_domain_by_extension = {
+    "h": "c",
+    "c": "c",
+   }
+
+#set up inline comments
+comments_config = {
+   "dokieli": True
+}
 # # Setup the exhale extension
 # exhale_args = {
     # # These arguments are required

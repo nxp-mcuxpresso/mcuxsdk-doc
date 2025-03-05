@@ -744,7 +744,7 @@ The aws_shadow_wifi_nxp example doesn't work
     **Affected toolchains:** mcux
     **Affected platforms:** mimxrt700evk
 
-.. rst-class:: hideable mimxrt700evk v2024-12-00
+.. rst-class:: hideable mimxrt700evk v2024-12-00 v2025-03-00-pvw2
 
 The flexio_spi_int_b2b flexio_spi_edma_b2b examples don't work
     Boards cannot transfer data successfully.
@@ -760,7 +760,7 @@ The cmsis_lpi2c_edma_b2b_transfer examples don't work correctly on CM4 core.
     **Affected toolchains:** mcux
     **Affected platforms:** evkmimxrt1160, evkbmimxrt1170
 
-.. rst-class:: hideable evkmimxrt1180 v2024-12-00
+.. rst-class:: hideable evkmimxrt1180 v2024-12-00 v2025-03-00-pvw2
 
 The aws_examples don't work
     The example stucks during TLS connection.
@@ -792,7 +792,7 @@ The i2c_read_accel_value_transfer doesn't work
     **Affected toolchains:** mcux, iar, mdk, armgcc
     **Affected platforms:** lpcxpresso55s69
 
-.. rst-class:: hideable lpc845breakout lpcxpresso860max v2024-12-00
+.. rst-class:: hideable lpc845breakout lpcxpresso860max v2024-12-00 v2025-03-00-pvw2
 
 The spi_transfer_interrupt examples don't work
     Boards cannot transfer data successfully.
@@ -800,7 +800,7 @@ The spi_transfer_interrupt examples don't work
     **Affected toolchains:** mcux
     **Affected platforms:** lpc845breakout, lpcxpresso860max
 
-.. rst-class:: hideable lpcxpresso54s018 v2024-12-00
+.. rst-class:: hideable lpcxpresso54s018 v2024-12-00 v2025-03-00-pvw2
 
 The usart_wakeup_deepsleep doesn't work
     The example doesn't work.

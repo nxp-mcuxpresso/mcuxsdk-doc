@@ -1,6 +1,6 @@
 .. _components:
 
-Audio voice components
+Audio Voice Components
 #######################
 
 .. toctree::

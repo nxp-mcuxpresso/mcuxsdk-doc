@@ -1,11 +1,10 @@
 .. _drivers_reference:
 
-Drivers
-#######
+API Reference Manual
+#####################
 
 .. toctree::
    :maxdepth: 1
+   :glob:
 
-
-   LPC802.rst
-   LPC55S69.rst
+   */index

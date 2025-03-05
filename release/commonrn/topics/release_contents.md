@@ -1,12 +1,8 @@
 # Release contents
 
-[Table 1](release_contents.md#TABLE_2E09182E-3443-4F02-A7C8-D3C0F3658361) provides an overview of the MCUXpresso SDK release package contents and locations.
+Provides an overview of the MCUXpresso SDK release package contents and locations.
 
-|Deliverable
-
-|Location
-
-|
+|Deliverable|Location|
 |-------------|----------|
 |Boards|INSTALL\_DIR/boards|
 |Demo Applications|INSTALL\_DIR/boards/<board\_name\>/demo\_apps|

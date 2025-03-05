@@ -51,6 +51,11 @@ from subprocess import Popen, PIPE, STDOUT
 import tempfile
 from typing import List, Dict, Optional, Any
 
+import doxmlparser,collections,os
+from doxmlparser.compound import DoxCompoundKind, DoxMemberKind
+import concurrent.futures
+from jinja2 import Environment, FileSystemLoader
+
 from sphinx.application import Sphinx
 from sphinx.environment import BuildEnvironment
 from sphinx.util import logging
@@ -71,9 +76,10 @@ def hash_file(file: Path) -> str:
     Returns:
         Hash.
     """
-
-    with open(file, encoding="utf-8") as f:
-        sha256 = hashlib.sha256(f.read().encode("utf-8"))
+    #f.read().encode("utf-8")
+    with open(file, 'rb') as f:
+        #str = ftfy.fix_text(f.read())
+        sha256 = hashlib.sha256(f.read())
 
     return sha256.hexdigest()
 
@@ -156,7 +162,7 @@ def process_doxyfile(
         Processed Doxyfile content.
     """
 
-    with open(doxyfile) as f:
+    with open(doxyfile, encoding='utf-8') as f:
         content = f.read()
 
     content = re.sub(
@@ -194,7 +200,7 @@ def process_doxyfile(
     return content
 
 
-def doxygen_input_has_changed(env: BuildEnvironment, doxyfile: str) -> bool:
+def doxygen_input_has_changed(env: BuildEnvironment, doxyfile: str, prjname: str) -> bool:
     """Check if Doxygen input files have changed.
 
     Args:
@@ -226,11 +232,15 @@ def doxygen_input_has_changed(env: BuildEnvironment, doxyfile: str) -> bool:
                     cache.add(hash_file(p_file))
 
     # check if any file has changed
-    if hasattr(env, "doxyrunner_cache") and env.doxyrunner_cache == cache:
+    cache_var = f"doxyrunner_cache_{prjname}"
+    logger.info(env.__dict__.keys())
+    if hasattr(env, cache_var) and getattr(env, cache_var) == cache:
+        logger.info(f"Cache variable:  {getattr(env, cache_var)}")
         return False
 
     # store current state
-    env.doxyrunner_cache = cache
+    setattr(env, cache_var, cache)
+    logger.info(env.__dict__.keys())
 
     return True
 
@@ -334,6 +344,51 @@ def sync_doxygen(doxyfile: str, new: Path, prev: Path) -> None:
     else:
         new_xmldir.rename(prev_xmldir)
 
+def get_group_names(inDirName, baseName) -> dict:
+    rootObj = doxmlparser.compound.parse(inDirName + "/" + baseName + ".xml", True)
+    group_names = {}
+
+    for compounddef in rootObj.get_compounddef():
+        name = compounddef.get_compoundname()
+        id = compounddef.get_id()
+        if compounddef.get_kind() == DoxCompoundKind.GROUP:
+            group_names[name] = compounddef.get_title()
+
+    return group_names
+
+def parse_generated_index(indexDir):
+    rootObj = doxmlparser.index.parse(indexDir + "/index.xml", True)
+    compounds = rootObj.get_compound()
+    group_names={}
+
+    with concurrent.futures.ProcessPoolExecutor() as executor:
+        futures = [
+            executor.submit(get_group_names, indexDir, compound.get_refid())
+            for compound in compounds
+        ]
+        for future in concurrent.futures.as_completed(futures):
+            page_group_names = future.result()
+            group_names.update(page_group_names)
+
+    return group_names
+
+def create_driver_tree(doxygen_prj_name, doxygen_outdir):
+    group_names = parse_generated_index(doxygen_outdir+"/xml")
+    target_dir = doxygen_outdir.replace("doxygen", "src")
+    if not os.path.exists(target_dir):
+        os.makedirs(target_dir)
+
+    logger.info(f'environment loader path {os.path.join(os.path.dirname(os.path.abspath(__file__)),"template/")}')
+    environment = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(os.path.abspath(__file__)),"template/")))
+    template = environment.get_template("device_rm.tmp")
+    device_name = doxygen_prj_name.split("_")[-1]
+    parameters = {"device_name": device_name, "group_names": collections.OrderedDict(group_names), "prj_name": doxygen_prj_name}
+
+    content = template.render(parameters=parameters)
+    target_path = os.path.join(target_dir, "index.rst")
+    with open(target_path, mode="w", encoding="utf-8") as message:
+        message.write(content)
+        logger.info(f"... wrote {target_path}")
 
 def doxygen_build(app: Sphinx) -> None:
     """Doxyrunner entry point.
@@ -342,48 +397,51 @@ def doxygen_build(app: Sphinx) -> None:
         app: Sphinx application instance.
     """
 
-    if app.config.doxyrunner_outdir:
-        outdir = Path(app.config.doxyrunner_outdir)
-    else:
-        outdir = Path(app.outdir) / "_doxygen"
+    for doxygen_project_name, doxygen_project in app.config.doxyrunner_doxydicts.items():
+        if doxygen_project["outdir"]:
+            outdir = Path(doxygen_project["outdir"])
+        else:
+            outdir = Path(app.outdir) / "_doxygen" / doxygen_project_name
 
-    outdir.mkdir(exist_ok=True)
-    tmp_outdir = outdir / "tmp"
+        outdir.mkdir(parents=True, exist_ok=True)
+        tmp_outdir = outdir / "tmp"
 
-    logger.info("Preparing Doxyfile...")
-    doxyfile = process_doxyfile(
-        app.config.doxyrunner_doxyfile,
-        tmp_outdir,
-        app.config.doxyrunner_silent,
-        app.config.doxyrunner_fmt,
-        app.config.doxyrunner_fmt_pattern,
-        app.config.doxyrunner_fmt_vars,
-        app.config.doxyrunner_outdir_var,
-    )
+        logger.info("Preparing Doxyfile...")
+        doxyfile = process_doxyfile(
+            doxygen_project["doxyfile"],
+            tmp_outdir,
+            app.config.doxyrunner_silent,
+            app.config.doxyrunner_fmt,
+            app.config.doxyrunner_fmt_pattern,
+            app.config.doxyrunner_fmt_vars,
+            app.config.doxyrunner_outdir_var,
+        )
 
-    logger.info("Checking if Doxygen needs to be run...")
-    changed = doxygen_input_has_changed(app.env, doxyfile)
-    if not changed:
-        logger.info("Doxygen build will be skipped (no changes)!")
-        return
+        logger.info("Checking if Doxygen needs to be run...")
+        changed = doxygen_input_has_changed(app.env, doxyfile, doxygen_project_name)
+        if not changed:
+            logger.info("Doxygen build will be skipped (no changes)!")
+            return
 
-    logger.info("Running Doxygen...")
-    run_doxygen(
-        app.config.doxyrunner_doxygen,
-        doxyfile,
-        app.config.doxyrunner_silent,
-    )
+        logger.info("Running Doxygen...")
+        run_doxygen(
+            app.config.doxyrunner_doxygen,
+            doxyfile,
+            app.config.doxyrunner_silent,
+        )
 
-    logger.info("Syncing Doxygen output...")
-    sync_doxygen(doxyfile, tmp_outdir, outdir)
+        logger.info("Syncing Doxygen output...")
+        sync_doxygen(doxyfile, tmp_outdir, outdir)
+        shutil.rmtree(tmp_outdir)
 
-    shutil.rmtree(tmp_outdir)
+        if doxygen_project_name.startswith("drivers"):
+            create_driver_tree(doxygen_project_name,str(outdir))
 
 
 def setup(app: Sphinx) -> Dict[str, Any]:
     app.add_config_value("doxyrunner_doxygen", "doxygen", "env")
-    app.add_config_value("doxyrunner_doxyfile", None, "env")
-    app.add_config_value("doxyrunner_outdir", None, "env")
+    app.add_config_value("doxyrunner_doxydicts", None, "env")
+    # app.add_config_value("doxyrunner_outdir", None, "env")
     app.add_config_value("doxyrunner_outdir_var", None, "env")
     app.add_config_value("doxyrunner_fmt", False, "env")
     app.add_config_value("doxyrunner_fmt_vars", {}, "env")

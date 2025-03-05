@@ -1,6 +1,6 @@
 .. _maestro:
 
-Maestro audio framework
+Maestro Audio Framework
 #######################
 
 .. toctree::

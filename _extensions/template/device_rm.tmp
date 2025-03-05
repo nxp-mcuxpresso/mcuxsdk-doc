@@ -1,0 +1,21 @@
+.. _{{parameters.device_name}}_drivers:
+
+.. c:namespace:: {{parameters.prj_name}}
+
+{{parameters.device_name}}
+{{ '=' * (parameters.device_name | length) }}
+
+{% for key, value in parameters.group_names | dictsort %}
+
+{{ value }}
+{{ '#' * (value | length) }}
+
+.. doxygengroup:: {{key}}
+    :project: {{parameters.prj_name}}
+    :content-only:
+    :members:
+    :no-link:
+    
+
+{% endfor %}
+
