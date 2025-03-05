@@ -328,8 +328,8 @@ modules:
   mid_wifi_bluetooth_802.15.4:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/wireless/WiFi-Bluetooth-802.15.4/*' 
+    - root: .
+    pattern: 'middleware/wireless/WiFi-Bluetooth-802.15.4/index.rst'     
   mid_usb:
     default: true
     external_contents:
