@@ -22,11 +22,11 @@ MCU device and part on board is shown below:
 
 
 Getting Started
-****************
+***************
 .. toctree::
    :maxdepth: 1
    :caption: Getting Started with MCUXpresso SDK for FRDM-K22F
-
+   
    ../../commongs/gettingStarted/gsindex.md
 
 

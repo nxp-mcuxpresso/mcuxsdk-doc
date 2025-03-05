@@ -10,7 +10,7 @@ The LPCXpresso55S69 board is an LPCXpresso V3 style board, the latest generation
 
 
 
-The LPC5500 series is fully supported by NXPs\ `MCUXpresso suite <https://www.nxp.com/mcuxpresso>`__\ of free software and tools, which include an Eclipse-based IDE, configuration tools and extensive SDK drivers/examples available at\ `https://mcuxpresso.nxp.com <https://mcuxpresso.nxp.com/>`__. MCUXpresso SDK includes project files for use with IDEs from lead partners Keil and IAR.
+The LPC5500 series is fully supported by NXPs \ `MCUXpresso suite <https://www.nxp.com/mcuxpresso>`__\  of free software and tools, which include an Eclipse-based IDE, configuration tools and extensive SDK drivers/examples available at \ `https://mcuxpresso.nxp.com <https://mcuxpresso.nxp.com/>`__. MCUXpresso SDK includes project files for use with IDEs from lead partners Keil and IAR.
 
 
 

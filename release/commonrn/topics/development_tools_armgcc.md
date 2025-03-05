@@ -1,3 +1,2 @@
--   MCUXpresso for VS Code v24.12
-
+-   MCUXpresso for VS Code v24.12  <br> </br>
 -   GCC Arm Embedded Toolchain 13.2.1

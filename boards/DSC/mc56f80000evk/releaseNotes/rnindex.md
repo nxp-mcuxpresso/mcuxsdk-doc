@@ -12,5 +12,5 @@ topics/supported_development_systems.md
 topics/what_is_new.md
 topics/release_contents.md
 topics/mcuxpresso_sdk_release_package.md
-topics/legal_information.md
+topics/known_issues.md
 ```

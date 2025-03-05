@@ -1,3 +1,2 @@
 -   Xtensa Xplorer, version is 10.1.11
-
 -   Xtensa C Compiler, version is RI-2023.11
