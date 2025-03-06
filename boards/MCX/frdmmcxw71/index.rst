@@ -39,4 +39,4 @@ Release Notes
    :maxdepth: 1
    :caption: MCUXpresso SDK Release Notes for FRDM-MCXW71
 
-   releaseNote/rnindex.md
+   releaseNotes/rnindex.md
