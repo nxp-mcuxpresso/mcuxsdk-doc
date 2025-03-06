@@ -768,8 +768,6 @@ INPUT = @SDK_BASE@/devices/MCX/MCXW/MCXW716C/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/i3c/fsl_i3c.h \
         @SDK_BASE@/drivers/imu/doxygen/imu.dox \
         @SDK_BASE@/drivers/imu/fsl_imu.h \
-        @SDK_BASE@/drivers/lin/lin_driver.h \
-        @SDK_BASE@/drivers/lin/fsl_lin_lpuart.h \
         @SDK_BASE@/drivers/lpadc/doxygen/lpadc.dox \
         @SDK_BASE@/drivers/lpadc/fsl_lpadc.h \
         @SDK_BASE@/drivers/lpcmp/doxygen/lpcmp.dox \
@@ -828,6 +826,8 @@ INPUT = @SDK_BASE@/devices/MCX/MCXW/MCXW716C/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/wdog32/fsl_wdog32.h \
         @SDK_BASE@/drivers/wuu/doxygen/wuu.dox \
         @SDK_BASE@/drivers/wuu/fsl_wuu.h \
+        @SDK_BASE@/drivers/cache/lpcac/doxygen/cache.dox \
+        @SDK_BASE@/drivers/cache/lpcac/fsl_cache.h \
         @SDK_BASE@/drivers/flexio/i2c/doxygen/flexio_i2c_master.dox \
         @SDK_BASE@/drivers/flexio/i2c/fsl_flexio_i2c_master.h \
         @SDK_BASE@/drivers/flexio/i2s/doxygen/flexio_i2s.dox \
@@ -960,7 +960,6 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXW/MCXW716C/drivers/doxygen \
              @SDK_BASE@/drivers/gpio/doxygen \
              @SDK_BASE@/drivers/i3c/doxygen \
              @SDK_BASE@/drivers/imu/doxygen \
-             @SDK_BASE@/drivers/lin/doxygen \
              @SDK_BASE@/drivers/lpadc/doxygen \
              @SDK_BASE@/drivers/lpcmp/doxygen \
              @SDK_BASE@/drivers/lpi2c/doxygen \
@@ -986,6 +985,7 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXW/MCXW716C/drivers/doxygen \
              @SDK_BASE@/drivers/vref_1/doxygen \
              @SDK_BASE@/drivers/wdog32/doxygen \
              @SDK_BASE@/drivers/wuu/doxygen \
+             @SDK_BASE@/drivers/cache/lpcac/doxygen \
              @SDK_BASE@/drivers/flexio/i2c/doxygen \
              @SDK_BASE@/drivers/flexio/i2s/doxygen \
              @SDK_BASE@/drivers/flexio/spi/doxygen \

@@ -737,6 +737,7 @@ INPUT = @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/doxygen/clock.dox \
         @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/fsl_clock.h \
         @SDK_BASE@/drivers/ccm32k/doxygen/ccm32k.dox \
         @SDK_BASE@/drivers/ccm32k/fsl_ccm32k.h \
+        @SDK_BASE@/drivers/ce/doxygen/ce.dox \
         @SDK_BASE@/drivers/ce/fsl_ce.h \
         @SDK_BASE@/drivers/ce/fsl_ce_basic.h \
         @SDK_BASE@/drivers/ce/fsl_ce_cmd.h \
@@ -775,8 +776,9 @@ INPUT = @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/i3c/fsl_i3c.h \
         @SDK_BASE@/drivers/imu/doxygen/imu.dox \
         @SDK_BASE@/drivers/imu/fsl_imu.h \
-        @SDK_BASE@/drivers/lin/lin_driver.h \
         @SDK_BASE@/drivers/lin/fsl_lin_lpuart.h \
+        @SDK_BASE@/drivers/lin/doxygen/lin.dox \
+        @SDK_BASE@/drivers/lin/fsl_lin.h \
         @SDK_BASE@/drivers/lpadc/doxygen/lpadc.dox \
         @SDK_BASE@/drivers/lpadc/fsl_lpadc.h \
         @SDK_BASE@/drivers/lpcmp/doxygen/lpcmp.dox \
@@ -837,6 +839,8 @@ INPUT = @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/wdog32/fsl_wdog32.h \
         @SDK_BASE@/drivers/wuu/doxygen/wuu.dox \
         @SDK_BASE@/drivers/wuu/fsl_wuu.h \
+        @SDK_BASE@/drivers/cache/lpcac/doxygen/cache.dox \
+        @SDK_BASE@/drivers/cache/lpcac/fsl_cache.h \
         @SDK_BASE@/drivers/flexio/i2c/doxygen/flexio_i2c_master.dox \
         @SDK_BASE@/drivers/flexio/i2c/fsl_flexio_i2c_master.h \
         @SDK_BASE@/drivers/flexio/i2s/doxygen/flexio_i2s.dox \
@@ -876,8 +880,8 @@ INPUT = @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/gpio/fsl_gpio.h \
         @SDK_BASE@/drivers/i3c/fsl_i3c.h \
         @SDK_BASE@/drivers/imu/fsl_imu.h \
-        @SDK_BASE@/drivers/lin/lin_driver.h \
         @SDK_BASE@/drivers/lin/fsl_lin_lpuart.h \
+        @SDK_BASE@/drivers/lin/fsl_lin.h \
         @SDK_BASE@/drivers/lpadc/fsl_lpadc.h \
         @SDK_BASE@/drivers/lpcmp/fsl_lpcmp.h \
         @SDK_BASE@/drivers/lpi2c/fsl_lpi2c_edma.h \
@@ -1063,6 +1067,7 @@ IMAGE_PATH = @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/doxygen \
              @SDK_BASE@/drivers/vref_1/doxygen \
              @SDK_BASE@/drivers/wdog32/doxygen \
              @SDK_BASE@/drivers/wuu/doxygen \
+             @SDK_BASE@/drivers/cache/lpcac/doxygen \
              @SDK_BASE@/drivers/flexio/i2c/doxygen \
              @SDK_BASE@/drivers/flexio/i2s/doxygen \
              @SDK_BASE@/drivers/flexio/spi/doxygen \
@@ -2263,6 +2268,7 @@ PREDEFINED = FSL_FEATURE_SOC_AXBS_COUNT = 1 \
              FSL_FEATURE_LPADC_TEMP_PARAMETER_A = 787 \
              FSL_FEATURE_LPADC_TEMP_PARAMETER_B = 289 \
              FSL_FEATURE_LPADC_TEMP_SENS_BUFFER_SIZE = 2 \
+             FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB = 0 \
              FSL_FEATURE_FLEXCAN_HAS_DOZE_MODE_SUPPORT = 1 \
              FSL_FEATURE_FLEXCAN_HAS_GLITCH_FILTER = 1 \
              FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER = 0 \

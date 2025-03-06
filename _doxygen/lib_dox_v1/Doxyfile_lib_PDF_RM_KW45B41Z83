@@ -768,8 +768,9 @@ INPUT = @SDK_BASE@/devices/Wireless/KW/KW45B41Z83/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/i3c/fsl_i3c.h \
         @SDK_BASE@/drivers/imu/doxygen/imu.dox \
         @SDK_BASE@/drivers/imu/fsl_imu.h \
-        @SDK_BASE@/drivers/lin/lin_driver.h \
         @SDK_BASE@/drivers/lin/fsl_lin_lpuart.h \
+        @SDK_BASE@/drivers/lin/doxygen/lin.dox \
+        @SDK_BASE@/drivers/lin/fsl_lin.h \
         @SDK_BASE@/drivers/lpadc/doxygen/lpadc.dox \
         @SDK_BASE@/drivers/lpadc/fsl_lpadc.h \
         @SDK_BASE@/drivers/lpcmp/doxygen/lpcmp.dox \
@@ -828,6 +829,8 @@ INPUT = @SDK_BASE@/devices/Wireless/KW/KW45B41Z83/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/wdog32/fsl_wdog32.h \
         @SDK_BASE@/drivers/wuu/doxygen/wuu.dox \
         @SDK_BASE@/drivers/wuu/fsl_wuu.h \
+        @SDK_BASE@/drivers/cache/lpcac/doxygen/cache.dox \
+        @SDK_BASE@/drivers/cache/lpcac/fsl_cache.h \
         @SDK_BASE@/drivers/flexio/i2c/doxygen/flexio_i2c_master.dox \
         @SDK_BASE@/drivers/flexio/i2c/fsl_flexio_i2c_master.h \
         @SDK_BASE@/drivers/flexio/i2s/doxygen/flexio_i2s.dox \
@@ -986,6 +989,7 @@ IMAGE_PATH = @SDK_BASE@/devices/Wireless/KW/KW45B41Z83/drivers/doxygen \
              @SDK_BASE@/drivers/vref_1/doxygen \
              @SDK_BASE@/drivers/wdog32/doxygen \
              @SDK_BASE@/drivers/wuu/doxygen \
+             @SDK_BASE@/drivers/cache/lpcac/doxygen \
              @SDK_BASE@/drivers/flexio/i2c/doxygen \
              @SDK_BASE@/drivers/flexio/i2s/doxygen \
              @SDK_BASE@/drivers/flexio/spi/doxygen \
@@ -2202,7 +2206,7 @@ PREDEFINED = FSL_FEATURE_SOC_AXBS_COUNT = 1 \
              FSL_FEATURE_FLEXCAN_HAS_ENHANCED_RX_FIFO_SIZE = 12 \
              FSL_FEATURE_FLEXCAN_HAS_ENHANCED_RX_FIFO_FILTER_MAX_NUMBER = 32 \
              FSL_FEATURE_FLEXCAN_HAS_NO_SUPV_SUPPORT = 1 \
-             FSL_FEATURE_CCM32K_HAS_FINE_AMP_GAIN = 1 \
+             FSL_FEATURE_CCM32K_HAS_FINE_AMP_GAIN = 0 \
              FSL_FEATURE_CCM32K_HAS_CGC32K = 1 \
              FSL_FEATURE_CCM32K_HAS_CLKMON_CTRL = 1 \
              FSL_FEATURE_CMC_HAS_TCMC0 = 0 \
@@ -2342,7 +2346,7 @@ PREDEFINED = FSL_FEATURE_SOC_AXBS_COUNT = 1 \
              FSL_FEATURE_SPC_HAS_2P4G_POWER_DOMAIN = 1 \
              FSL_FEATURE_SPC_HAS_CFG_REGISTER = 1 \
              FSL_FEATURE_SPC_HAS_CORELDO_VDD_DS = 1 \
-             FSL_FEATURE_SPC_HAS_WBIAS_EN = 1 \
+             FSL_FEATURE_SPC_HAS_WBIAS_EN = 0 \
              FSL_FEATURE_SPC_LDO_VOLTAGE_LEVEL_DECREASE = 0 \
              FSL_FEATURE_SPC_DCDC_VOLTAGE_LEVEL_DECREASE = 0 \
              FSL_FEATURE_SYSPM_HAS_PMCR_DCIFSH = 0 \
@@ -2370,10 +2374,7 @@ PREDEFINED = FSL_FEATURE_SOC_AXBS_COUNT = 1 \
              FSL_FEATURE_VREF_HAS_LOW_REFERENCE = 0 \
              FSL_FEATURE_VREF_HAS_TRM4 = 0 \
              FSL_FEATURE_WDOG_HAS_WATCHDOG = 1 \
-             FSL_FEATURE_WDOG_HAS_32BIT_ACCESS = 1 \
-             FSL_FEATURE_INTERRUPT_IRQ_MIN = -14 \
-             FSL_FEATURE_INTERRUPT_IRQ_MAX = 105 \
-             FSL_FEATURE_TSTMR_CLOCK_FREQUENCY_1MHZ = 1
+             FSL_FEATURE_WDOG_HAS_32BIT_ACCESS = 1
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The
