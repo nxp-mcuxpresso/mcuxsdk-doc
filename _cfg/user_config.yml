@@ -334,7 +334,7 @@ modules:
     default: true
     external_contents:
     - root: 'docs'
-    pattern: 'middleware/wireless/WiFi-Bluetooth-802.15.4/*'     
+      pattern: 'middleware/wireless/WiFi-Bluetooth-802.15.4/*'
   mid_usb:
     default: true
     external_contents:
