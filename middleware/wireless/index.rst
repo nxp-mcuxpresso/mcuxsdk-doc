@@ -1,7 +1,7 @@
 .. _midwireless:
 
-Wireless
-##########
+wireless
+########
 
 .. toctree::
    :maxdepth: 1
