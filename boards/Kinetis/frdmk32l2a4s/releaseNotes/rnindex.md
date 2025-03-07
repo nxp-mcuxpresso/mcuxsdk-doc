@@ -21,10 +21,6 @@
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/commonrn/topics/amazon_freertos_kernel.md
-:heading-offset: 1
-```
-
 ```{include} topics/middleware.md
 :heading-offset: 1
 ```
