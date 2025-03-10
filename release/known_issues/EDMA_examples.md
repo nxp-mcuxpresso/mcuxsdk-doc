@@ -16,5 +16,3 @@ The following eDMA examples need access to AIPS.
 -   pdm\_edma\_transfer
 -   sai\_edma\_transfer
 
-**Parent topic:**[Known Issues](../topics/known_issues.md)
-

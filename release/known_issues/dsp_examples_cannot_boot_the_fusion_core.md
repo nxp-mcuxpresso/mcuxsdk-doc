@@ -4,5 +4,3 @@ The examples in the dsp\_examples folder can not run properly since they can not
 
 For the dsp\_voice\_spot\_demo there is a wrong incbin.S file used. Please use the same file as for the rest of the DSP examples.
 
-**Parent topic:**[Known issues](../topics/known_issues.md)
-

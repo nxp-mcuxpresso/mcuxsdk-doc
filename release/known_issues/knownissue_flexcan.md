@@ -21,5 +21,3 @@ a/flexcan/example/ping_pong_buffer_transfer/flexcan_ping_pong_buffer_transfer.c
              {
 ```
 
-**Parent topic:**[Known issues](../topics/known_issues.md)
-
