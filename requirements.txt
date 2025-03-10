@@ -23,3 +23,5 @@ pytest
 doxmlparser
 
 chardet
+json
+jsonschema

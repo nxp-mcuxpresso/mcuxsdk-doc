@@ -12,7 +12,7 @@ import argparse
 import subprocess
 from pathlib import Path
 from textwrap import dedent  # just for nicer code indentation
-
+import json
 import yaml
 from west.commands import WestCommand
 
@@ -50,7 +50,7 @@ class MCUXDoc(WestCommand):
 
         parser.add_argument(
             'target', action='store', type=str,
-            choices=['clean', 'html', 'latex', 'doxygen', 'pdf', 'config', 'view'],
+            choices=['clean', 'html', 'latex', 'doxygen', 'pdf', 'config', 'view', 'validate'],
             help='Target for the document creation'
         )
         parser.add_argument(
@@ -101,6 +101,23 @@ class MCUXDoc(WestCommand):
 
         return parser           # gets stored as self.parser
 
+    def _validate_user_config(self):
+        from jsonschema import validate, ValidationError, Draft7Validator
+
+        with open(DOC_PATH / '_cfg/mcux_doc_config_schema.json', 'r', encoding='utf-8') as f:
+            schema = json.load(f)
+        
+        with open(DOC_PATH / '_cfg/user_config.yml', 'r', encoding='utf-8') as f:
+            user_config = yaml.safe_load(f)
+        
+        try:
+            validate(user_config, schema)
+        except ValidationError as e:
+            self.err(f"User config validation failed: {e.path}, {e.message}")
+            return None
+        
+        return user_config
+
     def do_run(self, args, unknown):
 
         self.banner("MCUX Document Creation")
@@ -148,6 +165,9 @@ class MCUXDoc(WestCommand):
                                   f'-DDOCGEN_BRANCH={args.branch} -DDOCGEN_REV={args.revision} -DSPHINX_CONF_DIR=.')
                 if subprocess.check_call(cmd, cwd=DOC_PATH):
                     self.err("Failed to configure the document with \n" + cmd)
+            elif target == 'validate':
+                if not self._validate_user_config():
+                    self.err("Failed to validate user_config.yml")
             else:
                 cmd = shlex.split(f'cmake --build {args.build_dir} --target {args.target}')
                 if subprocess.check_call(cmd, cwd=DOC_PATH):

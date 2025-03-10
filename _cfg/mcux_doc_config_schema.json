@@ -9,12 +9,16 @@
                 "pattern": {
                     "type": "string"
                 },
+                "replace_prefix": {
+                    "type": "string"
+                },
                 "link": {
                     "type": "string"
                 }
             },
             "required": [
                 "pattern",
+                "replace_prefix",
                 "link"
             ]
         },
@@ -89,7 +93,7 @@
             "description": "List of modules",
             "type": "object",
             "patternProperties": {
-                "^[a-zA-Z0-9_]+$": {
+                "^[a-zA-Z0-9_/.]+$": {
                     "type": "object",
                     "properties": {
                         "default": {
@@ -113,10 +117,28 @@
                             "items": {
                                 "$ref": "#/definitions/external_contents"
                             }
+                        },
+                        "doxygen_runner": {
+                            "type": "object",
+                            "properties": {
+                                "doxyfile": {
+                                    "type": "string",
+                                    "description": "Path for the doxyfile, relative path to mcuxsdk dir"
+                                },
+                                "outdir": {
+                                    "type": "string",
+                                    "description": "The output directory for the doxygen project, relative to the build directory"
+                                }
+                            },
+                            "required": [
+                                "doxyfile",
+                                "outdir"
+                            ]
                         }
                     },
                     "required": [
-                        "default"
+                        "default",
+                        "external_contents"
                     ]
                 }
             }
