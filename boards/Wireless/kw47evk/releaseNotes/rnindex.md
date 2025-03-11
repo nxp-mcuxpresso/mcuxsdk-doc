@@ -18,15 +18,16 @@
             -   [Low-power reference design applications \(central and peripheral\)](topics/low_power_reference_design_applications.md)
             -   [Connectivity framework](topics/connectivity_framework.md)
         -   [Other middleware](topics/other_middleware.md)
--   [Release contents](topics/release_contents.md)
+		
+```{include} ../../../../release/commonrn/topics/release_contents.md
+:heading-offset: 1
+```
+
 -   [What is new](topics/what_is_new.md)
--   [Known issues](topics/known_issues.md)
-    -   [Maximum file path length in Windows 7 operating system](topics/known_issue_maximum_file_path_length_in_windows_7_operating_system.md)
-    -   [New project wizard compile failure](topics/known_issue_new_project_wizard_compile_failure.md)
-    -   [Only FreeRTOS is tested for RTOS support](topics/known_issue_only_freertos_is_tested_for_rtos_support.md)
-    -   [Disabled pairing and bonding for most sensor applications](topics/known_issue_disabled_pairing_and_bonding_for_most_sensor_appli.md)
-    -   [Bluetooth LE](topics/known_issue_bluetooth_le.md)
-    -   [Other limitations](topics/known_issue_other_limitations.md)
-    -   [Latest MCUX IDE 24.9.25 cannot support KW47 multicore compiling](topics/latest_mcux_ide_24_9_25_cannot_support_multicore_compiling.md)
+ 
+```{include} topics/known_issues.md
+:heading-offset: 1
+```
+
 
 

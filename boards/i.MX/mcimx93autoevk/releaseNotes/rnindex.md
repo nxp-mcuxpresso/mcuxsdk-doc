@@ -1,17 +1,31 @@
 # MCUXpresso SDK Release Notes for MCIMX93AUTO-EVK
 
 
-```{tocTree}
-:maxdepth: 4
-:caption: Table of Contents
+```{include} topics/overview.md
+:heading-offset: 1
+```
 
-topics/overview.md
-topics/mcuxpresso_sdk.md
-topics/development_tools_imx93.md
-topics/supported_development_system.md
-topics/mcuxpresso_sdk_release_package.md
-topics/release_contents.md
-topics/misra_compliance.md
-topics/known_issues.md
+```{include} topics/mcuxpresso_sdk.md
+:heading-offset: 1
+```
 
+```{include} topics/development_tools_imx93.md
+:heading-offset: 1
+```
+
+```{include} topics/supported_development_system.md
+:heading-offset: 1
+```
+
+```{include} topics/mcuxpresso_sdk_release_package.md
+:heading-offset: 1
+```
+
+```{include} ../../../../release/commonrn/topics/release_contents.md
+:heading-offset: 1
+```
+
+```{include} topics/known_issues.md
+:heading-offset: 1
+```
 ```

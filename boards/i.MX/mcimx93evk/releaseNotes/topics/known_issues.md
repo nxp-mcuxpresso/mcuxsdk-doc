@@ -2,16 +2,11 @@
 
 This section lists the known issues, limitations, and/or workarounds.
 
-
-```{include} ../topics/maximum_file_path_length_in_windows_7_operating_sy.md
+```{include} ../../../../release/known_issues/SEGGER_jlink.md
 :heading-offset: 1
 ```
 
-```{include} ../topics/SEGGER_jlink.md
-:heading-offset: 1
-```
-
-```{include} ../topics/EDMA_examples.md
+```{include} ../../../../release/known_issues/EDMA_examples.md
 :heading-offset: 1
 ```
 
