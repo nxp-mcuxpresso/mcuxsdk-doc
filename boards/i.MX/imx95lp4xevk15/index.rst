@@ -33,4 +33,4 @@ Release Notes
    :maxdepth: 1
    :caption: MCUXpresso SDK Release Notes for IMX95LPD5EVK-19, IMX95LP4XEVK-15, and IMX95VERDINEVK
 
-   ../imx95lpd5evk19/releaseNotes/rnindex.md
+ releaseNotes/rnindex.md

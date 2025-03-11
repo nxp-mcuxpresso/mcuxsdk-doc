@@ -1,18 +1,7 @@
 # Supported development system
 
-This release supports boards and devices listed in table below. The boards and devices in bold were tested in this release.
+This release supports board and devices listed in following table. The board and devices in bold were tested in this release.
 
-|Development boards
-
-|MCU devices
-
-|
-|--------------------|-------------|
-|IMX95LPD5EVK-19 REV A1
-
-IMX95LP4XEVK-15 REV A
-
-i.MX95 Verdin EVK V1.2
-
-|**MIMX9596**|
-
+|Development boards|MCU devices|
+|:--:              |:--:       |
+|**IMX95LPD5EVK-19**|MIMX9596AVTXN, MIMX9596AVYXN, **MIMX9596AVZXN**,<br> MIMX9596CVTXN, MIMX9596CVYXN, MIMX9596CVZXN,<br> MIMX9596DVTXN, MIMX9596DVYXN, MIMX9596DVZXN,<br> MIMX9596XVTXN, MIMX9596XVYXN, MIMX9596XVZXN,<br> MIMX9596DVYXQ|

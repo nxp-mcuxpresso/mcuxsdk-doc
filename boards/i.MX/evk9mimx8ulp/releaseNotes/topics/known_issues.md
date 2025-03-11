@@ -2,7 +2,8 @@
 
 This section lists the known issues, limitations, and/or workarounds.
 
-```{include) ../../../../release/known_issues/fusion_dsp_may_load_wrong_data_from_shared_sram_on.md
+
+```{include} ../../../../release/known_issues/fusion_dsp_may_load_wrong_data_from_shared_sram_on.md
 :heading-offset: 1
 ```
 
