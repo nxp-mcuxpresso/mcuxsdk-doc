@@ -6,19 +6,7 @@
 
 # Middleware
 
-```{include} ../../../../release/commonrn/topics/nxp_ieee_802_15_4.md
-:heading-offset: 2
-```
-
-```{include} ../../../../release/commonrn/topics/nxp_zigbee.md
-:heading-offset: 2
-```
-
-```{include} ../../../../release/commonrn/topics/nxp_genfsk.md
-:heading-offset: 2
-```
-
-```{include} ../../../../release/commonrn/topics/nxp_xcvr.md
+```{include} ../../../../release/commonrn/topics/nxp_ble_stack.md
 :heading-offset: 2
 ```
 
@@ -26,15 +14,27 @@
 :heading-offset: 2
 ```
 
-```{include} ../../../../release/commonrn/topics/nxp_ble_stack.md
+```{include} ../../../../release/commonrn/topics/nxp_genfsk.md
 :heading-offset: 2
 ```
 
-```{include} ../../../../release/commonrn/topics/nxp_ble_controller_localization.md
+```{include} ../../../../release/commonrn/topics/nxp_zigbee.md
+:heading-offset: 2
+```
+
+```{include} ../../../../release/commonrn/topics/nxp_ieee_802_15_4.md
+:heading-offset: 2
+```
+
+```{include} ../../../../release/commonrn/topics/nxp_xcvr.md
 :heading-offset: 2
 ```
 
 ```{include} ../../../../release/commonrn/topics/nxp_conn_fwk.md
+:heading-offset: 2
+```
+
+```{include} ../../../../release/commonrn/topics/nxp_conn_low_power_reference_design.md
 :heading-offset: 2
 ```
 
