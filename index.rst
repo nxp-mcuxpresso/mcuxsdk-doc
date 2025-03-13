@@ -57,8 +57,8 @@ for more details.
    :caption: Development
 
    develop/architect.md
-   develop/sdk/index
    develop/build_system/index
+   develop/sdk/index
    develop/document/index
 
 .. toctree::
