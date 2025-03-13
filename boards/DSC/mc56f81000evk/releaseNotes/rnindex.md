@@ -1,10 +1,11 @@
-# MCUXpresso SDK Release Notes for MC56F81000-EVK
+# MCUXpresso SDK Release Notes for TWR-MC56F81000-EVK
 
-```{include} topics/overview.md
+
+```{include} ../../../../release/commonrn/topics/overview.md
 :heading-offset: 1
 ```
 
-```{include} topics/mcuxpresso_sdk.md
+```{include} ../../../../release/commonrn/topics/mcuxpresso_sdk.md
 :heading-offset: 1
 ```
 
@@ -16,15 +17,15 @@
 :heading-offset: 1
 ```
 
-```{include} topics/what_is_new.md
+```{include} ../../../../release/commonrn/topics/release_contents_dsc.md
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/commonrn/topics/release_contents.md
+```{include} ../../../../release/commonrn/topics/mcuxpresso_sdk_release_package.md
 :heading-offset: 1
 ```
 
-```{include} topics/mcuxpresso_sdk_release_package.md
+```{include} topics/middleware.md
 :heading-offset: 1
 ```
 

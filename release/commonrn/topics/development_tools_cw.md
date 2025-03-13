@@ -1,1 +1,1 @@
--   CodeWarrior Development Studio v11.2
+-   CodeWarrior Development Studio v11.2 with CodeWarrior for DSC v11.2 SP1 \(Service Pack 1\)

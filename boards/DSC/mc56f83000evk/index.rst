@@ -6,9 +6,11 @@ MC56F83000-EVK
 Overview
 ********
 
+The MC56F83000-EVK is an ultra-low-cost development platform for digital signal controller MC56F83xxx MCU.
 
-
-
+ - The kit is form-factor compatible with the Arduino™ R3 pin layout and features ROM bootloader supporting SCI, IIC and CAN.
+ - Peripherals enable rapid prototyping, including a 6-axis digital accelerometer and magnetometer to create full eCompass capabilities, 6 buffered LEDs indicating PWM signals, 4 user LEDs, 4 user push-buttons for direct interaction, an SPI interfaced Flash memory, a high speed CAN transceiver circuit, a USBOTG connector and a USB to UART bridge circuit.
+ - The MC56F83000-EVK features onboard debugger OSJTAG circuit enabling debugging and programming with CodeWarrior.
 
 .. image:: ./mc56f83000evk.png
    :width: 240px
