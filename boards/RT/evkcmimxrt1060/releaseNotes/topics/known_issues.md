@@ -33,3 +33,7 @@ This section lists the known issues, limitations, and/or workarounds.
 ```{include} ../../../../release/known_issues/wireless_edgefast_bluetooth_pal.md
 :heading-offset: 1
 ```
+
+```{include} ../../../../release/known_issues/evkcmimxrt1060_wm8962_i2c_issue.md
+:heading-offset: 1
+```
