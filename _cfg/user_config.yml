@@ -18,7 +18,7 @@ source_suffix:
   .readme: markdown
   .md: markdown
 vcs_link:
-- pattern: .*
+  pattern: .*
   replace_prefix: ''
   link: https://github.com/nxp-mcuxpresso/mcuxsdk-doc
 external_contents:
@@ -107,13 +107,6 @@ modules:
       pattern: examples/**/*.png
     - root: .
       pattern: examples/**/index.rst
-    vcs_link:
-    - pattern: examples/.*\.md
-      replace_prefix: examples/
-      link: https://github.com/nxp-mcuxpresso/mcuxsdk-examples/
-    - pattern: examples/.*\.rst
-      replace_prefix: examples/
-      link: https://github.com/nxp-mcuxpresso/mcuxsdk-examples/
   contribute:
     default: true
     external_contents:
@@ -267,10 +260,6 @@ modules:
       pattern: middleware/mcuboot_opensource/*.md
     - root: .
       pattern: middleware/mcuboot_opensource/docs/*
-    vcs_link:
-    - pattern: middleware/mcuboot_opensource/*
-      replace_prefix: middleware/mcuboot_opensource/
-      link: https://github.com/nxp-mcuxpresso/mcuboot
   mid_freertos_drivers:
     default: true
     external_contents:

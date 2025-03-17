@@ -273,14 +273,26 @@ class MCUXDocConfig:
     @property
     def vcs_link(self):
         print('-- Collect VCS Link')
+        from west.manifest import Manifest
+        manifest = Manifest.from_topdir(topdir=os.path.dirname(SDK_BASE))
         links = []
+        manifest_dict = manifest.as_dict()
+        for sdk_prj in manifest_dict["manifest"]["projects"]:
+            if sdk_prj["name"] == "mcu-sdk-doc":
+                continue
+            else:
+                if "path" in sdk_prj.keys():
+                    sdk_relpath = sdk_prj["path"].replace("mcuxsdk/","")
+                    links.append(
+                    { "pattern" : "/".join([sdk_relpath.rstrip("/"),"*"]),
+                      "replace_prefix" : sdk_relpath.rstrip("/")+"/",
+                      "link" : sdk_prj["url"].rstrip('/'),
+                      "rev_branch": sdk_prj["userdata"]["track_branch"]
+                    }
+                    )
 
-        for module_name, module_config in self.iter_modules():
-            mod_links = self.get_mod_config(module_name, module_config, 'vcs_link')
-            links.extend(mod_links)
-
-        links.extend(
-           self.config.get('vcs_link', [{}])
+        links.append(
+           self.config.get('vcs_link', {})
         )
 
         for link in links:

@@ -57,6 +57,7 @@ def vcs_link_get_url(app: Sphinx, pagename: str, mode: str = "blob") -> Optional
 
     found_prefix = ""
     found_repstr = ""
+    rev_branch = app.config.vcs_link_version
     pagepath = app.env.project.doc2path(pagename, basedir=False).replace("\\","/")
     for index in range(len(app.config.vcs_link_prefixes)): 
         pattern = app.config.vcs_link_prefixes[index]["pattern"]
@@ -65,8 +66,10 @@ def vcs_link_get_url(app: Sphinx, pagename: str, mode: str = "blob") -> Optional
         if re.match(pattern, pagepath):
             found_prefix = prefix
             found_repstr = repstr
+            if "rev_branch" in app.config.vcs_link_prefixes[index].keys():
+                rev_branch = app.config.vcs_link_prefixes[index]["rev_branch"]
             break
-
+    
     if found_prefix is None:
         return None
 
@@ -77,14 +80,14 @@ def vcs_link_get_url(app: Sphinx, pagename: str, mode: str = "blob") -> Optional
                 found_prefix,
                 mode,
                 pagepath.lstrip(found_repstr)
-            ]) + f'?at=refs/heads/{app.config.vcs_link_version}'
+            ]) + f'?at=refs/heads/{rev_branch}'
     else:
         return "/".join(
             [
                 found_prefix,
                 mode,
-                app.config.vcs_link_version,
-                pagepath.lstrip(found_repstr)
+                rev_branch,
+                pagepath.replace("\\","/")[len(found_repstr):]
             ]
         )
 

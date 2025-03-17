@@ -3,25 +3,6 @@
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "type": "object",
     "definitions": {
-        "vcs_link" : {
-            "type": "object",
-            "properties": {
-                "pattern": {
-                    "type": "string"
-                },
-                "replace_prefix": {
-                    "type": "string"
-                },
-                "link": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "pattern",
-                "replace_prefix",
-                "link"
-            ]
-        },
         "external_contents": {
             "type": "object",
             "properties": {
@@ -75,12 +56,26 @@
                 }
             }
         },
-        "vcs_link": {
-            "description": "Link to VCS",
-            "type": "array",
-            "items": {
-                "$ref": "#/definitions/vcs_link"
-            }
+        "vcs_link" : {
+            "type": "object",
+            "properties": {
+                "pattern": {
+                    "type": "string",
+                    "pattern": "^\\.\\*$"
+                },
+                "replace_prefix": {
+                    "type": "string",
+                    "pattern": ""
+                },
+                "link": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "pattern",
+                "replace_prefix",
+                "link"
+            ]
         },
         "external_contents": {
             "description": "External contents",
@@ -104,12 +99,6 @@
                             "type": "array",
                             "items": {
                                 "type": "string"
-                            }
-                        },
-                        "vcs_link": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/vcs_link"
                             }
                         },
                         "external_contents": {
