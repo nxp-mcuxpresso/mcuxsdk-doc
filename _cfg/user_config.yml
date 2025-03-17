@@ -265,8 +265,10 @@ modules:
     external_contents:
     - root: .
       pattern: middleware/mcuboot_opensource/*.md
+    - root: .
+      pattern: middleware/mcuboot_opensource/docs/*
     vcs_link:
-    - pattern: middleware/mcuboot_opensource/*.md
+    - pattern: middleware/mcuboot_opensource/*
       replace_prefix: middleware/mcuboot_opensource/
       link: https://github.com/nxp-mcuxpresso/mcuboot
   mid_freertos_drivers:
