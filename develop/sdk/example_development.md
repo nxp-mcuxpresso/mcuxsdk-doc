@@ -489,6 +489,31 @@ west build -b evkbmimxrt1170 -p always <new workspace>/examples/demo_apps/hello_
 
       After running the CMake command, you can cd into `build` and run `ninja`.
 
+### Example with different build configurations
+
+An example may have different build configuration(usually for test), see [prj.conf](../sdk/example_development.md#prjconf). It is easy for developer to add different configurations in `example.yml`to make it be visiable to `list_project` and `build` extension.
+Here is an example:
+
+```yaml
+# examples/demo_apps/hello_world/example.yml+
+
+hello_world:
+  hello world content
+# The example with custom configuration must end with '@config_name'
+hello_world@custom1:
+  section-type: custom_application # MUST BE custom_application
+  contents:
+    document:
+      extra_build_args:
+      - -DCONF_FILE=examples/demo_apps/hello_world/new.conf
+  boards:
+    # define your scope for this custom_application
+```
+
+```{admonition} NOTE
+Currently, `custom_application` only support contents -> document -> extra_build_args, do not add other fields.
+```
+
 ## Component Configuration in Project Construction and Build
 
 There are following ways to do component configuration in the project construction and build
