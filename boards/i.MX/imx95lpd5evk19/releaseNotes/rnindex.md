@@ -1,15 +1,15 @@
 # MCUXpresso SDK Release Notes for IMX95LPD5EVK-19, IMX95LP4XEVK-15, and IMX95VERDINEVK
 
 
-```{include} topics/overview.md
+```{include} ../../../../release/commonrn/topics/overview.md
 :heading-offset: 1
 ```
 
-```{include} topics/mcuxpresso_sdk.md
+```{include} ../../../../release/commonrn/topics/mcuxpresso_sdk.md
 :heading-offset: 1
 ```
 
-```{include} topics/development_tools_imx93.md
+```{include} topics/development_tools.md
 :heading-offset: 1
 ```
 
@@ -17,7 +17,11 @@
 :heading-offset: 1
 ```
 
-```{include} topics/mcuxpresso_sdk_release_package.md
+```{include} ../../../../release/commonrn/topics/mcuxpresso_sdk_release_package.md
+:heading-offset: 1
+```
+
+```{include} topics/middleware.md
 :heading-offset: 1
 ```
 

@@ -1,11 +1,11 @@
 # MCUXpresso SDK Release Notes for EVK9-MIMX8ULP
 
 
-```{include} topics/overview.md
+```{include} ../../../../release/commonrn/topics/overview.md
 :heading-offset: 1
 ```
 
-```{include} topics/mcuxpresso_sdk.md
+```{include} ../../../../release/commonrn/topics/mcuxpresso_sdk.md
 :heading-offset: 1
 ```
 
@@ -17,7 +17,11 @@
 :heading-offset: 1
 ```
 
-```{include} topics/mcuxpresso_sdk_release_package.md
+```{include} ../../../../release/commonrn/topics/mcuxpresso_sdk_release_package.md
+:heading-offset: 1
+```
+
+```{include} topics/middleware.md
 :heading-offset: 1
 ```
 
