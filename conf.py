@@ -50,6 +50,12 @@ orphan: true
 {source[0]}
 '''
 
+def read_file(filename):
+    content = ""
+    with open(filename, "r", encoding='utf-8') as f:
+        content = f.read()
+
+    return content
 
 def setup(app):
     app.connect('source-read', patch_example_readme_md)
@@ -156,16 +162,17 @@ class MCUXDocConfig:
         if self.is_internal_doc:
             internal_config = os.path.join(SDK_BASE, "..", "bifrost", ".gitconfig")
             if os.path.exists(internal_config):
-                config = configparser.ConfigParser(strict=False)
-                config.read(internal_config)
-                for section in config.sections():
-                    for key, value in config.items(section):
-                        match = re.search(r'(?P<server_url>.+)/(?P<project>.+)/(?P<reponame>.+).git', section.replace("url ","").strip('"'))
-                        server_url = match.group("server_url").replace("ssh://git@","https://")
-                        project = match.group("project")
-                        reponame = match.group("reponame")
-                        self.url_map[value] = f'{server_url}/projects/{project.upper()}/repos/{reponame}'
-
+                for url, insteadOf in re.findall(r'\[url "(?P<url>[^"]+)"\]\s+insteadOf = (?P<insteadOf>[^\s]+)', read_file(internal_config), re.MULTILINE):
+                    match = re.search(r'(?P<server_url>.+)/(?P<project>.+)/(?P<reponame>.+).git',url)
+                    server_url = match.group("server_url").replace("ssh://git@","https://")
+                    project = match.group("project")
+                    reponame = match.group("reponame")
+                    internal_url = f'{server_url}/projects/{project.upper()}/repos/{reponame}'
+                    if insteadOf.endswith('.git'):
+                        self.url_map[insteadOf.replace('.git', '').rstrip('/')] = internal_url
+                    else:
+                        self.url_map[insteadOf.rstrip('/')] = internal_url
+        #print(f'URL Map: {self.url_map}')
     def iter_configs(self):
         for module_name, module_config in self.config['modules'].items():
             yield module_name, module_config
@@ -272,7 +279,7 @@ class MCUXDocConfig:
             mod_vcs["link"] = self.url_map[mod_vcs["link"].rstrip('/')]
     @property
     def vcs_link(self):
-        print('-- Collect VCS Link')
+        #print('-- Collect VCS Link')
         from west.manifest import Manifest
         manifest = Manifest.from_topdir(topdir=os.path.dirname(SDK_BASE))
         links = []
