@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**MCX-W71-EVK**|MCXW716CMFPA, **MCXW716CMFTA**|
+|**MCX-W71-EVK**|MCXW716AMFPA, MCXW716AMFTA, MCXW716CMFPA,<br> **MCXW716CMFTA**|
