@@ -923,3 +923,36 @@ Maestro_playback limitation
     FLAC decoder has missing samples in the beginning of the stream when sample rate convertor is enabled (by default).
 
     **Workaround:** Disabling the sample rate convertor can fix the issue (Remove the SSRC_PROC from project defined symbols).
+
+.. rst-class:: hideable v2025-03-00 frdmmcxn236
+
+Max Blob Size limitation on N11
+    The Maximum blob size is limited to 2783 bytes instead of 8K bytes for el2go blobs.
+
+    **Examples:** el2go_blob_test_s, el2go_blob_test_ns
+
+    **Affected toolchains:** All
+
+    **Affected platforms:** frdmmcxn236
+
+.. rst-class:: hideable v2025-03-00 kw45b41zevk
+
+El2go examples on kw45b41zevk
+    The el2go examples are executed on socketed board with KW45 samples instead of actual EVKs.
+
+    **Examples:** el2go_blob_test, el2go_import_blob
+
+    **Affected toolchains:** All
+
+    **Affected platforms:** kw45b41zevk
+
+.. rst-class:: hideable v2025-03-00 kw45b41zloc, mcxw71evk, frdmmcxw71
+
+Implementation Status of el2go Examples
+    El2go examples have been implemented but have not been verified on specified platforms. The only verification performed so far is through automation, where we check whether the application boots successfully. However, no el2go-specific verification has been conducted to confirm functionality beyond the boot process.
+
+    **Examples:** el2go_blob_test, el2go_import_blob
+
+    **Affected toolchains:** All
+
+    **Affected platforms:** kw45b41zloc, mcxw71evk, frdmmcxw71
