@@ -26,7 +26,7 @@ Getting Started
    :maxdepth: 1
    :caption: Getting Started with MCUXpresso SDK for FRDM-K32L3A6
 
-   gettingStarted/gsindex.md
+   ../../../gsd/package.rst
 
 Release Notes
 ****************
