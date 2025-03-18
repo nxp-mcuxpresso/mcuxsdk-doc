@@ -29,7 +29,7 @@ Getting Started
    :maxdepth: 1
    :caption: Getting Started with MCUXpresso SDK for LPCXpresso55S28
 
-   ../../commongs/gettingStarted/gsindex.md
+   ../../../gsd/package.rst
 
 Release Notes
 ****************

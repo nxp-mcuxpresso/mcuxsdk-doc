@@ -29,9 +29,7 @@ Getting Started with MCUXpresso SDK for FRDM-K22F
 
    :caption: Getting Started with MCUXpresso SDK for FRDM-K22F
 
-   
-
-   ../../commongs/gettingStarted/gsindex.md
+   ../../../gsd/package.rst
 
 
 Release Notes

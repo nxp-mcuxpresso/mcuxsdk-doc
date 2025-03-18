@@ -26,7 +26,7 @@ Getting Started
    :maxdepth: 1
    :caption: Getting Started with MCUXpresso SDK for FRDM-KE02Z40M
 
-   ../../commongs/gettingStarted/gsindex.md
+   ../../../gsd/package.rst
 
 
 
