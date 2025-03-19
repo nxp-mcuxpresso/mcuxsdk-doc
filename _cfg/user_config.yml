@@ -35,6 +35,8 @@ external_contents:
 - root: 'docs'
   pattern: 'middleware/audio_voice/components/*'
 - root: 'docs'
+  pattern: 'middleware/cadence/multicore-xaf/*' 
+- root: 'docs'
   pattern: 'middleware/aws_iot/*'
 - root: 'docs'
   pattern: 'middleware/multicore/*'
@@ -218,6 +220,13 @@ modules:
       pattern: middleware/audio_voice/components/decoders/mp3/doc/*.md
     - root: .
       pattern: middleware/audio_voice/components/decoders/wav/doc/*.md
+  mid_multicore-xaf:
+    default: true
+    external_contents:
+    - root: .
+      pattern: middleware/cadence/multicore-xaf/*.md
+    - root: .
+      pattern: middleware/cadence/multicore-xaf/doc/*.md      
   mid_multicore:
     default: true
     external_contents:
