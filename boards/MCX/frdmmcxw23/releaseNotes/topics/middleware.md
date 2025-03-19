@@ -14,11 +14,11 @@
 :heading-offset: 2
 ```
 
-```{include} ../../../../release/commonrn/topics/nxp_ble_controller_localization.md
+```{include} ../../../../release/commonrn/topics/nxp_conn_fwk.md
 :heading-offset: 2
 ```
 
-```{include} ../../../../release/commonrn/topics/nxp_conn_fwk.md
+```{include} ../../../../release/commonrn/topics/snps_ble_controller.md
 :heading-offset: 2
 ```
 
