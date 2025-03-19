@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for MCIMX93-EVK
+# MCUXpresso SDK Release Notes
 
 
 

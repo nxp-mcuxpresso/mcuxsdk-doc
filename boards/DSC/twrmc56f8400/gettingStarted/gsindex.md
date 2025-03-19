@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for TWR-MC56F8400
+# Getting Started with Package
 
 
 ```{tocTree}

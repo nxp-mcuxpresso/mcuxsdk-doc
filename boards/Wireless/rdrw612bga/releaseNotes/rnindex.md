@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for RD-RW612-BGA
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

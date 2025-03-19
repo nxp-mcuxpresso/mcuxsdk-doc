@@ -28,19 +28,24 @@ MCU device and part on board is shown below:
  - PartNumber: MIMX94398AVKM
 
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for IMX943-EVK(include IMX943-19X19-LPDDR5-EVK, IMX943-19X19-LPDDR4-EVK, IMX943-15X15-LPDDR4-EVK)
 
    gettingStarted/gsindex.md
 
-
-Release Notes
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for IMX943EVK
+
+   ../../../gsd/repo.rst
+
+
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

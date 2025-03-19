@@ -21,21 +21,26 @@ MCU device and part on board is shown below:
  - PartNumber: MIMXRT1064DVL6A
 
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for EVK-MIMXRT1064
 
    gettingStarted/gsindex.md
+
+Getting Started with MCUXpresso SDK Github
+*******************************************
+.. toctree::
+   :maxdepth: 1
+
+   ../../../gsd/repo.rst
 
 
 
 
 Release Notes
-****************
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for EVK-MIMXRT1064
 
    releaseNotes/rnindex.md

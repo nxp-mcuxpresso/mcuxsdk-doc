@@ -22,20 +22,25 @@ MCU device and part on board is shown below:
  - Device: MC56F80748
  - PartNumber: MC56F80748VLH
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for MC56F80000-EVK
 
    gettingStarted/gsindex.md
+
+Getting Started with MCUXpresso SDK Github
+*******************************************
+.. toctree::
+   :maxdepth: 1
+
+   ../../../gsd/repo.rst
 
 
 
 Release Notes
-****************
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for MC56F80000-EVK
 
    releaseNotes/rnindex.md

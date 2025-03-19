@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for IMX943EVK
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

@@ -19,19 +19,24 @@ MCU device and part on board is shown below:
  - Device: KW47B42ZB7
  - PartNumber: KW47B42ZB7AFTA
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for KW47-EVK
 
    gettingStarted/gsindex.md
 
-
-Release Notes
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for KW47-EVK
+
+   ../../../gsd/repo.rst
+
+
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for EVK-MCIMX7ULP
+# Getting Started with Package
 
 
 ```{tocTree}

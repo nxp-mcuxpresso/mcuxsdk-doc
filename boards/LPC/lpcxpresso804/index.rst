@@ -21,17 +21,22 @@ MCU device and part on board is shown below:
  - PartNumber: LPC804M101JDH24
 
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for LPCXpresso804
 
    ../../../gsd/package.rst
-Release Notes
-****************
+
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for LPCXpresso804
+
+   ../../../gsd/repo.rst
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

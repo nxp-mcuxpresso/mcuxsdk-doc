@@ -20,19 +20,24 @@ MCU device and part on board is shown below:
  - Device: MIMXRT1176
  - PartNumber: MIMXRT1176DVMAA
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for MIMXRT1170-EVKB
 
    gettingStarted/gsindex.md
 
-
-Release Notes
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for MIMXRT1170-EVKB
+
+   ../../../gsd/repo.rst
+
+
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

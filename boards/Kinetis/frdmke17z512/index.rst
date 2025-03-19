@@ -20,19 +20,24 @@ MCU device and part on board is shown below:
  - Device: MKE17Z9
  - PartNumber: MKE17Z512VLL9
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for FRDM-KE17Z512
 
    gettingStarted/gsindex.md
 
-
-Release Notes
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for FRDM-KE17Z512
+
+   ../../../gsd/repo.rst
+
+
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

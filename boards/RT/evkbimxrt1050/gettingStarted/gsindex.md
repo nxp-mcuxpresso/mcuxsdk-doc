@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for EVKB-IMXRT1050
+# Getting Started with Package
 
 -   [Overview](topics/overview.md)
 -   [MCUXpresso SDK board support package folders](topics/mcuxpresso_sdk_board_support_package_folders.md)

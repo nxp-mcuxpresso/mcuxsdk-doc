@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for FRDM-MCXW71
+# MCUXpresso SDK Release Notes
 
 ```{include} topics/overview.md
 :heading-offset: 1

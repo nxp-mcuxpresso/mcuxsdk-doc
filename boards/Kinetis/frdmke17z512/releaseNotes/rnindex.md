@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for FRDM-KE17Z512
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

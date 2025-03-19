@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for LPCXpresso51U68
+# Getting Started with Package
 
 
 ```{tocTree}

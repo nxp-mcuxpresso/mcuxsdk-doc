@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for MCX-W71-EVK
+# Getting Started with Package
 
 
 ```{tocTree}

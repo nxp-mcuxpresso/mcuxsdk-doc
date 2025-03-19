@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for EVK-MIMX8MNDDR3L
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

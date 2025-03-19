@@ -20,18 +20,23 @@ MCU device and part on board is shown below:
  - Device: K32L3A60
  - PartNumber: K32L3A60VPJ1A
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for FRDM-K32L3A6
 
    ../../../gsd/package.rst
 
-Release Notes
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for FRDM-K32L3A6
+
+   ../../../gsd/repo.rst
+
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

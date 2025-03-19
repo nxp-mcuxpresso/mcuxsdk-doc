@@ -22,18 +22,23 @@ MCU device and part on board is shown below:
  - Device: MC56F83789
  - PartNumber: MC56F83789VLL
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for MC56F83000-EVK
 
    gettingStarted/gsindex.md
 
-Release Notes
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for MC56F83000-EVK 
+
+   ../../../gsd/repo.rst
+
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

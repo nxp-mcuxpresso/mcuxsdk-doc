@@ -20,20 +20,25 @@ MCU device and part on board is shown below:
  - Device: MKE02Z4
  - PartNumber: MKE02Z64VQH4
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for FRDM-KE02Z40M
 
    ../../../gsd/package.rst
+
+Getting Started with MCUXpresso SDK Github
+*******************************************
+.. toctree::
+   :maxdepth: 1
+
+   ../../../gsd/repo.rst
 
 
 
 Release Notes
-****************
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for FRDM-KE02Z40M
 
    releaseNotes/rnindex.md

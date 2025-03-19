@@ -24,20 +24,25 @@ MCU device and part on board is shown below:
  - Device: MC56F84789
  - PartNumber: MC56F84789VLL
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for TWR-MC56F8400
 
    gettingStarted/gsindex.md
+
+Getting Started with MCUXpresso SDK Github
+*******************************************
+.. toctree::
+   :maxdepth: 1
+
+   ../../../gsd/repo.rst
 
 
 
 Release Notes
-****************
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for TWR-MC56F8400
 
    releaseNotes/rnindex.md

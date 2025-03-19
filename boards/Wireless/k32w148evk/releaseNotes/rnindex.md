@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for K32W148-EVK
+# MCUXpresso SDK Release Notes
 
 
 ```{include} topics/overview.md

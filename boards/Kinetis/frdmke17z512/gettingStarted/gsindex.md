@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for FRDM-KE17Z512
+# Getting Started with Package
 
 
 ```{tocTree}

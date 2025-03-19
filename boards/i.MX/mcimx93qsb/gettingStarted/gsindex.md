@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for MCIMX93-QSB
+# Getting Started with Package
 
 
 ```{tocTree}

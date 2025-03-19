@@ -20,26 +20,30 @@ MCU device and part on board is shown below:
  - Device: MIMXRT798S
  - PartNumber: MIMXRT798SGFOA
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for MIMXRT700-EVK
 
    gettingStarted/gsindex.md
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with Xplorer for MIMXRT700-EVK
+
+   ../../../gsd/repo.rst
+
+Getting Started with MCUXpresso SDK Xplorer
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    gettingStartedXplorer/gsxindex.md
 
 Release Notes
-****************
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for MIMXRT700-EVK
 
    releaseNotes/rnindex.md

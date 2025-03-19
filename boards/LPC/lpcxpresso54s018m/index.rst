@@ -28,18 +28,23 @@ MCU device and part on board is shown below:
  - Device: LPC54S018M
  - PartNumber: LPC54S018J4MET180
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for LPCXpresso54S018M
 
    gettingStarted/gsindex.md
 
-Release Notes
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for LPCXpresso54S018M
+
+   ../../../gsd/repo.rst
+
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

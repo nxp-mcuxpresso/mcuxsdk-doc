@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for TWR-KM35Z75M
+# Getting Started with Package
 
 
 ```{tocTree}

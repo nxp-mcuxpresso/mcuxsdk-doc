@@ -1,4 +1,4 @@
-# Getting Started with Xplorer for MIMXRT700-EVK
+# Getting Started with MCUXpresso SDK Xplorer
 
 
 ```{tocTree}

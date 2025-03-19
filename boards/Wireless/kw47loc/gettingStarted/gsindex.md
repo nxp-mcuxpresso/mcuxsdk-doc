@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for KW47-LOC
+# Getting Started with Package
 
 
 ```{tocTree}

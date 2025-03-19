@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for KW45B41Z-EVK
+# MCUXpresso SDK Release Notes
 
 ```{include} topics/overview.md
 :heading-offset: 1

@@ -20,19 +20,24 @@ MCU device and part on board is shown below:
  - Device: K32L2B31A
  - PartNumber: K32L2B31VLH0A
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for FRDM-K32L2B
 
    ../../../gsd/package.rst
 
-
-Release Notes
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for FRDM-K32L2B
+
+   ../../../gsd/repo.rst
+
+
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for EVK-MIMX8MM
+# Getting Started with Package
 
 
 ```{tocTree}

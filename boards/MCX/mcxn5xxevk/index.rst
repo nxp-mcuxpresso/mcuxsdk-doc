@@ -21,17 +21,22 @@ MCU device and part on board is shown below:
  - PartNumber: MCXN547VDF
 
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for MCX-N5XX-EVK
 
    ../mcxn9xxevk/gettingStarted/gsindex.md
-Release Notes
-****************
+
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for MCX-N5XX-EVK
+
+   ../../../gsd/repo.rst
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

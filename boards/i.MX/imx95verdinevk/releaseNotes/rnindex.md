@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for IMX95VERDINEVK
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

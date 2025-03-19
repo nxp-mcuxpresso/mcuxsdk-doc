@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for FRDM-KE02Z40M
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

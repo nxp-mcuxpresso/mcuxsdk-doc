@@ -20,19 +20,24 @@ MCU device and part on board is shown below:
  - Device: MIMXRT1021
  - PartNumber: MIMXRT1021DAG5A
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for EVK-MIMXRT1020
 
    gettingStarted/gsindex.md
 
-
-Release Notes
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for EVK-MIMXRT1020
+
+   ../../../gsd/repo.rst
+
+
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

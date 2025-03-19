@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for MCX-W72-EVK
+# MCUXpresso SDK Release Notes
 
 ```{include} topics/overview.md
 :heading-offset: 1

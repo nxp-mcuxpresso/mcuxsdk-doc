@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for IMX943-EVK(include IMX943-19X19-LPDDR5-EVK, IMX943-19X19-LPDDR4-EVK, IMX943-15X15-LPDDR4-EVK)
+# Getting Started with Package
 
 
 ```{tocTree}

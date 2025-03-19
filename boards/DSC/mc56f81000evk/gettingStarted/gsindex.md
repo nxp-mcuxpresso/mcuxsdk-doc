@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for MC56F81000-EVK
+# Getting Started with Package
 
 
 ```{tocTree}

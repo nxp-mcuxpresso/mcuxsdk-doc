@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for FRDM-K32L3A6
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

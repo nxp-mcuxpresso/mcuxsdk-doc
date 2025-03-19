@@ -21,25 +21,29 @@ MCU device and part on board is shown below:
  - PartNumber: MIMXRT685SFVKB
 
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for EVK-MIMXRT685
 
    gettingStarted/gsindex.md
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with Xplorer for EVK-MIMXRT685
+
+   ../../../gsd/repo.rst
+
+Getting Started with MCUXpresso SDK Xplorer
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    gettingStartedXplorer/gsxindex.md
 Release Notes
-****************
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for MIMXRT685-AUD-EVK
 
    releaseNotes/rnindex.md

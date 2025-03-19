@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for IMX95LPD5EVK-19, IMX95LP4XEVK-15, and IMX95VERDINEVK
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for LPCXpresso845MAX
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

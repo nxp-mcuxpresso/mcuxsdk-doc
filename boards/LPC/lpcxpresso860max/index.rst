@@ -24,22 +24,27 @@ MCU device and part on board is shown below:
  - Device: LPC865
  - PartNumber: LPC865M201JBD64
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for LPCXpresso860MAX
 
    ../../../gsd/package.rst
+
+Getting Started with MCUXpresso SDK Github
+*******************************************
+.. toctree::
+   :maxdepth: 1
+
+   ../../../gsd/repo.rst
 
 
 
 
 
 Release Notes
-****************
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for LPCXpresso860MAX
 
    releaseNotes/rnindex.md

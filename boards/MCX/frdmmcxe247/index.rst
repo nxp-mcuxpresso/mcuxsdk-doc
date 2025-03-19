@@ -28,16 +28,22 @@ MCU device and part on board is shown below:
  - PartNumber: MCXE247VLQ
 
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for FRDM-MCXE247
 
    ../../../gsd/package.rst
 
+Getting Started with MCUXpresso SDK Github
+*******************************************
+.. toctree::
+   :maxdepth: 1
+
+   ../../../gsd/repo.rst
+
 Release Notes
-****************
+*******************************************
 
 **This is an Early Access Release (EAR) for FRDM-MCXE247 developement board. It shall be used for pre-production development only.**
 
@@ -50,6 +56,5 @@ Supported Development Tools
 
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for FRDM-MCXE247
 
    releaseNotes/rnindex.md

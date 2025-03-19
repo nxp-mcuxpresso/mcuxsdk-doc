@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for IMX95LPD5EVK-19, IMX95LP4XEVK-15, and IMX95VERDINEVK
+# Getting Started with Package
 
 
 ```{tocTree}

@@ -19,18 +19,23 @@ MCU device and part on board is shown below:
  - PartNumber: MKM34Z128ACLL5
 
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK TWR-KM34Z50MV3
 
    ../../../gsd/package.rst
 
-Release Notes
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for TWR-KM34Z50MV3
+
+   ../../../gsd/repo.rst
+
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for FRDM-RW612
+# Getting Started with Package
 
 
 ```{tocTree}

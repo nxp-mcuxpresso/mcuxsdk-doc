@@ -1,4 +1,4 @@
-# Getting Started with Xplorer for EVK-MIMXRT595
+# Getting Started with MCUXpresso SDK Xplorer
 
 
 ```{tocTree}

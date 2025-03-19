@@ -19,18 +19,23 @@ MCU device and part on board is shown below:
  - PartNumber: MCXW727CMFTA
 
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for MCX-W72-EVK
 
   gettingStarted/gsindex.md
 
-Release Notes
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for MCX-W72-EVK
+
+   ../../../gsd/repo.rst
+
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

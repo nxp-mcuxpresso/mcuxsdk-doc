@@ -21,17 +21,22 @@ MCU device and part on board is shown below:
  - PartNumber: RW612ETA2I
 
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for RD-RW61X
 
    gettingStarted/gsindex.md
-Release Notes
-****************
+
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for RD-RW612-BGA
+
+   ../../../gsd/repo.rst
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

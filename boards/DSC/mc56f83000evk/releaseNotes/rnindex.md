@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for MC56F83000-EVK
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

@@ -20,18 +20,23 @@ MCU device and part on board is shown below:
  - Device: KW45B41Z83
  - PartNumber: KW45B41Z83AFTA
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started with MCUXpresso SDK for KW45B41Z-EVK
 
    gettingStarted/gsindex.md
 
-Release Notes
-****************
+Getting Started with MCUXpresso SDK Github
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for for KW45B41Z-EVK
+
+   ../../../gsd/repo.rst
+
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
 
    releaseNotes/rnindex.md

@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for MCIMX93-QSB
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

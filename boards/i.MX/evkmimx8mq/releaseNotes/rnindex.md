@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for EVK-MIMX8MQ
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

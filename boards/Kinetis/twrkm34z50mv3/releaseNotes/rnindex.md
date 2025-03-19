@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for TWR-KM34Z50MV3
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

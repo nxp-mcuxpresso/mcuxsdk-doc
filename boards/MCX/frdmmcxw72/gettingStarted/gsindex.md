@@ -1,4 +1,4 @@
-# Getting Started with MCUXpresso SDK for FRDM-MCXW72
+# Getting Started with Package
 
 -   [Overview](topics/overview.md)
 -   [MCUXpresso SDK Board Support Package Folders](topics/mcuxpresso_sdk_board_support_package_folders.md)

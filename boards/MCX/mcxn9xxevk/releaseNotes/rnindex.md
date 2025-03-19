@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for MCX-N9XX-EVK
+# MCUXpresso SDK Release Notes
 
 
 ```{include} ../../../../release/commonrn/topics/overview.md

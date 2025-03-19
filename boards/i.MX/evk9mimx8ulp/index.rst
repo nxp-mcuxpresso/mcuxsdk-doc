@@ -18,20 +18,25 @@ MCU device and part on board is shown below:
  - PartNumber: MIMX8UD5DVK08
 
 
-Getting Started
-****************
+Getting Started with MCUXpresso SDK Package
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started for EVK9-MIMX8ULP
 
    gettingStarted/gsindex.md
+
+Getting Started with MCUXpresso SDK Github
+*******************************************
+.. toctree::
+   :maxdepth: 1
+
+   ../../../gsd/repo.rst
 
 
 
 Release Notes
-****************
+*******************************************
 .. toctree::
    :maxdepth: 1
-   :caption: MCUXpresso SDK Release Notes for EVK9-MIMX8ULP
 
    releaseNotes/rnindex.md

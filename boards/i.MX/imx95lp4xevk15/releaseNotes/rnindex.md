@@ -1,5 +1,4 @@
-# MCUXpresso SDK Release Notes for IMX95LP4XEVK-15
-
+# MCUXpresso SDK Release Notes
 
 ```{include} ../../../../release/commonrn/topics/overview.md
 :heading-offset: 1
