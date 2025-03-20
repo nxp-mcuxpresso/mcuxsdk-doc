@@ -25,7 +25,7 @@ Getting Started with MCUXpresso SDK Package
 
    ../imx95lpd5evk19/gettingStarted/gsindex.md
 
-Getting Started with MCUXpresso SDK Github
+Getting Started with MCUXpresso SDK GitHub
 *******************************************
 .. toctree::
    :maxdepth: 1

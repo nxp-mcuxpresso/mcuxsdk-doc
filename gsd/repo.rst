@@ -1,8 +1,7 @@
 .. _gsd_index:
 
-Getting Started With Repo
-====================
-
+Getting Started with MCUXpresso SDK Repository
+==============================================
 .. toctree::
     :maxdepth: 2
 

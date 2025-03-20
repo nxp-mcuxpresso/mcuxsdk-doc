@@ -1,7 +1,7 @@
 .. _gsd_pack_index:
 
-Getting Started With Package
-====================
+Getting Started with MCUXpresso SDK Package
+===========================================
 
 .. toctree::
    :maxdepth: 2
