@@ -7,4 +7,4 @@ wireless
    :maxdepth: 1
    :glob:
 
-   */index
+   **/index
