@@ -7,7 +7,7 @@ On FRDM-MCXW71 board:
 3.  Release the switch SW3.
 4.  Check the associated USB port number on the PC \(such as, COM10\).
 5.  While MCXW716 is in bootloader ISP mode, navigate to the folder where *blhost.exe* is located.
-6.  Type the command `.\blhost.exe -p COM10 -- get-property 1` to make sure that the K32W148 is in Bootloader ISP mode, you should see:
+6.  Type the command `.\blhost.exe -p COM10 -- get-property 1` to make sure that the MCXW71 is in Bootloader ISP mode, you should see:
 
     Ping responded in 1 attempt\(s\)
 

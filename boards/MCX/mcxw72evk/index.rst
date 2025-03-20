@@ -8,6 +8,8 @@ Overview
 
 
 
+
+
 .. image:: ./mcxw72evk.png
    :width: 240px
    :align: center
@@ -18,13 +20,12 @@ MCU device and part on board is shown below:
  - Device: MCXW727C
  - PartNumber: MCXW727CMFTA
 
-
 Getting Started with MCUXpresso SDK Package
 *******************************************
 .. toctree::
    :maxdepth: 1
 
-  gettingStarted/gsindex.md
+   gettingStarted/gsindex.md
 
 Getting Started with MCUXpresso SDK GitHub
 *******************************************
@@ -35,6 +36,9 @@ Getting Started with MCUXpresso SDK GitHub
 
 Release Notes
 *******************************************
+
+**This is an early adopter release provided as preview for development with pre-production devices.**
+
 .. toctree::
    :maxdepth: 1
 

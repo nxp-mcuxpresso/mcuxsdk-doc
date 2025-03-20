@@ -45,7 +45,7 @@ Getting Started with MCUXpresso SDK GitHub
 Release Notes
 *******************************************
 
-**This is an Early Access Release (EAR) for FRDM-MCXE247 developement board. It shall be used for pre-production development only.**
+**This is an Early Access Release (EAR) for FRDM-MCXE247 development board. It shall be used for pre-production development only.**
 
 Only drivers which has its example(s) in mcuxsdk/examples/_boards/frdmmcxe247/driver_examples folder were tested.
 

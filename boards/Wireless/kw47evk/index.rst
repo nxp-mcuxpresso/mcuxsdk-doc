@@ -9,6 +9,7 @@ Overview
 
 
 
+
 .. image:: ./kw47evk.png
    :width: 240px
    :align: center
@@ -33,9 +34,11 @@ Getting Started with MCUXpresso SDK GitHub
 
    ../../../gsd/repo.rst
 
-
 Release Notes
 *******************************************
+
+**This is an early adopter release provided as preview for development with pre-production devices.**
+
 .. toctree::
    :maxdepth: 1
 

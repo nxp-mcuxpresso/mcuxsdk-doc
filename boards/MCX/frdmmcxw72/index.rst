@@ -9,6 +9,7 @@ Overview
 
 
 
+
 .. image:: ./frdmmcxw72.png
    :width: 240px
    :align: center
@@ -18,7 +19,6 @@ MCU device and part on board is shown below:
 
  - Device: MCXW727C
  - PartNumber: MCXW727CMFTA
-
 
 Getting Started with MCUXpresso SDK Package
 *******************************************
@@ -34,9 +34,11 @@ Getting Started with MCUXpresso SDK GitHub
 
    ../../../gsd/repo.rst
 
-   
 Release Notes
 *******************************************
+
+**This is an early adopter release provided as preview for development with pre-production devices.**
+
 .. toctree::
    :maxdepth: 1
 
