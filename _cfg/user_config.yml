@@ -84,6 +84,10 @@ modules:
     external_contents:
     - root: docs
       pattern: boards/*
+    - root: .
+      pattern: drivers/**/ChangeLog_*.md
+    - root: .
+      pattern: devices/**/ChangeLog_*.md
   drivers:
     default: true
     external_contents:

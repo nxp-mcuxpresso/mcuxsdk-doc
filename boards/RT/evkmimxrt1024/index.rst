@@ -41,3 +41,10 @@ Release Notes
    :maxdepth: 1
 
    releaseNotes/rnindex.md
+
+ChangeLog
+*******************************************
+.. toctree::
+   :maxdepth: 1
+
+   changeLog/clindex.md
