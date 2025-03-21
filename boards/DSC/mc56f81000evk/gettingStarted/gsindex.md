@@ -5,8 +5,9 @@
 :maxdepth: 4
 :caption: Table of Contents
 
-topics/overview.md
-topics/run_a_demo_application_using_codewarrior.md
-topics/project_template_project_for_a_specific_dsc_part.md
-topics/how_to_determine_com_port.md
+../../../../gsd/package/overview.md
+topics/build_run_sdk_example.md
+../../../../gsd/package/project_template_for_a_specific_dsc_part.md
+../../../../gsd/package/how_to_determine_com_port.md
+
 ```
