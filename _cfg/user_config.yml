@@ -672,6 +672,14 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW727C
       outdir: drivers/MCX/MCXW/MCXW727C
+  drivers_MCX_MCXW_MCXW236B:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXW/MCXW236B/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW236B
+      outdir: drivers/MCX/MCXW/MCXW236B
   drivers_iMX_iMX8MP_MIMX8ML8:
     default: true
     external_contents:
