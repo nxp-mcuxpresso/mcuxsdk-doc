@@ -1,32 +1,20 @@
 # What is new
 
-MCUXpresso SDK version 25.03.00-pvw2 is an early adopter release provided as preview for early development.
-
-The following changes have been implemented compared to the previous SDK release version \(24.12.00\).
+The following changes have been implemented compared to the previous SDK release version \(25.03.00-pvw2\).
 
 
 -   **Bluetooth LE host stack and applications**
-    
-    #### Added
-	- PAWR support in **BLE Shell** sample application.
-	- PAWR support in **adv_ext_peripheral** and **adv_ext_central** sample applications.
-	- New sample applications for **FRDM-MCXW72**.
-	- **Gap_SetScanningCallback** API.
-	- Support for handover connection interval update command.
+    ### Added
+    -   MCXW72 **Extended NBU** support and **w_uart_host**, **fsci_bridge** and **ncp_fscibb** sample applications.
 
-    #### Changed
-	- Updated HID Device for **Windows 11** compatibility.
-	- Updated CCC demos to **Digital Key R4 spec version 1.0.0**.
-	- Improved RPA resolution at the **Host level**, now performed synchronously.
-	- Enhanced parsing of the **CS procedure** in Ranging Service.
+    ### Changed
+    -   Updated **FSCI XML file**.
+    -   Updated **Bluetooth LE Host Documentation**. 
 
-    #### Fixed
-	- Corrected parsing of the **PAST command** in FSCI GAP.
-	- Fixed **scan event reporting** in PAST scenario.
-	- Added an error case for `Gap_SetChannelMap` in the generic event handler.
-
-	    
-    Details can be found in [CHANGELOG.md](../../../../../middleware/wireless/bluetooth/CHANGELOG.md).
+    ### Fixed
+    -   **EAD** - Updated advertising data length check to ensure encrypted data fits inside one AD.
+	
+    -   Details can be found in **CHANGELOG.md**.
 
 -   **Bluetooth LE controller**
     -   Added initial experimental support for Bluetooth LE Controller feature: Periodic Advertising with Responses \(PAwR)\
