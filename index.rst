@@ -59,7 +59,6 @@ for more details.
    develop/architect.md
    develop/build_system/index
    develop/sdk/index
-   develop/document/index
 
 .. toctree::
    :maxdepth: 1

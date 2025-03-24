@@ -118,74 +118,6 @@ After you installed the toolchains, to make the west build recognize them, you n
 
 - In Windows, the short path is used in environment variables. If any toolchain is using the long path, you can open a command window from the toolchain folder and use below command to get the short path: `for %i in (.) do echo %~fsi`
 
-## Document Installation
-
-It is only needed when you want to generate the HTML version of the document in your local environment
-
-### make
-
-Install make for windows using `choco`, other OS has make installed by default. Ensure you are running command in administrator mode.
-
-```bash
-choco install make
-```
-
-If you do not have `choco` installed, you can install it from [chocolatey](https://chocolatey.org/install)
-
-### doxygen
-
-The doxygen installation is needed if you want to try documentation generation. The versions for the doxygen tools are as below:
-
-- Doxygen version `1.8.13`
-- Graphviz `2.43`
-- Latexmk version `4.56`
-
-For installation, you can refer to the guideline as below, which is referenced from the [Zephyr documentation generation guideline](https://docs.zephyrproject.org/latest/contribute/documentation/generation.html#installing-the-documentation-processors)
-
-- Linux
-
-  - On Ubuntu Linux:
-
-    ```bash
-    sudo apt-get install --no-install-recommends doxygen graphviz librsvg2-bin \
-    texlive-latex-base texlive-latex-extra latexmk texlive-fonts-recommended imagemagick
-    ```
-  - On Fedora Linux:
-
-    ```bash
-    sudo dnf install doxygen graphviz texlive-latex latexmk \
-    texlive-collection-fontsrecommended librsvg2-tools ImageMagick
-    ```
-  - On Clear Linux:
-
-    ```bash
-    sudo swupd bundle-add texlive graphviz ImageMagick
-    ```
-  - On Arch Linux:
-
-    ```bash
-    sudo pacman -S graphviz doxygen librsvg texlive-core texlive-bin \
-    texlive-latexextra texlive-fontsextra imagemagick
-    ```
-- macOS
-  Use ``brew`` and ``tlmgr`` to install the tools:
-
-  ```bash
-  brew install doxygen graphviz mactex librsvg imagemagick
-  ```
-  ```bash
-  tlmgr install latexmk
-  ```
-  ```bash
-  tlmgr install collection-fontsrecommended
-  ```
-- Windows
-  Open a ``cmd.exe`` window as **Administrator** and run the following command:
-
-  ```bash
-  choco install doxygen.install graphviz strawberryperl miktex rsvg-convert imagemagick
-  ```
-
 ## Tool installation check
 Once installed, open a terminal or command prompt and type the associated command to verify the installation.
 
@@ -272,11 +204,3 @@ To create a Python virtual environment in the west workspace core repo directory
     pip install -r scripts/requirements.txt
     ```
 
-## Document Python dependencies
-
-There are several needed python packages for documentation generation, such as Sphinx tool, which we used to do the generation process. Run below command to install those python dependencies.
-
-  ```bash
-  cd core/docs
-  pip install -r requirements.txt
-  ```

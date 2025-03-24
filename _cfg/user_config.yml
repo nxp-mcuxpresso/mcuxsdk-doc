@@ -53,10 +53,6 @@ external_contents:
 - root: 'docs'
   pattern: 'middleware/vglite/**/*.png'
 - root: docs
-  pattern: generation.rst
-- root: docs
-  pattern: develop/document/*
-- root: docs
   pattern: rtos/index.rst
 - root: docs
   pattern: rtos/*
@@ -140,11 +136,6 @@ modules:
         pattern: ecosystem/sdk_generator/doc_ecosystem/index.rst
       - root: .
         pattern: ecosystem/sdk_generator/doc_ecosystem/*
-  dev_document:
-    default: true
-    external_contents:
-    - root: docs
-      pattern: develop/document/*
   mid_aws_iot:
     default: true
     external_contents:
