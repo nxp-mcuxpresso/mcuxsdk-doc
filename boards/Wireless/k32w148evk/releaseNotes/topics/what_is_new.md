@@ -4,8 +4,15 @@ The following changes have been implemented compared to the previous SDK release
 
 
 -   **Bluetooth LE host stack and applications**
-    - Details can be found in [CHANGELOG.md](../../../../../middleware/wireless/bluetooth/CHANGELOG.md).
 
+    ### Changed
+    -   Updated **FSCI XML file**.
+    -   Updated **Bluetooth LE Host Documentation**. 
+
+    ### Fixed
+    -   **EAD** - Updated advertising data length check to ensure encrypted data fits inside one AD.
+	
+    -   Details can be found in **CHANGELOG.md**.
 -   **Bluetooth LE controller**
     -  Minor fixes and stability improvements
 
