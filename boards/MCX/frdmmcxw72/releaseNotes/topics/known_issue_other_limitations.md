@@ -13,6 +13,8 @@
 -   A hardfault can be encountered when using fsl\_component\_mem\_manager\_light.c memory allocator and shutting down some unused RAM banks in low power. It is due to a wrong reinitialization of ECC RAM banks. To be sure not to reproduce the issue, `gPlatformShutdownEccRamInLowPower` should be set to 0.
 
 -   GenFsk `Connectivity_test` application is not operational with Low Power enabled.
+-   No MCUXpresso projects for Extended NBU Applications
+-   Limited support for multiple connection for Extended NBU Applications
 -   Serial Manager is only supported on UART \(not I2C nor SPI\).
 -   The `--no-warn-rwx-segments` cannot been recognized on legacy MCUXpresso IDE versions.
 

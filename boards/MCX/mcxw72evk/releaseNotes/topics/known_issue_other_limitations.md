@@ -4,6 +4,8 @@
 -   Low Power configurations are not supported for Bluetooth LE Reference Design and IEEE 802.15.4, \(Zigbee/Thread\) stacks in this release.
 -   GenFSK Connectivity\_test application is not operational with ARMGCC compiler.
 -   GenFSK `Connectivity_test` application is not operational with Low Power enabled.
+-   No MCUXpresso projects for Extended NBU Applications
+-   Limited support for multiple connection for Extended NBU Applications
 -   Serial manager is only supported on UART \(not I2C nor SPI\).
 -   The `--no-warn-rwx-segments` cannot been recognized on legacy MCUXpresso IDE versions.
 
