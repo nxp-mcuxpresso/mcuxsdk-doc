@@ -46,4 +46,8 @@ The following changes have been implemented compared to the previous SDK release
                 - Enable temperature handling requested by NBU
             - [wireless_mcu] fwk_platform_lcl coex config update for KW45
 
+    -   **Note**
+
+	   - [HwParameter] By default, hardware parameters are located in both main flash and IFR. Main flash and IFR needs to be erased if you want to erase the actual hardware parameters.
+
     Details can be found in [CHANGELOG.md](../../../../../middleware/wireless/framework/CHANGELOG.md)
