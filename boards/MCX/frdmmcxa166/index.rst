@@ -17,8 +17,8 @@ The board is compatible with Arduino boards (Arduino UNO R3 and Arduino A4/A5), 
 wide range of development tools, including NXP MCUXpresso IDE, IAR Embedded Workbench, and Arm Keil
 MDK. The board is lead-free and RoHS-compliant.
 
-For debugging the MCXA166 MCU, the FRDM-MCXA166 board uses an onboard (OB) debug probe, MCU-Link
-OB, which is based on another NXP MCU: LPC55S69
+For debugging the MCXA166 MCU, the FRDM-MCXA166 board uses an onboard (OB) debug probe, MCU-Link lite
+OB, which is based on another NXP MCU: LPC55S16
 
 
 
