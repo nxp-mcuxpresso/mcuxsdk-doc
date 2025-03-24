@@ -20,8 +20,7 @@ The following changes have been implemented compared to the previous SDK release
     -   Details can be found in **CHANGELOG.md**.
 
 -   **Bluetooth LE controller**
-    -   Added initial experimental support for Bluetooth LE Controller feature: Periodic Advertising with Responses \(PAwR)\
-    -   Minor fixes and stability improvements
+    -   HADM, PAwR, DBAF fixes and stability improvements.
 
 -   **Transceiver drivers (XCVR)**
     -   Added support for Bluetooth LE Channel Sounding

@@ -38,6 +38,7 @@
     -   NXP proprietary Bluetooth LE Handover feature
     -   Decision Based Advertising Filtering \(DBAF\) - Experimental feature
     -   Advertising Coding Selection \(ACS\) - Experimental feature
+    -   Periodic Advertising with Responses \(PAwR\) - Experimental feature
     -   Channel Sounding - Experimental feature
 
         **Note:**

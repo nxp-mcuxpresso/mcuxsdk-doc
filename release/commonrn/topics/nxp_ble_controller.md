@@ -36,11 +36,17 @@
     -   Timestamp associated to Bluetooth LE packet reception
     -   RF channel info associated to Bluetooth LE packet reception
     -   NXP proprietary Bluetooth LE Handover feature
-    -   Decision Based Advertising Filtering \(DBAF\) - Experimental feature
-    -   Advertising Coding Selection \(ACS\) - Experimental feature
+    -   Decision Based Advertising Filtering \(DBAF\) - Experimental feature. See [Note](#note) below.
+    -   Advertising Coding Selection \(ACS\) - Experimental feature. See [Note](#note) below.
+    -   Periodic Advertising with Responses \(PAwR\) - Experimental feature. See [Note](#note) below.
+    Additional features supported for KW47 and MCX W72 devices:
     -   Channel Sounding - Experimental feature
 
+        
         **Note:**
+        Project configuration enabling Experimental features on KW45 and MCX W71 requires the Radio Subsystem \(NBU\) 
+        Firmware to be reprogrammed with the firmware provided in the SDK under *\\middleware\\wireless\\ble\_controller\\bin\\experimental\\*.
+        For NBU programming steps, see the *EVK Quick Start Guide* and Secure Provisioning SDK \(SPSDK\) documentation.
 
         Project configurations that require usage of the Bluetooth LE controller including all Bluetooth LE examples require the Radio Subsystem \(NBU\) Firmware to be re-programmed with the firmware provided in the SDK under middleware\\wireless\\ble\_controller\\bin.
 

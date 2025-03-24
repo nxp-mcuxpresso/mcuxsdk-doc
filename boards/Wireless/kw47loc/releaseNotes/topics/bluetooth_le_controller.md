@@ -39,7 +39,7 @@
     -   Decision Based Advertising Filtering \(DBAF\) - Experimental feature
     -   Advertising Coding Selection \(ACS\) - Experimental feature
     -   Channel Sounding - Experimental feature
-
+    -   Periodic Advertising With Responses \(PAwR\) - Experimental feature
         **Note:**
 
         Project configurations that require usage of the Bluetooth LE controller including all Bluetooth LE examples require the Radio Subsystem \(NBU\) Firmware to be re-programmed with the firmware provided in the SDK under middleware\\wireless\\ble\_controller\\bin.

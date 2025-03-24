@@ -39,6 +39,7 @@
     -   Decision Based Advertising Filtering \(DBAF\) - Experimental feature
     -   Advertising Coding Selection \(ACS\) - Experimental feature
     -   Channel Sounding - Experimental feature
+    -   Periodic Advertising With Responses \(PAwR\) - Experimental feature
 
         **Note:**
 
