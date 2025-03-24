@@ -1,17 +1,9 @@
 Release Notes
 ================
 
-.. toctree::
-   :maxdepth: 4
-   :caption: General Information:
-   
+The supported development systems and their quality are listed below. To view the release notes for a specific board, click the corresponding board link.
 
-   commonrn/rnindex.md
-   release_quality.md  
+.. include:: release_quality.md
+   :parser: myst_parser.sphinx_
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Subpages:
 
-   known_issues.rst
- 
