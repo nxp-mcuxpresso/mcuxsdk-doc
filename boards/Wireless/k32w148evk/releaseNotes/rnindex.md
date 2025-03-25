@@ -29,7 +29,7 @@
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/commonrn/topics/release_contents.md
+```{include} /release/commonrn/topics/release_contents.md
 :heading-offset: 1
 ```
 

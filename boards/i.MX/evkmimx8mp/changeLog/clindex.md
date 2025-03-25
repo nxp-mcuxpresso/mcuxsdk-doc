@@ -1,126 +1,126 @@
 # MCUXpresso SDK Changelog
 
-```{include} ../../../../drivers/aipstz/doxygen/ChangeLog_aipstz.md
+```{include} /drivers/aipstz/doxygen/ChangeLog_aipstz.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/easrc/doxygen/ChangeLog_asrc.md
+```{include} /drivers/easrc/doxygen/ChangeLog_asrc.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/easrc/doxygen/ChangeLog_asrc_sdma.md
+```{include} /drivers/easrc/doxygen/ChangeLog_asrc_sdma.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/cache/armv7-m7/doxygen/ChangeLog_cache.md
+```{include} /drivers/cache/armv7-m7/doxygen/ChangeLog_cache.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/common/doxygen/ChangeLog_common.md
+```{include} /drivers/common/doxygen/ChangeLog_common.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/ecspi/doxygen/ChangeLog_ecspi.md
+```{include} /drivers/ecspi/doxygen/ChangeLog_ecspi.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/dma3/doxygen/ChangeLog_edma.md
+```{include} /drivers/dma3/doxygen/ChangeLog_edma.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/enet/doxygen/ChangeLog_enet.md
+```{include} /drivers/enet/doxygen/ChangeLog_enet.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/enet_qos/doxygen/ChangeLog_enet_qos.md
+```{include} /drivers/enet_qos/doxygen/ChangeLog_enet_qos.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/flexcan/doxygen/ChangeLog_flexcan.md
+```{include} /drivers/flexcan/doxygen/ChangeLog_flexcan.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/gpc_2/doxygen/ChangeLog_gpc.md
+```{include} /drivers/gpc_2/doxygen/ChangeLog_gpc.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/igpio/doxygen/ChangeLog_gpio.md
+```{include} /drivers/igpio/doxygen/ChangeLog_gpio.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/gpt/doxygen/ChangeLog_gpt.md
+```{include} /drivers/gpt/doxygen/ChangeLog_gpt.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/ii2c/doxygen/ChangeLog_i2c.md
+```{include} /drivers/ii2c/doxygen/ChangeLog_i2c.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/mu/doxygen/ChangeLog_mu.md
+```{include} /drivers/mu/doxygen/ChangeLog_mu.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/pdm/doxygen/ChangeLog_pdm.md
+```{include} /drivers/pdm/doxygen/ChangeLog_pdm.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/pdm/doxygen/ChangeLog_pdm_edma.md
+```{include} /drivers/pdm/doxygen/ChangeLog_pdm_edma.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/pdm/doxygen/ChangeLog_pdm_sdma.md
+```{include} /drivers/pdm/doxygen/ChangeLog_pdm_sdma.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/ipwm/doxygen/ChangeLog_pwm.md
+```{include} /drivers/ipwm/doxygen/ChangeLog_pwm.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/rdc/doxygen/ChangeLog_rdc.md
+```{include} /drivers/rdc/doxygen/ChangeLog_rdc.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/rdc_sema42/doxygen/ChangeLog_rdc_sema42.md
+```{include} /drivers/rdc_sema42/doxygen/ChangeLog_rdc_sema42.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/sai/doxygen/ChangeLog_sai.md
+```{include} /drivers/sai/doxygen/ChangeLog_sai.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/sai/doxygen/ChangeLog_sai_edma.md
+```{include} /drivers/sai/doxygen/ChangeLog_sai_edma.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/sai/doxygen/ChangeLog_sai_sdma.md
+```{include} /drivers/sai/doxygen/ChangeLog_sai_sdma.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/sdma/doxygen/ChangeLog_sdma.md
+```{include} /drivers/sdma/doxygen/ChangeLog_sdma.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/sema4/doxygen/ChangeLog_sema4.md
+```{include} /drivers/sema4/doxygen/ChangeLog_sema4.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/tmu_2/doxygen/ChangeLog_tmu.md
+```{include} /drivers/tmu_2/doxygen/ChangeLog_tmu.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/iuart/doxygen/ChangeLog_uart.md
+```{include} /drivers/iuart/doxygen/ChangeLog_uart.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/iuart/doxygen/ChangeLog_uart_sdma.md
+```{include} /drivers/iuart/doxygen/ChangeLog_uart_sdma.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/usdhc/doxygen/ChangeLog_usdhc.md
+```{include} /drivers/usdhc/doxygen/ChangeLog_usdhc.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/wdog01/doxygen/ChangeLog_wdog.md
+```{include} /drivers/wdog01/doxygen/ChangeLog_wdog.md
 :heading-offset: 2
 ```
 ---

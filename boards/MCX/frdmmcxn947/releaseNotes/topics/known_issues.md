@@ -2,11 +2,11 @@
 
 This section lists the known issues, limitations, and/or workarounds.
 
-```{include} ../../../../release/known_issues/cannot_add_sdk_components.md
+```{include} /release/known_issues/cannot_add_sdk_components.md
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/known_issues/mcuxpresso_config_tools_v600_clone_issue.md
+```{include} /release/known_issues/mcuxpresso_config_tools_v600_clone_issue.md
 :heading-offset: 1
 ```
 

@@ -1,118 +1,118 @@
 # MCUXpresso SDK Changelog
 
-```{include} ../../../../drivers/lpc_adc/doxygen/ChangeLog_adc.md
+```{include} /drivers/lpc_adc/doxygen/ChangeLog_adc.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../devices/LPC/LPC51U68/LPC51U68/drivers/doxygen/ChangeLog_clock.md
+```{include} /devices/LPC/LPC51U68/LPC51U68/drivers/doxygen/ChangeLog_clock.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/common/doxygen/ChangeLog_common.md
+```{include} /drivers/common/doxygen/ChangeLog_common.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/lpc_crc/doxygen/ChangeLog_crc.md
+```{include} /drivers/lpc_crc/doxygen/ChangeLog_crc.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/ctimer/doxygen/ChangeLog_ctimer.md
+```{include} /drivers/ctimer/doxygen/ChangeLog_ctimer.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/lpc_dma/doxygen/ChangeLog_dma.md
+```{include} /drivers/lpc_dma/doxygen/ChangeLog_dma.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/flashiap/doxygen/ChangeLog_flashiap.md
+```{include} /drivers/flashiap/doxygen/ChangeLog_flashiap.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/flexcomm/doxygen/ChangeLog_flexcomm.md
+```{include} /drivers/flexcomm/doxygen/ChangeLog_flexcomm.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/fmeas/doxygen/ChangeLog_fmeas.md
+```{include} /drivers/fmeas/doxygen/ChangeLog_fmeas.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/gint/doxygen/ChangeLog_gint.md
+```{include} /drivers/gint/doxygen/ChangeLog_gint.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/lpc_gpio/doxygen/ChangeLog_gpio.md
+```{include} /drivers/lpc_gpio/doxygen/ChangeLog_gpio.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/flexcomm/i2c/doxygen/ChangeLog_i2c.md
+```{include} /drivers/flexcomm/i2c/doxygen/ChangeLog_i2c.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/flexcomm/i2s/doxygen/ChangeLog_i2s.md
+```{include} /drivers/flexcomm/i2s/doxygen/ChangeLog_i2s.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/flexcomm/i2s/doxygen/ChangeLog_i2s_dma.md
+```{include} /drivers/flexcomm/i2s/doxygen/ChangeLog_i2s_dma.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/iap/doxygen/ChangeLog_iap.md
+```{include} /drivers/iap/doxygen/ChangeLog_iap.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/inputmux/doxygen/ChangeLog_inputmux.md
+```{include} /drivers/inputmux/doxygen/ChangeLog_inputmux.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/lpc_iocon/doxygen/ChangeLog_iocon.md
+```{include} /drivers/lpc_iocon/doxygen/ChangeLog_iocon.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/mrt/doxygen/ChangeLog_mrt.md
+```{include} /drivers/mrt/doxygen/ChangeLog_mrt.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/pint/doxygen/ChangeLog_pint.md
+```{include} /drivers/pint/doxygen/ChangeLog_pint.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../devices/LPC/LPC51U68/LPC51U68/drivers/doxygen/ChangeLog_power.md
+```{include} /devices/LPC/LPC51U68/LPC51U68/drivers/doxygen/ChangeLog_power.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../devices/LPC/LPC51U68/LPC51U68/drivers/doxygen/ChangeLog_reset.md
+```{include} /devices/LPC/LPC51U68/LPC51U68/drivers/doxygen/ChangeLog_reset.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/lpc_rtc/doxygen/ChangeLog_rtc.md
+```{include} /drivers/lpc_rtc/doxygen/ChangeLog_rtc.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/sctimer/doxygen/ChangeLog_sctimer.md
+```{include} /drivers/sctimer/doxygen/ChangeLog_sctimer.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/flexcomm/spi/doxygen/ChangeLog_spi.md
+```{include} /drivers/flexcomm/spi/doxygen/ChangeLog_spi.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/flexcomm/spi/doxygen/ChangeLog_spi_dma.md
+```{include} /drivers/flexcomm/spi/doxygen/ChangeLog_spi_dma.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/flexcomm/usart/doxygen/ChangeLog_usart.md
+```{include} /drivers/flexcomm/usart/doxygen/ChangeLog_usart.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/flexcomm/usart/doxygen/ChangeLog_usart_dma.md
+```{include} /drivers/flexcomm/usart/doxygen/ChangeLog_usart_dma.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/utick/doxygen/ChangeLog_utick.md
+```{include} /drivers/utick/doxygen/ChangeLog_utick.md
 :heading-offset: 2
 ```
 ---
-```{include} ../../../../drivers/wwdt/doxygen/ChangeLog_wwdt.md
+```{include} /drivers/wwdt/doxygen/ChangeLog_wwdt.md
 :heading-offset: 2
 ```
 ---

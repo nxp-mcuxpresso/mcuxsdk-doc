@@ -2,11 +2,11 @@
 
 
 
-```{include} ../../../../release/commonrn/topics/overview.md
+```{include} /release/commonrn/topics/overview.md
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/commonrn/topics/mcuxpresso_sdk.md
+```{include} /release/commonrn/topics/mcuxpresso_sdk.md
 :heading-offset: 1
 ```
 
@@ -18,7 +18,7 @@
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/commonrn/topics/mcuxpresso_sdk_release_package.md
+```{include} /release/commonrn/topics/mcuxpresso_sdk_release_package.md
 :heading-offset: 1
 ```
 
@@ -26,7 +26,7 @@
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/commonrn/topics/release_contents.md
+```{include} /release/commonrn/topics/release_contents.md
 :heading-offset: 1
 ```
 
