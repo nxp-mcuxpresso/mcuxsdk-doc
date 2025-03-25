@@ -7,9 +7,9 @@ External client: IW620-Kestrel
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|33|40|42|58|
-|WPA2-AES|32|40|40|58|
-|WPA3-SAE|33|40|41|58|
+|OpenSecurity|33|49|37|61|
+|WPA2-AES|32|48|37|61|
+|WPA3-SAE|32|48|36|60|
 
 **Parent topic:**[Wi-Fi throughput](../topics/wi-fi_throughput_05.md)
 

@@ -1,6 +1,7 @@
 # SLIM feature
 
-The SLIM feature is used to reduce the consumption of the flash memory and SRAM of low-end boards like the FRDM MCXN947.
+The SLIM feature is used to reduce the consumption of the flash memory and SRAM of low-end boards like the FRDM MCXN947. For RT platform, this feature is not enabled by default, it can be enable for i.MXRT 1060 EVKC + IW416 by defining below SLIM macros. To enable the features, set the value of the macros to “1” in the file wifi_config.h located in <SDK_Wi-Fi_Example_PATH>/ directory
+This feature is only applicable for wifi_cli sample application.
 
 Memory impact:
 
@@ -14,6 +15,7 @@ Memory impact:
 |CONFIG\_WIFI\_SLIM\_UAP|CONFIG\_UAP\_STA\_MAC\_ADDR\_FILTER <br>CONFIG\_WIFI\_MAX\_CLIENTS\_CNT|
 |CONFIG\_FREERTOS\_LOW\_MEMORY\_FOOTPRINT|When the macro is enabled, the heap memory usage is reduced by 10 KB \(from 70 KB to 60 KB\).|
 |CONFIG\_LWIP\_LOW\_MEM\_FOOTPRINT|When the macro is enabled:<ul><li>The memory usage is reduced by curtailing LWIP stack parameters.</li><li>The data throughput is reduced.</li><li>Data net-stats are disabled.</li></ul>|
+|Non-blocking firmware download mechanism|CONFIG_FW_DNLD_ASYNC|
 
 **Parent topic:**[Feature enable and memory impact](../topics/feature_enable_and_memory_impact.md)
 

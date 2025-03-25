@@ -21,5 +21,9 @@
 :heading-offset: 2
 ```
 
+```{include} ../topics/firmware_version_from_14_91_36_p196_to_14_91_36_p197.md
+:heading-offset: 2
+```
+
 **Parent topic:**[88W8801 release notes](../topics/88w8801-release-notes.md)
 

@@ -1,11 +1,11 @@
 # Version information
 
 -   Wireless SoC: 88W8801
--   Wi-Fi firmware version: 14.91.36.p196
+-   Wi-Fi firmware version: 14.91.36.p197
     -   14 - Major revision
     -   91 - Feature pack
     -   36 - Release version
-    -   p196 - Patch number
+    -   p197 - Patch number
 
 **Parent topic:**[88W8801 release notes](../topics/88w8801-release-notes.md)
 

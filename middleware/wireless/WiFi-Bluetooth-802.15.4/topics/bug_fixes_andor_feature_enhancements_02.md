@@ -29,5 +29,9 @@
 :heading-offset: 2
 ```
 
+```{include} ../topics/firmware_version_18_99_3_p21_154_to_18_99_3_p23_16.md
+:heading-offset: 2
+```
+
 **Parent topic:**[IW611/IW612 release notes](../topics/iw611-iw612-release-notes.md)
 

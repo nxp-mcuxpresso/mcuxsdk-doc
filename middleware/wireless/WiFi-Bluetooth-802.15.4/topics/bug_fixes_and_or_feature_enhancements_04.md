@@ -9,5 +9,9 @@
 :heading-offset: 2
 ```
 
+```{include} ../topics/firmware_version_18_99_3_p21_154_0_to_18_99_3_p23_16_0.md
+:heading-offset: 2
+```
+
 **Parent topic:**[AW611 release notes](../topics/aw611-release-notes.md)
 

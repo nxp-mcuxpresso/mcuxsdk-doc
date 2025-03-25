@@ -1,60 +1,60 @@
-# Mobile AP throughput
+# STA throughput
 
-External client: Apple MacBook Air
+External AP: Asus AX88u
 
-**Mobile AP throughput - BGN Mode | 2.4 GHz Band | 20 MHz**
-
-|Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
-|--------|--------------|--------------|--------------|--------------|
-|Direction|TX|RX|TX|RX|
-|OpenSecurity|38|39|61|63|
-|WPA2-AES|38|38|56|61|
-|WPA3-SAE|38|38|55|61|
-
-**Mobile AP throughput - AN Mode | 5 GHz Band | 20 MHz**
+**STA mode throughput - BGN Mode | 2.4 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|40|40|63|63|
-|WPA2-AES|39|39|61|62|
-|WPA3-SAE|39|39|61|62|
+|OpenSecurity|42|49|63|63|
+|WPA2-AES|41|48|60|62|
+|WPA3-SAE|41|48|60|62|
 
-**Mobile AP throughput - VHT Mode | 2.4 GHz Band | 20 MHz**
-
-|Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
-|--------|--------------|--------------|--------------|--------------|
-|Direction|TX|RX|TX|RX|
-|OpenSecurity|38|43|71|73|
-|WPA2-AES|37|42|72|72|
-|WPA3-SAE|37|42|72|72|
-
-**Mobile AP throughput - VHT Mode | 5 GHz Band | 20 MHz**
+**STA mode throughput - AN Mode | 5 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|44|44|71|71|
-|WPA2-AES|43|43|68|71|
-|WPA3-SAE|43|43|69|71|
+|OpenSecurity|43|51|64|64|
+|WPA2-AES|43|48|62|64|
+|WPA3-SAE|43|49|62|64|
 
-**Mobile AP throughput - HE Mode | 2.4 GHz Band | 20 MHz**
-
-|Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
-|--------|--------------|--------------|--------------|--------------|
-|Direction|TX|RX|TX|RX|
-|OpenSecurity|47|48|95|98|
-|WPA2-AES|46|47|97|96|
-|WPA3-SAE|46|47|97|95|
-
-**Mobile AP throughput - HE Mode | 5 GHz Band | 20 MHz**
+**STA mode throughput - VHT Mode | 2.4 GHz Band | 20 MHz (HT)**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|50|49|96|100|
-|WPA2-AES|48|48|99|97|
-|WPA3-SAE|48|48|99|97|
+|OpenSecurity|46|54|73|74|
+|WPA2-AES|45|53|71|73|
+|WPA3-SAE|39|53|71|73|
 
-**Parent topic:**[Wi-Fi throughput](../topics/wi-fi_throughput_03.md)
+**STA mode throughput - VHT Mode | 5 GHz Band | 20 MHz**
+
+|Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
+|--------|--------------|--------------|--------------|--------------|
+|Direction|TX|RX|TX|RX|
+|OpenSecurity|48|58|77|76|
+|WPA2-AES|47|54|74|74|
+|WPA3-SAE|47|55|74|74|
+
+**STA mode throughput - HE Mode | 2.4 GHz Band | 20 MHz**
+
+|Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
+|--------|--------------|--------------|--------------|--------------|
+|Direction|TX|RX|TX|RX|
+|OpenSecurity|54|63|98|98|
+|WPA2-AES|52|58|96|92|
+|WPA3-SAE|53|59|96|92|
+
+**STA mode throughput - HE Mode | 5 GHz Band | 20 MHz**
+
+|Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
+|--------|--------------|--------------|--------------|--------------|
+|Direction|TX|RX|TX|RX|
+|OpenSecurity|56|65|101|102|
+|WPA2-AES|55|60|99|94|
+|WPA3-SAE|54|60|99|94|
+
+**Parent topic:**[Wi-Fi throughput](../topics/wi-fi_throughput_06.md)
 

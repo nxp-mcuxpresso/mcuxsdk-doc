@@ -1,0 +1,27 @@
+# RW610/RW612 release notes
+
+
+```{include} ../topics/package_information_06.md
+:heading-offset: 1
+```
+
+```{include} ../topics/version_information_06.md
+:heading-offset: 1
+```
+
+```{include} ../topics/host_platform_06.md
+:heading-offset: 1
+```
+
+```{include} ../topics/wireless_certification.md
+:heading-offset: 1
+```
+
+```{include} ../topics/wi-fi_throughput_06.md
+:heading-offset: 1
+```
+
+```{include} ../topics/known_issues_06.md
+:heading-offset: 1
+```
+

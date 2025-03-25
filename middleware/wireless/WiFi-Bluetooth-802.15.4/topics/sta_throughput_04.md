@@ -101,7 +101,7 @@ External AP: Asus AX88u
 |WPA2-AES|72|88|198|183|
 |WPA3-SAE|69|90|199|183|
 
-**STA mode throughput - HE Mode | 5 GHz Band | 20 MHz (HT)**
+**STA mode throughput - HE Mode | 5 GHz Band | 40 MHz (HT)**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
@@ -110,7 +110,7 @@ External AP: Asus AX88u
 |WPA2-AES|54|60|119|127|
 |WPA3-SAE|54|61|88|125|
 
-**STA mode throughput - HE Mode | 5 GHz Band | 40 MHz (HT)**
+**STA mode throughput - HE Mode | 5 GHz Band | 80 MHz (HT)**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
@@ -119,7 +119,7 @@ External AP: Asus AX88u
 |WPA2-AES|76|95|170|192|
 |WPA3-SAE|76|95|170|194|
 
-**STA mode throughput - HE Mode | 5 GHz Band | 80 MHz (HT)**
+**STA mode throughput - BGN Mode | 2.4 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
