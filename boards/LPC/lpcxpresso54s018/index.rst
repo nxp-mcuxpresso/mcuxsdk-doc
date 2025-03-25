@@ -55,3 +55,46 @@ ChangeLog
    :maxdepth: 1
 
    changeLog/clindex.md
+
+Driver API Reference Manual
+****************************
+
+This section provides a link to the Driver API RM, detailing available drivers and their usage to help you integrate hardware efficiently.
+
+:ref:`LPC54S018_drivers`
+
+Middleware Documentation
+*****************************
+
+Find links to detailed middleware documentation for key components. While not all onboard middleware is covered, this serves as a useful reference for configuration and development.
+
+
+FreeMASTER
+==========
+
+.. toctree::
+   :maxdepth: 1
+
+   ../../../middleware/freemaster/doc/index.md
+
+
+
+AWS IoT
+=======
+
+:ref:`aws_iot`
+
+FreeRTOS
+========
+
+:ref:`freertos`
+
+lwIP
+====
+
+:ref:`lwip`
+
+File systemFatfs
+================
+
+:ref:`fatfs`

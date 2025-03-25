@@ -51,3 +51,8 @@ ChangeLog
    :maxdepth: 1
 
    changeLog/clindex.md
+
+FreeRTOS
+========
+
+:ref:`freertos`

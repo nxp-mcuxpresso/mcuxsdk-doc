@@ -51,3 +51,61 @@ ChangeLog
    :maxdepth: 1
 
    changeLog/clindex.md
+
+Driver API Reference Manual
+****************************
+
+This section provides a link to the Driver API RM, detailing available drivers and their usage to help you integrate hardware efficiently.
+
+:ref:`LPC55S69_drivers`
+
+Middleware Documentation
+*****************************
+
+Find links to detailed middleware documentation for key components. While not all onboard middleware is covered, this serves as a useful reference for configuration and development.
+
+
+Multicore
+=========
+
+:ref:`multicore`
+
+MCU Boot
+========
+
+.. toctree::
+   :maxdepth: 1
+
+   ../../../middleware/mcuboot_opensource/README.md
+
+
+
+Audio Voice components
+======================
+
+:ref:`components`
+
+Maestro Audio Framework for MCU
+===============================
+
+:ref:`maestro`
+
+FreeMASTER
+==========
+
+.. toctree::
+   :maxdepth: 1
+
+   ../../../middleware/freemaster/doc/index.md
+
+
+
+FreeRTOS
+========
+
+:ref:`freertos`
+
+File systemFatfs
+================
+
+:ref:`fatfs`
