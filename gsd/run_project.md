@@ -56,7 +56,7 @@ west build -b evkbmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dco
 For shield, please use the `--shield` to specify the shield to run, like
 
 ```bash
-west build -b mimxrt700evk --shield a8974 examples examples/issdk_examples/sensors/fxls8974cf/fxls8974cf_poll -Dcore_id=cm33_core0
+west build -b mimxrt700evk --shield a8974 examples/issdk_examples/sensors/fxls8974cf/fxls8974cf_poll -Dcore_id=cm33_core0
 ```
 
 ### Sysbuild(System build)
