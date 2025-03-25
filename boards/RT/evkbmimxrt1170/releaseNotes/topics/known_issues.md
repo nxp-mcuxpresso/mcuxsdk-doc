@@ -46,3 +46,15 @@ This section lists the known issues, limitations, and/or workarounds.
 ```{include} ../../../../release/known_issues/insufficient_heap_in_ota_demo_examples.md
 :heading-offset: 1
 ```
+```{include} ../../../../release/known_issues/insufficient_heap_in_ota_demo_examples.md
+:heading-offset: 1
+```
+```{include} ../../../../release/known_issues/fail_to_set_security_after_building_connection_with_peer_device_and_failed_ratio_is_110.md
+:heading-offset: 1
+```
+```{include} ../../../../release/known_issues/the_wifi_webconfig_example_can_crash_while_obtaining_ip_address.md
+:heading-offset: 1
+```
+```{include} ../../../../release/known_issues/the_cmsis_lpi2c_edma_b2b_transfer_examples_dont_work_correctly_on_cm4_core.md
+:heading-offset: 1
+```

@@ -1,0 +1,3 @@
+# Debug and sdram_debug version of lwip_ipv4_ipv6_echo_freertos@cm4 project cannot compile in V5.37 MDK
+
+The debug and sdram_debug version of lwip_ipv4_ipv6_echo_freertos@cm4 project cannot compile in V5.37 MDK. The location of lwip_ipv4_ipv6_echo_freertos@cm4 mdk project is: *boards\\evkmimxrt1170\\lwip_examples\\lwip_ipv4_ipv6_echo\\freertos\\cm4\\mdk*. The debug and sdram_debug version can compile successfully in V5.36 MDK. However, compile issue occurs in V5.37 MDK.

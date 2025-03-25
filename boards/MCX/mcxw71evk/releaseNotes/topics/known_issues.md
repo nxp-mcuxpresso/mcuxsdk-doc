@@ -30,3 +30,7 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
+
+```{include} ../../../../release/known_issues/implementation_status_of_el2go_examples.md
+:heading-offset: 1
+```

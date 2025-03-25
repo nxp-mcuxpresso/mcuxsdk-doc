@@ -37,3 +37,7 @@ This section lists the known issues, limitations, and/or workarounds.
 ```{include} ../../../../release/known_issues/evkcmimxrt1060_wm8962_i2c_issue.md
 :heading-offset: 1
 ```
+
+```{include} ../../../../release/known_issues/the_wifi_webconfig_example_can_crash_while_obtaining_ip_address.md
+:heading-offset: 1
+```

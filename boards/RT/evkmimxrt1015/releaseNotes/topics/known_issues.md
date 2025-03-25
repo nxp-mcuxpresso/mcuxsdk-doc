@@ -22,3 +22,7 @@ This section lists the known issues, limitations, and/or workarounds.
 ```{include} ../../../../release/known_issues/ram_targets_build_issue_in_cmsis_bsp_pack.md
 :heading-offset: 1
 ```
+
+```{include} ../../../../release/known_issues/the_bee_example_does_not_complete_successfully_on_mcuxpresso_ide.md
+:heading-offset: 1
+```
