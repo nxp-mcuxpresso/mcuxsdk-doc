@@ -252,6 +252,7 @@ Specify the output binary format
 | ------------- | ------------- | ----------------------------- |
 | TOOLCHAINS    | Multiple      | Supported toolchains          |
 | BINARY        | Single        | The target output binary type |
+| EXTRA_ARGS    | Multiple      | Extra arguments for binary conversion |
 
 Here is one example:
 
@@ -259,6 +260,12 @@ Here is one example:
 mcux_convert_binary(
     TOOLCHAINS armgcc mdk iar
     BINARY ${APPLICATION_BINARY_DIR}/${MCUX_SDK_PROJECT_NAME}.bin
+)
+
+mcux_convert_binary(
+    TOOLCHAINS armgcc
+    BINARY ${APPLICATION_BINARY_DIR}/mybuild_slim.bin
+    EXTRA_ARGS --remove-section .fEraseNVM --remove-section .sEraseNVM
 )
 ```
 
