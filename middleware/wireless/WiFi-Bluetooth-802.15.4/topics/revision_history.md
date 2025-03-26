@@ -8,6 +8,66 @@
 
 |
 |-------------|------|----------------|
+|RN00174 v.12.0|27 March 2025|-   [About this document](about_this_document.md): updated the SDK release version.
+
+ **Features**
+
+ -   [Client mode](client_mode.md): updated.
+-   [AP mode](ap_mode.md): updated.
+-   [AP-STA mode](ap-sta_mode.md): updated.
+-   [Bluetooth classic](bluetooth_classic.md): updated.
+-   [Bluetooth LE](bluetooth_le.md): updated.
+-   [IW610 release notes](iw610-release-notes.md): added.
+
+ **Feature enable and memory impact**
+
+ -   [SLIM feature](slim_feature.md): updated.
+
+ **88W8987 release notes**
+
+ -   [Package information](package_information.md): updated.
+-   [Wi-Fi throughput](wi-fi_throughput.md): updated.
+-   [Firmware version: From 16.91.21.p142.5 to 16.91.21.p149.2](firmware_version_from_16_91_21_p142_5_to_16_91_21_p149_2.md): added.
+-   [Known issues](known_issues.md): updated.
+
+ **IW416 release notes**
+
+ -   [Package information](package_information_01.md): updated.
+-   [Version information](version_information_01.md): updated.
+-   [Wi-Fi throughput](wi-fi_throughput_01.md): updated.
+-   [Firmware version: From 16.91.21.p142.5 to 16.91.21.p149.4](firmware_version_from_16_91_21_p142_5_to_16_91_21_p149_4.md): added.
+-   [Known issues](known_issues_01.md): updated.
+
+ **IW611/IW612 release notes**
+
+ -   [Package information](package_information_02.md): updated.
+-   [Version information](version_information_02.md): updated.
+-   [Wi-Fi throughput](wi-fi_throughput_02.md): updated.
+-   [Firmware version: 18.99.3.p21.154 to 18.99.3.p23.16](firmware_version_18_99_3_p21_154_to_18_99_3_p23_16.md): added.
+-   [Known issues](known_issues_02.md): updated.
+
+ **RW610/RW612 release notes**
+
+ -   [Package information](package_information_03.md): updated.
+-   [Version information](version_information_03.md): updated.
+-   [Wi-Fi throughput](wi-fi_throughput_03.md): updated.
+
+ **AW611 release notes**
+
+ -   [Package information](package_information_04.md): updated.
+-   [Version information](version_information_04.md): updated.
+-   [Wi-Fi throughput](wi-fi_throughput_04.md): updated.
+-   [Firmware version: 18.99.3.p21.154 to 18.99.3.p23.16](firmware_version_18_99_3_p21_154_to_18_99_3_p23_16_0.md): added.
+-   [Known issues](known_issues_04.md): updated.
+
+ **88W8801 release notes**
+
+ -   [Package information](package_information_05.md): updated.
+-   [Wi-Fi throughput](wi-fi_throughput_05.md): updated.
+-   [Firmware version: From 14.91.36.p196 to 14.91.36.p197](firmware_version_from_14_91_36_p196_to_14_91_36_p197.md): added.
+
+|
+|-------------|------|----------------|
 |RN00174 v.11.0|6 January 2025|-   [About this document](about_this_document.md): updated the SDK release version.
 
  **Features**
