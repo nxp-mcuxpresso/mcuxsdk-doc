@@ -2,6 +2,9 @@
 
 This section lists the known issues, limitations, and/or workarounds.
 
+```{include} ../../../../release/known_issues/flash_cm7_after_flash_cm33_bootable_will_break_the_debug.md
+:heading-offset: 1
+```
 ```{include} ../../../../release/known_issues/known_issue_segger_version.md
 :heading-offset: 1
 ```
