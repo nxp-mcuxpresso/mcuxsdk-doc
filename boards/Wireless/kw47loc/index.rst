@@ -6,7 +6,8 @@ KW47-LOC
 Overview
 ********
 
-
+The KW47 LOC is an evaluation kit for KW47 Automotive MCU with 2.4 GHz Bluetooth Low Energy and generic FSK wireless connectivity and dual CAN/LIN connectivity. This localization platform is dedicated to Bluetooth Channel Sounding Ranging solution development with a dedicated on-chip Localization Compute Engine to reduce ranging latency. The KW47's highly sensitive, optimized 2.4 GHz radio features is featured with dual antenna diversity via RF switch which can be bypassed to test via SMA RF connection.
+The board includes an advanced  MCU-Link debug probe, Power and low power option, dual CAN transceiver, buttons, switches, LEDs and a MikroE Click connector.
 
 
 

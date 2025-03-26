@@ -6,8 +6,7 @@ KW45B41Z-LOC
 Overview
 ********
 
-
-
+The KW45B41Z LOC is an evaluation kit for KW45 Automotive MCU with 2.4 GHz Bluetooth Low Energy and generic FSK wireless connectivity and CAN/LIN connectivity. This platform is dedicated to Narrow band Wireless Ranging and it will help you to prepare the implementation of your Bluetooth Channel Sounding solution. The KW45's highly sensitive, optimized 2.4 GHz radio features is featured with antenna diversity via RF switch.
 
 
 .. image:: ./kw45b41zloc.png

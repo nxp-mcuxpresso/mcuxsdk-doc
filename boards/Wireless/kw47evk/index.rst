@@ -6,8 +6,10 @@ KW47-EVK
 Overview
 ********
 
-
-
+The KW47EVK is an automotive evaluation kit development board for advanced development of the KW47B wireless MCU. It offers exhaustive evaluation of KW47 MCUs with 2.4 GHz Bluetooth Low Energy and generic FSK wireless connectivity and CAN/LIN connectivity.
+The KW47 highly sensitive, optimized 2.4 GHz radio features a PCB meandered-antenna which can be bypassed to test via µ-RF connection.
+The KW47EVK is a modular platform composed of the connectivity mother board KW-MCXW-EVK-MB and an M.2 module KW47-001-M10.
+The board includes an advanced  MCU-Link debug probe, Power and low power option, dual CAN and LIN transceivers, buttons, switches, LEDs and integrated sensors, Arduino shield connectors, a MikroE Click connector and other headers.
 
 
 .. image:: ./kw47evk.png
