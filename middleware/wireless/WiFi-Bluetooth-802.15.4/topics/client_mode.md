@@ -114,4 +114,4 @@
 [^3] Feature not enabled by default in the SDK. Refer to [Feature enable and memory impact](feature_enable_and_memory_impact.md) for the macro to enable the feature and the impact on the memory when enabling the feature.
 
 [^4] Read more about NCP feature in [References](references.md#item_um12133).
-[^5] Exccept RW610/RW612, need to define CONFIG_ECSA = 1 in wifi_config.h to enable the feature
+[^5] To enable the feature, CONFIG_ECSA = 1 must be defined in wifi_config.h (does not apply to RW610 and RW612).

@@ -1,6 +1,6 @@
 # SLIM feature
 
-The SLIM feature is used to reduce the consumption of the flash memory and SRAM of low-end boards like the FRDM MCXN947. For RT platform, this feature is not enabled by default, it can be enable for i.MXRT 1060 EVKC + IW416 by defining below SLIM macros. To enable the features, set the value of the macros to “1” in the file wifi_config.h located in <SDK_Wi-Fi_Example_PATH>/ directory
+The SLIM feature is used to reduce the consumption of the flash memory and SRAM of low-end boards like the FRDM MCXN947. By default he SLIM feature is not enabled with i.MX RT host platforms. For i.MX RT1060 EVKC + IW416, the feature is enabled using SLIM macros. Set the value of the macros to "1" in the file wifi_config.h located in <SDK_Wi-Fi_Example_PATH>/ directory
 This feature is only applicable for wifi_cli sample application.
 
 Memory impact:
