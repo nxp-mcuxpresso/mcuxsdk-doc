@@ -2,7 +2,7 @@
 
 This section describes the steps required to build, run, and debug example applications provided in the MCUXpresso SDK.
 
-Both CMSIS-DAP and J-Link debugging interfaces are supported for Keil IDE. It is recommended to set `SW5[1..4]` to `0001` for both debugging interfaces. It is required to reset board for each download/debug.
+Both CMSIS-DAP and J-Link debugging interfaces are supported for Keil IDE. It is recommended to reset board for each download/debug.
 
 
 ```{include} ../topics/keil_install_cmsis_device_pack.md

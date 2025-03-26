@@ -6,7 +6,7 @@ When JLink Debug Interface is used, manually revise **Debug Configuration** unde
 
 2.  Uncheck **Use macro file\(s\)**.
 
-3.  In the **Extra Options**, specify a `jlinkscript`. The `jlinkscript` files can be found in SDK package *boards/evkmimxrt1180/jlinkscript*.
+3.  In the **Extra Options**, specify a `jlinkscript`. The `jlinkscript` files can be found in example folder in SDK package.
 
     `evkmimxrt1180_cm33.jlinkscript` is for CM33 projects and `evkmimxrt1180_cm7.jlinkscript` is for CM7 projects. Use `--jlink_script_file=<full patch>` to specify it.
 
