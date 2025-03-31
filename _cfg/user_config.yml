@@ -325,6 +325,9 @@ modules:
       pattern: 'middleware/wireless/bluetooth/doc/**/*.*'
     - root: .
       pattern: 'middleware/wireless/bluetooth/CHANGELOG.md'
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_BLE_HOST
+      outdir: middleware/wireless/bluetooth/doc
   mid_wifi_bluetooth_802.15.4:
     default: true
     external_contents:
