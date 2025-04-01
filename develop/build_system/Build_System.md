@@ -251,7 +251,8 @@ Specify the output binary format
 | Argument Name | Argument Type | Explanation                   |
 | ------------- | ------------- | ----------------------------- |
 | TOOLCHAINS    | Multiple      | Supported toolchains          |
-| BINARY        | Single        | The target output binary type |
+| BINARY        | Single        | The target output binary name |
+| TARGET        | Single        | The target to be converted, the default is ${MCUX_SDK_PROJECT_NAME} if not set|
 | EXTRA_ARGS    | Multiple      | Extra arguments for binary conversion |
 
 Here is one example:
@@ -267,8 +268,15 @@ mcux_convert_binary(
     BINARY ${APPLICATION_BINARY_DIR}/mybuild_slim.bin
     EXTRA_ARGS --remove-section .fEraseNVM --remove-section .sEraseNVM
 )
+
+mcux_convert_binary(TARGET app BINARY ${APPLICATION_BINARY_DIR}/app.bin)
 ```
 
+Note: Please make sure the target is executable type, otherwise the conversion will be skipped and you will get warning message like:
+```
+CMake Warning at mcuxsdk/cmake/extension/logging.cmake:46 (message):
+  WARNING: mcux_platformlib is library type, can't be converted to binary file by mcux_convert_binary
+```
 #### mcux_add_iar_linker_script/mcux_add_mdk_linker_script/mcux_add_armgcc_linker_script/mcux_add_codewarrior_linker_script/mcux_add_riscvllvm_linker_script
 
 Add linker for toolchain.
