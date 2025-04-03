@@ -1,15 +1,33 @@
-# Software Component
+# Software Componentization
+
+This chapter illustrates the MCUXpresso SDK Componentization concept and composition supported by the build system.
 
 ## Componentization
 
 To improve software component integration and portability, all MCUXpresso SDK components including drivers, components, utilities and middlewares are recorded and used in a componentized way instead of fragment code lines.
 
-In addition to the sources, one software component always contains CMakeLists.txt and Kconfig files. CMake part defines the sources, includes, static configurations, versions, etc while Kconfig part defines the dynamic configurations and dependencies.
+In addition to the sources, one MCUXpresso SDK software component always contains CMakeLists.txt and Kconfig files. CMake part defines the sources, includes, static configurations, versions, etc while Kconfig part defines the dynamic configurations and dependencies.
+
+The following shows a typical MCUXpresso SDK component composition:
+
+```
+  uart
+    ├── fsl_uart.h
+    ├── fsl_uart.c
+    ├── CMakeLists.txt
+    ├── Kconfig
+```
+
+All MCUXpresso SDK components have an ID across the CMakeLists.txt and Kconfig. The ID starts with `MCUX_COMPONENT_` to indicate this component is a ready MCUXpresso SDK component. Briefly, in CMakeLists.txt the ID is like `CONFIG_MCUX_COMPONENT_<component name>` while in Kconfig it is like `MCUX_COMPONENT_<component name>`, you will see details in next chapters.
+
+> According to [Introduce Component, Project Segment and Dependency Definition Symbols](../build_system/Configuration_System.md#introduce-component-project-segment-and-dependency-definition-symbols), all Kconfig symbols with naming prefix MCUX_ will be intentionally removed out of the generated config header file, so they won't affect example build.
+
+For external customers enabling a software functionality, it is not required to follow and use this componentization way to organize the sources and data. You can still use the traditional cmake and Kconfig syntax to work, but it is recommended that you could put your sources and data into a component instead of keeping them in a scattered way.
 
 ## CMakeLists.txt
 
-In CMakeLists.txt, component data shall be recorded inside a `if-endif` guard. The condition of the `if` statement is the combination of the `CONFIG_MCUX_COMPONENT_` prefix and the component name, which indicates everything insides the `if-endif` section belongs to a software component.
-Please note that nested `if-endif` is not supported, and the `if` condition shall only contain one component name, combined condition with `||` or `&&` is not supported either.
+In CMakeLists.txt, component data is recorded inside a `if-endif` guard. The condition of the `if` statement is the combination of the `CONFIG_MCUX_COMPONENT_` prefix and the component name which indicates everything insides the `if-endif` section belongs to a software component. The combination name is the component ID.
+The nested `if-endif` is not supported, and the `if` condition shall only contain one component name, combined condition with `||` or `&&` is not supported either.
 
 Here is the driver.uart CMakeLists.txt:
 
@@ -30,11 +48,11 @@ if (CONFIG_MCUX_COMPONENT_driver.uart) # component name is driver.uart
 endif()
 ```
 
-If a component definition is split into several cmake files, please use the same `if(CONFIG_MCUX_COMPONENT_<component name>)-endif` guard in all files data.
+If a component definition is split into several cmake files, the same `if(CONFIG_MCUX_COMPONENT_<component name>)-endif` guards should be used in all files data.
 
 ## Kconfig
 
-In Kconfig, the symbol for a component shall also start with `MCUX_COMPONENT_` to be identical with cmake component name. Component configuration and dependency shall be recorded in Kconfig following the below pattern:
+In Kconfig, the symbol for a component also starts with `MCUX_COMPONENT_` to be identical with cmake component name. Component configuration and dependency are recorded in Kconfig following the below pattern:
 
 ```bash
 config MCUX_HAS_COMPONENT_driver.uart
@@ -54,7 +72,7 @@ config MCUX_COMPONENT_driver.uart
 
 About the dependency, please refer [Complex Dependency](../build_system/Dependency.md) chapter for details.
 
-For multiple components belonging to one middleware set, please use `menu` to gather them together, like
+For multiple components belonging to one middleware set, `menu` is used to gather them together, like
 
 ```
 menu "freertos-kernel(FreeRTOSConfig.h)"
@@ -88,7 +106,7 @@ menu "freertos-kernel(FreeRTOSConfig.h)"
 endmenu
 ```
 
-Component macro configurations will be generated in header files. Please refer to [Config Headers](../build_system/Configuration_System.md#config-headers) chapter for details.
+Component macro definitions will be generated in header files. Please refer to [Config Headers](../build_system/Configuration_System.md#config-headers) chapter for details.
 
 ## Supported Components
 

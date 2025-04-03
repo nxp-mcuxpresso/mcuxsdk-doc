@@ -9,7 +9,6 @@ As illustrated in previous chapters, MCUXpresso SDK is based on CMake and Kconfi
 .. toctree::
    :maxdepth: 1
 
-   Component Development <component_development.md>
    Example Development <example_development.md>
    Soc Arch, Device, Board and Shield Definition <device_board_shield_definition.md>
    SDK Integration <integration.md>

@@ -8,6 +8,7 @@ Build And Configuration System
    Build System <Build_System.md>
    Configuration System <Configuration_System.md>
    Complex Dependency <Dependency.md>
+   Software Componentization <Software_Componentization.md>
    Sysbuild <Sysbuild.md>
    Variables <Variables.md>
    IDE Project Generation <IDE_Project.md>
