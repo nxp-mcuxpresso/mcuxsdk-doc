@@ -366,6 +366,8 @@ modules:
       pattern: middleware/eiq/tensorflow-lite/docs/*
     - root: .
       pattern: middleware/eiq/mpp/docs/*
+    - root: .
+      pattern: middleware/eiq/executorch/docs/nxp/*
   drivers_Kinetis_K32L_K32L2A41A:
     default: true
     external_contents:
