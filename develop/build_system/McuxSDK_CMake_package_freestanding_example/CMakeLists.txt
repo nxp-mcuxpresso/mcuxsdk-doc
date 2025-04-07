@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.30.0)
 
 # include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
 
-find_package(McuxSDK 3.0.0 EXACT REQUIRED)
+find_package(McuxSDK 3.0.0 EXACT REQUIRED CUSTOM_LINKER)
 
 project(hello_world LANGUAGES C CXX ASM)
 
@@ -19,18 +19,16 @@ mcux_add_include(
   INCLUDES 
     .
 )
-# target_sources(app PRIVATE
-#     hello_world.c
-    # pin_mux.c
-    # pin_mux.h
-    # hardware_init.c
-    # app.h
-# )
 
-# target_include_directories(app PRIVATE
-#   .
-# )
+# The following flags are for MK22F51212
+target_compile_options(app PRIVATE 
+    -mcpu=cortex-m4
+    -mfloat-abi=hard 
+    -mfpu=fpv4-sp-d16
+)
 
-# include(${SdkRootDirPath}/examples/${board}/demo_apps/hello_world/reconfig.cmake OPTIONAL)
-
-# mcux_convert_binary(BINARY ${APPLICATION_BINARY_DIR}/${MCUX_SDK_PROJECT_NAME}.bin)
+target_link_options(app PRIVATE 
+    -mcpu=cortex-m4
+    -mfloat-abi=hard 
+    -mfpu=fpv4-sp-d16
+)
