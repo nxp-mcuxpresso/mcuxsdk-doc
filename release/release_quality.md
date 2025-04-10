@@ -34,6 +34,7 @@
 |[**FRDM-MCXC242**](../boards/MCX/frdmmcxc242/releaseNotes/rnindex.md)|MCXC142VFM, MCXC242VFM,<br> **MCXC242VLH**, MCXC141VFM,<br> MCXC141VLH|Release for Production (RFP)|
 |[**FRDM-MCXC444**](../boards/MCX/frdmmcxc444/releaseNotes/rnindex.md)|MCXC143VFM, MCXC143VFT,<br> MCXC144VFM, MCXC144VFT,<br> MCXC243VFT, MCXC244VFM,<br> MCXC244VFT, MCXC443VLH,<br> MCXC443VMP, **MCXC444VLH**,<br> MCXC444VMP|Release for Production (RFP)|
 |[**FRDM-MCXE247**](../boards/MCX/frdmmcxe247/releaseNotes/rnindex.md)|MCXE247VLL, **MCXE247VLQ**|Early Access Release (EAR)|
+|[**FRDM-MCXE31B**](../boards/MCX/frdmmcxe31b/releaseNotes/rnindex.md)|**MCXE31BMPB**|Early Access Release (EAR)|
 |[**FRDM-MCXN236**](../boards/MCX/frdmmcxn236/releaseNotes/rnindex.md)|MCXN235VDF, MCXN235VKL,<br> MCXN235VNL, MCXN235VPB,<br> **MCXN236VDF**, MCXN236VKL,<br> MCXN236VNL, MCXN236VPB|Release for Production (RFP)|
 |[**FRDM-MCXN947**](../boards/MCX/frdmmcxn947/releaseNotes/rnindex.md)|MCXN946VDF, MCXN946VKL,<br> MCXN946VNL, MCXN946VPB,<br> **MCXN947VDF**, MCXN947VKL,<br> MCXN947VNL, MCXN947VPB|Release for Production (RFP)|
 |[**FRDM-MCXW23**](../boards/MCX/frdmmcxw23/releaseNotes/rnindex.md)|MCXW235BIHNAR, MCXW235BIUKAR,<br> **MCXW236BIHNAR**, MCXW236BIUKAR|Early Access Release (EAR)|
