@@ -122,6 +122,14 @@ The prj.conf search paths can be provided through 3 ways with priority.
 
   The customized project config file has the highest priority over all.
 
+- Directly Pass Kconfig Symbol Value Through Command Line Argument
+
+  You can directly pass Kconfig symbol value through command line argument with `-D<Kconfig symbol name starting with CONFIG_>=<value>` like
+
+  ```bash
+  west build -b evkbmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm4 -DCONFIG_SERIAL_MANAGER_NON_BLOCKING_MODE=y
+  ```
+
 ### .config
 
 **.config will be read back by cmake after generated. It has all the resolved device, board, drivers, components, middlewares Kconfig symbols and values. Its contents will be filtered to get the dependency satisfied components and project segments symbols, such symbols will be put into later cmake process so that cmake knows which components and project segments data shall be included into the build process.**

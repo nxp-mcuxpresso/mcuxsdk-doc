@@ -407,6 +407,30 @@ mcux_add_configuration(
 
 Very similar with `mcux_add_configuration`, just for specified toolchain.
 
+#### EXTRA_FLAGS
+
+Besides these `mcux_add_` extension functions, you can directly pass compiler and linker flags with the following `EXTRA` flags directly from the command line:
+
+| Argument Name  | Explanation                  |
+| -------------- | ---------------------------- |
+| EXTRA_CPPFLAGS | c and cpp preprocessor flags |
+| EXTRA_AFLAGS   | assembly compiler flags      |
+| EXTRA_CFLAGS   | c compiler flags             |
+| EXTRA_CXXFLAGS | cpp compiler flags           |
+| EXTRA_LDFLAGS  | linker flags                 |
+
+Here is one example:
+
+```bash
+west build -b evkbmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm7 -DEXTRA_CPPFLAGS=-save-temps=obj
+```
+
+You can pass multiple flags once with double quotation marks like:
+
+```bash
+west build -b evkbmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm7 -DEXTRA_CPPFLAGS="-save-temps=obj -fno-inline"
+```
+
 ### Pre/Post Build Command
 
 #### mcux_add_custom_command
