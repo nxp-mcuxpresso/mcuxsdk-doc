@@ -47,11 +47,6 @@ Release Notes
 
 **This is an Early Access Release (EAR) for FRDM-MCXE31B development board. It shall be used for pre-production development only.**
 
-Supported Development Tools
-===========================
- - MCUXpresso for VS Code v25.06
- - GCC Arm Embedded Toolchain
-
 .. toctree::
    :maxdepth: 1
 
