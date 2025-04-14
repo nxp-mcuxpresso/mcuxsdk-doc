@@ -1,23 +1,17 @@
-# What is new
+# What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.03.00-pvw2\).
+The following changes have been implemented compared to the previous SDK release version \(25.03.00\).
 
 
 -   **Bluetooth LE host stack and applications**
     ### Added
-    -   **L2CAP support** for Channel Sounding **IQ Sample Transfer** in CCC CS sample applications.
-    -   Bluetooth LE Sample applications for **MCX-W71-EVK** board.
+    -   **Encypted Advertising Data** support in Extendded Advertising Applications.
+    -   **Intrusion Detection System** as **Experimental**.
 
-    ### Changed
-    -   Updated **FSCI XML file**.
-    -   Updated **Bluetooth LE Host Documentation**. 
-
-    ### Fixed
-    -   Cleared the **mpRemoteCachedCaps** entry when the peer disconnects (CS sample applications).
-    -   **EAD** - Updated advertising data length check to ensure encrypted data fits inside one AD.
+    ### Improved
+    -   **L2CAP command length validation** to cover all signaling commands.
 	
     -   Details can be found in **CHANGELOG.md**.
-
 -   **Bluetooth LE controller**
     -  Minor fixes and stability improvements
 

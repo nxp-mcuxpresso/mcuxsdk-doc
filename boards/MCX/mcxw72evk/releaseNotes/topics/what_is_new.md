@@ -1,20 +1,17 @@
 # What is new
 
-The following changes have been implemented compared to the previous SDK release version \(25.03.00-pvw2\).
+The following changes have been implemented compared to the previous SDK release version \(25.03.00\).
 
 
 -   **Bluetooth LE host stack and applications**
     ### Added
-    -   MCXW72 **Extended NBU** support and **w_uart_host**, **fsci_bridge** and **ncp_fscibb** sample applications.
+    -   **Encypted Advertising Data** support in Extended Advertising Applications.
+    -   Support for **LCE (DSPV) non-blocking API** integration to **RADE**.
+    -   **Intrusion Detection System** as **Experimental**.
 
-
-    ### Changed
-    -   Updated **FSCI XML file**.
-    -   Updated **Bluetooth LE Host Documentation**. 
-
-    ### Fixed
-
-    -   **EAD** - Updated advertising data length check to ensure encrypted data fits inside one AD.
+    ### Improved
+    -   **L2CAP command length validation** to cover all signaling commands.
+    -   **Extended NBU Wireless_uart_host  multiple connections** support. 
 	
     -   Details can be found in **CHANGELOG.md**.
 -   **Bluetooth LE controller**

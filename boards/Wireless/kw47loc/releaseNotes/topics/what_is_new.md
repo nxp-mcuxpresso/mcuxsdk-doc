@@ -1,21 +1,16 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.03.00-pvw2\).
+The following changes have been implemented compared to the previous SDK release version \(25.03.00\).
 
 
 -   **Bluetooth LE host stack and applications**
     ### Added
-    -   **L2CAP support** for Channel Sounding **IQ Sample Transfer** in CCC CS sample applications.
+    -   Support for **disable UART** for **CS applications** for **low power measurements**.
+    -   Support for **LCE (DSPV) non-blocking API** integration to **RADE**.
+    -   **Intrusion Detection System** as **Experimental**.
 
-    ### Changed
-    -   Updated **FSCI XML file**.
-    -   Updated **Bluetooth LE Host Documentation**. 
-
-    ### Fixed
-    -   Cleared the **mpRemoteCachedCaps** entry when the peer disconnects (CS sample applications).
-    -   Transfer **RAS subscription** data during connection handover (CCC CS sample applications).
-    -   **EAD** - Updated advertising data length check to ensure encrypted data fits inside one AD.
-    -   Updated **digital_key_car_anchor** and **digital_key_car_anchor_cs** applications to manage **Random Static address** from the application layer.
+    ### Improved
+    -   **L2CAP command length validation** to cover all signaling commands.
 	
     -   Details can be found in **CHANGELOG.md**.
 -   **Bluetooth LE controller**
