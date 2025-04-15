@@ -299,7 +299,7 @@ The standalone example can be generated with west command line parameters `-t st
 west build -b evkbmimxrt1170 ./examples/demo_apps/hello_world -Dcore_id=cm7 -p always --toolchain iar -t standalone_project
 ```
 
-You can find IAR project is generated in build folder with all the sources.
+You can find IAR project is generated in build folder with all the sources. The default destination folder is "build" and can be specified by `-d` parameter.
 
 ![iar_standalone_project](../build_system/_doc/iar_standalone_project.png)
 
