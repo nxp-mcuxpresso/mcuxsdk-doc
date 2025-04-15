@@ -15,15 +15,11 @@ low frequency operation. Compared to traditional low-power MCUs, a dedicated ult
 Sense Domain allows operation of low-power peripherals while keeping the main core in Deep
 Power Mode. This avoids event triggering and keeps data acquisition to extremely low power levels.
 
-
 The board is compatible with Arduino boards (Arduino UNO R3 and Arduino A4/A5), Mikroe click boards, 
 and Pmod boards. It can be used with IAR Embedded Workbench development tool.
 
 For debugging the MCXA276 MCU, the FRDM-MCXL255 board uses an onboard (OB) debug probe, MCU-Link lite
 OB, which is based on another NXP MCU: LPC55S16
-
-
-
 
 MCU device and part on board is shown below:
 
