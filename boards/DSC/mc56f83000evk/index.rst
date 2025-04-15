@@ -34,7 +34,7 @@ Getting Started with MCUXpresso SDK GitHub
 .. toctree::
    :maxdepth: 1
 
-   ../../../gsd/repo.rst
+   /gsd/repo.rst
 
 Release Notes
 *******************************************
