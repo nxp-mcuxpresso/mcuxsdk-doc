@@ -54,6 +54,26 @@ ChangeLog
 
    changeLog/clindex.md
 
+Currently supported drivers
+***************************
+
+- clock
+- reset
+- power (Limited. Currently supports only PD1, PD2 and DPD2.)
+- lptmr
+- qtmr
+- lpi2c
+- lpspi
+- lpuart
+- gpio (Without examples)
+- kpp
+- acmp (Examples are named lpcmp)
+- aon_lpcmp
+- flash (flash iap)
+- mu
+- edma
+
+
 Driver API Reference Manual
 ****************************
 
