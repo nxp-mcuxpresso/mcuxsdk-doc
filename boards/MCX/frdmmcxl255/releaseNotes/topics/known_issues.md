@@ -44,7 +44,7 @@ Example does not work because keyboard uses same pins as AON UART.
 
 Use example on cm33 core instead.
 
-## UART seven_bit examples does not work
+## UART seven_bit examples do not work
 
 ## CLOCK driver - CLOCK_GetFroAonFreq() returns wrong freq
 Function ``CLOCK_GetFroAonFreq()`` returns 4M instead of 10M and vice versa.  
