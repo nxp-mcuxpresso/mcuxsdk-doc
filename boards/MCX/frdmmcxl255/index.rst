@@ -67,8 +67,8 @@ Currently supported drivers
 - lpuart
 - gpio (Without examples)
 - kpp
-- acmp (Examples are named lpcmp)
-- aon_lpcmp
+- acmp (Driver and examples are named lpcmp. lpcmp periph. is not supported in this release)
+- aon_lpadc (Not in package. Only available from NXP github.)
 - flash (flash iap)
 - mu
 - edma
