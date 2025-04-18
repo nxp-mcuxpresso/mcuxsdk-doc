@@ -13,7 +13,7 @@ The following changes have been implemented compared to the previous SDK release
 	
     -   Details can be found in **CHANGELOG.md**.
 -   **Bluetooth LE controller**
-    -   PAwR, DBAF fixes and stability improvements.
+    -   PAwR fixes and stability improvements.
 
 -   **Transceiver Drivers (XCVR)**
     -   Added API to control PA ramp type and duration
