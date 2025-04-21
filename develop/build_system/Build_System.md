@@ -144,27 +144,27 @@ For include path, the following functions are provided:
 
 Here is the argument table:
 
-| Argument Name | Argument Type | Explanation                              |
-| ------------- | ------------- | ---------------------------------------- |
-| BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`. <br /> If not provided, the final source path equals `${CMAKE_CURRENT_LIST_DIR}` + `SOURCES`. <br />This is usually used in abstracted `.cmake` files which are not placed together with real sources. For sources or includes in CMakeLists.txt which are usually put together with real sources, no need to add it. |
-| CONFIG        | Single        | `true` or `false`, case insensitive. <br />Specify that the source is a config file. If build system finds a file with the same name, it will replace the config file. Please note if the config file is a header file, you need to record the file in `TARGET_FILES` when adding the path for that header file with `mcux_add_include`. |
-| PREINCLUDE    | Single        | `true` or `false`, case insensitive. Specify that the header is a preinclude header. This is only for `mcux_add_source`. |
-| PREINCLUDE_TYPE| Multiple     | Can be any one or a combination of `asm_include`, `c_include`, `cpp_include`, case insensitive. Specify that the preinclude header works for assembler/c compiler/c++ compiler. This is only for `mcux_add_source`. |
-| EXCLUDE       | Single        | `true` or `false`, case insensitive. Specify the source shall be excluded from build. This is only for `mcux_add_source` |
-| SOURCES       | Multiple      | The sources. This is only for `mcux_add_source`. If there are multiple sources, please separate them with whitespace. |
-| SCOPE         | Single        | Specify the source scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for `mcux_add_source` and take same effect as target_sources scope. The default scope is PRIVATE. |
-| INCLUDES      | Multiple      | The includes. This is only for `mcux_add_include`. If there are multiple includes, please separate them with whitespace. |
-| TARGET_FILES  | Multiple      | This is only for `mcux_add_include`, which indicates the path is for the target header file. The base name of the file without parent folder path is accepted. Please note target header files must be added by `mcux_add_source` and marked `CONFIG TRUE`. |
-| COMPILERS     | Multiple      | The compilers. It means the source or include only supports the listed compilers.<br />The supported compilers include armclang, iar, gcc, xcc, mwcc56800e, riscvllvm. |
-| TOOLCHAINS    | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.<br />The supported toolchains include iar, mdk, armgcc, xcc, codewarrior, riscvllvm. |
-| CORES         | Multiple      | The cores. It means the source or include only supports the listed cores.<br />The supported cores include cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp, etc. |
-| CORE_IDS      | Multiple      | The core_ids. It means the source or include only supports the listed core_ids. This is usually to distinguish the support for core in multicore device. |
-| DEVICES       | Multiple      | The devices. It means the source or include only supports the listed device, like MIMXRT1176. |
-| DEVICE_IDS    | Multiple      | The device ids. It means the source or include only supports the listed device id, like MIMXRT1176xxxxx. |
-| FPU           | Multiple      | The fpu. It means the source or include only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU. |
-| DSP           | Multiple      | The dsp. It means the source or include only supports the listed dsp. dsp enum values are NO_DSP and HAS_DSP. |
-| TRUSTZONE     | Multiple      | The trustzone, enum values are TZ and  NO_TZ. TZ means the source or include are only enabled on device with SAU, NO_TZ means they are only enabled on device without SAU. |
-| COMPONENTS    | Multiple      | The components. It means the source or include only supports the listed components. |
+| Argument Name   | Argument Type | Explanation                              |
+| --------------- | ------------- | ---------------------------------------- |
+| BASE_PATH       | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`. <br /> If not provided, the final source path equals `${CMAKE_CURRENT_LIST_DIR}` + `SOURCES`. <br />This is usually used in abstracted `.cmake` files which are not placed together with real sources. For sources or includes in CMakeLists.txt which are usually put together with real sources, no need to add it. |
+| CONFIG          | Single        | `true` or `false`, case insensitive. <br />Specify that the source is a config file. If build system finds a file with the same name, it will replace the config file. Please note if the config file is a header file, you need to record the file in `TARGET_FILES` when adding the path for that header file with `mcux_add_include`. |
+| PREINCLUDE      | Single        | `true` or `false`, case insensitive. Specify that the header is a preinclude header. This is only for `mcux_add_source`. |
+| PREINCLUDE_TYPE | Multiple      | Can be any one or a combination of `asm_include`, `c_include`, `cpp_include`, case insensitive. Specify that the preinclude header works for assembler/c compiler/c++ compiler. This is only for `mcux_add_source`. |
+| EXCLUDE         | Single        | `true` or `false`, case insensitive. Specify the source shall be excluded from build. This is only for `mcux_add_source` |
+| SOURCES         | Multiple      | The sources. This is only for `mcux_add_source`. If there are multiple sources, please separate them with whitespace. |
+| SCOPE           | Single        | Specify the source scope, can be INTERFACE/PUBLIC/PRIVATE. This is only for `mcux_add_source` and take same effect as target_sources scope. The default scope is PRIVATE. |
+| INCLUDES        | Multiple      | The includes. This is only for `mcux_add_include`. If there are multiple includes, please separate them with whitespace. |
+| TARGET_FILES    | Multiple      | This is only for `mcux_add_include`, which indicates the path is for the target header file. The base name of the file without parent folder path is accepted. Please note target header files must be added by `mcux_add_source` and marked `CONFIG TRUE`. |
+| COMPILERS       | Multiple      | The compilers. It means the source or include only supports the listed compilers.<br />The supported compilers include armclang, iar, gcc, xcc, mwcc56800e, riscvllvm. |
+| TOOLCHAINS      | Multiple      | The toolchains. It means the source or include only supports the listed toolchains.<br />The supported toolchains include iar, mdk, armgcc, xcc, codewarrior, riscvllvm. |
+| CORES           | Multiple      | The cores. It means the source or include only supports the listed cores.<br />The supported cores include cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp, etc. |
+| CORE_IDS        | Multiple      | The core_ids. It means the source or include only supports the listed core_ids. This is usually to distinguish the support for core in multicore device. |
+| DEVICES         | Multiple      | The devices. It means the source or include only supports the listed device, like MIMXRT1176. |
+| DEVICE_IDS      | Multiple      | The device ids. It means the source or include only supports the listed device id, like MIMXRT1176xxxxx. |
+| FPU             | Multiple      | The fpu. It means the source or include only supports the listed fpu. fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU. |
+| DSP             | Multiple      | The dsp. It means the source or include only supports the listed dsp. dsp enum values are NO_DSP and HAS_DSP. |
+| TRUSTZONE       | Multiple      | The trustzone, enum values are TZ and  NO_TZ. TZ means the source or include are only enabled on device with SAU, NO_TZ means they are only enabled on device without SAU. |
+| COMPONENTS      | Multiple      | The components. It means the source or include only supports the listed components. |
 
 Wildcard `*.<extension>` and `**` is supported in `mcux_add_source`, frequently used ones are `*.*`, `*.c` and `*.h`. 
 
@@ -248,12 +248,12 @@ The library can also be added by `mcux_add_configuration`. However it requires t
 
 Specify the output binary format
 
-| Argument Name | Argument Type | Explanation                   |
-| ------------- | ------------- | ----------------------------- |
-| TOOLCHAINS    | Multiple      | Supported toolchains          |
-| BINARY        | Single        | The target output binary name |
-| TARGET        | Single        | The target to be converted, the default is ${MCUX_SDK_PROJECT_NAME} if not set|
-| EXTRA_ARGS    | Multiple      | Extra arguments for binary conversion |
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| TOOLCHAINS    | Multiple      | Supported toolchains                     |
+| BINARY        | Single        | The target output binary name            |
+| TARGET        | Single        | The target to be converted, the default is ${MCUX_SDK_PROJECT_NAME} if not set |
+| EXTRA_ARGS    | Multiple      | Extra arguments for binary conversion    |
 
 Here is one example:
 
@@ -644,12 +644,24 @@ mcux_set_list(KW47_FAMILY "KW47B42Z83xxxA KW47B42Z96xxxA KW47B42Z97xxxA KW47B42Z
 
 #### mcux_add_cmakelists
 
-Add CMakelists.txt
+Add CMakelists.txt. It supports 3 arguments: 
 
-Here is one example:
+1. Folder path holding CMakeLists.txt
+2. OPTIONAL to specify CMakeLists.txt existence is optional. This argument is optional.
+3. Binary directory to specify the directory where the build files for the added subdirectory will be placed. If not specified, the build files will be placed in the default binary directory. This argument is optional.
 
 ```cmake
+# Single argument path only
 mcux_add_cmakelists(${CMAKE_CURRENT_LIST_DIR}/drivers)
+
+# With OPTIONAL
+mcux_add_cmakelists(${CMAKE_CURRENT_LIST_DIR}/drivers OPTIONAL)
+
+# With binary path only
+mcux_add_cmakelists(${CMAKE_CURRENT_LIST_DIR}/drivers mcuxsdk_drivers)
+
+# With OPTIONAL and binary path
+mcux_add_cmakelists(${CMAKE_CURRENT_LIST_DIR}/drivers OPTIONAL mcuxsdk_drivers)
 ```
 
 #### mcux_load_all_cmakelists_in_directory
