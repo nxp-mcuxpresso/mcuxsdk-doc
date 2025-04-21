@@ -129,11 +129,15 @@ modules:
     external_contents:
     - root: docs
       pattern: develop/sdk/*
+    - root: docs
+      pattern: _static/build_system/*
   dev_build_system:
     default: true
     external_contents:
     - root: docs
       pattern: develop/build_system/*
+    - root: docs
+      pattern: _static/build_system/*
     internal:
       external_contents:
       - root: .
