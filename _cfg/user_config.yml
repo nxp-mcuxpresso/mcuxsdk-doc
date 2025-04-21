@@ -592,22 +592,14 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA156
       outdir: drivers/MCX/MCXA/MCXA156
-  drivers_MCX_MCXA_MCXA166:
+  drivers_MCX_MCXA_MCXA346:
     default: true
     external_contents:
     - root: docs
-      pattern: drivers/MCX/MCXA/MCXA166/*
+      pattern: drivers/MCX/MCXA/MCXA346/*
     doxygen_runner:
-      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA166
-      outdir: drivers/MCX/MCXA/MCXA166
-  drivers_MCX_MCXA_MCXA276:
-    default: true
-    external_contents:
-    - root: docs
-      pattern: drivers/MCX/MCXA/MCXA276/*
-    doxygen_runner:
-      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA276
-      outdir: drivers/MCX/MCXA/MCXA276
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA346
+      outdir: drivers/MCX/MCXA/MCXA346
   drivers_MCX_MCXC_MCXC041:
     default: true
     external_contents:
