@@ -75,6 +75,17 @@ To enable sysbuild, only `--sysbuild` is needed when you build the main project:
 west build -b evkbmimxrt1170 --sysbuild ./examples/multicore_examples/hello_world/primary -Dcore_id=cm7  --config flexspi_nor_debug --toolchain=armgcc -p always
 ```
 
+You can set Kconfig options via command as `-DCONFIG_<var>=<value>` or `-D<namespace>_CONFIG_<var>=<value>`.
+If namespace prefix is not specified, the default scope is for the main project. For other projects, you must add project name as namespace to imply which project it is for. For example:
+```bash
+west build -b evkmimxrt1160 --sysbuild examples/multicore_examples/hello_world/primary -d build -Dcore_id=cm7 --toolchain iar -DCONFIG_MCUX_COMPONENT_driver.lpi2c=y -Dhello_world_secondary_core_CONFIG_MCUX_COMPONENT_driver.lpi2c=y  -p always
+```
+
+You can set up a separate config file for each projects via command as `-DCONFIG_FILE=<path/to/config_file>` or `-D<namespace>_CONFIG_<var>=<path/to/config_file>`. If namespace prefix is not specified, the default scope is for the main project. For example:
+```bash
+west build -b evkmimxrt1160 --sysbuild examples/multicore_examples/hello_world/primary -d build -Dcore_id=cm7 --toolchain iar -DCONF_FILE=/home/dev/sdk-next/mcuxsdk/examples/multicore_examples/hello_world/prj-static.conf -Dhello_world_secondary_core_CONF_FILE=/home/dev/sdk_3/sdk-next/mcuxsdk/examples/multicore_examples/hello_world/prj-static.conf -p always
+```
+
 ## Kconfig GUI
 
 The sysbuild projects can be configured with Kconfig GUI just like a normal project in the build system. The only difference is the target name, for main project, they're menuconfig or guiconfig, for sub project, you must add project name prefix to differ each target. 
