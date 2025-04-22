@@ -114,7 +114,7 @@ The prj.conf search paths can be provided through 3 ways with priority.
   The `mcuxsdk-root/subfolder/prj.conf` and `e:/mcuxsdk/subfolder/prj.conf` will be added into build if existed.
 - -DCONF_FILE=\<customized config file>
 
-  You can directly provide customized prj.conf with `-DCONF_FILE=<customized config file>`, like
+  You can directly provide customized prj.conf with `-DCONF_FILE=<customized config file>`. The config file path can be either an absolute path or a relative path to the current command invocation path. For example:
 
   ```bash
   west build -b evkbmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm4 -DCONF_FILE=./examples/prj.conf

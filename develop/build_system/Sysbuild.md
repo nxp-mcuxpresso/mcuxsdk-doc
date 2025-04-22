@@ -75,16 +75,17 @@ To enable sysbuild, only `--sysbuild` is needed when you build the main project:
 west build -b evkbmimxrt1170 --sysbuild ./examples/multicore_examples/hello_world/primary -Dcore_id=cm7  --config flexspi_nor_debug --toolchain=armgcc -p always
 ```
 
-You can set Kconfig options via command as `-DCONFIG_<var>=<value>` or `-D<namespace>_CONFIG_<var>=<value>`.
-If namespace prefix is not specified, the default scope is for the main project. For other projects, you must add project name as namespace to imply which project it is for. For example:
+You can set Kconfig options via command as `-DCONFIG_<var>=<value>` for main project or `-D<namespace>_CONFIG_<var>=<value>` for other projects.
+The namespace is the project name declared in `project()` from CMakeLists.txt file, to imply the config option is for which project. For example:
 ```bash
 west build -b evkmimxrt1160 --sysbuild examples/multicore_examples/hello_world/primary -d build -Dcore_id=cm7 --toolchain iar -DCONFIG_MCUX_COMPONENT_driver.lpi2c=y -Dhello_world_secondary_core_CONFIG_MCUX_COMPONENT_driver.lpi2c=y  -p always
 ```
 
-You can set up a separate config file for each projects via command as `-DCONFIG_FILE=<path/to/config_file>` or `-D<namespace>_CONFIG_<var>=<path/to/config_file>`. If namespace prefix is not specified, the default scope is for the main project. For example:
+You can set up a separate config file for each projects via command as `-DCONF_FILE=<path/to/config_file>` for main project or `-D<namespace>_CONF_FILE=<path/to/config_file>` for other projects. The namespace is the project name declared in `project()` from CMakeLists.txt file, to imply the config file is for which project. The config file path can be either an absolute path or a relative path to the current command invocation path. For example:
 ```bash
-west build -b evkmimxrt1160 --sysbuild examples/multicore_examples/hello_world/primary -d build -Dcore_id=cm7 --toolchain iar -DCONF_FILE=/home/dev/sdk-next/mcuxsdk/examples/multicore_examples/hello_world/prj-static.conf -Dhello_world_secondary_core_CONF_FILE=/home/dev/sdk_3/sdk-next/mcuxsdk/examples/multicore_examples/hello_world/prj-static.conf -p always
+west build -b evkmimxrt1160 --sysbuild examples/multicore_examples/hello_world/primary -d build -Dcore_id=cm7 --toolchain iar -DCONF_FILE="./examples/multicore_examples/hello_world/prj-static.conf" -Dhello_world_secondary_core_CONF_FILE="./examples/multicore_examples/hello_world/prj-static.conf" -p always
 ```
+This config file has the highest priority over all.
 
 ## Kconfig GUI
 
