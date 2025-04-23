@@ -624,6 +624,14 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXC444
       outdir: drivers/MCX/MCXC/MCXC444
+  drivers_MCX_MCXE_MCXE31B:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: drivers/MCX/MCXE/MCXE31B/*
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXE31B
+      outdir: drivers/MCX/MCXE/MCXE31B
   drivers_MCX_MCXL_MCXL255:
     default: true
     external_contents:
