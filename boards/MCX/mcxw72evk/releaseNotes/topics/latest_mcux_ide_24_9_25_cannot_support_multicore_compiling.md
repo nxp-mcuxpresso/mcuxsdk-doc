@@ -4,7 +4,7 @@ The latest MCUX IDE 24.9.25 cannot support MCXW72 multicore compiling, users nee
 
 **Option 1 \(recommended\): Using the custom Path**
 
-![](../Images/latest_mcux_ide_24_9_25_cannot_support_multicore_compiling.png "LinkServer options")
+![](../images/latest_mcux_ide_24_9_25_cannot_support_multicore_compiling.png "LinkServer options")
 
 **Option 2: Using the command-line to change the settings**
 

@@ -9,7 +9,7 @@ To download and run the application, perform these steps:
     2.  No parity
     3.  8 data bits
     4.  1 stop bit
-    |![](../images/flash_xip_terminal_putty_configuration_8mm.bmp "Terminal (PuTTY) configuration")
+    |![](../images/flash_xip_terminal_putty_configuration_8mm.png "Terminal (PuTTY) configuration")
 
 |
 

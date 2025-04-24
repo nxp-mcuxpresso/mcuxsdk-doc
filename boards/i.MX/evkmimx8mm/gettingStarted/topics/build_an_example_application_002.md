@@ -16,13 +16,13 @@ The following steps guide you through opening the `hello_world` example applicat
 
 2.  Select the desired build target from the drop-down. For this example, select **hello\_world – flash\_debug**.
 
-    |![](../images/demo_build_target_selection_8mm.bmp "Demo build target selection")
+    |![](../images/demo_build_target_selection_8mm.png "Demo build target selection")
 
 |
 
 3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](build_an_example_application_002.md#DEVICEMANAGSER).
 
-    |![](../images/build_the_demo_application_8mm.bmp "Building the demo application")
+    |![](../images/build_the_demo_application_8mm.png "Building the demo application")
 
 |
 

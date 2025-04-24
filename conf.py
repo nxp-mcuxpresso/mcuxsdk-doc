@@ -57,6 +57,21 @@ def read_file(filename):
 
     return content
 
+def skip_problematic_tables(app, doctree, docname):
+    if app.builder.name == 'latex':
+        for node in doctree.traverse():
+            if node.tagname == 'table':
+                # Check if the table has a tbody element
+                tbody_found = False
+                for child in node.children:
+                    if child.tagname == 'tbody':
+                        tbody_found = True
+                        break
+
+                if not tbody_found:
+                    # Remove the problematic table
+                    node.parent.remove(node)
+
 def setup(app):
     app.connect('source-read', patch_example_readme_md)
 
@@ -390,7 +405,7 @@ latex_elements = {
     "makeindex": r"\usepackage[columns=1]{idxlayout}\makeindex",
     "fontpkg": textwrap.dedent(r"""
                                     \usepackage{noto}
-                                    \usepackage{inconsolata-nerd-font}
+                                    \usepackage{inconsolata}
                                     \usepackage[T1]{fontenc}
                                 """),
     "sphinxsetup": ",".join(
@@ -405,9 +420,9 @@ latex_elements = {
         )
     ),
 }
-latex_logo = str(SDK_BASE / "docs" / "_static" / "images" / "logo-nxp.pdf")
+latex_logo = str(SDK_BASE / "docs" / "internal" / "images" / "logo-nxp.pdf")
 latex_documents = [
-    ("index", "mcuxsdk.tex", "MCUXpresso SDK Documentation", author, "manual"),
+    ("index-tex", "mcuxsdk.tex", "MCUXpresso SDK Documentation", author, "manual"),
 ]
 latex_engine = "xelatex"
 

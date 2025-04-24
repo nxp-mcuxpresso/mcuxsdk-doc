@@ -10,7 +10,7 @@ To download and run the application via UUU, perform these steps:
     2.  No parity
     3.  8 data bits
     4.  1 stop bit
-    |![](../images/flash_xip_terminal_putty_configuration_8mm.bmp "Terminal (PuTTY) configuration")
+    |![](../images/flash_xip_terminal_putty_configuration_8mm.png "Terminal (PuTTY) configuration")
 
 |
 
@@ -19,7 +19,7 @@ To download and run the application via UUU, perform these steps:
 
     The UUU puts the platform into fast boot mode and automatically flashes the target bootloader to QSPI. The command line and fast boot console is as shown in [Figure 2](run_an_example_application.md#COMMANDLINSEFASTBOOT).
 
-    |![](../images/command_line_fast_boot_console_output_executing_uu.bmp "Command line and fast boot console output when
+    |![](../images/command_line_fast_boot_console_output_executing_uu.png "Command line and fast boot console output when
 											executing UUU")
 
 |

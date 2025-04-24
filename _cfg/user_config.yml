@@ -13,6 +13,8 @@ extensions:
 - sphinx.ext.graphviz
 - sphinx_tabs.tabs
 - sphinxmermaid
+- sphinx.ext.imgconverter
+- latex_writer
 source_suffix:
   .rst: restructuredtext
   .readme: markdown
@@ -24,6 +26,8 @@ vcs_link:
 external_contents:
 - root: 'docs'
   pattern: 'index.rst'
+- root: docs
+  pattern: index-tex.rst
 - root: 'docs'
   pattern: 'middleware/index.rst'
 - root: 'docs'
@@ -389,10 +393,10 @@ modules:
     external_contents:
     - root: .
       pattern: middleware/eiq/docs/*
-    - root: .
-      pattern: middleware/eiq/tensorflow-lite/docs/*
-    - root: .
-      pattern: middleware/eiq/mpp/docs/*
+      #- root: .
+      #pattern: middleware/eiq/tensorflow-lite/docs/*
+      #- root: .
+      #pattern: middleware/eiq/mpp/docs/*
     - root: .
       pattern: middleware/eiq/executorch/docs/nxp/*
   drivers_Kinetis_K32L_K32L2A41A:

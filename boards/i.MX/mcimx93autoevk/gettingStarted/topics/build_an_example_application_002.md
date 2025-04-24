@@ -18,7 +18,7 @@ The following steps guide you through opening the `hello_world` example applicat
 
 3.  To build the demo application, click **Make**.
 
-    |![](../images/demo_build_target_selection_8mm.bmp "Demo build target selection")
+    |![](../images/demo_build_target_selection_8mm.png "Demo build target selection")
 
 |
 
