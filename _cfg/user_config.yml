@@ -264,6 +264,8 @@ modules:
       pattern: middleware/mcuboot_opensource/*.md
     - root: .
       pattern: middleware/mcuboot_opensource/docs/*
+    - root: .
+      pattern: middleware/mcu_bootloader/docs/*      
   mid_freertos_drivers:
     default: true
     external_contents:
