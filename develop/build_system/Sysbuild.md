@@ -97,3 +97,11 @@ For example:
 west build -t guiconfig
 west build -t hello_world_secondary_core_guiconfig
 ```
+
+## Standalone project
+
+When using sysbuild command, if you want to generate [Standalone project](./../sdk/example_development.md#standalone-examples) for sharing, you can add "-t standalone_project". Then the standalone projects will be generated in the `<build directory>/<toolchain>` folder. The default build directory is "build", and can be set to other path by adding "-d" parameter.
+For example: 
+```bash
+west build -b evkmimxrt1160 --sysbuild ./examples/multicore_examples/rpmsg_lite_pingpong/primary -Dcore_id=cm7 --toolchain iar -p always -t standalone_project -d build_rpmsg_lite_pingpong
+```
