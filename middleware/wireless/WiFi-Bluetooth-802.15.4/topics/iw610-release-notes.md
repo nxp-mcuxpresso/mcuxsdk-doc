@@ -1,4 +1,4 @@
-# RW610/RW612 release notes
+# IW610 release notes
 
 
 ```{include} ../topics/package_information_06.md
