@@ -10,7 +10,7 @@ In the `hello_world` application folder, you see the following contents:
 
 All files in the application folder are specific to that example, so it is easy to copy and paste an existing example to start developing a custom application based on a project provided in the MCUXpresso SDK.
 
-**Note:** To prevent compiling errors, do not use special characters in the path of the SDK such as \{!,@,\#,$,&,%,^\} and space.
+**Note:** To prevent compilation errors, do not use special characters in the path of the SDK such as \{!,@,\#,$,&,%,^\} and space.
 
 **Parent topic:**[MCUXpresso SDK Board Support Package Folders](../topics/mcuxpresso_sdk_board_support_package_folders.md)
 
