@@ -1,5 +1,9 @@
 # MCUXpresso SDK Changelog
 
+```{include} /examples/_boards/mcxw72loc/ChangeLog_board.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/cache/lpcac/doxygen/ChangeLog_cache.md
 :heading-offset: 2
 ```
@@ -48,6 +52,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/flexcan/doxygen/ChangeLog_flexcan_edma.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/flexio/doxygen/ChangeLog_flexio.md
 :heading-offset: 2
 ```
@@ -81,10 +89,6 @@
 ```
 ---
 ```{include} /drivers/imu/doxygen/ChangeLog_imu.md
-:heading-offset: 2
-```
----
-```{include} /drivers/lin/doxygen/ChangeLog_lin.md
 :heading-offset: 2
 ```
 ---

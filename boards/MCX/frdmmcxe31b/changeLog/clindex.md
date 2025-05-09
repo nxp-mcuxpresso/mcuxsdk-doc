@@ -1,5 +1,9 @@
 # MCUXpresso SDK Changelog
 
+```{include} /examples/_boards/frdmmcxe31b/ChangeLog_board.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/bctu/doxygen/ChangeLog_bctu.md
 :heading-offset: 2
 ```
@@ -25,6 +29,10 @@
 ```
 ---
 ```{include} /drivers/crc/doxygen/ChangeLog_crc.md
+:heading-offset: 2
+```
+---
+```{include} /devices/MCX/MCXE/MCXE31B/drivers/doxygen/ChangeLog_dcm_gpr.md
 :heading-offset: 2
 ```
 ---
@@ -124,10 +132,6 @@
 :heading-offset: 2
 ```
 ---
-```{include} /devices/MCX/MCXE/MCXE31B/drivers/doxygen/ChangeLog_memory.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/mscm/doxygen/ChangeLog_mscm.md
 :heading-offset: 2
 ```
@@ -136,7 +140,15 @@
 :heading-offset: 2
 ```
 ---
+```{include} /devices/MCX/MCXE/MCXE31B/drivers/doxygen/ChangeLog_power.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/qspi/doxygen/ChangeLog_qspi.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/qspi/doxygen/ChangeLog_qspi_edma.md
 :heading-offset: 2
 ```
 ---
@@ -169,6 +181,14 @@
 ```
 ---
 ```{include} /drivers/trgmux/doxygen/ChangeLog_trgmux.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/tspc/doxygen/ChangeLog_tspc.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/virt_wrapper/doxygen/ChangeLog_virt_wrapper.md
 :heading-offset: 2
 ```
 ---

@@ -1,5 +1,9 @@
 # MCUXpresso SDK Changelog
 
+```{include} /examples/_boards/frdmmcxw23/ChangeLog_board.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/anactrl/doxygen/ChangeLog_anactrl.md
 :heading-offset: 2
 ```
@@ -12,7 +16,7 @@
 :heading-offset: 2
 ```
 ---
-```{include} /devices/MCX/MCXW/MCXW236B/drivers/doxygen/ChangeLog_clock.md
+```{include} /devices/MCX/MCXW/MCXW236/drivers/doxygen/ChangeLog_clock.md
 :heading-offset: 2
 ```
 ---
@@ -84,7 +88,7 @@
 :heading-offset: 2
 ```
 ---
-```{include} /devices/MCX/MCXW/MCXW236B/drivers/doxygen/ChangeLog_reset.md
+```{include} /devices/MCX/MCXW/MCXW236/drivers/doxygen/ChangeLog_reset.md
 :heading-offset: 2
 ```
 ---

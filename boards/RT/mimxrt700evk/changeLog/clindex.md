@@ -1,5 +1,9 @@
 # MCUXpresso SDK Changelog
 
+```{include} /examples/_boards/mimxrt700evk/ChangeLog_board.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/acmp/doxygen/ChangeLog_acmp.md
 :heading-offset: 2
 ```
@@ -197,6 +201,10 @@
 ```
 ---
 ```{include} /drivers/puf_v3/doxygen/ChangeLog_puf_v3.md
+:heading-offset: 2
+```
+---
+```{include} /devices/RT/RT700/MIMXRT798S/drivers/doxygen/ChangeLog_pvts.md
 :heading-offset: 2
 ```
 ---

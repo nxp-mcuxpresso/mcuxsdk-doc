@@ -1,5 +1,9 @@
 # MCUXpresso SDK Changelog
 
+```{include} /examples/_boards/mc56f83000evk/ChangeLog_board.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/dsc_cadc/doxygen/ChangeLog_cadc.md
 :heading-offset: 2
 ```

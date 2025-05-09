@@ -1,5 +1,9 @@
 # MCUXpresso SDK Changelog
 
+```{include} /examples/_boards/evkmcimx7ulp/ChangeLog_board.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/acmp/doxygen/ChangeLog_acmp.md
 :heading-offset: 2
 ```
@@ -129,6 +133,10 @@
 ```
 ---
 ```{include} /drivers/qspi/doxygen/ChangeLog_qspi.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/qspi/doxygen/ChangeLog_qspi_edma.md
 :heading-offset: 2
 ```
 ---
