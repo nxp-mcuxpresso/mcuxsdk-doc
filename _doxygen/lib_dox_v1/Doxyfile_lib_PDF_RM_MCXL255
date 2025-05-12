@@ -779,8 +779,19 @@ INPUT = @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/kpp/doxygen/kpp.dox \
         @SDK_BASE@/drivers/kpp/fsl_kpp.h \
         @SDK_BASE@/drivers/mu/doxygen/mu.dox \
-        @SDK_BASE@/drivers/mu/fsl_mu.h
-
+        @SDK_BASE@/drivers/mu/fsl_mu.h \
+        @SDK_BASE@/drivers/crc/doxygen/crc.dox  \
+        @SDK_BASE@/drivers/crc/fsl_crc.h \
+        @SDK_BASE@/drivers/slcd/doxygen/slcd.dox \
+        @SDK_BASE@/drivers/slcd/fsl_slcd.h \
+        @SDK_BASE@/drivers/inputmux/doxygen/inputmux.dox \
+        @SDK_BASE@/drivers/inputmux/fsl_inputmux.h \
+        @SDK_BASE@/drivers/glikey/doxygen/glikey.dox \
+        @SDK_BASE@/drivers/glikey/fsl_glikey.h \
+        @SDK_BASE@/drivers/utick/doxygen/utick.dox \
+        @SDK_BASE@/drivers/utick/fsl_utick.h \
+        @SDK_BASE@/drivers/ostimer/doxygen/ostimer.dox \
+        @SDK_BASE@/drivers/ostimer/fsl_ostimer.h
 
 # If the value of the INPUT tag contains directories, you can use the
 # FILE_PATTERNS tag to specify one or more wildcard patterns (like *.cpp and
@@ -900,7 +911,13 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/doxygen \
              @SDK_BASE@/drivers/lpuart/doxygen \
              @SDK_BASE@/drivers/port/doxygen \
              @SDK_BASE@/drivers/mu/doxygen \
-             @SDK_BASE@/drivers/kpp/doxygen
+             @SDK_BASE@/drivers/kpp/doxygen \
+             @SDK_BASE@/drivers/crc/doxygen \
+             @SDK_BASE@/drivers/slcd/doxygen \
+             @SDK_BASE@/drivers/inputmux/doxygen \
+             @SDK_BASE@/drivers/glikey/doxygen \
+             @SDK_BASE@/drivers/utick/doxygen \
+             @SDK_BASE@/drivers/ostimer/doxygen
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program

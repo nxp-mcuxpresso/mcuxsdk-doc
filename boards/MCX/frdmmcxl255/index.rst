@@ -65,13 +65,19 @@ Currently supported drivers
 - lpi2c
 - lpspi
 - lpuart
-- gpio (Without examples)
+- gpio
 - kpp
 - acmp (Driver and examples are named lpcmp. lpcmp periph. is not supported in this release)
-- aon_lpadc (Not in package. Only available from NXP github.)
+- aon_lpadc
 - flash (flash iap)
 - mu
 - edma
+- slcd
+- inputmux
+- ostimer
+- glikey
+- utick
+- crc
 
 
 Driver API Reference Manual
@@ -92,6 +98,7 @@ Multicore
 
 :ref:`multicore`
 
+FreeRTOS
+========
 
-
-
+:ref:`freertos`
