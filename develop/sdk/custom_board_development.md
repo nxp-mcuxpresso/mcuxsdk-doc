@@ -29,7 +29,9 @@ You can directly copy the board.h,board.c,clock_config.h,clock_config.c,pin_mux.
 
 The CMakeLists.txt contains the board basic build configuration data. Copy the `mcuxsdk/examples/_boards/frdmmcxa346/CMakeLists.txt` into your `frdmmcxa346_custom` and edit it.
 
-1. Remove the `include` lines with project_segments cmake files. Those cmake files are for sources under `mcuxsdk/examples/_boards` which doesn't work for board in custom locations. You can leave them because they don't affect build.
+1. Identify and remove the `include` lines with `project_segments`. Many of those cmake files are for sources under `mcuxsdk/examples/_boards` which doesn't work for board in custom locations.
+
+   You can also leave them untouched because they don't affect build.
 
 2. Add new custom board.h,board.c,clock_config.h,clock_config.c,pin_mux.h,pin_mux.c. To make those files selectable  in the Kconfig system, we can use the [project segment](example_development.md#project-segment) way. Of curse you can directly use native cmake syntax to add these files.
 
@@ -62,6 +64,19 @@ endif()
 
 ## Custom board project hardware_init.c/app.h
 # Use PROJECT_NAME to distinguish between different projects
+# The hello_world app.h and hardware_init.c are placed under <CUSTOM_BOARD_ROOT>/frdmmcxa346_custom/hello_world
+# <CUSTOM_BOARD_ROOT>
+#        ├── frdmmcxa346_custom
+#                ├── examples
+#                       ├── hello_world
+#                                ├── app.h
+#                                ├── hardware_init.c
+#                ├── CMakeLists.txt
+#                ├── Kconfig
+#                ├── prj.conf
+#                ├── variable.cmake
+#                ├── board_runner.cmake
+#                ├── board sources
 if(CONFIG_MCUX_PRJSEG_project.custom_board.hw_app)
   mcux_add_source(
     SOURCES examples/${PROJECT_NAME}/hardware_init.c
