@@ -20,9 +20,10 @@ To update the NBU, you may use the SPSDK command line tool.
 1. Open the path to your SPSDK folder and activate the virtual environment
     - `>> venv\Scripts\activate`
 2. Place your device in ISP mode. For this example we will use the UART peripheral by connecting a USB cable to `J14`. On the EVK you can enter ISP by the following method
+    - Make sure a jumper is on `JP25`
     - Press and hold `SW4`, press and release Reset, and then release `SW4`
 3. Once the device is connected you may check your devices available using SPSDK to find the COM port it is connected to.
     - `>> nxpdevscan`
 ![](../images/spsdk_nxpdevscan.png "spsdk nxpdevscan")
 4. Then you may run the 'receive-sb-file' command to load the sb3 file.
-    - `>> blhost -p COM27 receive-sb-file path_to_SDK\mcxw71_nbu_ble_hosted.sb3`
+    - `>> blhost -p COM27 receive-sb-file path_to_SDK\kw45b41_nbu_ble_hosted_a1.sb3`

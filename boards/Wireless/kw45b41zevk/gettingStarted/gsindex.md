@@ -12,5 +12,5 @@ topics/run_a_demo_using_mcuxpresso_ide.md
 topics/how_to_determine_com_port.md
 topics/how_to_set_the_board_to_bootloader.md
 topics/updating_debugger_firmware.md
-
+topics/program_nbu_firmware.md
 ```

@@ -8,7 +8,7 @@ It is necessary to work with the matching NBU image for the SDK version of the a
 Here you will find two type of images for the NBU FW:
 
 1. SB3 File Type
-    - This is for EVK users only. The EVK's come programmed with set keys for ease of use in development
+    - The KW45B41Z-LOC comes programmed with set keys for ease of use in development
 
 2. XIP File Type
     - This is for samples that are not programmed with any keys. For these devices, you can create your custom keys, then create an SB3 file based on this XIP image
@@ -25,4 +25,4 @@ To update the NBU, you may use the SPSDK command line tool.
     - `>> nxpdevscan`
 ![](../images/spsdk_nxpdevscan.png "spsdk nxpdevscan")
 4. Then you may run the 'receive-sb-file' command to load the sb3 file.
-    - `>> blhost -p COM27 receive-sb-file path_to_SDK\mcxw71_nbu_ble_hosted.sb3`
+    - `>> blhost -p COM27 receive-sb-file path_to_SDK\kw45b41_nbu_ble_hosted_a1.sb3`

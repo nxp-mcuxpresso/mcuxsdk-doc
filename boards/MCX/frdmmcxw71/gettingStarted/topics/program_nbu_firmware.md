@@ -8,7 +8,7 @@ It is necessary to work with the matching NBU image for the SDK version of the a
 Here you will find two type of images for the NBU FW:
 
 1. SB3 File Type
-    - This is for EVK users only. The EVK's come programmed with set keys for ease of use in development
+    - The FRDM-MCXW71 comes programmed with set keys for ease of use in development
 
 2. XIP File Type
     - This is for samples that are not programmed with any keys. For these devices, you can create your custom keys, then create an SB3 file based on this XIP image
@@ -20,7 +20,7 @@ To update the NBU, you may use the SPSDK command line tool.
 1. Open the path to your SPSDK folder and activate the virtual environment
     - `>> venv\Scripts\activate`
 2. Place your device in ISP mode. For this example we will use the UART peripheral by connecting a USB cable to `J14`. On the EVK you can enter ISP by the following method
-    - Press and hold `SW4`, press and release Reset, and then release `SW4`
+    - Press and hold `SW3`, press and release Reset, and then release `SW3`
 3. Once the device is connected you may check your devices available using SPSDK to find the COM port it is connected to.
     - `>> nxpdevscan`
 ![](../images/spsdk_nxpdevscan.png "spsdk nxpdevscan")

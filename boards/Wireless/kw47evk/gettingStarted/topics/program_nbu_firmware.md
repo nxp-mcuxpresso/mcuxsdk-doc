@@ -1,10 +1,8 @@
-# Program NBU firmware 
+# Updating NBU for Wireless Examples
 
-The Narrow Band Unit \(NBU\) firmware is included in the SDK folder as a signed and encrypted FW. SDK v2.16.0:
+The Narrow Band Unit \(NBU\) firmware is included in the SDK folder as a signed and encrypted FW.
 
-**KW47 A1 silicon:**
-
-*SDK\_2\_16\_0\_KW47-EVK\\middleware\\wireless\\ble\_controller\\bin\\kw47\_nbu\_ble\_hosted.bin*
+*middleware\\wireless\\ble\_controller\\bin\\kw47\_nbu\_ble\_hosted.bin*
 
 To program the NBU software for the KW47, perform the following steps:
 
@@ -16,9 +14,9 @@ To program the NBU software for the KW47, perform the following steps:
 
     ![](../images/nbu_check_com_port.png "Check the assigned COM port")
 
-3.  Open the *04. Tools* folder that comes together with this document and go to the *script* folder. Locate the *KW47-EVK\_NBUProgram.cmd* and open it using any text editor. Replace all the references to **COMX** with the COM Port assigned to your KW47-EVK board. Save the changes applied to the script.
+3.  Open the [*04. Tools*](https://nxp1.sharepoint.com/:f:/r/teams/ext131/kw47/Documents/04.%20Tools?csf=1&web=1&e=NNX84h) folder that comes together with this document and go to the *script* folder. Locate the *KW47-EVK\_NBUProgram.cmd* and open it using any text editor. Replace all the references to **COMX** with the COM Port assigned to your KW47-EVK board. Save the changes applied to the script.
 
-    **Note:** To run the script, place the *blhost.exe* and the *KW47-EVK\_NBUProgram.cmd* script in the same folder. Both scripts can be found in the *04. Tools* folder。
+    **Note:** To run the script, place the *blhost.exe* and the *KW47-EVK\_NBUProgram.cmd* script in the same folder. Both scripts can be found in the [*04. Tools*](https://nxp1.sharepoint.com/:f:/r/teams/ext131/kw47/Documents/04.%20Tools?csf=1&web=1&e=NNX84h) folder。
 
 4.  Double click on the *KW47-EVK\_NBUProgram.cmd* script to program the NBU and load the FAT software. This script first executes a command to make sure the **KW47** has entered ISP mode properly. If the device did not enter in ISP mode, it cannot be programmed. The following examples show when the device did not enter in ISP \(left\) and when the device was programmed properly \(right\).
 
