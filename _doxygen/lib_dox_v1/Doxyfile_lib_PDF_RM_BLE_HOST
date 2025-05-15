@@ -738,7 +738,6 @@ INPUT = @SDK_BASE@/middleware/wireless/bluetooth/host/interface/ble_constants.h 
         @SDK_BASE@/middleware/wireless/bluetooth/host/interface/ble_host_tasks.h \
         @SDK_BASE@/middleware/wireless/bluetooth/host/interface/ble_sig_defines.h \
         @SDK_BASE@/middleware/wireless/bluetooth/host/interface/ble_utils.h \
-        @SDK_BASE@/middleware/wireless/bluetooth_private/host/interface/channel_sounding.h \
         @SDK_BASE@/middleware/wireless/bluetooth/host/interface/gap_interface.h \
         @SDK_BASE@/middleware/wireless/bluetooth/host/interface/gap_types.h \
         @SDK_BASE@/middleware/wireless/bluetooth/host/interface/att_errors.h \
@@ -2019,11 +2018,7 @@ INCLUDE_FILE_PATTERNS  =
 # recursively expanded use the := operator instead of the = operator.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-PREDEFINED = TRUE=1 \
-             FALSE=0 \
-             gEATT_d=TRUE \
-             gBLE52_d=TRUE \
-             gBLE_ChannelSounding_d=TRUE
+PREDEFINED =
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The
