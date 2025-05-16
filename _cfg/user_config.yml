@@ -35,7 +35,7 @@ external_contents:
 - root: 'docs'
   pattern: 'middleware/audio_voice/components/*'
 - root: 'docs'
-  pattern: 'middleware/cadence/multicore-xaf/*' 
+  pattern: 'middleware/cadence/multicore-xaf/*'
 - root: 'docs'
   pattern: 'middleware/aws_iot/*'
 - root: 'docs'
@@ -58,6 +58,8 @@ external_contents:
   pattern: rtos/*
 - root: docs
   pattern: middleware/fatfs/*
+- root: docs
+  pattern: middleware/littlefs/*
 - root: docs
   pattern: drivers/*
 doxygen:
@@ -225,7 +227,7 @@ modules:
     - root: .
       pattern: middleware/cadence/multicore-xaf/*.md
     - root: .
-      pattern: middleware/cadence/multicore-xaf/doc/*.md      
+      pattern: middleware/cadence/multicore-xaf/doc/*.md
   mid_multicore:
     default: true
     external_contents:
@@ -267,12 +269,12 @@ modules:
     - root: .
       pattern: middleware/mcuboot_opensource/*.md
     - root: .
-      pattern: middleware/mcuboot_opensource/docs/*      
+      pattern: middleware/mcuboot_opensource/docs/*
   mid_mcubootloader:
     default: true
     external_contents:
     - root: .
-      pattern: middleware/mcu_bootloader/docs/*       
+      pattern: middleware/mcu_bootloader/docs/*
   mid_freertos_drivers:
     default: true
     external_contents:
@@ -310,6 +312,11 @@ modules:
     external_contents:
     - root: .
       pattern: middleware/fatfs/*
+  mid_littlefs:
+    default: true
+    external_contents:
+    - root: .
+      pattern: middleware/littlefs/*
   mid_freemaster:
     default: true
     external_contents:

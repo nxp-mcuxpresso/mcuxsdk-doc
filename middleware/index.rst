@@ -34,17 +34,18 @@ eIQ
 
 .. toctree::
    :maxdepth: 1
-   :glob:   
+   :glob:
 
    eiq/*/index
 
-File System 
+File System
 ***********
 
 .. toctree::
    :maxdepth: 1
 
    fatfs/index
+   littlefs/index
 
 Motor Control
 *************
