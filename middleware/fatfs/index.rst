@@ -7,4 +7,5 @@ FatFs
    :maxdepth: 1
    :glob:
 
-   README.md
+   Readme <README>
+   Changelog <CHANGELOG>
