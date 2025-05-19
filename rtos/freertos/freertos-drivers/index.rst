@@ -9,5 +9,5 @@ This is set of NXP provided FreeRTOS reentrant bus drivers.
    :maxdepth: 1
    :glob:
 
-   Changelog <CHANGELOG>
    Readme <README>
+   Changelog <CHANGELOG>
