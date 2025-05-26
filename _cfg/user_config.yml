@@ -368,6 +368,8 @@ modules:
       pattern: 'middleware/wireless/zigbee/Docs/**/*.*'
     - root: '.'
       pattern: 'middleware/wireless/zigbee/examples/**/build_linux/*'
+    - root: '.'
+      pattern: 'middleware/wireless/zigbee/examples/common/zigbee_ble/*'
   mid_ieee:
     default: true
     external_contents:

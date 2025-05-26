@@ -18,6 +18,14 @@ The following documents provide details on how to demonstrate the capabilities o
    ZigBee NCP Host Coordinator Example <../../../middleware/wireless/zigbee/examples/zigbee_coordinator/build_linux/README.md>
    ZigBee NCP Host Router Example <../../../middleware/wireless/zigbee/examples/zigbee_router/build_linux/README.md>
 
+The following user guides explain how to use Bluetooth LE - Zigbee dynamic mode applications in the context of a Zigbee commissioning over Bluetooth LE use case.
+
+.. toctree::
+   :maxdepth: 1
+
+   Zigbee Coordinator and Bluetooth LE Example <../../../middleware/wireless/zigbee/examples/zigbee_ble/common/zb_coordinator_ble.md>
+   Zigbee Router and Bluetooth LE Example <../../../middleware/wireless/zigbee/examples/zigbee_ble/common/zb_router_ble.md>
+
 The following documents are provided in PDF format. Later release may convert the pdf documentation to markdown for better review and aligned format.
 
 - `ZigBee 3.0 Stack User Guide pdf <../../../_static/wireless/Zigbee/JN-UG-3130-Zigbee3-Stack.pdf>`_
