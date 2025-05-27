@@ -317,6 +317,13 @@ modules:
     external_contents:
     - root: .
       pattern: middleware/littlefs/*
+  mid_sdmmc:
+    default: true
+    external_contents:
+    - root: .
+      pattern: middleware/sdmmc/index.rst
+    - root: .
+      pattern: middleware/sdmmc/*.md
   mid_freemaster:
     default: true
     external_contents:

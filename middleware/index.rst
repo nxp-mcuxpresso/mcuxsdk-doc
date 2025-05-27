@@ -46,6 +46,7 @@ File System
 
    fatfs/index
    littlefs/index
+   sdmmc/index
 
 Motor Control
 *************
