@@ -44,16 +44,6 @@ Getting Started with MCUXpresso SDK GitHub
 
 Release Notes
 *******************************************
-
-**This is an Early Access Release (EAR) for FRDM-MCXE247 development board. It shall be used for pre-production development only.**
-
-Only drivers which has its example(s) in mcuxsdk/examples/_boards/frdmmcxe247/driver_examples folder were tested.
-
-Supported Development Tools
-===========================
- - MCUXpresso for VS Code v25.03
- - GCC Arm Embedded Toolchain
-
 .. toctree::
    :maxdepth: 1
 
@@ -78,7 +68,24 @@ Middleware Documentation
 
 Find links to detailed middleware documentation for key components. While not all onboard middleware is covered, this serves as a useful reference for configuration and development.
 
+MCU Boot
+========
 
+.. toctree::
+   :maxdepth: 1
+
+   ../../../middleware/mcuboot_opensource/README.md
+
+lwIP
+====
+
+:ref:`lwip`
+
+FreeRTOS
+========
+
+:ref:`freertos`
+   
 FreeMASTER
 ==========
 
@@ -86,10 +93,3 @@ FreeMASTER
    :maxdepth: 1
 
    ../../../middleware/freemaster/doc/index.md
-
-
-
-FreeRTOS
-========
-
-:ref:`freertos`

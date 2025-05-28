@@ -124,6 +124,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/mcm/doxygen/ChangeLog_mcm.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/pdb/doxygen/ChangeLog_pdb.md
 :heading-offset: 2
 ```
