@@ -4,6 +4,9 @@
 .version{
     color: black !important;
 }
+.wy-nav-content {
+	max-width:980px;
+}
 
 /* Audio framework specification page */
 div.wy-table-responsive .audio_FW_spec_table {
