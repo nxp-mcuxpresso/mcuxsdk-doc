@@ -1,1 +1,1 @@
--   MCUXpresso IDE, Rev. 24.12
+-   MCUXpresso IDE, Rev. 25.06.xx
