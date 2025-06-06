@@ -166,9 +166,11 @@ Here is the argument table:
 | TRUSTZONE       | Multiple      | The trustzone, enum values are TZ and  NO_TZ. TZ means the source or include are only enabled on device with SAU, NO_TZ means they are only enabled on device without SAU. |
 | COMPONENTS      | Multiple      | The components. It means the source or include only supports the listed components. |
 
-Wildcard `*.<extension>` and `**` is supported in `mcux_add_source`, frequently used ones are `*.*`, `*.c` and `*.h`. 
+Wildcard `*.<extension>`, `**`, and `**.<extension>` is supported in `mcux_add_source`, frequently used ones are `*.*`, `*.c` and `*.h`.
 
-`**` will add alll kinds of files in all sub folders recursively into build.
+- `*.<extension>` will add all files with the specific extension in the folder to build.
+- `**` will add all kinds of files in all sub folders recursively into build.
+- `**.<extension>` will add all files with the specific extension in all sub folders recursively to build.
 
 If the number of files is relatively small, it is not recommended to use wildcards because it is implicit and time-consumed in build.
 
