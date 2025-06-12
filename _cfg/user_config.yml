@@ -152,7 +152,7 @@ modules:
     default: true
     external_contents:
     - root: 'docs'
-      pattern: 'middleware/lwip/*
+      pattern: 'middleware/lwip/*'
     - root: .
       pattern: middleware/lwip/ChangeLogKSDK.txt
     - root: .

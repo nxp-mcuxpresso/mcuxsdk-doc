@@ -383,7 +383,7 @@ def create_driver_tree(doxygen_prj_name, doxygen_outdir):
     logger.info(f'environment loader path {os.path.join(os.path.dirname(os.path.abspath(__file__)),"template/")}')
     environment = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(os.path.abspath(__file__)),"template/")))
     template = environment.get_template("device_rm.tmp")
-    device_name = doxygen_outdir.replace("\\","/").split("/")[-1]
+    device_name = doxygen_prj_name.split("_")[-1]
     parameters = {"device_name": device_name, "group_names": collections.OrderedDict(group_names), "prj_name": doxygen_prj_name}
 
     content = template.render(parameters=parameters)

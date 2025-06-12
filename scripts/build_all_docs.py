@@ -39,7 +39,7 @@ def setup_logging(log_dir, board_name=None):
         process_logger.removeHandler(handler)
     
     # File handler
-    file_handler = logging.FileHandler(log_file)
+    file_handler = logging.FileHandler(log_file,encoding="utf-8", errors="replace")
     file_handler.setLevel(logging.DEBUG)  # Set to DEBUG to capture all output
     
     # Console handler

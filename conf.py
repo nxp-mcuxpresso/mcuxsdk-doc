@@ -332,7 +332,11 @@ class MCUXDocConfig:
         for module_name, module_config in self.iter_modules():
             mod_doxygen = self.get_mod_config(module_name, module_config, 'doxygen_runner')
             if mod_doxygen:
-                doxygen_dicts[module_name] = mod_doxygen
+                doxygen_name = module_name
+                if mod_doxygen["outdir"].startswith("drivers"):
+                    doxygen_name = mod_doxygen["outdir"].replace("/","_")
+                if doxygen_name not in doxygen_dicts.keys():
+                    doxygen_dicts[doxygen_name] = mod_doxygen
 
         if self.config.get('doxygen_runner'):
             doxygen_dicts["common"] = self.config.get('doxygen_runner')
