@@ -148,7 +148,7 @@ set_target_properties(
 
 add_doc_target(
   latex
-  COMMAND ${CMAKE_COMMAND} -E env ${SPHINX_ENV}
+  COMMAND ${CMAKE_COMMAND} -E env ${SPHINX_ENV} SPHINX_TARGET=PDF
   ${SPHINXBUILD}
     -b latex
     -c ${DOCS_CFG_DIR}

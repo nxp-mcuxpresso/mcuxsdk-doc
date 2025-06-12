@@ -136,6 +136,15 @@ class MCUXDocConfig:
         with open(SDK_BASE / 'docs' / '_cfg' / 'user_config.yml', 'r', encoding='utf-8') as f:
             self.config = yaml.safe_load(f)
 
+        # Delete the mpp related configuration as workaround for pdf generation
+        if os.environ.get('SPHINX_TARGET') == 'PDF':
+            print("delete mpp documentation for pdf generation as workaround")
+            for index, file_pattern in enumerate(self.config['modules']['mid_eiq']['external_contents']):
+                print(f"{index} {file_pattern}")
+                if "eiq/mpp" in file_pattern["pattern"]:
+                    del self.config['modules']['mid_eiq']['external_contents'][index]
+            
+
         # If example_scope is specified through command line, use it.
         if example_scope != '':
             example_doc_files = expand_example_scope(example_scope)
