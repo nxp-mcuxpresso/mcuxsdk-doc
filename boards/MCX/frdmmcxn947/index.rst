@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/frdmmcxn947/mcuxsdk-frdmmcxn947.pdf
 .. _frdmmcxn947:
 
 FRDM-MCXN947

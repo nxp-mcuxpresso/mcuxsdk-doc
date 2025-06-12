@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/frdmmcxl255/mcuxsdk-frdmmcxl255.pdf
 .. _frdmmcxl255:
 
 FRDM-MCXL255

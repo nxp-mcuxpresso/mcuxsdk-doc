@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/twrkm35z75m/mcuxsdk-twrkm35z75m.pdf
 .. _twrkm35z75m:
 
 TWR-KM35Z75M

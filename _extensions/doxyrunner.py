@@ -233,9 +233,9 @@ def doxygen_input_has_changed(env: BuildEnvironment, doxyfile: str, prjname: str
 
     # check if any file has changed
     cache_var = f"doxyrunner_cache_{prjname}"
-    logger.info(env.__dict__.keys())
+    logger.debug(env.__dict__.keys())
     if hasattr(env, cache_var) and getattr(env, cache_var) == cache:
-        logger.info(f"Cache variable:  {getattr(env, cache_var)}")
+        logger.debug(f"Cache variable:  {getattr(env, cache_var)}")
         return False
 
     # store current state
@@ -322,7 +322,9 @@ def sync_doxygen(doxyfile: str, new: Path, prev: Path) -> None:
 
         if prev_htmldir.exists():
             shutil.rmtree(prev_htmldir)
-        new_htmldir.rename(prev_htmldir)
+        
+        shutil.move(str(new_htmldir),str(prev_htmldir))
+        #new_htmldir.rename(prev_htmldir)
 
     xml_output = get_doxygen_option(doxyfile, "XML_OUTPUT")
     if not xml_output:
@@ -381,7 +383,7 @@ def create_driver_tree(doxygen_prj_name, doxygen_outdir):
     logger.info(f'environment loader path {os.path.join(os.path.dirname(os.path.abspath(__file__)),"template/")}')
     environment = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(os.path.abspath(__file__)),"template/")))
     template = environment.get_template("device_rm.tmp")
-    device_name = doxygen_prj_name.split("_")[-1]
+    device_name = doxygen_outdir.replace("\\","/").split("/")[-1]
     parameters = {"device_name": device_name, "group_names": collections.OrderedDict(group_names), "prj_name": doxygen_prj_name}
 
     content = template.render(parameters=parameters)
@@ -434,7 +436,8 @@ def doxygen_build(app: Sphinx) -> None:
         sync_doxygen(doxyfile, tmp_outdir, outdir)
         shutil.rmtree(tmp_outdir)
 
-        if doxygen_project_name.startswith("drivers"):
+        #create driver tree to render the API RM
+        if doxygen_project_name.startswith("drivers") or doxygen_project_name.startswith("board"):
             create_driver_tree(doxygen_project_name,str(outdir))
 
 

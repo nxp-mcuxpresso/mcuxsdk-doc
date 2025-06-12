@@ -58,7 +58,7 @@ def vcs_link_get_url(app: Sphinx, pagename: str, mode: str = "blob") -> Optional
     found_prefix = ""
     found_repstr = ""
     rev_branch = app.config.vcs_link_version
-    pagepath = app.env.project.doc2path(pagename, basedir=False).replace("\\","/")
+    pagepath = app.env.project.doc2path(pagename, False).replace("\\","/")
     for index in range(len(app.config.vcs_link_prefixes)): 
         pattern = app.config.vcs_link_prefixes[index]["pattern"]
         repstr = app.config.vcs_link_prefixes[index]["replace_prefix"]
@@ -105,7 +105,7 @@ def vcs_link_get_open_issue_url(app: Sphinx, pagename: str) -> Optional[str]:
 
     found_prefix = ""
     found_repstr = ""
-    pagepath = app.env.project.doc2path(pagename, basedir=False).replace("\\","/")
+    pagepath = app.env.project.doc2path(pagename, False).replace("\\","/")
     for index in range(len(app.config.vcs_link_prefixes)): 
         pattern = app.config.vcs_link_prefixes[index]["pattern"]
         repstr = app.config.vcs_link_prefixes[index]["replace_prefix"]

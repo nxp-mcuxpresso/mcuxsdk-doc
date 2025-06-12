@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/frdmke17z/mcuxsdk-frdmke17z.pdf
 .. _frdmke17z:
 
 FRDM-KE17Z

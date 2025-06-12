@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/frdmmcxc444/mcuxsdk-frdmmcxc444.pdf
 .. _frdmmcxc444:
 
 FRDM-MCXC444

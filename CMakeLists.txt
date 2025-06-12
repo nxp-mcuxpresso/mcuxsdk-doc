@@ -33,9 +33,19 @@ set(SPHINX_DOC_DEFINES "" CACHE STRING "Sphinx Documentation defines")
 foreach(DEFINE ${DOC_DEFINE_LIST})
   set(SPHINX_DOC_DEFINES "${SPHINX_DOC_DEFINES} -D ${DEFINE}")
 endforeach()
+
+
+# Add board_target parameter
+set(BOARD_TARGET "" CACHE STRING "Board target for building board-specific documentation")
+
+# Pass board_target to Sphinx
+if(BOARD_TARGET)
+  set(SPHINX_DOC_DEFINES "${SPHINX_DOC_DEFINES} -D board_target=${BOARD_TARGET}")
+  message(STATUS "Building documentation for board target: ${BOARD_TARGET}")
+endif()
+
 message(STATUS "Sphinx Documentation defines: ${SPHINX_DOC_DEFINES}")
 separate_arguments(SPHINX_DOC_DEFINES)
-
 #-------------------------------------------------------------------------------
 # Dependencies
 
@@ -157,6 +167,7 @@ add_doc_target(
     -D example_scope=${EXAMPLE_SCOPE}
     # -t ${DOC_TAG}
     ${SPHINX_DOC_TAGS}
+    ${SPHINX_DOC_DEFINES}
     -t svgconvert
     ${SPHINXOPTS}
     ${SPHINXOPTS_EXTRA}

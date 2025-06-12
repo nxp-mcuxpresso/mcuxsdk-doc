@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/twrkm34z50mv3/mcuxsdk-twrkm34z50mv3.pdf
 .. _twrkm34z50mv3:
 
 TWR-KM34Z50MV3

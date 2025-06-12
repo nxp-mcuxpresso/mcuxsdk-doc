@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/evkmimxrt1040/mcuxsdk-evkmimxrt1040.pdf
 .. _evkmimxrt1040:
 
 MIMXRT1040-EVK

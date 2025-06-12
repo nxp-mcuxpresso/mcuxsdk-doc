@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/k32w148evk/mcuxsdk-k32w148evk.pdf
 .. _k32w148evk:
 
 K32W148-EVK

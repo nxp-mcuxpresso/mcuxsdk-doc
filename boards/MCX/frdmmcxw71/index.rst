@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/frdmmcxw71/mcuxsdk-frdmmcxw71.pdf
 .. _frdmmcxw71:
 
 FRDM-MCXW71

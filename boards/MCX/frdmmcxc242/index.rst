@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/frdmmcxc242/mcuxsdk-frdmmcxc242.pdf
 .. _frdmmcxc242:
 
 FRDM-MCXC242

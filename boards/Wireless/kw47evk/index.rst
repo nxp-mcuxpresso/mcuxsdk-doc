@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/kw47evk/mcuxsdk-kw47evk.pdf
 .. _kw47evk:
 
 KW47-EVK

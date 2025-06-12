@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/lpcxpresso51u68/mcuxsdk-lpcxpresso51u68.pdf
 .. _lpcxpresso51u68:
 
 LPCXpresso51U68

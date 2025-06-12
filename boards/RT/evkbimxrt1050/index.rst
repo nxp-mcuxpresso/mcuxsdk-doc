@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/evkbimxrt1050/mcuxsdk-evkbimxrt1050.pdf
 .. _evkbimxrt1050:
 
 EVKB-IMXRT1050

@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/imx95verdinevk/mcuxsdk-imx95verdinevk.pdf
 .. _imx95verdinevk:
 
 IMX95VERDINEVK

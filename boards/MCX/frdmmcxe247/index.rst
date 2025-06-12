@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/frdmmcxe247/mcuxsdk-frdmmcxe247.pdf
 .. _frdmmcxe247:
 
 FRDM-MCXE247

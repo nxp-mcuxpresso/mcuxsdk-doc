@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/lpcxpresso55s36/mcuxsdk-lpcxpresso55s36.pdf
 .. _lpcxpresso55s36:
 
 LPCXpresso55S36

@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/evkmimx8mn/mcuxsdk-evkmimx8mn.pdf
 .. _evkmimx8mn:
 
 EVK-MIMX8MN

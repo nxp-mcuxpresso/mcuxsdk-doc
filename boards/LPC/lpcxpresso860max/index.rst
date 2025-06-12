@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/lpcxpresso860max/mcuxsdk-lpcxpresso860max.pdf
 .. _lpcxpresso860max:
 
 LPCXpresso860MAX

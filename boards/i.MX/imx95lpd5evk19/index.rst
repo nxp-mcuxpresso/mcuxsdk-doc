@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/imx95lpd5evk19/mcuxsdk-imx95lpd5evk19.pdf
 .. _imx95lpd5evk19:
 
 IMX95LPD5EVK-19

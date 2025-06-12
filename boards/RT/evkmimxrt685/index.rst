@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/evkmimxrt685/mcuxsdk-evkmimxrt685.pdf
 .. _evkmimxrt685:
 
 EVK-MIMXRT685

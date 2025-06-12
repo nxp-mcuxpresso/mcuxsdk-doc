@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/lpc845breakout/mcuxsdk-lpc845breakout.pdf
 .. _lpc845breakout:
 
 LPC845BREAKOUT

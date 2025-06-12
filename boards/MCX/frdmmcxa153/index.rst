@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/frdmmcxa153/mcuxsdk-frdmmcxa153.pdf
 .. _frdmmcxa153:
 
 FRDM-MCXA153

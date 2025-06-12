@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/mcimx93qsb/mcuxsdk-mcimx93qsb.pdf
 .. _mcimx93qsb:
 
 MCIMX93-QSB

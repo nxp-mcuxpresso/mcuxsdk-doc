@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/frdmmcxc041/mcuxsdk-frdmmcxc041.pdf
 .. _frdmmcxc041:
 
 FRDM-MCXC041

@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/rdrw612bga/mcuxsdk-rdrw612bga.pdf
 .. _rdrw612bga:
 
 RD-RW612-BGA

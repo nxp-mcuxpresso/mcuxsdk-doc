@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/mcxn9xxevk/mcuxsdk-mcxn9xxevk.pdf
 .. _mcxn9xxevk:
 
 MCX-N9XX-EVK

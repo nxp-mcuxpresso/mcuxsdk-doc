@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/mcimx93autoevk/mcuxsdk-mcimx93autoevk.pdf
 .. _mcimx93autoevk:
 
 MCIMX93AUTO-EVK

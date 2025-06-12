@@ -33,16 +33,18 @@ from sphinx.cmd.build import get_parser
 import sphinx_rtd_theme
 from functools import reduce
 from pprint import pprint
-import chardet,configparser
+import chardet,fnmatch
+from sphinx.util import logging
 
 # -- MCUXpresso SDK Configuration Data ----------------------------------------
 SDK_BASE = Path(__file__).absolute().parents[1]
 
+logger = logging.getLogger("sphinx.config")
 
 # Patch the example_board_readme.md to avoid the warning
 # WARNING: document isn't included in any toctree
 def patch_example_readme_md(app, docname, source):
-    if docname.endswith('example_board_readme'):
+    if docname.endswith('example_board_readme') or docname.find('ChangeLog_') != -1 or docname.find('commonrn') != -1:
         source[0] = f'''---
 orphan: true
 ---
@@ -56,21 +58,6 @@ def read_file(filename):
         content = f.read()
 
     return content
-
-def skip_problematic_tables(app, doctree, docname):
-    if app.builder.name == 'latex':
-        for node in doctree.traverse():
-            if node.tagname == 'table':
-                # Check if the table has a tbody element
-                tbody_found = False
-                for child in node.children:
-                    if child.tagname == 'tbody':
-                        tbody_found = True
-                        break
-
-                if not tbody_found:
-                    # Remove the problematic table
-                    node.parent.remove(node)
 
 def setup(app):
     app.connect('source-read', patch_example_readme_md)
@@ -118,7 +105,7 @@ def expand_example_scope(example_scope):
     elif example_scope.is_file():
         md_entries = [example_scope, ]
     else:
-        print(f'ERROR: Invalid example scope: {example_scope}')
+        logger.error(f'ERROR: Invalid example scope: {example_scope}')
         return []
 
     # Append md files
@@ -148,10 +135,10 @@ class MCUXDocConfig:
         # If example_scope is specified through command line, use it.
         if example_scope != '':
             example_doc_files = expand_example_scope(example_scope)
-            print('-' * 100)
-            print("Files used for example readme generation")
+            logger.debug('-' * 100)
+            logger.debug("Files used for example readme generation")
             pprint(example_doc_files)
-            print('-' * 100)
+            logger.debug('-' * 100)
 
             self.config['modules']['examples']['external_contents'] = [
                 { 'root': '.', 'pattern': x } for x in example_doc_files
@@ -159,27 +146,33 @@ class MCUXDocConfig:
 
         # Find matched tags
         self.user_tags = user_tags
-        print('-- Collecting MCUXDocConfig Tags')
+        logger.info('-- Collecting MCUXDocConfig Tags')
         for tag in self.user_tags:
-            print(f'  [+] {tag}')
+            logger.info(f'  [+] {tag}')
 
         if self.is_internal_doc:
-            print('-- Creating Internal Document')
+            logger.info('-- Creating Internal Document')
         else:
-            print('-- Creating External Document')
+            logger.info('-- Creating External Document')
 
-        print('-- Collecting User Modules')
+        logger.info('-- Collecting User Modules')
         # Match with module tag
         self.module_tags = []
-        for module_name, _ in self.iter_configs():
+        for module_name, module_config in self.iter_configs():
             if any([re.fullmatch(tag, module_name) for tag in self.user_tags]):
                 self.module_tags.append(module_name)
+                if module_config.get('doxygen_runner', False):
+                    self.user_tags.add('doxygen')
+
         if not self.module_tags:
             for module_name, module_config in self.iter_configs():
                 if module_config.get('default', False):
                     self.module_tags.append(module_name)
+                    if module_config.get('doxygen_runner', False):
+                        self.user_tags.add('doxygen')
+        
         for module in self.module_tags:
-            print(f'  [+] {module}')
+            logger.info(f'  [+] {module}')
         
         #collect URL map
         self.url_map = {}
@@ -248,19 +241,19 @@ class MCUXDocConfig:
         # Get the module extenral config
         mod_option = mod_config.get(key, [])
         if mod_option:
-            print(f'  [+] [external][{key}][{mod_name}]')
+            logger.info(f'  [+] [external][{key}][{mod_name}]')
 
         # Get the internal module
         int_mod_config = mod_config.get('internal', {})
         if self.is_internal_doc and int_mod_config and int_mod_config.get(key, []):
-            print(f'  [+] [internal][{key}][{mod_name}]')
+            logger.info(f'  [+] [internal][{key}][{mod_name}]')
             mod_option.extend(int_mod_config.get(key, []))
 
         return mod_option
 
     @property
     def extensions(self):
-        print('-- Collect Extensions')
+        logger.info('-- Collect Extensions')
         my_extensions = self.config['extensions']
 
         if self.is_run_doxygen:
@@ -278,7 +271,7 @@ class MCUXDocConfig:
 
     @property
     def external_content_contents(self):
-        print('-- Collect External Content')
+        logger.debug('-- Collect External Content')
         contents = [
             (SDK_BASE / item['root'], item['pattern']) for item in self.config.get('external_contents', [])
         ]
@@ -329,11 +322,11 @@ class MCUXDocConfig:
         for link in links:
             self.get_repo_url(link)
         
-        print(f"VCS links {links}")
+        logger.debug(f"VCS links {links}")
         return links
 
     def doxygen_projects(self):
-        print('-- Collect information for doxygen projects')
+        logger.debug('-- Collect information for doxygen projects')
         doxygen_dicts = {}
 
         for module_name, module_config in self.iter_modules():
@@ -349,7 +342,7 @@ class MCUXDocConfig:
             mod_doxygen["doxyfile"] = os.path.join(SDK_BASE, mod_doxygen["doxyfile"])
             mod_doxygen["outdir"] = os.path.join(DOC_BUILD, "doxygen", mod_doxygen["outdir"])
         
-        print(f"doxygen projects {doxygen_dicts}")
+        logger.debug(f"doxygen projects {doxygen_dicts}")
         return doxygen_dicts
 
 
@@ -366,23 +359,275 @@ if args.define:
         key, value = item.split('=', 1)
         d_params[key] = value
 
+# Add board_target configuration
+logger.debug(f"{d_params}")
+board_target = d_params.get('board_target', None)
+if board_target:
+    logger.debug(f"-- Building documentation for board target: {board_target}")
+    
+    # Determine board family and path
+    board_parts = board_target.split('/')
+    if len(board_parts) == 2:
+        board_family, board_name = board_parts
+        board_path = f"boards/{board_family}/{board_name}"
+        logger.debug(f"-- Board path: {board_path}")
+    else:
+        board_family = None
+        board_name = board_target
+        # Try to find the board in all families
+        for family in ["DSC", "i.MX", "RT", "Kinetis", "LPC", "MCX", "Wireless"]:
+            potential_path = f"boards/{family}/{board_name}"
+            if (SDK_BASE / "docs" / potential_path).exists():
+                board_family = family
+                board_path = potential_path
+                logger.debug(f"-- Found board in family {board_family}, path: {board_path}")
+                break
+        
+        if not board_family:
+            logger.warn(f"-- Warning: Could not determine board family for {board_name}")
+            board_path = None
+    
+    # Filter user configuration based on board target
+    if board_path and (SDK_BASE / "docs" / board_path).exists():
+        # Load user config to get module patterns
+        user_config_path = os.path.join(SDK_BASE, "docs", "_cfg", "user_config.yml")
+        with open(user_config_path, encoding='utf-8') as f:
+            user_config = yaml.safe_load(f)
+        
+        # Initialize sets to track files and modules
+        included_files = set()
+        included_modules = set([f'board_{board_name}'])  # Always include these
+        processed_files = set()
+        
+        def add_processed_files(file_path):
+            if not file_path.exists():
+                return False
+
+            if str(file_path).startswith(str(SDK_BASE / "docs")):
+                if str(file_path.relative_to(SDK_BASE / "docs")) in processed_files:
+                    return False
+                processed_files.add(str(file_path.relative_to(SDK_BASE / "docs")))
+                included_files.add(str(file_path.relative_to(SDK_BASE / "docs")))
+            else:
+                if str(file_path.relative_to(SDK_BASE)) in processed_files:
+                    return False
+                processed_files.add(str(file_path.relative_to(SDK_BASE )))
+                included_files.add(str(file_path.relative_to(SDK_BASE)))
+            
+            return True
+
+        # Function to process a file and find dependencies
+        def process_file(file_path, is_board_file=False):
+            if not add_processed_files(file_path):
+                return
+
+            logger.debug(f"-- Processing file: {file_path}")
+            
+            # Read the file content
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+            except Exception as e:
+                logger.error(f"-- Error reading {file_path}: {e}")
+                return
+            
+            # Find toctree entries
+            if file_path.suffix == '.rst':
+                toctree_pattern = re.compile(r'^\.\. toctree::(.*?)(?=^\S|\Z)', re.MULTILINE | re.DOTALL)
+                for toctree_match in toctree_pattern.finditer(content):
+                    toctree_content = toctree_match.group(1)
+                    
+                    # Extract file paths from the toctree
+                    lines = toctree_content.strip().split('\n')
+                    for line in lines:
+                        line = line.strip()
+                        if line and not line.startswith(':') and not line.startswith('#'):
+                            # Resolve the path relative to the current file
+                            ref_path = resolve_path(file_path.parent, line)
+                            if ref_path:
+                                process_file(ref_path, is_board_file)
+            
+                # Find :ref: references
+                ref_pattern = re.compile(r':ref:`([^`]+)`')
+                for ref_match in ref_pattern.finditer(content):
+                    ref_name = ref_match.group(1)
+                    
+                    # Special case for freertos
+                    if ref_name in user_config["modules"]:
+                        included_modules.add(ref_name)
+                    
+                    # Find the file that defines the reference
+                    ref_file = find_ref_file(ref_name)
+
+                    if ref_file:
+                        #only search for index, no recursively search
+                        if "index" not in ref_file.name:
+                            add_processed_files(ref_file)
+                        else:
+                            process_file(ref_file, is_board_file)
+
+                # Find :ref: references
+                doc_pattern = re.compile(r':doc:`([^`]+)`')
+                for doc_match in doc_pattern.finditer(content):
+                    doc_path = doc_match.group(1)
+                    ref_path = resolve_path(file_path.parent, doc_path)
+                    if ref_path:
+                        process_file(ref_path, is_board_file)
+            
+        
+            # Find markdown link files
+            if file_path.suffix == '.md':
+                
+                # Find all markdown links [text](link)
+                md_link_pattern = r'\[.*?\]\((.*?)(?:\s.*?)?\)'
+                for md_link_match in re.finditer(md_link_pattern, content):
+                    link = md_link_match.group(1).strip()
+                    # Ignore external links and anchors
+                    if not link.startswith(('http://', 'https://', '#')):
+                        link_path = link.split('#')[0]
+                        # Resolve the path relative to the current file
+                        ref_path = resolve_path(file_path.parent, link_path)
+                        if ref_path:
+                            process_file(ref_path, is_board_file)
+
+                # Find all include markdown files with syntax {include}
+                md_include_pattern = r'\{include\}(\s*.*)'
+                for md_include_match in re.finditer(md_include_pattern, content):
+                    md_include_path = md_include_match.group(1).strip()
+                    # Resolve the path relative to the current file
+                    ref_path = resolve_path(file_path.parent, md_include_path)
+                    if ref_path:
+                        process_file(ref_path, is_board_file)
+                   
+        # Function to resolve a path relative to a base directory
+        def resolve_path(base_dir, path):
+            path_ext = os.path.splitext(path)[1]
+            if path_ext not in ['.rst', '.md', '']:
+                return None
+
+            # Try with different extensions
+            for ext in ['.rst', '.md', '']:
+                full_path = (base_dir / f"{path}{ext}").resolve()
+                if full_path.exists():
+                    return full_path
+
+            # If not found, try modified base_dir point to SDK_BASE as parent
+            base_dir = Path(str(base_dir).replace(str(SDK_BASE / "docs"), str(SDK_BASE)))
+            for ext in ['.rst', '.md', '']:
+                full_path = (base_dir / f"{path}{ext}").resolve()
+                if full_path.exists():
+                    return full_path
+            
+            # If not found, try as an absolute path from docs directory
+            for ext in ['.rst', '.md', '']:
+                full_path = (SDK_BASE / "docs" / f"{path.lstrip('/')}{ext}").resolve()
+                if full_path.exists():
+                    return full_path
+
+            # If not found, try as an absolute path from SDK_BASE directory
+            for ext in ['.rst', '.md', '']:
+                full_path = (SDK_BASE / f"{path.lstrip('/')}{ext}").resolve()
+                if full_path.exists():
+                    return full_path
+            
+            logger.error(f"-- Could not resolve path: {path} from {base_dir}")
+            return None
+        
+        # Function to find the file that defines a reference
+        def find_ref_file(ref_name):
+            # Search for the reference in all .rst files
+            for rst_file in (SDK_BASE).glob('**/*.rst'):
+                try:
+                    with open(rst_file, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                        if f".. _{ref_name}:" in content:
+                            return rst_file
+                except Exception as e:
+                    logger.error(f"-- Error reading {rst_file}: {e}")
+            
+            logger.error(f"-- Could not find reference: {ref_name}")
+            return None
+        
+        # Start with the board's index.rst
+        board_index = SDK_BASE / "docs" / board_path / "index.rst"
+        if board_index.exists():
+            process_file(board_index, True)
+
+        # Match files to modules
+        run_doxygen = False
+        device_path = "drivers"
+        if 'modules' in user_config:
+            for module_name, module_config in user_config['modules'].items():
+                if 'external_contents' in module_config:
+                    for content_config in module_config['external_contents']:
+                        root = content_config.get('root', '.')
+                        pattern = content_config.get('pattern', '')
+                        glob_pattern = pattern
+
+                        # Check if any included file matches this pattern
+                        for file_path in included_files:
+                            normalized_path = os.path.normpath(file_path)
+                            normalized_pattern = os.path.normpath(glob_pattern)
+                            logger.debug(f"-- Checking file: {normalized_path} against pattern: {normalized_pattern}")
+                            if fnmatch.fnmatch(normalized_path, normalized_pattern):
+                                included_modules.add(module_name)
+                                if "doxygen_runner" in module_config:
+                                    run_doxygen = True
+                                    if module_config["doxygen_runner"]["outdir"].startswith("drivers"):
+                                        #device_name = module_config["doxygen_runner"]["outdir"].replace("\\","/").split("/")[-1]
+                                        device_path = module_config["doxygen_runner"]["outdir"].replace("\\","/")
+                                break
+        
+        # Filter the tags parameter to include only board-related modules
+        if 'tags' in d_params:
+            all_modules = d_params['tags'].split(',')
+            filtered_modules = [module for module in all_modules if module in included_modules]
+        else:
+            filtered_modules = included_modules
+        d_params['tags'] = ','.join(filtered_modules)
+        # if run_doxygen:
+        #     d_params['tags'] = d_params['tags'] + ',doxygen'
+        
+        logger.info(f"-- Filtered modules for board {board_target}: {filtered_modules}")
+        
+        # Create a custom master document for board-specific builds
+        master_doc = 'board_index'
+        
+        # Create a temporary index file that only includes the board documentation
+        board_index_content = f"""
+# Board-Specific Documentation: {board_target}
+
+This documentation contains information specific to the {board_name} board.
+
+.. toctree::
+   :maxdepth: 1
+
+   {board_path}/index
+   {device_path}/index
+   middleware/**/index
+   rtos/index
+"""
+        logger.info(f"{board_index_content}") 
+        
+        # Write the temporary index file
+        board_index_path = SDK_BASE / "docs" / "board_index.rst"
+        with open(board_index_path, 'w') as f:
+            f.write(board_index_content)
+        
+        # Set the master document
+        d_params['master_doc'] = 'board_index'
+        master_doc = 'board_index'
+
+# Now initialize mcux_config with the filtered parameters
+
 example_scope = d_params.get('example_scope', '')
+for tag in d_params.get('tags', '').split(','):
+    if not tags.has(tag):
+        tags.add(tag)
+        logger.debug(f"-- Adding tag: {tag}")
 
 mcux_config = MCUXDocConfig(tags, example_scope)  # pylint: disable=undefined-variable
 
-# -- Functions -----------------------------------------------------------------
-# def search_sdk_base():
-#     # starting from current path, if its parent path
-#     # get file Kconfig.mcuxpresso in the folder, then the path is the SDK base
-#     current_path = Path(__file__).absolute()
-#     for _ in range(5):
-#         if (current_path / "Kconfig.mcuxpresso").exists():
-#             print(f"-- Found SDK base path: {current_path}")
-#             return current_path
-#         current_path = current_path.parent
-#     raise RuntimeError(f"-- Cannot find SDK base path starting from {Path(__file__).absolute()}")
-
-# SDK_BASE = search_sdk_base()
 DOC_BASE = SDK_BASE / "docs"
 DOC_BUILD = Path(args.outputdir).resolve().parents[0]
 # sys.path.insert(0, os.path.abspath('.'))
@@ -430,9 +675,16 @@ latex_elements = {
     ),
 }
 latex_logo = str(SDK_BASE / "docs" / "internal" / "images" / "logo-nxp.pdf")
-latex_documents = [
+
+if board_target:
+  latex_documents = [
+    (master_doc, f"mcuxsdk-{board_target}.tex", "MCUXpresso SDK Documentation", author, "manual"),
+]
+else:
+  latex_documents = [
     ("index-tex", "mcuxsdk.tex", "MCUXpresso SDK Documentation", author, "manual"),
 ]
+
 latex_engine = "xelatex"
 
 # -- Options for doxyrunner plugin ---------------------------------
@@ -440,14 +692,10 @@ latex_engine = "xelatex"
 if 'doxyrunner' in extensions and mcux_config.is_run_doxygen:
     doxyrunner_doxygen = os.environ.get("DOXYGEN_EXECUTABLE", "doxygen")
     doxyrunner_doxydicts = mcux_config.doxygen_projects()
-    # doxyrunner_doxyfile = DOC_BASE / "drivers" / "Doxyfile_lib_PDF_RM_Drivers"
-    # doxyrunner_outdir = DOC_BUILD / "doxygen"
     doxyrunner_fmt = True
     doxyrunner_fmt_vars = {"SDK_BASE": str(SDK_BASE)}
     doxyrunner_outdir_var = "DOXY_OUT"
 
-    # print(f"doxygen runner configuration: {doxyrunner_outdir}")
-    # Breathe Configuration
     breathe_projects = {}
     print(doxyrunner_doxydicts)
     
@@ -456,7 +704,7 @@ if 'doxyrunner' in extensions and mcux_config.is_run_doxygen:
         if not default_project:
             default_project = mod_name
         breathe_projects[mod_name] = f'{mod_doxygen["outdir"]}/xml'
-        print(f'breathe_projects[{mod_name}] = {mod_doxygen["outdir"]}/xml')
+        logger.debug(f'breathe_projects[{mod_name}] = {mod_doxygen["outdir"]}/xml')
     
     breathe_default_project = default_project
     breathe_separate_member_pages = True
@@ -581,4 +829,9 @@ if 'external_content' in extensions:
 
 suppress_warnings = [
     "myst.header", # WARNING: Non-consecutive header level increase; H4 to H7 [myst.header]
+    'image.fetch'
 ]
+# suppress_warnings = ['image.fetch']
+# conf.py
+image_fetch_timeout = 1  # Timeout in seconds
+#myst_heading_anchors = 2

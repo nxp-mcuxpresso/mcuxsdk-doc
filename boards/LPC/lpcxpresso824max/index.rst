@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/lpcxpresso824max/mcuxsdk-lpcxpresso824max.pdf
 .. _lpcxpresso824max:
 
 LPCXpresso824MAX

@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/frdmrw612/mcuxsdk-frdmrw612.pdf
 .. _frdmrw612:
 
 FRDM-RW612

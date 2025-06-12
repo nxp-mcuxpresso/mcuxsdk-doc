@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/kw45b41zevk/mcuxsdk-kw45b41zevk.pdf
 .. _kw45b41zevk:
 
 KW45B41Z-EVK

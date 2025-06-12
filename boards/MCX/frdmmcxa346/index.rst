@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/frdmmcxa346/mcuxsdk-frdmmcxa346.pdf
 .. _frdmmcxa346:
 
 FRDM-MCXA346

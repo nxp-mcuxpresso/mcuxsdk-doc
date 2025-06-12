@@ -1,3 +1,5 @@
+:pdf-download: ../../../_assets/boards/evk9mimx8ulp/mcuxsdk-evk9mimx8ulp.pdf
+
 .. _evk9mimx8ulp:
 
 EVK9-MIMX8ULP

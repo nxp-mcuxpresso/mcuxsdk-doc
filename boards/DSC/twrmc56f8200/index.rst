@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/twrmc56f8200/mcuxsdk-twrmc56f8200.pdf
 .. _twrmc56f8200:
 
 TWR-MC56F8200

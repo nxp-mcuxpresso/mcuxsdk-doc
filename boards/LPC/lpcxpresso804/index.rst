@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/lpcxpresso804/mcuxsdk-lpcxpresso804.pdf
 .. _lpcxpresso804:
 
 LPCXpresso804

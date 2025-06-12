@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/imx95lp4xevk15/mcuxsdk-imx95lp4xevk15.pdf
 .. _imx95lp4xevk15:
 
 IMX95LP4XEVK-15

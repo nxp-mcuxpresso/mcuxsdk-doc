@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/lpcxpresso54628/mcuxsdk-lpcxpresso54628.pdf
 .. _lpcxpresso54628:
 
 LPCXpresso54628

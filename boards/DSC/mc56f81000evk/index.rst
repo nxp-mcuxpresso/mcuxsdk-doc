@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/mc56f81000evk/mcuxsdk-mc56f81000evk.pdf
 .. _mc56f81000evk:
 
 MC56F81000-EVK

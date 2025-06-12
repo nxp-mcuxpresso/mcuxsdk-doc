@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/frdmmcxn236/mcuxsdk-frdmmcxn236.pdf
 .. _frdmmcxn236:
 
 FRDM-MCXN236

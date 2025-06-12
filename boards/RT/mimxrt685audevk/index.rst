@@ -1,3 +1,4 @@
+:pdf-download: ../../../_assets/boards/mimxrt685audevk/mcuxsdk-mimxrt685audevk.pdf
 .. _mimxrt685audevk:
 
 MIMXRT685-AUD-EVK
