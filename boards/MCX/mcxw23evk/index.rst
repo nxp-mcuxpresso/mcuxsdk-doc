@@ -39,7 +39,7 @@ Getting Started with MCUXpresso SDK GitHub
 Release Notes
 *******************************************
 
-**This is an Early Access Release (EAR) for MCXW23-EVK development board. It can be used for pre-production development only.**
+**This is an Ready For Production Release (RFP) for MCXW23-EVK development board.**
 
 .. toctree::
    :maxdepth: 1

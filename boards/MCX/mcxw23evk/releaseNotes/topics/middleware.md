@@ -13,4 +13,14 @@
 ```{include} /release/commonrn/topics/christopher_haster_littlefs.md
 :heading-offset: 2
 ```
+```{include} /release/commonrn/topics/nxp_ble_stack.md
+:heading-offset: 2
+```
 
+```{include} /release/commonrn/topics/nxp_ble_controller_snps.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_conn_fwk.md
+:heading-offset: 2
+```

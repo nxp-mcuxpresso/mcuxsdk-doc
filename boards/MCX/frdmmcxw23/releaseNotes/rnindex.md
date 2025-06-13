@@ -29,6 +29,10 @@
 :heading-offset: 1
 ```
 
+```{include} topics/what_is_new.md
+:heading-offset: 1
+```
+
 ```{include} topics/known_issues.md
 :heading-offset: 1
 ```
