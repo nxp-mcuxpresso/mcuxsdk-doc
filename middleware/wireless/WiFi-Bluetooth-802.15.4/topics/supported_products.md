@@ -7,7 +7,6 @@
 -   AW611[^3]
 -   RW610
 -   RW612
--   88W8801
 
 **Parent topic:**[About this document](../topics/about_this_document.md)
 

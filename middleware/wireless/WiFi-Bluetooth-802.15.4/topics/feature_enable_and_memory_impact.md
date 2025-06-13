@@ -14,6 +14,8 @@
 |802.11mc|CONFIG\_11MC <br>CONFIG\_CSI <br>CONFIG\_WLS\_CSI\_PROC[^2] <br>CONFIG\_11AZ|Flash: 52.78KB, RAM : 121.1KB|
 |802.11az|CONFIG\_11MC <br>CONFIG\_CSI\[2\] <br>CONFIG\_WLS\_CSI\_PROC[^2] <br>CONFIG\_11AZ|Flash: 52.78KB, RAM : 121.1KB|
 |Non-blocking firmware download mechanism|CONFIG\_FW\_DNLD\_ASYNC|—|
+|Antenna diversity|CONFIG_WLAN_CALDATA_2ANT_DIVERSITY|-|
+|P2P|CONFIG_WPA_SUPP_P2P |-|
 
 **Note:**
 
@@ -27,7 +29,7 @@
 
 
 
-```{include} ../topics/slim_feature.md
+```{include} ../topics/Kconfig_memory_optimizer.md
 :heading-offset: 1
 ```
 

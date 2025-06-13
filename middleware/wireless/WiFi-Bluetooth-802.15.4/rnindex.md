@@ -14,7 +14,6 @@ topics/iw611-iw612-release-notes.md
 topics/rw610-rw612-release-notes.md
 topics/iw610-release-notes.md
 topics/aw611-release-notes.md
-topics/88w8801-release-notes.md
 topics/abbreviations.md
 topics/references.md
 ``````
