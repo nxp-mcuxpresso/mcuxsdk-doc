@@ -30,8 +30,9 @@ The following changes have been implemented compared to the previous SDK release
     -   Updated **documentation** to clarify **Controller Privacy** restrictions .
 
     -   Details can be found in **CHANGELOG.md**.
+
 -   **Bluetooth LE controller**
-    -   HADM, PAwR fixes and stability improvements.
+    -   HADM, PAwR fixes, and stability improvements.
 
 -   **Transceiver drivers (XCVR)**
     -   Added support for Bluetooth LE Channel Sounding

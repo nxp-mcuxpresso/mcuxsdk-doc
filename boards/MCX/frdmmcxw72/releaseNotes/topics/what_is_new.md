@@ -11,7 +11,7 @@ The following changes have been implemented compared to the previous SDK release
     -   Option to use statically allocated **memory** for dynamic **GATT database** (prevents heap fragmentation).
     -   Checks for **controller** supported features and setting **PAST bits** accordingly.
     -   **Shell commands** to list peer devices and trigger connection handover.
-    -   **cs_sync_phy** parameter to mDefaultRangeSettings (**renamed** from outdated RTTPhy).
+    -   **cs_sync_phy** parameter renamed to mDefaultRangeSettings (from outdated RTTPhy).
 
     ### Improved
     -   **Stack Host** now saves the most recently set **random address** after successful controller response.
@@ -29,8 +29,9 @@ The following changes have been implemented compared to the previous SDK release
     -   Updated **documentation** to clarify **Controller Privacy** restrictions .
 
     -   Details can be found in **CHANGELOG.md**.
+
 -   **Bluetooth LE controller**
-    -   HADM, PAwR fixes and stability improvements.
+    -   HADM, PAwR fixes, and stability improvements.
 
 -   **Transceiver drivers (XCVR)**
     -   Added support for Bluetooth LE Channel Sounding

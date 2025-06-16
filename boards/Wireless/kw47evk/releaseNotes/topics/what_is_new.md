@@ -14,7 +14,7 @@ The following changes have been implemented compared to the previous SDK release
     -   **Anchor** support to **export** device local HCI data using gAppHciDataLogExport_d = 1.
     -   **Shell commands** to list peer devices and trigger connection handover.
     -   Define for **enabling** optional **CCC** LE Coded **PHY** advertising.
-    -   **cs_sync_phy** parameter to mDefaultRangeSettings (**renamed** from outdated RTTPhy).
+    -   **cs_sync_phy** parameter renamed to mDefaultRangeSettings (from outdated RTTPhy).
 
     ### Improved
     -   **Stack Host** now saves the most recently set **random address** after successful controller response.
@@ -35,7 +35,7 @@ The following changes have been implemented compared to the previous SDK release
 
     -   Details can be found in **CHANGELOG.md**.
 -   **Bluetooth LE controller**
-    -   HADM, PAwR fixes and stability improvements.
+    -   HADM, PAwR fixes, and stability improvements.
 
 -   **Transceiver drivers (XCVR)**
     -   Added support for Bluetooth LE Channel Sounding
