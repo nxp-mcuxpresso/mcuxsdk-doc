@@ -22,19 +22,15 @@ MCU device and part on board is shown below:
  - PartNumber: MCXW236BIHNAR
 
 
-Getting Started with MCUXpresso SDK Package
-*******************************************
-.. toctree::
-   :maxdepth: 1
-
-   gettingStarted/gsindex.md
-
 Getting Started with MCUXpresso SDK GitHub
 *******************************************
 .. toctree::
    :maxdepth: 1
 
    ../../../gsd/repo.rst
+
+   gettingStarted/topics/how_to_determine_com_port.md
+   gettingStarted/topics/updating_debugger_firmware.md
    
 Release Notes
 *******************************************
