@@ -10,4 +10,3 @@
 - Faulty Passive Channel Assessment Behavior
     -   In rare cases where only one channel is deemed suitable during channel assessment, connection establishment may not succeed.
     -   Channel assessment might not work on connections with slave latency > 0
-    -   A fix has been identified and will be included in the next release.
