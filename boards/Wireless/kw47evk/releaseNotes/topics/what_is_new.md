@@ -1,18 +1,38 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.03.00\).
+The following changes have been implemented compared to the previous SDK release version \(25.06.00\).
 
 
--   **Bluetooth LE host stack and applications**
+-   **Bluetooth LE Host Stack and Applications**
     ### Added
-    -   **Encypted Advertising Data** support in Extendded Advertising Applications.
-    -   Support for **disable UART** for **CS applications** for **low power measurements**.
-    -   Support for **LCE (DSPV) non-blocking API** integration to **RADE**.
-    -   **Intrusion Detection System** as **Experimental**.
+    -   **Gap_SetBondedDeviceName()** to set device name using NVM index.
+    -   **RAS** queue for GATT indications sent.
+    -   **gHciStatusBase_c** to **csError** status.
+    -   Option to use statically allocated **memory** for dynamic **GATT database** (prevents heap fragmentation).
+    -   Checks for **controller** supported features and setting **PAST bits** accordingly.
+    -   **Anchor** support to **export** device data via RAS using gAppHciDataLogExport_d = 2.
+    -   **Anchor** support to **export** device local HCI data using gAppHciDataLogExport_d = 1.
+    -   **Shell commands** to list peer devices and trigger connection handover.
+    -   Define for **enabling** optional **CCC** LE Coded **PHY** advertising.
+    -   **cs_sync_phy** parameter to mDefaultRangeSettings (**renamed** from outdated RTTPhy).
 
     ### Improved
-    -   **L2CAP command length validation** to cover all signaling commands. 
-	
+    -   **Stack Host** now saves the most recently set **random address** after successful controller response.
+    -   Miscellaneous **minor** application **updates**.
+
+    ### Fixed
+    -   Compilation issue in **loc_reader app** with real-time RAS transfer.
+    -   **CCC** application **handover state machine** race condition.
+    -   **CCC** resets **gCurrentAdvHandle** upon connection.
+    -   **RAS** uses correct bit for data overwrite preference.
+
+    ### Changed
+    -   Updated **Bluetooth LE Host Documentation**.
+    -   **BLE_Shell** Tx timer interval adjusted for **max throughput** on 1M PHY.
+    -   **CS_ConfigVendorCommand** updated with **Inline Phase Return** field.
+    -   Renamed **tx_pwr_phy** to **phy** and removed obsolete rtt_phy field.
+    -   Updated **documentation** to clarify **Controller Privacy** restrictions .
+
     -   Details can be found in **CHANGELOG.md**.
 -   **Bluetooth LE controller**
     -   HADM, PAwR fixes and stability improvements.

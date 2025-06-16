@@ -1,17 +1,11 @@
 # What is new
 
-The following changes have been implemented compared to the previous SDK release version \(25.03.00\).
+The following changes have been implemented compared to the previous SDK release version \(25.06.00\).
 
 
 -   **Bluetooth LE host stack and applications**
-    ### Added
-    -   **Encypted Advertising Data** support in Extendded Advertising Applications.
-    -   **Intrusion Detection System** as **Experimental**.
+    -   No support.
 
-    ### Improved
-    -   **L2CAP command length validation** to cover all signaling commands.
-	
-    -   Details can be found in **CHANGELOG.md**.
 -   **Bluetooth LE controller**
     -   PAwR fixes and stability improvements.
 

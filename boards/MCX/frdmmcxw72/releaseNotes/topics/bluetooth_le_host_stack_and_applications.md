@@ -1,6 +1,6 @@
-# Bluetooth LE host stack and applications
+# Bluetooth LE Host Stack and Applications
 
-The Bluetooth LE Host Stack component provides an implementation for a Bluetooth 5.3 mandatory and some optional, proprietary, and experimental features. The Bluetooth LE Host Stack component provides application examples, services, and profiles.
+The Bluetooth LE Host Stack component provides an implementation for a Bluetooth 6.0 mandatory and some optional, proprietary, and experimental features. The Bluetooth LE Host Stack component provides application examples, services, and profiles.
 
 Main features supported:
 
@@ -23,10 +23,11 @@ Main features supported:
 -   Enhanced Notifications
 -   Dynamic Database
 -   OTA Support - Sample Applications
--   Decision based Advertising Filtering - Experimental feature
--   Advertising Coding Selection - Experimental feature
--   Channel Sounding - Experimental feature with controlled access (contact your NXP representative for access)
--   Bluetooth LE Controller main and experimental features and capabilities described below are supported by the Bluetooth LE Host.
+-   Decision based Advertising Filtering \(DBAF\)
+-   Advertising Coding Selection \(ACS\)
+-   Periodic Advertising with Responses \(PAwR)
+-   Encrypted Advertising Data \(EAD\)
+-   Intrusion Detection System \(IDS\) - Experimental feature
 
     **Note:** For evaluating experimental features, replace the Bluetooth LE Host default example projects libraries with the libraries from the *SDK* folder *..\\middleware\\wireless\\bluetooth\\host\\lib\_exp* and enable the features in the application. The Radio Subsystem \(NBU\) Firmware with experimental features is required.
 
