@@ -8,12 +8,12 @@ These steps show how to update the debugger firmware on your board for Windows o
 
 1.  Install the MCU-Link utility.
 2.  Unplug the USB cable of the board.
-3.  Install the jumper on JP20.
+3.  Install the jumper on JP12.
 4.  Connect the probe to the host via USB \(use Link USB connector\).
 5.  Open a command shell and call the appropriate script located in the MCU-Link installation directory, *<MCU-Link install dir\>*.
 
     1.  To program CMSIS-DAP debug firmware: *<MCU-Link install dir\>/scripts/program\_CMSIS*.
     2.  To program J-Link debug firmware: *<MCU-Link install dir\>/scripts/program\_JLINK*.
-6.  Remove the jumper on JP20.
+6.  Remove the jumper on JP12.
 7.  Re-power the board by removing the USB cable and plugging it in again.
 
