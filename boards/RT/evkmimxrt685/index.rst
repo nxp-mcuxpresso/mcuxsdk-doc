@@ -1,13 +1,13 @@
 :pdf-download: ../../../_assets/boards/evkmimxrt685/mcuxsdk-evkmimxrt685.pdf
 .. _evkmimxrt685:
 
-EVK-MIMXRT685
+MIMXRT685-EVK
 ####################
 
 Overview
 ********
 
-The NXP IMXRT685-EVKB is a development board for the i.MX RT600 Crossover MCU with Arm Cortex-M33 and DSP Cores.
+The NXP MIMXRT685-EVK is a development board for the i.MX RT600 Crossover MCU with Arm Cortex-M33 and DSP Cores.
 
 .. image:: ./evkmimxrt685.png
    :width: 240px

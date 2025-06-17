@@ -1,7 +1,7 @@
 :pdf-download: ../../../_assets/boards/evkmimxrt1064/mcuxsdk-evkmimxrt1064.pdf
 .. _evkmimxrt1064:
 
-EVK-MIMXRT1064
+MIMXRT1064-EVK
 ####################
 
 Overview
