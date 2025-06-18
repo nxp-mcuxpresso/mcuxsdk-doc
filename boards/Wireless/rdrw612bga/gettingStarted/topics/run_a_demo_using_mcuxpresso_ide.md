@@ -2,7 +2,7 @@
 
 **Note:** Ensure that the MCUXpresso IDE toolchain is included when generating the MCUXpresso SDK package.
 
-This section describes the steps required to configure MCUXpresso IDE to build, run, and debug example applications. The `hello_world` demo application targeted for the RD-RW61X-BGA hardware platform is used as an example, though these steps can be applied to any example application in the MCUXpresso SDK.
+This section describes the steps required to configure MCUXpresso IDE to build, run, and debug example applications. The `hello_world` demo application targeted for the RD-RW612-BGA hardware platform is used as an example, though these steps can be applied to any example application in the MCUXpresso SDK.
 
 
 ```{include} ../topics/select_the_workspace_location.md

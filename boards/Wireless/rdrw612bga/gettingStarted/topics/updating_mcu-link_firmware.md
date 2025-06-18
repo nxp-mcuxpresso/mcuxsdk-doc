@@ -10,7 +10,7 @@ These steps show how to update the debugger firmware on your board for Windows o
 
 1.  Install the MCU-Link utility.
 2.  Unplug the board's USB cable.
-3.  Make the DFU link \(install the jumper labelled DFUlink, JP10 on RD-RW61X-BGA board\).
+3.  Make the DFU link \(install the jumper labelled DFUlink, JP10 on RD-RW612-BGA board\).
 4.  Connect the probe to the host via USB \(use Link USB connector\).
 5.  Open a command shell and call the appropriate script located in the MCU-Link installation directory \(`<MCU-Link install dir>`\).
     1.  To program CMSIS-DAP debug firmware: `<LPCScrypt install dir>/scripts/program_CMSIS`
