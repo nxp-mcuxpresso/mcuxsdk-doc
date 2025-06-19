@@ -40,27 +40,27 @@ The following changes have been implemented compared to the previous SDK release
 -   **Connectivity framework**
 
     -   **Major Changes**
-        -   [KW47/MCXW72] NBU: Add new fwk_platform_dcdc.[ch] files to allow DCDC stepping by using SPC high power mode. This requires new API in board_dcdc.c files. Please refer to new compilation MACROs gBoardDcdcRampTrim_c and gBoardDcdcEnableHighPowerModeOnNbu_d in board_platform.h files located in kw47evk, kw47loc, frdmmcxw72 board folders.
-        -   [KW45/MCXW71/KW47/MCXW72] Trigger an interrupt each time App core calls PLATFORM_RemoteActiveReq() to access NBU power domain in order to restart NBU core for domain low power process
+        -   [wireless_mcu][wireless_nbu] Introduced PLATFORM_Get32KTimeStamp() API, available on platforms that support it.
+        -   [RNG] Switched to using a workqueue for scheduling seed generation tasks.
+        -   [Sensors] Integrated workqueue to trigger temperature readings on periodic timer expirations.
+        -   [wireless_nbu] Removed outdated configuration files from wireless_nbu/configs.
+        -   [SecLib_RNG][PSA] Added a PSA-compliant implementation for SecLib_RNG. ⚠️ This is an experimental feature and should be used with caution.
+        -   [wireless_mcu][wireless_nbu] Implemented PLATFORM_SendNBUXtal32MTrim() API to transmit XTAL32M trimming values to the NBU.
     -   **Minor Changes (no impact on application)**
+        -   [MWS] Migrated the Mobile Wireless Standard (MWS) service to the public repository. This service manages coexistence between connectivity protocols such as BLE, 802.15.4, and GenFSK.
+        -   [HWParameter][NVM][SecLib_RNG][Sensors] Addressed various MISRA compliance issues across multiple modules.
+        -   [Sensors] Applied a filtering mechanism to temperature data measured by the application core before forwarding it to the NBU, improving data reliability.
+        -   [Common] Relocated the GetPowerOfTwoShift() function to a shared module for broader accessibility across components.
+        -   [RNG] Resolved inconsistencies in RNG behavior when using the fsl_adapter_rng HAL by aligning it with other API implementations.
+        -   [SecLib] Updated the AES CMAC block counter in AES_128_CMAC() and AES_128_CMAC_LsbFirstInput() to support data segments larger than 4KB.
+        -   [SecLib] Utilized sss_sscp_key_object_free() with kSSS_keyObjFree_KeysStoreDefragment to avoid key allocation failures.
+        -   [WorkQ] Increased workqueue stack size to accommodate RNG usage with mbedtls.
+        -   [wireless_mcu][ot] Suppressed chip revision transmission when operating with nbu_15_4.
+        -   [platform][mflash] Ensured proper address alignment for external flash reads in PLATFORM_ReadExternalFlash() when required by platform constraints.
+        -   [RNG] Corrected reseed flag behavior in RNG_GetPseudoRandomData() after reaching gRngMaxRequests_d threshold.
+        -   [platform][mflash] Fixed uninitialized variable issue in PLATFORM_ReadExternalFlash().
+        -   [platform][wireless_nbu] Fixed an issue on KW47 where PLATFORM_InitFro192M incorrectly reads IFR1 from a hardcoded flash address (0x48000), leading to unstable FRO192M trimming. The function is now conditionally compiled for KW45 only.
 
-        -   **Services**
-            - [SecLib_RNG]
-              Rename mSecLibMutexId mutex to mSecLibSssMutexId in SecLib_sss.c
-              Remove MEM_TRACKING flag from RNG.c
-              Implement port to fsl_adapter_rng.h API using gRngUseRngAdapter_c compil Macro from RNG.c
-              Add support for BLE debug Keys in SecLib and SecLib_sss.c with gSecLibUseBleDebugKeys_d - for Debug only
-            - [FSCI] Add queue mechanism to prevent corruption of FSCI global variableAllow the application to override the trig sample number parameter when gFsciOverRpmsg_c is set to 1
-            - [DBG][btsnoop] Add a mechanism to dump raw HCI data via UART using SBTSNOOP_MODE_RAW
-            - [OTA]
-              OtaInternalFlash.c: Take into account chunks smaller than a flash phrase worth
-              fwk_platform_ot.c: dependencies and include files to gpio, port, pin_mux removed
-
-        -   **Platform specific**
-		    - [kw45_mcxw71][kw47_mcxw72]
-              fwk_platform_reset.h : add compil Macro gUseResetByLvdForce_c and gUseResetByDeepPowerDown_c to avoid compile the code if not supported on some platforms
-              New compile Flag gPlatformHasNbu_d
-              Rework FRO32K notification service for MISRA fix
 
 Details can be found in [CHANGELOG.md](../../../../../../middleware/wireless/framework/CHANGELOG.md)
 
