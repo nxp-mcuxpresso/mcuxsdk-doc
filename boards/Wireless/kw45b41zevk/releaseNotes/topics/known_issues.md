@@ -31,7 +31,3 @@ This section lists the known issues, limitations, and/or workarounds.
 ```{include} ../../../../release/known_issues/el2go_examples_on_kw45b41zevk.md
 :heading-offset: 1
 ```
-
-```{include} ../../../../release/known_issues/known_issue_uart_junk_character_at_wakeup.md
-:heading-offset: 1
-```
