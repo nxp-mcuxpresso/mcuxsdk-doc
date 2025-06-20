@@ -26,7 +26,10 @@ Overview
 MCU device and part on board is shown below:
 
  - Device: MIMX94398
- - PartNumber: MIMX94398AVKM
+ - PartNumber: MIMX94398AVKM, MIMX94398AVMM
+ - Note:
+   - IMX943LP5CPU-19 SOM and IMX943LP4CPU-19 SOM boards are using the PartNumber MIMX94398AVKM
+   - IMX943LP4CPU-15 SOM board is using the PartNumber MIMX94398AVMM
 
 
 Getting Started with MCUXpresso SDK Package
