@@ -24,18 +24,18 @@ vcs_link:
   replace_prefix: ''
   link: https://github.com/nxp-mcuxpresso/mcuxsdk-doc
 external_contents:
-- root: 'docs'
-  pattern: 'index.rst'
+- root: docs
+  pattern: index.rst
 - root: docs
   pattern: board_index.rst
 - root: docs
   pattern: index-tex.rst
-- root: 'docs'
-  pattern: 'middleware/index.rst'
-- root: 'docs'
-  pattern: 'middleware/wireless/index.rst'
-- root: 'docs'
-  pattern: 'middleware/multicore/*'
+- root: docs
+  pattern: middleware/index.rst
+- root: docs
+  pattern: middleware/wireless/index.rst
+- root: docs
+  pattern: middleware/multicore/*
 - root: docs
   pattern: rtos/*
 doxygen:
@@ -46,12 +46,12 @@ modules:
   mid_vglite:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/vglite/index.rst'
-    - root: 'docs'
-      pattern: 'middleware/vglite/**/*.md'
-    - root: 'docs'
-      pattern: 'middleware/vglite/**/*.png'
+    - root: docs
+      pattern: middleware/vglite/index.rst
+    - root: docs
+      pattern: middleware/vglite/**/*.md
+    - root: docs
+      pattern: middleware/vglite/**/*.png
   introduction:
     default: true
     external_contents:
@@ -82,7 +82,7 @@ modules:
     default: true
     external_contents:
     - root: .
-      pattern: examples/**/*.md
+      pattern: examples/**/*readme.md
     - root: .
       pattern: examples/**/*.jpg
     - root: .
@@ -127,8 +127,8 @@ modules:
   mid_aws_iot:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/aws_iot/*'
+    - root: docs
+      pattern: middleware/aws_iot/*
     - root: .
       pattern: middleware/aws_iot/device-shadow/README.md
     - root: .
@@ -151,8 +151,8 @@ modules:
   mid_lwip:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/lwip/*'
+    - root: docs
+      pattern: middleware/lwip/*
     - root: .
       pattern: middleware/lwip/ChangeLogKSDK.txt
     - root: .
@@ -160,8 +160,8 @@ modules:
   mid_lvgl:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/lvgl/index.rst'
+    - root: docs
+      pattern: middleware/lvgl/index.rst
     - root: .
       pattern: middleware/lvgl/docs/integration/chip/nxp.rst
   mid_wifi_nxp:
@@ -172,10 +172,10 @@ modules:
   mid_maestro:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/audio_voice/index.rst'
-    - root: 'docs'
-      pattern: 'middleware/audio_voice/maestro/*'
+    - root: docs
+      pattern: middleware/audio_voice/index.rst
+    - root: docs
+      pattern: middleware/audio_voice/maestro/*
     - root: .
       pattern: middleware/audio_voice/maestro/*.md
     - root: .
@@ -195,10 +195,10 @@ modules:
   mid_avc:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/audio_voice/index.rst'
-    - root: 'docs'
-      pattern: 'middleware/audio_voice/components/*'
+    - root: docs
+      pattern: middleware/audio_voice/index.rst
+    - root: docs
+      pattern: middleware/audio_voice/components/*
     - root: .
       pattern: middleware/audio_voice/components/README.md
     - root: .
@@ -216,8 +216,8 @@ modules:
   mid_multicore-xaf:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/cadence/multicore-xaf/*'
+    - root: docs
+      pattern: middleware/cadence/multicore-xaf/*
     - root: .
       pattern: middleware/cadence/multicore-xaf/*.md
     - root: .
@@ -327,8 +327,8 @@ modules:
   mid_freemaster:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/freemaster/*'
+    - root: docs
+      pattern: middleware/freemaster/*
     - root: .
       pattern: middleware/freemaster/doc/index.md
     - root: .
@@ -368,14 +368,14 @@ modules:
   mid_zigbee:
     default: true
     external_contents:
-    - root: 'docs'
-      pattern: 'middleware/wireless/Zigbee/*'
-    - root: '.'
-      pattern: 'middleware/wireless/zigbee/Docs/**/*.*'
-    - root: '.'
-      pattern: 'middleware/wireless/zigbee/examples/**/build_linux/*'
-    - root: '.'
-      pattern: 'middleware/wireless/zigbee/examples/zigbee_ble/common/*'
+    - root: docs
+      pattern: middleware/wireless/Zigbee/*
+    - root: .
+      pattern: middleware/wireless/zigbee/Docs/**/*.*
+    - root: .
+      pattern: middleware/wireless/zigbee/examples/**/build_linux/*
+    - root: .
+      pattern: middleware/wireless/zigbee/examples/zigbee_ble/common/*
   mid_ieee:
     default: true
     external_contents:
@@ -403,8 +403,10 @@ modules:
       pattern: boards/DSC/index.rst
     - root: docs
       pattern: boards/DSC/mc56f80000evk/*
-    - root: docs
-      pattern: drivers/DSC/MC56F80xxx/MC56F80748/*
+    - root: .
+      pattern: examples/_boards/mc56f80000evk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/DSC/MC56F80xxx/MC56F80748/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MC56F80748
       outdir: drivers/DSC/MC56F80xxx/MC56F80748
@@ -417,8 +419,10 @@ modules:
       pattern: boards/DSC/index.rst
     - root: docs
       pattern: boards/DSC/mc56f81000evk/*
-    - root: docs
-      pattern: drivers/DSC/MC56F81xxx/MC56F81768/*
+    - root: .
+      pattern: examples/_boards/mc56f81000evk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/DSC/MC56F81xxx/MC56F81768/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MC56F81768
       outdir: drivers/DSC/MC56F81xxx/MC56F81768
@@ -431,8 +435,10 @@ modules:
       pattern: boards/DSC/index.rst
     - root: docs
       pattern: boards/DSC/mc56f83000evk/*
-    - root: docs
-      pattern: drivers/DSC/MC56F83xxx/MC56F83789/*
+    - root: .
+      pattern: examples/_boards/mc56f83000evk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/DSC/MC56F83xxx/MC56F83789/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MC56F83789
       outdir: drivers/DSC/MC56F83xxx/MC56F83789
@@ -445,8 +451,10 @@ modules:
       pattern: boards/DSC/index.rst
     - root: docs
       pattern: boards/DSC/twrmc56f8200/*
-    - root: docs
-      pattern: drivers/DSC/MC56F82xxx/MC56F82748/*
+    - root: .
+      pattern: examples/_boards/twrmc56f8200/ChangeLog_board.md
+    - root: .
+      pattern: drivers/DSC/MC56F82xxx/MC56F82748/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MC56F82748
       outdir: drivers/DSC/MC56F82xxx/MC56F82748
@@ -459,8 +467,10 @@ modules:
       pattern: boards/DSC/index.rst
     - root: docs
       pattern: boards/DSC/twrmc56f8400/*
-    - root: docs
-      pattern: drivers/DSC/MC56F84xxx/MC56F84789/*
+    - root: .
+      pattern: examples/_boards/twrmc56f8400/ChangeLog_board.md
+    - root: .
+      pattern: drivers/DSC/MC56F84xxx/MC56F84789/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MC56F84789
       outdir: drivers/DSC/MC56F84xxx/MC56F84789
@@ -473,6 +483,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/evk9mimx8ulp/*
+    - root: .
+      pattern: examples/_boards/evk9mimx8ulp/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX/iMX8ULP/MIMX8UD5/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX8UD5
       outdir: drivers/iMX/iMX8ULP/MIMX8UD5
@@ -485,6 +499,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/evkmcimx7ulp/*
+    - root: .
+      pattern: examples/_boards/evkmcimx7ulp/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX/iMX7ULP/MCIMX7U5/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCIMX7U5
       outdir: drivers/iMX/iMX7ULP/MCIMX7U5
@@ -497,6 +515,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/evkmimx8mm/*
+    - root: .
+      pattern: examples/_boards/evkmimx8mm/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX/iMX8MM/MIMX8MM6/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX8MM6
       outdir: drivers/iMX/iMX8MM/MIMX8MM6
@@ -509,6 +531,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/evkmimx8mn/*
+    - root: .
+      pattern: examples/_boards/evkmimx8mn/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX/iMX8MN/MIMX8MN6/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX8MN6
       outdir: drivers/iMX/iMX8MN/MIMX8MN6
@@ -521,6 +547,13 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/evkmimx8mnddr3l/*
+    - root: .
+      pattern: examples/_boards/evkmimx8mnddr3l/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX/iMX8MN/MIMX8MN6/index.rst
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX8MN6
+      outdir: drivers/iMX/iMX8MN/MIMX8MN6
   board_evkmimx8mp:
     default: true
     external_contents:
@@ -530,6 +563,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/evkmimx8mp/*
+    - root: .
+      pattern: examples/_boards/evkmimx8mp/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX/iMX8MP/MIMX8ML8/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX8ML8
       outdir: drivers/iMX/iMX8MP/MIMX8ML8
@@ -542,6 +579,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/evkmimx8mq/*
+    - root: .
+      pattern: examples/_boards/evkmimx8mq/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX/iMX8M/MIMX8MQ6/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX8MQ6
       outdir: drivers/iMX/iMX8M/MIMX8MQ6
@@ -554,6 +595,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/evkmimx8ulp/*
+    - root: .
+      pattern: examples/_boards/evkmimx8ulp/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX/iMX8ULP/MIMX8UD7/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX8UD7
       outdir: drivers/iMX/iMX8ULP/MIMX8UD7
@@ -566,6 +611,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/imx943evk/*
+    - root: .
+      pattern: examples/_boards/imx943evk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX/iMX943/MIMX94398/index.rst
   board_imx95lp4xevk15:
     default: true
     external_contents:
@@ -575,6 +624,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/imx95lp4xevk15/*
+    - root: .
+      pattern: examples/_boards/imx95lp4xevk15/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX//MIMX9596/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9596
       outdir: drivers/iMX/iMX95/MIMX9596
@@ -587,6 +640,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/imx95lpd5evk19/*
+    - root: .
+      pattern: examples/_boards/imx95lpd5evk19/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX//MIMX9596/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9596
       outdir: drivers/iMX/iMX95/MIMX9596
@@ -599,6 +656,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/imx95verdinevk/*
+    - root: .
+      pattern: examples/_boards/imx95verdinevk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX//MIMX9596/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9596
       outdir: drivers/iMX/iMX95/MIMX9596
@@ -611,6 +672,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/mcimx93autoevk/*
+    - root: .
+      pattern: examples/_boards/mcimx93autoevk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX/iMX93/MIMX9352/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9352
       outdir: drivers/iMX/iMX93/MIMX9352
@@ -623,6 +688,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/mcimx93evk/*
+    - root: .
+      pattern: examples/_boards/mcimx93evk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX/iMX93/MIMX9352/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9352
       outdir: drivers/iMX/iMX93/MIMX9352
@@ -635,6 +704,10 @@ modules:
       pattern: boards/i.MX/index.rst
     - root: docs
       pattern: boards/i.MX/mcimx93qsb/*
+    - root: .
+      pattern: examples/_boards/mcimx93qsb/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX/iMX93/MIMX9322/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9322
       outdir: drivers/iMX/iMX93/MIMX9322
@@ -647,6 +720,10 @@ modules:
       pattern: boards/Kinetis/index.rst
     - root: docs
       pattern: boards/Kinetis/frdmk22f/*
+    - root: .
+      pattern: examples/_boards/frdmk22f/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Kinetis/K/MK22F51212/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MK22F51212
       outdir: drivers/Kinetis/K/MK22F51212
@@ -659,6 +736,10 @@ modules:
       pattern: boards/Kinetis/index.rst
     - root: docs
       pattern: boards/Kinetis/frdmk32l2a4s/*
+    - root: .
+      pattern: examples/_boards/frdmk32l2a4s/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Kinetis/K32L/K32L2A41A/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_K32L2A41A
       outdir: drivers/Kinetis/K32L/K32L2A41A
@@ -671,6 +752,10 @@ modules:
       pattern: boards/Kinetis/index.rst
     - root: docs
       pattern: boards/Kinetis/frdmk32l2b/*
+    - root: .
+      pattern: examples/_boards/frdmk32l2b/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Kinetis/K32L/K32L2B31A/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_K32L2B31A
       outdir: drivers/Kinetis/K32L/K32L2B31A
@@ -683,6 +768,10 @@ modules:
       pattern: boards/Kinetis/index.rst
     - root: docs
       pattern: boards/Kinetis/frdmk32l3a6/*
+    - root: .
+      pattern: examples/_boards/frdmk32l3a6/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Kinetis/K32L/K32L3A60/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_K32L3A60
       outdir: drivers/Kinetis/K32L/K32L3A60
@@ -695,6 +784,10 @@ modules:
       pattern: boards/Kinetis/index.rst
     - root: docs
       pattern: boards/Kinetis/frdmke02z40m/*
+    - root: .
+      pattern: examples/_boards/frdmke02z40m/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Kinetis/KE/MKE02Z4/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKE02Z4
       outdir: drivers/Kinetis/KE/MKE02Z4
@@ -707,6 +800,10 @@ modules:
       pattern: boards/Kinetis/index.rst
     - root: docs
       pattern: boards/Kinetis/frdmke15z/*
+    - root: .
+      pattern: examples/_boards/frdmke15z/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Kinetis/KE/MKE15Z7/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKE15Z7
       outdir: drivers/Kinetis/KE/MKE15Z7
@@ -719,6 +816,10 @@ modules:
       pattern: boards/Kinetis/index.rst
     - root: docs
       pattern: boards/Kinetis/frdmke16z/*
+    - root: .
+      pattern: examples/_boards/frdmke16z/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Kinetis/KE/MKE16Z4/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKE16Z4
       outdir: drivers/Kinetis/KE/MKE16Z4
@@ -731,6 +832,10 @@ modules:
       pattern: boards/Kinetis/index.rst
     - root: docs
       pattern: boards/Kinetis/frdmke17z/*
+    - root: .
+      pattern: examples/_boards/frdmke17z/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Kinetis/KE/MKE17Z7/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKE17Z7
       outdir: drivers/Kinetis/KE/MKE17Z7
@@ -743,6 +848,10 @@ modules:
       pattern: boards/Kinetis/index.rst
     - root: docs
       pattern: boards/Kinetis/frdmke17z512/*
+    - root: .
+      pattern: examples/_boards/frdmke17z512/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Kinetis/KE/MKE17Z9/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKE17Z9
       outdir: drivers/Kinetis/KE/MKE17Z9
@@ -755,6 +864,10 @@ modules:
       pattern: boards/Kinetis/index.rst
     - root: docs
       pattern: boards/Kinetis/twrkm34z50mv3/*
+    - root: .
+      pattern: examples/_boards/twrkm34z50mv3/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Kinetis/KM/MKM34ZA5/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKM34ZA5
       outdir: drivers/Kinetis/KM/MKM34ZA5
@@ -767,6 +880,10 @@ modules:
       pattern: boards/Kinetis/index.rst
     - root: docs
       pattern: boards/Kinetis/twrkm34z75m/*
+    - root: .
+      pattern: examples/_boards/twrkm34z75m/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Kinetis/KM/MKM34Z7/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKM34Z7
       outdir: drivers/Kinetis/KM/MKM34Z7
@@ -779,6 +896,10 @@ modules:
       pattern: boards/Kinetis/index.rst
     - root: docs
       pattern: boards/Kinetis/twrkm35z75m/*
+    - root: .
+      pattern: examples/_boards/twrkm35z75m/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Kinetis/KM/MKM35Z7/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MKM35Z7
       outdir: drivers/Kinetis/KM/MKM35Z7
@@ -791,6 +912,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpc845breakout/*
+    - root: .
+      pattern: examples/_boards/lpc845breakout/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC800/LPC845/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC845
       outdir: drivers/LPC/LPC800/LPC845
@@ -803,6 +928,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso51u68/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso51u68/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC51U68/LPC51U68/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC51U68
       outdir: drivers/LPC/LPC51U68/LPC51U68
@@ -815,6 +944,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso54628/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso54628/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC54000/LPC54628/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC54628
       outdir: drivers/LPC/LPC54000/LPC54628
@@ -827,6 +960,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso54s018/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso54s018/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC54000/LPC54S018/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC54S018
       outdir: drivers/LPC/LPC54000/LPC54S018
@@ -839,6 +976,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso54s018m/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso54s018m/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC54000/LPC54S018M/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC54S018M
       outdir: drivers/LPC/LPC54000/LPC54S018M
@@ -851,6 +992,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso55s06/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso55s06/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC5500/LPC55S06/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC55S06
       outdir: drivers/LPC/LPC5500/LPC55S06
@@ -863,6 +1008,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso55s16/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso55s16/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC5500/LPC55S16/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC55S16
       outdir: drivers/LPC/LPC5500/LPC55S16
@@ -875,6 +1024,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso55s28/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso55s28/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC5500/LPC55S28/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC55S28
       outdir: drivers/LPC/LPC5500/LPC55S28
@@ -887,6 +1040,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso55s36/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso55s36/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC5500/LPC55S36/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC55S36
       outdir: drivers/LPC/LPC5500/LPC55S36
@@ -899,6 +1056,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso55s69/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso55s69/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC5500/LPC55S69/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC55S69
       outdir: drivers/LPC/LPC5500/LPC55S69
@@ -911,6 +1072,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso802/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso802/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC800/LPC802/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC802
       outdir: drivers/LPC/LPC800/LPC802
@@ -923,6 +1088,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso804/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso804/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC800/LPC804/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC804
       outdir: drivers/LPC/LPC800/LPC804
@@ -935,6 +1104,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso824max/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso824max/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC800/LPC824/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC824
       outdir: drivers/LPC/LPC800/LPC824
@@ -947,6 +1120,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso845max/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso845max/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC800/LPC845/index.rst
   board_lpcxpresso860max:
     default: true
     external_contents:
@@ -956,6 +1133,10 @@ modules:
       pattern: boards/LPC/index.rst
     - root: docs
       pattern: boards/LPC/lpcxpresso860max/*
+    - root: .
+      pattern: examples/_boards/lpcxpresso860max/ChangeLog_board.md
+    - root: .
+      pattern: drivers/LPC/LPC800/LPC865/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_LPC865
       outdir: drivers/LPC/LPC800/LPC865
@@ -968,6 +1149,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxa153/*
+    - root: .
+      pattern: examples/_boards/frdmmcxa153/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXA/MCXA153/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA153
       outdir: drivers/MCX/MCXA/MCXA153
@@ -980,6 +1165,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxa156/*
+    - root: .
+      pattern: examples/_boards/frdmmcxa156/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXA/MCXA156/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA156
       outdir: drivers/MCX/MCXA/MCXA156
@@ -992,8 +1181,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxa346/*
-    - root: docs
-      pattern: drivers/MCX/MCXA/MCXA346/*
+    - root: .
+      pattern: examples/_boards/frdmmcxa346/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXA/MCXA346/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA346
       outdir: drivers/MCX/MCXA/MCXA346
@@ -1006,6 +1197,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxc041/*
+    - root: .
+      pattern: examples/_boards/frdmmcxc041/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXC/MCXC041/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXC041
       outdir: drivers/MCX/MCXC/MCXC041
@@ -1018,6 +1213,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxc242/*
+    - root: .
+      pattern: examples/_boards/frdmmcxc242/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXC/MCXC242/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXC242
       outdir: drivers/MCX/MCXC/MCXC242
@@ -1030,6 +1229,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxc444/*
+    - root: .
+      pattern: examples/_boards/frdmmcxc444/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXC/MCXC444/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXC444
       outdir: drivers/MCX/MCXC/MCXC444
@@ -1042,6 +1245,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxn236/*
+    - root: .
+      pattern: examples/_boards/frdmmcxn236/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXN/MCXN236/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXN236
       outdir: drivers/MCX/MCXN/MCXN236
@@ -1054,6 +1261,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxn947/*
+    - root: .
+      pattern: examples/_boards/frdmmcxn947/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXN/MCXN947/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXN947
       outdir: drivers/MCX/MCXN/MCXN947
@@ -1066,8 +1277,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxw23/*
-    - root: docs
-      pattern: drivers/MCX/MCXW/MCXW236B/*
+    - root: .
+      pattern: examples/_boards/frdmmcxw23/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXW/MCXW236/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW236B
       outdir: drivers/MCX/MCXW/MCXW236B
@@ -1080,6 +1293,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxw71/*
+    - root: .
+      pattern: examples/_boards/frdmmcxw71/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXW/MCXW716C/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW716C
       outdir: drivers/MCX/MCXW/MCXW716C
@@ -1092,6 +1309,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxw72/*
+    - root: .
+      pattern: examples/_boards/frdmmcxw72/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXW/MCXW727C/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW727C
       outdir: drivers/MCX/MCXW/MCXW727C
@@ -1104,6 +1325,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/mcxn5xxevk/*
+    - root: .
+      pattern: examples/_boards/mcxn5xxevk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXN/MCXN547/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXN547
       outdir: drivers/MCX/MCXN/MCXN547
@@ -1116,6 +1341,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/mcxn9xxevk/*
+    - root: .
+      pattern: examples/_boards/mcxn9xxevk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXN/MCXN947/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXN947
       outdir: drivers/MCX/MCXN/MCXN947
@@ -1128,6 +1357,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/mcxw71evk/*
+    - root: .
+      pattern: examples/_boards/mcxw71evk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXW/MCXW716C/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW716C
       outdir: drivers/MCX/MCXW/MCXW716C
@@ -1140,6 +1373,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/mcxw72evk/*
+    - root: .
+      pattern: examples/_boards/mcxw72evk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXW/MCXW727C/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW727C
       outdir: drivers/MCX/MCXW/MCXW727C
@@ -1152,6 +1389,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkbimxrt1050/*
+    - root: .
+      pattern: examples/_boards/evkbimxrt1050/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT1050/MIMXRT1052/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1052
       outdir: drivers/RT/RT1050/MIMXRT1052
@@ -1164,6 +1405,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkbmimxrt1060/*
+    - root: .
+      pattern: examples/_boards/evkbmimxrt1060/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT1060/MIMXRT1062/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1062
       outdir: drivers/RT/RT1060/MIMXRT1062
@@ -1176,6 +1421,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkbmimxrt1170/*
+    - root: .
+      pattern: examples/_boards/evkbmimxrt1170/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT1170/MIMXRT1176/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1176
       outdir: drivers/RT/RT1170/MIMXRT1176
@@ -1188,6 +1437,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkcmimxrt1060/*
+    - root: .
+      pattern: examples/_boards/evkcmimxrt1060/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT1060/MIMXRT1062/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1062
       outdir: drivers/RT/RT1060/MIMXRT1062
@@ -1200,6 +1453,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkmimxrt1010/*
+    - root: .
+      pattern: examples/_boards/evkmimxrt1010/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT1010/MIMXRT1011/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1011
       outdir: drivers/RT/RT1010/MIMXRT1011
@@ -1212,6 +1469,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkmimxrt1015/*
+    - root: .
+      pattern: examples/_boards/evkmimxrt1015/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT1015/MIMXRT1015/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1015
       outdir: drivers/RT/RT1015/MIMXRT1015
@@ -1224,6 +1485,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkmimxrt1020/*
+    - root: .
+      pattern: examples/_boards/evkmimxrt1020/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT1020/MIMXRT1021/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1021
       outdir: drivers/RT/RT1020/MIMXRT1021
@@ -1236,6 +1501,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkmimxrt1024/*
+    - root: .
+      pattern: examples/_boards/evkmimxrt1024/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT1020/MIMXRT1024/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1024
       outdir: drivers/RT/RT1020/MIMXRT1024
@@ -1248,6 +1517,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkmimxrt1040/*
+    - root: .
+      pattern: examples/_boards/evkmimxrt1040/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT1040/MIMXRT1042/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1042
       outdir: drivers/RT/RT1040/MIMXRT1042
@@ -1260,6 +1533,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkmimxrt1064/*
+    - root: .
+      pattern: examples/_boards/evkmimxrt1064/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT1064/MIMXRT1064/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1064
       outdir: drivers/RT/RT1064/MIMXRT1064
@@ -1272,6 +1549,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkmimxrt1160/*
+    - root: .
+      pattern: examples/_boards/evkmimxrt1160/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT1160/MIMXRT1166/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1166
       outdir: drivers/RT/RT1160/MIMXRT1166
@@ -1284,6 +1565,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkmimxrt1180/*
+    - root: .
+      pattern: examples/_boards/evkmimxrt1180/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT1180/MIMXRT1189/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1189
       outdir: drivers/RT/RT1180/MIMXRT1189
@@ -1296,6 +1581,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkmimxrt595/*
+    - root: .
+      pattern: examples/_boards/evkmimxrt595/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT500/MIMXRT595S/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT595S
       outdir: drivers/RT/RT500/MIMXRT595S
@@ -1308,6 +1597,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/evkmimxrt685/*
+    - root: .
+      pattern: examples/_boards/evkmimxrt685/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT600/MIMXRT685S/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT685S
       outdir: drivers/RT/RT600/MIMXRT685S
@@ -1320,6 +1613,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/mimxrt685audevk/*
+    - root: .
+      pattern: examples/_boards/mimxrt685audevk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT600/MIMXRT685S/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT685S
       outdir: drivers/RT/RT600/MIMXRT685S
@@ -1332,6 +1629,10 @@ modules:
       pattern: boards/RT/index.rst
     - root: docs
       pattern: boards/RT/mimxrt700evk/*
+    - root: .
+      pattern: examples/_boards/mimxrt700evk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/RT/RT700/MIMXRT798S/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT798S
       outdir: drivers/RT/RT700/MIMXRT798S
@@ -1344,6 +1645,10 @@ modules:
       pattern: boards/Wireless/index.rst
     - root: docs
       pattern: boards/Wireless/frdmrw612/*
+    - root: .
+      pattern: examples/_boards/frdmrw612/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Wireless/RW/RW612/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_RW612
       outdir: drivers/Wireless/RW/RW612
@@ -1356,8 +1661,10 @@ modules:
       pattern: boards/Wireless/index.rst
     - root: docs
       pattern: boards/Wireless/k32w148evk/*
-    - root: docs
-      pattern: drivers/Wireless/K32W/K32W1480/*
+    - root: .
+      pattern: examples/_boards/k32w148evk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Wireless/K32W/K32W1480/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_K32W1480
       outdir: drivers/Wireless/K32W/K32W1480
@@ -1370,6 +1677,10 @@ modules:
       pattern: boards/Wireless/index.rst
     - root: docs
       pattern: boards/Wireless/kw45b41zevk/*
+    - root: .
+      pattern: examples/_boards/kw45b41zevk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Wireless/KW/KW45B41Z83/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_KW45B41Z83
       outdir: drivers/Wireless/KW/KW45B41Z83
@@ -1382,6 +1693,10 @@ modules:
       pattern: boards/Wireless/index.rst
     - root: docs
       pattern: boards/Wireless/kw45b41zloc/*
+    - root: .
+      pattern: examples/_boards/kw45b41zloc/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Wireless/KW/KW45B41Z83/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_KW45B41Z83
       outdir: drivers/Wireless/KW/KW45B41Z83
@@ -1394,6 +1709,10 @@ modules:
       pattern: boards/Wireless/index.rst
     - root: docs
       pattern: boards/Wireless/kw47evk/*
+    - root: .
+      pattern: examples/_boards/kw47evk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Wireless/KW/KW47B42ZB7/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_KW47B42ZB7
       outdir: drivers/Wireless/KW/KW47B42ZB7
@@ -1406,6 +1725,10 @@ modules:
       pattern: boards/Wireless/index.rst
     - root: docs
       pattern: boards/Wireless/kw47loc/*
+    - root: .
+      pattern: examples/_boards/kw47loc/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Wireless/KW/KW47B42ZB7/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_KW47B42ZB7
       outdir: drivers/Wireless/KW/KW47B42ZB7
@@ -1418,6 +1741,10 @@ modules:
       pattern: boards/Wireless/index.rst
     - root: docs
       pattern: boards/Wireless/rdrw612bga/*
+    - root: .
+      pattern: examples/_boards/rdrw612bga/ChangeLog_board.md
+    - root: .
+      pattern: drivers/Wireless/RW/RW612/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_RW612
       outdir: drivers/Wireless/RW/RW612
@@ -1430,6 +1757,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxe247/*
+    - root: .
+      pattern: examples/_boards/frdmmcxe247/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXE/MCXE247/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXE247
       outdir: drivers/MCX/MCXE/MCXE247
@@ -1442,6 +1773,10 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxe31b/*
+    - root: .
+      pattern: examples/_boards/frdmmcxe31b/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXE/MCXE31B/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXE31B
       outdir: drivers/MCX/MCXE/MCXE31B
@@ -1454,7 +1789,42 @@ modules:
       pattern: boards/MCX/index.rst
     - root: docs
       pattern: boards/MCX/frdmmcxl255/*
+    - root: .
+      pattern: examples/_boards/frdmmcxl255/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXL/MCXL255/index.rst
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXL255
       outdir: drivers/MCX/MCXL/MCXL255
-
+  board_mcxw23evk:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/MCX/index.rst
+    - root: docs
+      pattern: boards/MCX/mcxw23evk/*
+    - root: .
+      pattern: examples/_boards/mcxw23evk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXW/MCXW236/index.rst
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW236B
+      outdir: drivers/MCX/MCXW/MCXW236B
+  board_mcxw72loc:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/MCX/index.rst
+    - root: docs
+      pattern: boards/MCX/mcxw72loc/*
+    - root: .
+      pattern: examples/_boards/mcxw72loc/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXW/MCXW727C/index.rst
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW727C
+      outdir: drivers/MCX/MCXW/MCXW727C
