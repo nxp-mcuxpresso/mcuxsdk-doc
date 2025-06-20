@@ -2,6 +2,8 @@
 
 Most sensor applications have pairing and bonding disabled to allow a faster interaction with mobile applications. These two security features can be enabled in the app\_preinclude.h header file.
 
+ncp_fscibb armgcc is not supported.
+
 #   Bluetooth LE controller:
 
 Max number of connections supported : 8

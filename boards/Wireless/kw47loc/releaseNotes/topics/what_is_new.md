@@ -1,6 +1,6 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.06.00\).
+The following changes have been implemented compared to the previous SDK release version \(25.06.00-pvw2\).
 
 
 -   **Bluetooth LE Host Stack and Applications**

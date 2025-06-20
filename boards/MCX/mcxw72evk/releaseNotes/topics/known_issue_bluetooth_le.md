@@ -1,8 +1,8 @@
 # Bluetooth LE 
 
-TX data path integrity is not guaranteed during the Bluetooth LE handover.
+Most sensor applications have pairing and bonding disabled to allow a faster interaction with mobile applications. These two security features can be enabled in the app\_preinclude.h header file.
 
-Some instabilities may occur in demanding Bluetooth LE connection scenarios \(such as mutiple Bluetooth LE connection, very short Connection Intervals\), and in some Channel Sounding configurations.
+ncp_fscibb armgcc is not supported.
 
 #   Bluetooth LE controller:
 
@@ -24,8 +24,6 @@ Periodic Avdertising with Responses (PAwR):
 -   Sync device cannot synchronize on more than 32 subevents.
 -   Connection establishment using PAwR in LE Coded PHY can potentially fail.
 -   Data report can potentially be truncated on the first AUX_ADV_IND of an extended advertising train containing an ACAD field.
-
-**Note:** Documentation may not be fully updated to refer to MCX W72 devices.
 
 **Parent topic:**[Known issues](../topics/known_issues.md)
 
