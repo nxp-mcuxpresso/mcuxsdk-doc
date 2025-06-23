@@ -7,7 +7,8 @@ The following changes have been implemented compared to the previous SDK release
     -   No support.
 
 -   **Bluetooth LE controller**
-    -   PAwR fixes and stability improvements.
+    -   Stability improvements.
+        New features: Four advertising set support ("Early Access Release" state).
 
 -   **Transceiver Drivers (XCVR)**
     -   Added API to control PA ramp type and duration

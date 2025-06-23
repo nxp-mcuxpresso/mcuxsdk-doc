@@ -27,20 +27,20 @@
     -   24 connections as a peripheral role
     -   Any combination of central and peripheral roles \(24 connections maximum\)
     -   8 connections with a 7.5 ms connection interval
-    -   Two advertising sets in parallel
+    -   Two advertising sets in parallel (\Four adv set as Early Access Release\).
     -   26 Accept List entries
     -   36 Resolvable Private Address \(RPA\) entries
-    -   Up to six Chain Packets per Extended Advertising set
+    -   Up to two Chain Packets per Extended Advertising set
     -   Enhanced Notification on end of - Scanning/Advertising/Connection events
     -   Connection event counters associated to Bluetooth LE packet reception
     -   Timestamp associated to Bluetooth LE packet reception
     -   RF channel info associated to Bluetooth LE packet reception
     -   NXP proprietary Bluetooth LE Handover feature
-    -   Decision Based Advertising Filtering \(DBAF\) - Experimental feature. See [Note](#note) below.
-    -   Advertising Coding Selection \(ACS\) - Experimental feature. See [Note](#note) below.
-    -   Periodic Advertising with Responses \(PAwR\) - Experimental feature. See [Note](#note) below.
+    -   Decision Based Advertising Filtering \(DBAF\)
+    -   Advertising Coding Selection \(ACS\)
+    -   Periodic Advertising with Responses \(PAwR\)
     Additional features supported for KW47 and MCX W72 devices:
-    -   Channel Sounding - Experimental feature
+    -   Channel Sounding
 
         
         **Note:**

@@ -34,7 +34,8 @@ The following changes have been implemented compared to the previous SDK release
 
     -   Details can be found in **CHANGELOG.md**.
 -   **Bluetooth LE controller**
-    -   HADM, PAwR fixes, and stability improvements.
+    -   Channel Sounding fixes and stability improvements.
+        New features: phase coherency (Channel Sounding) and four advertising set support ("Early Access Release" state).
 
 -   **Transceiver drivers (XCVR)**
     -   Added support for Bluetooth LE Channel Sounding
