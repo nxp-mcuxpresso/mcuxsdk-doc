@@ -13,7 +13,7 @@ The whole MCUXpresso SDK delivery is provided under the `LA_OPT_Online_Code_Host
 the LA_OPT_Online_Code_Hosting.txt file in the project's `GitHub repo`_). The mcuxsdk-core project, alias the
 core project, is the fundamental project of whole MCUXpresso SDK delivery. It is under the
 `BSD-3-Clause`_ (as found in the COPYING-BSD-3.txt file in the project's `GitHub repo`_) which is quite a
-permissive license. The other projects in MCUXpresso SDK may have different license, please check `SW-Content-Register`_
+permissive license. The other projects in the MCUXpresso SDK may have a different license, please check `SW-Content-Register`_
 for more details.
 
 .. _BSD-3-Clause:
