@@ -7,6 +7,7 @@ Getting Started with MCUXpresso SDK Repository
 
     installation.md
     explore_sdk.md
+    run_a_demo_using_mcuxvsc.md
     run_project.md
 
 .. only:: internal_doc

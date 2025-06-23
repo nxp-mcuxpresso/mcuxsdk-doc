@@ -48,7 +48,7 @@ for more details.
 
    Drivers <drivers/index.rst>
    Examples <examples/index.rst>
-   Middlewares <middleware/index>
+   Middleware <middleware/index>
    RTOS <rtos/index>
    Boards <boards/index>
 

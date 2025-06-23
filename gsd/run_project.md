@@ -1,4 +1,4 @@
-# Evaluate an Example Project
+# Running a demo using ARMGCC CLI/IAR/MDK
 
 ## Supported Boards
 

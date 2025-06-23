@@ -1,8 +1,8 @@
-# Explore MCUXpresso SDK
+# Explore Contents
 This section helps you build basic understanding of current fundamental project content and guides you how to build and run the provided example project in whole SDK delivery.
 
 ## Folder View
-The whole MCUXpresso SDK project, after you have done the `west init` and `west update` operations follow the guideline at [gsd](installation.md#get-mcuxpresso-sdk-repo), have below folder structure:
+The whole MCUXpresso SDK project, after you have done the `west init` and `west update` operations follow the guideline at [Getting Started Guide](installation.md#install-mcuxpresso-sdk), have below folder structure:
 
 | Folder | Description |
 | :--------- | :-------- |
