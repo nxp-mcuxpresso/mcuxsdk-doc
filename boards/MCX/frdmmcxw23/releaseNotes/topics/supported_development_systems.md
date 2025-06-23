@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**FRDM-MCXW23**|MCXW235BIHNAR, MCXW235BIUKAR, **MCXW236BIHNAR**,<br> MCXW236BIUKAR|
+|**FRDM-MCXW23**|MCXW235BIHNAR, MCXW235BIUKAR, MCXW236AIHNAR,<br/> MCXW236AIUKAR, **MCXW236BIHNAR**, MCXW236BIUKAR<br/>|

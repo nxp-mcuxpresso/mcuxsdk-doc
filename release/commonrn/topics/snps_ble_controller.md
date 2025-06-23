@@ -1,4 +1,33 @@
-# Synopsys LE Controller
+# Bluetooth Synopsys Controller
 
-Synopsys link layer
-
+-   Main features supported:
+    -   All roles that the Bluetooth specification specifies:
+        -   Broadcaster
+        -   Observer
+        -   Peripheral
+        -   Central
+    -   Up to 4 simultaneous connections supported
+    -   Bluetooth Low Energy features:
+        -   Device privacy and network privacy modes (version 5.0)
+        -   Advertising extension PDUs (version 5.0)
+        -   Anonymous device address type (version 5.0)
+        -   Up to 2 Mbps data rate (version 5.0)
+        -   Long range (version 5.0)
+        -   High-duty cycle, nonconnectable advertising (version 5.0)
+        -   Channel selection algorithm #2 (version 5.0)
+        -   High output power (version 5.0)
+        -   Advertising channel index (version 5.1)
+        -   Periodic advertising sync transfer (PAST) (version 5.1)
+        -   Supports LE power control feature (version 5.2)
+    -   Device filtering through programmable size white lists
+    -   Direct test mode
+    -   RF antenna: 50 Ω single-ended
+    -   RF receiver characteristics:
+        -   Sensitivity −94 dBm in Bluetooth Low Energy 2 Mbps
+        -   Sensitivity −97 dBm in Bluetooth Low Energy 1 Mbps
+        -   Sensitivity −100 dBm in Bluetooth Low Energy 500 kbps
+        -   Sensitivity −102 dBm in Bluetooth Low Energy 125 kbps
+        -   Accurate RSSI measurement with ±3 dB accuracy
+    -   Flexible RF transmitter level configurability:
+        -   TX mode 1 (TXM1): Range from −31 dBm to +2 dBm when VDD_RF exceeds 1.1 V
+        -   TX mode 2 (TXM2): Range from −28 dBm to +6 dBm when VDD_RF exceeds 1.7 V
