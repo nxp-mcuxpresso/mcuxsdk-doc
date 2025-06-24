@@ -76,12 +76,7 @@ Multicore
 MCU Boot
 ========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/mcuboot_opensource/README.md
-
-
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
 
 eIQ
 ===
@@ -91,11 +86,7 @@ eIQ
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 AWS IoT

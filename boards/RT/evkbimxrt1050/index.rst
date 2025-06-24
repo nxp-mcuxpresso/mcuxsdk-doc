@@ -9,8 +9,6 @@ Overview
 
 The NXP IMXRT1050-EVKB is a development board for the i.MX MIMXRT1052 and MIMXRT1051 600 MHz 32-bit ARM Cortex-M7 MCUs.
 
-
-
 .. image:: ./evkbimxrt1050.png
    :width: 240px
    :align: center
@@ -66,12 +64,7 @@ Find links to detailed middleware documentation for key components. While not al
 MCU Boot
 ========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/mcuboot_opensource/README.md
-
-
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
 
 Audio Voice components
 ======================
@@ -91,11 +84,7 @@ eIQ
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 AWS IoT

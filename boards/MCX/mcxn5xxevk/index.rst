@@ -9,8 +9,6 @@ Overview
 
 | The NXP N5xx-EVK is a development board for the N5xx 150 MHz Arm Dual Cortex-M33 TrustZone microcontroller, which is for Industrial and Consumer IoT Applications.
 
-
-
 .. image:: ./mcxn5xxevk.png
    :width: 240px
    :align: center
@@ -70,12 +68,7 @@ Multicore
 MCU Boot
 ========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/mcuboot_opensource/README.md
-
-
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
 
 Audio Voice components
 ======================
@@ -95,11 +88,7 @@ eIQ
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 AWS IoT

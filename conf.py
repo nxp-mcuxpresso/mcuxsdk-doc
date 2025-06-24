@@ -473,7 +473,7 @@ if board_target:
                 # Find :ref: references
                 doc_pattern = re.compile(r':doc:`([^`]+)`')
                 for doc_match in doc_pattern.finditer(content):
-                    doc_path = doc_match.group(1)
+                    doc_path = doc_match.group(1).split('<')[-1].split('>')[0]
                     ref_path = resolve_path(file_path.parent, doc_path)
                     if ref_path:
                         process_file(ref_path, is_board_file)
@@ -599,7 +599,8 @@ if board_target:
         
         # Create a temporary index file that only includes the board documentation
         board_index_content = f"""
-# Board-Specific Documentation: {board_target}
+Board-Specific Documentation: {board_target}
+=================================================
 
 This documentation contains information specific to the {board_name} board.
 
@@ -608,7 +609,7 @@ This documentation contains information specific to the {board_name} board.
 
    {board_path}/index
    {device_path}/index
-   middleware/**/index
+   middleware/index
    rtos/index
 """
         logger.info(f"{board_index_content}") 

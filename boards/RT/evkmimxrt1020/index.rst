@@ -9,8 +9,6 @@ Overview
 
 The NXP MIMXRT1020-EVK is a development board for the i.MX MIMXRT1021 500 MHz 32-bit ARM Cortex-M7 MCUs.
 
-
-
 .. image:: ./evkmimxrt1020.png
    :width: 240px
    :align: center
@@ -66,21 +64,12 @@ Find links to detailed middleware documentation for key components. While not al
 MCU Boot
 ========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/mcuboot_opensource/README.md
-
-
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
 
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 AWS IoT

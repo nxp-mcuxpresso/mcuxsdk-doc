@@ -1,7 +1,5 @@
 # MCUXpresso SDK Release Notes
 
-
-
 ```{include} /release/commonrn/topics/overview.md
 :heading-offset: 1
 ```

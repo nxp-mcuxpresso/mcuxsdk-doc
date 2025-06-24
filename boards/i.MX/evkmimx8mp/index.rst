@@ -9,8 +9,6 @@ Overview
 
 The i.MX 8M Plus family of boards provides a powerful and flexible development system for NXP's Cortex-M7 MCUs.
 
-
-
 .. image:: ./evkmimx8mp.png
    :width: 240px
    :align: center
@@ -72,11 +70,7 @@ Multicore
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 FreeRTOS

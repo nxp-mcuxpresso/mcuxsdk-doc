@@ -11,8 +11,6 @@ The LPCXpresso55S28 board is an LPCXpresso V3 style board, the latest generation
 
 The LPC5500 series is fully supported by NXPs` \ `MCUXpresso suite <https://www.nxp.com/mcuxpresso>`__\  of free software and tools, which include an Eclipse-based IDE, configuration tools and extensive SDK drivers/examples available at \ `https://mcuxpresso.nxp.com <https://mcuxpresso.nxp.com/>`__\. MCUXpresso SDK includes project files for use with IDEs from lead partners Keil and IAR.
 
-
-
 .. image:: ./lpcxpresso55s28.png
    :width: 240px
    :align: center
@@ -68,11 +66,7 @@ Find links to detailed middleware documentation for key components. While not al
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 FreeRTOS

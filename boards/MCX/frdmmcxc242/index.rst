@@ -9,8 +9,6 @@ Overview
 
 The FRDM-MCXC242 is supported by a range of NXP and third-party development software.
 
-
-
 .. image:: ./frdmmcxc242.png
    :width: 240px
    :align: center
@@ -72,11 +70,7 @@ Multicore
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 FreeRTOS

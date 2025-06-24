@@ -9,8 +9,6 @@ Overview
 
 The i.MX RT500 EVK (MIMXRT595-EVK) features NXPs advanced implementation of the Arm Cortex-M33 core, combined with the highly optimized Cadence Tensilica Fusion F1 DSP processor core. MIMXRT595-EVK supports development for the MIMXRT595, MIMXRT555 and MIMXRT533 products and its features make it ideal for portable HMI applications. The i.MX RT500 EVK can help jump start your next design with the included schematics and layout files.
 
-
-
 .. image:: ./evkmimxrt595.png
    :width: 240px
    :align: center
@@ -72,12 +70,7 @@ Find links to detailed middleware documentation for key components. While not al
 Wireless Connectivity Framework
 ===============================
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/wireless/framework/index.rst
-
-
+:doc:`framework <../../../middleware/wireless/framework/index>`
 
 VG-Lite GPU Library
 ===================
@@ -92,12 +85,7 @@ Multicore
 MCU Boot
 ========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/mcuboot_opensource/README.md
-
-
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
 
 eIQ
 ===
@@ -107,11 +95,7 @@ eIQ
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 AWS IoT

@@ -8,7 +8,5 @@ First cycle access is a read to address N, immediately followed by the second cy
 
 The partial write is not updated to prefetch buffer. Subsequent reading from the Shared SRAM address N returns incorrect data.
 
-
-
 **Parent topic:**[Known issues](../topics/known_issues.md)
 

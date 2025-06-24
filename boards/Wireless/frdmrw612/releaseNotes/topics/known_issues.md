@@ -24,8 +24,6 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
-
-
 ```{include} ../../../../release/known_issues/example_mbedtls_benchmark_may_hang_on_some_targets_on_devices_with_els_acceleration.md
 :heading-offset: 1
 ```

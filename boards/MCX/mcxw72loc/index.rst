@@ -12,8 +12,6 @@ The MCXW72's highly sensitive, optimized 2.4 GHz radio features is featured with
 This localization platform is dedicated to Bluetooth Channel Sounding Ranging solution development with a dedicated on-chip Localization Compute Engine to reduce ranging latency.
 The board includes an advanced MCU-Link debug probe, Power and low power option, dual CAN transceiver, buttons, switches, LEDs and a MikroE Click connector.
 
-
-
 .. image:: ./mcxw72loc.png
    :width: 240px
    :align: center
@@ -76,12 +74,7 @@ Wireless Bluetooth LE host stack and applications
 Wireless Connectivity Framework
 ===============================
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/wireless/framework/index.rst
-
-
+:doc:`framework <../../../middleware/wireless/framework/index>`
 
 Multicore
 =========
@@ -91,11 +84,7 @@ Multicore
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 FreeRTOS

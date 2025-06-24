@@ -47,6 +47,8 @@ modules:
     default: true
     external_contents:
     - root: docs
+      pattern: middleware/multimedia.rst
+    - root: docs
       pattern: middleware/vglite/index.rst
     - root: docs
       pattern: middleware/vglite/**/*.md
@@ -128,6 +130,8 @@ modules:
     default: true
     external_contents:
     - root: docs
+      pattern: middleware/cloud.rst
+    - root: docs
       pattern: middleware/aws_iot/*
     - root: .
       pattern: middleware/aws_iot/device-shadow/README.md
@@ -140,6 +144,8 @@ modules:
   mid_wireless_fwk:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/wireless.rst
     - root: .
       pattern: middleware/wireless/framework/index.rst
     - root: .
@@ -152,6 +158,8 @@ modules:
     default: true
     external_contents:
     - root: docs
+      pattern: middleware/connectivity.rst
+    - root: docs
       pattern: middleware/lwip/*
     - root: .
       pattern: middleware/lwip/ChangeLogKSDK.txt
@@ -161,17 +169,23 @@ modules:
     default: true
     external_contents:
     - root: docs
+      pattern: middleware/multimedia.rst
+    - root: docs
       pattern: middleware/lvgl/index.rst
     - root: .
       pattern: middleware/lvgl/docs/integration/chip/nxp.rst
   mid_wifi_nxp:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/wireless.rst
     - root: .
       pattern: middleware/wifi_nxp/docs/*
   mid_maestro:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/multimedia.rst
     - root: docs
       pattern: middleware/audio_voice/index.rst
     - root: docs
@@ -196,6 +210,8 @@ modules:
     default: true
     external_contents:
     - root: docs
+      pattern: middleware/multimedia.rst
+    - root: docs
       pattern: middleware/audio_voice/index.rst
     - root: docs
       pattern: middleware/audio_voice/components/*
@@ -217,6 +233,8 @@ modules:
     default: true
     external_contents:
     - root: docs
+      pattern: middleware/multimedia.rst
+    - root: docs
       pattern: middleware/cadence/multicore-xaf/*
     - root: .
       pattern: middleware/cadence/multicore-xaf/*.md
@@ -225,6 +243,8 @@ modules:
   mid_multicore:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/multicore.rst
     - root: docs
       pattern: middleware/multicore/*
     - root: .
@@ -262,6 +282,8 @@ modules:
   mid_mcuboot:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/boot.rst
     - root: .
       pattern: middleware/mcuboot_opensource/*.md
     - root: .
@@ -269,6 +291,8 @@ modules:
   mid_mcubootloader:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/boot.rst
     - root: .
       pattern: middleware/mcu_bootloader/docs/*
   mid_freertos_drivers:
@@ -307,6 +331,8 @@ modules:
     default: true
     external_contents:
     - root: docs
+      pattern: middleware/file_system.rst
+    - root: docs
       pattern: middleware/fatfs/*
     - root: .
       pattern: middleware/fatfs/*
@@ -314,12 +340,16 @@ modules:
     default: true
     external_contents:
     - root: docs
+      pattern: middleware/file_system.rst
+    - root: docs
       pattern: middleware/littlefs/*
     - root: .
       pattern: middleware/littlefs/*
   mid_sdmmc:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/file_system.rst
     - root: .
       pattern: middleware/sdmmc/index.rst
     - root: .
@@ -327,6 +357,8 @@ modules:
   mid_freemaster:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/motor_control.rst
     - root: docs
       pattern: middleware/freemaster/*
     - root: .
@@ -337,10 +369,14 @@ modules:
     default: true
     external_contents:
     - root: docs
+      pattern: middleware/sensors.rst
+    - root: docs
       pattern: middleware/issdk/*
   mid_ble:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/wireless.rst
     - root: .
       pattern: middleware/wireless/bluetooth/index.rst
     - root: .
@@ -354,20 +390,28 @@ modules:
     default: true
     external_contents:
     - root: docs
+      pattern: middleware/wireless.rst
+    - root: docs
       pattern: middleware/wireless/WiFi-Bluetooth-802.15.4/*
   mid_usb:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/connectivity.rst
     - root: .
       pattern: middleware/usb/docs/*
   mid_edgefast_bluetooth:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/wireless.rst
     - root: .
       pattern: middleware/edgefast_bluetooth/docs/*
   mid_zigbee:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/wireless.rst
     - root: docs
       pattern: middleware/wireless/Zigbee/*
     - root: .
@@ -379,6 +423,8 @@ modules:
   mid_ieee:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/wireless.rst
     - root: .
       pattern: middleware/wireless/ieee-802.15.4/docs/index.rst
     - root: .
@@ -386,6 +432,8 @@ modules:
   mid_eiq:
     default: true
     external_contents:
+    - root: docs
+      pattern: middleware/eiq.rst
     - root: .
       pattern: middleware/eiq/docs/*
     - root: .

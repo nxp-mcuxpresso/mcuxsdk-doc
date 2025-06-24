@@ -9,8 +9,6 @@ Overview
 
 | The NXP FRDM-MCXN947 is a development board for the N94x 150 MHz Arm Cortex-M33 TrustZone microcontroller, which is for Industrial and Consumer IoT Applications.
 
-
-
 .. image:: ./frdmmcxn947.png
    :width: 240px
    :align: center
@@ -71,12 +69,7 @@ Multicore
 MCU Boot
 ========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/mcuboot_opensource/README.md
-
-
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
 
 eIQ
 ===
@@ -86,11 +79,7 @@ eIQ
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 AWS IoT

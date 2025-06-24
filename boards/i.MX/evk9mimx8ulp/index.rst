@@ -34,8 +34,6 @@ Getting Started with MCUXpresso SDK GitHub
 
    ../../../gsd/repo.rst
 
-
-
 Release Notes
 *******************************************
 .. toctree::
@@ -71,11 +69,7 @@ Multicore
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 FreeRTOS

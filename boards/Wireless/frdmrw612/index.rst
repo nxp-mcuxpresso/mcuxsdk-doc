@@ -65,31 +65,17 @@ Find links to detailed middleware documentation for key components. While not al
 Wireless Connectivity Framework
 ===============================
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/wireless/framework/index.rst
-
-
+:doc:`framework <../../../middleware/wireless/framework/index>`
 
 MCU Boot
 ========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/mcuboot_opensource/README.md
-
-
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
 
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 AWS IoT

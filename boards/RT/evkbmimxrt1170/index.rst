@@ -9,8 +9,6 @@ Overview
 
 
 
-
-
 .. image:: ./evkbmimxrt1170.png
    :width: 240px
    :align: center
@@ -76,12 +74,7 @@ Multicore
 MCU Boot
 ========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/mcuboot_opensource/README.md
-
-
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
 
 Audio Voice components
 ======================
@@ -101,11 +94,7 @@ eIQ
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 AWS IoT

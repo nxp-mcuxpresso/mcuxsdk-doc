@@ -16,8 +16,6 @@ Before downloading and running the application, perform these steps:
 
         ![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configuration")
 
-
-
 ```{include} ../topics/install_cmsis_device_pack.md
 :heading-offset: 1
 ```

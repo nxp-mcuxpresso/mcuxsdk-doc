@@ -9,8 +9,6 @@ Overview
 
 
 
-
-
 .. image:: ./k32w148evk.png
    :width: 240px
    :align: center

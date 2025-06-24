@@ -9,8 +9,6 @@ Overview
 
 The NXP MIMXRT1010-EVK is a development board for the i.MX MIMXRT1011 500 MHz 32-bit ARM Cortex-M7 MCUs.
 
-
-
 .. image:: ./evkmimxrt1010.png
    :width: 240px
    :align: center
@@ -65,11 +63,7 @@ Find links to detailed middleware documentation for key components. While not al
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 FreeRTOS

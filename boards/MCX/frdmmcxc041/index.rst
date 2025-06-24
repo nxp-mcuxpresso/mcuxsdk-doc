@@ -9,8 +9,6 @@ Overview
 
 The FRDM-MCXC041 is supported by a range of NXP and third-party development software.
 
-
-
 .. image:: ./frdmmcxc041.png
    :width: 240px
    :align: center
@@ -67,11 +65,7 @@ Find links to detailed middleware documentation for key components. While not al
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 FreeRTOS

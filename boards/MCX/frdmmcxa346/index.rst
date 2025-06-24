@@ -21,8 +21,6 @@ MDK. The board is lead-free and RoHS-compliant.
 For debugging the MCXA346 MCU, the FRDM-MCXA346 board uses an onboard (OB) debug probe, MCU-Link lite
 OB, which is based on another NXP MCU: LPC55S16
 
-
-
 .. image:: ./frdmmcxa346.png
    :width: 240px
    :align: center
@@ -77,21 +75,12 @@ Find links to detailed middleware documentation for key components. While not al
 MCU Boot
 ========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/mcuboot_opensource/README.md
-
-
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
 
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 FreeRTOS

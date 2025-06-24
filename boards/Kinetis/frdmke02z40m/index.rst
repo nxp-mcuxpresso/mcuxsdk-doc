@@ -9,8 +9,6 @@ Overview
 
 The Freedom-KE02Z40M is an ultra-low-cost development platform for Kinetis KE02 MCUs
 
-
-
 .. image:: ./frdmke02z40m.png
    :width: 240px
    :align: center
@@ -34,8 +32,6 @@ Getting Started with MCUXpresso SDK GitHub
    :maxdepth: 1
 
    ../../../gsd/repo.rst
-
-
 
 Release Notes
 *******************************************
@@ -67,9 +63,5 @@ Find links to detailed middleware documentation for key components. While not al
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 

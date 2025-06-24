@@ -37,8 +37,6 @@ Getting Started with MCUXpresso SDK GitHub
 
    /gsd/repo.rst
 
-
-
 Release Notes
 *******************************************
 .. toctree::

@@ -9,8 +9,6 @@ Overview
 
 The FRDM-K32L2B3 is supported by a range of NXP and third-party development software.
 
-
-
 .. image:: ./frdmk32l2b.png
    :width: 240px
    :align: center
@@ -71,11 +69,7 @@ Multicore
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 FreeRTOS

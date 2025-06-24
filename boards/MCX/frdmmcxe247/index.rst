@@ -89,8 +89,5 @@ FreeRTOS
    
 FreeMASTER
 ==========
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md

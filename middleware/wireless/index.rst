@@ -1,7 +1,7 @@
 .. _midwireless:
 
-wireless
-########
+NXP Wireless Framework and Stacks
+##################################
 
 .. toctree::
    :maxdepth: 1

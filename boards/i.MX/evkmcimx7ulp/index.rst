@@ -9,8 +9,6 @@ Overview
 
 The i.MX7ULP family of boards provides a powerful and flexible development system for NXP's Cortex-M4 MCUs.
 
-
-
 .. image:: ./evkmcimx7ulp.png
    :width: 240px
    :align: center
@@ -70,11 +68,7 @@ Multicore
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 FreeRTOS

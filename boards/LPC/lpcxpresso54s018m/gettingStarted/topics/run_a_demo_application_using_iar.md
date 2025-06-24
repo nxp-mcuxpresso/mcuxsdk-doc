@@ -14,8 +14,6 @@ Before downloading and running the application, perform these steps:
 
         ![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configuration")
 
-
-
 ```{include} ../topics/build_an_non-xip_plain_load_example_application.md
 :heading-offset: 1
 ```

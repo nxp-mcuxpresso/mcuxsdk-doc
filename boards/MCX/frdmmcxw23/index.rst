@@ -9,8 +9,6 @@ Overview
 
 The NXP FRDM-MCXW23 is a development board for the MCXW23 32 MHz Arm Cortex-M33 microcontroller.
 
-
-
 .. image:: ./frdmmcxw23.png
    :width: 1000px
    :align: center

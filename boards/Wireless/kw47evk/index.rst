@@ -75,12 +75,7 @@ Wireless Bluetooth LE host stack and applications
 Wireless Connectivity Framework
 ===============================
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/wireless/framework/index.rst
-
-
+:doc:`framework <../../../middleware/wireless/framework/index>`
 
 Multicore
 =========
@@ -90,11 +85,7 @@ Multicore
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 FreeRTOS

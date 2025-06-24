@@ -29,7 +29,5 @@ The Minimalist GNU for Windows \(MinGW\) development tools provide a set of tool
 
     ![](../images/add_path_systems_environment.png "Add Path to systems environment")
 
-
-
 **Parent topic:**[Set up toolchain](../topics/set_up_toolchain.md)
 

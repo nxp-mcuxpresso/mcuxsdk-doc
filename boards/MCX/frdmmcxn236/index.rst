@@ -9,8 +9,6 @@ Overview
 
 | The NXP FRDM-MCXN236 is a development board for the N23x 150 MHz Arm Cortex-M33 TrustZone microcontroller, which is for Industrial and Consumer IoT Applications.
 
-
-
 .. image:: ./frdmmcxn236.png
    :width: 240px
    :align: center
@@ -81,11 +79,7 @@ Maestro Audio Framework for MCU
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 FreeRTOS

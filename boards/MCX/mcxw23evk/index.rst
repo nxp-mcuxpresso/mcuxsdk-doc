@@ -9,8 +9,6 @@ Overview
 
 The NXP MCXW23-EVK is a development board for the MCXW23 32 MHz Arm Cortex-M33 microcontroller.
 
-
-
 .. image:: ./mcxw23evk.png
    :width: 1000px
    :align: center

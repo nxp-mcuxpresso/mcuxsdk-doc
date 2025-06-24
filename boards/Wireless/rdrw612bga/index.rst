@@ -9,8 +9,6 @@ Overview
 
 
 
-
-
 .. image:: ./rdrw612bga.png
    :width: 240px
    :align: center
@@ -65,22 +63,12 @@ Find links to detailed middleware documentation for key components. While not al
 Wireless Connectivity Framework
 ===============================
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/wireless/framework/index.rst
-
-
+:doc:`framework <../../../middleware/wireless/framework/index>`
 
 MCU Boot
 ========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/mcuboot_opensource/README.md
-
-
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
 
 Audio Voice components
 ======================
@@ -95,11 +83,7 @@ Maestro Audio Framework for MCU
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 AWS IoT

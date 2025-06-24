@@ -2,8 +2,6 @@
 
 The primary core debugger handles flashing of both the primary and the auxiliary core applications into the SoC flash memory. To download and run the multicore application, switch to the primary core application project and perform all steps as described in *[Run an example application](run_an_example_application.md#)*. These steps are common for both single-core applications and the primary side of dual-core applications, ensuring both sides of the multicore application are properly loaded and started. However, there is one additional dialogue that is specific to multicore examples which requires selecting the target core. See the following figures as reference.
 
-
-
 |![](../images/debug_lpcxpresso54114_multicore_examples_hello_wor.png "Debug "lpcxpresso55s69_hello_world_cm33_core0"
 										case")
 
@@ -11,19 +9,13 @@ The primary core debugger handles flashing of both the primary and the auxiliary
 
 
 
-
-
 |![](../images/attached_probes_debug_emulator_selection_multicore.png "Attached Probes: debug emulator selection")
 
 |
 
-
-
 |![](../images/target_core_selection_dialog_lpc55xx.png "Target core selection dialogue")
 
 |
-
-
 
 
 
@@ -42,14 +34,10 @@ An LED controlled by the auxiliary core starts flashing, indicating that the aux
 
 
 
-
-
 |![](../images/debug_lpcxpresso55s69_hello_world_cm33_core_case.png "Debug "lpcxpresso55s69_hello_world_cm33_core1"
 										case")
 
 |
-
-
 
 
 
@@ -58,8 +46,6 @@ An LED controlled by the auxiliary core starts flashing, indicating that the aux
 |
 
 Now, the two debug sessions should be opened, and the debug controls can be used for both debug sessions depending on the debug session selection. Keep the primary core debug session selected by clicking the "Resume" button. The hello\_world multicore application then starts running. The primary core application starts the auxiliary core application during runtime, and the auxiliary core application stops at the beginning of the main\(\) function. The debug session of the auxiliary core application is highlighted. After clicking the “Resume” button, it is applied to the auxiliary core debug session. Therefore, the auxiliary core application continues its execution.
-
-
 
 
 
@@ -72,16 +58,12 @@ At this point, it is possible to suspend and resume individual cores independent
 
 
 
-
-
 |![](../images/synchronous_suspension_resumption_both_cores_using.png "Synchronous suspension/resumption of both cores using the
 										multiple
 										selections
 										of debug sessions and “Suspend”/"Resume” controls")
 
 |
-
-
 
 
 

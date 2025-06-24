@@ -22,8 +22,6 @@ The following steps guide you through opening the hello\_world example applicati
     -   flexspi\_nor\_release - Project configuration is same as release target. The linker file is flexspi\_nor linker, where text is put in flash and data put in TCM.
     For this example, select the “hello\_world – Debug” target.
 
-
-
     ![](../images/demo_build_rt1015.png "Demo build target selection")
 
 3.  To build the demo application, click the “Make” button, highlighted in red below.

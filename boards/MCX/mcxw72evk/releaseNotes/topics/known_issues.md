@@ -2,8 +2,6 @@
 
 The following are the known issues in this release.
 
-
-
 ```{include} /release/known_issues/known_issue_new_project_wizard_compile_failure.md
 :heading-offset: 1
 ```

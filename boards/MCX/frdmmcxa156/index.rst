@@ -9,8 +9,6 @@ Overview
 
 | The NXP FRDM-MCXA156 is a development board for the A15X/A14X 96 MHz Arm Cortex-M33 microcontroller.
 
-
-
 .. image:: ./frdmmcxa156.png
    :width: 240px
    :align: center
@@ -66,21 +64,12 @@ Find links to detailed middleware documentation for key components. While not al
 MCU Boot
 ========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/mcuboot_opensource/README.md
-
-
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
 
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 FreeRTOS

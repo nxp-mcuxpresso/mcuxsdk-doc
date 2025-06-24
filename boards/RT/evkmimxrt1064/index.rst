@@ -9,8 +9,6 @@ Overview
 
 The NXP MIMXRT1064-EVK is a development board for the i.MX MIMXRT1064 600 MHz 32-bit ARM Cortex-M7 MCUs.
 
-
-
 .. image:: ./evkmimxrt1064.png
    :width: 240px
    :align: center
@@ -35,8 +33,6 @@ Getting Started with MCUXpresso SDK GitHub
    :maxdepth: 1
 
    ../../../gsd/repo.rst
-
-
 
 
 Release Notes
@@ -69,12 +65,7 @@ Find links to detailed middleware documentation for key components. While not al
 MCU Boot
 ========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/mcuboot_opensource/README.md
-
-
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
 
 Audio Voice components
 ======================
@@ -94,11 +85,7 @@ eIQ
 FreeMASTER
 ==========
 
-.. toctree::
-   :maxdepth: 1
-
-   ../../../middleware/freemaster/doc/index.md
-
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
 
 AWS IoT
