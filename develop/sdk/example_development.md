@@ -28,7 +28,7 @@ Based on the cmake built-in macro `project`, we customize the `project` to provi
 
 Here is the hello_world CMakeLists.txt:
 
-```cmake
+```
 cmake_minimum_required(VERSION 3.30.0)
 
 include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
@@ -79,7 +79,7 @@ config HELLO_WORLD_EXAMPLE_MACRO
 
 prj.conf here specifies the example specific configuration values for Kconfig symbols. It will be merged together with other prj.conf values from device, board and shield to produce the final configurations.
 
-See [prj.conf](../build_system/Configuration_System.md#prj-conf) for more details.
+See [prj.conf](../build_system/Configuration_System.md#prjconf) for more details.
 
 ## example.yml
 
@@ -378,7 +378,7 @@ Hence, to ensure a SDK repository example can be successfully exported to a free
 2. Explicitly add example common sources in the example's root CMakeLists.txt. Do not add them in `reconfig.cmake` or another cmake file.
 3. Do not record duplicated source files in `reconfig.cmake`.
 4. For sysbuild examples, `ExternalMCUXProject_Add` is expected in the root `sysbuild.cmake` file. For board with multiple different core ids, we only allow one level `include`. That means, you can `include` another `sysbuild.cmake` file in your board folder, but you cannot `include` again in that board specific `sysbuild.cmake`. Here is an example:
-    ```cmake
+    ```
     mcuxsdk/examples/dsp_examples/hello_world_usart/cm/sysbuild.cmake
     include(${SdkRootDirPath}/${board_root}/${board}/dsp_examples/hello_world_usart/${core_id}/sysbuild.cmake)
 
@@ -466,7 +466,7 @@ If you don't want to use Kconfig but want to directly provide a configuration he
 
 ## Create an Example
 
-Firstly, you should make sure that the target device and board data are ready, secondly, you need to follow the above [CMakeLists.txt](#cmakelists-txt), [Kconfig](#kconfig), [prj.conf](#prj-conf) and [example.yml](#example-yml) chapters to prepare the build and configuration files, then it should be ok.
+Firstly, you should make sure that the target device and board data are ready, secondly, you need to follow the above [CMakeLists.txt](#cmakeliststxt), [Kconfig](#kconfig), [prj.conf](#prjconf) and [example.yml](#exampleyml) chapters to prepare the build and configuration files, then it should be ok.
 
 If the default board and device data and configuration cannot satisfy your needs, then you need to do customization for the certain device or board or both.
 
@@ -483,7 +483,7 @@ There are following ways to do the customization.
    This is the board port cmake. Any board specific configurations can be added in it.
 2. prj.conf
 
-   For component selection and configuration, you can use different scope prj.conf to achieve it. Refer the priority of prj.conf in [prj.conf](../build_system/Configuration_System.md#prj-conf) chapter to set the data.
+   For component selection and configuration, you can use different scope prj.conf to achieve it. Refer the priority of prj.conf in [prj.conf](../build_system/Configuration_System.md#prjconf) chapter to set the data.
 
 ## Build The Example
 

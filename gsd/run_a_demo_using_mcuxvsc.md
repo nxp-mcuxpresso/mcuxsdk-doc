@@ -3,7 +3,7 @@ This section explains how to configure MCUXpresso for VS Code to build, run, and
 
 ## Build an example application
 
- This section assumes that the user has already obtained the SDK as outlined in [Get MCUXpresso SDK Repo](#get-mcuxpresso-sdk-repo).
+ This section assumes that the user has already obtained the SDK as outlined in [Get MCUXpresso SDK Repo](../gsd/installation.md#get-mcuxpresso-sdk-repo).
 
 To build an example application:
 
@@ -14,7 +14,7 @@ To build an example application:
     **Note:** You can import the SDK in several ways. Refer to [MCUXpresso for VS Code Wiki](https://github.com/nxp-mcuxpresso/vscode-for-mcux/wiki/Working-with-MCUXpresso-SDK) for details.
 
 
-    Select **Local** if you've already obtained the SDK as seen in [Get MCUXpresso SDK Repo](../gsd/installation.md#get-the-mcuxpresso-sdk-repo). Select your location and click **Import**.
+    Select **Local** if you've already obtained the SDK as seen in [Get MCUXpresso SDK Repo](../gsd/installation.md#get-mcuxpresso-sdk-repo). Select your location and click **Import**.
 
     ![](images/mcuxvsc_import_repository_local.png "Import Local Repository")
 

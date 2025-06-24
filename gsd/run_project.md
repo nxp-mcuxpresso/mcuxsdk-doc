@@ -4,7 +4,7 @@
 
 Use the west extension `west list_project` to understand the board support scope for a specified example. All supported build command will be listed in output:
 
-```base
+```bash
 west list_project -p examples/demo_apps/hello_world [-t armgcc]
 
 INFO: [   1][west build -p always examples/demo_apps/hello_world --toolchain armgcc --config release -b evk9mimx8ulp -Dcore_id=cm33]
@@ -126,4 +126,4 @@ By default, the IDE project files are generated in `mcuxsdk/build/<toolchain>` f
 
 ![gui_project](../develop/build_system/_doc/gui_project.gif)
 
-Note, please follow the [Installation](./installation.md) to setup the environment especially make sure that [ruby](./installation.md/ruby) has been installed.
+Note, please follow the [Installation](./installation.md) to setup the environment especially make sure that [ruby](./installation.md#ruby) has been installed.

@@ -28,7 +28,7 @@ mcux_set_variable(device_root devices_int)
 
 Internal boards are located under `examples_int/_boards` repository folder. The construction of internal boards are no different from normal public boards except the `example.yml`.  
 
-For public boards, the board example.yml is used to provide board level supported toolchains and build configuration targets. In each example, the example self example.yml will provide customized boards/toolchains/build configuration targets which work together with board example.yml to decide the final example boards/toolchains/build configuration targets enablement status. You can refer [example.yml](./example_development.md#example-yml) chapter for more details.
+For public boards, the board example.yml is used to provide board level supported toolchains and build configuration targets. In each example, the example self example.yml will provide customized boards/toolchains/build configuration targets which work together with board example.yml to decide the final example boards/toolchains/build configuration targets enablement status. You can refer [example.yml](./example_development.md#exampleyml) chapter for more details.
 
 For internal boards, since it cannot be exposed in the public example example.yml `boards` data attribute to indicate they are supported by the public examples, so we introduce new rules for internal board example.yml: the supported examples will be directly listed in the internal board example.yml like
 

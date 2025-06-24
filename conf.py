@@ -838,4 +838,5 @@ suppress_warnings = [
 # suppress_warnings = ['image.fetch']
 # conf.py
 image_fetch_timeout = 1  # Timeout in seconds
-#myst_heading_anchors = 2
+myst_heading_anchors = 6
+#myst_all_links_external = False

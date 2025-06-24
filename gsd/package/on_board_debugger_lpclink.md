@@ -6,7 +6,7 @@ On-board LPC-Link 2 debugger supports CMSIS-DAP and J-Link firmware. See the tab
 
 **The corresponding host driver must be installed before debugging.**
 - For boards with CMSIS-DAP firmware, visit [developer.mbed.org/handbook/Windows-serial-configuration](http://developer.mbed.org/handbook/Windows-serial-configuration) and follow the instructions to install the Windows operating system serial driver. If running on Linux OS, this step is not required.
-- If using J-Link with either a standalone debug pod or MCU-Link, install the J-Link software \(drivers and utilities\) from [www.segger.com/jlink-software.html](www.segger.com/jlink-software.html).
+- If using J-Link with either a standalone debug pod or MCU-Link, install the J-Link software \(drivers and utilities\) from [www.segger.com/jlink-software.html](https://www.segger.com/downloads/jlink/).
 
 ## Updating LPC-Link firmware
 

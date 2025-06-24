@@ -156,7 +156,7 @@ If you see the version number, you have successfully installed the tool. Else, c
   4. Save and exit.
   5. Execute the script with `source .bash_profile` or reboot the system to make the changes live. To verify the changes, run `echo $PATH`.
 
-# Get the MCUXpresso SDK Repo
+# Get MCUXpresso SDK Repo
 
 ## Establish SDK Workspace
 To get the MCUXpresso SDK repository, use the `west` tool to clone the manifest repository and checkout all the west projects.

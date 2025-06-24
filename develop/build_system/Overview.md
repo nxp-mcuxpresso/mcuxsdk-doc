@@ -21,9 +21,9 @@ Here is the system architecture:
 The input files are
 
 - Kconfig files define device/board/shield hardware information, component and example dependency and configuration. 
-- [prj.conf](./Configuration_System.md#prj-conf) files provide pre set value for Kconfig symbols. 
+- [prj.conf](./Configuration_System.md#prjconf) files provide pre set value for Kconfig symbols. 
 - cmake files define the component and example contents.
-- [IDE.yml](./IDE_Project.md#ide-yml) files provide download and debug settings for board examples
+- [IDE.yml](./IDE_Project.md#ideyml) files provide download and debug settings for board examples
 - Misc yml files provide miscellaneous information for device/board/shield/components/examples mainly used by tools like MCUXpresso VSCode plugin to display SDK contents.
 
 The outputs are 
