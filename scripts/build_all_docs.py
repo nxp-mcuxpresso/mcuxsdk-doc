@@ -225,7 +225,35 @@ def process_board(args, board_target, build_dir, assets_dir):
         html_success = "skipped"
         
         try:
-            run_command_with_logging(board_logger, pdf_cmd)
+
+            pdf_path = os.path.join(board_build_dir, 'latex', f'mcuxsdk-{board_target}.pdf')
+            min_size_bytes = 1 * 1024 * 1024
+            min_size_mb = 1
+            max_retries = 3
+            for attempt in range(1, max_retries + 1):
+                # Run the command
+                board_logger.info(f"[Attempt {attempt}] Running PDF generation command: {' '.join(pdf_cmd)}")
+                run_command_with_logging(board_logger, pdf_cmd)
+
+                # Check if file exists
+                if not os.path.exists(pdf_path):
+                    board_logger.error(f"PDF file not found at expected location: {pdf_path}")
+                    continue
+
+                # Get file size
+                file_size = os.path.getsize(pdf_path)
+
+                board_logger.info(f"Generated PDF size: {file_size / (1024 * 1024):.2f} MB")
+
+                if file_size >= min_size_bytes:
+                    board_logger.info("PDF size is acceptable.")
+                    break
+                else:
+                    board_logger.warning(
+                        f"PDF size ({file_size / 1024:.2f} KB) < {min_size_mb} MB. Retrying..."
+                    )
+                    #time.sleep(2)  # Optional: wait before retrying
+
             board_logger.info(f"PDF documentation for {board_target} built successfully")
             pdf_success = True
             
