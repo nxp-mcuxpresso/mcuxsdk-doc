@@ -13,7 +13,7 @@
 :heading-offset: 1
 ```
 
-```{include} ../topics/wireless_certification.md
+```{include} ../topics/wi-fi_and_bluetooth_certification_06.md
 :heading-offset: 1
 ```
 
