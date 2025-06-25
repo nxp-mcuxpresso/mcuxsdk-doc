@@ -112,6 +112,7 @@ Start a gdb interface by following command:
 ```bash
 west debug -r linkserver
 ```
+
 ## Work with IDE Project
 
 The above build functionalities are all with CLI. If you want to use the toolchain IDE to work to enjoy the better user experience especially for debugging or you are already used to develop with IDEs like  IAR, MDK, Xtensa and CodeWarrior in the embedded world, you can play with our [IDE project generation](../develop/build_system/IDE_Project.md) functionality.

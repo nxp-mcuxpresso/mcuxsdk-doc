@@ -378,7 +378,8 @@ Hence, to ensure a SDK repository example can be successfully exported to a free
 2. Explicitly add example common sources in the example's root CMakeLists.txt. Do not add them in `reconfig.cmake` or another cmake file.
 3. Do not record duplicated source files in `reconfig.cmake`.
 4. For sysbuild examples, `ExternalMCUXProject_Add` is expected in the root `sysbuild.cmake` file. For board with multiple different core ids, we only allow one level `include`. That means, you can `include` another `sysbuild.cmake` file in your board folder, but you cannot `include` again in that board specific `sysbuild.cmake`. Here is an example:
-    ```
+
+    ```cmake
     mcuxsdk/examples/dsp_examples/hello_world_usart/cm/sysbuild.cmake
     include(${SdkRootDirPath}/${board_root}/${board}/dsp_examples/hello_world_usart/${core_id}/sysbuild.cmake)
 
@@ -417,7 +418,6 @@ Hence, to ensure a SDK repository example can be successfully exported to a free
 
     add_dependencies(${DEFAULT_IMAGE} hello_world_usart_cm33_core1)
     ```
-
 
 ### Example with different build configurations
 
@@ -621,6 +621,85 @@ CONFIG_FLASH_BASE_ADDRESS=0x30000400
 ```
 
 If your example has different flash base address, please override the above value in your example specific prj.conf.
+
+### Size Report of the generated ELF
+
+Run `west build -t ram_report` or `west build -t rom_report`
+
+Sample for ram size report:
+
+```bash
+Path                                                                                             Size       %  Address    Section    
+==========================================================================================================================================
+Root                                                                                             3264 100.00%  - 
+├── (hidden)                                                                                     3107  95.19%  - 
+├── (no paths)                                                                                     28   0.86%  - 
+│   ├── SystemCoreClock                                                                             4   0.12%  0x20000000 .data
+│   ├── s_lpuartHandle                                                                             12   0.37%  0x20000084 .bss
+│   └── s_lpuartIsr                                                                                12   0.37%  0x20000090 .bss
+├── /                                                                                              96   2.94%  - 
+│   └── Volumes                                                                                    96   2.94%  - 
+│       └── data                                                                                   96   2.94%  - 
+│           └── jenkins                                                                            96   2.94%  - 
+│               └── workspace                                                                      96   2.94%  - 
+│                   └── GNU-toolchain                                                              96   2.94%  - 
+│                       └── arm-11                                                                 96   2.94%  - 
+│                           └── src                                                                96   2.94%  - 
+│                               └── newlib-cygwin                                                  96   2.94%  - 
+│                                   └── newlib                                                     96   2.94%  - 
+│                                       └── libc                                                   96   2.94%  - 
+│                                           └── reent                                              96   2.94%  - 
+│                                               └── impure.c                                       96   2.94%  - 
+│                                                   └── impure_data                                96   2.94%  0x20000008 .data
+└── SDK_BASE                                                                                       33   1.01%  - 
+    ├── components                                                                                 20   0.61%  - 
+    │   └── debug_console_lite                                                                     20   0.61%  - 
+    │       └── fsl_debug_console.c                                                                20   0.61%  - 
+    │           └── s_debugConsole                                                                 20   0.61%  0x200000a4 .bss
+    ├── devices                                                                                     4   0.12%  - 
+    │   └── MCX                                                                                     4   0.12%  - 
+    │       └── MCXA                                                                                4   0.12%  - 
+    │           └── MCXA153                                                                         4   0.12%  - 
+    │               └── drivers                                                                     4   0.12%  - 
+    │                   └── fsl_clock.c                                                             4   0.12%  - 
+    │                       └── s_Ext_Clk_Freq                                                      4   0.12%  0x20000004 .data
+    ├── drivers                                                                                     8   0.25%  - 
+    │   └── ostimer                                                                                 8   0.25%  - 
+    │       └── fsl_ostimer.c                                                                       8   0.25%  - 
+    │           ├── s_ostimerHandle                                                                 4   0.12%  0x2000009c .bss
+    │           └── s_ostimerIsr                                                                    4   0.12%  0x200000a0 .bss
+    └── examples                                                                                    1   0.03%  - 
+        └── driver_examples                                                                         1   0.03%  - 
+            └── ostimer                                                                             1   0.03%  - 
+                └── ostimer_example.c                                                               1   0.03%  - 
+                    └── matchFlag                                                                   1   0.03%  0x200000b8 .bss
+==========================================================================================================================================
+                                                                                                 3264
+```
+
+To get JSON RAM/ROM usage report in build directory, just run `west build -t footprint`
+
+### Usage for Cmake Targets
+
+To see all accessible cmake targets, run `west build -t usage`, then you can get a more readable help information
+
+```bash
+Cleaning targets:
+  clean     - Remove most generated files but keep configuration and backup files
+  pristine  - Remove all files in the build directory
+
+Kconfig targets:
+  menuconfig - Update .config using a console-based interface
+  guiconfig  - Update .config using a graphical interface
+
+Other generic targets:
+  all          - Build a mcuxsdk application
+  run          - Build a mcuxsdk application and run it if the board supports emulation
+  flash        - Run "west flash"
+  debug        - Run "west debug"
+  ....
+  other targets
+```
 
 ## Project Segment
 
