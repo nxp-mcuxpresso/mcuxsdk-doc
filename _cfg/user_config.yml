@@ -9,7 +9,6 @@ extensions:
 - sphinx.ext.extlinks
 - myst_parser
 - external_content
-- page_filter
 - sphinx.ext.graphviz
 - sphinx_tabs.tabs
 - sphinxmermaid

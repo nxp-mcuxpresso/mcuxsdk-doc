@@ -1,3 +1,9 @@
+'''MCUXpresso Document Build All Script
+   Copyright 2025 NXP
+   All rights reserved.
+
+   SPDX-License-Identifier: BSD-3-Clause
+'''
 #!/usr/bin/env python3
 """
 Script to build documentation for all boards and then the full documentation.
