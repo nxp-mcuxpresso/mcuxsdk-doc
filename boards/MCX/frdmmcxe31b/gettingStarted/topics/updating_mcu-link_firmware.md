@@ -10,11 +10,11 @@ These steps show how to update the debugger firmware on your board for Windows o
 
 1.  Install the MCU-Link utility.
 2.  Unplug the board's USB cable.
-3.  Make the DFU link \(install the jumper labelled DFUlink, JP10 on FRDM-MCXE31B board\).
+3.  Make the DFU link \(install the jumper labelled DFUlink, JP3 on FRDM-MCXE31B board\).
 4.  Connect the probe to the host via USB \(use Link USB connector\).
 5.  Open a command shell and call the appropriate script located in the MCU-Link installation directory \(`<MCU-Link install dir>`\).
-    1.  To program CMSIS-DAP debug firmware: `<LPCScrypt install dir>/scripts/program_CMSIS`
-    2.  To program J-Link debug firmware: `<LPCScrypt install dir>/scripts/program_JLINK`
+    1.  To program CMSIS-DAP debug firmware: `<MCU-Link install dir>/scripts/program_CMSIS`
+    2.  J-Link debug firmware can't be supported currently, looking forward to subsequent updates
 6.  Remove DFU link \(remove the jumper installed in [Step 3](updating_mcu-link_firmware.md#STEP3)\).
 7.  Re-power the board by removing the USB cable and plugging it in again.
 
