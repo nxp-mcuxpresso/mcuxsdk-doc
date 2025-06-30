@@ -24,7 +24,7 @@
         <a href="{{ vcs_url }}" class="fa fa-git"> {{ _('Open on Repo') }}</a>
       {% endif %}
       <a href="{{ pagename | vcs_link_get_open_issue_url }}" class="fa fa-bug">
-        {{ _('Report an issue with this page')}}
+        {{ _('Report an issue')}}
       </a>
     {% endif %}
     {% if meta and meta["pdf-download"] %}
