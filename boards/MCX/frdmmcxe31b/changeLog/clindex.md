@@ -32,6 +32,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /devices/MCX/MCXE/MCXE31B/drivers/doxygen/ChangeLog_dcm.md
+:heading-offset: 2
+```
+---
 ```{include} /devices/MCX/MCXE/MCXE31B/drivers/doxygen/ChangeLog_dcm_gpr.md
 :heading-offset: 2
 ```
@@ -41,6 +45,10 @@
 ```
 ---
 ```{include} /drivers/edma4/doxygen/ChangeLog_edma.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/emios/doxygen/ChangeLog_emios.md
 :heading-offset: 2
 ```
 ---
@@ -153,6 +161,14 @@
 ```
 ---
 ```{include} /drivers/rtc_jdp/doxygen/ChangeLog_rtc.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/sai/doxygen/ChangeLog_sai.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/sai/doxygen/ChangeLog_sai_edma.md
 :heading-offset: 2
 ```
 ---
