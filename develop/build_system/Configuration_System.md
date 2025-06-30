@@ -196,8 +196,9 @@ To support [Componentization](../sdk/component_development.md#Componentization) 
 | `MCUX_DEPENDENCY_COMPONENT_<component name1>_DEPEND_<component name2>` | Specify the dependency of component 1 on component 2, mainly used to display the dependency in `choice` symbol. |
 | `MCUX_HW_<hardware information>`         | Specify the hardware information, mainly for dependency purpose. The device Kconfig.chip is the major definition file for such Kconfig symbol. |
 
-The above naming Kconfig symbols are used to define components, project segments and the dependencies.
-**All Kconfig symbols with above naming prefix `MCUX_` will be intentionally removed out of the generated config header file. All other Kconfig symbols will be regarded as compile and link used macros and generated into header file to be involved  in the build process.**
+The above naming Kconfig symbols are used to define components, project segments, and the dependencies. Besides, there are some Kconfig symbols, which are used to specify toolchain, compiler, and other not directly build related stuff. The miscellaneous Kconfig prefixes include `MCUX_COMPONENT`,`MCUX_HAS`, `MCUX_IP`, `MCUX_HW`, `MCUX_DEPENDENCY`, `MCUX_SETTING`, `MCUX_COMPILER`, `MCUX_TOOLCHAIN`, `MCUX_SOURCE_CONDITION`, `MCUX_STRING`, `MCUX_EXCLUDE`, `MCUX_MODULE`, `MCUX_ABSTRACT`, and `MCUX_MISC`. **All these Kconfig symbols will be intentionally removed out of the generated config header file. All other Kconfig symbols will be regarded as macros for compiling and linking which will be generated into header files for the build process.**
+
+> All Kconfig symbols with "." will be ignored in the header file generation.
 
 ### Remove `CONFIG_` Prefix for Macro Name
 
