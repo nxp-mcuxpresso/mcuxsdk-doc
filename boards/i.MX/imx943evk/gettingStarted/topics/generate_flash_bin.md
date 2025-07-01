@@ -47,7 +47,23 @@
 
     **Note:**
 
-    -   For LPDDR5, LPDDR\_TYPE=lpddr5;For LPDDR4, LPDDR\_TYPE=lpddr4x.
+    -   For LPDDR5, LPDDR\_TYPE=lpddr5; For LPDDR4, LPDDR\_TYPE=lpddr4x.
+
+    -   For IMX943-19X19-LPDDR5-EVK, use the following command,
+
+        - `make SOC=iMX94 OEI=YES flash_m33s_m70_m71 LPDDR_TYPE=lpddr5`
+
+        or
+
+        - `make SOC=iMX94 OEI=YES flash_all LPDDR_TYPE=lpddr5`
+
+    -   For IMX943-19X19-LPDDR4-EVK or IMX943-15X15-LPDDR4-EVK, use the following command,
+
+        - `make SOC=iMX94 OEI=YES flash_m33s_m70_m71 LPDDR_TYPE=lpddr4x`
+
+        or
+
+        - `make SOC=iMX94 OEI=YES flash_all LPDDR_TYPE=lpddr4x`
 
     -   Valid combination demos to avoid resource conflict.
 

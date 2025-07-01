@@ -2,7 +2,19 @@
 
 1.  Connect usb typec cable from pc to typec port J15 of board.(It will emulate four serial ports[e.g. COM0 - LPUART8, COM1, COM2 - LPUART1, COM3 - LPUART2] in pc)
 
-    - COM0(LPUART8 - use as uart of cortex-m33 core1)
+    - COM0(LPUART8 - use as uart of cortex-m33 core1), please perform the following steps,
+
+      a. Enable BCU,
+
+        - Change SW7-1 from OFF.(For imx943evk proto2 board, base board version: REV B1)
+
+        - Change SW7-1 from ON.(For imx943evk proto1 board)
+
+      b. Enable the serial port via bcu command,
+
+        - `bcu set_gpio fta_jtag_host_en 0 -board=imx943evk19b1` or `bcu set_gpio fta_jtag_host_en 0 -board=imx943evk19a0`
+
+        - `bcu set_gpio fta_jtag_uart_sel 1 -board=imx943evk19b1` or `bcu set_gpio fta_jtag_uart_sel 1 -board=imx943evk19a0`
 
     - COM2(LPUART1 - use as uart of Cortex-A)
 
