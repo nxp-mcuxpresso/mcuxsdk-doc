@@ -796,7 +796,7 @@ is_release = tags.has("release")  # pylint: disable=undefined-variable
 reference_prefix = DOC_BUILD
 if tags.has("publish"):  # pylint: disable=undefined-variable
     reference_prefix = f"/{version}" if is_release else "/latest"
-docs_title = "Docs / {}".format(version if is_release else "Latest")
+docs_title = "Docs"
 
 
 
