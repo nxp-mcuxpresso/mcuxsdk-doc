@@ -24,3 +24,6 @@ doxmlparser
 
 chardet
 jsonschema
+
+# Customize 404 page
+sphinx-notfound-page

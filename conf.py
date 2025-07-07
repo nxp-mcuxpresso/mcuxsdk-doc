@@ -753,7 +753,6 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
-
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -778,6 +777,7 @@ html_title = "MCUXpresso SDK Documentation"
 static_path = [str(DOC_BASE / "_static")]
 if os.path.exists(os.path.join(DOC_BASE, "internal")):
     static_path.append(str(DOC_BASE / "internal" / "public"))
+    static_path.append(str(DOC_BASE / "internal" / "images"))
     html_logo = str(DOC_BASE / "internal" / "images" / "nxp_logo_small.png")
     html_favicon = str(DOC_BASE / "internal" / "images" / "nxp_logo_small.png")
 html_static_path = static_path
@@ -820,6 +820,11 @@ else:
     
 html_context["versions"] = tuple(version_list)
 
+# -- Options for notfound.extension ---------------------------------------
+if is_internal_doc:
+    notfound_urls_prefix = f"/mcuxsdk-internal/release-{version}/html" if is_release else "/mcuxsdk-internal/main/html"
+else:
+    notfound_urls_prefix =  f"/mcuxsdk/{version}/html" if is_release else "/mcuxsdk/latest/html"
 
 # -- Options for vcs_link ------------------------------------------
 if 'vcs_link' in extensions:

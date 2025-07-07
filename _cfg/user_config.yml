@@ -14,6 +14,7 @@ extensions:
 - sphinxmermaid
 - sphinx.ext.imgconverter
 - latex_writer
+- notfound.extension
 source_suffix:
   .rst: restructuredtext
   .readme: markdown
@@ -25,6 +26,8 @@ vcs_link:
 external_contents:
 - root: docs
   pattern: index.rst
+- root: docs
+  pattern: 404.rst
 - root: docs
   pattern: board_index.rst
 - root: docs
