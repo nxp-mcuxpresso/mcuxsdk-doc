@@ -2,9 +2,11 @@
 
 This section lists the known issues, limitations, and/or workarounds.
 
-## KPP
-Examples have a problem with keypad switch bounces. 
+## Clock driver
+XTAL32k (rtc osc) clock is not supported in the current driver.
 
 ## OStimer
-The example doesn't work because it depends on power mode which 
-is not supported by its driver jet.
+The current ostimer driver is not fully compatible with IP. The example does not work properly.
+
+## LPACMP
+LPACMP is missing in the package. Please get it from NXP github.

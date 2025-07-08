@@ -57,28 +57,51 @@ ChangeLog
 
 Currently supported drivers
 ***************************
+All drivers are supported:
 
-- clock
-- reset
-- power (Limited. Currently supports only PD1, PD2 and DPD2.)
-- lptmr
-- qtmr
-- lpi2c
-- lpspi
-- lpuart
-- gpio
-- kpp
-- acmp (Driver and examples are named lpcmp. lpcmp periph. is not supported in this release)
+- advc
+- aoi
 - aon_lpadc
-- flash (flash iap)
-- mu
-- edma
-- slcd
-- inputmux
-- ostimer
-- glikey
-- utick
+- cdog
+- clock
+- cmc
 - crc
+- ctimer
+- edma
+- erm
+- freqme
+- glikey
+- gpio
+- inputmux
+- kpp
+- lpacmp
+- lpadc
+- lpc_freqme
+- lpacmp (missing in package but you can get it form NXP GitHub)
+- lpcmp
+- lpspi
+- lpspi_edma
+- lptmr
+- lpuart
+- lpuart_edma
+- lpuart_freertos
+- mcx_cmc
+- mu
+- ostimer
+- pls_pmu
+- pmu
+- port
+- power
+- qtmr
+- reset
+- romapi
+- rtc
+- slcd
+- smm
+- trdc
+- utick
+- wuu
+- wwdt
 
 
 Driver API Reference Manual
