@@ -822,9 +822,9 @@ html_context["versions"] = tuple(version_list)
 
 # -- Options for notfound.extension ---------------------------------------
 if is_internal_doc:
-    notfound_urls_prefix = f"/mcuxsdk-internal/release-{version}/html" if is_release else "/mcuxsdk-internal/main/html"
+    notfound_urls_prefix = f"/mcuxsdk-internal/release-{version}/html/" if is_release else "/mcuxsdk-internal/main/html/"
 else:
-    notfound_urls_prefix =  f"/mcuxsdk/{version}/html" if is_release else "/mcuxsdk/latest/html"
+    notfound_urls_prefix =  f"/mcuxsdk/{version}/html/" if is_release else "/mcuxsdk/latest/html/"
 
 # -- Options for vcs_link ------------------------------------------
 if 'vcs_link' in extensions:
