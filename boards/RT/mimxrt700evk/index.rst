@@ -17,7 +17,7 @@ The i.MX RT700 EVK (MIMXRT700-EVK) features NXPs advanced implementation of the 
 MCU device and part on board is shown below:
 
  - Device: MIMXRT798S
- - PartNumber: MIMXRT798SGFOA
+ - PartNumber: MIMXRT798SGFOB
 
 Getting Started with MCUXpresso SDK Package
 *******************************************

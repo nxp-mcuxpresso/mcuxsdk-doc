@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**MIMXRT700-EVK**|MIMXRT798SGAWAR, **MIMXRT798SGFOA**, MIMXRT735SGAWAR,<br> MIMXRT735SGFOA, MIMXRT758SGAWAR, MIMXRT758SGFOA<br>|
+|**MIMXRT700-EVK**|MIMXRT798SGAWBR, **MIMXRT798SGFOB**, MIMXRT735SGAWBR,<br> MIMXRT735SGFOB, MIMXRT758SGAWBR, MIMXRT758SGFOB<br>|
