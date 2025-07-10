@@ -3,22 +3,22 @@
 The following changes have been implemented compared to the previous SDK release version \(25.06.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
-    ### Added
-    -   **IDS event** trigger when incoming ATT packets exceed agreed MTU
-    -   **IDS event** trigger when Unexpected SMP Messages received in idle states (before pairing starts)
-    -   Average RSSI reporting in Anchor Monitor event
-    -   **Multi-connection monitoring** in Handover/Monitor Mode
+    ### Added.
+    -   **IDS event** trigger when incoming ATT packets exceed agreed MTU.
+    -   **IDS event** trigger when Unexpected SMP Messages received in idle states (before pairing starts).
+    -   Average RSSI reporting in Anchor Monitor event.
+    -   **Multi-connection monitoring** in Handover/Monitor Mode.
 
     ### Improved
-    -   Cleanup of commComplete structures that only contain status from hci_interface.h
+    -   Cleanup of commComplete structures that only contain status from hci_interface.h.
 
     ### Fixed
-    -   CCC Application handover monitoring RSSI issue
-    -   Intrusion Detection System not reporting event type
-    -   Advertising Extended Applications when Gap_PeriodicAdvCreateSync fails
+    -   CCC Application handover monitoring RSSI issue.
+    -   Intrusion Detection System not reporting event type.
+    -   Advertising Extended Applications when Gap_PeriodicAdvCreateSync fails.
 
     ### Changed
-    -   Updated digital_key_car_anchor applications to configure coding scheme via Host API
+    -   Updated digital_key_car_anchor applications to configure coding scheme via Host API.
 
     -   Details can be found in **CHANGELOG.md**.
 -   **Bluetooth LE controller**
