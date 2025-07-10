@@ -419,6 +419,30 @@ Hence, to ensure a SDK repository example can be successfully exported to a free
     add_dependencies(${DEFAULT_IMAGE} hello_world_usart_cm33_core1)
     ```
 
+Additionally, the extension now supports:
+- Copying extra files or folders defined in the example metadata, with `extra_files` field. This can support setting custom destination paths for those copied files.
+- Applying simple replacements to update paths or values in exported files.
+
+These enhancements make it easier to customize and adapt examples during export. For example you can define in the example.yml :
+
+```yaml
+hello_world_virtual_com:
+  section-type: application
+  contents:
+    # hello_world_virtual_com content
+    extra_files:
+      - source: ${SdkRootDirPath}/examples/_boards/${board}/demo_apps/hello_world_virtual_com/reconfig.cmake
+      - destination: reconfig.cmake
+    replacements:
+      - file: CMakeLists.txt
+        replace:
+          - from: "include(${SdkRootDirPath}/${board_root}/${board}/demo_apps/hello_world_virtual_com/reconfig.cmake OPTIONAL)"
+            to: "include(${CMAKE_CURRENT_SOURCE_DIR}/reconfig.cmake OPTIONAL)"
+```
+In this example, this will:
+- Copy the example's `reconfig.cmake` under the freestanding folder to be customized.
+- Update the CMakeLists.txt to reflect the new path.
+
 ### Example with different build configurations
 
 An example may have different build configuration(usually for test), see [prj.conf](../sdk/example_development.md#prjconf). It is easy for developer to add different configurations in `example.yml`to make it be visiable to `list_project` and `build` extension.
