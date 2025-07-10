@@ -1,38 +1,30 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.06.00-pvw2\).
-
+The following changes have been implemented compared to the previous SDK release version \(25.06.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
     ### Added
-    -   **Gap_SetBondedDeviceName()** to set device name using NVM index.
-    -   **RAS** queue for GATT indications sent.
-    -   **gHciStatusBase_c** to **csError** status.
-    -   Option to use statically allocated **memory** for dynamic **GATT database** (prevents heap fragmentation).
-    -   Checks for **controller** supported features and setting **PAST bits** accordingly.
-    -   **Anchor** support to **export** device data via RAS using gAppHciDataLogExport_d = 2.
-    -   **Anchor** support to **export** device local HCI data using gAppHciDataLogExport_d = 1.
-    -   **Shell commands** to list peer devices and trigger connection handover.
-    -   Define for **enabling** optional **CCC** LE Coded **PHY** advertising.
-    -   **cs_sync_phy** parameter renamed to mDefaultRangeSettings (from outdated RTTPhy).
+    -   **IDS event** trigger when incoming ATT packets exceed agreed MTU
+    -   **IDS event** trigger when Unexpected SMP Messages received in idle states (before pairing starts)
+    -   Average RSSI reporting in Anchor Monitor event
+    -   Support for gAppDeferAlgoRun_d in btcs_client.c
+    -   **Multi-connection monitoring** in Handover/Monitor Mode
 
     ### Improved
-    -   **Stack Host** now saves the most recently set **random address** after successful controller response.
-    -   Miscellaneous **minor** application **updates**.
+    -   Updated **NBU channel sounding** applications to support **64MHz** clock speed
+    -   Cleanup of commComplete structures that only contain status from hci_interface.h
 
     ### Fixed
-    -   Compilation issue in **loc_reader app** with real-time RAS transfer.
-    -   **CCC** application **handover state machine** race condition.
-    -   **CCC** resets **gCurrentAdvHandle** upon connection.
-    -   **RAS** uses correct bit for data overwrite preference.
+    -   CCC Application handover monitoring RSSI issue
+    -   Intrusion Detection System not reporting event type
+    -   Advertising Extended Applications when Gap_PeriodicAdvCreateSync fails
 
     ### Changed
-    -   Updated **Bluetooth LE Host Documentation**.
-    -   **CS_ConfigVendorCommand** updated with **Inline Phase Return** field.
-    -   Renamed **tx_pwr_phy** to **phy** and removed obsolete rtt_phy field.
-    -   Updated **documentation** to clarify **Controller Privacy** restrictions.
+    -   Updated digital_key_car_anchor applications to configure coding scheme via Host API
+    -   Enhanced RAS handling of ACK Ranging Data in invalid conditions 
 
     -   Details can be found in **CHANGELOG.md**.
+
 -   **Bluetooth LE controller**
     -   Channel Sounding fixes and stability improvements.
         New features: phase coherency (Channel Sounding) and four advertising set support ("Early Access Release" state).

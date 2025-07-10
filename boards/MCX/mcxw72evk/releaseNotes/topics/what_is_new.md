@@ -1,33 +1,24 @@
 # What is new
 
-The following changes have been implemented compared to the previous SDK release version \(25.06.00-pvw2\).
-
+The following changes have been implemented compared to the previous SDK release version \(25.06.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
     ### Added
-    -   **Gap_SetBondedDeviceName()** to set device name using NVM index.
-    -   **RAS** queue for GATT indications sent.
-    -   **gHciStatusBase_c** to **csError** status.
-    -   Option to use statically allocated **memory** for dynamic **GATT database** (prevents heap fragmentation).
-    -   Checks for **controller** supported features and setting **PAST bits** accordingly.
-    -   **Shell commands** to list peer devices and trigger connection handover.
-    -   Define for **enabling** optional **CCC** LE Coded **PHY** advertising.
-    -   **cs_sync_phy** parameter to mDefaultRangeSettings (**renamed** from outdated RTTPhy).
+    -   **IDS event** trigger when incoming ATT packets exceed agreed MTU
+    -   **IDS event** trigger when Unexpected SMP Messages received in idle states (before pairing starts)
+    -   Support for gAppDeferAlgoRun_d in btcs_client.c
 
     ### Improved
-    -   **Stack Host** now saves the most recently set **random address** after successful controller response.
-    -   Miscellaneous **minor** application **updates**.
+    -   Updated **NBU channel sounding** applications to support **64MHz** clock speed
+    -   Cleanup of commComplete structures that only contain status from hci_interface.h
 
     ### Fixed
-    -   Compilation issue in **loc_reader app** with real-time RAS transfer.
-    -   **RAS** uses correct bit for data overwrite preference.
+    -   Intrusion Detection System not reporting event type
+    -   Extended **NBU armgcc projects** stability
+    -   Advertising Extended Applications when Gap_PeriodicAdvCreateSync fails
 
     ### Changed
-    -   Updated **Bluetooth LE Host Documentation**.
-    -   **BLE_Shell** Tx timer interval adjusted for **max throughput** on 1M PHY.
-    -   **CS_ConfigVendorCommand** updated with **Inline Phase Return** field.
-    -   Renamed **tx_pwr_phy** to **phy** and removed obsolete rtt_phy field.
-    -   Updated **documentation** to clarify **Controller Privacy** restrictions .
+    -   Enhanced RAS handling of ACK Ranging Data in invalid conditions 
 
     -   Details can be found in **CHANGELOG.md**.
 

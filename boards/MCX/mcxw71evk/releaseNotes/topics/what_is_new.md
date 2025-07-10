@@ -1,26 +1,21 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.06.00-pvw2\).
-
+The following changes have been implemented compared to the previous SDK release version \(25.06.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
     ### Added
-    -   **Gap_SetBondedDeviceName()** to set device name using NVM index.
-    -   Option to use statically allocated **memory** for dynamic **GATT database** (prevents heap fragmentation).
-    -   Checks for **controller** supported features and setting **PAST bits** accordingly.
-    -   **Shell commands** to list peer devices and trigger connection handover.
-    -   Define for **enabling** optional **CCC** LE Coded **PHY** advertising.
-
+    -   **IDS event** trigger when incoming ATT packets exceed agreed MTU
+    -   **IDS event** trigger when Unexpected SMP Messages received in idle states (before pairing starts)
 
     ### Improved
-    -   **Stack Host** now saves the most recently set **random address** after successful controller response.
-    -   Miscellaneous **minor** application **updates**.
+    -   Cleanup of commComplete structures that only contain status from hci_interface.h
 
+    ### Fixed
+    -   Intrusion Detection System not reporting event type
+    -   Advertising Extended Applications when Gap_PeriodicAdvCreateSync fails
 
     ### Changed
-    -   Updated **Bluetooth LE Host Documentation**.
-    -   **BLE_Shell** Tx timer interval adjusted for **max throughput** on 1M PHY.
-    -   Updated **documentation** to clarify **Controller Privacy** restrictions .
+    -   NTR
 
     -   Details can be found in **CHANGELOG.md**.
 
