@@ -99,6 +99,7 @@ The prj.conf search paths can be provided through 3 ways with priority.
   ```cmake
   project(hello_world LANGUAGES C CXX ASM NO_DEFAULT_CONFIG)
   ```
+
 - Specify customized prj.conf search path(s) in project CMakeLists.txt `project` with `CUSTOM_PRJ_CONF_PATH`
 
   The `CUSTOM_PRJ_CONF_PATH` argument can be used in project CMakeLists.txt `project` macro to specify the customized prj.conf search paths and they have higher priority than the default prj.conf search paths.
@@ -112,12 +113,21 @@ The prj.conf search paths can be provided through 3 ways with priority.
   ```
 
   The `mcuxsdk-root/subfolder/prj.conf` and `e:/mcuxsdk/subfolder/prj.conf` will be added into build if existed.
+
 - -DCONF_FILE=\<customized config file>
 
   You can directly provide customized prj.conf with `-DCONF_FILE=<customized config file>`. The config file path can be either an absolute path or a relative path to the current command invocation path. For example:
 
   ```bash
   west build -b evkbmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm4 -DCONF_FILE=./examples/prj.conf
+  ```
+
+  > "west build" will convert relative CONF_FILE paths to absolute ones. If you directly use "cmake" cmd to pass CONF_FILE paths, please use absolute paths. 
+
+  If you need to provide multiple prj.conf, please use ";" to seperate them like
+
+  ```bash
+  west build -b evkbmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm4 -DCONF_FILE="./examples/prj.conf;./examples/custom/prj.conf"
   ```
 
   The customized project config file has the highest priority over all.
