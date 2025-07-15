@@ -52,3 +52,7 @@ This section lists the known issues, limitations, and/or workarounds.
 ```{include} ../../../../release/known_issues/corrupted_data_in_freertos_lpspi_b2b_slave_example.md
 :heading-offset: 1
 ```
+
+```{include} ../../../../release/known_issues/modify_dummy_cycles_value_for_external_qspi_flash.md
+:heading-offset: 1
+```
