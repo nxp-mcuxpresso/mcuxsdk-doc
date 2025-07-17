@@ -9,8 +9,6 @@ project(hello_world LANGUAGES C CXX ASM)
 mcux_add_source(
   SOURCES     
     hello_world.c
-    pin_mux.c
-    pin_mux.h
     hardware_init.c
     app.h
 )

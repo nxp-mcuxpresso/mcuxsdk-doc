@@ -36,8 +36,6 @@ project(hello_world LANGUAGES C CXX ASM)
 mcux_add_source(
   SOURCES   
     hello_world.c
-    pin_mux.c
-    pin_mux.h
     hardware_init.c
     app.h
 )
@@ -54,6 +52,20 @@ If there is no special instruction, the app target will use default provided lin
 ```cmake
 project(hello_world LANGUAGES C CXX ASM CUSTOM_LINKER TRUE)
 ```
+
+There is no `PROJECT_BOARD_PORT_PATH` support in this `find_package(McuxSDK)`way which means you need to provide your own board port files, typically `hardware_init.c` and `app.h`, and disable the original ones in prj.conf. So the example dedicated prj.conf will have following lines:
+
+```
+CONFIG_MCUX_HAS_PRJSEG_project.use_hw_app=n
+CONFIG_MCUX_PRJSEG_project.hw_app_project_folder=n
+CONFIG_MCUX_PRJSEG_module.board.pinmux_board_folder=y
+```
+
+The `CONFIG_MCUX_PRJSEG_module.board.pinmux_board_folder=y` guarantee that the example is using board level pin_mux because default enabled is pin_mux located in project root.
+
+We provide a frdmmcxa346 hello_world `find_package(McuxSDK)` [example](../../_static/build_system/McuxSDK_CMake_package_freestanding_example.zip) for reference.
+
+for reference.
 
 ### McuxSDK CMake Package Version
 
