@@ -590,7 +590,17 @@ Remove project source or include.
 | ------------- | ------------- | ---------------------------------------- |
 | BASE_PATH     | Single        | If provided, the final source path equals `BASE_PATH` + `SOURCES`. This is usually used in abstracted .cmake files which are not placed together with real sources. For sources or includes in CMakeLists.txt which is usually put together with real source, no need to add it. |
 | INCLUDES      | Multiple      | The include path.                        |
-| SOURCES       | Multiple      | The source path.                         |
+| SOURCES       | Multiple      | The source file.                         |
+| COMPILERS     | Multiple      | The compilers. It means that the source file or include path supports only the listed compilers.<br />The supported compilers include armclang, iar, gcc, xcc, mwcc56800e, riscvllvm. |
+| TOOLCHAINS    | Multiple      | The toolchains. It means that the source file or include path supports only the listed toolchains.<br />The supported toolchains include iar, mdk, armgcc, xcc, codewarrior, riscvllvm. |
+| CORES         | Multiple      | The cores. It means that the source file or include path supports only the listed cores.<br />The supported cores include cm0, cm0p, cm3, cm4, cm4f, cm7, cm7f, cm33, cm33f, cm23, ca7, dsp56800ex, dsp56800ef, dsp, etc. |
+| CORE_IDS      | Multiple      | The core_ids. It means that the source file or include path supports only the listed core_ids. This is usually to distinguish the support for core in multicore device. |
+| DEVICES       | Multiple      | The devices. It means that the source file or include path supports only the listed device, like MIMXRT1176. |
+| DEVICE_IDS    | Multiple      | The device ids. It means that the source file or include path supports only the listed device id, like MIMXRT1176xxxxx. |
+| FPU           | Multiple      | The fpu, fpu enum values are  NO_FPU,  SP_FPU and  DP_FPU. It means that the source file or include path supports only the listed fpu. |
+| DSP           | Multiple      | The dsp, dsp enum values are NO_DSP and HAS_DSP. It means that the source file or include path supports only the listed dsp. |
+| TRUSTZONE     | Multiple      | The trustzone, enum values are TZ and  NO_TZ. TZ means that the source file or include path are enabled only on device with SAU, NO_TZ means that they are enabled  only on device without SAU. |
+| COMPONENTS    | Multiple      | The components. It means that the source file or include path supports only the listed components. |
 
 Here is one example:
 
