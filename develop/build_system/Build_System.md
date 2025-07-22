@@ -256,6 +256,7 @@ Specify the output binary format
 | BINARY        | Single        | The target output binary name            |
 | TARGET        | Single        | The target to be converted, the default is ${MCUX_SDK_PROJECT_NAME} if not set |
 | EXTRA_ARGS    | Multiple      | Extra arguments for binary conversion    |
+| CONVERT_CUSTOM_COMMANDS | Multiple | Custom command for binary conversion|
 
 Here is one example:
 
@@ -273,8 +274,27 @@ mcux_convert_binary(
 
 mcux_convert_binary(TARGET app BINARY ${APPLICATION_BINARY_DIR}/app.bin)
 ```
+mcux_convert_binary converts binary by using toolchain built-in tool, such as mdk fromelf, iar ielftool, armgcc objcopy.
+However, if the default rule does not meet the requirement(s), you can set the custom command with the CONVERT_CUSTOM_COMMANDS parameter.
 
-Note: Please make sure the target is executable type, otherwise the conversion will be skipped and you will get warning message like:
+For example:
+```cmake
+mcux_convert_binary(
+    BINARY ${APPLICATION_BINARY_DIR}/${MCUX_SDK_PROJECT_NAME}.bin
+    TOOLCHAINS iar
+    CONVERT_CUSTOM_COMMANDS
+    COMMAND
+    $ENV{ARMGCC_DIR}/bin/arm-none-eabi-objcopy --remove-section=.stacktop_and_pc
+    ${CMAKE_CURRENT_BINARY_DIR}/${MCUX_SDK_PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX}
+    ${OBJDUMP_OUT_CMD} ${MCUX_SDK_PROJECT_NAME}_stripped.elf
+    COMMAND
+    ${CMAKE_OBJCOPY} ${OBJDUMP_BIN_CMD}
+    ${CMAKE_CURRENT_BINARY_DIR}/${MCUX_SDK_PROJECT_NAME}_stripped.elf
+    ${OBJDUMP_OUT_CMD} ${MCUX_SDK_PROJECT_NAME}.bin
+)
+```
+
+Note: Please ensure the target is executable type, otherwise the conversion will be skipped and you will get warning message like:
 ```
 CMake Warning at mcuxsdk/cmake/extension/logging.cmake:46 (message):
   WARNING: mcux_platformlib is library type, can't be converted to binary file by mcux_convert_binary
