@@ -367,17 +367,35 @@ west build -b evkbmimxrt1170 --toolchain armgcc -p always <new workspace>/hello_
 For freestanding examples exported with explicit `board` or `core_id`, you can only build it with that `board` and`core_id`.
 ```
 
+#### Copy board related files
+
+Sometimes the developer may also want to export board related files like pin_mux.c/.h, clock_config.c/.h, etc. Hence, the `export_app` extension provided an optional argument `--bf` to help developers got all board related files defined in `CONFIG_MCUX_PRJSEG_xxx`. Currently, it will scan all files in `examples` directory. With this argument, you can get a freestanding project like this:
+
+```bash
+output_dir/
+    └── <board_id> or <board_id>_<core_id>
+        ├── board_files.cmake (Record all copiled board related files)
+        ├── board sources
+        ├── prj.conf
+    ├── CMakeLists.txt
+    ├── Kconfig (Will forcely select promptless symbols)
+    └── main.c
+```
+
 #### How Export_App extension works
 
 `west export_app` extension uses a static cmake file parser to analyze the example's CMakeLists.txt file. It will looks up all `mcux_add_source` and `mcux_add_include` in the list file and copy the recorded source/header files to the output directory.
 For sysbuild examples, `sysbuild.cmake` is also involved to get the list file or linked application.
 After copying all files, the paths in the list file will be updated to that in the output directory. It will also collected all example level `prj.conf` files and combine them into one.
+If user use `--bf` option, the extension will call cmake configuration step to get trace log and a final `.config` file and then analyze which project segments and files are used.
 Hence, to ensure a SDK repository example can be successfully exported to a freestanding exmaple, it have to comply with following rules:
 
 1. Record files with mcuxsdk provided cmake extensions [`mcux_add_source/mcux_add_include`](../build_system/Build_System.md#source-and-include).
-2. Explicitly add example common sources in the example's root CMakeLists.txt. Do not add them in `reconfig.cmake` or another cmake file.
-3. Do not record duplicated source files in `reconfig.cmake`.
-4. For sysbuild examples, `ExternalMCUXProject_Add` is expected in the root `sysbuild.cmake` file. For board with multiple different core ids, we only allow one level `include`. That means, you can `include` another `sysbuild.cmake` file in your board folder, but you cannot `include` again in that board specific `sysbuild.cmake`. Here is an example:
+2. Explicitly add example common sources in the example's `CMakeLists.txt`. Do not add them in `reconfig.cmake` or another cmake file.
+3. Do not add board related files like pin mux and clock config in example's `CMakeLists.txt`.
+4. Do not record duplicated source files in `reconfig.cmake`.
+5. Do not record duplicated source files in `CMakelists.txt` and project segments used in the `prj.conf`.
+6. For sysbuild examples, `ExternalMCUXProject_Add` is expected in the root `sysbuild.cmake` file. For board with multiple different core ids, we only allow one level `include`. That means, you can `include` another `sysbuild.cmake` file in your board folder, but you cannot `include` again in that board specific `sysbuild.cmake`. Here is an example:
 
     ```cmake
     mcuxsdk/examples/dsp_examples/hello_world_usart/cm/sysbuild.cmake
