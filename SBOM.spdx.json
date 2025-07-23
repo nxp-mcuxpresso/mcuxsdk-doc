@@ -1,0 +1,79 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "spdxVersion": "SPDX-2.3",
+  "creationInfo": {
+    "created": "2025-07-12T03:09:37Z",
+    "creators": [
+      "Organization: NXP"
+    ],
+    "licenseListVersion": "3.20"
+  },
+  "name": "mcuxsdk-doc-v25.09.00-pvw1",
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "https://nxp.com/spdx/bc94b352-6a56-40fc-a08a-cd4323b09d3d",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-package-bc94b352-6a56-40fc-a08a-cd4323b09d3d",
+      "name": "mcuxsdk-doc",
+      "versionInfo": "v25.09.00-pvw1",
+      "licenseConcluded": "(BSD-3-Clause)",
+      "licenseDeclared": "(BSD-3-Clause)",
+      "downloadLocation": "https://github.com/nxp-mcuxpresso/mcuxsdk-doc",
+      "originator": "Organization: NXP",
+      "supplier": "NOASSERTION",
+      "externalRefs": [],
+      "filesAnalyzed": false
+    },
+    {
+      "SPDXID": "SPDXRef-package-090a8a48-6b72-44ed-add9-17eaf9f57e57",
+      "name": "zephyr",
+      "versionInfo": "v3.7.0",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "homepage": "https://zephyrproject.org/doc",
+      "downloadLocation": "https://github.com/zephyrproject-rtos/zephyr/releases/tag/v3.7.0",
+      "originator": "Organization: zephyrproject-rtos",
+      "supplier": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "SECURITY",
+          "referenceLocator": "cpe:2.3:a:zephyrproject_rtos:zephyr:3.7.0:*:*:*:*:*:*:*",
+          "referenceType": "cpe23Type"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceLocator": "cpe:2.3:a:zephyrproject:zephyr:3.7.0:*:*:*:*:*:*:*",
+          "referenceType": "cpe23Type"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceLocator": "cpe:2.3:o:zephyrproject:zephyr:3.7.0:*:*:*:*:*:*:*",
+          "referenceType": "cpe23Type"
+        },
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:github/zephyrproject-rtos/zephyr@v3.7.0",
+          "referenceType": "purl"
+        },
+        {
+          "referenceCategory": "OTHER",
+          "referenceLocator": "60a2e717-5c7a-47eb-894d-14bf4fe39556",
+          "referenceType": "BlackDuck-ComponentOrigin"
+        }
+      ],
+      "filesAnalyzed": false
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-package-bc94b352-6a56-40fc-a08a-cd4323b09d3d"
+    },
+    {
+      "spdxElementId": "SPDXRef-package-bc94b352-6a56-40fc-a08a-cd4323b09d3d",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-package-090a8a48-6b72-44ed-add9-17eaf9f57e57"
+    }
+  ]
+}
