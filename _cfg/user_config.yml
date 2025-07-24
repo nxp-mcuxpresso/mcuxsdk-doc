@@ -231,6 +231,17 @@ modules:
       pattern: middleware/audio_voice/components/decoders/mp3/doc/*.md
     - root: .
       pattern: middleware/audio_voice/components/decoders/wav/doc/*.md
+  mid_mbedtls3x:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: middleware/mbedtls3x.rst
+    - root: docs
+      pattern: middleware/mbedtls3x/**/*.rst
+    - root: docs
+      pattern: middleware/mbedtls3x/**/*.md
+    - root: .
+      pattern: middleware/mbedtls3x/docs/**/*.md
   mid_multicore-xaf:
     default: true
     external_contents:
