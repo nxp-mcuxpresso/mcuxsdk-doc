@@ -16,7 +16,7 @@ The MCUXpresso SDK provides comprehensive support for development boards, enabli
 
 **MCX Series**: Features MCX NXP Evaluation Kits (EVKs) like the MCX N947 EVK, designed for scalable performance, low power consumption, and AI/ML capabilities in embedded applications.
 
-**Wireless Series**: Includes K32W, KW, and RW series development kits, such as the K32W148 EVK, KW45 EVK/LOC, and RW612 BGA/FRDM, supporting Bluetooth, Zigbee, Thread, and Wi-Fi for secure IoT connectivity.
+**Wireless Series**: Includes K32W, KW, and RW series development kits, such as the KW45 EVK/LOC, and RW612 BGA/FRDM, supporting Bluetooth, Zigbee, Thread, and Wi-Fi for secure IoT connectivity.
 
 To explore boards tailored to your needs, click the corresponding processor family link below. An Overview, Getting Started guide, and Release Notes are made available for each board.
 

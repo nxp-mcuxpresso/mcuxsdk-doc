@@ -1860,24 +1860,6 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_RW612
       outdir: drivers/Wireless/RW/RW612
-  board_k32w148evk:
-    default: true
-    external_contents:
-    - root: docs
-      pattern: boards/index.rst
-    - root: docs
-      pattern: boards/Wireless/index.rst
-    - root: docs
-      pattern: boards/Wireless/k32w148evk/*
-    - root: .
-      pattern: examples/_boards/k32w148evk/ChangeLog_board.md
-    - root: .
-      pattern: drivers/Wireless/K32W/K32W1480/index.rst
-    - root: .
-      pattern: devices/Wireless/K32W/K32W1480/drivers/**/ChangeLog_*.md
-    doxygen_runner:
-      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_K32W1480
-      outdir: drivers/Wireless/K32W/K32W1480
   board_kw45b41zevk:
     default: true
     external_contents:
