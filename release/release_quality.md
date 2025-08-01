@@ -37,7 +37,7 @@
 |[**FRDM-MCXC242**](../boards/MCX/frdmmcxc242/releaseNotes/rnindex.md)|MCXC142VFM, MCXC242VFM,<br/> **MCXC242VLH**, MCXC141VFM,<br/> MCXC141VLH|Release for Production (RFP)|
 |[**FRDM-MCXC444**](../boards/MCX/frdmmcxc444/releaseNotes/rnindex.md)|MCXC143VFM, MCXC143VFT,<br/> MCXC144VFM, MCXC144VFT,<br/> MCXC243VFT, MCXC244VFM,<br/> MCXC244VFT, MCXC443VLH,<br/> MCXC443VMP, **MCXC444VLH**,<br/> MCXC444VMP|Release for Production (RFP)|
 |[**FRDM-MCXE247**](../boards/MCX/frdmmcxe247/releaseNotes/rnindex.md)|MCXE247VLL, **MCXE247VLQ**,<br/> MCXE245VLF, MCXE245VLH,<br/> MCXE245VLL, MCXE246VLH,<br/> MCXE246VLL, MCXE246VLQ<br/>|Release for Production (RFP)|
-|[**FRDM-MCXE31B**](../boards/MCX/frdmmcxe31b/releaseNotes/rnindex.md)|**MCXE31BMPB**|Preview Snapshot (PVW)|
+|[**FRDM-MCXE31B**](../boards/MCX/frdmmcxe31b/releaseNotes/rnindex.md)|**MCXE31BMPB**, MCXE317MPA,<br/> MCXE317MPB, MCXE316MLF,<br/> MCXE316MPA, MCXE315MLF,<br/> MCXE315MPA|Preview Snapshot (PVW)|
 |[**FRDM-MCXL255**](../boards/MCX/frdmmcxl255/releaseNotes/rnindex.md)|**MCXL255VDF**, MCXL255VLL<br/>|Preview Snapshot (PVW)|
 |[**FRDM-MCXN236**](../boards/MCX/frdmmcxn236/releaseNotes/rnindex.md)|MCXN235VDF, MCXN235VKL,<br/> MCXN235VNL, MCXN235VPB,<br/> **MCXN236VDF**, MCXN236VKL,<br/> MCXN236VNL, MCXN236VPB<br/>|Release for Production (RFP)|
 |[**FRDM-MCXN947**](../boards/MCX/frdmmcxn947/releaseNotes/rnindex.md)|MCXN946VDF, MCXN946VKL,<br/> MCXN946VNL, MCXN946VPB,<br/> **MCXN947VDF**, MCXN947VKL,<br/> MCXN947VNL, MCXN947VPB<br/>|Release for Production (RFP)|
