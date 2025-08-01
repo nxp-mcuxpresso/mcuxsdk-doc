@@ -18,8 +18,18 @@ The following changes have been implemented compared to the previous SDK release
     -   Details can be found in **CHANGELOG.md**.
 
 -   **Bluetooth LE controller**
-    -   Channel Sounding fixes and stability improvements.
-        New features: phase coherency (Channel Sounding) and support four advertising set ("Early Access Release" state).
+    - Channel sounding updates:
+        -   6 Channel Sounding procedures supported in parallel ("Early Access Release" state).
+        -   Rework LL/HAL interface to support small subevent spacing (500us in testmode).
+        -   Better handling of procedure collision in Channel Sounding.
+        -   Fix DRBG assert for CS_PAC_INI_BV_32_C.
+        -   Enhance NXP config vendor command with ppmFineTuning parameter.
+
+    - Fix Periodic Advertising interval field in HCI Extended advertising reports.
+    - Manage procedure collisions between PAST and connections.
+    - Do not send Periodic Advertising reports with "Failed to received" status if the reports are not enabled (PAWR).
+    - Update power tables to transmit closer to requested TX power.
+    - Fix DTM RX failure when the first packet is received with incorrect smaller packet length and invalid CRC.
 
 -   **Transceiver drivers (XCVR)**
     -   Added support for Bluetooth LE Channel Sounding.

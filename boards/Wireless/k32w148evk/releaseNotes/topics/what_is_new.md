@@ -7,8 +7,11 @@ The following changes have been implemented compared to the previous SDK release
     -   No support.
 
 -   **Bluetooth LE controller**
-    -   Stability improvements.
-        New features: Four advertising set support ("Early Access Release" state).
+    -   Remove support for Channel Sounding.
+    -   Fix Periodic Advertising interval field in HCI Extended advertising reports.
+    -   Manage procedure collisions between PAST and connections.
+    -   Do not send Periodic Advertising reports with "Failed to received" status if the reports are not enabled (PAWR).
+    -   Fix DTM RX failure when the first packet is received with incorrect smaller packet length and invalid CRC.
 
 -   **Transceiver Drivers (XCVR)**
     -   Added API to control PA ramp type and duration
