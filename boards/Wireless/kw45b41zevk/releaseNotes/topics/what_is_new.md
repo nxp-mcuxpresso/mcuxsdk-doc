@@ -1,33 +1,26 @@
 # What is new
 
-The following changes have been implemented compared to the previous SDK release version \(25.06.00\).
+The following changes have been implemented compared to the previous SDK release version \(25.09.00-pvw1\).
 
 -   **Bluetooth LE Host Stack and Applications**
-    ### Added
-    -   **IDS event** trigger when incoming ATT packets exceed agreed MTU.
-    -   **IDS event** trigger when Unexpected SMP Messages received in idle states (before pairing starts).
-    -   Average RSSI reporting in Anchor Monitor event.
-    -   **Multi-connection monitoring** in Handover/Monitor Mode.
-
     ### Improved
-    -   Cleanup of commComplete structures that only contain status from hci_interface.h.
+    -   Various sample applications have been updated.
 
     ### Fixed
-    -   CCC Application handover monitoring RSSI issue.
-    -   Intrusion Detection System not reporting event type.
-    -   Advertising Extended Applications when Gap_PeriodicAdvCreateSync fails.
+    -   Bluetooth Advertising Sets: Now supports **4 advertising** sets in the Bluetooth host libraries.
+    -   Various sample applications bug fixes applied.
 
     ### Changed
-    -   Updated digital_key_car_anchor applications to configure coding scheme via Host API. 
+    -   Bluetooth Address Type: The default address type has been changed from **Public** to **Random Static**. 
 
     -   Details can be found in **CHANGELOG.md**.
 
 -   **Bluetooth LE controller**
     -   Stability improvements.
-        New features: Four advertising set support ("Early Access Release" state).
+        New features: Supports Four advertising set ("Early Access Release" state).
 
 -   **Transceiver Drivers (XCVR)**
-    -   Added API to control PA ramp type and duration
+    -   Added API to control PA ramp type and duration.
 
 -   **Connectivity framework**
 

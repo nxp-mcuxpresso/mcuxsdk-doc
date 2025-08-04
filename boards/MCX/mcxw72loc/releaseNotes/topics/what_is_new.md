@@ -1,23 +1,19 @@
-# What is new 
+# What is new
 
-The following changes have been implemented compared to the previous SDK release version \(25.06.00\).
+The following changes have been implemented compared to the previous SDK release version \(25.09.00-pvw1\).
 
 -   **Bluetooth LE Host Stack and Applications**
-    ### Added
-    -   **IDS event** trigger when incoming ATT packets exceed agreed MTU.
-    -   **IDS event** trigger when Unexpected SMP Messages received in idle states (before pairing starts).
-    -   Support for gAppDeferAlgoRun_d in btcs_client.c.
-
     ### Improved
-    -   Updated **NBU channel sounding** applications to support **64MHz** clock speed.
-    -   Cleanup of commComplete structures that only contain status from hci_interface.h.
-.
+    -   **CS Event Handling**: CS (Channel Sounding) events are now sent to the application task for processing, 
+	rather than being handled directly in the Host task.
+    -   Various sample applications have been updated.
+
     ### Fixed
-    -   Intrusion Detection System not reporting event type.
-    -   Advertising Extended Applications when Gap_PeriodicAdvCreateSync fails.
+    -   Bluetooth Advertising Sets: Now supports **4 advertising** sets in the Bluetooth host libraries.
+    -   Various sample applications bug fixes applied.
 
     ### Changed
-    -   None.
+    -   Bluetooth Address Type: The default address type has been changed from **Public** to **Random Static**. 
 
     -   Details can be found in **CHANGELOG.md**.
 
@@ -25,7 +21,7 @@ The following changes have been implemented compared to the previous SDK release
     -   HADM, PAwR fixes, and stability improvements.
 
 -   **Transceiver drivers (XCVR)**
-    -   Added support for Bluetooth LE Channel Sounding
+    -   Added support for Bluetooth LE Channel Sounding.
     -   Added API to control PA ramp type and duration.
 
 -   **Connectivity framework**
