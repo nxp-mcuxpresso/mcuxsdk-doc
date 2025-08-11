@@ -181,29 +181,68 @@ sdk_next/
      │                     ├── example.yml
 ```
 
-##### Hierarchical Configuration for Board Porting
+##### Hierarchical Configuration
 
-For MCUXpresso SDK officially supported boards, the board porting configuration has been provided for all board supported examples in a hierarchical way. In any repository example CMakeLists.txt `project` macro, the `PROJECT_BOARD_PORT_PATH` is provided to specify the root board porting path. All the prj.conf files inside each sub folder of `PROJECT_BOARD_PORT_PATH` will be processed during the example build, they are hierarchically configuring the example in different levels.
+MCUXpresso SDK build system supports hierarchical configuration for repository examples by involving different levels of project configuration (prj.conf) files, each with its own priority. These prj.conf files are organized into four groups: device, board, example category/example, and example board-specific parts. For more details, see [prj.conf](../build_system/Configuration_System.md#prjconf).
 
-Take evkbmimxrt1170 hello_world porting for example, in the hello_world CMakeLists.txt, we have set `PROJECT_BOARD_PORT_PATH` as `examples/_boards/${board}/demo_apps/hello_world` as the following:
+When you run the following build command:
 
-```cmake
+```bash
+west build -b evkbmimxrt1170 examples/demo_apps/hello_world -Dcore_id=cm7 -p
+```
+
+The following prj.conf files are included for configuration, if present:
+
+| prj.conf                                                           | Configuration Level    | Application Scope                                 |
+| ------------------------------------------------------------------ | ---------------------- | ------------------------------------------------- |
+| device/prj.conf                                                    | Device                 | All examples of all devices                       |
+| device/RT/prj.conf                                                 | Device                 | All the examples of all the RT devices                    |
+| device/RT/RT1170/prj.conf                                          | Device                 | All the examples of all the RT1170 devices                |
+| device/RT/RT1170/MIMXRT1176/prj.conf                               | Device                 | All the examples of all the RT1176 devices                |
+| device/RT/RT1170/MIMXRT1176/cm7/prj.conf                           | Device                 | All the examples of all the RT1176 device cm7 cores        |
+| examples/prj.conf                                                  | Example                | All the examples                                      |
+| examples/_boards/prj.conf                                          | Board                  | All the examples of all the boards                        |
+| examples/_boards/evkbmimxrt1170/prj.conf                           | Board                  | All the examples of the evkbmimxrt1170 board              |
+| examples/_boards/evkbmimxrt1170/cm7/prj.conf                       | Board                  | All the examples of the evkbmimxrt1170 board cm7 core     |
+| examples/demo_apps/prj.conf                                        | Example Category       | All the demo_apps category examples                   |
+| examples/demo_apps/hello_world/prj.conf                            | Example                | hello_world example for all the boards                |
+| examples/_boards/evkbmimxrt1170/demo_apps/prj.conf                 | Example Board-Specific | All the evkbmimxrt1170 demo_apps examples             |
+| examples/_boards/evkbmimxrt1170/demo_apps/hello_world/prj.conf     | Example Board-Specific | evkbmimxrt1170 hello_world example for both the cores |
+| examples/_boards/evkbmimxrt1170/demo_apps/hello_world/cm7/prj.conf | Example Board-Specific | evkbmimxrt1170 hello_world example for the cm7 core   |
+
+The deeper the prj.conf file is in the directory structure, the higher its priority.
+
+This hierarchical approach allows shared configuration for the same device, board, example category/example, and example board-specific part without duplication. It also enables customization for board examples. For instance, most boards use debug console lite by default. If your example for a specific board needs to use the full debug console, you can disable debug console lite and enable the full debug console in the example board-specific prj.conf.
+
+For device and board configuration, the build system determines prj.conf locations from the `-b` board argument.
+
+> The build system directly retrieves board and device folder names from board and device variable.cmake.
+
+For example category/example prj.conf locations, the build system uses the example CMakeLists.txt root directory (e.g., `examples/demo_apps/hello_world`) from the command line. All search paths start with the keyword `examples`, such as `examples/demo_apps` and `examples/demo_apps/hello_world`.
+
+For example board-specific prj.conf locations, the build system uses the `PROJECT_BOARD_PORT_PATH` argument in the project CMakeLists.txt:
+
+```bash
 project(hello_world LANGUAGES C CXX ASM PROJECT_BOARD_PORT_PATH examples/_boards/${board}/demo_apps/hello_world)
 ```
 
-So following prj.conf files are taken into examples to do different level configurations.
+Starting from the board name (for example, evkbmimxrt1170), all subfolder prj.conf files will be included, such as `examples/_boards/evkbmimxrt1170/demo_apps/prj.conf`, `examples/_boards/evkbmimxrt1170/demo_apps/hello_world/prj.conf`, and `examples/_boards/evkbmimxrt1170/demo_apps/hello_world/cm7/prj.conf`.
 
-| prj.conf                                 | Application scope of configuration       |
-| ---------------------------------------- | ---------------------------------------- |
-| examples/prj.conf                        | Apply for all examples                   |
-| examples/\_boards/prj.conf               | Apply for all NXP official boards examples |
-| examples/\_boards/evkbmimxrt1170/prj.conf | Apply for all evkbmimxrt1170 examples    |
-| examples/\_boards/evkbmimxrt1170/demo_apps/prj.conf | Apply for all evkbmimxrt1170 demo apps examples |
-| examples/\_boards/evkbmimxrt1170/demo_apps/hello_world/prj.conf | Apply for evkbmimxrt1170 hello_world examples |
+If your examples are located in a folder other than `examples` and you still want to use hierarchical configuration, place all your examples under an `examples` subfolder in your new location. For example, if you have a `middleware/<middleware>` directory for all contents including examples, your folder layout could be:
 
-The deeper path of prj.conf, the higher priority it has.
+```text
+middleware/<middleware>/examples
+  ├── _boards
+  │   ├── <board1>
+  │   │   └── <example1>
+  │   └── <board2>
+  │       ├── <example1>
+  │       └── <example2>
+  ├── <example1>
+  └── <example2>
+```
 
-> For example without `PROJECT_BOARD_PORT_PATH` inside `project`, there is no such hierarchical configuration provided.
+> The example category layer is optional in this case.
 
 #### Freestanding Examples
 
@@ -223,6 +262,7 @@ Freestanding example points examples located outside MCUXpresso SDK repository. 
      └── src/
          └── main.c
 ```
+
 Freestanding examples share the same build and run way as repository examples. You can still use `west build` to work.
 
 ##### Configuration
