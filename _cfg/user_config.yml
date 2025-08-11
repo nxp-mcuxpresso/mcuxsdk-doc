@@ -1320,6 +1320,42 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA156
       outdir: drivers/MCX/MCXA/MCXA156
+  board_frdmmcxa266:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/MCX/index.rst
+    - root: docs
+      pattern: boards/MCX/frdmmcxa266/*
+    - root: .
+      pattern: examples/_boards/frdmmcxa266/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXA/MCXA266/index.rst
+    - root: .
+      pattern: devices/MCX/MCXA/MCXA266/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA266
+      outdir: drivers/MCX/MCXA/MCXA266
+  board_frdmmcxa344:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/MCX/index.rst
+    - root: docs
+      pattern: boards/MCX/frdmmcxa344/*
+    - root: .
+      pattern: examples/_boards/frdmmcxa344/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXA/MCXA344/index.rst
+    - root: .
+      pattern: devices/MCX/MCXA/MCXA344/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA344
+      outdir: drivers/MCX/MCXA/MCXA344
   board_frdmmcxa346:
     default: true
     external_contents:
@@ -1338,6 +1374,24 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA346
       outdir: drivers/MCX/MCXA/MCXA346
+  board_frdmmcxa366:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/MCX/index.rst
+    - root: docs
+      pattern: boards/MCX/frdmmcxa366/*
+    - root: .
+      pattern: examples/_boards/frdmmcxa366/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXA/MCXA366/index.rst
+    - root: .
+      pattern: devices/MCX/MCXA/MCXA346/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA366
+      outdir: drivers/MCX/MCXA/MCXA366
   board_frdmmcxc041:
     default: true
     external_contents:
