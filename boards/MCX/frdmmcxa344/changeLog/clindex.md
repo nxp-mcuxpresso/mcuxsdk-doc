@@ -1,6 +1,6 @@
 # MCUXpresso SDK Changelog
 
-```{include} /examples/_boards/frdmmcxa153/ChangeLog_board.md
+```{include} /examples/_boards/frdmmcxa344/ChangeLog_board.md
 :heading-offset: 2
 ```
 ---
@@ -13,10 +13,6 @@
 ```
 ---
 ```{include} /drivers/cdog/doxygen/ChangeLog_cdog.md
-:heading-offset: 2
-```
----
-```{include} /devices/MCX/MCXA/MCXA153/drivers/doxygen/ChangeLog_clock.md
 :heading-offset: 2
 ```
 ---
@@ -52,6 +48,14 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/flexcan/doxygen/ChangeLog_flexcan.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/flexcan/doxygen/ChangeLog_flexcan_edma.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/lpc_freqme/doxygen/ChangeLog_freqme.md
 :heading-offset: 2
 ```
@@ -61,14 +65,6 @@
 ```
 ---
 ```{include} /drivers/gpio/doxygen/ChangeLog_gpio.md
-:heading-offset: 2
-```
----
-```{include} /drivers/i3c/doxygen/ChangeLog_i3c.md
-:heading-offset: 2
-```
----
-```{include} /drivers/i3c/doxygen/ChangeLog_i3c_edma.md
 :heading-offset: 2
 ```
 ---
@@ -112,6 +108,14 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/mau/doxygen/ChangeLog_mau.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/opamp_fast/doxygen/ChangeLog_opamp.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/ostimer/doxygen/ChangeLog_ostimer.md
 :heading-offset: 2
 ```
@@ -124,11 +128,11 @@
 :heading-offset: 2
 ```
 ---
-```{include} /devices/MCX/MCXA/MCXA153/drivers/doxygen/ChangeLog_reset.md
+```{include} /devices/MCX/MCXA/MCXA153/drivers/doxygen/ChangeLog_romapi.md
 :heading-offset: 2
 ```
 ---
-```{include} /devices/MCX/MCXA/MCXA153/drivers/doxygen/ChangeLog_romapi.md
+```{include} /drivers/rtc/doxygen/ChangeLog_rtc.md
 :heading-offset: 2
 ```
 ---
