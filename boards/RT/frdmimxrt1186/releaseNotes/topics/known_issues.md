@@ -2,7 +2,8 @@
 
 This section lists the known issues, limitations, and/or workarounds.
 
-```{include} ../../../../release/known_issues/MCUX-81148.md
+
+```{include} /release/known_issues/MCUX-81148.md
 :heading-offset: 1
 ```
 
