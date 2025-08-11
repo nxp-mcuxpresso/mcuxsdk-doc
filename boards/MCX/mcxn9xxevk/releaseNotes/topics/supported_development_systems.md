@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**MCX-N9XX-EVK**|MCXN946VDF, MCXN946VKL, MCXN946VNL,<br> MCXN946VPB, **MCXN947VDF**, MCXN947VKL,<br> MCXN947VNL, MCXN947VPB|
+|**MCX-N9XX-EVK**|MCXN946VAB, MCXN946VDF, MCXN946VKL,<br/> MCXN946VNL, MCXN946VPB, MCXN947VAB,<br/> **MCXN947VDF**, MCXN947VKL, MCXN947VNL,<br/> MCXN947VPB|

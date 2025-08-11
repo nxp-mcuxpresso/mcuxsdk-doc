@@ -122,11 +122,7 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/cadence_codecs_hifi4.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/cadence_codecs_hifi1.md
+```{include} /release/commonrn/topics/cadence_codecs.md
 :heading-offset: 2
 ```
 

@@ -58,10 +58,6 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/arm_mbed_crypto.md
-:heading-offset: 2
-```
-
 ```{include} /release/commonrn/topics/oasis_pkcs11.md
 :heading-offset: 2
 ```

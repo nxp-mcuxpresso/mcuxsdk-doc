@@ -30,6 +30,10 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_eiq_machine_learning.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/adam_dunkels_lwip.md
 :heading-offset: 2
 ```

@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**FRDM-MCXN236**|MCXN235VDF, MCXN235VKL, MCXN235VNL,<br> MCXN235VPB, **MCXN236VDF**, MCXN236VKL,<br> MCXN236VNL, MCXN236VPB|
+|**FRDM-MCXN236**|MCXN235VDF, MCXN235VKL, MCXN235VNL,<br/> MCXN235VPB, **MCXN236VDF**, MCXN236VKL,<br/> MCXN236VNL, MCXN236VPB|

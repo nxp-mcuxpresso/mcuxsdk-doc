@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**LPCXpresso55S69**|LPC55S66JBD100, LPC55S66JBD64, LPC55S66JEV98,<br> **LPC55S69JBD100**, LPC55S69JBD64, LPC55S69JEV59,<br> LPC55S69JEV98|
+|**LPCXpresso55S69**|**LPC55S69JBD100**, LPC55S69JBD64, LPC55S69JEV59,<br/> LPC55S69JEV98, LPC55S66JBD100, LPC55S66JBD64,<br/> LPC55S66JEV98|

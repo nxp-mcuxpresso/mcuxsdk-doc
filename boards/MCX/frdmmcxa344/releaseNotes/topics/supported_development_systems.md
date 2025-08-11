@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**FRDM-MCXC242**|MCXC141VFM, MCXC141VLH, MCXC142VFM,<br/> MCXC242VFM, **MCXC242VLH**|
+|**FRDM-MCXA344**|MCXA343VFM, MCXA343VLF, MCXA343VLH,<br/> MCXA343VLL, MCXA344VFM, MCXA344VLF,<br/> MCXA344VLH, **MCXA344VLL**|

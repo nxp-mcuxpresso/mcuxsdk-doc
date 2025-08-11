@@ -26,15 +26,15 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/arm_mbed_crypto.md
-:heading-offset: 2
-```
-
 ```{include} /release/commonrn/topics/nxp_motor_control.md
 :heading-offset: 2
 ```
 
 ```{include} /release/commonrn/topics/nxp_multicore.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/arm_mbedtls_3x.md
 :heading-offset: 2
 ```
 

@@ -10,11 +10,19 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/christopher_haster_littlefs.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_motor_control.md
 :heading-offset: 2
 ```
 
 ```{include} /release/commonrn/topics/nxp_freemaster.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/elm_chan_fatfs.md
 :heading-offset: 2
 ```
 

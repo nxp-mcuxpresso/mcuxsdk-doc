@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**FRDM-MCXW72**|MCXW727AMFTA, **MCXW727CMFTA**, MCXW727DMFTA<br>|
+|**FRDM-MCXW72**|**MCXW727CMFTA**|
