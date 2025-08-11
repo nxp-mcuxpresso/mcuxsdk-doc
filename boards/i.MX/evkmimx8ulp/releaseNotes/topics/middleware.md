@@ -42,7 +42,3 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/cadence_codecs_fusionf1.md
-:heading-offset: 2
-```
-

@@ -2,6 +2,6 @@
 
 This release supports board and devices listed in following table. The board and devices in bold were tested in this release.
 
-|Development boards|                                MCU devices                                 |
-|:--:              |:--------------------------------------------------------------------------:|
-|**FRDM-MCXL255**| **MCXL255VDF**, MCXL255VLL,<br/> MCXL254VLL, MCXL254VLL,<br/> MCXL253VLL, MCXL253VLL |
+|Development boards|MCU devices|
+|:--:              |:--:       |
+|**FRDM-MCXL255**|**MCXL255VDF**, MCXL255VLL|

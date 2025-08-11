@@ -50,10 +50,6 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/arm_mbed_crypto.md
-:heading-offset: 2
-```
-
 ```{include} /release/commonrn/topics/nxp_sd_mmc_sdio_card.md
 :heading-offset: 2
 ```

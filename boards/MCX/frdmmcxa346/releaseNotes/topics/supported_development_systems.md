@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**FRDM-MCXA346**|MCXA345VLH, MCXA345VLL, MCXA345VLQ,<br> MCXA345VPN, MCXA346VLH, MCXA346VLL,<br> **MCXA346VLQ**, MCXA346VPN|
+|**FRDM-MCXA346**|MCXA345VLH, MCXA345VLL, MCXA345VLQ,<br/> MCXA345VPN, MCXA346VLH, MCXA346VLL,<br/> **MCXA346VLQ**, MCXA346VPN|

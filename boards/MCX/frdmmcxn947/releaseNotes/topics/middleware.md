@@ -10,6 +10,10 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_edgefast_bluetooth_pal.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_ethermind.md
 :heading-offset: 2
 ```
@@ -43,10 +47,6 @@
 ```
 
 ```{include} /release/commonrn/topics/arm_psa_test.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/arm_mbed_crypto.md
 :heading-offset: 2
 ```
 

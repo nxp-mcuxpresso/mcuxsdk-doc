@@ -6,15 +6,7 @@
 
 # Middleware
 
-```{include} /release/commonrn/topics/nxp_ble_stack.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/nxp_ble_controller.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/nxp_genfsk.md
+```{include} /release/commonrn/topics/nxp_ieee_802_15_4.md
 :heading-offset: 2
 ```
 
@@ -22,7 +14,7 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_ieee_802_15_4.md
+```{include} /release/commonrn/topics/nxp_genfsk.md
 :heading-offset: 2
 ```
 
@@ -30,15 +22,19 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_ble_controller.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_ble_stack.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_ble_controller_localization.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_conn_fwk.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/nxp_conn_low_power_reference_design.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/nxp_matter_and_openthread.md
 :heading-offset: 2
 ```
 
@@ -46,7 +42,19 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/arm_trusted_firmware_m.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/arm_psa_test.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_psa_crypto_driver.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_secure_storage.md
 :heading-offset: 2
 ```
 

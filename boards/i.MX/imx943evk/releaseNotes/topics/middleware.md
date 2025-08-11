@@ -26,6 +26,18 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/rt_freemodbus.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/rt_labs_soem.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_motor_control.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_multicore.md
 :heading-offset: 2
 ```

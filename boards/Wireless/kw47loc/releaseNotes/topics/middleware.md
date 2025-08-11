@@ -6,14 +6,6 @@
 
 # Middleware
 
-```{include} /release/commonrn/topics/nxp_ble_stack.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/nxp_ble_controller.md
-:heading-offset: 2
-```
-
 ```{include} /release/commonrn/topics/nxp_genfsk.md
 :heading-offset: 2
 ```
@@ -22,11 +14,19 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_conn_fwk.md
+```{include} /release/commonrn/topics/nxp_ble_controller.md
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_conn_low_power_reference_design.md
+```{include} /release/commonrn/topics/nxp_ble_stack.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_ble_controller_localization.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_conn_fwk.md
 :heading-offset: 2
 ```
 

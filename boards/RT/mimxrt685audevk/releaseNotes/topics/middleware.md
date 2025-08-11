@@ -18,6 +18,14 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/arm_psa_test.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/arm_mbedtls_3x.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_wifi_wpa_supplicant.md
 :heading-offset: 2
 ```
@@ -50,14 +58,6 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/arm_psa_test.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/arm_mbed_crypto.md
-:heading-offset: 2
-```
-
 ```{include} /release/commonrn/topics/nxp_sd_mmc_sdio_card.md
 :heading-offset: 2
 ```
@@ -71,10 +71,6 @@
 ```
 
 ```{include} /release/commonrn/topics/mcuboot_opensource.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/arm_mbedtls_3x.md
 :heading-offset: 2
 ```
 
@@ -126,7 +122,7 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/cadence_codecs_hifi4.md
+```{include} /release/commonrn/topics/cadence_codecs.md
 :heading-offset: 2
 ```
 
@@ -135,6 +131,10 @@
 ```
 
 ```{include} /release/commonrn/topics/amazon_aws_iot.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_psa_crypto_driver.md
 :heading-offset: 2
 ```
 

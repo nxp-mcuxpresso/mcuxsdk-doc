@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**FRDM-KE17Z512**|MKE12Z512VLH9, MKE12Z512VLL9, MKE13Z512VLH9,<br> MKE13Z512VLL9, MKE17Z512VLH9, **MKE17Z512VLL9**<br>|
+|**FRDM-KE17Z512**|MKE12Z512VLH9, MKE12Z512VLL9, MKE13Z512VLH9,<br/> MKE13Z512VLL9, MKE17Z512VLH9, **MKE17Z512VLL9**<br/>|
