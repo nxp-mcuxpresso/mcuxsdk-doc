@@ -2,20 +2,20 @@
   "SPDXID": "SPDXRef-DOCUMENT",
   "spdxVersion": "SPDX-2.3",
   "creationInfo": {
-    "created": "2025-07-12T03:09:37Z",
+    "created": "2025-08-04T04:44:08Z",
     "creators": [
       "Organization: NXP"
     ],
     "licenseListVersion": "3.20"
   },
-  "name": "mcuxsdk-doc-v25.09.00-pvw1",
+  "name": "mcuxsdk-doc-v25.09.00-pvw2",
   "dataLicense": "CC0-1.0",
-  "documentNamespace": "https://nxp.com/spdx/bc94b352-6a56-40fc-a08a-cd4323b09d3d",
+  "documentNamespace": "https://nxp.com/spdx/85b50de5-34f7-4c66-ab25-c3d6da28afeb",
   "packages": [
     {
-      "SPDXID": "SPDXRef-package-bc94b352-6a56-40fc-a08a-cd4323b09d3d",
+      "SPDXID": "SPDXRef-package-85b50de5-34f7-4c66-ab25-c3d6da28afeb",
       "name": "mcuxsdk-doc",
-      "versionInfo": "v25.09.00-pvw1",
+      "versionInfo": "v25.09.00-pvw2",
       "licenseConcluded": "(BSD-3-Clause)",
       "licenseDeclared": "(BSD-3-Clause)",
       "downloadLocation": "https://github.com/nxp-mcuxpresso/mcuxsdk-doc",
@@ -68,10 +68,10 @@
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
       "relationshipType": "DESCRIBES",
-      "relatedSpdxElement": "SPDXRef-package-bc94b352-6a56-40fc-a08a-cd4323b09d3d"
+      "relatedSpdxElement": "SPDXRef-package-85b50de5-34f7-4c66-ab25-c3d6da28afeb"
     },
     {
-      "spdxElementId": "SPDXRef-package-bc94b352-6a56-40fc-a08a-cd4323b09d3d",
+      "spdxElementId": "SPDXRef-package-85b50de5-34f7-4c66-ab25-c3d6da28afeb",
       "relationshipType": "CONTAINS",
       "relatedSpdxElement": "SPDXRef-package-090a8a48-6b72-44ed-add9-17eaf9f57e57"
     }
