@@ -8,6 +8,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/cache/lpcac_n4a_mcxn/doxygen/ChangeLog_cache_lpcac.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/cdog/doxygen/ChangeLog_cdog.md
 :heading-offset: 2
 ```
