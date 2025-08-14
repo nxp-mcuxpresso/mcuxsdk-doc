@@ -5,5 +5,6 @@ The supported development systems and their quality are listed below. To view th
 
 .. include:: release_quality.md
    :parser: myst_parser.sphinx_
-
+.. include:: release_metrics.md
+   :parser: myst_parser.sphinx_
 
