@@ -1,7 +1,7 @@
 # Development Systems and Metrics
 
 - **CCM** - Cyclomatic complexity. Measured per function. [Definition](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
-- **CWE** - Common Weakness Enumeration. [Definition](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
+- **CWE** - Common Weakness Enumeration. [Definition](https://en.wikipedia.org/wiki/Common_Weakness_Enumeration)
 - **HIGH IMPACT** - High Impact findings classified by Coverity Analysis. [Definition](https://documentation.blackduck.com/bundle/coverity-docs/page/checker-ref/tables/coverity-checker-coverage.html)
 - **Memory Leaks** - Set of checkers specified by Coverity SA [Definition](https://documentation.blackduck.com/bundle/coverity-docs/page/checker-ref/tables/coverity-checker-coverage.html)
   - RESOURCE_LEAK
