@@ -32,14 +32,21 @@ To download and run the application, perform these steps:
 
 |
 
-7.  The `hello_world` application is now running and a banner is displayed on the terminal. If this is not true, check your terminal settings and connections.
+7.  The `hello_world` application now runs and a banner appears on the terminal. If this does not occur, check your terminal settings and connections.
 
     |![](../images/text_display_hello_world.png "Text display of the hello_world demo")
 
 |
 
-    **Note:** For downloading the DDR target application, insert one TF card with U-Boot code. This requires both on IAR and GCC.
+    **Note:** For downloading the DDR target application, insert one TF card with U-Boot code. This is required both on IAR and GCC.
 
+    **Note:** For converting the DDR target elf to bin, run the following commands (take git bash console as example).
+    1. For the elf file built by Arm GCC:
+      $ <ARMGCC PATH>/bin/arm-none-eabi-objcopy.exe -Obinary --remove-section=.stacktop_and_pc <hello_world_<mcore type>.elf> <hello_world_<mcore type>.bin>
+
+    2. For the elf/out file built by IAR:
+      $ <ARMGCC PATH>/bin/arm-none-eabi-objcopy.exe --remove-section=.stacktop_and_pc hello_world_<mcore type>.elf hello_world_<mcore type>_stripped.elf
+      $ <IAR PATH>/arm/bin/ielftool.exe --bin hello_world_<mcore type>_stripped.elf hello_world_<mcore type>.bin
 
 **Parent topic:**[Run a demo application using IAR](../topics/run_a_demo_application_using_iar.md)
 
