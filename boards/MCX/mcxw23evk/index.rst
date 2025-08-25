@@ -22,6 +22,9 @@ MCU device and part on board is shown below:
 
 Getting Started with MCUXpresso SDK GitHub
 *******************************************
+
+**Before debugging the silicon, remove the jumper on J32.**
+
 .. toctree::
    :maxdepth: 1
 
