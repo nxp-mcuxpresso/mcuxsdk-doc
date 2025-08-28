@@ -67,6 +67,74 @@ mcux_add_iar_configuration(
 )
 ```
 
+## Application configuration files
+
+Within the main application's directory, create a subdirectory named `sysbuild`. This directory serves as the configuration directory for the application. Based on the naming convention, configuration files placed in this directory are automatically loaded by Sysbuild for each project it manages.
+
+For the main application, the configuration file name should correspond to the folder name the application resides in. For other applications, the configuration file name should match the identifier specified in the project() declaration within the respective CMakeLists.txt file.
+
+For Example, the main application is located in the primary folder:
+```
+multicore_examples
+├── hello_world
+    ├── primary
+    |   ├── CMakeLists.txt
+    |   ├── prj.conf
+    |   ├── sysbuild.cmake
+    |   └── sysbuild
+    |       ├── primary.conf
+    |       ├── primary_v2.conf
+    |       ├── hello_world_secondary_core.conf
+    |       ├── hello_world_secondary_core_v2.conf
+    |
+    ├── secondary
+        ├── CMakeLists.txt
+        ├── prj.conf
+```
+In this case:
+
+- The file `primary.conf` located in the `hello_world/primary/sysbuild` directory is used for the primary application.
+- The file `hello_world_secondary_core.conf` is used for the hello_world_secondary_core project located in the `hello_world/secondary` directory.
+
+These configuration files take precedence over the default configuration file `${APPLICATION_SOURCE_DIR}/prj.conf`.
+
+Sysbuild also supports selecting configuration files based on specific file suffixes. For example, within the previously described project structure, when the west build command is executed with the '-DFILE_SUFFIX=v2' option, Sysbuild automatically loads configuration files that include the specified suffix.
+
+Specifically:
+
+- The file `primary_v2.conf` located in the `hello_world/primary/sysbuild` directory is used for the primary application.
+- The file `hello_world_secondary_core_v2.conf` is used for the hello_world_secondary_core project located in the `hello_world/secondary` directory.
+
+This mechanism enables flexible configuration management across different build variants or versions.
+
+The configuration files can be checked from console log:
+```bash
+west build -b evkmimxrt1180 --sysbuild  ./examples/multicore_examples/hello_world/primary --config flexspi_nor_debug --toolchain armgcc -Dcore_id=cm33 -p always -DFILE_SUFFIX=v2
+```
+
+```bash
+    *****************************
+    * Running CMake for primary *
+    *****************************
+    .......
+
+    Parsing /home/dev/mcuxsdk/Kconfig
+    Loaded configuration '/home/dev/mcuxsdk/devices/prj.conf'
+    Merged configuration '/home/dev/mcuxsdk/devices/RT/RT1180/MIMXRT1189/prj.conf'
+    Merged configuration '/home/dev/mcuxsdk/devices/RT/RT1180/MIMXRT1189/cm33/prj.conf'
+    Merged configuration '/home/dev/mcuxsdk/examples/prj.conf'
+    Merged configuration '/home/dev/mcuxsdk/examples/_boards/evkmimxrt1180/prj.conf'
+    Merged configuration '/home/dev/mcuxsdk/examples/_boards/evkmimxrt1180/cm33/prj.conf'
+    Merged configuration '/home/dev/mcuxsdk/examples/multicore_examples/prj.conf'
+    Merged configuration '/home/dev/mcuxsdk/examples/multicore_examples/hello_world/prj.conf'
+    Merged configuration '/home/dev/mcuxsdk/examples/multicore_examples/hello_world/primary/prj.conf'
+    Merged configuration '/home/dev/mcuxsdk/examples/multicore_examples/hello_world/primary/sysbuild/primary_v2.conf'
+    Merged configuration '/home/dev/mcuxsdk/examples/_boards/evkmimxrt1180/multicore_examples/prj.conf'
+    Merged configuration '/home/dev/mcuxsdk/examples/_boards/evkmimxrt1180/multicore_examples/hello_world/cm33/prj.conf'
+    Merged configuration '/home/dev/mcuxsdk/build/primary/zephyr/.config.sysbuild'
+    Configuration saved to '/home/dev/mcuxsdk/build/primary/.config'
+``` 
+
 ## Build command
 
 To enable sysbuild, only `--sysbuild` is needed when you build the main project:
