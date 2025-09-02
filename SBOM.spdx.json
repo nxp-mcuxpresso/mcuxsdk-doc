@@ -2,20 +2,20 @@
   "SPDXID": "SPDXRef-DOCUMENT",
   "spdxVersion": "SPDX-2.3",
   "creationInfo": {
-    "created": "2025-08-04T04:44:08Z",
+    "created": "2025-09-02T06:42:54Z",
     "creators": [
       "Organization: NXP"
     ],
     "licenseListVersion": "3.20"
   },
-  "name": "mcuxsdk-doc-v25.09.00-pvw2",
+  "name": "mcuxsdk-doc-v25.09.00",
   "dataLicense": "CC0-1.0",
-  "documentNamespace": "https://nxp.com/spdx/85b50de5-34f7-4c66-ab25-c3d6da28afeb",
+  "documentNamespace": "https://nxp.com/spdx/c14d6653-c700-4d61-9b06-475e971adfd1",
   "packages": [
     {
-      "SPDXID": "SPDXRef-package-85b50de5-34f7-4c66-ab25-c3d6da28afeb",
+      "SPDXID": "SPDXRef-package-c14d6653-c700-4d61-9b06-475e971adfd1",
       "name": "mcuxsdk-doc",
-      "versionInfo": "v25.09.00-pvw2",
+      "versionInfo": "v25.09.00",
       "licenseConcluded": "(BSD-3-Clause)",
       "licenseDeclared": "(BSD-3-Clause)",
       "downloadLocation": "https://github.com/nxp-mcuxpresso/mcuxsdk-doc",
@@ -51,6 +51,11 @@
           "referenceType": "cpe23Type"
         },
         {
+          "referenceCategory": "SECURITY",
+          "referenceLocator": "cpe:2.3:o:zephyrproject:zephyr:3.7.0:-:*:*:*:*:*:*",
+          "referenceType": "cpe23Type"
+        },
+        {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceLocator": "pkg:github/zephyrproject-rtos/zephyr@v3.7.0",
           "referenceType": "purl"
@@ -68,10 +73,10 @@
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
       "relationshipType": "DESCRIBES",
-      "relatedSpdxElement": "SPDXRef-package-85b50de5-34f7-4c66-ab25-c3d6da28afeb"
+      "relatedSpdxElement": "SPDXRef-package-c14d6653-c700-4d61-9b06-475e971adfd1"
     },
     {
-      "spdxElementId": "SPDXRef-package-85b50de5-34f7-4c66-ab25-c3d6da28afeb",
+      "spdxElementId": "SPDXRef-package-c14d6653-c700-4d61-9b06-475e971adfd1",
       "relationshipType": "CONTAINS",
       "relatedSpdxElement": "SPDXRef-package-090a8a48-6b72-44ed-add9-17eaf9f57e57"
     }
