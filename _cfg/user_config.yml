@@ -360,13 +360,24 @@ modules:
     default: true
     external_contents:
     - root: docs
-      pattern: middleware/motor_control.rst
+      pattern: middleware/freemaster.rst
     - root: docs
       pattern: middleware/freemaster/*
     - root: .
       pattern: middleware/freemaster/doc/index.md
     - root: .
       pattern: middleware/freemaster/doc/user_guide/*
+  mid_motor_control:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: middleware/motor_control.rst
+    - root: docs
+      pattern: middleware/motor_control/*
+    - root: .
+      pattern: middleware/motor_control/doc/*
+    - root: .
+      pattern: middleware/motor_control/*
   mid_issdk:
     default: true
     external_contents:

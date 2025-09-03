@@ -7,3 +7,4 @@ Motor Control
    :maxdepth: 1
 
    freemaster/doc/index
+   motor_control/doc/index
