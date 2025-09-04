@@ -360,7 +360,7 @@ modules:
     default: true
     external_contents:
     - root: docs
-      pattern: middleware/freemaster.rst
+      pattern: middleware/motor_control.rst
     - root: docs
       pattern: middleware/freemaster/*
     - root: .
