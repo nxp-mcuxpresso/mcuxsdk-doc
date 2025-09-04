@@ -703,3 +703,16 @@ Load all cmakelists under one directory
 ```cmake
 mcux_load_all_cmakelists_in_directory(${SdkRootDirPath}/drivers)
 ```
+
+#### mcux_add_config_mex_path
+
+Specify the mex file used by MCUXpresso MCUXpresso Config Tools.
+
+| Argument Name | Argument Type | Explanation                              |
+| ------------- | ------------- | ---------------------------------------- |
+| BASE_PATH     | Single        | If provided, the final path equals `BASE_PATH` + `PATH`, |
+| PATH          | Single        | The path containing the mex file which is relative to `${CMAKE_CURRENT_LIST_DIR}`. |
+
+This function sets the mex file path to the 'MCUXPRESSO_CONFIG_TOOL_MEX_PATH' variable in CMakeCache.txt after the cmake configuration stage completes. MCUXpresso Config Tools get the mex file path directly from 'MCUXPRESSO_CONFIG_TOOL_MEX_PATH'.
+
+By default, if 'PROJECT_BOARD_PORT_PATH' is provided, the build system searches for the mex file from it and sets the 'MCUXPRESSO_CONFIG_TOOL_MEX_PATH' variable if the system finds the file. You do not need to always provide this 'mcux_add_config_mex_pat'h to specify the mex file path. The 'mcux_add_config_mex_path' function has higher priority than the default 'PROJECT_BOARD_PORT_PATH'.
