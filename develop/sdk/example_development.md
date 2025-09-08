@@ -450,7 +450,7 @@ output_dir/
 `west export_app` extension uses a static cmake file parser to analyze the example's CMakeLists.txt file. It will looks up all `mcux_add_source` and `mcux_add_include` in the list file and copy the recorded source/header files to the output directory.
 For sysbuild examples, `sysbuild.cmake` is also involved to get the list file or linked application.
 After copying all files, the paths in the list file will be updated to that in the output directory. It will also collected all example level `prj.conf` files and combine them into one.
-If user use `--bf` option, the extension will call cmake configuration step to get trace log and a final `.config` file and then analyze which project segments and files are used.
+When the user specifies the `--bf` option, the extension invokes the CMake configuration phase to generate trace logs and produce a final `.config` file. It then analyzes the output to determine which project segments and files the build uses. The `--bf` option enables the extension to parse the `include` function within the example's CMakeLists.txt.
 Hence, to ensure a SDK repository example can be successfully exported to a freestanding exmaple, it have to comply with following rules:
 
 1. Record files with mcuxsdk provided cmake extensions [`mcux_add_source/mcux_add_include`](../build_system/Build_System.md#source-and-include).
@@ -523,6 +523,10 @@ hello_world_virtual_com:
 In this example, this will:
 - Copy the example's `reconfig.cmake` under the freestanding folder to be customized.
 - Update the CMakeLists.txt to reflect the new path.
+
+#### Known Issues of Export_App
+
+As mentioned in [How Export_App extension works](#how-export_app-extension-works), the extension is only abled to process files into `mcux_add_source` and `mcux_add_include` in all scenarios and `include` under `--bf`. Any remove logic like `mcux_project_remove_source` will be bypassed. That brings no effect to build, but may introduce useless files in output directory.
 
 ### Example with different build configurations
 
