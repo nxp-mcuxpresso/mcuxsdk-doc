@@ -378,6 +378,17 @@ modules:
       pattern: middleware/motor_control/doc/*
     - root: .
       pattern: middleware/motor_control/*
+  mid_safety_iec60730b:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: middleware/safety_iec60730b.rst
+    - root: docs
+      pattern: middleware/safety_iec60730b/*
+    - root: .
+      pattern: middleware/safety_iec60730b/doc/*
+    - root: .
+      pattern: middleware/safety_iec60730b/*
   mid_issdk:
     default: true
     external_contents:

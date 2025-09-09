@@ -15,4 +15,5 @@ Middleware
    multicore.rst
    multimedia.rst
    wireless.rst
-   sensors.rst   
+   sensors.rst
+   safety_iec60730b.rst
