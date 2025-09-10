@@ -14,7 +14,7 @@ To build an example application, follow these steps.
 
 |
 
-3.  In the window that appears, expand the **RW61X** folder and select **MCXE31x**.
+3.  In the window that appears, expand the **MCXE31x** folder and select **MCXE31B**.
 
 4.  Select **frdmmcxe31b** and click **Next**.
 

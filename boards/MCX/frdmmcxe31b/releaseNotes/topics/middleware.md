@@ -10,11 +10,31 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/arm_psa_test.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_safety_iec60730b.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_motor_control.md
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/arm_mbedtls_3x.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_freemaster.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_ele_hseb.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_psa_crypto_driver.md
 :heading-offset: 2
 ```
 
@@ -23,6 +43,10 @@
 ```
 
 ```{include} /release/commonrn/topics/gabor_kiss_amosi_lvgl.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/janez_canopennode.md
 :heading-offset: 2
 ```
 

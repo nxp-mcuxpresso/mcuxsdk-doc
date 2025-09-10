@@ -45,9 +45,6 @@ Getting Started with MCUXpresso SDK GitHub
 
 Release Notes
 *******************************************
-
-**This is an Early Access Release (EAR) for FRDM-MCXE31B development board. It shall be used for pre-production development only.**
-
 .. toctree::
    :maxdepth: 1
 
