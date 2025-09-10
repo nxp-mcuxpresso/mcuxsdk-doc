@@ -1,19 +1,35 @@
 # What is new
 
-The following changes have been implemented compared to the previous SDK release version \(25.09.00-pvw1\).
+The following changes have been implemented compared to the previous SDK release version \(25.09.00-pvw2\).
 
 -   **Bluetooth LE Host Stack and Applications**
+
+    ### Added
+    -   **RAS/RAP PTS** 8.7.4 test support added in Localization Sample applications.
+    -   Support for CS start procedure while the previous procedure is not completed; old procedure replaced with the new one.
+    -   Support for arm gcc for ncp_loc_reader__cm33_core1.
+
     ### Improved
-    -   **CS Event Handling**: CS (Channel Sounding) events are now sent to the application task for processing, 
-	rather than being handled directly in the Host task.
+    -   Localization Sample Applications Ram partition.
+    -   **RAS/RAP** profile and service.
     -   Various sample applications have been updated.
 
     ### Fixed
-    -   Bluetooth Advertising Sets: Now supports **4 advertising** sets in the Bluetooth host libraries.
+    -   Privacy setting issue on ncp_loc_reader.
+    -   Extended NBU FSCI message handling issue.
+    -   Ble_shell updated to set the Random Static Address properly.
+    -   Always set the Advertising Legacy Set handle if the legacy API was used.
+    -   fsci_bridge and w_uart_host memory leak.
+    -   PAWR parameters in PeriodicSyncTransferReceived are now parsed correctly.
+    -   Ensure an RPA/NRPA is properly set from the application to enable a central using Controller Privacy to connect to unbonded peripherals.
+    -   CS algorithm buffer overwrite issue during Connection Handover application.
     -   Various sample applications bug fixes applied.
+    -   Pass correct Codded PHY (S2) to Channel Sounding Set Procedure Parameters.
 
     ### Changed
-    -   Bluetooth Address Type: The default address type has been changed from **Public** to **Random Static**. 
+    -   Merged Gap_SetExtAdvertisingParameters and Gap_SetExtAdvertisingParametersV2 into **Gap_SetExtAdvertisingParameters**.
+    -   ce_status_buffer type changed to int32_t.
+    -   BLE_Shell prints Random Static address as identity address instead of the Public Device Address.
 
     -   Details can be found in **CHANGELOG.md**.
 

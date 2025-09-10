@@ -1,17 +1,24 @@
 # What is new
 
-The following changes have been implemented compared to the previous SDK release version \(25.09.00-pvw1\).
+The following changes have been implemented compared to the previous SDK release version \(25.09.00-pvw2\).
 
 -   **Bluetooth LE Host Stack and Applications**
+
+    ### Added
+    -   CCC sample applications updated to **CCC Digital Key v4.0.0** Specification.
+
     ### Improved
     -   Various sample applications have been updated.
 
     ### Fixed
-    -   Bluetooth Advertising Sets: Now supports **4 advertising** sets in the Bluetooth host libraries.
+    -   Ble_shell updated to set the Random Static Address properly.
+    -   Always set the Advertising Legacy Set handle if the legacy API was used.
+    -   PAWR parameters in PeriodicSyncTransferReceived are now parsed correctly.
+    -   Ensure an RPA/NRPA is properly set from the application to enable a central using Controller Privacy to connect to unbonded peripherals.
     -   Various sample applications bug fixes applied.
 
     ### Changed
-    -   Bluetooth Address Type: The default address type has been changed from **Public** to **Random Static**. 
+    -   Merged Gap_SetExtAdvertisingParameters and Gap_SetExtAdvertisingParametersV2 into **Gap_SetExtAdvertisingParameters**.
 
     -   Details can be found in **CHANGELOG.md**.
 
