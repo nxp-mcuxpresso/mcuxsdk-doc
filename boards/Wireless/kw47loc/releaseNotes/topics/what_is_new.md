@@ -26,7 +26,8 @@ The following changes have been implemented compared to the previous SDK release
     -   Merged Gap_SetExtAdvertisingParameters and Gap_SetExtAdvertisingParametersV2 into **Gap_SetExtAdvertisingParameters**.
     -   ce_status_buffer type changed to int32_t.
 
-    -   Details can be found in **CHANGELOG.md**.
+
+    -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE controller**
     - Channel sounding updates:

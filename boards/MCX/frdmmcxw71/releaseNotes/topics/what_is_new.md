@@ -22,7 +22,7 @@ The following changes have been implemented compared to the previous SDK release
     -   Merged Gap_SetExtAdvertisingParameters and Gap_SetExtAdvertisingParametersV2 into **Gap_SetExtAdvertisingParameters**.
     -   BLE_Shell prints Random Static address as identity address instead of the Public Device Address.
 
-    -   Details can be found in **CHANGELOG.md**.
+    -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE controller**
     -   Remove support for Channel Sounding.

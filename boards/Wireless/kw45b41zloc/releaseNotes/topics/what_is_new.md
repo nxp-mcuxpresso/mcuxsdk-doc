@@ -20,7 +20,7 @@ The following changes have been implemented compared to the previous SDK release
     ### Changed
     -   Merged Gap_SetExtAdvertisingParameters and Gap_SetExtAdvertisingParametersV2 into **Gap_SetExtAdvertisingParameters**.
 
-    -   Details can be found in **CHANGELOG.md**.
+    -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE controller**
     -   Remove support for Channel Sounding.

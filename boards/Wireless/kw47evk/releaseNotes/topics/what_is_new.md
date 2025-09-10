@@ -29,7 +29,7 @@ The following changes have been implemented compared to the previous SDK release
     -   ce_status_buffer type changed to int32_t.
     -   BLE_Shell prints Random Static address as identity address instead of the Public Device Address.
 
-    -   Details can be found in **CHANGELOG.md**.
+    -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE controller**
     - Channel sounding updates:
