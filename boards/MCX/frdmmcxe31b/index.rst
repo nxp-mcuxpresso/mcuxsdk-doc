@@ -9,7 +9,7 @@ Overview
 
 The FRDM-MCXE31B board is a design and evaluation platform based on the NXP MCXE31B
 microcontroller (MCU). NXP MCXE31B MCU based on an Arm Cortex- M7 core, running
-at speeds of up to 160 MHz with a 2.70–5.5 V supply.
+at speeds of up to 160 MHz with a 2.97–5.5 V supply.
 The FRDM-MCXE31B board consists of one MCXE31B device with a 64 Mbit external serial
 flash (provided by Winbond). The board also features FXLS8974CFR3 I2C accelerometer
 sensor, one NMH1000 I2C Magnetic switch, three TJA1057GTK/3Z CAN PHY, Ethernet PHY,
