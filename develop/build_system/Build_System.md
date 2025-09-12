@@ -301,15 +301,19 @@ CMake Warning at mcuxsdk/cmake/extension/logging.cmake:46 (message):
 ```
 #### mcux_add_iar_linker_script/mcux_add_mdk_linker_script/mcux_add_armgcc_linker_script/mcux_add_codewarrior_linker_script/mcux_add_riscvllvm_linker_script
 
-Add linker for toolchain.
+Preprocess and add linker for toolchain.
 
-| Argument Name | Argument Type | Explanation                              |
-| ------------- | ------------- | ---------------------------------------- |
-| TARGETS       | Multiple      | The build targets, like debug release.   |
-| BASE_PATH     | Single        | If provided, the final linker path equals `BASE_PATH` + `LINKER`. This is usually used in abstracted .cmake files which are not placed together with real linker. |
-| LINKER        | Single        | The linker path                          |
+| Argument Name    | Argument Type | Explanation                              |
+| ---------------- | ------------- | ---------------------------------------- |
+| TARGETS          | Multiple      | The build targets, like debug release.   |
+| BASE_PATH        | Single        | If provided, the final linker path equals `BASE_PATH` + `LINKER`. This is usually used in abstracted .cmake files which are not placed together with real linker. |
+| LINKER           | Single        | The linker path                          |
+| PREPROCESSED     | Single        | TRUE or FALSE. TRUE means preprocess will be executed on the LINKER. Optional, FALSE by default. |
+| PROCESSED_LINKER | Single        | Output linker script file to generate. Absolute path used as-is; relative resolved against BASE_PATH or the current list directory. Optional, by default the output linker is located in binary folder with name `linker.<ext>`. |
+| INCLUDES         | Multiple      | Include search directories for the preprocessor (`-I`). Optional. |
+| PARAMETERS       | Multiple      | Extra parameters passed to the preprocessor (e.g. `-DMCXW235 -DAPP_SLOT=1`). |
 
-Here is one example
+Here are some examples without preprocessing linker script.
 
 ```cmake
 mcux_add_iar_linker_script(
@@ -332,6 +336,47 @@ mcux_add_mdk_linker_script(
 ```
 
 Please remember to set `TARGETS` for the linker, otherwise the linker will be enabled for all targets.
+
+If the preprocessing is enabled, then it runs a toolchain-specific preprocessor:
+
+- IAR: `iccarm --silent <extra parameters> -I<includes> --preprocess=ns <out> <in>` (suppresses `#line` and comments)
+- ARMGCC: `arm-none-eabi-gcc -E -P -xc <extra parameters> -I<includes> <in> -o <out>`
+- MDK (armclang): `armclang -E -P -xc <extra parameters> -I<includes> <in> -o <out>`
+
+Example (IAR):
+
+```cmake
+mcux_add_iar_linker_script(
+        TARGETS debug release
+        BASE_PATH ${SdkRootDirPath}
+        LINKER examples/_common/project_segments/wireless/mcxw23/linker/iar/connectivity.icf
+        PREPROCESSED TRUE
+        PROCESSED_LINKER ${CMAKE_BINARY_DIR}/linker.icf
+        INCLUDES examples/_common/project_segments/wireless/mcxw23/linker/gcc
+        PARAMETERS -DMCXW235 --diag_suppress=Pe223
+)
+```
+
+Example (armgcc):
+
+```cmake
+mcux_add_armgcc_linker_script(
+        TARGETS debug release
+        BASE_PATH ${SdkRootDirPath}
+        LINKER middleware/tfm/tf-m/platform/ext/common/gcc/tfm_common_ns.ld
+        PREPROCESSED TRUE
+        PROCESSED_LINKER ${CMAKE_BINARY_DIR}/tfm_common_ns_pre.ld
+        INCLUDES middleware/tfm/tf-m/platform/ext/common
+        PARAMETERS -DTFM_NS=1 -DAPP_SLOT=1
+)
+```
+
+Notes:
+
+- Use unique output names per configuration to avoid parallel build clashes.
+- The function does not currently glob nested includes: if the raw script includes other files whose presence may change, you may need to trigger a manual reconfigure when those dependencies change.
+- For Ninja/Make the preprocessing runs just before linking (`PRE_LINK`).
+- The preprocessed linker cannot be removed with [`mcux_remove_<toolchain>_linker_script`](#mcux-remove-iar-linker-script-mcux-remove-mdk-linker-script-mcux-remove-armgcc-linker-script-mcux-remove-codewarrior-linker-script) function.
 
 ### MACRO
 
