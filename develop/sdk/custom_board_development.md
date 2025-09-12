@@ -202,6 +202,35 @@ CONFIG_MCUX_PRJSEG_module.custom_board.clock=y
 CONFIG_MCUX_PRJSEG_module.custom_board.pinmux=y
 ```
 
+If you build a repository example, the default prj.conf search paths are showed in the following table:
+
+```
+1. ${SdkRootDirPath}/devices/prj.conf
+2. ${SdkRootDirPath}/devices/<soc_series>/prj.conf
+3. ${SdkRootDirPath}/devices/<soc_series>/<device>/prj.conf
+4. ${SdkRootDirPath}/devices/<soc_series>/<device>/<core_id>/prj.conf
+5. ${SdkRootDirPath}/examples/prj.conf
+6. ${CUSTOM_BOARD_ROOT}/prj.conf
+7. ${CUSTOM_BOARD_ROOT}/<board>/prj.conf
+8. ${CUSTOM_BOARD_ROOT}/<board>/<core_id>/prj.conf
+9. ${SdkRootDirPath}/examples/<example_category>/prj.conf
+10. ${SdkRootDirPath}/examples/<example_category>/<example>/prj.conf
+```
+
+If you build a customized workspace example, the default prj.conf search paths are showed in the following table:
+
+```
+1. ${SdkRootDirPath}/devices/prj.conf
+2. ${SdkRootDirPath}/devices/<soc_series>/prj.conf
+3. ${SdkRootDirPath}/devices/<soc_series>/<device>/prj.conf
+4. ${SdkRootDirPath}/devices/<soc_series>/<device>/<core_id>/prj.conf
+5. ${SdkRootDirPath}/examples/prj.conf
+6. ${CUSTOM_BOARD_ROOT}/prj.conf
+7. ${CUSTOM_BOARD_ROOT}/<board>/prj.conf
+8. ${CUSTOM_BOARD_ROOT}/<board>/<core_id>/prj.conf
+9. ${APPLICATION_SOURCE_DIR}/prj.conf
+```
+
 ###  variable.cmake
 
 variable.cmake file is the connection file for a board to the build system. It tells the board and device related variable names:
