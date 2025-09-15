@@ -156,6 +156,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/tdet/doxygen/ChangeLog_tdet.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/trdc_1/doxygen/ChangeLog_trdc.md
 :heading-offset: 2
 ```

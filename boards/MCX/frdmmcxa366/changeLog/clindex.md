@@ -196,6 +196,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/slcd/doxygen/ChangeLog_slcd.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/smartdma/doxygen/ChangeLog_smartdma.md
 :heading-offset: 2
 ```
@@ -209,6 +213,10 @@
 ```
 ---
 ```{include} /drivers/trdc_1/doxygen/ChangeLog_trdc.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/trng/doxygen/ChangeLog_trng.md
 :heading-offset: 2
 ```
 ---

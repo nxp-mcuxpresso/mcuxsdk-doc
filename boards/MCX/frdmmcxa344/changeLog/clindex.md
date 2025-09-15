@@ -136,6 +136,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/smartdma/doxygen/ChangeLog_smartdma.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/mcx_spc/doxygen/ChangeLog_spc.md
 :heading-offset: 2
 ```
