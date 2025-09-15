@@ -10,6 +10,7 @@ The following changes have been implemented compared to the previous SDK release
     - Provide API to enable/disable Channel Assessment.
     - Debug HCI: Fix missed deferred HCI event logs.
     - Disable checking irq priorities against unused BLE_SLP_TMR_IRQ.
+    - Fixed the wrong Local Resolvable Private Address in the LE Enhanced Connection Complete event.
 
 - **Bluetooth LE**
     - **Common changes**
