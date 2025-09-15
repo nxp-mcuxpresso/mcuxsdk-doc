@@ -31,6 +31,7 @@ from sphinx.application import Sphinx
 from sphinx.util import logging
 from urllib.parse import quote
 from textwrap import dedent
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -58,7 +59,7 @@ def vcs_link_get_url(app: Sphinx, pagename: str, mode: str = "blob") -> Optional
     found_prefix = ""
     found_repstr = ""
     rev_branch = app.config.vcs_link_version
-    pagepath = app.env.project.doc2path(pagename, False).replace("\\","/")
+    pagepath = str(Path(app.env.project.doc2path(pagename, False)).as_posix())
     for index in range(len(app.config.vcs_link_prefixes)): 
         pattern = app.config.vcs_link_prefixes[index]["pattern"]
         repstr = app.config.vcs_link_prefixes[index]["replace_prefix"]
@@ -79,7 +80,7 @@ def vcs_link_get_url(app: Sphinx, pagename: str, mode: str = "blob") -> Optional
             [
                 found_prefix,
                 mode,
-                pagepath.lstrip(found_repstr)
+                pagepath[len(found_repstr):]
             ]) + f'?at=refs/heads/{rev_branch}'
     else:
         return "/".join(
@@ -87,7 +88,7 @@ def vcs_link_get_url(app: Sphinx, pagename: str, mode: str = "blob") -> Optional
                 found_prefix,
                 mode,
                 rev_branch,
-                pagepath.replace("\\","/")[len(found_repstr):]
+                pagepath[len(found_repstr):]
             ]
         )
 
@@ -105,7 +106,7 @@ def vcs_link_get_open_issue_url(app: Sphinx, pagename: str) -> Optional[str]:
 
     found_prefix = ""
     found_repstr = ""
-    pagepath = app.env.project.doc2path(pagename, False).replace("\\","/")
+    pagepath = str(Path(app.env.project.doc2path(pagename, False)).as_posix())
     for index in range(len(app.config.vcs_link_prefixes)): 
         pattern = app.config.vcs_link_prefixes[index]["pattern"]
         repstr = app.config.vcs_link_prefixes[index]["replace_prefix"]
