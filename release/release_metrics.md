@@ -1,13 +1,13 @@
 # Development Systems and Metrics
 
-- **CCM** - Cyclomatic complexity. Measured per function. [Definition](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
-- **CWE** - Common Weakness Enumeration. [Definition](https://en.wikipedia.org/wiki/Common_Weakness_Enumeration)
-- **HIGH IMPACT** - High Impact findings classified by Coverity Analysis. [Definition](https://documentation.blackduck.com/bundle/coverity-docs/page/checker-ref/tables/coverity-checker-coverage.html)
-- **Memory Leaks** - Set of checkers specified by Coverity SA [Definition](https://documentation.blackduck.com/bundle/coverity-docs/page/checker-ref/tables/coverity-checker-coverage.html)
-  - RESOURCE_LEAK
-  - CTOR_DTOR_LEAK
-  - COM.ADDROF_LEAK
-  - AUDIT.SPECULATIVE_EXECUTION_DATA_LEAK
+The MCUXpresso SDK provides the following summary of Coverity Static Analysis to help customers assess the quality and security posture of our software. The table includes results for
+- Cyclomatic complexity ([CCM](https://en.wikipedia.org/wiki/Cyclomatic_complexity))
+- Common Weakness Enumerations ([CWE](https://en.wikipedia.org/wiki/Common_Weakness_Enumeration))
+- High Impact Findings ([Definition](https://documentation.blackduck.com/bundle/coverity-docs/page/checker-ref/tables/coverity-checker-coverage.html))
+- Memory Leaks for Embedded C/C++ Systems ([Definition](https://documentation.blackduck.com/bundle/coverity-docs/page/checker-ref/tables/coverity-checker-coverage.html)).
+
+This enables customers to make informed decisions and meet their own compliance requirements.
+The tabulated results cover findings that are classified as issues.
 
 |Development boards|HIGH IMPACT|Memory Leaks|CWE|CCM > 20|No. Examples|
 |:--               |:--    |:--    |:--    |:--    |:--    |
@@ -73,6 +73,3 @@
 |MIMXRT685-AUD-EVK|0|0|0|24|10|
 |MIMXRT700-EVK|12|0|21|821|270|
 |RD-RW612-BGA|0|0|0|11|1|
-
-All findings are filtered based on current triage status. Action:Ignore and Classification:False Positive findings are excluded from metrics.<br/>
-CWE findings are measured for High Impact findings only.
