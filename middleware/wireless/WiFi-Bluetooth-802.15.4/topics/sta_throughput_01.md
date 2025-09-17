@@ -7,9 +7,9 @@ External AP: Asus AX88u
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|39|38|59|58|
-|WPA2-AES|38|36|57|58|
-|WPA3-SAE|41|35|57|57|
+|OpenSecurity|40|45|61|55|
+|WPA2-AES|39|43|61|57|
+|WPA3-SAE|39|43|61|57|
 
 
 **STA mode throughput - BGN Mode | 2.4 GHz Band | 40 MHz**
@@ -17,9 +17,9 @@ External AP: Asus AX88u
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|58|58|93|91|
-|WPA2-AES|56|49|94|74|
-|WPA3-SAE|54|57|94|73|
+|OpenSecurity|56|59|117|103|
+|WPA2-AES|57|58|115|102|
+|WPA3-SAE|57|56|116|100|
 
 
 **STA mode throughput - AN Mode | 5 GHz Band | 20 MHz (HT)**
@@ -37,9 +37,9 @@ External AP: Asus AX88u
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|60|66|94|100|
-|WPA2-AES|58|61|94|98|
-|WPA3-SAE|59|61|94|98|
+|OpenSecurity|62|74|118|134|
+|WPA2-AES|58|61|101|118|
+|WPA3-SAE|59|61|103|112|
 
 **Parent topic:**[Wi-Fi throughput](../topics/wi-fi_throughput_01.md)
 

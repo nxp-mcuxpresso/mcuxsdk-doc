@@ -10,9 +10,9 @@
 |General features|Low power sniff|Y|Y|Y|N|N|Y|
 |General features|Deep sleep using out-of-band|Y|Y|N|N|N|N|
 |General features|Wake on Bluetooth \(SoC to host\)|Y|Y|Y|N|N|Y|
-|General features|Independent reset \(in-band\)[^1]|Y|Y|Y|Y|N|Y|
-|General features|Independent reset \(out-band\)[^1]|Y|Y|N|N|N|N|
-|General features|Firmware download \(parallel\)[^1]|Y|Y|N|N|N|N|
+|General features|Independent reset \(in-band\)<sup>1</sup>|Y|Y|Y|Y|N|Y|
+|General features|Independent reset \(out-band\)<sup>1</sup>|Y|Y|N|N|N|N|
+|General features|Firmware download \(parallel\)<sup>1</sup>|Y|Y|N|N|N|N|
 |General features|RF test mode|Y|Y|Y|N|N|Y|
 |Bluetooth packet type supported|ACL \(DM1, DH1, DM3, DH3, DM5, DH5, 2-DH1, 2-DH3, 2-DH5, 3-DH1, 3-DH3, 3-DH5\)|Y|Y|Y|N|N|Y|
 |Bluetooth packet type supported|SCO \(HV1, HV3\)|Y|Y|Y|N|N|Y|
@@ -28,5 +28,5 @@
 
 **Parent topic:**[Bluetooth radio](../topics/bluetooth_radio.md)
 
-[^1] Experimental feature intended for evaluation/early development only and not production. Incomplete mandatory certification.
+[1] Experimental feature intended for evaluation/early development only and not production. Incomplete mandatory certification.
 

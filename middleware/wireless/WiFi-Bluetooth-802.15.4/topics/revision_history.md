@@ -8,6 +8,67 @@
 
 |
 |-------------|------|----------------|
+|RN00174 v.14.0|18 Sept 2025|-   [About this document](about_this_document.md): updated the SDK release version.
+
+ **Features**
+
+ -  [Wi-Fi Direct](p2p.md): updated.
+-   [Client mode](client_mode.md): updated.
+-   [Wi-Fi Generic features](generic_features.md): added.
+
+ **Feature enable and memory impact**
+
+ -   [Kconfig memory optimizer feature](Kconfig_memory_optimizer.md): updated.
+
+ **88W8987 release notes**
+
+ -   [Package information](package_information.md): updated.
+-   [Wi-Fi throughput](wi-fi_throughput.md): updated.
+-   [Firmware version: From 16.92.21.p151.7 to 16.92.21.p153.5](firmware_version_from_16_92_21_p151_7_to_16_92_21_p153_5.md): added.
+
+ **IW416 release notes**
+
+ -   [Package information](package_information_01.md): updated.
+-   [Version information](version_information_01.md): updated.
+-   [Wi-Fi throughput](wi-fi_throughput_01.md): updated.
+-   [Firmware version: From 16.92.21.p151.7 to 16.92.21.p153.5](firmware_version_from_16_91_21_p149_4_to_16_91_21_p151_7_01.md): added.
+-   [Known issues](known_issues_01.md): updated.
+
+ **IW611/IW612 release notes**
+
+ -   [Package information](package_information_02.md): updated.
+-   [Version information](version_information_02.md): updated.
+-   [Wi-Fi throughput](wi-fi_throughput_02.md): updated.
+-   [Firmware version: 18.99.3.p25.11 to 18.99.3.p26.10](firmware_version_18_99_3_p25_11_to_18_99_3_p26_10.md): added.
+-   [Known issues](known_issues_02.md): updated.
+
+ **RW610/RW612 release notes**
+
+ -   [Package information](package_information_03.md): updated.
+-   [Version information](version_information_03.md): updated.
+-   [Wi-Fi throughput](wi-fi_throughput_03.md): updated.
+-   [Firmware version: 18.99.6.p34 to 18.99.6.p40](firmware_version_18_99_6_p40_to_18_99_6_p46.md): added.
+-   [Known issues](known_issues_03.md): updated.
+
+
+ **AW611 release notes**
+
+ -   [Package information](package_information_04.md): updated.
+-   [Version information](version_information_04.md): updated.
+-   [Wi-Fi throughput](wi-fi_throughput_04.md): updated.
+-   [Firmware version: 18.99.3.p25.11 to 18.99.3.p26.10](firmware_version_18_99_3_p25_11_0_to_18_99_3_p26_10_0.md): added.
+-   [Known issues](known_issues_04.md): updated.
+
+**IW610 release notes**
+
+ -   [Package information](package_information_06.md): updated.
+-   [Version information](version_information_06.md): updated.
+-   [Wi-Fi throughput](wi-fi_throughput_06.md): updated.
+-   [Firmware version: 18.99.5.p66 to 18.99.5.p76](firmware_version_18_99_5_p66_to_18_99_5_p76.md): added.
+-   [Known issues](known_issues_06.md): updated.
+
+|
+|-------------|------|----------------|
 |RN00174 v.13.0|25 June 2025|-   [About this document](about_this_document.md): updated the SDK release version.
 
  **Features**

@@ -1,11 +1,11 @@
 # Version information
 
 -   Wireless SoC: IW611/IW612
--   Wi-Fi and Bluetooth/Bluetooth LE firmware version: 18.99.3.p25.11
+-   Wi-Fi and Bluetooth/Bluetooth LE firmware version: 18.99.3.p26.10
     -   18 - Major revision
     -   99 - Feature pack
     -   3 - Release version
-    -   p25.11 - Patch number
+    -   p26.10 - Patch number
 
 **Parent topic:**[IW611/IW612 release notes](../topics/iw611-iw612-release-notes.md)
 

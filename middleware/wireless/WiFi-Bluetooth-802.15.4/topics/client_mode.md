@@ -71,13 +71,13 @@
 |Power save mode|IEEE power save|Y|Y|Y|Y|Y|Y|
 |Power save mode|Host sleep/WoWLAN \(inband\)|N|N|N|Y|Y|N|
 |Power save mode|Host sleep/WoWLAN \(outband\)|Y|Y|Y|N|N|Y|
-|Power save mode|U-APSD|N|N|N|Y|Y|N|
+|Power save mode|U-APSD|Y|Y|Y|Y|Y|Y|
 |802.11w - PMF \(protected management frames\)|PMF require and capable|Y|Y|Y|Y|Y|Y|
 |802.11w - PMF \(protected management frames\)|Unicast management frames - Encryption/decryption - using CCMP|Y|Y|Y|Y|Y|Y|
 |802.11w - PMF \(protected management frames\)|Broadcast management frames - Encryption/decryption - using BIP|Y|Y|Y|Y|Y|Y|
 |802.11w - PMF \(protected management frames\)|SA query request/response|Y|Y|Y|Y|Y|Y|
 |802.11w - PMF \(protected management frames\)|PMF support using embedded supplicant|Y|Y|Y|Y|Y|Y|
-|DPP functionality|Wi-Fi easy connect[^3]|N|N|Y|Y|Y|Y|
+|DPP functionality|Wi-Fi easy connect<sup>3</sup>|N|N|Y|Y|Y|Y|
 |General features|Embedded supplicant|Y|Y|Y|Y|Y|Y|
 |General features|Host sleep packet filtering|N|N|Y|Y|Y|Y|
 |General features|Host-based supplicant|Y|Y|Y|Y|Y|Y|
@@ -86,11 +86,11 @@
 |General features|External coexistence|N|N|N|N|N|N|
 |General features|IPv6 NS offload|N|N|Y|Y|Y|Y|
 |General features|FIPS|Y|Y|Y|Y|Y|Y|
-|General features|TKIP[^1]|N|N|N|N|N|Y|
+|General features|TKIP<sup>1</sup>|N|N|N|N|N|Y|
 |General features|RF test mode|Y|Y|Y|Y|Y|Y|
 |General features|802.11k|Y|Y|Y|Y|Y|Y|
-|General features|802.11v|Y|Y|Y|Y|Y|Y|N|General features|802.11r|Y|Y|Y[^2]|Y|Y|Y[^2]|
-|General features|DFS radar detection in peripheral mode \(follow AP\)[^5]|Y|Y|Y|Y|Y|Y|
+|General features|802.11v|Y|Y|Y|Y|Y|Y|N|General features|802.11r|Y|Y|Y<sup>2</sup>|Y|Y|Y<sup>2</sup>|
+|General features|DFS radar detection in peripheral mode \(follow AP\)<sup>5</sup>|Y|Y|Y|Y|Y|Y|
 |General features|Embedded roaming based on RSSI threshold beacon loss|N|N|Y|Y|Y|Y|
 |General features|ARP offload|N|N|Y|Y|Y|Y|
 |General features|Cloud keep alive|Y|Y|Y|N|N|Y|
@@ -98,20 +98,21 @@
 |General features|ClockSync using TSF|N|N|Y|N|N|Y|
 |General features|Auto reconnect|Y|Y|N|N|N|N|
 |General features|CSI \(channel state information\)|Y|N|Y|Y|Y|Y|
-|General features|Independent reset \(in-band\)[^3]|Y|Y|Y|Y|Y|Y|
-|General features|Independent reset \(out-band\)[^3]|Y|Y|Y|N|N|Y|
+|General features|Ambient Motion Index \(AMI\)|N|N|Y|Y|Y|Y|
+|General features|Independent reset \(in-band\)<sup>3</sup>|Y|Y|Y|Y|Y|Y|
+|General features|Independent reset \(out-band\)<sup>3</sup>|Y|Y|Y|N|N|Y|
 |General features|Wi-Fi agile multiband|N|N|Y|Y|Y|Y|
-|General features|Network co-processor \(NCP\) mode|N|N|N|Y[^4]|N|N|
+|General features|Network co-processor \(NCP\) mode|N|N|N|Y<sup>4</sup>|N|N|
 |General features|802.11mc - WLS \(Wi-Fi location service\)|N|N|Y|N|N|Y|
 |General features|802.11az|N|N|Y|N|N|Y|
 
 **Parent topic:**[Wi-Fi radio](../topics/wi-fi_radio.md)
 
-[^1] As per Wi-Fi specification, connecting in TKIP security in non 802.11n mode is allowed.
+[1] As per Wi-Fi specification, connecting in TKIP security in non 802.11n mode is allowed.
 
-[^2] Support available in host-base supplicant.
+[2] Support available in host-base supplicant.
 
-[^3] Feature not enabled by default in the SDK. Refer to [Feature enable and memory impact](feature_enable_and_memory_impact.md) for the macro to enable the feature and the impact on the memory when enabling the feature.
+[3] Feature not enabled by default in the SDK. Refer to [Feature enable and memory impact](feature_enable_and_memory_impact.md) for the macro to enable the feature and the impact on the memory when enabling the feature.
 
-[^4] Read more about NCP feature in [References](references.md#item_um12133).
-[^5] To enable the feature, CONFIG_ECSA = 1 must be defined in wifi_config.h (does not apply to RW610 and RW612).
+[4] Read more about NCP feature in [References](references.md#item_um12133).
+[5] To enable the feature, CONFIG_ECSA = 1 must be defined in wifi_config.h (does not apply to RW610 and RW612).

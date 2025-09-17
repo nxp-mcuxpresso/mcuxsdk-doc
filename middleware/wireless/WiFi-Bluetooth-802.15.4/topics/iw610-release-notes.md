@@ -21,6 +21,10 @@
 :heading-offset: 1
 ```
 
+```{include} ../topics/bug_fixes_andor_feature_enhancements_06.md
+:heading-offset: 1
+```
+
 ```{include} ../topics/known_issues_06.md
 :heading-offset: 1
 ```

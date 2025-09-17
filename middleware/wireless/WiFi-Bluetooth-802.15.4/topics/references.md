@@ -9,4 +9,4 @@
 7.  Web page – Thread certified products \([link](https://www.threadgroup.org/What-is-Thread/Thread-Benefits)\)
 8.  Web page – Connectivity standard alliance \(csa\) – NXP RW612 Tri-Radio Wireless MCU Development Platform \([link](https://csa-iot.org/csa_product/nxp-rw612-tri-radio-wireless-mcu-development-platform)\)
 9.  Web page – Connectivity standard alliance \(csa\) – NXP RW610 Wireless MCU Development Platform \([link](https://csa-iot.org/csa_product/nxp-rw610-wireless-mcu-development-platform/)\)
-
+10.  Application note - AN14634 – Kconfig Memory Optimizer \([link](https://docs.nxp.com/bundle/AN14634/page/topics/about_this_document.html)\)

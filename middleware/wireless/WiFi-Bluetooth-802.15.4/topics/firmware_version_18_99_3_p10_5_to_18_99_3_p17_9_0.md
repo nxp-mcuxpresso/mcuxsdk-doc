@@ -1,4 +1,4 @@
-# Firmware version: 18.99.3.p10.5 to 18.99.3.p17.9 {#firmware_version_18_99_3_p10_5_to_18_99_3_p17_9_0}
+# Firmware version: 18.99.3.p10.5 to 18.99.3.p17.9
 
 |Component|Description|
 |-----------|-------------|

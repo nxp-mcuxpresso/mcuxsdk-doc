@@ -1,4 +1,4 @@
-# Firmware version: 18.99.6.p34 to 18.99.6.p40 {#firmware_version_18_99_6_p34_to_18_99_6_p40}
+# Firmware version: 18.99.6.p34 to 18.99.6.p40
 
 |Component|Description|
 |-----------|-------------|

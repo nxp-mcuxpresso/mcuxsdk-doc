@@ -59,8 +59,8 @@
 |General features|EU adaptivity support|Y|Y|Y|Y|Y|Y|
 |General features|Automatic channel selection \(ACS\)|Y|Y|Y|Y|Y|Y|
 |General features|External coexistence \(software interface\)|N|N|N|N|N|N|
-|General features|Independent reset \(in-band\)[^1]|Y|Y|Y|Y|Y|Y|
-|General features|Network co-processor \(NCP\) mode[^2]|N|N|N|Y|N|N|
+|General features|Independent reset \(in-band\)<sup>1</sup>|Y|Y|Y|Y|Y|Y|
+|General features|Network co-processor \(NCP\) mode<sup>2</sup>|N|N|N|Y|N|N|
 |General features|Vendor specific IE \(custom IE\)|Y|Y|Y|Y|Y|Y|
 |General features|Hidden SSID \(broadcast SSID disabled\)|Y|Y|Y|Y|Y|Y|
 |General features|MAC address filter|N|N|N|Y|Y|N|
@@ -68,6 +68,6 @@
 
 **Parent topic:**[Wi-Fi radio](../topics/wi-fi_radio.md)
 
-[^1] Feature not enabled by default in the SDK. Refer to [Feature enable and memory impact](feature_enable_and_memory_impact.md) for the macro to enable the feature and the impact on the memory.
-[^2] Read more about NCP feature in [References](references.md#item_um12133).
+[1] Feature not enabled by default in the SDK. Refer to [Feature enable and memory impact](feature_enable_and_memory_impact.md) for the macro to enable the feature and the impact on the memory.
+[2] Read more about NCP feature in [References](references.md#item_um12133).
 

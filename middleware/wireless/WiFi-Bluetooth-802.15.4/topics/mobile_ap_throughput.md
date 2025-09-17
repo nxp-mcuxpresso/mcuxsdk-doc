@@ -7,9 +7,9 @@ External client: Apple Macbook Air
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\) |UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|---------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|43|51|56|62|
-|WPA2-AES|42|50|54|61|
-|WPA3-SAE|40|50|65|62|
+|OpenSecurity|50|50|57|60|
+|WPA2-AES|49|50|57|60|
+|WPA3-SAE|49|49|57|60|
 
 **Mobile AP Mode Throughput - BGN Mode | 2.4 GHz Band | 40 MHz**
 
@@ -61,9 +61,9 @@ External client: Apple Macbook Air
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\) |UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|---------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|93|114|125|206|
-|WPA2-AES|92|111|125|191|
-|WPA3-SAE|92|111|125|173|
+|OpenSecurity|103|121|125|217|
+|WPA2-AES|97|117|125|197|
+|WPA3-SAE|98|115|125|173|
 
 **Parent topic:**[Wi-Fi throughput](../topics/wi-fi_throughput.md)
 

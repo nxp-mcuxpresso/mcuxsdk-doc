@@ -1,4 +1,4 @@
-# Firmware version: From 16.91.21.p133.2 to 16.91.21.p142.5 {#firmware_version_from_16_91_21_p133_2_to_16_91_21_p142_5}
+# Firmware version: From 16.91.21.p133.2 to 16.91.21.p142.5
 
 |Component|Description|
 |-----------|-------------|

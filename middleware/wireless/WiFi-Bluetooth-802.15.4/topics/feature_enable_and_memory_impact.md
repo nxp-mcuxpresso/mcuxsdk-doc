@@ -10,9 +10,9 @@
 |WPA3 enterprise|CONFIG\_WPA\_SUPP\_CRYPTO\_ENTERPRISE \[Macros specific to EAP-methods included\] <br>CONFIG\_EAP\_TLS <br>CONFIG\_EAP\_PEAP <br>CONFIG\_EAP\_TTLS <br>CONFIG\_EAP\_FAST <br>CONFIG\_EAP\_SIM <br>CONFIG\_EAP\_AKA <br>CONFIG\_EAP\_AKA\_PRIME|Flash - 165K, RAM - 18K|
 |WPA2 enterprise|CONFIG\_WPA\_SUPP\_CRYPTO\_ENTERPRISE \[Macros specific to EAP-methods included\]<br> CONFIG\_EAP\_TLS <br>CONFIG\_EAP\_PEAP <br>CONFIG\_EAP\_TTLS <br>CONFIG\_EAP\_FAST <br>CONFIG\_EAP\_SIM <br>CONFIG\_EAP\_AKA <br>CONFIG\_EAP\_AKA\_PRIME|Flash - 165K, RAM - 18K|
 |Host sleep|CONFIG\_HOST\_SLEEP|Minimal|
-|WMM|CONFIG\_WMM[^1]|Flash - 10K, RAM - 57K|
-|802.11mc|CONFIG\_11MC <br>CONFIG\_CSI <br>CONFIG\_WLS\_CSI\_PROC[^2] <br>CONFIG\_11AZ|Flash: 52.78KB, RAM : 121.1KB|
-|802.11az|CONFIG\_11MC <br>CONFIG\_CSI\[2\] <br>CONFIG\_WLS\_CSI\_PROC[^2] <br>CONFIG\_11AZ|Flash: 52.78KB, RAM : 121.1KB|
+|WMM|CONFIG\_WMM<sup>1</sup>|Flash - 10K, RAM - 57K|
+|802.11mc|CONFIG\_11MC <br>CONFIG\_CSI <br>CONFIG\_WLS\_CSI\_PROC<sup>2</sup> <br>CONFIG\_11AZ|Flash: 52.78KB, RAM : 121.1KB|
+|802.11az|CONFIG\_11MC <br>CONFIG\_CSI\[2\] <br>CONFIG\_WLS\_CSI\_PROC<sup>2</sup> <br>CONFIG\_11AZ|Flash: 52.78KB, RAM : 121.1KB|
 |Non-blocking firmware download mechanism|CONFIG\_FW\_DNLD\_ASYNC|—|
 |Antenna diversity|CONFIG_WLAN_CALDATA_2ANT_DIVERSITY|-|
 |P2P|CONFIG_WPA_SUPP_P2P |-|
@@ -29,11 +29,7 @@
 
 
 
-```{include} ../topics/Kconfig_memory_optimizer.md
-:heading-offset: 1
-```
+[1] The macro is not used for IW416.
 
-[^1] The macro is not used for IW416.
-
-[^2] Prerequisite macros for 802.11mc and 802.11az features
+[2] Prerequisite macros for 802.11mc and 802.11az features
 
