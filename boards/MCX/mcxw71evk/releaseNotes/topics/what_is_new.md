@@ -22,11 +22,13 @@ The following changes have been implemented compared to the previous SDK release
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE controller**
-    -   Remove support for Channel Sounding.
-    -   Fix Periodic Advertising interval field in HCI Extended advertising reports.
-    -   Manage procedure collisions between PAST and connections.
-    -   Do not send Periodic Advertising reports with "Failed to received" status if the reports are not enabled (PAWR).
-    -   Fix DTM RX failure when the first packet is received with incorrect smaller packet length and invalid CRC.
+    - PAwR/PAST updates:
+        -   Window widening for PAwR responses supports the worst clock accuracy (500ppm) to avoid interoperability issues.
+        -   Autonomous Feature Exchange is done prior PAST Procedure.
+        
+    - Fix Connection Update state machine on peripheral side after Connection Update rejection.
+    - Fix to handle correctly concurrent Connection Update procedures initiated by peer and local devices on different connections.
+    - Support 4 Advertising set with optimized Advertising placement when Advertising intervals are multiple of each other.
 
 -   **Transceiver Drivers (XCVR)**
     -   Added API to control PA ramp type and duration.

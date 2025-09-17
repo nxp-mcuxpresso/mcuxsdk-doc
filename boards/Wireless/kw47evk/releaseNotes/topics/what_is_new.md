@@ -33,17 +33,23 @@ The following changes have been implemented compared to the previous SDK release
 
 -   **Bluetooth LE controller**
     - Channel sounding updates:
-        -   6 Channel Sounding procedures supported in parallel ("Early Access Release" state).
-        -   Rework LL/HAL interface to support small subevent spacing (500us in testmode).
-        -   Better handling of procedure collision in Channel Sounding.
-        -   Fix DRBG assert for CS_PAC_INI_BV_32_C.
-        -   Enhance NXP config vendor command with ppmFineTuning parameter.
+        -   Handle Procedure collision between LLCP CS Procedure and non-CS Procedure and between two LLCP CS procedures.
+        -   Start Feature Exchange autonomously if needed prior initiating the CS Capability Exchange Procedure.
+        -   Fix CS Procedure aborted with CS_SYNC=2Mbps and T_PM=40.
+        -   Fix phase accuracy bias when CFO is high [-50ppm, +50ppm].
+        -   Fix RTT bias due to chip sample RC Calibration imprecision. Chip IFR now contains appropriate calibration value used by software to compensate associated delay.
+        -   Fix wrong PRBS payload coding in HADM test mode.
+        -   Fix testmode generating more than one subevent with subevt_int=0 and more than 160 steps.
+        -   Fix CS handover regression due to MISRA fix.
+        -   Use precompiled libraries for CS support.
 
-    - Fix Periodic Advertising interval field in HCI Extended advertising reports.
-    - Manage procedure collisions between PAST and connections.
-    - Do not send Periodic Advertising reports with "Failed to received" status if the reports are not enabled (PAWR).
-    - Update power tables to transmit closer to requested TX power.
-    - Fix DTM RX failure when the first packet is received with incorrect smaller packet length and invalid CRC.
+    - PAwR/PAST updates:
+        -   Window widening for PAwR responses supports the worst clock accuracy (500ppm) to avoid interoperability issues.
+        -   Autonomous Feature Exchange is done prior PAST Procedure.
+        
+    - Fix Connection Update state machine on peripheral side after Connection Update rejection.
+    - Fix to handle correctly concurrent Connection Update procedures initiated by peer and local devices on different connections.
+    - Support 4 Advertising set with optimized Advertising placement when Advertising intervals are multiple of each other.
 
 -   **Transceiver drivers (XCVR)**
     -   Added support for Bluetooth LE Channel Sounding.
