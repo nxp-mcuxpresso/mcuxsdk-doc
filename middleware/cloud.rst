@@ -5,5 +5,3 @@ Cloud
 
 .. toctree::
    :maxdepth: 1
-
-   aws_iot/index
