@@ -34,15 +34,15 @@
 |802.11ax – High efficiency|5 GHz band operation \(40MHz channel bandwidth\)|N|N|Y|N|N|Y|
 |802.11ax – High efficiency|5 GHz band operation \(80 MHz channel bandwidth\)|N|N|Y|N|N|Y|
 |802.11d|802.11d - Regulatory domain/operating class/country info|Y|Y|Y|Y|Y|Y|
-|802.11e -QoS|EDCA \[enhanced distributed channel access\] / WMM \(wireless multi-media\)|Y|Y|Y|Y|Y|Y|
+|802.11e -QoS|EDCA \[enhanced distributed channel access\] / WMM \(wireless multi-media\)<sup>1</sup>|Y|Y|Y|Y|Y|Y|
 |802.11i security|Hostapd Support|Y|Y|Y|Y|Y|Y|
 |802.11i security|WPA2-PSK AES \| hostapd|Y|Y|Y|Y|Y|Y|
 |802.11i security|WPA3-SAE \(Simultaneous Authentication of Equals\) \| Hostapd|Y|Y|Y|Y|Y|Y|
 |802.11i security|WPA2+WPA3 PSK Mixed Mode \(WPA3 Transition Mode\) \| Hostapd|Y|Y|Y|Y|Y|Y|
 |802.11i security|Wi-Fi Enhanced Open - OWE \(Opportunistic Wireless Encryption\) \| Hostapd|Y|Y|Y|N|N|Y|
 |802.11i security|802.1x EAP Authentication Methods \| Hostapd|Y|Y|Y|Y|Y|Y|
-|802.11i security|WPA2-Enterprise Mixed Mode \| Hostapd|N|N|N|Y|Y|N|
-|802.11i security|WPA3-Enterprise \(Suite-B\) \|National Security Algorithm \(CSNA\) \| Hostapd|Y|N|Y|Y|Y|Y|
+|802.11i security|WPA2-Enterprise Mixed Mode<sup>1</sup> \| Hostapd|N|N|N|Y|Y|N|
+|802.11i security|WPA3-Enterprise \(Suite-B\)<sup>1</sup> \|National Security Algorithm \(CSNA\) \| Hostapd|Y|N|Y|Y|Y|Y|
 |802.11i security|802.11w - PMF \(Protected Management Frames\) \| Hostapd|Y|Y|Y|Y|Y|Y|
 |802.11i security|Embedded Authenticator|Y|Y|Y|Y|Y|Y|
 |802.11i security|WPA2-PSK AES \| Embedded Supplicant|Y|Y|Y|Y|Y|Y|

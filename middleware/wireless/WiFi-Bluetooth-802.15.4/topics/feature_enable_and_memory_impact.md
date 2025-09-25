@@ -3,6 +3,7 @@
 |Features|Macros to enable the feature|Memory impact|
 |--------|----------------------------|-------------|
 |CSI|CONFIG\_CSI|Flash - 60K, RAM - 4K|
+|AMI|CONFIG\_CSI\_AMI<sup>3</sup>|Flash - 2032K, RAM - 772K|
 |DPP|CONFIG\_WPA\_SUPP\_DPP|Flash - 240K, RAM - 12K|
 |Independent reset|CONFIG\_WIFI\_IND\_DNLD<br>CONFIG\_WIFI\_IND\_RESET|Minimal|
 |Parallel firmware download Wi-Fi|CONFIG\_WIFI\_IND\_DNLD|Minimal|
@@ -32,4 +33,8 @@
 [1] The macro is not used for IW416.
 
 [2] Prerequisite macros for 802.11mc and 802.11az features
+
+[3] Enable PRINTF_FLOAT_ENABLE only for MCUXpresso IDE and specifically for the RT1060-EVKC and RT1170-EVKB platforms
+- Go to project properties > C/C++ Build > Settings > Preprocessor.
+- Add PRINTF_FLOAT_ENABLE=1
 
