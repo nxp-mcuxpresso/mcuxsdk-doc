@@ -2,11 +2,11 @@
 
 This section lists the known issues, limitations, and/or workarounds.
 
-## Clock driver
-XTAL32k (rtc osc) clock is not supported in the current driver.
+```{include} /release/known_issues/cannot_add_sdk_components.md
+:heading-offset: 1
+```
+## Tfm_psatest_ns
+Tfm_psatest_ns is not supported because AEAD test fails for SGI_PKC.
 
-## OStimer
-The current ostimer driver is not fully compatible with IP. The example does not work properly.
-
-## LPACMP
-LPACMP is missing in the package. Please get it from NXP github.
+## CM0+ core debug in Keil uVision IDE
+CM0+ core debug using CMSIS-DAP is not supported in Keil uVision IDE.

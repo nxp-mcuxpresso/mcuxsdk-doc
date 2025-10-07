@@ -160,3 +160,7 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/pls_pmu/doxygen/ChangeLog_pls_pmu.md
+:heading-offset: 2
+```
+---

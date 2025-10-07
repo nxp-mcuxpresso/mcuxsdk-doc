@@ -17,7 +17,7 @@ Sense Domain allows operation of low-power peripherals while keeping the main co
 Power Mode. This avoids event triggering and keeps data acquisition to extremely low power levels.
 
 The board is compatible with Arduino boards (Arduino UNO R3 and Arduino A4/A5), Mikroe click boards, 
-and Pmod boards. It can be used with IAR Embedded Workbench development tool.
+and Pmod boards.
 
 For debugging the MCXA276 MCU, the FRDM-MCXL255 board uses an onboard (OB) debug probe, MCU-Link lite
 OB, which is based on another NXP MCU: LPC55S16
@@ -55,55 +55,6 @@ ChangeLog
 
    changeLog/clindex.md
 
-Currently supported drivers
-***************************
-All drivers are supported:
-
-- advc
-- aoi
-- aon_lpadc
-- cdog
-- clock
-- cmc
-- crc
-- ctimer
-- edma
-- erm
-- freqme
-- glikey
-- gpio
-- inputmux
-- kpp
-- lpacmp
-- lpadc
-- lpc_freqme
-- lpacmp (missing in package but you can get it form NXP GitHub)
-- lpcmp
-- lpspi
-- lpspi_edma
-- lptmr
-- lpuart
-- lpuart_edma
-- lpuart_freertos
-- mcx_cmc
-- mu
-- ostimer
-- pls_pmu
-- pmu
-- port
-- power
-- qtmr
-- reset
-- romapi
-- rtc
-- slcd
-- smm
-- trdc
-- utick
-- wuu
-- wwdt
-
-
 Driver API Reference Manual
 ****************************
 
@@ -126,3 +77,8 @@ FreeRTOS
 ========
 
 :ref:`freertos`
+
+FreeMASTER
+==========
+
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`

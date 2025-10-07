@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**FRDM-MCXL255**|**MCXL255VDF**, MCXL255VLL|
+|**FRDM-MCXL255**|MCXL253VDF, MCXL253VLL, MCXL254VDF,<br/> MCXL254VLL, **MCXL255VDF**, MCXL255VLL<br/>|
