@@ -1,26 +1,20 @@
-# What is new
+# What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.09.00-pvw2\).
+The following changes have been implemented compared to the previous SDK release version \(25.09.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-    -   CCC sample applications updated to **CCC Digital Key v4.0.0** Specification.
-
+    -   **Gap_LoadCustomBondedDeviceInformation API** to retrieve custom peer information using NVM index.
 
     ### Improved
-    -   Various sample applications have been updated.
+    -   Miscellaneous application updates.
 
     ### Fixed
-    -   Ble_shell updated to set the Random Static Address properly.
-    -   Always set the Advertising Legacy Set handle if the legacy API was used.
-    -   PAWR parameters in PeriodicSyncTransferReceived are now parsed correctly.
-    -   Ensure an RPA/NRPA is properly set from the application to enable a central using Controller Privacy to connect to unbonded peripherals.
-    -   Various sample applications bug fixes applied.
+    -   **Updated privacy timeout** mechanism affected by LE Set Extended Advertising Enable Command.
 
     ### Changed
-    -   Merged Gap_SetExtAdvertisingParameters and Gap_SetExtAdvertisingParametersV2 into **Gap_SetExtAdvertisingParameters**.
-    -   BLE_Shell prints Random Static address as identity address instead of the Public Device Address.
+    -   Merged **Gap_SetPeriodicAdvParameters** and Gap_SetPeriodicAdvParametersV2 into Gap_SetPeriodicAdvParameters.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

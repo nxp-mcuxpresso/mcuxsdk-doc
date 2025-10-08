@@ -1,33 +1,20 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.09.00-pvw2\).
+The following changes have been implemented compared to the previous SDK release version \(25.09.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-    -   CCC sample applications updated to **CCC Digital Key v4.0.0** Specification.
-    -   **RAS/RAP PTS** 8.7.4 test support added in Localization Sample applications.
-    -   Support for CS start procedure while the previous procedure is not completed; old procedure replaced with the new one.
+    -   **Gap_LoadCustomBondedDeviceInformation API** to retrieve custom peer information using NVM index.
 
     ### Improved
-    -   Localization Sample Applications Ram partition.
-    -   **RAS/RAP** profile and service.
-    -   Various sample applications have been updated.
+    -   Miscellaneous application updates.
 
     ### Fixed
-    -   Privacy setting issue on ncp_loc_reader.
-    -   Ble_shell updated to set the Random Static Address properly.
-    -   Always set the Advertising Legacy Set handle if the legacy API was used.
-    -   PAWR parameters in PeriodicSyncTransferReceived are now parsed correctly.
-    -   Ensure an RPA/NRPA is properly set from the application to enable a central using Controller Privacy to connect to unbonded peripherals.
-    -   CS algorithm buffer overwrite issue during Connection Handover application.
-    -   Various sample applications bug fixes applied.
-    -   Pass correct Codded PHY (S2) to Channel Sounding Set Procedure Parameters.
+    -   **Updated privacy timeout** mechanism affected by LE Set Extended Advertising Enable Command.
 
     ### Changed
-    -   Merged Gap_SetExtAdvertisingParameters and Gap_SetExtAdvertisingParametersV2 into **Gap_SetExtAdvertisingParameters**.
-    -   ce_status_buffer type changed to int32_t.
-    -   BLE_Shell prints Random Static address as identity address instead of the Public Device Address.
+    -   Merged **Gap_SetPeriodicAdvParameters** and Gap_SetPeriodicAdvParametersV2 into Gap_SetPeriodicAdvParameters.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

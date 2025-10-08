@@ -29,7 +29,7 @@ Main features supported:
 -   Encrypted Advertising Data \(EAD\)
 -   Intrusion Detection System \(IDS\) - Experimental feature
 
-    **Note:** For evaluating experimental features, replace the Bluetooth LE Host default example projects libraries with the libraries from the *SDK* folder *..\\middleware\\wireless\\bluetooth\\host\\lib\_exp* and enable the features in the application. The Radio Subsystem \(NBU\) Firmware with experimental features is required.
+    **Note:** The CDE algorithm is an experimental feature intended only for testing purposes. It is not maintained and must not be included in production environments.
 
 
 **Parent topic:**[Wireless connectivity middleware overview](../topics/wireless_connectivity_middleware_overview.md)
