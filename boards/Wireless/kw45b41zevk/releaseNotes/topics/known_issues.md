@@ -14,7 +14,7 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
-<!-- ```{include} /release/known_issues/known_issue_npw_issue.md -->
+```{include} /release/known_issues/known_issue_npw_issue.md
 :heading-offset: 1
 ```
 
