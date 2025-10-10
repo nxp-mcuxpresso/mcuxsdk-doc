@@ -31,7 +31,7 @@ Here is an example:
 
 ```cmake
 cmake_minimum_required(VERSION 3.30.0)
-find_package(Mcuxsdk REQUIRED)
+find_package(McuxSDK 25.12.00 EXACT REQUIRED)
 project(hello_world LANGUAGES C CXX ASM)
 mcux_add_source(
   SOURCES   
@@ -74,16 +74,16 @@ for reference.
 Here is an example with version:
 
 ```cmake
-find_package(McuxSDK 3.0.0)
+find_package(McuxSDK 25.12.00)
 project(hello_world)
 ```
 
-This requires hello_world project to be built with MCUXpresso SDK version 3.0.0 as minimum.
+This requires hello_world project to be built with MCUXpresso SDK version 25.12.00 as minimum.
 
 `find_package` supports the keyword `EXACT` to ensure an exact version is used.
 
 ```cmake
-find_package(McuxSDK 3.0.0 EXACT)
+find_package(McuxSDK 25.12.00 EXACT)
 project(hello_world)
 ```
 

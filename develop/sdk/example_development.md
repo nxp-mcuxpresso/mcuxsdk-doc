@@ -313,7 +313,7 @@ Since the MCUXpresso SDK can be exported to be a standard CMake package, so you 
 
 ```cmake
 cmake_minimum_required(VERSION 3.30.0)
-find_package(McuxSDK 24.12.00 EXACT REQUIRED)
+find_package(McuxSDK 25.12.00 EXACT REQUIRED)
 project(hello_world LANGUAGES C CXX ASM)
 ```
 

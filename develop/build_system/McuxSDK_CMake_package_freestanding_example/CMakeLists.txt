@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.30.0)
 
-# include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
+# Get MCUXSDK_MAIN_VERSION from MCUX_VERSION file
+include(${SdkRootDirPath}/share/mcuxsdk-package/cmake/McuxSDKVersion.cmake)
 
-find_package(McuxSDK 3.0.0 EXACT REQUIRED)
+find_package(McuxSDK ${MCUXSDK_MAIN_VERSION} EXACT REQUIRED)
 
 project(hello_world LANGUAGES C CXX ASM)
 
