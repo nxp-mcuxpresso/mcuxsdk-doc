@@ -290,7 +290,7 @@ class MCUXDocConfig:
         return []
 
     def get_repo_url(self, mod_vcs):
-        if not self.url_map:
+        if not self.url_map or "github.com" in mod_vcs.get("link", ""):
             return mod_vcs
         else:
             mod_vcs["link"] = self.url_map[mod_vcs["link"].rstrip('/')]
