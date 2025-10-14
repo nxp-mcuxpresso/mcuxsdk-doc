@@ -41,6 +41,10 @@
     -   Periodic Advertising with Responses \(PAwR\)
     Additional features supported for KW47 and MCX W72 devices:
     -   Channel Sounding
+    Additional features supported as EAR (\Early Access Release\) in the experimental builds:
+    -   Unified Test Protocol  (\UTP\).
+    -   LL Extended Feature Set.
+    -   Monitoring Advertisers.
 
         
         **Note:**

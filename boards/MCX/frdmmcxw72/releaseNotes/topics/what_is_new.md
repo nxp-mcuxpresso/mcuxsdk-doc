@@ -20,23 +20,21 @@ The following changes have been implemented compared to the previous SDK release
 
 -   **Bluetooth LE controller**
     - Channel sounding updates:
-        -   Handle Procedure collision between LLCP CS Procedure and non-CS Procedure and between two LLCP CS procedures.
-        -   Start Feature Exchange autonomously if needed prior initiating the CS Capability Exchange Procedure.
-        -   Fix CS Procedure aborted with CS_SYNC=2Mbps and T_PM=40.
-        -   Fix phase accuracy bias when CFO is high [-50ppm, +50ppm].
-        -   Fix RTT bias due to chip sample RC Calibration imprecision. Chip IFR now contains appropriate calibration value used by software to compensate associated delay.
-        -   Fix wrong PRBS payload coding in HADM test mode.
-        -   Fix testmode generating more than one subevent with subevt_int=0 and more than 160 steps.
-        -   Fix CS handover regression due to MISRA fix.
-        -   Use precompiled libraries for CS support.
+        -   Fixed the RF-PHY receiver testcases (RF-PHY/RCV-LE/CA/BV-7-C, RF-PHY/RCV-LE/CA/BV-13-C, RF-PHY/RCV-LE/CA/BV-30-C, RF-PHY/RCV-LE/CA/BV-31-C).
+        -   Fix provided to set bit in pHadmConn->uiFlags for rxed LL_CS_CAPABILITIES_REQ/RSP, allow multiple LE CS Write Cached Remote Supported Capabilities.
+        -   RTT bias compensation : Updated software to align with Chip IFR version 2.5
 
     - PAwR/PAST updates:
-        -   Window widening for PAwR responses supports the worst clock accuracy (500ppm) to avoid interoperability issues.
-        -   Autonomous Feature Exchange is done prior PAST Procedure.
+        -   Fixed multiple responses formatting in the Periodic Advertising Responses report.
+        -   Fixed the double message allocation causing a memory leak.
+
+    - DBAF update:
+        -   Fixed case where sometimes AUX_ADV_IND with LE Coded Phy was not scheduled.
         
-    - Fix Connection Update state machine on peripheral side after Connection Update rejection.
-    - Fix to handle correctly concurrent Connection Update procedures initiated by peer and local devices on different connections.
-    - Support 4 Advertising set with optimized Advertising placement when Advertising intervals are multiple of each other.
+    - Fixed handling of duplicate Connection Request using different Peer RPA (LL/SEC/ADV/BI-01-C & LL/SEC/INI/BI-01-C conformance tests).
+    - Fixed the missing chained packet TX when coded PHY is used on multiple Advertising sets and the Advertising interval is small (LL/DDI/ADV/BV-30-C conformance test).
+    - Fixed issue with packet time restrictions after PHY update (packet payload too long). This fixes the LL/CON/PER/BV-53-C, LL/CON/PER/BV-56-C and LL/CON/PER/BV-59-C conformance tests.
+    - Fixed case where address resolution was stuck.
 
 -   **Transceiver drivers (XCVR)**
     -   Added support for Bluetooth LE Channel Sounding.

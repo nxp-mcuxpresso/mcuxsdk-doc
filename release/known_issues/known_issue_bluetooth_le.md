@@ -5,16 +5,12 @@ Most sensor applications have pairing and bonding disabled to allow a faster int
 #   Bluetooth LE controller:
 
 -   The maximum Advertising data length is limited to 800 bytes.
--   Missing chained packet TX when coded phy is used on multiple Advertising sets and Advertising interval is small.
--   Issue with packet time restrictions after phy update (packet payload too long).
 -   Missing chained packets during scanning.
 -   Need to add a dummy nbu request to wake-up NBU core during asynchronous wakeup to avoid low power race condition issue (ie: for NBU ramlog dump from shared memory).
--   Need to stop/restart scan before RPA timeout when controller privacy is enabled, else address resolution may not work properly.
 
 Periodic Advertising with Responses (PAwR):
 -   Periodic Advertising with Response (PAwR) is not supported with the configuration "Subevent Interval = Number of Response Slots * Response Slot Spacing".
 -   Unoptimized Periodic Advertising placement with Connection events.
--   PAwR Advertiser is not able to report multiple periodic Advertising responses in a same subevent.
 
 
 KW45/MCXW71:
@@ -36,7 +32,6 @@ Known issues:
 -   When CS Subevents are configured very close from each other (<700us), some Subevents may be aborted with reason 0x3.
 -   When CS offset is configured too close from ACL anchor point, the anchor point may not be served (TX on central or RX on peripheral will not happen). Ideally, CS Offset should be configured greater than 1ms.
 -   Wireless_ranging stability issue in test mode 2Mbps with RTT random sequence payload 128 bits.
--   RF-PHY receiver testcases failing: RF-PHY/RCV-LE/CA/BV-7-C, RF-PHY/RCV-LE/CA/BV-13-C, RF-PHY/RCV-LE/CA/BV-30-C, RF-PHY/RCV-LE/CA/BV-31-C.
 -   RTT bias compensation:
     - For parts not properly configured at production (IFR blank), RTT bias may not be compensated properly. Consequently, an inaccuracy of +/-2m may be observed.
     - Temperature variation: RTT variation of +/-2m is observed based on temperature.

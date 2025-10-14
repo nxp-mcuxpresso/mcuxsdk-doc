@@ -20,12 +20,16 @@ The following changes have been implemented compared to the previous SDK release
 
 -   **Bluetooth LE controller**
     - PAwR/PAST updates:
-        -   Window widening for PAwR responses supports the worst clock accuracy (500ppm) to avoid interoperability issues.
-        -   Autonomous Feature Exchange is done prior PAST Procedure.
+        -   Fixed multiple responses formatting in the Periodic Advertising Responses report.
+        -   Fixed the double message allocation causing a memory leak.
+
+    - DBAF update:
+        -   Fixed case where sometimes AUX_ADV_IND with LE Coded Phy was not scheduled.
         
-    - Fix Connection Update state machine on peripheral side after Connection Update rejection.
-    - Fix to handle correctly concurrent Connection Update procedures initiated by peer and local devices on different connections.
-    - Support 4 Advertising set with optimized Advertising placement when Advertising intervals are multiple of each other.
+    - Fixed handling of duplicate Connection Request using different Peer RPA (LL/SEC/ADV/BI-01-C & LL/SEC/INI/BI-01-C conformance tests).
+    - Fixed the missing chained packet TX when coded PHY is used on multiple Advertising sets and the Advertising interval is small (LL/DDI/ADV/BV-30-C conformance test).
+    - Fixed issue with packet time restrictions after PHY update (packet payload too long). This fixes the LL/CON/PER/BV-53-C, LL/CON/PER/BV-56-C and LL/CON/PER/BV-59-C conformance tests.
+    - Fixed case where address resolution was stuck.
 
 -   **Transceiver Drivers (XCVR)**
     -   Added API to control PA ramp type and duration.
