@@ -11,7 +11,7 @@ The following changes have been implemented compared to the previous SDK release
     -   Miscellaneous application updates.
 
     ### Fixed
-    -   Updated **privacy timeout** mechanism affected by LE Set Extended Advertising Enable Command.
+    -   Updated **privacy timeout** mechanism affected by the LE Set Extended Advertising Enable Command.
 
     ### Changed
     -   Merged **Gap_SetPeriodicAdvParameters** and **Gap_SetPeriodicAdvParametersV2** into **Gap_SetPeriodicAdvParameters**.
