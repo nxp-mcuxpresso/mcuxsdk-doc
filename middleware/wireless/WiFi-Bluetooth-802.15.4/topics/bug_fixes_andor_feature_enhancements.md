@@ -34,6 +34,9 @@
 ```{include} ../topics/firmware_version_from_16_92_21_p151_7_to_16_92_21_p153_5.md
 :heading-offset: 2
 ```
+```{include} ../topics/firmware_version_from_16_92_21_p153_5_to_16_92_21_p153_6.md
+:heading-offset: 2
+```
 
 **Parent topic:**[88W8987 release notes](../topics/88w8987-release-notes.md)
 
