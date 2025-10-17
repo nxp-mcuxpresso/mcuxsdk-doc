@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.30.0)
 
 # Get MCUXSDK_MAIN_VERSION from MCUX_VERSION file
-include(${SdkRootDirPath}/share/mcuxsdk-package/cmake/McuxSDKVersion.cmake)
+include(${SdkRootDirPath}/cmake/extension/mcux_version.cmake)
 
 find_package(McuxSDK ${MCUXSDK_MAIN_VERSION} EXACT REQUIRED)
 
