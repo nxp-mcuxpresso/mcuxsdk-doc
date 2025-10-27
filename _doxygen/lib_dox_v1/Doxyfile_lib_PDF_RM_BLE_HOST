@@ -2020,6 +2020,8 @@ INCLUDE_FILE_PATTERNS  =
 
 PREDEFINED             = TRUE=1 FALSE=0 gEATT_d=TRUE gBLE52_d=TRUE
 
+PREDEFINED += DOXYGEN_OUTPUT=1
+
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The
 # macro definition that is found in the sources will be used. Use the PREDEFINED

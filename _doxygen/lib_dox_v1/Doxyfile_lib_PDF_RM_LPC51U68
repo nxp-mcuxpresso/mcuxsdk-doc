@@ -2141,6 +2141,8 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_USB_EP_NUM = 5 \
              FSL_FEATURE_WWDT_HAS_NO_RESET = 1
 
+PREDEFINED += DOXYGEN_OUTPUT=1
+
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The
 # macro definition that is found in the sources will be used. Use the PREDEFINED
