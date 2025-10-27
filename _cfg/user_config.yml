@@ -466,6 +466,11 @@ modules:
       pattern: middleware/wireless.rst
     - root: .
       pattern: middleware/edgefast_bluetooth/docs/*
+  mid_edgefast_open:
+    default: true
+    external_contents:
+    - root: .
+      pattern: 'middleware/edgefast_open/docs/*'
   # mid_zigbee:
   #   default: true
   #   external_contents:
