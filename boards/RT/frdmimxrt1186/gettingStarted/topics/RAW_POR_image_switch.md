@@ -1,10 +1,9 @@
 # RAW/POR image switch 
 
-In current delivered SDK package, most demos generate RAW images. To enhance customer OOBE experience, the following RT1186 SDK CM33 project/targets generate POR image, which means that they can POR run after you debug/download it in IDE.
+In the current SDK package, most CM33 demos generate POR images by default, while all CM7 demos generate RAW images. To enhance the customer out-of-box experience (OOBE), the following RT1186 SDK CM33 projects/targets generate POR images, meaning they can run in POR mode after you debug or download them in the IDE.
 
--   IAR/GCC/MDK, *hello\_world\_demo\_cm33 flexspi\_nor\_debug/release*, *flexspi\_nor\_hyperram\_debug/release*
--   IAR/GCC/MDK, *multicore\_hello\_world\_cm33 flexspi\_nor\_debug/release*, *flexspi\_nor\_hyperram\_debug/release*
--   MCUX CM33 image are all POR images except the `multicore_trigger` demo.
+-   IAR/GCC/MDK, all cm33 examples except the multicore_trigger, target: *flexspi\_nor\_debug/release*, *flexspi\_nor\_hyperram\_debug/release*
+-   MCUXpresso CM33 image are all POR images except the `multicore_trigger` demo.
 
 **Note:**
 

@@ -38,14 +38,7 @@ After a successful write, change the `J60[1..3]` to QSPI boot mode `001` and res
 **Note:**
 
 1.  The new image constructed under **Build images** is still not a complete image, and the Memory Configuration Block is missing. When writing image, SPT downloads the contents of the Memory Configuration Block to FLASH.
-2.  When CM33 + CM7 image runs with the following target combination, it is required to set `CM33_SET_TRDC` to 1U in `multicore_trigger` demo, also requires to set `CM33_SET_TRDC` to 1U in CM7 demo if it exists.
-
-    ```
-    - CM33 flexspi + CM7 flexspi, flexspi means flexspi_nor_debug/release, flexspi_nor_sdram_debug/release, flexspi_nor_hyperram_debug/release
-    - CM33 HYPERRAM + CM7 HYPERRAM, HYPERRAM means hyperram_txt_debug/release.
-    ```
-
-3.  Only those `cm7` projects whose linkages are similar with `hello_world_demo_cm7`, support POR run via `multicore_trigger_cm33`.
+2.  Only cm7 projects with linkages identical or similar to hello_world_demo_cm7 support POR execution via `multicore_trigger_cm33`.
 
 **Parent topic:**[Use SPT tool and multicore\_trigger image to kick off cm7 binary image](../topics/use_SPT_tool_and_multicore_trigger_image.md)
 

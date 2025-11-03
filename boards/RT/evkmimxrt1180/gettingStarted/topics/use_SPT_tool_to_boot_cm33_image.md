@@ -19,7 +19,7 @@ Select the following items:
 
     **Note:**
 
-    -   Use the RAW image for CM33. Some SDK project targets are POR image by default, it must to be switched to RAW image for SPT usage. For more information, see [RAW/POR image switch](RAW_POR_image_switch.md).
+    -   Use the RAW image for CM33. For SDK projects whose default target is a POR image, switch to a RAW image for SPT usage. For more information, see [RAW/POR image switch](RAW_POR_image_switch.md).
     -   It is recommended to use elf/out files, thus SPT can parse the **Start address** automatically.
 2.  XMCD file
 

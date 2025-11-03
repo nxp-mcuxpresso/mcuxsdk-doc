@@ -9,7 +9,7 @@ In this section, two kinds of images are defined
 |RAW image|Demo image without boot header|
 |POR image|Demo image with boot header|
 
-Most examples that we provided in SDK package create RAW images from project settings. Only some OOBE examples can create POR image. POR image can provide good out-of-box experience, but the cost is losing some flexibility. While RAW images, with the usage of `Secure Provisioning Tool`, have the most widely usage like image signning, multiple image combination, and so on. For demos that by default generate a POR boot image, see [RAW/POR image switch](RAW_POR_image_switch.md).
+Most CM33 examples provided in the SDK package generate POR images based on project settings. Only a few examples create RAW images by default. POR images offer a good out-of-the-box experience but reduce flexibility. In contrast, RAW images, when used with the Secure Provisioning Tool, support broader functionality such as image signing, combining multiple images, and more. For demos that generate a POR boot image by default, see [RAW/POR image switch](RAW_POR_image_switch.md).
 
 
 ```{include} ../topics/use_SPT_tool_to_boot_cm33_image.md
