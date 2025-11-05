@@ -1,20 +1,23 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.09.00\).
+The following changes have been implemented compared to the previous SDK release version \(25.12.00-pvw1\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-    -   **Gap_LoadCustomBondedDeviceInformation API** to retrieve custom peer information using NVM index.
+    -   **Experimental Monitoring Advertisers** feature in Bluetooth LE Host
+    -   **Experimental Randomized RPA** feature in Bluetooth LE Host
+    -   Application defines for default connection and default advertising tx power
 
     ### Improved
-    -   Miscellaneous application updates.
+    -   Miscellaneous applications updates
+    -   Central applications now wait for status of Encrypt procedure in case of bonded device
+    -   Documentation miscellaneous updates
+    -   Updated armgcc ld linker files to take gUseInternalStorageLink_d flag value into consideration
 
     ### Fixed
-    -   Updated **privacy timeout** mechanism affected by the LE Set Extended Advertising Enable Command.
-
-    ### Changed
-    -   Merged **Gap_SetPeriodicAdvParameters** and **Gap_SetPeriodicAdvParametersV2** into **Gap_SetPeriodicAdvParameters**.
+    -   Memory issue when setting scan response data would return an error status from the LL
+    -   Set advertises with the public address, overwritten by a previously used random address on receiving the Advertising Set Terminated event
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

@@ -1,20 +1,34 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.09.00\).
+The following changes have been implemented compared to the previous SDK release version \(25.12.00-pvw1\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-    -   **Gap_LoadCustomBondedDeviceInformation API** to retrieve custom peer information using NVM index.
+    -   Threshold for the invalid number of Anchor Monitor events received by the target anchor
+    -   **Experimental Monitoring Advertisers** feature in Bluetooth LE Host
+    -   **Experimental Randomized RPA** feature in Bluetooth LE Host
+    -   Application defines for default connection and default advertising tx power
 
     ### Improved
-    -   Miscellaneous application updates.
+    -   Miscellaneous applications updates
+    -   Central applications now wait for status of Encrypt procedure in case of bonded device
+    -   Logging data on localization applications
+    -   PCT rotation calibration added to localization apps
+    -   Configured CS Reflector to start the CS procedure with the tdm command and updated the documentation
+    -   Populated the optionalSubfeaturesSupported field correctly
+    -   Prevented CORE 0 from entering deep sleep while LCE is computing by setting the low power mode constraint to PWR_WFI during LCE computation and releasing it afterwards
+    -   Implemented in CCC_CS, Channel Sounding data transfer from the anchor to the device
+    -   Documentation miscellaneous updates
+    -   Updated armgcc ld linker files to take gUseInternalStorageLink_d flag value into consideration
 
     ### Fixed
-    -   Updated **privacy timeout** mechanism affected by the LE Set Extended Advertising Enable Command.
+    -   Memory issue when setting scan response data would return an error status from the LL
+    -   Set advertises with the public address, overwritten by a previously used random address on receiving the Advertising Set Terminated event
 
     ### Changed
-    -   Merged **Gap_SetPeriodicAdvParameters** and **Gap_SetPeriodicAdvParametersV2** into **Gap_SetPeriodicAdvParameters**.
+    -   Updated memory configuration: replaced the extended heap area in the available SMU2 memory with a 24KB array in the data1
+    -   Removed redundant cached remote capabilities write on reflectors, as the initiator will always trigger a capabilities exchange and trying to write cached capabilities afterwards results in an HCI error
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
