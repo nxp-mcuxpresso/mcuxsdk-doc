@@ -22,17 +22,10 @@ The following changes have been implemented compared to the previous SDK release
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE controller**
-    - PAwR/PAST updates:
-        -   Fixed multiple responses formatting in the Periodic Advertising Responses report.
-        -   Fixed the double message allocation causing a memory leak.
-
-    - DBAF update:
-        -   Fixed case where sometimes AUX_ADV_IND with LE Coded Phy was not scheduled.
-        
-    - Fixed handling of duplicate Connection Request using different Peer RPA (LL/SEC/ADV/BI-01-C & LL/SEC/INI/BI-01-C conformance tests).
-    - Fixed the missing chained packet TX when coded PHY is used on multiple Advertising sets and the Advertising interval is small (LL/DDI/ADV/BV-30-C conformance test).
-    - Fixed issue with packet time restrictions after PHY update (packet payload too long). This fixes the LL/CON/PER/BV-53-C, LL/CON/PER/BV-56-C and LL/CON/PER/BV-59-C conformance tests.
-    - Fixed case where address resolution was stuck.
+    - Fixed an issue where the procedure timeout did not expire in some cases, causing the device to remain connected if the peer device did not respond to the procedure initiated by the device.
+    - Fixed connection establishment issues with LE Coded PHY when the scan window interval was set to 2.5 ms.
+    - Fixed connection establishment issues with LE Coded PHY when four peripheral devices attempted to connect to a single central device, resulting in connection collisions.
+    - Fixed connection parameter request that was incorrectly rejected when the minimum and maximum connection intervals differed, and no preferred periodicity or offset was set.
 
 -   **Transceiver Drivers (XCVR)**
     -   Added API to control PA ramp type and duration.

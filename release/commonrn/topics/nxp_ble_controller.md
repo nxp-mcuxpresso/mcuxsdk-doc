@@ -41,10 +41,13 @@
     -   Periodic Advertising with Responses \(PAwR\)
     Additional features supported for KW47 and MCX W72 devices:
     -   Channel Sounding
-    Additional features supported as EAR (\Early Access Release\) in the experimental builds:
-    -   Unified Test Protocol  (\UTP\).
+    Additional features supported as EAR (\Early Access Release\) in the KW47 experimental build:
+    -   Channel Sounding TX/SNR.
+    Additional features supported as EAR (\Early Access Release\) in the KW45/KW47 experimental builds:
+    -   LE Test Mode Enhancement (\UTP/OTA\).
     -   LL Extended Feature Set.
     -   Monitoring Advertisers.
+    -   Randomized Resolvable Private Address (\RPA\).
 
         
         **Note:**

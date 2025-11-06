@@ -9,8 +9,11 @@ Most sensor applications have pairing and bonding disabled to allow a faster int
 -   Need to add a dummy nbu request to wake-up NBU core during asynchronous wakeup to avoid low power race condition issue (ie: for NBU ramlog dump from shared memory).
 
 Periodic Advertising with Responses (PAwR):
--   Periodic Advertising with Response (PAwR) is not supported with the configuration "Subevent Interval = Number of Response Slots * Response Slot Spacing".
--   Unoptimized Periodic Advertising placement with Connection events.
+-   Periodic Advertising with Response (PAwR) is not supported with the configuration "Subevent Interval = Number of Response Slots x Response Slot Spacing with Response Slot Spacing = 0x2".
+-   Periodic Advertising placement with connection events is unoptimized.
+-   The feature is not functional with the Free-Running Oscillator (FRO32K); it requires a 32 KHz Crystal Oscillator with accuracy less than 50 ppm.
+-   Periodic Advertising Response scheduling is unoptimized, which could result in missing a few responses.
+-   The PAwR event skipping feature is not correctly supported.
 
 
 KW45/MCXW71:
@@ -20,7 +23,6 @@ KW47/MCXW72:
 Channel Sounding (CS): 
 Limitations:
 -   RTT with Sounding Sequence is not supported.
--   TX SNR is not supported.
 -   LE 2M 2BT PHY is not supported.
 -   Maximum 6 Channel Sounding procedures are supported in parallel.
 -   Scheduling of activities may be non optimal when multiple Channel Sounding procedures are running in parallel.
