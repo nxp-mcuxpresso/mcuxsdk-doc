@@ -32,5 +32,5 @@ The `hello_world` application is now running and a banner is displayed on the te
 
 ![](../images/ide_text_display_of_the_hello_world_demo.jpg "Text display of the hello_world demo")
 
-**Parent topic:**[Run a demo using MCUXpresso IDE](../topics/run_a_demo_using_mcuxpresso_ide.md)
+**Parent topic:**[Run a demo using MCUXpresso IDE](./running_a_demo_using_mcuxpresso_ide.md)
 

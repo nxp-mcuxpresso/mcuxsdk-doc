@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/kw47loc/mcuxsdk-kw47loc.pdf
+
 .. _kw47loc:
 
 KW47-LOC

@@ -80,4 +80,4 @@ The following changes have been implemented compared to the previous SDK release
         - [DBG] Cleaned up fwk_fault_handler.c.
 
 
-Details can be found in [CHANGELOG.md](../../../../../../middleware/wireless/framework/CHANGELOG.md)
+Details can be found in [CHANGELOG.md](/middleware/wireless/framework/CHANGELOG.md)

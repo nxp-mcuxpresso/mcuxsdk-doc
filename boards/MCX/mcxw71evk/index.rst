@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/mcxw71evk/mcuxsdk-mcxw71evk.pdf
+
 .. _mcxw71evk:
 
 MCX-W71-EVK

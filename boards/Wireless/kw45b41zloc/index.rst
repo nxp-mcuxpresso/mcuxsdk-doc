@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/kw45b41zloc/mcuxsdk-kw45b41zloc.pdf
+
 .. _kw45b41zloc:
 
 KW45B41Z-LOC

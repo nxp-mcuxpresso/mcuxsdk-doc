@@ -25,5 +25,5 @@ To build an example application, follow these steps.
     ![](../images/hello_world_demo_build_successful_frdmmcxw23.jpg "hello_world build successful")
 
 
-**Parent topic:**[Run a demo using Arm GCC](../topics/run_a_demo_using_arm__gcc.md)
+**Parent topic:**[Run a demo using Arm GCC](../topics/run_a_demo_using_arm_gcc.md)
 

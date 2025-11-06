@@ -19,5 +19,5 @@ This section contains the steps to install the necessary components required to 
 :heading-offset: 2
 ```
 
-**Parent topic:**[Run a demo using Arm GCC](../topics/run_a_demo_using_arm__gcc.md)
+**Parent topic:**[Run a demo using Arm GCC](../topics/run_a_demo_using_arm_gcc.md)
 

@@ -100,6 +100,6 @@ The following changes have been implemented compared to the previous SDK release
         - [wireless_mcu] Introduced new API `PLATFORM_GetRadioIdleDuration32K()`. Deprecated `PLATFORM_CheckNextBleConnectivityActivity()` API.
         - [DBG] Cleaned up fwk_fault_handler.c.
 
-Note : Initial support to KW47B42Z83 and KW47B42Z97 KW47 phantoms linker support in connectivity see in [README.md](../../../../../../examples/_boards/kw47evk/wireless_examples/linker/README.md)
-Details can be found in [CHANGELOG.md](../../../../../../middleware/wireless/framework/CHANGELOG.md)
+Note : Initial support to KW47B42Z83 and KW47B42Z97 KW47 phantoms linker support in connectivity see in [README.md](/examples/_boards/kw47evk/wireless_examples/linker/README.md)
+Details can be found in [CHANGELOG.md](/middleware/wireless/framework/CHANGELOG.md)
 

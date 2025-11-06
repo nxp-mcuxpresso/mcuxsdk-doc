@@ -23,5 +23,5 @@ To build an example application, follow these steps.
     ![](../images/ide_selecting_user_floating_print_version_of_printf.png "Select Use floating point version of printf")
 
 
-**Parent topic:**[Run a demo using MCUXpresso IDE](../topics/run_a_demo_using_mcuxpresso_ide.md)
+**Parent topic:**[Run a demo using MCUXpresso IDE](./running_a_demo_using_mcuxpresso_ide.md)
 

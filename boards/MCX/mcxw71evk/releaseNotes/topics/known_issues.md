@@ -35,6 +35,6 @@ This section lists the known issues, limitations, and/or workarounds.
 ```
 
 
-```{include} ../../../../release/known_issues/implementation_status_of_el2go_examples.md
+```{include} /release/known_issues/implementation_status_of_el2go_examples.md
 :heading-offset: 1
 ```

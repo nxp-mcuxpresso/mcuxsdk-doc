@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/mcxw23evk/mcuxsdk-mcxw23evk.pdf
+
 .. _mcxw23evk:
 
 MCXW23-EVK

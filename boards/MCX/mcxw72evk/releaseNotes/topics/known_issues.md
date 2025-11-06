@@ -31,6 +31,6 @@ The following are the known issues in this release.
 ```
 
 
-```{include} ../../../../release/known_issues/examples_hello_world_ns_secure_faults_ns_and_secure_faults_trdc_ns_have_incorrect_library_path_in_gui_projects.md
+```{include} /release/known_issues/examples_hello_world_ns_secure_faults_ns_and_secure_faults_trdc_ns_have_incorrect_library_path_in_gui_projects.md
 :heading-offset: 1
 ```

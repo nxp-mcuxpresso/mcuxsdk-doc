@@ -55,5 +55,5 @@ After the J-Link interface is configured and connected, follow these steps to do
 
     ![](../images/text_display_hello_world_demo.png "Text display of the hello_world demo")
 
-**Parent topic:**[Run a demo using Arm GCC](../topics/run_a_demo_using_arm__gcc.md)
+**Parent topic:**[Run a demo using Arm GCC](../topics/run_a_demo_using_arm_gcc.md)
 

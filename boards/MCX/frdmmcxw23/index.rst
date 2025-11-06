@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/frdmmcxw23/mcuxsdk-frdmmcxw23.pdf
+
 .. _frdmmcxw23:
 
 FRDM-MCXW23

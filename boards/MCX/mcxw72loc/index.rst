@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/mcxw72loc/mcuxsdk-mcxw72loc.pdf
+
 .. _mcxw72loc:
 
 MCXW72-LOC
