@@ -81,34 +81,9 @@ It complements **CMake** in the SDK's build system, allowing dynamic configurati
 
 ---
 
-## 🛠️ How to Use Kconfig in MCUXpresso SDK 25.09.00
+## 🛠️ Using Kconfig in MCUXpresso SDK 25.09.00
 
-### 1. **Install Prerequisites**
-- Python 3.10+
-- `kconfiglib`:  
-  ```bash
-  pip install -U kconfiglib
-  ```
-
-### 2. **Run CMake Configuration**
-Use the `west` tool to configure your project:
-```bash
-west build -b <board> <example_path> -Dcore_id=cm7 --cmake-only
-```
-
-### 3. **Launch Kconfig GUI**
-```bash
-west build -t guiconfig
-```
-This opens a GUI where you can select/deselect features.
-
-### 4. **Save and Build**
-After saving your configuration:
-```bash
-west build
-```
-
-### 5. **Configuration Files**
+### 5. **Involved Configuration Files**
 - **`Kconfig`**: Defines available options.
 - **`prj.conf`**: Pre-set values for Kconfig symbols.
 - **`.config`**: Generated output used during build.
