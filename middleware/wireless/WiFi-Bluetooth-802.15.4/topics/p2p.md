@@ -9,6 +9,9 @@
 |P2P basic functionality<sup>1</sup>|P2P Invitation|Y|Y|Y|Y|Y|Y|
 |P2P basic functionality<sup>1</sup>|P2P Device Discovery|Y|Y|Y|Y|Y|Y|
 |P2P basic functionality<sup>1</sup>|P2P Provision Discovery|Y|Y|Y|Y|Y|Y|
+|P2P basic functionality<sup>1</sup>|P2P simulyaneou GO + STA|Y|Y|Y|Y|Y|Y|
+|P2P basic functionality<sup>1</sup>|P2P simulyaneou GC + uAP|Y|Y|Y|Y|Y|Y|
+
 
 **Parent topic:**[Wi-Fi radio](../topics/wi-fi_radio.md)
 

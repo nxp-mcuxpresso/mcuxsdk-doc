@@ -1,6 +1,6 @@
 # Package information
 
--   SDK version: 25.12.00-pvw1
+-   SDK version: 25.12.00-pvw2
 
 **Parent topic:**[IW416 release notes](../topics/iw416-release-notes.md)
 

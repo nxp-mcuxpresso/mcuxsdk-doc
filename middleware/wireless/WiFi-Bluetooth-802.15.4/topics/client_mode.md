@@ -77,7 +77,7 @@
 |802.11w - PMF \(protected management frames\)|Broadcast management frames - Encryption/decryption - using BIP|Y|Y|Y|Y|Y|Y|
 |802.11w - PMF \(protected management frames\)|SA query request/response|Y|Y|Y|Y|Y|Y|
 |802.11w - PMF \(protected management frames\)|PMF support using embedded supplicant|Y|Y|Y|Y|Y|Y|
-|DPP functionality|Wi-Fi easy connect<sup>3</sup>|N|N|Y|Y|Y|Y|
+|DPP functionality|Wi-Fi easy connect<sup>3</sup>|N|Y|Y|Y|Y|Y|
 |General features|Embedded supplicant|Y|Y|Y|Y|Y|Y|
 |General features|Host sleep packet filtering|N|N|Y|Y|Y|Y|
 |General features|Host-based supplicant|Y|Y|Y|Y|Y|Y|
