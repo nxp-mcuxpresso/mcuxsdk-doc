@@ -733,146 +733,7 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/devices/MCX/MCXN/MCXN236/drivers/doxygen/clock.dox \
-        @SDK_BASE@/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.h \
-        @SDK_BASE@/devices/MCX/MCXN/MCXN236/drivers/fsl_edma_soc.h \
-        @SDK_BASE@/devices/MCX/MCXN/MCXN236/drivers/fsl_inputmux_connections.h \
-        @SDK_BASE@/devices/MCX/MCXN/MCXN236/drivers/doxygen/reset.dox \
-        @SDK_BASE@/devices/MCX/MCXN/MCXN236/drivers/fsl_reset.h \
-        @SDK_BASE@/drivers/cdog/doxygen/cdog.dox \
-        @SDK_BASE@/drivers/cdog/fsl_cdog.h \
-        @SDK_BASE@/drivers/common/doxygen/common.dox \
-        @SDK_BASE@/drivers/common/fsl_common.h \
-        @SDK_BASE@/drivers/common/fsl_common_arm.h \
-        @SDK_BASE@/drivers/crc/doxygen/crc.dox \
-        @SDK_BASE@/drivers/crc/fsl_crc.h \
-        @SDK_BASE@/drivers/ctimer/doxygen/ctimer.dox \
-        @SDK_BASE@/drivers/ctimer/fsl_ctimer.h \
-        @SDK_BASE@/drivers/edma4/doxygen/edma.dox \
-        @SDK_BASE@/drivers/edma4/fsl_edma.h \
-        @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
-        @SDK_BASE@/drivers/eim/doxygen/eim.dox \
-        @SDK_BASE@/drivers/eim/fsl_eim.h \
-        @SDK_BASE@/drivers/erm/doxygen/erm.dox \
-        @SDK_BASE@/drivers/erm/fsl_erm.h \
-        @SDK_BASE@/drivers/evtg/doxygen/evtg.dox \
-        @SDK_BASE@/drivers/evtg/fsl_evtg.h \
-        @SDK_BASE@/drivers/ewm/doxygen/ewm.dox \
-        @SDK_BASE@/drivers/ewm/fsl_ewm.h \
-        @SDK_BASE@/drivers/flexcan/doxygen/flexcan_edma.dox \
-        @SDK_BASE@/drivers/flexcan/fsl_flexcan_edma.h \
-        @SDK_BASE@/drivers/flexcan/doxygen/flexcan.dox \
-        @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
-        @SDK_BASE@/drivers/flexio/doxygen/flexio.dox \
-        @SDK_BASE@/drivers/flexio/fsl_flexio.h \
-        @SDK_BASE@/drivers/gdet/doxygen/gdet.dox \
-        @SDK_BASE@/drivers/gdet/fsl_gdet.h \
-        @SDK_BASE@/drivers/gpio/doxygen/gpio.dox \
-        @SDK_BASE@/drivers/gpio/fsl_gpio.h \
-        @SDK_BASE@/drivers/i3c/doxygen/i3c_edma.dox \
-        @SDK_BASE@/drivers/i3c/fsl_i3c_edma.h \
-        @SDK_BASE@/drivers/i3c/doxygen/i3c.dox \
-        @SDK_BASE@/drivers/i3c/fsl_i3c.h \
-        @SDK_BASE@/drivers/inputmux/doxygen/inputmux.dox \
-        @SDK_BASE@/drivers/inputmux/fsl_inputmux.h \
-        @SDK_BASE@/drivers/intm/doxygen/intm.dox \
-        @SDK_BASE@/drivers/intm/fsl_intm.h \
-        @SDK_BASE@/drivers/irtc/doxygen/irtc.dox \
-        @SDK_BASE@/drivers/irtc/fsl_irtc.h \
-        @SDK_BASE@/drivers/itrc/doxygen/itrc.dox \
-        @SDK_BASE@/drivers/itrc/fsl_itrc.h \
-        @SDK_BASE@/drivers/lpadc/doxygen/lpadc.dox \
-        @SDK_BASE@/drivers/lpadc/fsl_lpadc.h \
-        @SDK_BASE@/drivers/lpc_freqme/doxygen/freqme.dox \
-        @SDK_BASE@/drivers/lpc_freqme/fsl_freqme.h \
-        @SDK_BASE@/drivers/lpcmp/doxygen/lpcmp.dox \
-        @SDK_BASE@/drivers/lpcmp/fsl_lpcmp.h \
-        @SDK_BASE@/drivers/lpflexcomm/doxygen/lpflexcomm.dox \
-        @SDK_BASE@/drivers/lpflexcomm/fsl_lpflexcomm.h \
-        @SDK_BASE@/drivers/lptmr/doxygen/lptmr.dox \
-        @SDK_BASE@/drivers/lptmr/fsl_lptmr.h \
-        @SDK_BASE@/drivers/mcx_cmc/doxygen/cmc.dox \
-        @SDK_BASE@/drivers/mcx_cmc/fsl_cmc.h \
-        @SDK_BASE@/drivers/mcx_spc/doxygen/spc.dox \
-        @SDK_BASE@/drivers/mcx_spc/fsl_spc.h \
-        @SDK_BASE@/drivers/mcx_vbat/doxygen/vbat.dox \
-        @SDK_BASE@/drivers/mcx_vbat/fsl_vbat.h \
-        @SDK_BASE@/drivers/mrt/doxygen/mrt.dox \
-        @SDK_BASE@/drivers/mrt/fsl_mrt.h \
-        @SDK_BASE@/drivers/ostimer/doxygen/ostimer.dox \
-        @SDK_BASE@/drivers/ostimer/fsl_ostimer.h \
-        @SDK_BASE@/drivers/otp/doxygen/otp.dox \
-        @SDK_BASE@/drivers/otp/fsl_otp.h \
-        @SDK_BASE@/drivers/pdm/doxygen/pdm_edma.dox \
-        @SDK_BASE@/drivers/pdm/fsl_pdm_edma.h \
-        @SDK_BASE@/drivers/pdm/doxygen/pdm.dox \
-        @SDK_BASE@/drivers/pdm/fsl_pdm.h \
-        @SDK_BASE@/drivers/pint/doxygen/pint.dox \
-        @SDK_BASE@/drivers/pint/fsl_pint.h \
-        @SDK_BASE@/drivers/port/doxygen/port.dox \
-        @SDK_BASE@/drivers/port/fsl_port.h \
-        @SDK_BASE@/drivers/puf/doxygen/puf.dox \
-        @SDK_BASE@/drivers/puf/fsl_puf.h \
-        @SDK_BASE@/drivers/puf_v3/doxygen/puf_v3.dox \
-        @SDK_BASE@/drivers/puf_v3/fsl_puf_v3.h \
-        @SDK_BASE@/drivers/pwm/doxygen/pwm.dox \
-        @SDK_BASE@/drivers/pwm/fsl_pwm.h \
-        @SDK_BASE@/drivers/qdc/doxygen/qdc.dox \
-        @SDK_BASE@/drivers/qdc/fsl_qdc.h \
-        @SDK_BASE@/drivers/rtc_1/doxygen/rtc.dox \
-        @SDK_BASE@/drivers/rtc_1/fsl_rtc.h \
-        @SDK_BASE@/drivers/sai/doxygen/sai_edma.dox \
-        @SDK_BASE@/drivers/sai/fsl_sai_edma.h \
-        @SDK_BASE@/drivers/sai/doxygen/sai.dox \
-        @SDK_BASE@/drivers/sai/fsl_sai.h \
-        @SDK_BASE@/drivers/smartdma/doxygen/smartdma.dox \
-        @SDK_BASE@/drivers/smartdma/fsl_smartdma.h \
-        @SDK_BASE@/drivers/smartdma/fsl_smartdma_prv.h \
-        @SDK_BASE@/drivers/smartdma/fsl_smartdma_rt500.h \
-        @SDK_BASE@/drivers/smartdma/fsl_smartdma_mcxn.h \
-        @SDK_BASE@/drivers/syspm/doxygen/syspm.dox \
-        @SDK_BASE@/drivers/syspm/fsl_syspm.h \
-        @SDK_BASE@/drivers/tdet/doxygen/tdet.dox \
-        @SDK_BASE@/drivers/tdet/fsl_tdet.h \
-        @SDK_BASE@/drivers/trdc_1/doxygen/trdc.dox \
-        @SDK_BASE@/drivers/trdc_1/fsl_trdc.h \
-        @SDK_BASE@/drivers/trdc_1/fsl_trdc_core.h \
-        @SDK_BASE@/drivers/utick/doxygen/utick.dox \
-        @SDK_BASE@/drivers/utick/fsl_utick.h \
-        @SDK_BASE@/drivers/vref_1/doxygen/vref.dox \
-        @SDK_BASE@/drivers/vref_1/fsl_vref.h \
-        @SDK_BASE@/drivers/wuu/doxygen/wuu.dox \
-        @SDK_BASE@/drivers/wuu/fsl_wuu.h \
-        @SDK_BASE@/drivers/wwdt/doxygen/wwdt.dox \
-        @SDK_BASE@/drivers/wwdt/fsl_wwdt.h \
-        @SDK_BASE@/drivers/cache/lpcac_n4a_mcxn/doxygen/cache_lpcac.dox \
-        @SDK_BASE@/drivers/cache/lpcac_n4a_mcxn/fsl_cache_lpcac.h \
-        @SDK_BASE@/drivers/flexio/i2c/doxygen/flexio_i2c_master.dox \
-        @SDK_BASE@/drivers/flexio/i2c/fsl_flexio_i2c_master.h \
-        @SDK_BASE@/drivers/flexio/i2s/doxygen/flexio_i2s_edma.dox \
-        @SDK_BASE@/drivers/flexio/i2s/fsl_flexio_i2s_edma.h \
-        @SDK_BASE@/drivers/flexio/i2s/doxygen/flexio_i2s.dox \
-        @SDK_BASE@/drivers/flexio/i2s/fsl_flexio_i2s.h \
-        @SDK_BASE@/drivers/flexio/spi/doxygen/flexio_spi_edma.dox \
-        @SDK_BASE@/drivers/flexio/spi/fsl_flexio_spi_edma.h \
-        @SDK_BASE@/drivers/flexio/spi/doxygen/flexio_spi.dox \
-        @SDK_BASE@/drivers/flexio/spi/fsl_flexio_spi.h \
-        @SDK_BASE@/drivers/flexio/uart/doxygen/flexio_uart_edma.dox \
-        @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart_edma.h \
-        @SDK_BASE@/drivers/flexio/uart/doxygen/flexio_uart.dox \
-        @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart.h \
-        @SDK_BASE@/drivers/lpflexcomm/lpi2c/doxygen/lpi2c.dox \
-        @SDK_BASE@/drivers/lpflexcomm/lpi2c/fsl_lpi2c.h \
-        @SDK_BASE@/drivers/lpflexcomm/lpi2c/doxygen/lpi2c_edma.dox \
-        @SDK_BASE@/drivers/lpflexcomm/lpi2c/fsl_lpi2c_edma.h \
-        @SDK_BASE@/drivers/lpflexcomm/lpspi/doxygen/lpspi.dox \
-        @SDK_BASE@/drivers/lpflexcomm/lpspi/fsl_lpspi.h \
-        @SDK_BASE@/drivers/lpflexcomm/lpspi/doxygen/lpspi_edma.dox \
-        @SDK_BASE@/drivers/lpflexcomm/lpspi/fsl_lpspi_edma.h \
-        @SDK_BASE@/drivers/lpflexcomm/lpuart/doxygen/lpuart.dox \
-        @SDK_BASE@/drivers/lpflexcomm/lpuart/fsl_lpuart.h \
-        @SDK_BASE@/drivers/lpflexcomm/lpuart/doxygen/lpuart_edma.dox \
-        @SDK_BASE@/drivers/lpflexcomm/lpuart/fsl_lpuart_edma.h
+INPUT = 
 
 # If the value of the INPUT tag contains directories, you can use the
 # FILE_PATTERNS tag to specify one or more wildcard patterns (like *.cpp and
@@ -979,61 +840,7 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXN/MCXN236/drivers/doxygen \
-             @SDK_BASE@/drivers/cdog/doxygen \
-             @SDK_BASE@/drivers/common/doxygen \
-             @SDK_BASE@/drivers/crc/doxygen \
-             @SDK_BASE@/drivers/ctimer/doxygen \
-             @SDK_BASE@/drivers/edma4/doxygen \
-             @SDK_BASE@/drivers/eim/doxygen \
-             @SDK_BASE@/drivers/erm/doxygen \
-             @SDK_BASE@/drivers/evtg/doxygen \
-             @SDK_BASE@/drivers/ewm/doxygen \
-             @SDK_BASE@/drivers/flexcan/doxygen \
-             @SDK_BASE@/drivers/flexio/doxygen \
-             @SDK_BASE@/drivers/gdet/doxygen \
-             @SDK_BASE@/drivers/gpio/doxygen \
-             @SDK_BASE@/drivers/i3c/doxygen \
-             @SDK_BASE@/drivers/inputmux/doxygen \
-             @SDK_BASE@/drivers/intm/doxygen \
-             @SDK_BASE@/drivers/irtc/doxygen \
-             @SDK_BASE@/drivers/itrc/doxygen \
-             @SDK_BASE@/drivers/lpadc/doxygen \
-             @SDK_BASE@/drivers/lpc_freqme/doxygen \
-             @SDK_BASE@/drivers/lpcmp/doxygen \
-             @SDK_BASE@/drivers/lpflexcomm/doxygen \
-             @SDK_BASE@/drivers/lptmr/doxygen \
-             @SDK_BASE@/drivers/mcx_cmc/doxygen \
-             @SDK_BASE@/drivers/mcx_spc/doxygen \
-             @SDK_BASE@/drivers/mcx_vbat/doxygen \
-             @SDK_BASE@/drivers/mrt/doxygen \
-             @SDK_BASE@/drivers/ostimer/doxygen \
-             @SDK_BASE@/drivers/otp/doxygen \
-             @SDK_BASE@/drivers/pdm/doxygen \
-             @SDK_BASE@/drivers/pint/doxygen \
-             @SDK_BASE@/drivers/port/doxygen \
-             @SDK_BASE@/drivers/puf/doxygen \
-             @SDK_BASE@/drivers/puf_v3/doxygen \
-             @SDK_BASE@/drivers/pwm/doxygen \
-             @SDK_BASE@/drivers/qdc/doxygen \
-             @SDK_BASE@/drivers/rtc_1/doxygen \
-             @SDK_BASE@/drivers/sai/doxygen \
-             @SDK_BASE@/drivers/smartdma/doxygen \
-             @SDK_BASE@/drivers/syspm/doxygen \
-             @SDK_BASE@/drivers/tdet/doxygen \
-             @SDK_BASE@/drivers/trdc_1/doxygen \
-             @SDK_BASE@/drivers/utick/doxygen \
-             @SDK_BASE@/drivers/vref_1/doxygen \
-             @SDK_BASE@/drivers/wuu/doxygen \
-             @SDK_BASE@/drivers/wwdt/doxygen \
-             @SDK_BASE@/drivers/cache/lpcac_n4a_mcxn/doxygen \
-             @SDK_BASE@/drivers/flexio/i2c/doxygen \
-             @SDK_BASE@/drivers/flexio/i2s/doxygen \
-             @SDK_BASE@/drivers/flexio/spi/doxygen \
-             @SDK_BASE@/drivers/flexio/uart/doxygen \
-             @SDK_BASE@/drivers/lpflexcomm/lpi2c/doxygen \
-             @SDK_BASE@/drivers/lpflexcomm/lpspi/doxygen \
-             @SDK_BASE@/drivers/lpflexcomm/lpuart/doxygen
+IMAGE_PATH = 
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -2204,29 +2011,29 @@ PREDEFINED = FSL_FEATURE_SOC_CDOG_COUNT = 2 \
              FSL_FEATURE_SOC_WWDT_COUNT = 2 \
              FSL_FEATURE_SOC_WUU_COUNT = 1 \
              FSL_FEATURE_LPADC_FIFO_COUNT = 2 \
+             FSL_FEATURE_LPADC_HAS_NO_TCTRL_FIFO_SEL_B = 0 \
              FSL_FEATURE_LPADC_HAS_CFG_SUBSEQUENT_PRIORITY = 1 \
              FSL_FEATURE_LPADC_HAS_CMDL_DIFF = 0 \
              FSL_FEATURE_LPADC_HAS_CMDL_CSCALE = 0 \
              FSL_FEATURE_LPADC_HAS_CMDL_CTYPE = 1 \
              FSL_FEATURE_LPADC_HAS_CMDL_MODE = 1 \
-             FSL_FEATURE_LPADC_HAS_CMDH_CMPEN = 1 \
              FSL_FEATURE_LPADC_HAS_CMDH_WAIT_TRIG = 1 \
              FSL_FEATURE_LPADC_HAS_CTRL_CALOFS = 1 \
              FSL_FEATURE_LPADC_HAS_CTRL_CAL_REQ = 1 \
              FSL_FEATURE_LPADC_HAS_CTRL_CAL_AVGS = 1 \
-             FSL_FEATURE_LPADC_HAS_CTRL_CALHS = 0 \
              FSL_FEATURE_LPADC_HAS_CFG_ADCKEN = 0 \
              FSL_FEATURE_LPADC_HAS_CFG_VREF1RNG = 0 \
              FSL_FEATURE_LPADC_HAS_CFG_CALOFS = 0 \
              FSL_FEATURE_LPADC_HAS_OFSTRIM = 1 \
-             FSL_FEATURE_LPADC_OFSTRIM_COUNT = 2 \
-             FSL_FEATURE_LPADC_HAS_TSTAT = 1 \
              FSL_FEATURE_LPADC_HAS_CFG_PWRSEL = 1 \
              FSL_FEATURE_LPADC_HAS_CMDL_ALTB_CSCALE = 0 \
              FSL_FEATURE_LPADC_HAS_CMDL_ALTBEN = 1 \
              FSL_FEATURE_LPADC_HAS_CMDL_ALTB_ADCH = 1 \
              FSL_FEATURE_LPADC_HAS_CTRL_CALOFSMODE = 0 \
              FSL_FEATURE_LPADC_CONVERSIONS_AVERAGED_BITFIELD_WIDTH = 4 \
+             FSL_FEATURE_LPADC_HAS_TCTRL_CMD_SEL = 0 \
+             FSL_FEATURE_LPADC_OFSTRIM_COUNT = 2 \
+             FSL_FEATURE_LPADC_HAS_TSTAT = 1 \
              FSL_FEATURE_LPADC_HAS_B_SIDE_CHANNELS = 1 \
              FSL_FEATURE_LPADC_HAS_STAT_TEXC_INT = 1 \
              FSL_FEATURE_LPADC_HAS_STAT_TCOMP_INT = 1 \
@@ -2238,10 +2045,11 @@ PREDEFINED = FSL_FEATURE_SOC_CDOG_COUNT = 2 \
              FSL_FEATURE_LPADC_HAS_CFG_TCMDRES = 1 \
              FSL_FEATURE_LPADC_HAS_CFG_HPT_EXDI = 1 \
              FSL_FEATURE_LPADC_CFG_TPRICTRL_BITFIELD_WIDTH = 2 \
+             FSL_FEATURE_LPADC_HAS_CMDH_CMPEN = 1 \
+             FSL_FEATURE_LPADC_HAS_CTRL_CALHS = 0 \
              FSL_FEATURE_LPADC_TEMP_PARAMETER_A = 783 \
              FSL_FEATURE_LPADC_TEMP_PARAMETER_B = 297 \
              FSL_FEATURE_LPADC_TEMP_SENS_BUFFER_SIZE = 2 \
-             FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB = 0 \
              FSL_FEATURE_FLEXCAN_HAS_DOZE_MODE_SUPPORT = 0 \
              FSL_FEATURE_FLEXCAN_HAS_GLITCH_FILTER = 1 \
              FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER = 0 \
@@ -2259,8 +2067,19 @@ PREDEFINED = FSL_FEATURE_SOC_CDOG_COUNT = 2 \
              FSL_FEATURE_FLEXCAN_HAS_ENHANCED_RX_FIFO_SIZE = 12 \
              FSL_FEATURE_FLEXCAN_HAS_ENHANCED_RX_FIFO_FILTER_MAX_NUMBER = 32 \
              FSL_FEATURE_FLEXCAN_HAS_NO_SUPV_SUPPORT = 1 \
+             FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB = 0 \
+             FSL_FEATURE_FLEXCAN_HAS_NO_SLFWAK_SUPPORT = 0 \
+             FSL_FEATURE_FLEXCAN_HAS_EXTERNAL_TIME_TICK = 0 \
+             FSL_FEATURE_FLEXCAN_HAS_HIGH_RESOLUTION_TIMESTAMP = 0 \
              FSL_FEATURE_FLEXCAN_MAX_CANFD_BITRATE = 10000000 \
+             FSL_FEATURE_FLEXCAN_HAS_ENDIANNESS_SELECTION = 0 \
+             FSL_FEATURE_FLEXCAN_ENTER_FREEZE_MODE = 0 \
+             FSL_FEATURE_FLEXCAN_HAS_ERRATA_8341 = 0 \
+             FSL_FEATURE_FLEXCAN_HAS_ERRATA_050443 = 0 \
+             FSL_FEATURE_FLEXCAN_HAS_MEMORY_ERROR_INTERRUPT = 0 \
              FSL_FEATURE_CDOG_HAS_NO_RESET = 1 \
+             FSL_FEATURE_CDOG_NEED_LOAD_DEFAULT_CONF = 0 \
+             FSL_FEATURE_CDOG_USE_RESTART = 1 \
              FSL_FEATURE_MCX_CMC_HAS_SRAM_DIS_REG = 1 \
              FSL_FEATURE_MCX_CMC_HAS_BSR_REG = 1 \
              FSL_FEATURE_MCX_CMC_HAS_RSTCNT_REG = 1 \
@@ -2307,16 +2126,24 @@ PREDEFINED = FSL_FEATURE_SOC_CDOG_COUNT = 2 \
              FSL_FEATURE_EDMA_HAS_NO_CH_SBR_SEC = 0 \
              FSL_FEATURE_EDMA_ASYNCHRO_REQUEST_CHANNEL_COUNT = 16 \
              FSL_FEATURE_EVTG_HAS_FORCE_BYPASS_FLIPFLOP = 1 \
+             FSL_FEATURE_EWM_HAS_CLOCK_SELECT = 1 \
+             FSL_FEATURE_EWM_HAS_PRESCALER = 1 \
+             FSL_FEATURE_FLEXIO_HAS_RESET = 0 \
              FSL_FEATURE_FLEXIO_HAS_SHIFTER_STATUS = 1 \
              FSL_FEATURE_FLEXIO_HAS_PIN_STATUS = 1 \
-             FSL_FEATURE_FLEXIO_HAS_PIN_REGISTER = 1 \
              FSL_FEATURE_FLEXIO_HAS_SHFT_BUFFER_NIBBLE_BYTE_SWAP = 1 \
              FSL_FEATURE_FLEXIO_HAS_SHFT_BUFFER_HALF_WORD_SWAP = 1 \
              FSL_FEATURE_FLEXIO_HAS_SHFT_BUFFER_NIBBLE_SWAP = 1 \
              FSL_FEATURE_FLEXIO_HAS_STATE_MODE = 1 \
              FSL_FEATURE_FLEXIO_HAS_LOGIC_MODE = 1 \
              FSL_FEATURE_FLEXIO_HAS_PARALLEL_WIDTH = 1 \
+             FSL_FEATURE_FLEXIO_DMA_REQUEST_BASE_CHANNEL = 0 \
              FSL_FEATURE_FLEXIO_TIMCFG_TIMDCE_FIELD_WIDTH = 3 \
+             FSL_FEATURE_FLEXIO_HAS_PIN_REGISTER = 1 \
+             FSL_FEATURE_FLEXIO_HAS_DOZE_MODE_SUPPORT = 1 \
+             FSL_FEATURE_FLASH_PFLASH_BLOCK_COUNT = 2 \
+             FSL_FEATURE_FLASH_PFLASH_PHRASE_SIZE = 16 \
+             FSL_FEATURE_FLASH_PFLASH_PAGE_SIZE = 128 \
              FSL_FEATURE_GPIO_HAS_ATTRIBUTE_CHECKER = 0 \
              FSL_FEATURE_GPIO_HAS_VERSION_INFO_REGISTER = 1 \
              FSL_FEATURE_GPIO_HAS_SECURE_PRIVILEGE_CONTROL = 1 \
@@ -2327,16 +2154,22 @@ PREDEFINED = FSL_FEATURE_SOC_CDOG_COUNT = 2 \
              FSL_FEATURE_I3C_HAS_NO_SCONFIG_BAMATCH = 0 \
              FSL_FEATURE_I3C_HAS_NO_SCONFIG_IDRAND = 1 \
              FSL_FEATURE_I3C_HAS_HDROK = 1 \
-             FSL_FEATURE_I3C_HAS_NO_SLAVE_IBI_MR_HJ = 0 \
              FSL_FEATURE_I3C_HAS_ERRATA_051617 = 1 \
+             FSL_FEATURE_I3C_HAS_NO_SLAVE_IBI_MR_HJ = 0 \
+             FSL_FEATURE_I3C_HAS_ERRATA_052086 = 0 \
+             FSL_FEATURE_I3C_HAS_ERRATA_052123 = 0 \
+             FSL_FEATURE_I3C_HAS_IBI_PAYLOAD_SIZE_OPTIONAL_BYTE = 0 \
              FSL_FEATURE_I3C_HAS_START_SCL_DELAY = 1 \
              FSL_FEATURE_I3C_HAS_NO_MASTER_DMA_WDATA_REG = 0 \
              FSL_FEATURE_INPUTMUX_HAS_SIGNAL_ENA = 1 \
              FSL_FEATURE_INPUTMUX_HAS_CHANNEL_MUX = 0 \
              FSL_FEATURE_INTM_MONITOR_COUNT = 4 \
+             FSL_FEATURE_LPI2C_HAS_ROLE_SPLIT_IRQ = 0 \
+             FSL_FEATURE_LPI2C_IS_LPFLEXCOMM = 1 \
              FSL_FEATURE_LPSPI_HAS_CCR1 = 1 \
              FSL_FEATURE_LPSPI_HAS_NO_PCSCFG = 0 \
              FSL_FEATURE_LPSPI_HAS_NO_MULTI_WIDTH = 0 \
+             FSL_FEATURE_LPSPI_IS_LPFLEXCOMM = 1 \
              FSL_FEATURE_LPTMR_HAS_SHARED_IRQ_HANDLER = 0 \
              FSL_FEATURE_LPTMR_CNR_WIDTH_IS_32B = 1 \
              FSL_FEATURE_LPTMR_HAS_CSR_TDRE = 1 \
@@ -2378,6 +2211,8 @@ PREDEFINED = FSL_FEATURE_SOC_CDOG_COUNT = 2 \
              FSL_FEATURE_LPUART_HAS_MCR = 1 \
              FSL_FEATURE_LPUART_HAS_HDCR = 1 \
              FSL_FEATURE_LPUART_HAS_TIMEOUT = 1 \
+             FSL_FEATURE_LPUART_HAS_CTRL_SWAP = 0 \
+             FSL_FEATURE_LPUART_HAS_MODIR_RTSWATER = 1 \
              FSL_FEATURE_MRT_NUMBER_OF_CHANNELS = 4 \
              FSL_FEATURE_PDM_FIFO_OFFSET = 4 \
              FSL_FEATURE_PDM_CHANNEL_NUM = 4 \
@@ -2453,7 +2288,6 @@ PREDEFINED = FSL_FEATURE_SOC_CDOG_COUNT = 2 \
              FSL_FEATURE_RTC_HAS_NO_RST_SRC_FLAG = 1 \
              FSL_FEATURE_RTC_HAS_NO_GP_DATA_REG = 1 \
              FSL_FEATURE_RTC_HAS_NO_TIMER_STB_MASK = 1 \
-             FSL_FEATURE_SAI_HAS_FIFO = 1 \
              FSL_FEATURE_SAI_MAX_WORDS_PER_FRAME = 32 \
              FSL_FEATURE_SAI_HAS_FIFO_COMBINE_MODE = 1 \
              FSL_FEATURE_SAI_HAS_FIFO_PACKING = 1 \
@@ -2468,7 +2302,10 @@ PREDEFINED = FSL_FEATURE_SOC_CDOG_COUNT = 2 \
              FSL_FEATURE_SAI_HAS_BCLK_BYPASS = 1 \
              FSL_FEATURE_SAI_HAS_MCR_MCLK_POST_DIV = 1 \
              FSL_FEATURE_SAI_HAS_CHANNEL_MODE = 1 \
+             FSL_FEATURE_SAI_HAS_FIFO = 1 \
              FSL_FEATURE_SAI_HAS_SYNC_WITH_ANOTHER_SAI = 1 \
+             FSL_FEATURE_SAI_HAS_BIT_CLOCK_SWAP = 1 \
+             FSL_FEATURE_SAI_SAI5_SAI6_SHARE_IRQ = 0 \
              FSL_FEATURE_MCX_SPC_HAS_DCDC = 1 \
              FSL_FEATURE_MCX_SPC_HAS_SYS_LDO = 1 \
              FSL_FEATURE_MCX_SPC_HAS_IOVDD_VD = 1 \
@@ -2489,6 +2326,10 @@ PREDEFINED = FSL_FEATURE_SOC_CDOG_COUNT = 2 \
              FSL_FEATURE_SYSCON_STARTER_DISCONTINUOUS = 1 \
              FSL_FEATURE_SYSCON_ROMAPI = 1 \
              FSL_FEATURE_POWERLIB_EXTEND = 1 \
+             FSL_FEATURE_SYSCON_HAS_LPCAC_CTRL_PARITY_MISS_EN_BIT = 1 \
+             FSL_FEATURE_SYSCON_HAS_LPCAC_CTRL_PARITY_FAULT_EN_BIT = 1 \
+             FSL_FEATURE_SYSTICK_HAS_EXT_REF = 0 \
+             FSL_FEATURE_SYSTICK_EXT_REF_CORE_DIV = 0 \
              FSL_FEATURE_TRDC_PROCESSOR_MASTER_COUNT = 2 \
              FSL_FEATURE_TRDC_HAS_MBC = 1 \
              FSL_FEATURE_TRDC_HAS_MRC = 0 \
@@ -2508,10 +2349,11 @@ PREDEFINED = FSL_FEATURE_SOC_CDOG_COUNT = 2 \
              FSL_FEATURE_MCX_VBAT_HAS_SWICTL_REG = 1 \
              FSL_FEATURE_MCX_VBAT_HAS_CLKMON_REG = 0 \
              FSL_FEATURE_MCX_VBAT_HAS_OSCCTLA_FINE_AMP_GAIN_BIT = 0 \
+             FSL_FEATURE_WWDT_HAS_NO_OSCILLATOR_LOCK = 0 \
+             FSL_FEATURE_WWDT_HAS_NO_PDCFG = 1 \
              FSL_FEATURE_WWDT_HAS_NO_RESET = 1 \
-             FSL_FEATURE_WWDT_HAS_NO_PDCFG = 1
-
-PREDEFINED += DOXYGEN_OUTPUT=1
+             FSL_FEATURE_WWDT_HAS_LPOSC_CLOCK_SOURCE = 0 \
+             FSL_FEATURE_WWDT_WDTRESET_FROM_PMC = 0
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

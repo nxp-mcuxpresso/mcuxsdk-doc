@@ -10,6 +10,10 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_safety_iec60730b.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_usb_power_delivery.md
 :heading-offset: 2
 ```
@@ -43,6 +47,10 @@
 ```
 
 ```{include} /release/commonrn/topics/segger_emwin.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/janez_canopennode.md
 :heading-offset: 2
 ```
 

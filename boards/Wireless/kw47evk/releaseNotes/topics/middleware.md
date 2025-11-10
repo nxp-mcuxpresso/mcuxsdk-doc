@@ -46,11 +46,19 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_secure_storage.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_secure_subsystem.md
 :heading-offset: 2
 ```
 
 ```{include} /release/commonrn/topics/nxp_multicore.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_iot_agent.md
 :heading-offset: 2
 ```
 

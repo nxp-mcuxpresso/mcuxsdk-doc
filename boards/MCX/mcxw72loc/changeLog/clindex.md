@@ -12,10 +12,6 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/ce/doxygen/ChangeLog_ce.md
-:heading-offset: 2
-```
----
 ```{include} /devices/MCX/MCXW/MCXW727C/drivers/doxygen/ChangeLog_clock.md
 :heading-offset: 2
 ```
@@ -207,4 +203,4 @@
 ```{include} /drivers/wuu/doxygen/ChangeLog_wuu.md
 :heading-offset: 2
 ```
-
+---

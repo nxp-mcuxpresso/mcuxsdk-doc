@@ -38,6 +38,10 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_metering.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/arm_mbedtls_3x.md
 :heading-offset: 2
 ```

@@ -10,6 +10,10 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_safety_iec60730b.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_voicespot.md
 :heading-offset: 2
 ```

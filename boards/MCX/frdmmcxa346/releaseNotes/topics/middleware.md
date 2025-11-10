@@ -10,7 +10,31 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_safety_iec60730b.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/arm_mbedtls_3x.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_psa_crypto_driver.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_sgi_pkc.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_usb.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/mcuboot_opensource.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/gabor_kiss_amosi_lvgl.md
 :heading-offset: 2
 ```
 
@@ -19,6 +43,10 @@
 ```
 
 ```{include} /release/commonrn/topics/nxp_motor_control.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_metering.md
 :heading-offset: 2
 ```
 

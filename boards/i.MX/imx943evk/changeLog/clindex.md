@@ -44,10 +44,6 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/eim/doxygen/ChangeLog_eim.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/endat2p2/doxygen/ChangeLog_endat2p2.md
 :heading-offset: 2
 ```
@@ -57,10 +53,6 @@
 ```
 ---
 ```{include} /drivers/eqdc/doxygen/ChangeLog_eqdc.md
-:heading-offset: 2
-```
----
-```{include} /drivers/erm/doxygen/ChangeLog_erm.md
 :heading-offset: 2
 ```
 ---
@@ -124,7 +116,7 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/intm/doxygen/ChangeLog_intm.md
+```{include} /drivers/igf/doxygen/ChangeLog_igf.md
 :heading-offset: 2
 ```
 ---
@@ -232,10 +224,6 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/sfa/doxygen/ChangeLog_sfa.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/sinc/doxygen/ChangeLog_sinc.md
 :heading-offset: 2
 ```
@@ -248,23 +236,11 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/trdc/doxygen/ChangeLog_trdc.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/tstmr/doxygen/ChangeLog_tstmr.md
 :heading-offset: 2
 ```
 ---
 ```{include} /drivers/xbar_1/doxygen/ChangeLog_xbar.md
-:heading-offset: 2
-```
----
-```{include} /drivers/xspi/doxygen/ChangeLog_xspi.md
-:heading-offset: 2
-```
----
-```{include} /drivers/xspi/doxygen/ChangeLog_xspi_edma.md
 :heading-offset: 2
 ```
 ---

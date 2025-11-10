@@ -733,43 +733,7 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/devices/DSC/MC56F80xxx/MC56F80748/drivers/fsl_clock.h \
-        @SDK_BASE@/devices/DSC/MC56F80xxx/MC56F80748/drivers/fsl_sim.h \
-        @SDK_BASE@/drivers/common/doxygen/common.dox \
-        @SDK_BASE@/drivers/common/fsl_common.h \
-        @SDK_BASE@/drivers/common/fsl_common_dsc.h \
-        @SDK_BASE@/drivers/dsc_cadc/fsl_cadc.h \
-        @SDK_BASE@/drivers/dsc_cmp/fsl_cmp.h \
-        @SDK_BASE@/drivers/dsc_cop/fsl_cop.h \
-        @SDK_BASE@/drivers/dsc_crc/fsl_crc.h \
-        @SDK_BASE@/drivers/dsc_dmamux/fsl_dmamux.h \
-        @SDK_BASE@/drivers/dsc_edma/fsl_edma.h \
-        @SDK_BASE@/drivers/dsc_eqdc/fsl_eqdc.h \
-        @SDK_BASE@/drivers/dsc_evtg/fsl_evtg.h \
-        @SDK_BASE@/drivers/dsc_ewm/fsl_ewm.h \
-        @SDK_BASE@/drivers/dsc_flash/fsl_ftfx_adapter.h \
-        @SDK_BASE@/drivers/dsc_flash/fsl_ftfx_utilities.h \
-        @SDK_BASE@/drivers/dsc_flash/fsl_ftfx_features.h \
-        @SDK_BASE@/drivers/dsc_flash/fsl_ftfx_controller.h \
-        @SDK_BASE@/drivers/dsc_flash/fsl_ftfx_flash.h \
-        @SDK_BASE@/drivers/dsc_flash/doxygen/flash.dox \
-        @SDK_BASE@/drivers/dsc_flash/fsl_flash.h \
-        @SDK_BASE@/drivers/dsc_gpio/fsl_gpio.h \
-        @SDK_BASE@/drivers/dsc_lpi2c/fsl_lpi2c_edma.h \
-        @SDK_BASE@/drivers/dsc_lpi2c/fsl_lpi2c.h \
-        @SDK_BASE@/drivers/dsc_mcm/fsl_mcm.h \
-        @SDK_BASE@/drivers/dsc_opamp/fsl_opamp.h \
-        @SDK_BASE@/drivers/dsc_opamp_1/fsl_opamp.h \
-        @SDK_BASE@/drivers/dsc_pit/fsl_pit.h \
-        @SDK_BASE@/drivers/dsc_pmc/fsl_pmc.h \
-        @SDK_BASE@/drivers/dsc_pwm/fsl_pwm.h \
-        @SDK_BASE@/drivers/dsc_qtmr/fsl_qtmr.h \
-        @SDK_BASE@/drivers/dsc_xbara/fsl_xbara.h \
-        @SDK_BASE@/drivers/intc/fsl_intc.h \
-        @SDK_BASE@/drivers/qsci/fsl_qsci_edma.h \
-        @SDK_BASE@/drivers/qsci/fsl_qsci.h \
-        @SDK_BASE@/drivers/queued_spi/fsl_queued_spi_edma.h \
-        @SDK_BASE@/drivers/queued_spi/fsl_queued_spi.h
+INPUT = 
 
 # If the value of the INPUT tag contains directories, you can use the
 # FILE_PATTERNS tag to specify one or more wildcard patterns (like *.cpp and
@@ -876,31 +840,7 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/devices/DSC/MC56F80xxx/MC56F80748/drivers/doxygen \
-             @SDK_BASE@/drivers/common/doxygen \
-             @SDK_BASE@/drivers/dsc_cadc/doxygen \
-             @SDK_BASE@/drivers/dsc_cmp/doxygen \
-             @SDK_BASE@/drivers/dsc_cop/doxygen \
-             @SDK_BASE@/drivers/dsc_crc/doxygen \
-             @SDK_BASE@/drivers/dsc_dmamux/doxygen \
-             @SDK_BASE@/drivers/dsc_edma/doxygen \
-             @SDK_BASE@/drivers/dsc_eqdc/doxygen \
-             @SDK_BASE@/drivers/dsc_evtg/doxygen \
-             @SDK_BASE@/drivers/dsc_ewm/doxygen \
-             @SDK_BASE@/drivers/dsc_flash/doxygen \
-             @SDK_BASE@/drivers/dsc_gpio/doxygen \
-             @SDK_BASE@/drivers/dsc_lpi2c/doxygen \
-             @SDK_BASE@/drivers/dsc_mcm/doxygen \
-             @SDK_BASE@/drivers/dsc_opamp/doxygen \
-             @SDK_BASE@/drivers/dsc_opamp_1/doxygen \
-             @SDK_BASE@/drivers/dsc_pit/doxygen \
-             @SDK_BASE@/drivers/dsc_pmc/doxygen \
-             @SDK_BASE@/drivers/dsc_pwm/doxygen \
-             @SDK_BASE@/drivers/dsc_qtmr/doxygen \
-             @SDK_BASE@/drivers/dsc_xbara/doxygen \
-             @SDK_BASE@/drivers/intc/doxygen \
-             @SDK_BASE@/drivers/qsci/doxygen \
-             @SDK_BASE@/drivers/queued_spi/doxygen
+IMAGE_PATH = 
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -2211,8 +2151,6 @@ PREDEFINED = FSL_FEATURE_SOC_CADC_COUNT = 1 \
              FSL_FEATURE_SIM_HAS_NVMOPT3H_REGISTER = 0 \
              FSL_FEATURE_SIM_HAS_BOOT_MODE_OVERRIDE_REGISTER = 0 \
              FSL_FEATURE_XBARA_INTERRUPT_COUNT = 4
-
-PREDEFINED += DOXYGEN_OUTPUT=1
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

@@ -735,9 +735,6 @@ WARN_LOGFILE           =
 
 INPUT = @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/romapi/doxygen/romapi.dox \
         @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/romapi/fsl_romapi.h \
-        @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/doxygen/clock.dox \
-        @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/fsl_clock.h \
-        @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/fsl_edma_soc.h \
         @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/fsl_inputmux_connections.h \
         @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/doxygen/advc.dox \
         @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/fsl_advc.h \
@@ -745,27 +742,11 @@ INPUT = @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/romapi/doxygen/romapi.dox \
         @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/fsl_power.h \
         @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/doxygen/reset.dox \
         @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/fsl_reset.h \
-        @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/fsl_trdc_soc.h \
-        @SDK_BASE@/drivers/aoi/doxygen/aoi.dox \
-        @SDK_BASE@/drivers/aoi/fsl_aoi.h \
         @SDK_BASE@/drivers/aon_lpadc/doxygen/aon_lpadc.dox \
         @SDK_BASE@/drivers/aon_lpadc/fsl_aon_lpadc.h \
-        @SDK_BASE@/drivers/cdog/doxygen/cdog.dox \
-        @SDK_BASE@/drivers/cdog/fsl_cdog.h \
         @SDK_BASE@/drivers/common/doxygen/common.dox \
         @SDK_BASE@/drivers/common/fsl_common.h \
         @SDK_BASE@/drivers/common/fsl_common_arm.h \
-        @SDK_BASE@/drivers/crc/doxygen/crc.dox \
-        @SDK_BASE@/drivers/crc/fsl_crc.h \
-        @SDK_BASE@/drivers/ctimer/doxygen/ctimer.dox \
-        @SDK_BASE@/drivers/ctimer/fsl_ctimer.h \
-        @SDK_BASE@/drivers/edma4/doxygen/edma.dox \
-        @SDK_BASE@/drivers/edma4/fsl_edma.h \
-        @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
-        @SDK_BASE@/drivers/erm/doxygen/erm.dox \
-        @SDK_BASE@/drivers/erm/fsl_erm.h \
-        @SDK_BASE@/drivers/glikey/doxygen/glikey.dox \
-        @SDK_BASE@/drivers/glikey/fsl_glikey.h \
         @SDK_BASE@/drivers/gpio/doxygen/gpio.dox \
         @SDK_BASE@/drivers/gpio/fsl_gpio.h \
         @SDK_BASE@/drivers/inputmux/doxygen/inputmux.dox \
@@ -774,32 +755,16 @@ INPUT = @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/romapi/doxygen/romapi.dox \
         @SDK_BASE@/drivers/kpp/fsl_kpp.h \
         @SDK_BASE@/drivers/lpacmp/doxygen/lpacmp.dox \
         @SDK_BASE@/drivers/lpacmp/fsl_lpacmp.h \
-        @SDK_BASE@/drivers/lpadc/doxygen/lpadc.dox \
-        @SDK_BASE@/drivers/lpadc/fsl_lpadc.h \
-        @SDK_BASE@/drivers/lpc_freqme/doxygen/freqme.dox \
-        @SDK_BASE@/drivers/lpc_freqme/fsl_freqme.h \
         @SDK_BASE@/drivers/lpcmp/doxygen/lpcmp.dox \
         @SDK_BASE@/drivers/lpcmp/fsl_lpcmp.h \
-        @SDK_BASE@/drivers/lpi2c/doxygen/lpi2c_edma.dox \
-        @SDK_BASE@/drivers/lpi2c/fsl_lpi2c_edma.h \
         @SDK_BASE@/drivers/lpi2c/doxygen/lpi2c.dox \
         @SDK_BASE@/drivers/lpi2c/fsl_lpi2c.h \
-        @SDK_BASE@/drivers/lpspi/doxygen/lpspi_edma.dox \
-        @SDK_BASE@/drivers/lpspi/fsl_lpspi_edma.h \
-        @SDK_BASE@/drivers/lpspi/doxygen/lpspi.dox \
-        @SDK_BASE@/drivers/lpspi/fsl_lpspi.h \
         @SDK_BASE@/drivers/lptmr/doxygen/lptmr.dox \
         @SDK_BASE@/drivers/lptmr/fsl_lptmr.h \
-        @SDK_BASE@/drivers/lpuart/doxygen/lpuart_edma.dox \
-        @SDK_BASE@/drivers/lpuart/fsl_lpuart_edma.h \
         @SDK_BASE@/drivers/lpuart/doxygen/lpuart.dox \
         @SDK_BASE@/drivers/lpuart/fsl_lpuart.h \
-        @SDK_BASE@/drivers/mcx_cmc/doxygen/cmc.dox \
-        @SDK_BASE@/drivers/mcx_cmc/fsl_cmc.h \
         @SDK_BASE@/drivers/mu1/doxygen/mu.dox \
         @SDK_BASE@/drivers/mu1/fsl_mu.h \
-        @SDK_BASE@/drivers/ostimer/doxygen/ostimer.dox \
-        @SDK_BASE@/drivers/ostimer/fsl_ostimer.h \
         @SDK_BASE@/drivers/pls_pmu/fsl_pmu.h \
         @SDK_BASE@/drivers/port/doxygen/port.dox \
         @SDK_BASE@/drivers/port/fsl_port.h \
@@ -811,41 +776,7 @@ INPUT = @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/romapi/doxygen/romapi.dox \
         @SDK_BASE@/drivers/slcd_split/fsl_slcd.h \
         @SDK_BASE@/drivers/smm/doxygen/smm.dox \
         @SDK_BASE@/drivers/smm/fsl_smm.h \
-        @SDK_BASE@/drivers/trdc_1/doxygen/trdc.dox \
-        @SDK_BASE@/drivers/trdc_1/fsl_trdc.h \
-        @SDK_BASE@/drivers/trdc_1/fsl_trdc_core.h \
         @SDK_BASE@/drivers/trng/doxygen/trng.dox \
-        @SDK_BASE@/drivers/trng/fsl_trng.h \
-        @SDK_BASE@/drivers/utick/doxygen/utick.dox \
-        @SDK_BASE@/drivers/utick/fsl_utick.h \
-        @SDK_BASE@/drivers/wuu/doxygen/wuu.dox \
-        @SDK_BASE@/drivers/wuu/fsl_wuu.h \
-        @SDK_BASE@/drivers/wwdt/doxygen/wwdt.dox \
-        @SDK_BASE@/drivers/wwdt/fsl_wwdt.h \
-        @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/romapi/fsl_romapi.h \
-        @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/fsl_clock.h \
-        @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/fsl_inputmux_connections.h \
-        @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/fsl_advc.h \
-        @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/fsl_power.h \
-        @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/fsl_reset.h \
-        @SDK_BASE@/drivers/aon_lpadc/fsl_aon_lpadc.h \
-        @SDK_BASE@/drivers/common/fsl_common.h \
-        @SDK_BASE@/drivers/common/fsl_common_arm.h \
-        @SDK_BASE@/drivers/gpio/fsl_gpio.h \
-        @SDK_BASE@/drivers/inputmux/fsl_inputmux.h \
-        @SDK_BASE@/drivers/kpp/fsl_kpp.h \
-        @SDK_BASE@/drivers/lpacmp/fsl_lpacmp.h \
-        @SDK_BASE@/drivers/lpcmp/fsl_lpcmp.h \
-        @SDK_BASE@/drivers/lpi2c/fsl_lpi2c.h \
-        @SDK_BASE@/drivers/lptmr/fsl_lptmr.h \
-        @SDK_BASE@/drivers/lpuart/fsl_lpuart.h \
-        @SDK_BASE@/drivers/mu1/fsl_mu.h \
-        @SDK_BASE@/drivers/pls_pmu/fsl_pmu.h \
-        @SDK_BASE@/drivers/port/fsl_port.h \
-        @SDK_BASE@/drivers/qtmr_1/fsl_qtmr.h \
-        @SDK_BASE@/drivers/rtc_analog/fsl_rtc.h \
-        @SDK_BASE@/drivers/slcd_split/fsl_slcd.h \
-        @SDK_BASE@/drivers/smm/fsl_smm.h \
         @SDK_BASE@/drivers/trng/fsl_trng.h
 
 # If the value of the INPUT tag contains directories, you can use the
@@ -955,40 +886,24 @@ EXAMPLE_RECURSIVE      = YES
 
 IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/romapi/doxygen \
              @SDK_BASE@/devices/MCX/MCXL/MCXL255/drivers/doxygen \
-             @SDK_BASE@/drivers/aoi/doxygen \
              @SDK_BASE@/drivers/aon_lpadc/doxygen \
-             @SDK_BASE@/drivers/cdog/doxygen \
              @SDK_BASE@/drivers/common/doxygen \
-             @SDK_BASE@/drivers/crc/doxygen \
-             @SDK_BASE@/drivers/ctimer/doxygen \
-             @SDK_BASE@/drivers/edma4/doxygen \
-             @SDK_BASE@/drivers/erm/doxygen \
-             @SDK_BASE@/drivers/glikey/doxygen \
              @SDK_BASE@/drivers/gpio/doxygen \
              @SDK_BASE@/drivers/inputmux/doxygen \
              @SDK_BASE@/drivers/kpp/doxygen \
              @SDK_BASE@/drivers/lpacmp/doxygen \
-             @SDK_BASE@/drivers/lpadc/doxygen \
-             @SDK_BASE@/drivers/lpc_freqme/doxygen \
              @SDK_BASE@/drivers/lpcmp/doxygen \
              @SDK_BASE@/drivers/lpi2c/doxygen \
-             @SDK_BASE@/drivers/lpspi/doxygen \
              @SDK_BASE@/drivers/lptmr/doxygen \
              @SDK_BASE@/drivers/lpuart/doxygen \
-             @SDK_BASE@/drivers/mcx_cmc/doxygen \
              @SDK_BASE@/drivers/mu1/doxygen \
-             @SDK_BASE@/drivers/ostimer/doxygen \
              @SDK_BASE@/drivers/pls_pmu/doxygen \
              @SDK_BASE@/drivers/port/doxygen \
              @SDK_BASE@/drivers/qtmr_1/doxygen \
              @SDK_BASE@/drivers/rtc_analog/doxygen \
              @SDK_BASE@/drivers/slcd_split/doxygen \
              @SDK_BASE@/drivers/smm/doxygen \
-             @SDK_BASE@/drivers/trdc_1/doxygen \
-             @SDK_BASE@/drivers/trng/doxygen \
-             @SDK_BASE@/drivers/utick/doxygen \
-             @SDK_BASE@/drivers/wuu/doxygen \
-             @SDK_BASE@/drivers/wwdt/doxygen
+             @SDK_BASE@/drivers/trng/doxygen
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -2371,8 +2286,6 @@ PREDEFINED = FSL_FEATURE_SOC_GPIO_COUNT = 4 \
              FSL_FEATURE_UTICK_HAS_NO_PDCFG = 1 \
              FSL_FEATURE_WUU_HAS_MF = 0 \
              FSL_FEATURE_WWDT_HAS_NO_RESET = 1
-
-PREDEFINED += DOXYGEN_OUTPUT=1
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

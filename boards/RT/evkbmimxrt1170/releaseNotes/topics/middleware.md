@@ -26,7 +26,23 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/amazon_corepkcs11.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/amazon_coremqtt.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/amazon_corejson.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/amazon_corehttp.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/amazon_backoffalgorithm.md
 :heading-offset: 2
 ```
 
@@ -171,10 +187,6 @@
 ```
 
 ```{include} /release/commonrn/topics/dave_gamble_cjson.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/amazon_aws_iot.md
 :heading-offset: 2
 ```
 

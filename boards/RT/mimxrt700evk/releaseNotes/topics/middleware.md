@@ -10,11 +10,23 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_iot_sensing_sdk.md
+```{include} /release/commonrn/topics/amazon_corepkcs11.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/amazon_coremqtt.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/amazon_corejson.md
 :heading-offset: 2
 ```
 
 ```{include} /release/commonrn/topics/amazon_corehttp.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/amazon_backoffalgorithm.md
 :heading-offset: 2
 ```
 
@@ -123,10 +135,6 @@
 ```
 
 ```{include} /release/commonrn/topics/cadence_codecs.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/amazon_aws_iot.md
 :heading-offset: 2
 ```
 

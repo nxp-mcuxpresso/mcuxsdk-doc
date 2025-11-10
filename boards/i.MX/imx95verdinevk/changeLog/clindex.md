@@ -184,10 +184,6 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/tempsensor_1/doxygen/ChangeLog_tempsensor.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/tpm/doxygen/ChangeLog_tpm.md
 :heading-offset: 2
 ```

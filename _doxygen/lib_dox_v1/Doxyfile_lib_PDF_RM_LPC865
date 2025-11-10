@@ -733,61 +733,7 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/devices/LPC/LPC800/LPC865/drivers/fsl_clock.h \
-        @SDK_BASE@/devices/LPC/LPC800/LPC865/drivers/fsl_inputmux_connections.h \
-        @SDK_BASE@/devices/LPC/LPC800/LPC865/drivers/fsl_power.h \
-        @SDK_BASE@/devices/LPC/LPC800/LPC865/drivers/fsl_reset.h \
-        @SDK_BASE@/devices/LPC/LPC800/LPC865/drivers/fsl_swm_connections.h \
-        @SDK_BASE@/devices/LPC/LPC800/LPC865/drivers/fsl_syscon_connections.h \
-        @SDK_BASE@/drivers/common/doxygen/common.dox \
-        @SDK_BASE@/drivers/common/fsl_common.h \
-        @SDK_BASE@/drivers/common/fsl_common_arm.h \
-        @SDK_BASE@/drivers/ctimer/doxygen/ctimer.dox \
-        @SDK_BASE@/drivers/ctimer/fsl_ctimer.h \
-        @SDK_BASE@/drivers/ftm/doxygen/ftm.dox \
-        @SDK_BASE@/drivers/ftm/fsl_ftm.h \
-        @SDK_BASE@/drivers/i3c/doxygen/i3c_dma.dox \
-        @SDK_BASE@/drivers/i3c/fsl_i3c_dma.h \
-        @SDK_BASE@/drivers/i3c/doxygen/i3c.dox \
-        @SDK_BASE@/drivers/i3c/fsl_i3c.h \
-        @SDK_BASE@/drivers/iap/doxygen/iap.dox \
-        @SDK_BASE@/drivers/iap/fsl_iap.h \
-        @SDK_BASE@/drivers/inputmux/doxygen/inputmux.dox \
-        @SDK_BASE@/drivers/inputmux/fsl_inputmux.h \
-        @SDK_BASE@/drivers/lpc_acomp/doxygen/acomp.dox \
-        @SDK_BASE@/drivers/lpc_acomp/fsl_acomp.h \
-        @SDK_BASE@/drivers/lpc_adc/doxygen/adc.dox \
-        @SDK_BASE@/drivers/lpc_adc/fsl_adc.h \
-        @SDK_BASE@/drivers/lpc_crc/doxygen/crc.dox \
-        @SDK_BASE@/drivers/lpc_crc/fsl_crc.h \
-        @SDK_BASE@/drivers/lpc_dma/doxygen/dma.dox \
-        @SDK_BASE@/drivers/lpc_dma/fsl_dma.h \
-        @SDK_BASE@/drivers/lpc_gpio/doxygen/gpio.dox \
-        @SDK_BASE@/drivers/lpc_gpio/fsl_gpio.h \
-        @SDK_BASE@/drivers/lpc_i2c/doxygen/i2c_dma.dox \
-        @SDK_BASE@/drivers/lpc_i2c/fsl_i2c_dma.h \
-        @SDK_BASE@/drivers/lpc_i2c/doxygen/i2c.dox \
-        @SDK_BASE@/drivers/lpc_i2c/fsl_i2c.h \
-        @SDK_BASE@/drivers/lpc_iocon_lite/doxygen/iocon.dox \
-        @SDK_BASE@/drivers/lpc_iocon_lite/fsl_iocon.h \
-        @SDK_BASE@/drivers/lpc_minispi/doxygen/spi.dox \
-        @SDK_BASE@/drivers/lpc_minispi/fsl_spi.h \
-        @SDK_BASE@/drivers/lpc_miniusart/doxygen/usart.dox \
-        @SDK_BASE@/drivers/lpc_miniusart/fsl_usart.h \
-        @SDK_BASE@/drivers/mrt/doxygen/mrt.dox \
-        @SDK_BASE@/drivers/mrt/fsl_mrt.h \
-        @SDK_BASE@/drivers/pint/doxygen/pint.dox \
-        @SDK_BASE@/drivers/pint/fsl_pint.h \
-        @SDK_BASE@/drivers/sctimer/doxygen/sctimer.dox \
-        @SDK_BASE@/drivers/sctimer/fsl_sctimer.h \
-        @SDK_BASE@/drivers/swm/doxygen/swm.dox \
-        @SDK_BASE@/drivers/swm/fsl_swm.h \
-        @SDK_BASE@/drivers/syscon/doxygen/syscon.dox \
-        @SDK_BASE@/drivers/syscon/fsl_syscon.h \
-        @SDK_BASE@/drivers/wkt/doxygen/wkt.dox \
-        @SDK_BASE@/drivers/wkt/fsl_wkt.h \
-        @SDK_BASE@/drivers/wwdt/doxygen/wwdt.dox \
-        @SDK_BASE@/drivers/wwdt/fsl_wwdt.h
+INPUT = 
 
 # If the value of the INPUT tag contains directories, you can use the
 # FILE_PATTERNS tag to specify one or more wildcard patterns (like *.cpp and
@@ -894,29 +840,7 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/devices/LPC/LPC800/LPC865/drivers/doxygen \
-             @SDK_BASE@/drivers/common/doxygen \
-             @SDK_BASE@/drivers/ctimer/doxygen \
-             @SDK_BASE@/drivers/ftm/doxygen \
-             @SDK_BASE@/drivers/i3c/doxygen \
-             @SDK_BASE@/drivers/iap/doxygen \
-             @SDK_BASE@/drivers/inputmux/doxygen \
-             @SDK_BASE@/drivers/lpc_acomp/doxygen \
-             @SDK_BASE@/drivers/lpc_adc/doxygen \
-             @SDK_BASE@/drivers/lpc_crc/doxygen \
-             @SDK_BASE@/drivers/lpc_dma/doxygen \
-             @SDK_BASE@/drivers/lpc_gpio/doxygen \
-             @SDK_BASE@/drivers/lpc_i2c/doxygen \
-             @SDK_BASE@/drivers/lpc_iocon_lite/doxygen \
-             @SDK_BASE@/drivers/lpc_minispi/doxygen \
-             @SDK_BASE@/drivers/lpc_miniusart/doxygen \
-             @SDK_BASE@/drivers/mrt/doxygen \
-             @SDK_BASE@/drivers/pint/doxygen \
-             @SDK_BASE@/drivers/sctimer/doxygen \
-             @SDK_BASE@/drivers/swm/doxygen \
-             @SDK_BASE@/drivers/syscon/doxygen \
-             @SDK_BASE@/drivers/wkt/doxygen \
-             @SDK_BASE@/drivers/wwdt/doxygen
+IMAGE_PATH = 
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -2090,6 +2014,15 @@ PREDEFINED = FSL_FEATURE_SOC_ACOMP_COUNT = 1 \
              FSL_FEATURE_I3C_HAS_NO_SCONFIG_BAMATCH = 0 \
              FSL_FEATURE_I3C_HAS_NO_SCONFIG_IDRAND = 1 \
              FSL_FEATURE_I3C_HAS_HDROK = 1 \
+             FSL_FEATURE_I3C_HAS_ERRATA_051617 = 0 \
+             FSL_FEATURE_I3C_HAS_NO_SLAVE_IBI_MR_HJ = 0 \
+             FSL_FEATURE_I3C_HAS_ERRATA_052086 = 0 \
+             FSL_FEATURE_I3C_HAS_ERRATA_052123 = 0 \
+             FSL_FEATURE_I3C_HAS_IBI_PAYLOAD_SIZE_OPTIONAL_BYTE = 0 \
+             FSL_FEATURE_I3C_HAS_START_SCL_DELAY = 0 \
+             FSL_FEATURE_I3C_HAS_NO_MASTER_DMA_WDATA_REG = 0 \
+             FSL_FEATURE_INPUTMUX_HAS_SIGNAL_ENA = 0 \
+             FSL_FEATURE_INPUTMUX_HAS_CHANNEL_MUX = 0 \
              FSL_FEATURE_INPUTMUX_HAS_NO_INPUTMUX_CLOCK_SOURCE = 1 \
              FSL_FEATURE_MRT_NUMBER_OF_CHANNELS = 4 \
              FSL_FEATURE_MRT_HAS_NO_MODCFG_MULTITASK = 1 \
@@ -2119,9 +2052,10 @@ PREDEFINED = FSL_FEATURE_SOC_ACOMP_COUNT = 1 \
              FSL_FEATURE_USART_HAS_ABERR_CHECK = 1 \
              FSL_FEATURE_USART_HAS_RXIDLETO_CHECK = 1 \
              FSL_FEATURE_WKT_HAS_CTRL_SEL_EXTCLK = 1 \
-             FSL_FEATURE_WWDT_HAS_NO_RESET = 1
-
-PREDEFINED += DOXYGEN_OUTPUT=1
+             FSL_FEATURE_WWDT_HAS_NO_OSCILLATOR_LOCK = 0 \
+             FSL_FEATURE_WWDT_HAS_NO_RESET = 1 \
+             FSL_FEATURE_WWDT_HAS_LPOSC_CLOCK_SOURCE = 0 \
+             FSL_FEATURE_WWDT_WDTRESET_FROM_PMC = 0
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The
