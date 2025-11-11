@@ -733,7 +733,38 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = 
+INPUT = @SDK_BASE@/devices/DSC/MC56F81xxx/MC56F81768/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/DSC/MC56F81xxx/MC56F81768/drivers/fsl_flash.h \
+        @SDK_BASE@/devices/DSC/MC56F81xxx/MC56F81768/drivers/fsl_sim.h \
+        @SDK_BASE@/drivers/common/doxygen/common.dox \
+        @SDK_BASE@/drivers/common/fsl_common.h \
+        @SDK_BASE@/drivers/common/fsl_common_dsc.h \
+        @SDK_BASE@/drivers/dsc_cadc/fsl_cadc.h \
+        @SDK_BASE@/drivers/dsc_cmp/fsl_cmp.h \
+        @SDK_BASE@/drivers/dsc_cop/fsl_cop.h \
+        @SDK_BASE@/drivers/dsc_crc/fsl_crc.h \
+        @SDK_BASE@/drivers/dsc_dac/fsl_dac.h \
+        @SDK_BASE@/drivers/dsc_dmamux/fsl_dmamux.h \
+        @SDK_BASE@/drivers/dsc_edma/fsl_edma.h \
+        @SDK_BASE@/drivers/dsc_evtg/fsl_evtg.h \
+        @SDK_BASE@/drivers/dsc_ewm/fsl_ewm.h \
+        @SDK_BASE@/drivers/dsc_gpio/fsl_gpio.h \
+        @SDK_BASE@/drivers/dsc_lpi2c/fsl_lpi2c_edma.h \
+        @SDK_BASE@/drivers/dsc_lpi2c/fsl_lpi2c.h \
+        @SDK_BASE@/drivers/dsc_mcm/fsl_mcm.h \
+        @SDK_BASE@/drivers/dsc_opamp/fsl_opamp.h \
+        @SDK_BASE@/drivers/dsc_opamp_1/fsl_opamp.h \
+        @SDK_BASE@/drivers/dsc_pit/fsl_pit.h \
+        @SDK_BASE@/drivers/dsc_pmc/fsl_pmc.h \
+        @SDK_BASE@/drivers/dsc_pwm/fsl_pwm.h \
+        @SDK_BASE@/drivers/dsc_qdc/fsl_qdc.h \
+        @SDK_BASE@/drivers/dsc_qtmr/fsl_qtmr.h \
+        @SDK_BASE@/drivers/dsc_xbara/fsl_xbara.h \
+        @SDK_BASE@/drivers/intc/fsl_intc.h \
+        @SDK_BASE@/drivers/qsci/fsl_qsci_edma.h \
+        @SDK_BASE@/drivers/qsci/fsl_qsci.h \
+        @SDK_BASE@/drivers/queued_spi/fsl_queued_spi_edma.h \
+        @SDK_BASE@/drivers/queued_spi/fsl_queued_spi.h
 
 # If the value of the INPUT tag contains directories, you can use the
 # FILE_PATTERNS tag to specify one or more wildcard patterns (like *.cpp and
@@ -840,7 +871,31 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = 
+IMAGE_PATH = @SDK_BASE@/devices/DSC/MC56F81xxx/MC56F81768/drivers/doxygen \
+             @SDK_BASE@/drivers/common/doxygen \
+             @SDK_BASE@/drivers/dsc_cadc/doxygen \
+             @SDK_BASE@/drivers/dsc_cmp/doxygen \
+             @SDK_BASE@/drivers/dsc_cop/doxygen \
+             @SDK_BASE@/drivers/dsc_crc/doxygen \
+             @SDK_BASE@/drivers/dsc_dac/doxygen \
+             @SDK_BASE@/drivers/dsc_dmamux/doxygen \
+             @SDK_BASE@/drivers/dsc_edma/doxygen \
+             @SDK_BASE@/drivers/dsc_evtg/doxygen \
+             @SDK_BASE@/drivers/dsc_ewm/doxygen \
+             @SDK_BASE@/drivers/dsc_gpio/doxygen \
+             @SDK_BASE@/drivers/dsc_lpi2c/doxygen \
+             @SDK_BASE@/drivers/dsc_mcm/doxygen \
+             @SDK_BASE@/drivers/dsc_opamp/doxygen \
+             @SDK_BASE@/drivers/dsc_opamp_1/doxygen \
+             @SDK_BASE@/drivers/dsc_pit/doxygen \
+             @SDK_BASE@/drivers/dsc_pmc/doxygen \
+             @SDK_BASE@/drivers/dsc_pwm/doxygen \
+             @SDK_BASE@/drivers/dsc_qdc/doxygen \
+             @SDK_BASE@/drivers/dsc_qtmr/doxygen \
+             @SDK_BASE@/drivers/dsc_xbara/doxygen \
+             @SDK_BASE@/drivers/intc/doxygen \
+             @SDK_BASE@/drivers/qsci/doxygen \
+             @SDK_BASE@/drivers/queued_spi/doxygen
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -1983,7 +2038,6 @@ PREDEFINED = FSL_FEATURE_SOC_CADC_COUNT = 1 \
              FSL_FEATURE_SOC_PIT_COUNT = 2 \
              FSL_FEATURE_SOC_PMC_COUNT = 1 \
              FSL_FEATURE_SOC_PWM_COUNT = 1 \
-             FSL_FEATURE_SOC_QDC_COUNT = 1 \
              FSL_FEATURE_SOC_QSCI_COUNT = 2 \
              FSL_FEATURE_SOC_QSPI_COUNT = 1 \
              FSL_FEATURE_SOC_SIM_COUNT = 1 \
@@ -2025,61 +2079,8 @@ PREDEFINED = FSL_FEATURE_SOC_CADC_COUNT = 1 \
              FSL_FEATURE_DMAMUX_HAS_TRIG = 0 \
              FSL_FEATURE_DMAMUX_HAS_A_ON = 0 \
              FSL_FEATURE_DMAMUX_CHCFG_REGISTER_WIDTH = 8 \
-             FSL_FEATURE_DMAMUX_CHANNEL_NEEDS_ENDIAN_CONVERT = 0 \
              FSL_FEATURE_EWM_HAS_CLOCK_SELECT = 1 \
              FSL_FEATURE_EWM_HAS_PRESCALER = 1 \
-             FSL_FEATURE_FTFA_TYPE = 1 \
-             FSL_FEATURE_FTFA_HAS_FLEX_RAM_FLAGS = 0 \
-             FSL_FEATURE_FTFA_HAS_PFLASH_SWAPPING_STATUS_FLAG = 0 \
-             FSL_FEATURE_FTFA_HAS_EEROM_REGION_PROTECTION = 0 \
-             FSL_FEATURE_FTFA_HAS_DATA_FLASH_REGION_PROTECTION = 0 \
-             FSL_FEATURE_FTFA_HAS_ACCESS_CONTROL = 0 \
-             FSL_FEATURE_FTFA_HAS_FMC_FLASH_CACHE_CONTROLS = 0 \
-             FSL_FEATURE_FTFA_HAS_MCM_FLASH_CACHE_CONTROLS = 1 \
-             FSL_FEATURE_FTFA_HAS_MSCM_FLASH_CACHE_CONTROLS = 0 \
-             FSL_FEATURE_FTFA_HAS_PREFETCH_SPECULATION_CONTROL_IN_FLASH = 0 \
-             FSL_FEATURE_FTFA_SIZE_ENCODING_RULE_VERSION = 0 \
-             FSL_FEATURE_FTFA_PFLASH_BLOCK_COUNT = 1 \
-             FSL_FEATURE_FTFA_PFLASH_BLOCK_SIZE = 131072 \
-             FSL_FEATURE_FTFA_PFLASH_BLOCK_SECTOR_SIZE = 1024 \
-             FSL_FEATURE_FTFA_PFLASH_BLOCK_WRITE_UNIT_SIZE = 4 \
-             FSL_FEATURE_FTFA_PFLASH_BLOCK_DATA_PATH_WIDTH = 8 \
-             FSL_FEATURE_FTFA_HAS_PFLASH_BLOCK_SWAP = 0 \
-             FSL_FEATURE_FTFA_PFLASH_PROTECTION_REGION_COUNT = 32 \
-             FSL_FEATURE_FTFA_HAS_FLEX_NVM = 0 \
-             FSL_FEATURE_FTFA_FLEX_NVM_BLOCK_COUNT = 0 \
-             FSL_FEATURE_FTFA_FLEX_NVM_BLOCK_SIZE = 0 \
-             FSL_FEATURE_FTFA_FLEX_NVM_BLOCK_SECTOR_SIZE = 0 \
-             FSL_FEATURE_FTFA_FLEX_NVM_BLOCK_WRITE_UNIT_SIZE = 0 \
-             FSL_FEATURE_FTFA_FLEX_BLOCK_DATA_PATH_WIDTH = 0 \
-             FSL_FEATURE_FTFA_HAS_FLEX_RAM = 0 \
-             FSL_FEATURE_FTFA_FLEX_RAM_SIZE = 0 \
-             FSL_FEATURE_FTFA_HAS_READ_1S_BLOCK_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_READ_1S_SECTION_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_PROGRAM_CHECK_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_READ_RESOURCE_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_PROGRAM_LONGWORD_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_PROGRAM_PHRASE_CMD = 0 \
-             FSL_FEATURE_FTFA_HAS_ERASE_FLASH_BLOCK_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_ERASE_FLASH_SECTOR_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_PROGRAM_SECTION_CMD = 0 \
-             FSL_FEATURE_FTFA_HAS_READ_1S_ALL_BLOCKS_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_READ_ONCE_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_PROGRAM_ONCE_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_ERASE_ALL_BLOCKS_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_VERIFY_BACKDOOR_ACCESS_KEY_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_SWAP_CONTROL_CMD = 0 \
-             FSL_FEATURE_FTFA_HAS_ERASE_ALL_BLOCKS_UNSECURE_CMD = 0 \
-             FSL_FEATURE_FTFA_HAS_READ_1S_ALL_EXECUTE_ONLY_SEGMENTS_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_ERASE_ALL_EXECUTE_ONLY_SEGMENTS_CMD = 1 \
-             FSL_FEATURE_FTFA_HAS_PROGRAM_PARTITION_CMD = 0 \
-             FSL_FEATURE_FTFA_HAS_SET_FLEXRAM_FUNCTION_CMD = 0 \
-             FSL_FEATURE_FTFA_PFLASH_BLOCK_CMD_ADDRESS_ALIGMENT = 4 \
-             FSL_FEATURE_FTFA_PFLASH_SECTOR_CMD_ADDRESS_ALIGMENT = 8 \
-             FSL_FEATURE_FTFA_PFLASH_SECTION_CMD_ADDRESS_ALIGMENT = 8 \
-             FSL_FEATURE_FTFA_PFLASH_RESOURCE_CMD_ADDRESS_ALIGMENT = 4 \
-             FSL_FEATURE_FTFA_PFLASH_CHECK_CMD_ADDRESS_ALIGMENT = 4 \
-             FSL_FEATURE_FTFA_PFLASH_SWAP_CONTROL_CMD_ADDRESS_ALIGMENT = 0 \
              FSL_FEATURE_MCM_HAS_UBROMBAR_REGISTER = 1 \
              FSL_FEATURE_MCM_CFISR_HAS_CFEDL_BIT_FIELD = 1 \
              FSL_FEATURE_MCM_CPCR_HAS_FCCCLR_BIT_FIELD = 0 \
@@ -2161,6 +2162,8 @@ PREDEFINED = FSL_FEATURE_SOC_CADC_COUNT = 1 \
              FSL_FEATURE_SIM_HAS_NVMOPT3H_REGISTER = 0 \
              FSL_FEATURE_SIM_HAS_BOOT_MODE_OVERRIDE_REGISTER = 0 \
              FSL_FEATURE_XBARA_INTERRUPT_COUNT = 4
+
+PREDEFINED += DOXYGEN_OUTPUT=1
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The
