@@ -54,7 +54,7 @@ The following changes have been implemented compared to the previous SDK release
         -   [wireless_mcu] Reduced RPMSG buffer payload size from 496 to 270 bytes on KW43/KW47 platforms, saving 226 bytes per buffer (1808 bytes total with 4 buffers on each core). This optimization is possible as rpmsg-lite no longer requires buffer sizes to be powers of two.
         -   [configs] Introduced RL_ALLOW_CUSTOM_SHMEM_CONFIG flag in rpmsg_config.h to enable connectivity applications to use platform_set_static_shmem_config() and platform_get_custom_shmem_config().
       **Minor Changes**
-        -   [wireless_mcu] Added PLATFORM_InitRadio() API to configure forced enablement of various LDOs (XTAL, PLL, VCO, RXTXHF, RXTXLF, CAL) and update LDO trim values for kw47/mcxw72 platforms.
+        -   [wireless_mcu] Updated radio power management configuration with PLATFORM_InitRadio() API on kw47/mcxw72 platforms
         -   [DBG] Added NBU assert indication support to host with line/file info using debug structure.
         -   [DBG] Enhanced NBU debug framework with warning detection and notification capabilities. Extended NBUDBG_StateCheck() to monitor NBU warnings via PLATFORM_IsNbuWarningSet() with callback support for proactive warning monitoring.
         -   [Sensors] Added periodic temperature measurement support allowing app/host to request periodic temperature measurement.
