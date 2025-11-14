@@ -47,23 +47,21 @@
 
 ## Kconfig
 
-1. How the kconfig symbols(configurations) are handled and integrated into build?
+1. How are the Kconfig symbols(configurations) handled and integrated into the build?
 
-   1. All kconfig symbols will firstly been generated into .config with kconfig process lib. We do some updates on the kconfig process lib to meet our needs
+   1. All Kconfig symbols will first be generated into .config with Kconfig process lib. We do some updates on the Kconfig process lib to meet our needs
 
-   2. Symbols starting with `MCUX_` will be got by cmake and determine which components/drivers/project_segments to be included in.
+   2. Macro Symbols starting with `MCUX_` are used by cmake to determine which components/drivers/project_segments are included in a build.
 
-   3. Macro symbols will be generated into config header files
+   3. Macro Symbols are generated into config header files
 
-        3.1 In the kconfig menu, if the header is specified, like menu "freertos-kernel(FreeRTOSConfig.h)", the all symbols under this menu will be generated into FreeRTOSConfig.h
+        3.1 In the Kconfig menu, if the header is specified, like menu **freertos-kernel(FreeRTOSConfig.h)**, then all symbols under this menu are generated into *FreeRTOSConfig.h*
 
-        3.2 If there is no specified headers in the menu, then all systems be generated into mcux_config.h.
+        3.2 In the Kconfig menu, if there is no specified header, then all symbols are generated into *mcux_config.h*.
 
-        3.3 all generated config headers are generated and placed under the project root path, like boards/frdmk64f/demo_apps/hello_world. These headers are expected to be included
+        3.3 All generated config header files are placed under the project root path. (i.e. /boards/frdmk64f/demo_apps/hello_world) These header files are expected to be included in the sources/headers in advance.
 
-        ​    in the sources/headers in advance.
-
-        3.4 By default, kconfig will put CONFIG_ prefix in the macros, if you need it, then add "No prefix in generated macro" in the help, like
+        3.4 By default, Kconfig will add a CONFIG_ prefix to macros. If you need it, then add **No prefix in generated macro** in the help, like:
 
         ```bash
             if MCUX_COMPONENT_middleware.freertos-kernel
@@ -80,7 +78,7 @@
                         No prefix in generated macro
         ```
 
-2. For board device variant selection, kconfig files will provide default. We also expect in boards/`<board>`/prj.conf, developers can explicitly specify it, like
+2. Kconfig files provide the default board device variant selection. Developers can explicitly specify it in *prj.conf* found in **/boards/`<board>`/** , like
 
    ![board_select_device_part](./_doc/board_select_device_part.PNG)
 
