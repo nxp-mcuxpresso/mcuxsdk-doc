@@ -1,60 +1,67 @@
-# Walkthrough of the MCUXpresso SDK CMake Projects
-This section explains how to configure MCUXpresso for VS Code to build, run, and debug example applications. This guide uses the `hello_world` demo application as an example. However, these steps can be applied to any example application in the MCUXpresso SDK.
+# MCUXpresso SDK Projects with NXP CMake Format
+## User Guide / Walkthrough
 
-## Build an example application
+### 1. Introduction
+This section explains how to use MCUXpress Cmake extensions. How to add/remove and customize projects with NXP cmake format. This guide uses the `hello_world` demo application to demonstrate how use the cmake project format.
 
- This section assumes that the user has already obtained the SDK as outlined in [Get MCUXpresso SDK Repo](../gsd/installation.md#get-mcuxpresso-sdk-repo).
+### 2. Prerequisites
+- MCUXpresso SDK 25.09 or newer installed
+- MCUXpresso SDK developer (Installed with MCUXpresso Installer)
+- Basic understanding of CMake syntax
 
-To build an example application:
+> FIXME:
 
-1. Import the SDK into your workspace. Click **Import Repository** from the **QUICKSTART PANEL**.
-    
-    ![](images/mcuxvsc_import_repository.png "Import Repository")
-
-    **Note:** You can import the SDK in several ways. Refer to [MCUXpresso for VS Code Wiki](https://github.com/nxp-mcuxpresso/vscode-for-mcux/wiki/Working-with-MCUXpresso-SDK) for details.
-
-
-    Select **Local** if you've already obtained the SDK as seen in [Get MCUXpresso SDK Repo](../gsd/installation.md#get-mcuxpresso-sdk-repo). Select your location and click **Import**.
-
-    ![](images/mcuxvsc_import_repository_local.png "Import Local Repository")
-
-2. Click **Import Example from Repository** from the **QUICKSTART PANEL**.
-
-    ![](images/mcuxvsc_import_example.png "Import Example")
-
-    In the dropdown menu, select the MCUXpresso SDK, the Arm GNU Toolchain, your board, template, and application type. Click **Import**.
-
-    ![](images/mcuxvsc_import_example_import.png "Import Example")
-
-    **Note:** The MCUXpresso SDK projects can be imported as **Repository applications** or **Freestanding applications**. The difference between the two is the import location. Projects imported as Repository examples will be located inside the MCUXpresso SDK, whereas Freestanding examples can be imported to a user-defined location. Select between these by designating your selection in the **App type** dropdown menu. 
-
-3. VS Code will prompt you to confirm if the imported files are trusted. Click **Yes**.
-
-4. Navigate to the **PROJECTS** view. Find your project and click the **Build Project** icon.
-
-    ![](images/mcuxvsc_build_example.png "Build Example")
-
-    The integrated terminal will open at the bottom and will display the build output.
-
-    ![](images/mcuxvsc_build_output.png "Build Output")
+### 3. Understanding NXP CMake Format
+The NXP build system uses macros to simplify project configuration:
+- include(mcux_config) → Loads board and SDK settings
+- mcux_add_source(<file>) → Adds source files
+- mcux_add_include(<path>) → Adds include directories
+- mcux_add_component(<component>) → Adds SDK components (drivers, middleware)
 
 
-## Run an example application
+Directory Structure Example:
+boards/
+  └── <board_name>/
+       ├── demo_app/
+       │    ├── source/
+       │    │    └── main.c
+       │    └── CMakeLists.txt
+       └── CMakeLists.txt
+> END FIXME
 
-**Note:** for full details on MCUXpresso for VS Code debug probe support, see [MCUXpresso for VS Code Wiki](https://github.com/nxp-mcuxpresso/vscode-for-mcux/wiki/DebugK).
+### 4. Import a project and examine the CMakeLists.txt file 
+> Note: See [Run a demo using MCUXpresso for VS Code](run_a_demo_using_mcuxvsc.md) for project import walkthrough.
+- Steps:
+  - Import Hello_World for your device as a freestanding project
+  - Expand the project from the **PROJECTS** view
+  - Expand the **Project Files** directory
+  - Open the **CMakeLists.txt** file
+  ![project cmakelists](images/mcuxvsc_cmakelists_location_in_src_pane.png)
 
-1. Open the **Serial Monitor** from the VS Code's integrated terminal. Select the VCom Port for your device and set the baud rate to 115200.
+- This CMakeLists.txt file is what we will use to configure the project
+![CMakelists.txt file](images/mcuxvsc_cmakelists_file.png)
 
-    ![](images/mcuxvsc_run_example_serial_monitor.png "Serial Monitor")
 
-2. Navigate to the **PROJECTS** view and click the play button to initiate a debug session.
+### 5. Adding Source files to the project
+In this step, we will turn our Hello_World project into Hello_Blinky. We can do this by adding source files explicitly using the NXP CMake extension **mcux_add_source()**. For the completeness, we will create an include directory for header files and add those into the project.
 
-    ![](images/mcuxvsc_run_example.png "Start Debug Session")
+- Steps:
+    - Create a new source file. Name it blink.c
+        - Insert the following code snippet into blink.c
+        ```C
+        #include "fsl_gpio.h"
+        void blink_led(void) {
+        GPIO_PortToggle(GPIO, 1u << 5); // Example pin toggle
+        }
+        ```
+    - Create a header file blink in an include directory
+        - Insert
 
-    The debug session will begin. The debug controls are initially at the top.
 
-    ![](images/mcuxvsc_run_example_debug.png "Debug Session").
+### 6. Adding required drivers
 
-3. Click **Continue** on the debug controls to resume execution of the code. Observe the output on the **Serial Monitor**.
+### 7. Adding sompiler flags
 
-    ![](images/mcuxvsc_run_example_output.png "Example Output")
+### 7. Build and Verify
+
+### 8. References
