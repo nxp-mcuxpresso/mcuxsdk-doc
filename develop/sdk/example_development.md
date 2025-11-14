@@ -69,11 +69,11 @@ config HELLO_WORLD_EXAMPLE_MACRO
         "Hello world example macro"
 ```
 
-1. `rsource "../../../Kconfig.mcuxpresso"` must be added to load all device, board and other components Kconfigs.
+1. `rsource "../../../Kconfig.mcuxpresso"` must be added to load the Kconfigs for all device, board, and other components.
 2. Set `mainmenu` to give the GUI title
 3. Set the example specific configurations
 
-> The Kconfig process will take example specific Kconfig as entry point with priority. If not provided, then it will take the mcuxsdk/Kconfig.mcuxpresso instead.
+> The Kconfig process will take the example specific Kconfig as the highest priority entry point. If not provided, then it will take the mcuxsdk/Kconfig.mcuxpresso instead.
 
 ## prj.conf
 
@@ -151,7 +151,7 @@ MCUXpresso SDK supports both board examples and device examples. The board examp
 
 ### Repository Examples and Freestanding Examples
 
-In MCUXpresso SDK, based on example location we distinguish 2 example types: repository and freestanding examples.
+In MCUXpresso SDK, based on example location we distinguish 2 example types: repository and Freestanding examples.
 
 | Example Type | Example Location(where CMakeLists.txt is placed) |
 | ------------ | ---------------------------------------- |
@@ -160,7 +160,7 @@ In MCUXpresso SDK, based on example location we distinguish 2 example types: rep
 
 #### Repository Examples
 
-Most repository examples CMakelists.txts are located inside `mcuxsdk/examples/<example-category>/<example>` folder, like the hello_world CMakelists.txt is located in `mcuxsdk/examples/demo_apps/hello_world`.
+Most repository examples CMakelists.txts are located inside `mcuxsdk/examples/<example-category>/<example>` folder. For hello_world, the CMakelists.txt is located in `mcuxsdk/examples/demo_apps/hello_world`.
 
 ```
 sdk_next/
@@ -212,11 +212,11 @@ The following prj.conf files are included for configuration, if present:
 
 The deeper the prj.conf file is in the directory structure, the higher its priority.
 
-This hierarchical approach allows shared configuration for the same device, board, example category/example, and example board-specific part without duplication. It also enables customization for board examples. For instance, most boards use debug console lite by default. If your example for a specific board needs to use the full debug console, you can disable debug console lite and enable the full debug console in the example board-specific prj.conf.
+This hierarchical approach allows shared configurations for the same device, board, example category/example, and example board-specific part without duplication. It also enables customization for board examples. For instance, most boards use debug console lite by default. If your example for a specific board needs to use the full debug console, you can disable debug console lite and enable the full debug console in the example board-specific prj.conf.
 
 For device and board configuration, the build system determines prj.conf locations from the `-b` board argument.
 
-> The build system directly retrieves board and device folder names from board and device variable.cmake.
+> The build system directly retrieves board and device folder names from board and device **variable.cmake**.
 
 For example category/example prj.conf locations, the build system uses the example CMakeLists.txt root directory (e.g., `examples/demo_apps/hello_world`) from the command line. All search paths start with the keyword `examples`, such as `examples/demo_apps` and `examples/demo_apps/hello_world`.
 
@@ -246,7 +246,7 @@ middleware/<middleware>/examples
 
 #### Freestanding Examples
 
-Freestanding example points examples located outside MCUXpresso SDK repository. Here is a typical freestanding example layout:
+Freestanding example points examples located outside MCUXpresso SDK repository. Here is a typical Freestanding example layout:
 
 ```
 <home>/
@@ -263,11 +263,11 @@ Freestanding example points examples located outside MCUXpresso SDK repository. 
          └── main.c
 ```
 
-Freestanding examples share the same build and run way as repository examples. You can still use `west build` to work.
+Freestanding examples share the same build and run requirements as repository examples. They can still be built with `west build`.
 
 ##### Configuration
 
-All freestanding examples still share the default configuration of the target device, board and the full scope example configuration just as the repository example: The default prj.conf list is like:
+Freestanding examples adopt the default configuration specified in the *prj.conf* files at the device, board and full scope level. Similar to the example configuration for repository examples. The default list of prj.conf files is:
 
 ```
 1. devices/prj.conf
@@ -281,9 +281,9 @@ All freestanding examples still share the default configuration of the target de
 9. <example location>/prj.conf # The example itself configuration
 ```
 
-If `PROJECT_BOARD_PORT_PATH` is provided inside `project` macro, a freestanding example can additionally shares the same board hierarchical configuration, then its configuration is same as the repository example except itself part.
+If `PROJECT_BOARD_PORT_PATH` is provided inside `project` macro, a Freestanding example can share the same board hierarchical configuration as the repository examples, the only exception being its local kconfig settings.  
 
-The freestanding examples may don't need the default pin mux and hardware_init/app prj.conf setting, you can disable them in `<example location>/prj.conf`:
+For example. The Freestanding examples may don't need the default pin mux and hardware_init/app prj.conf setting, you can disable them in `<example location>/prj.conf`:
 
 ```
 CONFIG_MCUX_PRJSEG_module.board.pinmux_project_folder=n
@@ -294,11 +294,11 @@ CONFIG_MCUX_HAS_PRJSEG_module.board.pinmux_sel=n
 
 ##### Ways to Get MCUXpresso SDK Contents
 
-For freestanding example, there are 2 ways to get the MCUXpresso SDK contents.
+A Freestanding example has 2 ways to include the contents from the MCUXpresso SDK.
 
 ###### Explicitly include root CMakeLists.txt
 
-The CMakeLists.txt shall explicitly include mcux.cmake to get the NXP cmake extension and include the root CMakeLists.txt to get MCUXpresso SDK contents.
+The example *CMakeLists.txt* file *explicitly* includes **mcux.cmake**. This triggers the NXP cmake extension to include the root CMakeLists.txt that specifies the contents of the MCUXpresso SDK.
 
 ```cmake
 include(${SdkRootDirPath}/cmake/extension/mcux.cmake)
@@ -309,7 +309,7 @@ include(${SdkRootDirPath}/CMakeLists.txt)
 
 ###### Use McuxSDK CMake package
 
-Since the MCUXpresso SDK can be exported to be a standard CMake package, so you can directly use find_package(McuxSDK) way to get MCUXpresso SDK contents:
+The MCUXpresso SDK can be exported as a standard CMake package. The example can directly use **find_package(McuxSDK)** to get MCUXpresso SDK contents:
 
 ```cmake
 cmake_minimum_required(VERSION 3.30.0)
@@ -317,13 +317,13 @@ find_package(McuxSDK 25.12.00 EXACT REQUIRED)
 project(hello_world LANGUAGES C CXX ASM)
 ```
 
-Please refer [McuxSDK CMake Package](./integration.md#mcuxsdk-cmake-package) for details.
+Please reference [McuxSDK CMake Package](./integration.md#mcuxsdk-cmake-package) for details.
 
 #### Standalone Examples
 
-The build system provides a feature to collect and copy all the components and example self configurations and sources into an individual folder so that the example can build and run just with the stuff in the folder without depending on the mcuxsdk repository.
+The build system provides a feature to generate a Standalone Example.  It collects and copies all the components, example configurations, and source files into an individual folder. The example can build and run just with the stuff in the folder without depending on an MCUXpresso SDK (mcuxsdk) repository.
 
-With this feature, it could be very convenient to zip and share examples between developers.
+Standalone projects provide a convenient way to zip and share examples between developers.
 
 To build the standalone examples, an individual build system is provided in the location folder.
 
@@ -343,11 +343,11 @@ You can find IAR project is generated in build folder with all the sources. The 
 
 ![iar_standalone_project](../build_system/_doc/iar_standalone_project.png)
 
-**The standalone example feature supports repository examples and freestanding examples using the explicitly include root CMakeLists.txt. Freestanding examples using McuxSDK CMake package do not have standalone example feature.**
+**The standalone example feature supports repository examples and Freestanding examples using the explicitly include root CMakeLists.txt. Freestanding examples using McuxSDK CMake package do not have standalone example feature.**
 
 If your example already has generated build artifacts, you can directly type `west build -t standalone_project` to generate the standalone example.
 
-##### Standalone examples for sysbuild projects
+##### Standalone examples for SysBuild projects
 
 For SysBuild projects, you can generate standalone versions for all the projects managed by sysbuild by appending the options `--cmake-only -t standalone_project` to the west build command. The generated project files are located in `<build folder>/<project>/<toolchain>`.
 
@@ -361,7 +361,7 @@ Note:
 
 For SysBuild projects, the most common scenario involves the main project linking to or including libraries or binaries generated by sub-projects. 
 
-For IDE-based projects such as those developed with IAR or Keil, the output libraries or binaries are mandatorily generated within the project’s build directory. To align with the expected behavior of these IDEs, copying or generating output files to directories outside the project build folder is not supported. 
+For IDE-based projects such as those developed with IAR or Keil, the output libraries or binaries must be generated within the project’s build directory. To align with the expected behavior of these IDEs, copying or generating output files to directories outside the project build folder is not supported. 
 
 On the other hand, standalone projects require that all relevant files reside within the project directory structure. For paths located inside these directories, scripts can convert them into relative paths between projects. However, if a path points to a location outside the project directory, it cannot be translated in a consistent way across all standalone projects.
 
@@ -372,7 +372,7 @@ The object file secure_faults_trdc_s_CMSE_lib.o is generated in the parent direc
 
 ### Convert a Repository Example to a Freestanding Example
 
-If you find one repository example functions are similar to your example and want to copy it from SDK repository into your own workspace as a freestanding example to start the development, you can use `west export_app` command to do it. Take hello_world as an example:
+If you find one repository example functions are similar to your example and want to copy it from SDK repository into your own workspace as a Freestanding example to start the development, you can use `west export_app` command to do it. Take hello_world as an example:
 
 ```bash
 west export_app examples/demo_apps/hello_world -o <new workspace>/hello_world
@@ -381,19 +381,19 @@ west export_app examples/demo_apps/hello_world -o <new workspace>/hello_world
 Then you can get output like this:
 
 ```bash
-=== Successfully create the freestanding project, see <new workspace>/hello_world/CMakeLists.txt.
+=== Successfully create the Freestanding project, see <new workspace>/hello_world/CMakeLists.txt.
 === you can use following command to build it.
 west build -b <board_id> --toolchain armgcc -p always <new workspace>/hello_world -d <new workspace>/hello_world/build
 ```
 
 ```{note}
-`--build` parameter can tell the extension build the freestanding example after convertion. It only works with explicit `board` or `core_id`.
-
-`-Dcore_id=<core_id>` is needed for multicore board.
-When use `--build` parameter, `west export_app` extension accepts other parameters passed to `west build`. So you can use `west export_app -b <board_id> examples/demo_apps/hello_world -o <new workspace>/hello_world --build --toolchain armgcc --config release `.
+`--build` parameter makes the west export_app command to build the example after it is converted. It only works if the `board` or `core_id` are explicit arguments. (`-Dcore_id=<core_id>` is needed for multicore boards)  
+When the `--build` parameter is used, the `west export_app` extension accepts other parameters passed to `west build`. 
+Use case example:  
+ `west export_app -b <board_id> examples/demo_apps/hello_world -o <new workspace>/hello_world --build --toolchain armgcc --config release `
 ```
 
-For non-sysbuild example, all files will be generated to the output directory specified by `-o`. For sysbuild, it will keep the last parent folder name in repo.
+For a non-SysBuild example, all files are generated to the output directory specified by `-o`. For SysBuild examples, it will keep the name of the last parent folder in the repo.
 
 ```bash
 non-sysbuild example
@@ -412,7 +412,7 @@ sysbuild example
             ├── main.c
 ```
 
-Technically, the freestanding example generated by the above command can support any board.
+Technically, the Freestanding example generated by the above command can support any board.
 
 If you want to specify the target board, you can use `-b` argument like
 
@@ -427,12 +427,12 @@ west build -b evkbmimxrt1170 --toolchain armgcc -p always <new workspace>/hello_
 ```
 
 ```{note}
-For freestanding examples exported with explicit `board` or `core_id`, you can only build it with that `board` and`core_id`.
+For Freestanding examples exported with explicit `board` or `core_id`, you can only build it with that `board` and`core_id`.
 ```
 
 #### Copy board related files
 
-Sometimes the developer may also want to export board related files like pin_mux.c/.h, clock_config.c/.h, etc. Hence, the `export_app` extension provided an optional argument `--bf` to help developers got all board related files defined in `CONFIG_MCUX_PRJSEG_xxx`. Currently, it will scan all files in `examples` directory. With this argument, you can get a freestanding project like this:
+Sometimes the developer may also want to export board related files like pin_mux.c/.h, clock_config.c/.h, etc. Hence, the `export_app` extension provided an optional argument `--bf` to help developers got all board related files defined in `CONFIG_MCUX_PRJSEG_xxx`. Currently, it will scan all files in `examples` directory. With this argument, you can get a Freestanding project like this:
 
 ```bash
 output_dir/
@@ -451,10 +451,10 @@ output_dir/
 For sysbuild examples, `sysbuild.cmake` is also involved to get the list file or linked application.
 After copying all files, the paths in the list file will be updated to that in the output directory. It will also collected all example level `prj.conf` files and combine them into one.
 When the user specifies the `--bf` option, the extension invokes the CMake configuration phase to generate trace logs and produce a final `.config` file. It then analyzes the output to determine which project segments and files the build uses. The `--bf` option enables the extension to parse the `include` function within the example's CMakeLists.txt.
-Hence, to ensure a SDK repository example can be successfully exported to a freestanding exmaple, it have to comply with following rules:
+Hence, to ensure an SDK repository example can be successfully exported as a Freestanding example, it must comply with following rules:
 
 1. Record files with mcuxsdk provided cmake extensions [`mcux_add_source/mcux_add_include`](../build_system/Build_System.md#source-and-include).
-2. Explicitly add example common sources in the example's `CMakeLists.txt`. Do not add them in `reconfig.cmake` or another cmake file.
+2. Explicitly add common source files in the example's `CMakeLists.txt`. Do not add them in `reconfig.cmake` or another cmake file.
 3. Do not add board related files like pin mux and clock config in example's `CMakeLists.txt`.
 4. Do not record duplicated source files in `reconfig.cmake`.
 5. Do not record duplicated source files in `CMakelists.txt` and project segments used in the `prj.conf`.
@@ -521,7 +521,7 @@ hello_world_virtual_com:
             to: "include(${CMAKE_CURRENT_SOURCE_DIR}/reconfig.cmake OPTIONAL)"
 ```
 In this example, this will:
-- Copy the example's `reconfig.cmake` under the freestanding folder to be customized.
+- Copy the example's `reconfig.cmake` under the Freestanding folder to be customized.
 - Update the CMakeLists.txt to reflect the new path.
 
 #### Known Issues of Export_App
@@ -530,7 +530,7 @@ As mentioned in [How Export_App extension works](#how-export_app-extension-works
 
 ### Example with different build configurations
 
-An example may have different build configuration(usually for test), see [prj.conf](../sdk/example_development.md#prjconf). It is easy for developer to add different configurations in `example.yml`to make it be visiable to `list_project` and `build` extension.
+An example may have different build configuration(usually for test), see [prj.conf](../sdk/example_development.md#prjconf). It is easy for a developer to add different configurations in `example.yml`to make it visable to `list_project` and `build` extension.
 Here is an example:
 
 ```yaml
@@ -555,23 +555,25 @@ Currently, `custom_application` only support contents -> document -> extra_build
 
 ## Component Configuration in Project Construction and Build
 
-There are following ways to do component configuration in the project construction and build
+The following ways can be used to do component configuration in a project construction and build
 
 1. Use Kconfig to do configuration for the component set
 2. Use the prepared customized configuration header file for the component set in the example root
-3. Use the component default provided configuration header file
+3. Use the default provided configuration header file for the component in the component folder
 
    ```{note}
-   For a component, it must be defined in Kconfig, otherwise the component won't be involved into the build tree anyway, but it is not required that component Kconfig item must have concrete configurations. You can still put configurations like macro definitions in the header file.
+   For a component, it must be defined in Kconfig, otherwise the component won't be added into the build tree. It is not required that component Kconfig items must have concrete configurations. You can still add configurations by using macro definitions in the header file.
    ```
 
-To make the above ways coexist in a component set, a component set(especially middleware components) shall do the following steps:
+To make the above ways coexist in a component set, a component set(especially middleware components) shall follow these steps:
 
 1. Prepare a `config` component to hold the default configuration file for the component set. `config` component means the component files shall be marked with `CONFIG: TRUE`, and if the config file is a header file, the include path shall use `TARGET_FILES` to identify the file that corresponds to the path.  The `config` header file has lowest priority in the build system, if any same name header file is provided in the example root, then it won't be included. This `config` component shall be selected by the core component of the component set, then it can always be selected. So if the customized configuration is not provided for that component, the project can still build with default configuration provided by `config` component.
 2. Prepare a project segment in Kconfig file to hold all Kconfig configuration symbols for the component set. All the configuration symbols shall be set to be generated into a designated header file with the same name as component default configuration file.
 
-If you want to use Kconfig to do configuration, then the project segment shall be set to `y`. The generated configuration header name shall be set in Kconfig and be the same with component default configuration header file so that it will override the component default one. The project segment can depend on the core component of the component set so that it  can involve core component of the set.
-If you don't want to use Kconfig but want to directly provide a configuration header, then project segment should be set to `n`, the directly provided configuration header shall be put in the root of project.
+If you want to use Kconfig to do configuration, then the project segment should be set to `y`. The generated configuration header name must be set in Kconfig to be the same as the default component configuration header file. This overrides the component's default header file.  
+The project segment can depend on the core component of the component set.  
+
+If you don't want to use Kconfig but prefer to directly provide a configuration header, then the project segment should be set to `n`, the directly provided configuration header shall be put in the root of project.
 
 ## Create an Example
 
