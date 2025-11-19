@@ -41,18 +41,15 @@ RTOS
 
 Overview  
 
-<o>RELEASE NOTES </o>  
+<o>RELEASES </o>  
 
 The current TOC links to individual ReleaseNotes for every board.
 Content in these docs is DIFFERENT and/or COPIED from the main TOC.  Overview, MCUXpresso SDK, Dev Tools, Devices, Description of all sections/folders.  
 
 - **Device Support**  
-*Existing table lists along with boards*; Currently call them Development Systems?)  TABLE LINKS TO CHANGES PER BOARD/DEVICE  
-Silabs Includes: Key Features, API Changes, Bug Fixes, Chip Support
-
+*Existing table lists along with boards*; Currently call them Development Systems?)  
 - **Migration Guides**  
-What changed release-to-release 
-
+What changed release-to-release   
 - **Metrics**  
 *Coverity Static Analysis*
 
@@ -64,31 +61,21 @@ Suggest
 HOW DO YOU WANT TO RECEIVE SDK PACKAGE? WHAT ECOSYSTEM?  
 Have intro paragraph that differentiates the methods and contents. So the customer knows differences and benefits to their decision.
     - *IDE Import Wizard*  
-    Share ability to get SDK directly inside VS Code / Eclipse environment.  GitHub or Archive SDK package format 
+    Share ability to get SDK directly inside VS Code / Eclipse environment.   
     - *GitHub*  
     Encourage MCUXpresso Installer for Tool setup.  HIDE DIY list of instructions.  
     Have section on Custom Manifests to show how to clone manifest, modify yml, then use west init/update to install.
     - *SDK Builder*    
-    Provides Archive SDK Packages for MDK, IAR, IDE, ARMGCC
+    Archive Package for MDK, IAR, IDE, ARMGCC
 
 - **FIRST PROJECT**  
 HOW DO YOU BUILD YOUR FIRST PROJECT. START WITH HELLO WORLD or BLINKY.  
 Have option for all popular SDK use cases.
     - VS Code
-        - Repo exists from choice in prior section.
-        - Import Example from Repository
-        - Reference VS Code Documentation for FURTHER debug/features
     - MCUXpresso IDE
     - CLI
     - MDK
-        - Would show project from Archive SDK from SDK Builder
-        - Would show west export MDK GUI project from GitHub SDK 
     - IAR
-        - Would show project from Archive SDK from SDK Builder
-        - Would show west export IAR GUI project from GitHub SDK  
-
-- **UNINSTALL SDK**  
-Espressif includes this section to help customers clean system  
 
 <o>USER GUIDES</o>
 
@@ -97,7 +84,7 @@ Each User Guide will be a unique File that can be added/revised or removed witho
 
 - **CMAKE USER GUIDE**  
 HOW DOES MCUXPRESSO USE CMAKE. WALKTHROUGH USE CASE.  
-Outline how user might use CMAKE manually to modify project for custom use cases. What are the CMake files/folders? Where would user see/make changes. 
+Outline how user might use CMAKE manually to modify project for custom use cases.  
 
 - **KCONFIG USER GUIDE**  
 HOW DOES MCUXPRESSO USE KCONFIG. WALKTHROUGH USE CASE.  
@@ -109,8 +96,7 @@ Pepe working on this document.  On chip vs. external flash memory. What files ar
 
 - **MULTICORE PROJECT USER GUIDE**  
 HOW DO YOU BUILD MULTICORE PROJECT. DEBUG.  
-Have option for NXP Supported use cases. Not IAR and MDK.  
-[SysBuild?](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/releases_and_maturity/migration/migration_sysbuild.html)  
+Have option for NXP Supported use cases. Not IAR and MDK.
     - VS Code
     - MCUXpresso IDE
     - CLI
