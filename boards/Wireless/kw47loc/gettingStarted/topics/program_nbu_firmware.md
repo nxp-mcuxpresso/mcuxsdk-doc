@@ -12,12 +12,23 @@ To program the NBU software for the KW47, perform the following steps:
 
     ![](../images/nbu_check_com_port.png "Check the assigned COM port")
 
-3.  Open the [*04. Tools*](https://nxp1.sharepoint.com/:f:/r/teams/ext131/kw47/Documents/04.%20Tools?csf=1&web=1&e=NNX84h) folder that comes together with this document and go to the *script* folder. Locate the *KW47-LOC\_NBUProgram.cmd* and open it using any text editor. Replace all the references to **COMX** with the COM Port assigned to your KW47-LOC board. Save the changes applied to the script.
+3. Execute the following commands in order, replacing **COMX** with your actual COM port number (e.g., **COM3**):
 
-    **Note:** To run the script, place the *blhost.exe* and the *KW47-LOC\_NBUProgram.cmd* script in the same folder. Both scripts can be found in the [*04. Tools*](https://nxp1.sharepoint.com/:f:/r/teams/ext131/kw47/Documents/04.%20Tools?csf=1&web=1&e=NNX84h) folder。
+    Make sure the device has entered ISP mode properly. If the device did not enter in ISP mode, it cannot be programmed.
+    ```
+    blhost.exe -p COMX get-property 1
+    ```
 
-4.  Double click on the *KW47-LOC\_NBUProgram.cmd* script to program the NBU and load the FAT software. This script first executes a command to make sure the **KW47** has entered ISP mode properly. If the device did not enter in ISP mode, it cannot be programmed. The following examples show when the device did not enter in ISP \(left\) and when the device was programmed properly \(right\).
+    Erase NBU flash
+    ```
+    blhost.exe -p COMX flash-erase-all 2
+    ```
+
+    Program NBU binary into NBU flash
+    ```
+    blhost.exe -p COMX write-memory 0x48800000 kw47_nbu_ble_hosted.bin
+    ```
+
+    The following examples show when the device did not enter in ISP \(left\) and when the device was programmed properly \(right\).
 
     ![](../images/nbu_programmed.png "Load the FAT software")
-
-
