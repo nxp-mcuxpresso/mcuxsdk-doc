@@ -7,6 +7,7 @@
 #!/usr/bin/env python3
 """
 Script to build documentation for all boards and then the full documentation.
+Supports multiple doxygen modes coexisting in the same build.
 """
 
 import os
@@ -22,6 +23,7 @@ import concurrent.futures
 from concurrent.futures import ProcessPoolExecutor
 import multiprocessing
 from datetime import datetime
+import yaml
 
 logger = logging.getLogger(__name__)
 
@@ -38,15 +40,15 @@ def setup_logging(log_dir, board_name=None):
     
     # Create a new logger for this process
     process_logger = logging.getLogger(f"board_{board_name}" if board_name else "main")
-    process_logger.setLevel(logging.DEBUG)  # Set to DEBUG to capture all output
+    process_logger.setLevel(logging.DEBUG)
     
     # Remove any existing handlers
     for handler in process_logger.handlers[:]:
         process_logger.removeHandler(handler)
     
     # File handler
-    file_handler = logging.FileHandler(log_file,encoding="utf-8", errors="replace")
-    file_handler.setLevel(logging.DEBUG)  # Set to DEBUG to capture all output
+    file_handler = logging.FileHandler(log_file, encoding="utf-8", errors="replace")
+    file_handler.setLevel(logging.DEBUG)
     
     # Console handler
     console_handler = logging.StreamHandler()
@@ -64,7 +66,6 @@ def setup_logging(log_dir, board_name=None):
     return process_logger
 
 def parse_args():
-    #base_parser = MCUXDoc.add_parser(None)
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(description="Build documentation for all boards and full documentation")
     parser.add_argument("--build_html", action="store_true", help="Build HTML documentation for boards (default: PDF only)")
@@ -81,6 +82,16 @@ def find_all_boards(docs_dir):
                 boards.append(board_name)
     
     return sorted(boards)
+
+def get_optimal_worker_count(build_mode, low_memory=False):
+    """Calculate optimal number of workers based on build mode and memory constraints."""
+    cpu_count = multiprocessing.cpu_count()
+    
+    if low_memory:
+        # Low memory mode: very conservative
+        return max(1, int(cpu_count * 0.25))
+    else:
+        return max(1, int(cpu_count * 0.5))
 
 def backup_documentation(build_dir, assets_dir, board_target=None, doc_type="html"):
     """Backup generated documentation to assets directory."""
@@ -214,6 +225,10 @@ def process_board(args, board_target, build_dir, assets_dir):
     
     try:
         board_logger.info(f"Starting documentation build for board: {board_target}")
+        board_logger.info(f"Driver build mode: {args.build_mode}")
+        if args.low_memory:
+            board_logger.info("Low memory mode enabled")
+            
         board_build_dir = build_dir / "boards" / board_target
         
         # Ensure build directory exists and is clean
@@ -225,17 +240,25 @@ def process_board(args, board_target, build_dir, assets_dir):
         # Build PDF documentation
         board_logger.info(f"Building PDF documentation for {board_target}...")
         args.build_dir = str(board_build_dir).replace("\\", "/")
-        pdf_cmd = ["west", "doc", "--board", board_target, "pdf"] + mcux_doc.args_to_cmdline(args, ["board", "example_scope"])
+        
+        # Prepare command with build mode options
+        base_cmd = ["west", "doc", "--board", board_target]
+        if args.build_mode != 'original':
+            base_cmd.extend(["--build_mode", args.build_mode])
+        if args.low_memory:
+            base_cmd.append("--low_memory")
+            
+        pdf_cmd = base_cmd + ["pdf"] + mcux_doc.args_to_cmdline(args, ["board", "example_scope", "build_mode", "low_memory"])
         
         pdf_success = False
         html_success = "skipped"
         
         try:
-
             pdf_path = os.path.join(board_build_dir, 'latex', f'mcuxsdk-{board_target}.pdf')
             min_size_bytes = 1 * 1024 * 1024
             min_size_mb = 1
             max_retries = 3
+            
             for attempt in range(1, max_retries + 1):
                 # Run the command
                 board_logger.info(f"[Attempt {attempt}] Running PDF generation command: {' '.join(pdf_cmd)}")
@@ -248,7 +271,6 @@ def process_board(args, board_target, build_dir, assets_dir):
 
                 # Get file size
                 file_size = os.path.getsize(pdf_path)
-
                 board_logger.info(f"Generated PDF size: {file_size / (1024 * 1024):.2f} MB")
 
                 if file_size >= min_size_bytes:
@@ -258,7 +280,6 @@ def process_board(args, board_target, build_dir, assets_dir):
                     board_logger.warning(
                         f"PDF size ({file_size / 1024:.2f} KB) < {min_size_mb} MB. Retrying..."
                     )
-                    #time.sleep(2)  # Optional: wait before retrying
 
             board_logger.info(f"PDF documentation for {board_target} built successfully")
             pdf_success = True
@@ -266,6 +287,7 @@ def process_board(args, board_target, build_dir, assets_dir):
             # Backup PDF documentation
             if board_build_dir and assets_dir:
                 backup_documentation(board_build_dir, assets_dir, board_target, "pdf")
+                
         except subprocess.CalledProcessError as e:
             board_logger.error(f"Error building PDF documentation for {board_target}")
             board_logger.error(f"PDF build failed with exit code: {e.returncode}")
@@ -273,7 +295,7 @@ def process_board(args, board_target, build_dir, assets_dir):
         # Build HTML documentation only if --build_html is specified
         if args.build_html:
             board_logger.info(f"Building HTML documentation for {board_target}...")
-            html_cmd = ["west", "doc", "--board", board_target, "html"] + mcux_doc.args_to_cmdline(args, ["board"])
+            html_cmd = base_cmd + ["html"] + mcux_doc.args_to_cmdline(args, ["board", "build_mode", "low_memory"])
             
             try:
                 run_command_with_logging(board_logger, html_cmd)
@@ -295,7 +317,8 @@ def process_board(args, board_target, build_dir, assets_dir):
             board_target: {
                 "success": pdf_success and (html_success if args.build_html else True),
                 "pdf_success": pdf_success,
-                "html_success": html_success
+                "html_success": html_success,
+                "build_mode": args.build_mode
             }
         }
         board_logger.info(f"Build status for {board_target}: {status}")
@@ -306,7 +329,7 @@ def process_board(args, board_target, build_dir, assets_dir):
         board_logger.error(f"Error type: {type(e).__name__}")
         import traceback
         board_logger.error(f"Traceback: {traceback.format_exc()}")
-        return {board_target: {"success": False, "error": str(e), "error_type": type(e).__name__}}
+        return {board_target: {"success": False, "error": str(e), "error_type": type(e).__name__, "build_mode": args.build_mode}}
 
 def process_full_docs(args, build_dir, assets_dir):
     """Wrapper function for parallel processing of full documentation."""
@@ -316,24 +339,37 @@ def process_full_docs(args, build_dir, assets_dir):
     
     try:
         full_logger.info("Starting full documentation build")
+        full_logger.info(f"Driver build mode: {args.build_mode}")
+        full_logger.info("Note: Non-driver projects use their configured mode from user_config.yml")
+        if args.low_memory:
+            full_logger.info("Low memory mode enabled")
+            
         full_build_dir = build_dir / "full"
         args.build_dir = str(full_build_dir).replace("\\", "/")
         
         # Build HTML documentation with doxygen
         full_logger.info("Building full HTML documentation with doxygen...")
-        html_cmd = ["west", "doc", "html"] + mcux_doc.args_to_cmdline(args, ["board"])
+        
+        # Prepare command with build mode options
+        base_cmd = ["west", "doc"]
+        if args.build_mode != 'original':
+            base_cmd.extend(["--build_mode", args.build_mode])
+        if args.low_memory:
+            base_cmd.append("--low_memory")
+            
+        html_cmd = base_cmd + ["html"] + mcux_doc.args_to_cmdline(args, ["board", "build_mode", "low_memory"])
         
         try:
             run_command_with_logging(full_logger, html_cmd)
             full_logger.info("Full HTML documentation built successfully")
-            return {"full": True}
+            return {"full": {"success": True, "build_mode": args.build_mode}}
         except subprocess.CalledProcessError as e:
             full_logger.error("Error building full HTML documentation")
-            return {"full": False}
+            return {"full": {"success": False, "build_mode": args.build_mode}}
             
     except Exception as e:
         full_logger.error(f"Unexpected error processing full documentation: {e}")
-        return {"full": False}
+        return {"full": {"success": False, "error": str(e), "build_mode": args.build_mode}}
 
 def format_time(seconds):
     """Format time in seconds to a human-readable string."""
@@ -353,6 +389,7 @@ def print_status(status, logger):
         success = status.get('success', False)
         pdf_status = status.get('pdf_success', False)
         html_status = status.get('html_success', 'skipped')
+        build_mode = status.get('build_mode', 'unknown')
         
         if success:
             status_str = "[OK] Success"
@@ -364,7 +401,7 @@ def print_status(status, logger):
                   "[FAILED]" if html_status is False else \
                   "[SKIPPED]"
         
-        logger.info(f"Status: {status_str} (PDF: {pdf_str}, HTML: {html_str})")
+        logger.info(f"Status: {status_str} (PDF: {pdf_str}, HTML: {html_str}, Driver Mode: {build_mode})")
         if not success and 'error' in status:
             logger.error(f"Error: {status['error']}")
     else:
@@ -387,7 +424,12 @@ def main():
     log_dir = build_dir / "logs"
     main_logger = setup_logging(log_dir)
     main_logger.info("Starting documentation build process")
-    main_logger.info(f"Build mode: PDF{' + HTML' if args.build_html else ' only'}")
+    main_logger.info(f"Driver build mode: {args.build_mode}")
+    main_logger.info(f"Build type: PDF{' + HTML' if args.build_html else ' only'}")
+    main_logger.info("Note: Non-driver projects use their 'mode' setting from user_config.yml")
+    main_logger.info("Note: Multiple doxygen modes can coexist in the same build")
+    if args.low_memory:
+        main_logger.info("Low memory mode: Enabled")
     
     # Log system information at start
     main_logger.info(f"System information:")
@@ -408,9 +450,9 @@ def main():
     
     main_logger.info(f"Found {len(boards)} boards to build")
     
-    # Calculate optimal number of workers (use 50% of available CPU cores to reduce resource contention)
-    num_workers = max(1, int(multiprocessing.cpu_count() * 0.5)) + 1
-    main_logger.info(f"Using {num_workers} parallel workers")
+    # Calculate optimal number of workers based on build mode
+    num_workers = get_optimal_worker_count(args.build_mode, args.low_memory)
+    main_logger.info(f"Using {num_workers} parallel workers (optimized for {args.build_mode} mode)")
     
     # Build documentation for boards and full docs in parallel
     with ProcessPoolExecutor(max_workers=num_workers) as executor:
@@ -448,28 +490,36 @@ def main():
                 main_logger.error(f"Traceback: {traceback.format_exc()}")
                 if task_name.startswith("board_"):
                     board = task_name[6:]
-                    error_status = {"success": False, "error": str(e), "error_type": type(e).__name__}
+                    error_status = {"success": False, "error": str(e), "error_type": type(e).__name__, "build_mode": args.build_mode}
                     result_list.append({board: error_status})
                     failed_builds.append((board, error_status))
                 else:
-                    error_status = {"success": False, "error": str(e), "error_type": type(e).__name__}
+                    error_status = {"success": False, "error": str(e), "error_type": type(e).__name__, "build_mode": args.build_mode}
                     result_list.append({"full": error_status})
                     failed_builds.append(('full', error_status))
     
-    # move the assets folder to the _build folder
+    # Move the assets folder to the _build folder
     main_logger.info(f"Move assets from {assets_dir} to {build_dir}/full/html")
-    shutil.move(str(assets_dir), str(build_dir/'full'/'html'))
+    if assets_dir.exists() and (build_dir / 'full').exists():
+        shutil.move(str(assets_dir), str(build_dir/'full'/'html'))
 
-    main_logger.info(f"Move {build_dir}/full/html to {build_dir}/html")
-    shutil.move(str(build_dir/'full'/'html'), str(build_dir/'html'))
+        main_logger.info(f"Move {build_dir}/full/html to {build_dir}/html")
+        if (build_dir/'full'/'html').exists():
+            shutil.move(str(build_dir/'full'/'html'), str(build_dir/'html'))
     
     # Calculate and display build summary
     total_time = time.time() - start_time
     main_logger.info("\n" + "="*80)
     main_logger.info("Build Summary")
     main_logger.info("="*80)
+    main_logger.info(f"Driver build mode: {args.build_mode}")
+    main_logger.info(f"Non-driver projects: Use 'mode' from user_config.yml")
+    main_logger.info(f"Multiple modes coexist: Yes")
+    if args.low_memory:
+        main_logger.info("Low memory mode: Enabled")
     main_logger.info(f"Total build time: {format_time(total_time)}")
     main_logger.info(f"Total boards processed: {len(boards)}")
+    main_logger.info(f"Parallel workers used: {num_workers}")
     
     if failed_builds:
         main_logger.info(f"\nFailed Builds: {len(failed_builds)}")
@@ -478,6 +528,26 @@ def main():
             print_status(status, main_logger)
     else:
         main_logger.info("\nAll builds completed successfully!")
+    
+    # Build mode specific summary
+    main_logger.info(f"\n=== Build Mode Summary ===")
+    main_logger.info(f"Driver Projects Mode: {args.build_mode}")
+    if args.build_mode == 'html':
+        main_logger.info(f"- Driver doxygen HTML generated directly")
+        main_logger.info(f"- Driver API documentation: {build_dir}/html/api/")
+        main_logger.info(f"- Memory usage optimized for drivers")
+    elif args.build_mode == 'sphinx':
+        main_logger.info(f"- Separate Sphinx projects for each driver device")
+        main_logger.info(f"- Driver device projects: device_projects/")
+        main_logger.info(f"- Cross-references use intersphinx")
+    elif args.build_mode == 'original':
+        main_logger.info(f"- Using breathe for driver Doxygen XML integration")
+        main_logger.info(f"- Single Sphinx build process for drivers")
+    
+    main_logger.info(f"\nNon-Driver Projects:")
+    main_logger.info(f"- Each project uses its 'mode' setting from user_config.yml")
+    main_logger.info(f"- Can be 'breathe', 'html', or 'sphinx' independently")
+    main_logger.info(f"- All modes coexist in the same build")
     
     main_logger.info("\n" + "="*80)
     

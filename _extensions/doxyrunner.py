@@ -443,7 +443,7 @@ def doxygen_build(app: Sphinx) -> None:
 
 def setup(app: Sphinx) -> Dict[str, Any]:
     app.add_config_value("doxyrunner_doxygen", "doxygen", "env")
-    app.add_config_value("doxyrunner_doxydicts", None, "env")
+    app.add_config_value("doxyrunner_doxydicts", {}, "env")
     # app.add_config_value("doxyrunner_outdir", None, "env")
     app.add_config_value("doxyrunner_outdir_var", None, "env")
     app.add_config_value("doxyrunner_fmt", False, "env")

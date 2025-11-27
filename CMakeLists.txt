@@ -4,7 +4,6 @@ cmake_minimum_required(VERSION 3.20.0)
 project(Sdk-Doc LANGUAGES)
 set(MIN_WEST_VERSION 1.0.0)
 
-
 #-------------------------------------------------------------------------------
 # Options
 
@@ -14,9 +13,26 @@ set(LATEXMKOPTS "-halt-on-error -no-shell-escape" CACHE STRING "Default latexmk 
 set(DOC_TAG "development" CACHE STRING "Documentation tag, multiple tags are divided by comma")
 set(DOC_DEFINE "" CACHE STRING "Documentation scope")
 
+# Build mode options
+set(BUILD_MODE "original" CACHE STRING "Documentation build mode for driver projects: original, html, or sphinx")
+
 separate_arguments(SPHINXOPTS)
 separate_arguments(SPHINXOPTS_EXTRA)
 separate_arguments(LATEXMKOPTS)
+
+# Validate and set build mode
+set(VALID_BUILD_MODES "original" "html" "sphinx")
+if(NOT BUILD_MODE IN_LIST VALID_BUILD_MODES)
+    message(WARNING "Invalid BUILD_MODE: ${BUILD_MODE}. Using 'original' mode. Valid modes: ${VALID_BUILD_MODES}")
+    set(BUILD_MODE "original")
+endif()
+
+message(STATUS "Documentation build mode for drivers: ${BUILD_MODE}")
+message(STATUS "Note: Non-driver projects use their 'mode' setting from user_config.yml")
+message(STATUS "Note: PDF/LaTeX builds will use breathe mode for all projects")
+
+# Add build mode to Sphinx defines
+list(APPEND SPHINXOPTS_EXTRA "-D" "build_mode=${BUILD_MODE}")
 
 # Split the DOC_TAG into a list
 string(REPLACE "," ";" DOC_TAG_LIST "${DOC_TAG}")
@@ -34,7 +50,6 @@ foreach(DEFINE ${DOC_DEFINE_LIST})
   set(SPHINX_DOC_DEFINES "${SPHINX_DOC_DEFINES} -D ${DEFINE}")
 endforeach()
 
-
 # Add board_target parameter
 set(BOARD_TARGET "" CACHE STRING "Board target for building board-specific documentation")
 
@@ -46,9 +61,9 @@ endif()
 
 message(STATUS "Sphinx Documentation defines: ${SPHINX_DOC_DEFINES}")
 separate_arguments(SPHINX_DOC_DEFINES)
+
 #-------------------------------------------------------------------------------
 # Dependencies
-
 
 find_program(SPHINXBUILD sphinx-build)
 if(NOT SPHINXBUILD)
@@ -65,21 +80,19 @@ endif()
 # Environment & Paths
 
 set(SPHINX_ENV
-  # DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE}
   DOT_EXECUTABLE=${DOXYGEN_DOT_EXECUTABLE}
   DOCGEN_BRANCH=${DOCGEN_BRANCH}
   DOCGEN_REV=${DOCGEN_REV}
+  BUILD_MODE=${BUILD_MODE}
 )
 
 message(STATUS "Generation branch: ${DOCGEN_BRANCH}")
 message(STATUS "Generation revision: ${DOCGEN_REV}")
 
-# set(DOCS_CFG_DIR ${CMAKE_CURRENT_LIST_DIR})
 # Check if SPHINX_CONF_DIR is passed from command line
 if(DEFINED SPHINX_CONF_DIR)
   get_filename_component(SPHINX_CONF_DIR_ABS ${SPHINX_CONF_DIR} ABSOLUTE)
   set(DOCS_CFG_DIR ${SPHINX_CONF_DIR_ABS})
-  # set(DOCS_CFG_DIR ${SPHINX_CONF_DIR})
 else()
   # Default value if not provided
   set(DOCS_CFG_DIR ${CMAKE_CURRENT_LIST_DIR})
@@ -103,6 +116,10 @@ endif()
 
 file(MAKE_DIRECTORY ${DOCS_SRC_DIR})
 
+# Create build mode specific directories
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/api)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/device_projects)
+
 #-------------------------------------------------------------------------------
 # Functions
 
@@ -124,7 +141,6 @@ function(add_doc_target name)
 endfunction()
 
 #-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
 # html
 
 add_doc_target(
@@ -143,7 +159,7 @@ add_doc_target(
     ${DOCS_SRC_DIR}
     ${DOCS_HTML_DIR}
   USES_TERMINAL
-  COMMENT "Running Sphinx HTML build..."
+  COMMENT "Running Sphinx HTML build (driver mode: ${BUILD_MODE})..."
 )
 
 set_target_properties(
@@ -151,7 +167,6 @@ set_target_properties(
   PROPERTIES
     ADDITIONAL_CLEAN_FILES "${DOCS_SRC_DIR};${DOCS_HTML_DIR};${DOCS_DOCTREE_DIR}"
 )
-
 
 #-------------------------------------------------------------------------------
 # pdf
@@ -165,7 +180,6 @@ add_doc_target(
     -d ${DOCS_DOCTREE_DIR}
     -w ${DOCS_BUILD_DIR}/latex.log
     -D example_scope=${EXAMPLE_SCOPE}
-    # -t ${DOC_TAG}
     ${SPHINX_DOC_TAGS}
     ${SPHINX_DOC_DEFINES}
     -t svgconvert
@@ -174,7 +188,7 @@ add_doc_target(
     ${DOCS_SRC_DIR}
     ${DOCS_LATEX_DIR}
   USES_TERMINAL
-  COMMENT "Running Sphinx LaTeX build..."
+  COMMENT "Running Sphinx LaTeX build (all projects use breathe for PDF)..."
 )
 
 set_target_properties(
@@ -199,10 +213,31 @@ if(LATEX_PDFLATEX_FOUND AND LATEXMK)
     COMMAND ${CMAKE_COMMAND} -E env LATEXMKOPTS="${LATEXMKOPTS}"
     ${PDF_BUILD_COMMAND}
     WORKING_DIRECTORY ${DOCS_LATEX_DIR}
-    COMMENT "Building PDF file..."
+    COMMENT "Building PDF file (all projects use breathe)..."
     USES_TERMINAL
   )
 
   add_dependencies(pdf latex)
 endif()
 
+#-------------------------------------------------------------------------------
+# Clean targets for build mode specific directories
+
+add_custom_target(
+  clean-build-mode
+  COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_CURRENT_BINARY_DIR}/api
+  COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_CURRENT_BINARY_DIR}/device_projects
+  COMMENT "Cleaning build mode specific directories..."
+)
+
+# Add build mode info target
+add_custom_target(
+  build-mode-info
+  COMMAND ${CMAKE_COMMAND} -E echo "=== Build Mode Configuration ==="
+  COMMAND ${CMAKE_COMMAND} -E echo "Driver Build Mode: ${BUILD_MODE}"
+  COMMAND ${CMAKE_COMMAND} -E echo "Non-driver projects: Use 'mode' from user_config.yml"
+  COMMAND ${CMAKE_COMMAND} -E echo "PDF/LaTeX builds: All projects use breathe"
+  COMMAND ${CMAKE_COMMAND} -E echo "Multiple modes can coexist in same build"
+  COMMAND ${CMAKE_COMMAND} -E echo "==============================="
+  COMMENT "Displaying build mode information..."
+)
