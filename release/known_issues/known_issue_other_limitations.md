@@ -4,8 +4,6 @@
 
     -   Power down on application power domain.
 
--   A hardfault can be encountered when using fsl\_component\_mem\_manager\_light.c memory allocator and shutting down some unused RAM banks in low power. It is due to a wrong reinitialization of ECC RAM banks. To be sure not to reproduce the issue, `gPlatformShutdownEccRamInLowPower` should be set to 0.
-
 -   GenFSK `Connectivity_test` application is not operational with Low Power enabled.
 -   Serial manager is only supported on UART \(not I2C nor SPI\).
 -   The `--no-warn-rwx-segments` cannot been recognized on legacy MCUXpresso IDE versions.
@@ -17,6 +15,4 @@
     In IAR, the option is in **Runtime Checking** -\> **Debugger** -\> **CMSIS DAP** -\> **Interface** -\> **Interface speed**.
 
     In MCUXpresso IDE, the option is in **LinkServer Debugger** -\> **Advanced Settings** -\> **Wirespeed \(Hz\)**.
-
--   Low power reference design applications are not supported for the armgcc toolchain from zip archives. Please use MCUXpresso IDE or IAR toolchains for development using these applications.
 
