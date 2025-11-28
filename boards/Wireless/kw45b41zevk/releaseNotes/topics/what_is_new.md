@@ -23,24 +23,26 @@ The following changes have been implemented compared to the previous SDK release
 -   **Transceiver Drivers (XCVR)**
     -   Added API to control PA ramp type and duration.
 
--   **Connectivity framework (compared to 25.09.00 release)**
+-   **Connectivity framework**
 
       **Major Changes**
-        -   [configs] Introduced RL_ALLOW_CUSTOM_SHMEM_CONFIG flag in rpmsg_config.h to enable connectivity applications to use platform_set_static_shmem_config() and platform_get_custom_shmem_config().
+        -   [wireless_mcu][wireless_nbu] Replaced interrupt masking macros with static inline functions `PLATFORM_SetInterruptMask()` and `PLATFORM_ClearInterruptMask()` to ensure consistent BASEPRI value handling across all compilers. This addresses compiler-dependent behavior issues with the previous macro implementation.
+        -   [wireless_mcu] Added BASEPRI-based interrupt masking in `PLATFORM_RemoteActiveRel()` to allow high-priority IRQs while ensuring only IMU0 or thread context can call this function.
+        -   [wireless_mcu] Introduced `gPlatformUseHwParameter_d` compile flag to allow builds without HWParameter section. When undefined or set to 0, crystal trimming functions conditionally access HWParameters only when required.
       **Minor Changes**
-        -   [Sensors] Added periodic temperature measurement support allowing app/host to request periodic temperature measurement.
-        -   [Sensors] Added markdown documentation explaining periodic measurement functionality upon NBU requests.
-        -   [SecLib_RNG] Added documentation for asynchronous seed handling using RNG_NotifyReseedNeeded() and SecLib implementation flavors (Software, EdgeLock, PSA Crypto, MbedTLS).
-        -   [PSA] Simplified PSA configuration files and reduced imports/definitions for wireless MCU platforms.
-        -   [NVS] Enhanced debug capabilities by adding CONFIG_NVS_LOG_LEVEL and improved LOG macros to adapt to PRINTF limitations.
-        -   [wireless_mcu][wireless_nbu] Migrated TSTMR implementation to use SDK fsl_tstmr driver for better maintainability and consistency. This migration replaces custom TSTMR register definitions with official SDK driver APIs while maintaining existing PLATFORM_* API compatibility.
+        -   [wireless_mcu] Set RL_BUFFER_PAYLOAD_SIZE to word-aligned value as expected by rpmsg-lite.
+        -   [wireless_mcu] Added system-generated HCI vendor events capability for debug and diagnostic purposes.
+        -   [Platform] Simplified enablement of reset features via pin detection 
+            - Automatically selects `gUseResetByLvdForce_c` when `gAppForceLvdResetOnResetPinDet_d` is enabled.
+            - Automatically select `gUseResetByDeepPowerDown_c` when `gAppForceDeepPowerDownResetOnResetPinDet_d` is enabled.
+        -   [RNG] Replaced `gRngHasSecLibDependency_d` compilation switch with `gRngUseSecLib_d`.
       **Bug fixes**
-        -   [wireless_mcu] Fixed FRO32K as 32 kHz clock source with deferred OSC32K switching to improve initialization performance after warm reset.
-        -   [wireless_mcu] Added wait loop for NBU power domain readiness in PLATFORM_InitNbu() to prevent race conditions when accessing NBU power domain in applications without NBU images.
-        -   [wireless_mcu] Fixed external flash blank check procedure for LSPI external NOR Flash by correcting PLATFORM_ExternalFlashAreaIsBlank() to read from RAM buffer and perform erase pattern comparison in RAM with optimized 4-byte step loops.
-        -   [NVS] Removed mflash dependency from NVS external flash port and fixed internal flash blank check of unaligned flash data.
-        -   [SecLib_RNG][mbedtls] Enhanced ECDH context preservation across low-power transitions on KW45_MCXW71 and KW47_MCXW72 platforms using export/import APIs to ensure cryptographic context is retained when hardware accelerator loses internal memory during power-down mode.
-        -   [wireless_nbu] Fixed incorrect FRODIV values that were causing reduced peripheral clocks by updating PLATFORM_FroDiv[] mapping array to prevent over-division of flash APB and RF_CMC clocks.
-
-
-Details can be found in [CHANGELOG.md](/middleware/wireless/framework/CHANGELOG.md)
+        -   [wireless_mcu] Fixed race condition in `PLATFORM_RemoteActiveRel()` by adding verification loop to confirm NBU core execution before releasing power domain.
+        -   [wireless_mcu] Added instruction synchronization barrier (__ISB()) after interrupt re-enable in `PLATFORM_RemoteActiveRel()` to ensure pending interrupts execute between critical sections.
+        -   [wireless_mcu] Fixed external IO voltage isolation issue during low-power initialization - isolation is now cleared at init to ensure proper behavior.
+        -   [wireless_mcu] Replaced spin-wait loops with event-based synchronization in NBU communication APIs. Added mutex protection to `PLATFORM_NbuApiReq()` and `PLATFORM_GetNbuInfo()` to prevent race conditions and deadlocks when multiple tasks call these APIs concurrently.
+        -   [wireless_mcu] Fixed OSA bare metal event race condition in ICS where auto-clear event feature could cause tasks to become permanently stuck. Disabled auto-clear feature in bare metal builds and manually clear event flags after `OSA_EventWait()` returns successfully.
+        -   [NVM] Fixed `NvIdle()` to prevent looping for more operations than the queue size.
+        -   [NVS] Fixed blank check procedure to return false (non-blank) when checking a 0 length area.
+        -   [NVS] Made external and internal flash ports consistent.
+        -   [MISRA] Various MISRA compliance fixes in NVM, HWParameter, LowPower, SecLib, Platform modules and IFR offset definitions.

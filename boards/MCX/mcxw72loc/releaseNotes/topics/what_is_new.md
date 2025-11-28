@@ -26,52 +26,33 @@ The following changes have been implemented compared to the previous SDK release
     -   Added support for Bluetooth LE Channel Sounding.
     -   Added API to control PA ramp type and duration.
 
--   **Connectivity framework (compared to 25.06.00 release)**
+-   **Connectivity framework**
 
-    -   **Major Changes**
-        - [wireless_mcu] Replaced the ICS RX linked list with message queue to eliminate memory allocation in the ISR context and enable user callbacks to run in thread context where memory allocation is permitted.
-        - [wireless_mcu] Added HCI RX workqueue processing support to reduce ISR execution time and system impact. Feature controlled by `gPlatformHciUseWorkqueueRxProcessing_d` configuration option (enabled by default on kw45_k32w1_mcxw71 and kw47_mcxw72 platforms in freertos applications). When enabled, HCI transport processes received data in system workqueue thread, allowing user callbacks to run in thread context.
-        - [wireless_nbu] Introduced `PLATFORM_ConfigureSmuDmemMapping()` API to configure SMU and DMEM sharing on NBU for kw47_mcxw72 platform, using linker file symbols for correct configuration.
-        - [wireless_mcu][wireless_nbu] Added NBU2Host event manager for status indications to host (Information, Warning, Error) sent over RPMSG.
-        - [wireless_mcu] Added a call to `PLATFORM_IcsRxWorkHandler()` within `PLATFORM_NbuApiReq()` for baremetal applications to prevent potential deadlocks.
-        - [wireless_mcu] Adjusted default value of `BOARD_RADIO_DOMAIN_WAKE_UP_DELAY` from 0x16 to 0x10 to address stability issues observed with the previous setting. This change enhances system reliability but will reduce low-power performance.
-        - [wireless_nbu] Enhanced XTAL32M trimming handling: updates are applied when requested by the application core and the NBU enters low-power mode, ensuring no interference from ongoing radio activity. Introduced new APIs to lock (`PLATFORM_LockXtal32MTrim()`) and unlock XTAL32M (`PLATFORM_UnlockXtal32MTrim()`) trimming updates using a counter-based mechanism. Also added a reset API (`PLATFORM_ResetContext()`) for platform-specific variables (currently limited to the trimming lock).
-        - [wireless_mcu] Introduced a new API, `PLATFORM_SetLdoCoreNormalDriveVoltage()`, to enable support for NBU clock frequency at 64 MHz, as required by BLE channel sounding applications.
-        - [wireless_mcu][wireless_nbu] Increased delayLpoCycle default from 2 to 3 to address link layer instabilities in low-power NBU use cases. Adjusted `BOARD_RADIO_DOMAIN_WAKE_UP_DELAY` from 0x10 to 0x16 to balance power consumption and stability. ⚠️ NBU may malfunction if delayLpoCycle (or `BOARD_LL_32MHz_WAKEUP_ADVANCE_HSLOT`) is set to 2 while `BOARD_RADIO_DOMAIN_WAKE_UP_DELAY` is 0x16.
-
-    -   **Minor Changes (no impact on application)**
-        - [wireless_mcu] Fixed variable underflow issue in `PLATFORM_RemoteActiveRel()`.
-        - [SecLib_RNG] Fixed escaping local HashKeyBuffer address issue and added missing cast in `RNG_GetTrueRandomNumber()` function.
-        - [Common] Fixed heap memory manager return values and added missing include to fwk_freertos_utils.h.
-        - [rw61x] Prevented array out of bounds in `PLATFORM_RegisterRtcHandle()`.
-        - [FSCI] Fixed memory leak in FSCI module.
-        - [NVM] Enhanced debug facilitation by restricting variable scope, assigning return statuses to variables, and fixing display format in `NV_ShowFlashTable()`.
-        - [wireless_mcu] Added new chip revision A2.1 support in `PLATFORM_SendChipRevision()` API.
-        - [kw47_mcxw72] Implemented BLE BD address retrieval from IFR memory with fallback to OUI + RNG.
-        - [DBG] Added ThreadX support to fault handlers and reworked fault handler structure with dedicated RTOS files.
-        - [DBG][Common] Added NBU debug support on host side to detect faults and system errors, with debug info extraction capability (limited to MCXW72/KW47).
-        - [Common] Platform CMake rework and Kconfig renaming, removing unneeded checks and renaming PRJSEG platform Kconfigs to COMPONENT.
-        - [wireless_mcu] Cleaned CMakeLists.txt to avoid wrong inclusions of files and folders from incorrect platforms.
-        - [wireless_mcu][wireless_nbu] Added NBU2Host warning when 32MHz crystal is unready on low power exit.
-        - [wireless_mcu][ot] Introduced `gPlatformUseOuiFromIfr` to use OUI from IFR for the extended address (disabled by default). When enabled and IFR is not blank, copies first three bytes to OUI field of extended address, otherwise uses static OUI as fallback.
-        - [General] Removed useless warning about TSTMR_CLOCK_FREQUENCY_MHZ definition.
-        - [General] Updated framework license and SBOM for 25.09 RFP release.
-        - [wireless_mcu] Fixed unused variable warning when `gPlatformIcsUseWorkqueueRxProcessing_d` and `gPlatformHciUseWorkqueueRxProcessing_d`are disable
-        - [Common] Added MDK compatibility for the errno framework header.
-        - [OTA] Enabled calling `OTA_GetImgState()` prior to `OTA_Initialize()`.
-        - [wireless_mcu] Fixed `PLATFORM_IsExternalFlashSectorBlank()` to check the entire sector instead of just one page.
-        - [OTA] Removed `gUseInternalStorageLink_d` linker flag definition when external OTA storage is used.
-        - [wireless_mcu] Resolved counter wrap issue in `PLATFORM_GetDeltaTimeStamp()`.
-        - [kw47_mcxw72] Updated shared memory allocation for RPMsg adapter.
-        - [kw45_mcxw71][kw47_mcxw72] Moved RAM bank definitions from the connectivity framework to device-specific definitions.
-        - [WorkQ] Increased stack size when RNG use mbedtls port and coverage is enabled.
-        - [FSCI] Resolved an issue where messages remained unprocessed in the queue by ensuring `OSA_EventSet()` is triggered when pending messages are detected.
-        - [OTA] Fixed a bug in `OTA_PullImageChunk()` that prevented retrieval of data previously received via `OTA_PushImageChunk()` when still buffered in RAM during posted operations.
-        - [OTA] Various MISRA and coverity fixes.
-        - [SFC] Remove obsolete flag `gNbuJtagCapability`.
-        - [wireless_mcu] Introduced new API `PLATFORM_GetRadioIdleDuration32K()`. Deprecated `PLATFORM_CheckNextBleConnectivityActivity()` API.
-        - [DBG] Cleaned up fwk_fault_handler.c.
-
-
-Details can be found in [CHANGELOG.md](/middleware/wireless/framework/CHANGELOG.md)
+      **Major Changes**
+        -   [wireless_mcu][wireless_nbu] Replaced interrupt masking macros with static inline functions `PLATFORM_SetInterruptMask()` and `PLATFORM_ClearInterruptMask()` to ensure consistent BASEPRI value handling across all compilers. This addresses compiler-dependent behavior issues with the previous macro implementation.
+        -   [wireless_mcu] Added BASEPRI-based interrupt masking in `PLATFORM_RemoteActiveRel()` to allow high-priority IRQs while ensuring only IMU0 or thread context can call this function.
+        -   [wireless_mcu] Introduced `gPlatformUseHwParameter_d` compile flag to allow builds without HWParameter section. When undefined or set to 0, crystal trimming functions conditionally access HWParameters only when required.
+      **Minor Changes**
+        -   [kw47_mcxw72] Introduced platform-specific library for KW47/MCXW72 platforms.
+        -   [kw47_mcxw72] Removed SH_MEM_TOTAL_SIZE override as it is now automatically calculated to match rpmsg-lite configuration.
+        -   [wireless_mcu] Set RL_BUFFER_PAYLOAD_SIZE to word-aligned value as expected by rpmsg-lite.
+        -   [wireless_mcu] Added system-generated HCI vendor events capability for debug and diagnostic purposes.
+        -   [DBG] Added debug structure transmission over HCI vendor events with `NBUDBG_ConfigureHciVendorEvent()` API to enable/disable the feature.
+        -   [DBG] Added debug structure versioning and logging buffer address/size information to debug structure.
+        -   [DBG] Added stack overflow detection for armv8_m_mainline architecture.
+        -   [Platform] Simplified enablement of reset features via pin detection 
+            - Automatically selects `gUseResetByLvdForce_c` when `gAppForceLvdResetOnResetPinDet_d` is enabled.
+            - Automatically select `gUseResetByDeepPowerDown_c` when `gAppForceDeepPowerDownResetOnResetPinDet_d` is enabled.
+        -   [RNG] Replaced `gRngHasSecLibDependency_d` compilation switch with `gRngUseSecLib_d`.
+      **Bug fixes**
+        -   [wireless_mcu] Fixed race condition in `PLATFORM_RemoteActiveRel()` by adding verification loop to confirm NBU core execution before releasing power domain.
+        -   [wireless_mcu] Added instruction synchronization barrier (__ISB()) after interrupt re-enable in `PLATFORM_RemoteActiveRel()` to ensure pending interrupts execute between critical sections.
+        -   [wireless_mcu] Fixed external IO voltage isolation issue during low-power initialization - isolation is now cleared at init to ensure proper behavior.
+        -   [wireless_mcu] Replaced spin-wait loops with event-based synchronization in NBU communication APIs. Added mutex protection to `PLATFORM_NbuApiReq()` and `PLATFORM_GetNbuInfo()` to prevent race conditions and deadlocks when multiple tasks call these APIs concurrently.
+        -   [wireless_mcu] Fixed OSA bare metal event race condition in ICS where auto-clear event feature could cause tasks to become permanently stuck. Disabled auto-clear feature in bare metal builds and manually clear event flags after `OSA_EventWait()` returns successfully.
+        -   [NVM] Fixed `NvIdle()` to prevent looping for more operations than the queue size.
+        -   [NVS] Fixed blank check procedure to return false (non-blank) when checking a 0 length area.
+        -   [NVS] Made external and internal flash ports consistent.
+        -   [DBG] Fixed debug structure size and callback access issues - corrected memory placement overlap between reg_info and assert_info.
+        -   [MISRA] Various MISRA compliance fixes in NVM, HWParameter, LowPower, SecLib, Platform modules and IFR offset definitions.
 

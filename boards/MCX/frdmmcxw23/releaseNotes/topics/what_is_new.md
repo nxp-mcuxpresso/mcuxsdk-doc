@@ -33,15 +33,14 @@ The following changes have been implemented compared to the previous SDK release
         - **HCI transport** now uses the Connectivity Framework's PLATFORM API implementation
 
 - **Connectivity Framework**
-    - [Common] Added MDK compatibility for the errno framework header.
-    - [OTA] Corrected definition of `gEepromParams_WriteAlignment_c` flag for mcxw23
-    - [OTA] Enabled calling `OTA_GetImgState()` prior to `OTA_Initialize()`.
-    - [OTA] Removed `gUseInternalStorageLink_d` linker flag definition when external OTA storage is used.
-    - [mcxw23] Implemented missing `PLATFORM_OtaClearBootInterface()` API.
-    - [mcxw23] Refactored fwk_platform.c to separate BLE-specific logic into fwk_platform_ble.c.
-    - [mcxw23] Added support for OTA using external flash.
-    - [mcxw23] Introduced `PLATFORM_GetRadioIdleDuration32K()` to estimate time until next radio event.
-    - [mcxw23] Extended `CopyAndReboot()` to support external flash OTA.
-    - [mcxw23] Implement `PLATFORM_IsExternalFlashBusy()` API.
-    - [mcxw23] Implemented HCI interface using PLATFORM API as preliminary requirement for Zephyr enablement, introducing `PLATFORM_SendHciMessageAlt()` alternative API.
-    - [mcxw23] Added experimental SecLib PSA support with additional configuration for MBEDTLS_ECP_C and MBEDTLS_BIGNUM_C.
+
+      **Minor Changes**
+        -   [RNG] Replaced `gRngHasSecLibDependency_d` compilation switch with `gRngUseSecLib_d`.
+        -   [mcxw23] Defined `gRngIsrPrio_c` on the preprocessor to make it global and avoid redefinition warnings.
+        -   [mcxw23] Implemented `PLATFORM_ResetCrypto()` API called by RNG_reinit/SecLib_reinit.
+        -   [mcxw23] Added support of Timer Manager timestamp with OSTIMER.
+      **Bug fixes**
+        -   [NVM] Fixed `NvIdle()` to prevent looping for more operations than the queue size.
+        -   [NVS] Fixed blank check procedure to return false (non-blank) when checking a 0 length area.
+        -   [NVS] Made external and internal flash ports consistent.
+        -   [MISRA] Various MISRA compliance fixes in NVM, HWParameter, LowPower, SecLib, Platform modules and IFR offset definitions.
