@@ -18,11 +18,6 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
-```{include} /release/known_issues/dsp_rtp_demo_failure.md
-:heading-offset: 1
-```
-
-
 ```{include} /release/known_issues/cannot_add_sdk_components_into_freertos_projects.md
 :heading-offset: 1
 ```

@@ -1,7 +1,7 @@
 .. _multicore-xaf:
 
 Xtensa Audio Framework (XAF)
-#######################
+############################
 
 .. toctree::
    :maxdepth: 1

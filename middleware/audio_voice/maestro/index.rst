@@ -12,7 +12,6 @@ Maestro Audio Framework
    doxygen/CeiEncoder
    doxygen/maestro_playback
    doxygen/maestro_record
-   doxygen/maestro_sync
    doxygen/maestro_usb_mic
    doxygen/maestro_usb_speaker
    doxygen/supported_features

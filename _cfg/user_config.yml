@@ -231,6 +231,8 @@ modules:
       pattern: middleware/audio_voice/components/decoders/mp3/doc/*.md
     - root: .
       pattern: middleware/audio_voice/components/decoders/wav/doc/*.md
+    - root: .
+      pattern: middleware/audio_voice/components/zephyr/Kconfig
   mid_mbedtls3x:
     default: true
     external_contents:

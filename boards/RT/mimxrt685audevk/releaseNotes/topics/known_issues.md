@@ -15,10 +15,6 @@ This section lists the known issues, limitations, and/or workarounds.
 ```
 
 
-```{include} /release/known_issues/dsp_rtp_demo_failure.md
-:heading-offset: 1
-```
-
 ```{include} /release/known_issues/cmsis_pack_new_project_compile_failure.md
 :heading-offset: 1
 ```
