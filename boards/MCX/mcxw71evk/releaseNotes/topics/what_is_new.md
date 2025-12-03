@@ -1,23 +1,14 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.12.00-pvw1\).
+The following changes have been implemented compared to the previous SDK release version \(25.12.00-pvw2\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-    -   **Experimental Monitoring Advertisers** feature in Bluetooth LE Host
-    -   **Experimental Randomized RPA** feature in Bluetooth LE Host
-    -   Application defines for default connection and default advertising tx power
-
-    ### Improved
-    -   Miscellaneous applications updates
-    -   Central applications now wait for status of Encrypt procedure in case of bonded device
-    -   Documentation miscellaneous updates
-    -   Updated armgcc ld linker files to take gUseInternalStorageLink_d flag value into consideration
+	-   Monitoring Advertisers support in fsci_black_box and BleShell applications
 
     ### Fixed
-    -   Memory issue when setting scan response data would return an error status from the LL
-    -   Set advertises with the public address, overwritten by a previously used random address on receiving the Advertising Set Terminated event
+	-   Missing handler for Version2 of the Set RPA Timeout command
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

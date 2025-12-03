@@ -29,7 +29,7 @@ Main features supported:
 * Encrypted Advertising Data (EAD)
 * Monitoring Advertisers- Experimental feature
 * Randomized RPA- Experimental feature
-* Intrusion Detection System (IDS) - Experimental feature
+* Intrusion Detection System (IDS)
 
   
 

@@ -1,35 +1,21 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.12.00-pvw1\).
+The following changes have been implemented compared to the previous SDK release version \(25.12.00-pvw2\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-    -   Threshold for the invalid number of Anchor Monitor events received by the target anchor
-    -   **Experimental Monitoring Advertisers** feature in Bluetooth LE Host
-    -   **Experimental Randomized RPA** feature in Bluetooth LE Host
-    -   Application defines for default connection and default advertising tx power
+	-   IOT Channel Sounding Localization applications on GitHub repository
+	-   Monitoring Advertisers support in fsci_black_box and BleShell applications
+	-   Local average and remote average RSSI values to the CS measurement report
+	-   The "-Os" optimization flag to the ARMGCC release configuration for NCP applications
 
     ### Improved
-    -   Miscellaneous applications updates
-    -   Central applications now wait for status of Encrypt procedure in case of bonded device
-    -   Logging data on localization applications
-    -   NBU Low Power Mode enabled by default for Localization Applications
-    -   PCT rotation calibration added to localization apps
-    -   Configured CS Reflector to start the CS procedure with the tdm command and updated the documentation
-    -   Populated the optionalSubfeaturesSupported field correctly
-    -   Prevented CORE 0 from entering deep sleep while LCE is computing by setting the low power mode constraint to PWR_WFI during LCE computation and releasing it afterwards
-    -   Implemented in CCC_CS, Channel Sounding data transfer from the anchor to the device
-    -   Documentation miscellaneous updates
-    -   Updated armgcc ld linker files to take gUseInternalStorageLink_d flag value into consideration
+	-   Enabled low power support in loc_reader_host application
 
     ### Fixed
-    -   Memory issue when setting scan response data would return an error status from the LL
-    -   Set advertises with the public address, overwritten by a previously used random address on receiving the Advertising Set Terminated event
-
-    ### Changed
-    -   Updated memory configuration: replaced the extended heap area in the available SMU2 memory with a 24KB array in the data1
-    -   Removed redundant cached remote capabilities write on reflectors, as the initiator will always trigger a capabilities exchange and trying to write cached capabilities afterwards results in an HCI error
+	-   loc_reader_host application event set issue
+	-   Missing handler for Version2 of the Set RPA Timeout command
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
