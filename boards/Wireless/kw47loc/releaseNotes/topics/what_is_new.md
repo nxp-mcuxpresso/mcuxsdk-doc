@@ -5,15 +5,15 @@ The following changes have been implemented compared to the previous SDK release
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   CCC and IOT Channel Sounding Localization applications on GitHub repository
+	-   CCC and IoT Channel Sounding Localization applications on the GitHub repository
 	-   Local average and remote average RSSI values to the CS measurement report
-	-   The "-Os" optimization flag to the ARMGCC release configuration for NCP applications
+	-   The "-Os" optimization flag to the ARMGCC release configuration for the NCP applications
 
     ### Improved
-	-   Enabled low power support in loc_reader_host application
+	-   Enabled low power support in the 'loc_reader_host' application
 
     ### Fixed
-	-   loc_reader_host application event set issue
+	-   'loc_reader_host' application event set issue
 	-   Missing handler for Version2 of the Set RPA Timeout command
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.

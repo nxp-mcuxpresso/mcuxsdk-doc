@@ -5,7 +5,7 @@ The following changes have been implemented compared to the previous SDK release
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Monitoring Advertisers support in fsci_black_box and BleShell applications
+	-   'Monitoring Advertisers' support in the 'fsci_black_box' and 'ble_shell' applications
 
     ### Fixed
 	-   Missing handler for Version2 of the Set RPA Timeout command
