@@ -31,7 +31,7 @@ Main features supported:
 * Randomized RPA - Experimental feature
 * Intrusion Detection System (IDS)
 
-  **Note:** The CDE (Complex-domain Distance Estimation) algorithm is an experimental feature intended only for testing purposes. It is not maintained and must not be included in production environments.
+  **Note:** The CDE (Complex-domain Distance Estimation) algorithm is an experimental feature intended only for testing purposes. It is not maintained and must not be included in the production environments.
 
   
 
