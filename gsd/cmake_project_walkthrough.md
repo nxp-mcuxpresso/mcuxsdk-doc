@@ -9,25 +9,23 @@ This section explains how to use MCUXpress Cmake extensions. How to add/remove a
 - MCUXpresso SDK developer (Installed with MCUXpresso Installer)
 - Basic understanding of CMake syntax
 
-> FIXME:
-
 ### 3. Understanding NXP CMake Format
-The NXP build system uses macros to simplify project configuration:
-- include(mcux_config) → Loads board and SDK settings
-- mcux_add_source(<file>) → Adds source files
-- mcux_add_include(<path>) → Adds include directories
-- mcux_add_component(<component>) → Adds SDK components (drivers, middleware)
+NXP’s MCUXpresso SDK extends standard CMake with a few helper macros so you can focus on your application rather than wiring up every driver by hand. At a high level:
 
 
-Directory Structure Example:
-boards/
-  └── <board_name>/
-       ├── demo_app/
-       │    ├── source/
-       │    │    └── main.c
-       │    └── CMakeLists.txt
-       └── CMakeLists.txt
-> END FIXME
+**include()** — Brings in the SDK’s build environment and board/device data. This “assembly point” makes component definitions (drivers, middleware, board ports) available to the project without you listing them individually.
+
+
+**mcux_add_source()** — Adds your application source files to the build. Think of it as the convenient, SDK‑aware way to register *.c/*.cpp for your example.
+
+
+**mcux_add_include()** — Adds include directories for headers. Use it to expose your project’s include/ folder (and, when useful, selected SDK header paths).
+
+
+**mcux_add_component()** — Declares a dependency on an SDK component (e.g., a driver or middleware). In most SDK examples, components are enabled via configuration (Kconfig/prj.conf) and then pulled in automatically; this macro is available when you want to request a component explicitly from CMake.
+
+
+This small set of macros keeps the build files readable while the SDK’s configuration system decides which components are active for your chosen board and example.
 
 ### 4. Import a project and examine the CMakeLists.txt file 
 > Note: See [Run a demo using MCUXpresso for VS Code](run_a_demo_using_mcuxvsc.md) for project import walkthrough.
@@ -128,7 +126,7 @@ Navigate back into the MCUXpresso for VS Code extension. Find the project in you
 >Note: If you are following this guide for another project that already contains build artifacts or CMake cache, then right-click on the project and select **Pristine Build/Rebuild Project**
 
 
-### 7. Adding a Component from the SDK
+### 7. Working with SDK Components
 Adding components to a project can be done with kconfig. In this section of the CMake project user guide we cover how components are exposed to CMake. Refer to the kconfig user guide for a practical example on working with kconfig.
 
 Examples in the SDK contain the snippet:
