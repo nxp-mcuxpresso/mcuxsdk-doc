@@ -6,7 +6,7 @@ In this Guide, you will learn:
 - How to save unique Kconfig settings for an application
 - How to use Kconfig when adding a new SDK Component to an application
 
-#  Configuration using Kconfig
+##  Configuration using Kconfig
 The software used to build MCUXpresso SDK applications can be configured at build time to adapt for specific application and platform needs. Configuration is handled through **Kernel Config (Kconfig)**, which is the same configuration system used by the Linux kernel. The goal is to support configuration without having to change any source code.
 
 Configuration options (often called symbols) are defined in Kconfig files, which also specify dependencies between symbols that determine what configurations are valid.  Kconfig definitions and settings come from many sources in the MCUXpresso SDK tree, including:
@@ -33,7 +33,7 @@ Kconfigs can be defined as different types.  In this lab, we will explore 3 diff
 
 For MCUXpresso SDK application development, typically Kconfig options are set at the application level.  This guide will give some simple examples to get familiar with how Kconfigs are modified for applications.  These sections include modifying the *prj.conf* file, which is the Kconfig file at the application level.  And also show how new SDK components can be added to projects where they were not included.
 
-##  1. Changing a Kconfig symbol for an application
+###  1. Changing a Kconfig symbol for an application
 First we will import a MCUXpresso SDK sample application into VS Code, build it, explore the existing Kconfig symbols, and make a simple Kconfig change.  This section uses the *shell* application, and will modify the application Kconfig in the root of the imported project */demo_apps/shell/prj.conf*.
 
 1.	Open VS Code.  In the Quickstart Panel, click **Import Example from Repository**.  
@@ -189,7 +189,7 @@ Because the *.config* file is generated during the build, it is important to und
 
 This section showed how Kconfig can modify the operation of the application without changing source code.  
 
-##  2. *guiconfig* tool to explore Kconfig symbols 
+###  2. *guiconfig* tool to explore Kconfig symbols
 In this section, we will introduce a tool integrated with MCUXpresso SDK called *guiconfig*.  This interactive tool was created by the Zephyr project to help explore and configure Kconfig symbols.  NXP has included this tool to assist developers using Kconfig to configure the cmake projects in the SDK. *Guiconfig* can be helpful to search for Kconfig symbols, see the different options, understand the dependencies with other symbols, and find where the symbols are located in the source files.  
 
 MCUXpresso SDK offers two similar tools for this, the other is called *menuconfig*.  The difference is *menuconfig* is text-based for CLI, while *guiconfig* opens a new window and works with the mouse.  The MCUXpresso extension enables opening *guiconfig* for a project directly in VS Code.
@@ -258,7 +258,7 @@ VS Code needs some time to open the tool.  Then the *guiconfig* window will open
 
 ---
 
-##  3. Adding SDK Component to a Project using Kconfig
+###  3. Adding SDK Component to a Project using Kconfig
 A developer may want to add the functionality demonstrated in the Shell example to another project. This section illustrates how new components from the MCUXpresso SDK can be used in a project.
 
     **_NOTE:_** This example adds SDK components that leverage the same Peripheral and/or board configuration settings. A different use case would require the user to modify board settings using Config Tools to add and initialize new pins and peripherals.
@@ -482,7 +482,7 @@ Add these requirements to the **prj.conf** file in the workspace for the *gpio_l
 Now the Serial Monitor will display the newly added Shell terminal.  
 You may enter the same commands from the Shell example. However, now the valid use case is only for `led on 1` due to the simplified commands.
 
-# Additional Resources
+## Additional Resources
 -	[Configuration System Based on Kconfig](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Configuration_System.html#configuration-system-based-on-kconfig)
 -	[Kconfig interactive tools: guiconfig and menuconfig ](https://docs.MCUXpresso SDKproject.org/latest/build/kconfig/menuconfig.html)
 -	[MCUXpresso SDK Customized Kconfig Rules](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Configuration_System.html#mcuxpresso-sdk-customized-kconfig-rules)

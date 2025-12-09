@@ -33,43 +33,41 @@ SBOM file with license information. We provide a west extension `sbom_merge` to 
    :maxdepth: 1
    :caption: Introduction
 
-   MCUXPresso SDK <introduction/README.md>
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Getting Started
-
-   GitHub Repository SDK <gsd/repo>
-   SDK Package <gsd/package>
-
-.. toctree::
-   :maxdepth: 1
-   :caption: User Guide
-
-   Drivers <drivers/index.rst>
-   Examples <examples/index.rst>
-   Middleware <middleware/index>
-   RTOS <rtos/index>
-   Boards <boards/index>
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Development
-
-   develop/architect.md
-   develop/build_system/index
-   develop/sdk/index
+   Overview <introduction/README.md>
 
 .. toctree::
    :maxdepth: 1
    :caption: Releases
 
-   release/index
+   Device Support <boards/index>
+   Release Notes <release/index>
+   Migration Guides <release/migration_guides>
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contribution
+   :caption: GETTING STARTED
 
-   contribute/index
+   Install SDK <gsd/install/index>
+   First Build <gsd/first.rst>
+   Uninstall SDK <gsd/install/uninstall>
+
+.. toctree::
+   :maxdepth: 1
+   :caption: User Guide
+
+   Cmake User Guide <gsd/cmake_project_walkthrough.md>
+   Kconfig User Guide <gsd/using_kconfig.md>
+   Memory Management User Guide <gsd/memory_configuration.md>
+
+.. toctree::
+   :maxdepth: 2
+   :caption: SDK REFERENCES
+
+   Drivers <drivers/index.rst>
+   Examples <examples/index.rst>
+   Middleware <middleware/index>
+   RTOS <rtos/index>
+   develop/build_system/index
+   develop/sdk/index
 
 .. todolist::

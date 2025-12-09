@@ -12,13 +12,13 @@ Starting with version **25.12.00**, the KEX package—a pre-built SDK distributi
 ## Migration Steps
 Below are the steps to build and run an example application in VS Code:
 
-# Using SDK Release 25.12.00
+### Using SDK Release 25.12.00
 This guide will focus on those who use the repository ZIP package with ARMGCC toolchain in VS Code or command-line environments.
 
-##  Installing the SDK Repository
+####  Installing the SDK Repository
 
  There are two ways to obtain the SDK repository:
- ### Option 1: Download from SDK Builder
+ ##### Option 1: Download from SDK Builder
  1. Navigate to [NXP's SDK Builder](https://mcuxpresso.nxp.com/en/builder)
  ![alt text](image.png)
  2. Select your board
@@ -31,7 +31,7 @@ This guide will focus on those who use the repository ZIP package with ARMGCC to
  ![alt text](image-4.png)
 To import into VS Code skip to section [Importing the Repository](#importing-the-repository).
 
- ## Option 2: Clone from GitHub through VS Code
+ ##### Option 2: Clone from GitHub through VS Code
  1. Open VS Code and click on the MCUXpresso icon in the Activity Bar to open the MCUXpresso panel.
  ![alt text](image-5.png)
  2. Click **Import Repository** and select the **Remote Archive** tab.
@@ -39,7 +39,7 @@ To import into VS Code skip to section [Importing the Repository](#importing-the
  3. Select the repository ZIP package you wish to clone and follow the prompts to complete the import process.
  ![alt text](image-7.png)
 
-## Importing the Repository
+#### Importing the Repository
 
 If you have obtained the package from the SDK Builder, follow these steps to import it into VS Code:
 1. Open VS Code and click on the MCUXpresso icon in the Activity Bar to open the MCUXpresso panel.
@@ -49,7 +49,7 @@ If you have obtained the package from the SDK Builder, follow these steps to imp
 3. Navigate to the extracted SDK repository folder and select it to complete the import process.
 ![alt text](image-8.png)
 
-## Importing an example
+#### Importing an example
 When your workspace is completely empty you will see that under 'Projects' there will be two options to import an example. If your workspace is not empty, then use the QuickStart panel to import an example.
 This guide will focus on importing an example from the repository retrieved previously.
 
@@ -63,7 +63,7 @@ This guide will focus on importing an example from the repository retrieved prev
 6. Next select the toolchain of choice, i.e. as ARM GNU Toolchain.
 7. Click **Import** to complete the import process.
 
-## Run an example application
+#### Run an example application
 
 **Note:** for full details on MCUXpresso for VS Code debug probe support, see [MCUXpresso for VS Code Wiki](https://github.com/nxp-mcuxpresso/vscode-for-mcux/wiki/DebugK).
 
@@ -75,7 +75,7 @@ This guide will focus on importing an example from the repository retrieved prev
 3. Click **Continue** on the debug controls to resume execution of the code. Observe the output on the **Serial Monitor**.
 ![alt text](image-13.png)
 
-## Exploring the Project Structure
+#### Exploring the Project Structure
 Once you have successfully imported an example, you can explore the project structure in the **File Explorer** view. The project follows a standard CMake-based layout that is consistent across all MCUXpresso SDK releases. The structure of the workspace follows a standardized layout. To get started, refer to [SDK Project Layout](../gsd/explore_sdk.md) for a detailed breakdown of the project hierarchy.
 
 
