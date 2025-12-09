@@ -423,6 +423,13 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_BLE_HOST
       outdir: middleware/wireless/bluetooth/doc
+  mid_genfsk:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: middleware/wireless.rst
+    - root: .
+      pattern: middleware/wireless/genfsk/docs/*
   mid_wifi_bluetooth_802.15.4:
     default: true
     external_contents:
