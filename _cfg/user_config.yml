@@ -45,6 +45,11 @@ doxygen:
   - breathe
   - doxyrunner
 modules:
+  boards:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/*
   mid_vglite:
     default: true
     external_contents:
