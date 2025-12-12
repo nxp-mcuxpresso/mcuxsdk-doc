@@ -5,7 +5,7 @@
 |Wireless connectivity component|Version|
 |--|--|
 |`middleware/​wireless/​bluetooth`|`1.10.3`|
-|`middleware/​wireless/​ble_​controller`|`1.9.28.0`|
+|`middleware/​wireless/​ble_​controller`|`1.9.29.0`|
 |`middleware/wireless/ieee-802.15.4`|`1.0.21b`|
 |`middleware/​wireless/​xcvr`|`​2.​1.4`|
 |`middleware/​wireless/​genfsk`|`4.0.22`|
