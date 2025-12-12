@@ -1,4 +1,4 @@
-# Users Guide: How Kconfig to use in MCUXpresso SDK Projects
+# Users Guide: How to use Kconfig with MCUXpresso SDK Projects
 In this Guide, you will learn:
 - How to verify Kconfig settings for an MCUXpresso SDK application
 - How to change a reference value in an application using Kconfig symbols
