@@ -19,89 +19,64 @@ This guide will focus on those who use the repository ZIP package with ARMGCC to
 
  There are two ways to obtain the SDK repository:
  ### Option 1: Download from SDK Builder
- 1. Navigate to [NXP SDK Builder](https://mcuxpresso.nxp.com/en/builder)
- 2. Select your board and desired components
- 3. Choose **Repository ZIP /  ARM GCC** package format (not KEX)
- 4. Download the ZIP file and extract it to your desired location
+ 1. Navigate to [NXP's SDK Builder](https://mcuxpresso.nxp.com/en/builder)
+ ![alt text](image.png)
+ 2. Select your board
+ ![alt text](image-1.png)
+ 3. Choose **ARM GCC / VS Code** package format (not KEX)
+ ![alt text](image-2.png)
+ 4. Select Build SDK
+ ![alt text](image-3.png)
+ 5. Download the ZIP file and extract it to your desired location
+ ![alt text](image-4.png)
+To import into VS Code skip to section [Importing the Repository](#importing-the-repository).
+
  ## Option 2: Clone from GitHub through VS Code
- 1. Open VS Code and install the **MCUXpresso for VS Code** extension from the VS Code Marketplace.
- 2. Click on the MCUXpresso icon in the Activity Bar to open the MCUXpresso panel.
- 3. Click **Import Repository** and select the **Remote Archive** tab.
- 4. Select the repository ZIP package you wish to clone and follow the prompts to complete the import process.
- 
+ 1. Open VS Code and click on the MCUXpresso icon in the Activity Bar to open the MCUXpresso panel.
+ ![alt text](image-5.png)
+ 2. Click **Import Repository** and select the **Remote Archive** tab.
+![alt text](image-6.png)
+ 3. Select the repository ZIP package you wish to clone and follow the prompts to complete the import process.
+ ![alt text](image-7.png)
+
 ## Importing the Repository
 
-If you have obtained the package from the SDK Builder or GitHub, follow these steps to import it into VS Code:
-1. Open VS Code and install the **MCUXpresso for VS Code** extension from the VS Code Marketplace.
-2. Click on the MCUXpresso icon in the Activity Bar to open the MCUXpresso panel.
-3. Click  **Import Repository** and select the **Local Arcive** tab.
-4. Navigate to the extracted SDK repository folder and select it to complete the import process.
+If you have obtained the package from the SDK Builder, follow these steps to import it into VS Code:
+1. Open VS Code and click on the MCUXpresso icon in the Activity Bar to open the MCUXpresso panel.
+ ![alt text](image-5.png)
+2. Click  **Import Repository** and select the **Local Arcive** tab.
+![alt text](image-6.png)
+3. Navigate to the extracted SDK repository folder and select it to complete the import process.
+![alt text](image-8.png)
 
 ## Importing an example
 When your workspace is completely empty you will see that under 'Projects' there will be two options to import an example. If your workspace is not empty, then use the QuickStart panel to import an example.
 This guide will focus on importing an example from the repository retrieved previously.
 
-1. Click on **Import Example from Repository** in the **PROJECTS** view.
+1. Click on **Import Example from Repository** in the **Quickstart Panel** view.
+![alt text](image-9.png)
 2. Select the repository you previously imported from the dropdown list.
-3. Next select the toolchain of choice, i.e. as ARM GNU Toolchain.
-4. Select the board and example application you wish to import.
-5. You will need to select the APP type, i.e. freestanding or repository application.
-6. Set the name and location of the project. 
+![alt text](image-10.png)
+3. Select the board 
+4. Choose the example application you wish to import.
+5. You will need to select the APP type, i.e. freestanding, standalone or repository application, the name and location of the project.
+6. Next select the toolchain of choice, i.e. as ARM GNU Toolchain.
 7. Click **Import** to complete the import process.
 
 ## Run an example application
 
 **Note:** for full details on MCUXpresso for VS Code debug probe support, see [MCUXpresso for VS Code Wiki](https://github.com/nxp-mcuxpresso/vscode-for-mcux/wiki/DebugK).
 
-1. Open the **Serial Monitor** from the VS Code's integrated terminal. Select the VCom Port for your device and set the baud rate to 115200.
-
+1. Open the **Serial Monitor** from the VS Code's integrated terminal. Select the VCom Port for your device and set the baud rate to 115200 and press **Start Monitoring**.
+![alt text](image-11.png)
 2. Navigate to the **PROJECTS** view and click the play button to initiate a debug session.
     The debug session will begin. The debug controls are initially at the top.
-
+![alt text](image-12.png)
 3. Click **Continue** on the debug controls to resume execution of the code. Observe the output on the **Serial Monitor**.
+![alt text](image-13.png)
 
 ## Exploring the Project Structure
-Once you have successfully imported an example, you can explore the project structure in the **File Explorer** view. The project follows a standard CMake-based layout that is consistent across all MCUXpresso SDK releases.
-
-**Sample Structure:**
-
-This ensures consistency across MCUXpresso IDE, VS Code, and GitHub workflows.
-
-### Key Differences
-| Aspect                  | Old SDK Structure           | New GitHub Structure           |
-|-------------------------|----------------------------|--------------------------------|
-| Build System             | ARM GCC (basic)           | ARM GCC + CMake + Kconfig     |
-| Folder Organization    | Custom, IDE-centric       | Unified GitHub layout         |
-| Config Management      | Manual                    | Kconfig-driven                |
-
-
-**Action for Users:** If you previously used the old CMake folder structure, refer to this section to adapt to the new GitHub ARM GCC layout.
-
-```
-TODO:EDIT this according to your specific project layout
-- **Fundamental changes to SDK organization**, such as folder renaming and file relocation.
-- Differences between the **old CMake folder structure** and the **new GitHub ARM GCC structure**.
-- Integration of **Kconfig** and the shift to GitHub-based workflows.
-
-### Why This Matters
-Older SDK archives used a different CMake layout. The new approach standardizes projects using:
-- **ARM GCC toolchain**
-- **CMake build system**
-- **Kconfig for configuration management**
-```
-
-```
-TODO:EDIT this according to project layout
-<project_root>/
-├── CMakeLists.txt
-├── boards/
-│   └── <board_name>/
-│       ├── cmake/
-│       └── source/
-├── drivers/
-├── middleware/
-└── examples/
-```
+Once you have successfully imported an example, you can explore the project structure in the **File Explorer** view. The project follows a standard CMake-based layout that is consistent across all MCUXpresso SDK releases. The structure of the workspace follows a standardized layout. To get started, refer to [SDK Project Layout](../gsd/explore_sdk.md) for a detailed breakdown of the project hierarchy.
 
 
 ## Additional Resources
