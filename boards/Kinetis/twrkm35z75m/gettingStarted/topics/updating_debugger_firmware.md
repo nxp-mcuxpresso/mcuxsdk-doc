@@ -1,2 +1,0 @@
-# Updating debugger firmware
-

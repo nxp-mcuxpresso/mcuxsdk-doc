@@ -5,7 +5,7 @@ This guide covers developing with the MCUXpresso SDK using command line tools an
 ## Prerequisites
 
 - GitHub Repository SDK workspace initialized OR Repository-Layout SDK Package extracted
-- Development tools installed per [Installation Guide](installation.md)
+- Development tools installed per [Installation Guide](/gsd/installation.md)
 - Target board connected via USB
 
 ## Understanding Board Support
@@ -137,7 +137,7 @@ west build -b evkbmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dco
 
 IDE project files are generated in `mcuxsdk/build/<toolchain>` folder.
 
-**Note**: Ruby installation is required for IDE project generation. See [Installation Guide](installation.md#ruby---ide-project-generation-optional) for setup instructions.
+**Note**: Ruby installation is required for IDE project generation. See [Installation Guide](/gsd/installation.md#ruby---ide-project-generation-optional) for setup instructions.
 
 ## Troubleshooting
 
@@ -203,6 +203,6 @@ west list_project -p examples/demo_apps/hello_world
 
 ## Next Steps
 
-- Explore [VS Code Development](run_a_demo_using_mcuxvsc.md) for integrated development experience
-- Review [Workspace Structure](explore_sdk.md) to understand SDK organization
+- Explore [VS Code Development](/gsd/run_a_demo_using_mcuxvsc.md) for integrated development experience
+- Review [Workspace Structure](/gsd/explore_sdk.md) to understand SDK organization
 - Refer build system documentation for advanced configurations

@@ -1,13 +1,8 @@
-# Run a demo using Arm GCC
+# Run a demo using ARMGCC / VSCODE
 
-This section describes the steps to configure the command line Arm GCC tools to build, run, and debug demo applications and necessary driver libraries provided in the MCUXpresso SDK. The `hello_world` demo application targeted for i.MX 93 is used as an example, though these steps can be applied to any board, demo or example application in the MCUXpresso SDK.
+This section describes the steps to run an example application from the SDK archive using the ARMGCC / VSCODE toolchain.
+
+Refer to the [running a demo using MCUXpresso VSC](/gsd/run_a_demo_using_mcuxvsc.md) section for detailed instructions on setting up and configuring your project in Visual Studio Code.
 
 
-```{include} ../topics/linux_os_host.md
-:heading-offset: 1
-```
-
-```{include} ../topics/windows_os_host.md
-:heading-offset: 1
-```
-
+Refer to the [CLI](/gsd/run_project.md) section for detailed instructions on building and running your project from the command line.
