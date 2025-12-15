@@ -26,7 +26,7 @@ Configuration options (often called symbols) are defined in Kconfig files, which
 The outputs from Kconfig are build-time generated files for the application.  One text file *.config* is the final merged Kconfig symbols from all Kconfig sources used by the application.  Another file *autoconf.h* is a C header file with macros that can be tested at build time.  This guide will demonstrate how these files are useful, to confirm the Kconfig settings used during the most recent build of the application.
 
 Kconfigs can be defined as different types.  In this lab, we will explore 3 different types: boolean, integer, and choice Kconfigs.  The guide steps will modify the following Kconfigs, and demonstrate how they configure the application:
--	`CONFIG_SHELL_HEADER` : : (type boolean) selects to generate a header file to allow unique settings to be used for the shell application
+-	`CONFIG_SHELL_HEADER` : (type boolean) selects to generate a header file to allow unique settings to be used for the shell application
 -	`CONFIG_SHELL_HISTORY_COUNT` : (type integer) sets the number of executed shell commands saved to be recalled without retyping them
 -	`CONFIG_MCUX_COMPONENT_utility.shell` : (type boolean) selects if MCUXpresso SDK’s Shell component is included in the application
 
@@ -106,7 +106,7 @@ The application will provide a list of valid commands and then turn on and off t
     Now that we have the default *shell* sample working, we will explore some Kconfig settings, and make some simple changes.
     <br/>
 
-10.	In the MCUXpresso PROJECTS section, open the *Project Files* view. Find the **debug folder** under the *shell* project.  This is a generated folder created when building the *shell* project.  Every MCUXpresso SDK application has a build folder after it is built.  The name is based on the selected Build COnfiguration, in this case *debug*. It contains all the generated files from the build tools, like the object code from the compiler, and the linker outputs.
+10.	In the MCUXpresso PROJECTS section, open the *Project Files* view. Find the **debug folder** under the *shell* project.  This is a generated folder created when building the *shell* project.  Every MCUXpresso SDK application has a build folder after it is built.  The name is based on the selected Build Configuration, in this case *debug*. It contains all the generated files from the build tools, like the object code from the compiler, and the linker outputs.
 
     ![Shell debug build folder](./images/kconfig_projectfiles_debug.png)
     <br/>
@@ -116,9 +116,9 @@ The application will provide a list of valid commands and then turn on and off t
     ![Open .config file](./images/kconfig_projectfiles_config.png)
     <br/>
 
-The *.config* file is the final merged Kconfig settings for the application, generated when the application is built.  It is a helpful resource to use to confirm the Kconfig settings used by the application.  The Kconfig settings can come from many different source files during the build.  They can also have dependencies on other Kconfigs.  Sometimes a Kconfig setting can be confusing when reviewing the sources.  Verifying the Kconfig in the *.config* file confirms the setting used during the build.  And this guide demonstrates, after making Kconfig changes, how it can be helpful to review the generated *.config* file to confirm what changes were picked up during the build.
+The *.config* file is the final merged Kconfig settings for the application, generated when the application is built.  It is a helpful resource to use to confirm the Kconfig settings used by the application.  The Kconfig settings can come from many different source files during the build.  They can also have dependencies on other Kconfig settings.  Sometimes a Kconfig setting can be confusing when reviewing the sources.  Verifying the Kconfig in the *.config* file confirms the setting used during the build.  This guide demonstrates, after making Kconfig changes, how it can be helpful to review the generated *.config* file to confirm what changes were picked up during the build.
 
-Another good tip is to review the *.config* file to optimize your application.  You may find there are *features, drivers or components* enabled that you do not need in your application, and you can make changes to remove them.  Or the *.config* file may reveal settings that are not ideal for your application, and you can change them.
+Another good tip is to review the *.config* file to optimize your application.  You may find there are *features, drivers or components* enabled that you do not need in your application, and you can make changes to remove them.  The *.config* file may also reveal settings that are not ideal for your application, and you can change them.
 
 Because the *.config* file is generated during the build, it is important to understand what happens when changing this file.  Any modifications to this file can be reverted if the *.config* file is re-generated again during a build.  For Kconfig changes to be retained, it is best to make the change in a Kconfig source file.  In this section, we will demonstrate modifying the application’s *prj.conf* file, and then confirming the modification in the *.config* file.  
 
@@ -189,12 +189,12 @@ Because the *.config* file is generated during the build, it is important to und
 
 This section showed how Kconfig can modify the operation of the application without changing source code.  
 
-###  2. *guiconfig* tool to explore Kconfig symbols
-In this section, we will introduce a tool integrated with MCUXpresso SDK called *guiconfig*.  This interactive tool was created by the Zephyr project to help explore and configure Kconfig symbols.  NXP has included this tool to assist developers using Kconfig to configure the cmake projects in the SDK. *Guiconfig* can be helpful to search for Kconfig symbols, see the different options, understand the dependencies with other symbols, and find where the symbols are located in the source files.  
+###  2. ***guiconfig*** tool to explore Kconfig symbols
+In this section, we will introduce a tool integrated with MCUXpresso SDK called *guiconfig*.  This interactive tool was created by the Zephyr Project to help explore and configure Kconfig symbols.  NXP has included this tool to assist developers using Kconfig to configure the CMake projects in the SDK. *Guiconfig* can be helpful to search for Kconfig symbols, see the different options, understand the dependencies with other symbols, and find where the symbols are located in the source files.  
 
 MCUXpresso SDK offers two similar tools for this, the other is called *menuconfig*.  The difference is *menuconfig* is text-based for CLI, while *guiconfig* opens a new window and works with the mouse.  The MCUXpresso extension enables opening *guiconfig* for a project directly in VS Code.
 
-20. To open *guiconfig*, click the MCUXpresso view, **Right-Click the *shell* project**, and select **Open MCUXpresso SDK Kernel Configuration**.  
+20. To open *guiconfig*, click the MCUXpresso extension icon, **Right-Click the *shell* project**, and select **Open Kconfig GUI Configuration**.  
 
     ![Open guiconfig](./images/kconfig_guiconfig_start.png)
     <br/>
@@ -330,8 +330,8 @@ The next steps will add the content from the *shell.c* project source file into 
     extern serial_handle_t g_serialHandle;
     ```
 
-35. Add Code section from Shell.c that defines the menu options  
-The primary content for the project is to propery setup the code for the Shell commands.  The modified shell.c commands will drive the LED initialized in the GPIO example.  
+35. Add Code section from ***shell.c*** that defines the menu options  
+The primary content for the project is to propery setup the code for the Shell commands.  The modified *shell.c* commands will drive the LED initialized in the GPIO example.  
 
 The following code will make these changes to the Shell commands:
 - Simplify the Shell commands to control 1 LED
@@ -441,13 +441,11 @@ Using steps outlined in first section of guide, use guiconfig to Jump to "Shell"
     ```
     Now verify that these are included in the *prj.conf* file.  Remember that only changes captured in this file will be retained with a Pristine or Rebuild.
 
-41. Build the Project with the Shell Kconfig settings. You will notice it STILL FAILS to build! What could be the cause?  
+41. Build the project with the Shell Kconfig settings. You will notice it STILL FAILS to build! What could be the cause?  
 
 A quick way to identify differences between 2 projects is to explore the differences between the .config files.  VS Code provides an easy way for you to highlight the remaining difference that may be causing build failure.
-
     ![Select first .config](./images/kconfig_addshell_compareconfig1.png)
     <br/>
-
     ![Compare second .config](./images/kconfig_addshell_compareconfig2.png)
     <br/>
 
@@ -476,7 +474,7 @@ Add these requirements to the **prj.conf** file in the workspace for the *gpio_l
     CONFIG_MCUX_COMPONENT_utility.assert=y
     CONFIG_MCUX_COMPONENT_utility.shell.generated_config=y
     ```
-    **_NOTE:_** You may have checked the prj.conf of the shell project. You will see these Symbols are defined for the project. In future cases, it is good to review the prj.conf AND .config to see what Kconfig values may be required for reference code to build properly.
+    **_NOTE:_** You may have checked the ***prj.conf*** of the shell project. You will see these Symbols are defined for the project. In future cases, it is good to review the prj.conf AND .config to see what Kconfig values may be required for reference code to build properly.
 
 44. Build and Debug the project. The build will complete succesfully.
 Now the Serial Monitor will display the newly added Shell terminal.  
@@ -484,6 +482,6 @@ You may enter the same commands from the Shell example. However, now the valid u
 
 ## Additional Resources
 -	[Configuration System Based on Kconfig](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Configuration_System.html#configuration-system-based-on-kconfig)
--	[Kconfig interactive tools: guiconfig and menuconfig ](https://docs.MCUXpresso SDKproject.org/latest/build/kconfig/menuconfig.html)
+-	[Kconfig interactive tools: guiconfig and menuconfig](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Configuration_System.html#kconfig-usage)
 -	[MCUXpresso SDK Customized Kconfig Rules](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Configuration_System.html#mcuxpresso-sdk-customized-kconfig-rules)
 -   [MCUXpresso FAQs on Kconfig](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Frequently_Asked_Questions.html#kconfig)
