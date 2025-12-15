@@ -4,7 +4,7 @@
 
 |Wireless connectivity component|Version|
 |--|--|
-|`middleware/​wireless/​bluetooth`|`1.10.3`|
+|`middleware/​wireless/​bluetooth`|`1.10.14`|
 |`middleware/​wireless/​ble_​controller`|`1.9.29.0`|
 |`middleware/wireless/ieee-802.15.4`|`1.0.21b`|
 |`middleware/​wireless/​xcvr`|`​2.​1.4`|
@@ -20,6 +20,11 @@ The following connectivity-supporting documentation is included with this releas
 -   *Bluetooth Low Energy Host Stack API Reference Manual*
 -   *Bluetooth Low Energy Host Stack FSCI Application Programming*
 -   *Bluetooth Low Energy Host Stack FSCI Reference Manual*
+-   *Bluetooth Low Energy Connection Handover*
+-   *Bluetooth Low Energy Localization Application Note*
+-   *Bluetooth Low Energy Channel Sounding Application Developers Guide*
+-   *Bluetooth Channel Sounding Technique for Distance Estimation*
+-   *CS Wireless Ranging Demo Application User Guide*
 -   *Generic FSK Link Layer Quick Start Guide*
 -   *Generic FSK Link Layer API Reference Manual*
 -   *Connectivity Framework Reference Manual*
