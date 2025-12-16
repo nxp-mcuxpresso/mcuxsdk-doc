@@ -814,13 +814,11 @@ INPUT = @SDK_BASE@/devices/Wireless/RW/RW612/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/powerquad/doxygen/powerquad.dox \
         @SDK_BASE@/drivers/powerquad/fsl_powerquad.h \
         @SDK_BASE@/drivers/powerquad/fsl_powerquad.h \
+        @SDK_BASE@/drivers/powerquad/fsl_powerquad_cmsis.h \
         @SDK_BASE@/drivers/sctimer/doxygen/sctimer.dox \
         @SDK_BASE@/drivers/sctimer/fsl_sctimer.h \
         @SDK_BASE@/drivers/sdu/fsl_sdioslv_sdu.h \
         @SDK_BASE@/drivers/sdu/cis_table.h \
-        @SDK_BASE@/drivers/smartcard/doxygen/smartcard_phy.dox \
-        @SDK_BASE@/drivers/smartcard/fsl_smartcard_phy.h \
-        @SDK_BASE@/drivers/smartcard/doxygen/smartcard_phy_usim.dox \
         @SDK_BASE@/drivers/smartcard/doxygen/smartcard.dox \
         @SDK_BASE@/drivers/smartcard/fsl_smartcard.h \
         @SDK_BASE@/drivers/smartcard/doxygen/smartcard_usim.dox \
@@ -2186,7 +2184,6 @@ PREDEFINED = FSL_FEATURE_SOC_ACOMP_COUNT = 1 \
              FSL_FEATURE_CACHE64_CTRL_LINESIZE_BYTE = 32 \
              FSL_FEATURE_CDOG_HAS_NO_RESET = 1 \
              FSL_FEATURE_CDOG_NEED_LOAD_DEFAULT_CONF = 1 \
-             FSL_FEATURE_CRC_HAS_CRC_REG = 0 \
              FSL_FEATURE_CTIMER_HAS_NO_INPUT_CAPTURE = 0 \
              FSL_FEATURE_CTIMER_HAS_NO_IR_CR2INT = 0 \
              FSL_FEATURE_CTIMER_HAS_IR_CR3INT = 1 \
@@ -2213,6 +2210,7 @@ PREDEFINED = FSL_FEATURE_SOC_ACOMP_COUNT = 1 \
              FSL_FEATURE_ENET_HAS_RECEIVE_STATUS_THRESHOLD = 1 \
              FSL_FEATURE_ENET_HAS_RGMII_TXC_DELAY = 0 \
              FSL_FEATURE_ENET_HAS_RGMII_RXC_DELAY = 0 \
+             FSL_FEATURE_ENET_TIMESTAMP_CAPTURE_BIT_INVALID = 0 \
              FSL_FEATURE_ENET_HAS_EXTRA_CLOCK_GATE = 1 \
              FSL_FEATURE_ENET_HAS_RSTCTL = 1 \
              FSL_FEATURE_FLEXCOMM0_USART_INDEX = 0 \
@@ -2235,15 +2233,32 @@ PREDEFINED = FSL_FEATURE_SOC_ACOMP_COUNT = 1 \
              FSL_FEATURE_FLEXCOMM14_SPI_INDEX = 14 \
              FSL_FEATURE_FLEXCOMM14_I2C_INDEX = 14 \
              FSL_FEATURE_FLEXCOMM14_I2S_INDEX = 14 \
-             FSL_FEATURE_FLEXSPI_HAS_NO_MCR0_ARDFEN = 0 \
-             FSL_FEATURE_FLEXSPI_HAS_NO_MCR0_ATDFEN = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_DATA_LEARN = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_INTEN_AHBBUSERROREN = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_AHBCR_CLRAHBTX_RXBUF = 1 \
              FSL_FEATURE_FLEXSPI_HAS_NO_IP_PARALLEL_MODE = 1 \
              FSL_FEATURE_FLEXSPI_HAS_NO_AHB_PARALLEL_MODE = 1 \
              FSL_FEATURE_FLEXSPI_SUPPORT_ADDRESS_SHIFT = 1 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_MCR0_ARDFEN = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_MCR0_ATDFEN = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_MCR0_COMBINATIONEN = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_FLSHCR4_WMENB = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_STS0_DATALEARNPHASEB = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_MCR2_SCKBDIFFOPT = 0 \
+             FSL_FEATURE_FLEXSPI_ARRAY_LEN = 1 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_STS2_BSLVLOCK = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_STS2_BREFLOCK = 0 \
+             FSL_FEATURE_FLEXSPI_NO_SUPPORT_PORTB = 0 \
+             FSL_FEATURE_FLEXSPI_LUTKEY_IS_RO = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_SHARED_IRQ0_IRQ1 = 0 \
+             FSL_FEATURE_FLEXSPI_DMA_MULTIPLE_DES = 0 \
+             FSL_FEATURE_FLEXSPI_DQS_DELAY_MIN = 0 \
              FSL_FEATURE_FLEXSPI_SUPPORT_SEPERATE_RXCLKSRC_PORTB = 1 \
              FSL_FEATURE_FLEXSPI_SUPPORT_RXCLKSRC_DIFF = 1 \
              FSL_FEATURE_FLEXSPI_IPED_REGION_COUNT = 15 \
-             FSL_FEATURE_FLEXSPI_ARRAY_LEN = 1 \
+             FSL_FEATURE_FLEXSPI_HAS_ERRATA_052733 = 1 \
+             FSL_FEATURE_FLEXSPI_HAS_ERRATA_051426 = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_RESUMEDISABLE_BIT_CONFIG_SUPPORT = 1 \
              FSL_FEATURE_ADC_HAS_NO_SINGLEEND_TEMP_CHANNEL = 1 \
              FSL_FEATURE_ADC_HAS_NO_DIFFERENTIAL_VOICE_CHANNEL = 1 \
              FSL_FEATURE_ADC_HAS_NO_DIFFERENTIAL_TEMP_CHANNEL = 1 \
@@ -2264,6 +2279,7 @@ PREDEFINED = FSL_FEATURE_SOC_ACOMP_COUNT = 1 \
              FSL_FEATURE_SCT_NUMBER_OF_STATES = 32 \
              FSL_FEATURE_SCT_NUMBER_OF_MATCH_CAPTURE = 16 \
              FSL_FEATURE_SCT_NUMBER_OF_OUTPUTS = 10 \
+             FSL_FEATURE_SCT_WRITE_ZERO_ASSERT_RESET = 0 \
              FSL_FEATURE_SPI_SSEL_COUNT = 4 \
              FSL_FEATURE_TRNG_HAS_NO_TRNG_SCR4L = 1 \
              FSL_FEATURE_TRNG_HAS_NO_TRNG_SCR5L = 1 \
@@ -2280,7 +2296,9 @@ PREDEFINED = FSL_FEATURE_SOC_ACOMP_COUNT = 1 \
              FSL_FEATURE_USIM_FIFO_DEPTH = 16 \
              FSL_FEATURE_UTICK_HAS_NO_PDCFG = 1 \
              FSL_FEATURE_WWDT_HAS_NO_OSCILLATOR_LOCK = 0 \
-             FSL_FEATURE_WWDT_HAS_NO_PDCFG = 1
+             FSL_FEATURE_WWDT_HAS_NO_PDCFG = 1 \
+             FSL_FEATURE_WWDT_HAS_LPOSC_CLOCK_SOURCE = 0 \
+             FSL_FEATURE_WWDT_WDTRESET_FROM_PMC = 0
 
 PREDEFINED += DOXYGEN_OUTPUT=1
 

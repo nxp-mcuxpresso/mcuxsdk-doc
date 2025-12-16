@@ -38,6 +38,10 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_safety_iec60730b.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_motor_control.md
 :heading-offset: 2
 ```
@@ -55,10 +59,6 @@
 ```
 
 ```{include} /release/commonrn/topics/nxp_metering.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/nxp_voiceseeker_no_aec.md
 :heading-offset: 2
 ```
 

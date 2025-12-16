@@ -24,11 +24,11 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/cache/xcache/doxygen/ChangeLog_cache.md
+```{include} /drivers/cache/armv7-m7/doxygen/ChangeLog_cache.md
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/cache/armv7-m7/doxygen/ChangeLog_cache.md
+```{include} /drivers/cache/xcache/doxygen/ChangeLog_cache.md
 :heading-offset: 2
 ```
 ---
@@ -81,6 +81,10 @@
 ```
 ---
 ```{include} /drivers/flexio/a-format/doxygen/ChangeLog_flexio_a-format.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/flexio/biss/doxygen/ChangeLog_flexio_biss.md
 :heading-offset: 2
 ```
 ---

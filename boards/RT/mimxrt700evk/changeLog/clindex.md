@@ -8,11 +8,11 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/cache/cache64/doxygen/ChangeLog_cache.md
+```{include} /drivers/cache/xcache/doxygen/ChangeLog_cache.md
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/cache/xcache/doxygen/ChangeLog_cache.md
+```{include} /drivers/cache/cache64/doxygen/ChangeLog_cache.md
 :heading-offset: 2
 ```
 ---

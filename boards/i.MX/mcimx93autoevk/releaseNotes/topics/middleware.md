@@ -10,11 +10,11 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_voicespot.md
+```{include} /release/commonrn/topics/arm_mbedtls_3x.md
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_voiceseeker_no_aec.md
+```{include} /release/commonrn/topics/nxp_voicespot.md
 :heading-offset: 2
 ```
 

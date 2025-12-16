@@ -10,10 +10,6 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_voiceseeker_no_aec.md
-:heading-offset: 2
-```
-
 ```{include} /release/commonrn/topics/nxp_usb_power_delivery.md
 :heading-offset: 2
 ```
@@ -39,6 +35,10 @@
 ```
 
 ```{include} /release/commonrn/topics/nodejs_llhttp.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_g2d_dpu.md
 :heading-offset: 2
 ```
 

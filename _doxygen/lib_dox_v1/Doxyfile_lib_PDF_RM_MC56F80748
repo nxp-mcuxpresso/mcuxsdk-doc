@@ -758,7 +758,6 @@ INPUT = @SDK_BASE@/devices/DSC/MC56F80xxx/MC56F80748/drivers/fsl_clock.h \
         @SDK_BASE@/drivers/dsc_lpi2c/fsl_lpi2c_edma.h \
         @SDK_BASE@/drivers/dsc_lpi2c/fsl_lpi2c.h \
         @SDK_BASE@/drivers/dsc_mcm/fsl_mcm.h \
-        @SDK_BASE@/drivers/dsc_opamp/fsl_opamp.h \
         @SDK_BASE@/drivers/dsc_opamp_1/fsl_opamp.h \
         @SDK_BASE@/drivers/dsc_pit/fsl_pit.h \
         @SDK_BASE@/drivers/dsc_pmc/fsl_pmc.h \
@@ -891,7 +890,6 @@ IMAGE_PATH = @SDK_BASE@/devices/DSC/MC56F80xxx/MC56F80748/drivers/doxygen \
              @SDK_BASE@/drivers/dsc_gpio/doxygen \
              @SDK_BASE@/drivers/dsc_lpi2c/doxygen \
              @SDK_BASE@/drivers/dsc_mcm/doxygen \
-             @SDK_BASE@/drivers/dsc_opamp/doxygen \
              @SDK_BASE@/drivers/dsc_opamp_1/doxygen \
              @SDK_BASE@/drivers/dsc_pit/doxygen \
              @SDK_BASE@/drivers/dsc_pmc/doxygen \

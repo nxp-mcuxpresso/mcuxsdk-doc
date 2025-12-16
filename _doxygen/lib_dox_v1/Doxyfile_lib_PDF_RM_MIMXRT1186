@@ -868,6 +868,10 @@ INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/xbar_1/fsl_xbar.h \
         @SDK_BASE@/drivers/cache/xcache/doxygen/cache.dox \
         @SDK_BASE@/drivers/cache/xcache/fsl_cache.h \
+        @SDK_BASE@/drivers/flexio/a-format/fsl_flexio_a-format.h \
+        @SDK_BASE@/drivers/flexio/biss/fsl_flexio_biss.h \
+        @SDK_BASE@/drivers/flexio/endat2p2/doxygen/flexio_endat2p2.dox \
+        @SDK_BASE@/drivers/flexio/endat2p2/fsl_flexio_endat2p2.h \
         @SDK_BASE@/drivers/flexio/i2c/doxygen/flexio_i2c_master.dox \
         @SDK_BASE@/drivers/flexio/i2c/fsl_flexio_i2c_master.h \
         @SDK_BASE@/drivers/flexio/i2s/doxygen/flexio_i2s_edma.dox \
@@ -878,6 +882,7 @@ INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/flexio/spi/fsl_flexio_spi_edma.h \
         @SDK_BASE@/drivers/flexio/spi/doxygen/flexio_spi.dox \
         @SDK_BASE@/drivers/flexio/spi/fsl_flexio_spi.h \
+        @SDK_BASE@/drivers/flexio/t-format/fsl_flexio_t-format.h \
         @SDK_BASE@/drivers/flexio/uart/doxygen/flexio_uart_edma.dox \
         @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart_edma.h \
         @SDK_BASE@/drivers/flexio/uart/doxygen/flexio_uart.dox \
@@ -958,11 +963,15 @@ INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/xbar_1/fsl_xbar.h \
         @SDK_BASE@/drivers/cache/armv7-m7/doxygen/cache.dox \
         @SDK_BASE@/drivers/cache/armv7-m7/fsl_cache.h \
+        @SDK_BASE@/drivers/flexio/a-format/fsl_flexio_a-format.h \
+        @SDK_BASE@/drivers/flexio/biss/fsl_flexio_biss.h \
+        @SDK_BASE@/drivers/flexio/endat2p2/fsl_flexio_endat2p2.h \
         @SDK_BASE@/drivers/flexio/i2c/fsl_flexio_i2c_master.h \
         @SDK_BASE@/drivers/flexio/i2s/fsl_flexio_i2s_edma.h \
         @SDK_BASE@/drivers/flexio/i2s/fsl_flexio_i2s.h \
         @SDK_BASE@/drivers/flexio/spi/fsl_flexio_spi_edma.h \
         @SDK_BASE@/drivers/flexio/spi/fsl_flexio_spi.h \
+        @SDK_BASE@/drivers/flexio/t-format/fsl_flexio_t-format.h \
         @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart_edma.h \
         @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart.h
 
@@ -1125,9 +1134,13 @@ IMAGE_PATH = @SDK_BASE@/drivers/acmp/doxygen \
              @SDK_BASE@/drivers/vref_1/doxygen \
              @SDK_BASE@/drivers/xbar_1/doxygen \
              @SDK_BASE@/drivers/cache/xcache/doxygen \
+             @SDK_BASE@/drivers/flexio/a-format/doxygen \
+             @SDK_BASE@/drivers/flexio/biss/doxygen \
+             @SDK_BASE@/drivers/flexio/endat2p2/doxygen \
              @SDK_BASE@/drivers/flexio/i2c/doxygen \
              @SDK_BASE@/drivers/flexio/i2s/doxygen \
              @SDK_BASE@/drivers/flexio/spi/doxygen \
+             @SDK_BASE@/drivers/flexio/t-format/doxygen \
              @SDK_BASE@/drivers/flexio/uart/doxygen \
              @SDK_BASE@/drivers/cache/armv7-m7/doxygen
 
@@ -2301,7 +2314,6 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 1 \
              FSL_FEATURE_SOC_USDHC_COUNT = 1 \
              FSL_FEATURE_SOC_VREF_COUNT = 1 \
              FSL_FEATURE_SOC_XBAR_DSC_COUNT = 3 \
-             FSL_FEATURE_SOC_XCACHE_COUNT = 2 \
              FSL_FEATURE_BOOT_ROM_HAS_ROMAPI = 1 \
              FSL_FEATURE_LPADC_FIFO_COUNT = 2 \
              FSL_FEATURE_LPADC_HAS_NO_TCTRL_FIFO_SEL_B = 0 \
@@ -2373,6 +2385,7 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 1 \
              FSL_FEATURE_FLEXCAN_ENTER_FREEZE_MODE = 0 \
              FSL_FEATURE_FLEXCAN_HAS_ERRATA_8341 = 0 \
              FSL_FEATURE_FLEXCAN_HAS_ERRATA_050443 = 0 \
+             FSL_FEATURE_FLEXCAN_HAS_MEMORY_ERROR_INTERRUPT = 1 \
              FSL_FEATURE_L1ICACHE_LINESIZE_BYTE = 32 \
              FSL_FEATURE_L1DCACHE_LINESIZE_BYTE = 32 \
              FSL_FEATURE_ACMP_HAS_C3_REG = 1 \
@@ -2383,13 +2396,13 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 1 \
              FSL_FEATURE_ACMP_HAS_C1_DACOE_BIT = 0 \
              FSL_FEATURE_ACMP_HAS_C1_DMODE_BIT = 1 \
              FSL_FEATURE_ACMP_HAS_C2_RRE_BIT = 0 \
-             FSL_FEATURE_ACMP_HAS_C3_RDIVE_BIT = 1 \
              FSL_FEATURE_ACMP_HAS_C0_HYSTCTR_BIT = 0 \
              FSL_FEATURE_ACMP_HAS_NO_ROUNDROBIN_MODE = 0 \
              FSL_FEATURE_ACMP_HAS_NO_3V_DOMAIN = 0 \
              FSL_FEATURE_ACMP_HAS_NO_WINDOW_MODE = 0 \
              FSL_FEATURE_ACMP_HAS_NO_FILTER_MODE = 0 \
              FSL_FEATURE_ACMP_HAS_NO_C0_SE_BIT = 0 \
+             FSL_FEATURE_ACMP_HAS_C3_RDIVE_BIT = 1 \
              FSL_FEATURE_DAC12_HAS_NO_ITRM_REGISTER = 1 \
              FSL_FEATURE_DAC12_HAS_HW_TRIGGER = 1 \
              FSL_FEATURE_DCDC_HAS_CTRL_REG = 1 \
@@ -2433,7 +2446,6 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 1 \
              FSL_FEATURE_EQDC_HAS_NO_COMPARE_INTERRUPT = 1 \
              FSL_FEATURE_EWM_HAS_CLOCK_SELECT = 1 \
              FSL_FEATURE_EWM_HAS_PRESCALER = 1 \
-             FSL_FEATURE_FLEXIO_HAS_DOZE_MODE_SUPPORT = 1 \
              FSL_FEATURE_FLEXIO_HAS_RESET = 0 \
              FSL_FEATURE_FLEXIO_HAS_SHIFTER_STATUS = 1 \
              FSL_FEATURE_FLEXIO_HAS_PIN_STATUS = 1 \
@@ -2446,12 +2458,13 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 1 \
              FSL_FEATURE_FLEXIO_DMA_REQUEST_BASE_CHANNEL = 0 \
              FSL_FEATURE_FLEXIO_TIMCFG_TIMDCE_FIELD_WIDTH = 3 \
              FSL_FEATURE_FLEXIO_HAS_PIN_REGISTER = 1 \
+             FSL_FEATURE_FLEXIO_HAS_DOZE_MODE_SUPPORT = 1 \
              FSL_FEATURE_FLEXSPI_HAS_NO_DATA_LEARN = 1 \
              FSL_FEATURE_FLEXSPI_HAS_INTEN_AHBBUSERROREN = 1 \
              FSL_FEATURE_FLEXSPI_HAS_AHBCR_CLRAHBTX_RXBUF = 1 \
              FSL_FEATURE_FLEXSPI_HAS_NO_IP_PARALLEL_MODE = 0 \
              FSL_FEATURE_FLEXSPI_HAS_NO_AHB_PARALLEL_MODE = 0 \
-             FSL_FEATURE_FLEXSPI_SUPPORT_ADDRESS_SHIFT = 0 \
+             FSL_FEATURE_FLEXSPI_SUPPORT_ADDRESS_SHIFT = 1 \
              FSL_FEATURE_FLEXSPI_HAS_NO_MCR0_ARDFEN = 0 \
              FSL_FEATURE_FLEXSPI_HAS_NO_MCR0_ATDFEN = 0 \
              FSL_FEATURE_FLEXSPI_HAS_NO_MCR0_COMBINATIONEN = 0 \
@@ -2459,6 +2472,19 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 1 \
              FSL_FEATURE_FLEXSPI_HAS_NO_STS0_DATALEARNPHASEB = 1 \
              FSL_FEATURE_FLEXSPI_HAS_NO_MCR2_SCKBDIFFOPT = 0 \
              FSL_FEATURE_FLEXSPI_ARRAY_LEN = 3 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_STS2_BSLVLOCK = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_STS2_BREFLOCK = 0 \
+             FSL_FEATURE_FLEXSPI_NO_SUPPORT_PORTB = 0 \
+             FSL_FEATURE_FLEXSPI_LUTKEY_IS_RO = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_SHARED_IRQ0_IRQ1 = 0 \
+             FSL_FEATURE_FLEXSPI_DMA_MULTIPLE_DES = 0 \
+             FSL_FEATURE_FLEXSPI_DQS_DELAY_MIN = 0 \
+             FSL_FEATURE_FLEXSPI_SUPPORT_SEPERATE_RXCLKSRC_PORTB = 1 \
+             FSL_FEATURE_FLEXSPI_SUPPORT_RXCLKSRC_DIFF = 1 \
+             FSL_FEATURE_FLEXSPI_IPED_REGION_COUNT = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_ERRATA_052733 = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_ERRATA_051426 = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_RESUMEDISABLE_BIT_CONFIG_SUPPORT = 1 \
              FSL_FEATURE_GPT_HAS_ERRATA_3777 = 1 \
              FSL_FEATURE_I3C_HAS_NO_MERRWARN_TERM = 1 \
              FSL_FEATURE_I3C_HAS_NO_RESET = 1 \
@@ -2475,12 +2501,14 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 1 \
              FSL_FEATURE_IEE_ELE_PROVISIONED_KEY = 1 \
              FSL_FEATURE_IEE_APC_USE_GPR = 0 \
              FSL_FEATURE_LPI2C_HAS_ROLE_SPLIT_IRQ = 0 \
+             FSL_FEATURE_LPI2C_IS_LPFLEXCOMM = 0 \
              FSL_FEATURE_LPIT_TIMER_COUNT = 4 \
              FSL_FEATURE_LPIT_HAS_LIFETIME_TIMER = 0 \
              FSL_FEATURE_LPIT_HAS_SHARED_IRQ_HANDLER = 1 \
              FSL_FEATURE_LPSPI_HAS_CCR1 = 1 \
              FSL_FEATURE_LPSPI_HAS_NO_PCSCFG = 0 \
              FSL_FEATURE_LPSPI_HAS_NO_MULTI_WIDTH = 0 \
+             FSL_FEATURE_LPSPI_IS_LPFLEXCOMM = 0 \
              FSL_FEATURE_LPTMR_HAS_SHARED_IRQ_HANDLER = 0 \
              FSL_FEATURE_LPTMR_CNR_WIDTH_IS_32B = 1 \
              FSL_FEATURE_LPTMR_HAS_CSR_TDRE = 1 \
@@ -2529,7 +2557,7 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 1 \
              FSL_FEATURE_SYSPM_PMCR_COUNT = 1 \
              FSL_FEATURE_SYSPM_HAS_PMICTR = 1 \
              FSL_FEATURE_MEMORY_HAS_ADDRESS_OFFSET = 1 \
-             FSL_FEATURE_MU_SIDE_A = 1 \
+             FSL_FEATURE_MU_SIDE_B = 1 \
              FSL_FEATURE_MU_HAS_RESET_ASSERT_INT = 0 \
              FSL_FEATURE_MU_HAS_RESET_DEASSERT_INT = 0 \
              FSL_FEATURE_MU_NO_CORE_STATUS = 1 \
@@ -2569,15 +2597,20 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 1 \
              FSL_FEATURE_NETC_HAS_NO_XGMII = 0 \
              FSL_FEATURE_NETC_HAS_SWITCH_TAG = 0 \
              FSL_FEATURE_NETC_HAS_ERRATA_052167 = 1 \
-             FSL_FEATURE_NETC_HAS_ERRATA_052206 = 1 \
+             FSL_FEATURE_NETC_HAS_ERRATA_052206 = 0 \
              FSL_FEATURE_NETC_HAS_ERRATA_052129 = 1 \
              FSL_FEATURE_NETC_HAS_ERRATA_052031 = 1 \
              FSL_FEATURE_NETC_HAS_ERRATA_051994 = 1 \
              FSL_FEATURE_NETC_HAS_ERRATA_051936 = 1 \
              FSL_FEATURE_NETC_HAS_PORT_PSRCR = 0 \
              FSL_FEATURE_NETC_HAS_PORT_PGCR = 0 \
+             FSL_FEATURE_NETC_HAS_ERRATA_052134 = 1 \
              FSL_FEATURE_INTERRUPT_IRQ_MIN = -14 \
              FSL_FEATURE_INTERRUPT_IRQ_MAX = 105 \
+             FSL_FEATURE_OTFAD_HAS_SVM_MODE = 0 \
+             FSL_FEATURE_OTFAD_HAS_KEYBLOB_PROCESSING = 1 \
+             FSL_FEATURE_OTFAD_HAS_HAS_IRQ_ENABLE = 0 \
+             FSL_FEATURE_OTFAD_HAS_FORCE_ERR = 1 \
              FSL_FEATURE_PDM_FIFO_OFFSET = 4 \
              FSL_FEATURE_PDM_CHANNEL_NUM = 8 \
              FSL_FEATURE_PDM_FIFO_WIDTH = 4 \
@@ -2586,14 +2619,15 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 1 \
              FSL_FEATURE_PDM_HAS_STATUS_LOW_FREQ = 1 \
              FSL_FEATURE_PDM_HIGH_QUALITY_CLKDIV_FACTOR = 93 \
              FSL_FEATURE_PDM_VERY_LOW_QUALITY_CLKDIV_FACTOR = 43 \
-             FSL_FEATURE_PDM_HAS_DC_OUT_CTRL = 0 \
-             FSL_FEATURE_PDM_DC_CTRL_VALUE_FIXED = 0 \
-             FSL_FEATURE_PDM_HAS_NO_INDEPENDENT_ERROR_IRQ = 0 \
-             FSL_FEATURE_PDM_HAS_NO_MINIMUM_CLKDIV = 0 \
              FSL_FEATURE_PDM_HAS_NO_VADEF = 1 \
+             FSL_FEATURE_PDM_HAS_NO_MINIMUM_CLKDIV = 0 \
              FSL_FEATURE_PDM_HAS_NO_FIR_RDY = 0 \
              FSL_FEATURE_PDM_HAS_NO_DOZEN = 0 \
              FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS = 0 \
+             FSL_FEATURE_PDM_HAS_DC_OUT_CTRL = 0 \
+             FSL_FEATURE_PDM_DC_CTRL_VALUE_FIXED = 0 \
+             FSL_FEATURE_PDM_HAS_NO_INDEPENDENT_ERROR_IRQ = 0 \
+             FSL_FEATURE_PDM_HAS_NO_HWVAD = 0 \
              FSL_FEATURE_PWM_HAS_CHANNELA = 1 \
              FSL_FEATURE_PWM_HAS_CHANNELB = 1 \
              FSL_FEATURE_PWM_HAS_CHANNELX = 1 \
@@ -2613,7 +2647,6 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 1 \
              FSL_FEATURE_RGPIO_HAS_PORT_INPUT_DISABLE = 1 \
              FSL_FEATURE_RTWDOG_HAS_WATCHDOG = 1 \
              FSL_FEATURE_RTWDOG_HAS_32BIT_ACCESS = 1 \
-             FSL_FEATURE_SAI_HAS_FIFO = 1 \
              FSL_FEATURE_SAI_MAX_WORDS_PER_FRAME = 32 \
              FSL_FEATURE_SAI_HAS_FIFO_COMBINE_MODE = 1 \
              FSL_FEATURE_SAI_HAS_FIFO_PACKING = 1 \
@@ -2628,6 +2661,7 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 1 \
              FSL_FEATURE_SAI_HAS_BCLK_BYPASS = 1 \
              FSL_FEATURE_SAI_HAS_MCR_MCLK_POST_DIV = 0 \
              FSL_FEATURE_SAI_HAS_CHANNEL_MODE = 1 \
+             FSL_FEATURE_SAI_HAS_FIFO = 1 \
              FSL_FEATURE_SAI_HAS_SYNC_WITH_ANOTHER_SAI = 0 \
              FSL_FEATURE_SAI_HAS_BIT_CLOCK_SWAP = 1 \
              FSL_FEATURE_SAI_SAI5_SAI6_SHARE_IRQ = 0 \
@@ -2699,9 +2733,10 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 1 \
              FSL_FEATURE_VREF_HAS_TEST_UNLOCK_REG = 1 \
              FSL_FEATURE_VREF_HAS_TRIM0_REG = 1 \
              FSL_FEATURE_XBAR_DSC_REG_WIDTH = 16 \
+             FSL_FEATURE_SOC_XCACHE_COUNT = 2 \
+             FSL_FEATURE_MU_SIDE_A = 1 \
              FSL_FEATURE_XCACHE_LINESIZE_BYTE = 16 \
-             FSL_FEATURE_XCACHE_HAS_NO_WRITE_BUF = 1 \
-             FSL_FEATURE_MU_SIDE_B = 1
+             FSL_FEATURE_XCACHE_HAS_NO_WRITE_BUF = 1
 
 PREDEFINED += DOXYGEN_OUTPUT=1
 

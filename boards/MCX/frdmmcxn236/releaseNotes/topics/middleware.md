@@ -10,6 +10,14 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_safety_iec60730b.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/mcuboot_opensource.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_usb_power_delivery.md
 :heading-offset: 2
 ```
@@ -47,10 +55,6 @@
 ```
 
 ```{include} /release/commonrn/topics/arm_mbedtls.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/nxp_voiceseeker_no_aec.md
 :heading-offset: 2
 ```
 

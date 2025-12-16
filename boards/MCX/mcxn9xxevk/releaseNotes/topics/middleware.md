@@ -90,10 +90,6 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_voiceseeker_no_aec.md
-:heading-offset: 2
-```
-
 ```{include} /release/commonrn/topics/arm_mbedtls.md
 :heading-offset: 2
 ```

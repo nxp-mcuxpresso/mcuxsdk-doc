@@ -734,7 +734,6 @@ WARN_LOGFILE           =
 # Note: If this tag is empty the current directory is searched.
 
 INPUT = @SDK_BASE@/devices/DSC/MC56F81xxx/MC56F81768/drivers/fsl_clock.h \
-        @SDK_BASE@/devices/DSC/MC56F81xxx/MC56F81768/drivers/fsl_flash.h \
         @SDK_BASE@/devices/DSC/MC56F81xxx/MC56F81768/drivers/fsl_sim.h \
         @SDK_BASE@/drivers/common/doxygen/common.dox \
         @SDK_BASE@/drivers/common/fsl_common.h \
@@ -748,11 +747,17 @@ INPUT = @SDK_BASE@/devices/DSC/MC56F81xxx/MC56F81768/drivers/fsl_clock.h \
         @SDK_BASE@/drivers/dsc_edma/fsl_edma.h \
         @SDK_BASE@/drivers/dsc_evtg/fsl_evtg.h \
         @SDK_BASE@/drivers/dsc_ewm/fsl_ewm.h \
+        @SDK_BASE@/drivers/dsc_flash/fsl_ftfx_adapter.h \
+        @SDK_BASE@/drivers/dsc_flash/fsl_ftfx_utilities.h \
+        @SDK_BASE@/drivers/dsc_flash/fsl_ftfx_features.h \
+        @SDK_BASE@/drivers/dsc_flash/fsl_ftfx_controller.h \
+        @SDK_BASE@/drivers/dsc_flash/fsl_ftfx_flash.h \
+        @SDK_BASE@/drivers/dsc_flash/doxygen/flash.dox \
+        @SDK_BASE@/drivers/dsc_flash/fsl_flash.h \
         @SDK_BASE@/drivers/dsc_gpio/fsl_gpio.h \
         @SDK_BASE@/drivers/dsc_lpi2c/fsl_lpi2c_edma.h \
         @SDK_BASE@/drivers/dsc_lpi2c/fsl_lpi2c.h \
         @SDK_BASE@/drivers/dsc_mcm/fsl_mcm.h \
-        @SDK_BASE@/drivers/dsc_opamp/fsl_opamp.h \
         @SDK_BASE@/drivers/dsc_opamp_1/fsl_opamp.h \
         @SDK_BASE@/drivers/dsc_pit/fsl_pit.h \
         @SDK_BASE@/drivers/dsc_pmc/fsl_pmc.h \
@@ -882,10 +887,10 @@ IMAGE_PATH = @SDK_BASE@/devices/DSC/MC56F81xxx/MC56F81768/drivers/doxygen \
              @SDK_BASE@/drivers/dsc_edma/doxygen \
              @SDK_BASE@/drivers/dsc_evtg/doxygen \
              @SDK_BASE@/drivers/dsc_ewm/doxygen \
+             @SDK_BASE@/drivers/dsc_flash/doxygen \
              @SDK_BASE@/drivers/dsc_gpio/doxygen \
              @SDK_BASE@/drivers/dsc_lpi2c/doxygen \
              @SDK_BASE@/drivers/dsc_mcm/doxygen \
-             @SDK_BASE@/drivers/dsc_opamp/doxygen \
              @SDK_BASE@/drivers/dsc_opamp_1/doxygen \
              @SDK_BASE@/drivers/dsc_pit/doxygen \
              @SDK_BASE@/drivers/dsc_pmc/doxygen \
@@ -2038,6 +2043,7 @@ PREDEFINED = FSL_FEATURE_SOC_CADC_COUNT = 1 \
              FSL_FEATURE_SOC_PIT_COUNT = 2 \
              FSL_FEATURE_SOC_PMC_COUNT = 1 \
              FSL_FEATURE_SOC_PWM_COUNT = 1 \
+             FSL_FEATURE_SOC_QDC_COUNT = 1 \
              FSL_FEATURE_SOC_QSCI_COUNT = 2 \
              FSL_FEATURE_SOC_QSPI_COUNT = 1 \
              FSL_FEATURE_SOC_SIM_COUNT = 1 \
@@ -2079,8 +2085,61 @@ PREDEFINED = FSL_FEATURE_SOC_CADC_COUNT = 1 \
              FSL_FEATURE_DMAMUX_HAS_TRIG = 0 \
              FSL_FEATURE_DMAMUX_HAS_A_ON = 0 \
              FSL_FEATURE_DMAMUX_CHCFG_REGISTER_WIDTH = 8 \
+             FSL_FEATURE_DMAMUX_CHANNEL_NEEDS_ENDIAN_CONVERT = 0 \
              FSL_FEATURE_EWM_HAS_CLOCK_SELECT = 1 \
              FSL_FEATURE_EWM_HAS_PRESCALER = 1 \
+             FSL_FEATURE_FTFA_TYPE = 1 \
+             FSL_FEATURE_FTFA_HAS_FLEX_RAM_FLAGS = 0 \
+             FSL_FEATURE_FTFA_HAS_PFLASH_SWAPPING_STATUS_FLAG = 0 \
+             FSL_FEATURE_FTFA_HAS_EEROM_REGION_PROTECTION = 0 \
+             FSL_FEATURE_FTFA_HAS_DATA_FLASH_REGION_PROTECTION = 0 \
+             FSL_FEATURE_FTFA_HAS_ACCESS_CONTROL = 0 \
+             FSL_FEATURE_FTFA_HAS_FMC_FLASH_CACHE_CONTROLS = 0 \
+             FSL_FEATURE_FTFA_HAS_MCM_FLASH_CACHE_CONTROLS = 1 \
+             FSL_FEATURE_FTFA_HAS_MSCM_FLASH_CACHE_CONTROLS = 0 \
+             FSL_FEATURE_FTFA_HAS_PREFETCH_SPECULATION_CONTROL_IN_FLASH = 0 \
+             FSL_FEATURE_FTFA_SIZE_ENCODING_RULE_VERSION = 0 \
+             FSL_FEATURE_FTFA_PFLASH_BLOCK_COUNT = 1 \
+             FSL_FEATURE_FTFA_PFLASH_BLOCK_SIZE = 131072 \
+             FSL_FEATURE_FTFA_PFLASH_BLOCK_SECTOR_SIZE = 1024 \
+             FSL_FEATURE_FTFA_PFLASH_BLOCK_WRITE_UNIT_SIZE = 4 \
+             FSL_FEATURE_FTFA_PFLASH_BLOCK_DATA_PATH_WIDTH = 8 \
+             FSL_FEATURE_FTFA_HAS_PFLASH_BLOCK_SWAP = 0 \
+             FSL_FEATURE_FTFA_PFLASH_PROTECTION_REGION_COUNT = 32 \
+             FSL_FEATURE_FTFA_HAS_FLEX_NVM = 0 \
+             FSL_FEATURE_FTFA_FLEX_NVM_BLOCK_COUNT = 0 \
+             FSL_FEATURE_FTFA_FLEX_NVM_BLOCK_SIZE = 0 \
+             FSL_FEATURE_FTFA_FLEX_NVM_BLOCK_SECTOR_SIZE = 0 \
+             FSL_FEATURE_FTFA_FLEX_NVM_BLOCK_WRITE_UNIT_SIZE = 0 \
+             FSL_FEATURE_FTFA_FLEX_BLOCK_DATA_PATH_WIDTH = 0 \
+             FSL_FEATURE_FTFA_HAS_FLEX_RAM = 0 \
+             FSL_FEATURE_FTFA_FLEX_RAM_SIZE = 0 \
+             FSL_FEATURE_FTFA_HAS_READ_1S_BLOCK_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_READ_1S_SECTION_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_PROGRAM_CHECK_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_READ_RESOURCE_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_PROGRAM_LONGWORD_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_PROGRAM_PHRASE_CMD = 0 \
+             FSL_FEATURE_FTFA_HAS_ERASE_FLASH_BLOCK_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_ERASE_FLASH_SECTOR_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_PROGRAM_SECTION_CMD = 0 \
+             FSL_FEATURE_FTFA_HAS_READ_1S_ALL_BLOCKS_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_READ_ONCE_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_PROGRAM_ONCE_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_ERASE_ALL_BLOCKS_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_VERIFY_BACKDOOR_ACCESS_KEY_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_SWAP_CONTROL_CMD = 0 \
+             FSL_FEATURE_FTFA_HAS_ERASE_ALL_BLOCKS_UNSECURE_CMD = 0 \
+             FSL_FEATURE_FTFA_HAS_READ_1S_ALL_EXECUTE_ONLY_SEGMENTS_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_ERASE_ALL_EXECUTE_ONLY_SEGMENTS_CMD = 1 \
+             FSL_FEATURE_FTFA_HAS_PROGRAM_PARTITION_CMD = 0 \
+             FSL_FEATURE_FTFA_HAS_SET_FLEXRAM_FUNCTION_CMD = 0 \
+             FSL_FEATURE_FTFA_PFLASH_BLOCK_CMD_ADDRESS_ALIGMENT = 4 \
+             FSL_FEATURE_FTFA_PFLASH_SECTOR_CMD_ADDRESS_ALIGMENT = 8 \
+             FSL_FEATURE_FTFA_PFLASH_SECTION_CMD_ADDRESS_ALIGMENT = 8 \
+             FSL_FEATURE_FTFA_PFLASH_RESOURCE_CMD_ADDRESS_ALIGMENT = 4 \
+             FSL_FEATURE_FTFA_PFLASH_CHECK_CMD_ADDRESS_ALIGMENT = 4 \
+             FSL_FEATURE_FTFA_PFLASH_SWAP_CONTROL_CMD_ADDRESS_ALIGMENT = 0 \
              FSL_FEATURE_MCM_HAS_UBROMBAR_REGISTER = 1 \
              FSL_FEATURE_MCM_CFISR_HAS_CFEDL_BIT_FIELD = 1 \
              FSL_FEATURE_MCM_CPCR_HAS_FCCCLR_BIT_FIELD = 0 \

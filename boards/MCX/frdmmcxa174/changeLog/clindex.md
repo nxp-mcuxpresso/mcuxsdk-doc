@@ -1,10 +1,6 @@
 # MCUXpresso SDK Changelog
 
-```{include} /examples/_boards/frdmmcxl255/ChangeLog_board.md
-:heading-offset: 2
-```
----
-```{include} /devices/MCX/MCXL/MCXL255/drivers/doxygen/ChangeLog_advc.md
+```{include} /examples/_boards/frdmmcxa174/ChangeLog_board.md
 :heading-offset: 2
 ```
 ---
@@ -12,15 +8,11 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/aon_lpadc/doxygen/ChangeLog_aon_lpadc.md
+```{include} /drivers/cache/lpcac_n4a_mcxn/doxygen/ChangeLog_cache_lpcac.md
 :heading-offset: 2
 ```
 ---
 ```{include} /drivers/cdog/doxygen/ChangeLog_cdog.md
-:heading-offset: 2
-```
----
-```{include} /devices/MCX/MCXL/MCXL255/drivers/doxygen/ChangeLog_clock.md
 :heading-offset: 2
 ```
 ---
@@ -44,7 +36,23 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/eim/doxygen/ChangeLog_eim.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/eqdc/doxygen/ChangeLog_eqdc.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/erm/doxygen/ChangeLog_erm.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/flexcan/doxygen/ChangeLog_flexcan.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/flexcan/doxygen/ChangeLog_flexcan_edma.md
 :heading-offset: 2
 ```
 ---
@@ -61,14 +69,6 @@
 ```
 ---
 ```{include} /drivers/inputmux/doxygen/ChangeLog_inputmux.md
-:heading-offset: 2
-```
----
-```{include} /drivers/kpp/doxygen/ChangeLog_kpp.md
-:heading-offset: 2
-```
----
-```{include} /drivers/lpacmp/doxygen/ChangeLog_lpacmp.md
 :heading-offset: 2
 ```
 ---
@@ -108,7 +108,11 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/mu1/doxygen/ChangeLog_mu.md
+```{include} /drivers/mau/doxygen/ChangeLog_mau.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/opamp_fast/doxygen/ChangeLog_opamp.md
 :heading-offset: 2
 ```
 ---
@@ -120,27 +124,23 @@
 :heading-offset: 2
 ```
 ---
-```{include} /devices/MCX/MCXL/MCXL255/drivers/doxygen/ChangeLog_power.md
+```{include} /drivers/pwm/doxygen/ChangeLog_pwm.md
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/qtmr_1/doxygen/ChangeLog_qtmr.md
+```{include} /devices/MCX/MCXA/MCXA153/drivers/doxygen/ChangeLog_romapi.md
 :heading-offset: 2
 ```
 ---
-```{include} /devices/MCX/MCXL/MCXL255/drivers/doxygen/ChangeLog_reset.md
+```{include} /drivers/rtc/doxygen/ChangeLog_rtc.md
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/rtc_analog/doxygen/ChangeLog_rtc.md
+```{include} /drivers/smartdma/doxygen/ChangeLog_smartdma.md
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/slcd_split/doxygen/ChangeLog_slcd.md
-:heading-offset: 2
-```
----
-```{include} /drivers/smm/doxygen/ChangeLog_smm.md
+```{include} /drivers/mcx_spc/doxygen/ChangeLog_spc.md
 :heading-offset: 2
 ```
 ---
@@ -148,11 +148,15 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/trng/doxygen/ChangeLog_trng.md
+```{include} /drivers/utick/doxygen/ChangeLog_utick.md
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/utick/doxygen/ChangeLog_utick.md
+```{include} /drivers/mcx_vbat/doxygen/ChangeLog_vbat.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/waketimer/doxygen/ChangeLog_waketimer.md
 :heading-offset: 2
 ```
 ---

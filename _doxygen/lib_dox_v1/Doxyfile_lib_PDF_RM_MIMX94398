@@ -960,6 +960,181 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/drivers/flexio/spi/fsl_flexio_spi.h \
         @SDK_BASE@/drivers/flexio/t-format/fsl_flexio_t-format.h \
         @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart_edma.h \
+        @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm7_core0/fsl_irqsteer_soc.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_elec_spec.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_reset.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_trdc_soc.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_edma_soc.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_iomuxc.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_supply.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_cpu.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_memory.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_power.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_ccm.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_src.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_fro.h \
+        @SDK_BASE@/drivers/aoi/fsl_aoi.h \
+        @SDK_BASE@/drivers/bbnsm/fsl_bbnsm.h \
+        @SDK_BASE@/drivers/biss/fsl_biss.h \
+        @SDK_BASE@/drivers/common/fsl_common.h \
+        @SDK_BASE@/drivers/common/fsl_common_arm.h \
+        @SDK_BASE@/drivers/dcif/fsl_dcif.h \
+        @SDK_BASE@/drivers/ecat/fsl_ecat.h \
+        @SDK_BASE@/drivers/edma4/fsl_edma.h \
+        @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
+        @SDK_BASE@/drivers/endat2p2/fsl_endat2p2.h \
+        @SDK_BASE@/drivers/endat3/fsl_endat3.h \
+        @SDK_BASE@/drivers/endat3/endat3_mem_defs.h \
+        @SDK_BASE@/drivers/eqdc/fsl_eqdc.h \
+        @SDK_BASE@/drivers/ewm/fsl_ewm.h \
+        @SDK_BASE@/drivers/flexcan/fsl_flexcan_edma.h \
+        @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
+        @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/fract_pll/fsl_fract_pll.h \
+        @SDK_BASE@/drivers/gpt/fsl_gpt.h \
+        @SDK_BASE@/drivers/hiperface/fsl_hiperface.h \
+        @SDK_BASE@/drivers/igf/fsl_igf.h \
+        @SDK_BASE@/drivers/irqsteer_1/fsl_irqsteer.h \
+        @SDK_BASE@/drivers/lpi2c/fsl_lpi2c_edma.h \
+        @SDK_BASE@/drivers/lpi2c/fsl_lpi2c.h \
+        @SDK_BASE@/drivers/lpit/fsl_lpit.h \
+        @SDK_BASE@/drivers/lpspi/fsl_lpspi_edma.h \
+        @SDK_BASE@/drivers/lpspi/fsl_lpspi.h \
+        @SDK_BASE@/drivers/lptmr/fsl_lptmr.h \
+        @SDK_BASE@/drivers/lpuart/fsl_lpuart_edma.h \
+        @SDK_BASE@/drivers/lpuart/fsl_lpuart.h \
+        @SDK_BASE@/drivers/mcm/fsl_mcm.h \
+        @SDK_BASE@/drivers/msgintr/fsl_msgintr.h \
+        @SDK_BASE@/drivers/mu1/fsl_mu.h \
+        @SDK_BASE@/drivers/netc/socs/imx943/fsl_netc_soc.h \
+        @SDK_BASE@/drivers/netc/fsl_netc.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_ierb.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_timer.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_mdio.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_endpoint.h \
+        @SDK_BASE@/drivers/netc/netc_hw/fsl_netc_hw.h \
+        @SDK_BASE@/drivers/netc/netc_hw/fsl_netc_hw_port.h \
+        @SDK_BASE@/drivers/netc/netc_hw/fsl_netc_hw_si.h \
+        @SDK_BASE@/drivers/netc/netc_hw/fsl_netc_hw_enetc.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_switch.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_tag.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_phy_wrapper.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_msg.h \
+        @SDK_BASE@/drivers/pdm/fsl_pdm_edma.h \
+        @SDK_BASE@/drivers/pdm/fsl_pdm.h \
+        @SDK_BASE@/drivers/pwm/fsl_pwm.h \
+        @SDK_BASE@/drivers/pxp/fsl_pxp.h \
+        @SDK_BASE@/drivers/qtmr_1/fsl_qtmr.h \
+        @SDK_BASE@/drivers/rgpio/fsl_rgpio.h \
+        @SDK_BASE@/drivers/s3mu/fsl_s3mu.h \
+        @SDK_BASE@/drivers/sai/fsl_sai_edma.h \
+        @SDK_BASE@/drivers/sai/fsl_sai.h \
+        @SDK_BASE@/drivers/sar_adc/fsl_sar_adc.h \
+        @SDK_BASE@/drivers/sema42/fsl_sema42.h \
+        @SDK_BASE@/drivers/sinc/fsl_sinc.h \
+        @SDK_BASE@/drivers/sramctl/fsl_sramctl.h \
+        @SDK_BASE@/drivers/tpm/fsl_tpm.h \
+        @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
+        @SDK_BASE@/drivers/xbar_1/fsl_xbar.h \
+        @SDK_BASE@/drivers/cache/armv7-m7/doxygen/cache.dox \
+        @SDK_BASE@/drivers/cache/armv7-m7/fsl_cache.h \
+        @SDK_BASE@/drivers/flexio/a-format/fsl_flexio_a-format.h \
+        @SDK_BASE@/drivers/flexio/i2c/fsl_flexio_i2c_master.h \
+        @SDK_BASE@/drivers/flexio/i2s/fsl_flexio_i2s_edma.h \
+        @SDK_BASE@/drivers/flexio/i2s/fsl_flexio_i2s.h \
+        @SDK_BASE@/drivers/flexio/spi/fsl_flexio_spi_edma.h \
+        @SDK_BASE@/drivers/flexio/spi/fsl_flexio_spi.h \
+        @SDK_BASE@/drivers/flexio/t-format/fsl_flexio_t-format.h \
+        @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart_edma.h \
+        @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm7_core1/fsl_irqsteer_soc.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_elec_spec.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_reset.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_trdc_soc.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_clock.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_edma_soc.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_iomuxc.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_supply.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_cpu.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_memory.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_power.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_ccm.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_src.h \
+        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_fro.h \
+        @SDK_BASE@/drivers/aoi/fsl_aoi.h \
+        @SDK_BASE@/drivers/bbnsm/fsl_bbnsm.h \
+        @SDK_BASE@/drivers/biss/fsl_biss.h \
+        @SDK_BASE@/drivers/common/fsl_common.h \
+        @SDK_BASE@/drivers/common/fsl_common_arm.h \
+        @SDK_BASE@/drivers/dcif/fsl_dcif.h \
+        @SDK_BASE@/drivers/ecat/fsl_ecat.h \
+        @SDK_BASE@/drivers/edma4/fsl_edma.h \
+        @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
+        @SDK_BASE@/drivers/endat2p2/fsl_endat2p2.h \
+        @SDK_BASE@/drivers/endat3/fsl_endat3.h \
+        @SDK_BASE@/drivers/endat3/endat3_mem_defs.h \
+        @SDK_BASE@/drivers/eqdc/fsl_eqdc.h \
+        @SDK_BASE@/drivers/ewm/fsl_ewm.h \
+        @SDK_BASE@/drivers/flexcan/fsl_flexcan_edma.h \
+        @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
+        @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/fract_pll/fsl_fract_pll.h \
+        @SDK_BASE@/drivers/gpt/fsl_gpt.h \
+        @SDK_BASE@/drivers/hiperface/fsl_hiperface.h \
+        @SDK_BASE@/drivers/igf/fsl_igf.h \
+        @SDK_BASE@/drivers/irqsteer_1/fsl_irqsteer.h \
+        @SDK_BASE@/drivers/lpi2c/fsl_lpi2c_edma.h \
+        @SDK_BASE@/drivers/lpi2c/fsl_lpi2c.h \
+        @SDK_BASE@/drivers/lpit/fsl_lpit.h \
+        @SDK_BASE@/drivers/lpspi/fsl_lpspi_edma.h \
+        @SDK_BASE@/drivers/lpspi/fsl_lpspi.h \
+        @SDK_BASE@/drivers/lptmr/fsl_lptmr.h \
+        @SDK_BASE@/drivers/lpuart/fsl_lpuart_edma.h \
+        @SDK_BASE@/drivers/lpuart/fsl_lpuart.h \
+        @SDK_BASE@/drivers/mcm/fsl_mcm.h \
+        @SDK_BASE@/drivers/msgintr/fsl_msgintr.h \
+        @SDK_BASE@/drivers/mu1/fsl_mu.h \
+        @SDK_BASE@/drivers/netc/socs/imx943/fsl_netc_soc.h \
+        @SDK_BASE@/drivers/netc/fsl_netc.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_ierb.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_timer.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_mdio.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_endpoint.h \
+        @SDK_BASE@/drivers/netc/netc_hw/fsl_netc_hw.h \
+        @SDK_BASE@/drivers/netc/netc_hw/fsl_netc_hw_port.h \
+        @SDK_BASE@/drivers/netc/netc_hw/fsl_netc_hw_si.h \
+        @SDK_BASE@/drivers/netc/netc_hw/fsl_netc_hw_enetc.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_switch.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_tag.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_phy_wrapper.h \
+        @SDK_BASE@/drivers/netc/fsl_netc_msg.h \
+        @SDK_BASE@/drivers/pdm/fsl_pdm_edma.h \
+        @SDK_BASE@/drivers/pdm/fsl_pdm.h \
+        @SDK_BASE@/drivers/pwm/fsl_pwm.h \
+        @SDK_BASE@/drivers/pxp/fsl_pxp.h \
+        @SDK_BASE@/drivers/qtmr_1/fsl_qtmr.h \
+        @SDK_BASE@/drivers/rgpio/fsl_rgpio.h \
+        @SDK_BASE@/drivers/s3mu/fsl_s3mu.h \
+        @SDK_BASE@/drivers/sai/fsl_sai_edma.h \
+        @SDK_BASE@/drivers/sai/fsl_sai.h \
+        @SDK_BASE@/drivers/sar_adc/fsl_sar_adc.h \
+        @SDK_BASE@/drivers/sema42/fsl_sema42.h \
+        @SDK_BASE@/drivers/sinc/fsl_sinc.h \
+        @SDK_BASE@/drivers/sramctl/fsl_sramctl.h \
+        @SDK_BASE@/drivers/tpm/fsl_tpm.h \
+        @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
+        @SDK_BASE@/drivers/xbar_1/fsl_xbar.h \
+        @SDK_BASE@/drivers/cache/armv7-m7/fsl_cache.h \
+        @SDK_BASE@/drivers/flexio/a-format/fsl_flexio_a-format.h \
+        @SDK_BASE@/drivers/flexio/i2c/fsl_flexio_i2c_master.h \
+        @SDK_BASE@/drivers/flexio/i2s/fsl_flexio_i2s_edma.h \
+        @SDK_BASE@/drivers/flexio/i2s/fsl_flexio_i2s.h \
+        @SDK_BASE@/drivers/flexio/spi/fsl_flexio_spi_edma.h \
+        @SDK_BASE@/drivers/flexio/spi/fsl_flexio_spi.h \
+        @SDK_BASE@/drivers/flexio/t-format/fsl_flexio_t-format.h \
+        @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart_edma.h \
         @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart.h
 
 # If the value of the INPUT tag contains directories, you can use the
@@ -1119,7 +1294,10 @@ IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/doxyge
              @SDK_BASE@/drivers/flexio/t-format/doxygen \
              @SDK_BASE@/drivers/flexio/uart/doxygen \
              @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core1/doxygen \
-             @SDK_BASE@/drivers/cache/xcache/doxygen
+             @SDK_BASE@/drivers/cache/xcache/doxygen \
+             @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm7_core0/doxygen \
+             @SDK_BASE@/drivers/cache/armv7-m7/doxygen \
+             @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm7_core1/doxygen
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -2485,6 +2663,7 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_NETC_HAS_ERRATA_051936 = 0 \
              FSL_FEATURE_NETC_HAS_PORT_PSRCR = 1 \
              FSL_FEATURE_NETC_HAS_PORT_PGCR = 1 \
+             FSL_FEATURE_NETC_HAS_ERRATA_052134 = 0 \
              FSL_FEATURE_PDM_FIFO_OFFSET = 4 \
              FSL_FEATURE_PDM_CHANNEL_NUM = 8 \
              FSL_FEATURE_PDM_FIFO_WIDTH = 4 \
@@ -2574,6 +2753,8 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_SOC_XCACHE_COUNT = 2 \
              FSL_FEATURE_XCACHE_LINESIZE_BYTE = 16 \
              FSL_FEATURE_XCACHE_HAS_NO_WRITE_BUF = 1
+
+PREDEFINED += DOXYGEN_OUTPUT=1
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

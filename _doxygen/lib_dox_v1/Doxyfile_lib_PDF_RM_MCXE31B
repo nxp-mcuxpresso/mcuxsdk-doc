@@ -762,6 +762,8 @@ INPUT = @SDK_BASE@/devices/MCX/MCXE/MCXE31B/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
         @SDK_BASE@/drivers/emios/doxygen/emios.dox \
         @SDK_BASE@/drivers/emios/fsl_emios.h \
+        @SDK_BASE@/drivers/enet_qos/doxygen/enet_qos.dox \
+        @SDK_BASE@/drivers/enet_qos/fsl_enet_qos.h \
         @SDK_BASE@/drivers/flash_c40/fsl_flash.h \
         @SDK_BASE@/drivers/flash_c40/fsl_c40_flash.h \
         @SDK_BASE@/drivers/flexcan/doxygen/flexcan_edma.dox \
@@ -963,6 +965,7 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXE/MCXE31B/drivers/doxygen \
              @SDK_BASE@/drivers/dmamux/doxygen \
              @SDK_BASE@/drivers/edma4/doxygen \
              @SDK_BASE@/drivers/emios/doxygen \
+             @SDK_BASE@/drivers/enet_qos/doxygen \
              @SDK_BASE@/drivers/flash_c40/doxygen \
              @SDK_BASE@/drivers/flexcan/doxygen \
              @SDK_BASE@/drivers/flexio/doxygen \
@@ -2126,6 +2129,7 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 3 \
              FSL_FEATURE_SOC_DMAMUX_COUNT = 2 \
              FSL_FEATURE_SOC_EDMA_COUNT = 1 \
              FSL_FEATURE_SOC_EIM_COUNT = 1 \
+             FSL_FEATURE_SOC_EMAC_COUNT = 1 \
              FSL_FEATURE_SOC_EMIOS_COUNT = 3 \
              FSL_FEATURE_SOC_FLEXCAN_COUNT = 6 \
              FSL_FEATURE_SOC_FLEXIO_COUNT = 1 \
@@ -2142,6 +2146,7 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 3 \
              FSL_FEATURE_SOC_QuadSPI_COUNT = 1 \
              FSL_FEATURE_SOC_RTC_COUNT = 1 \
              FSL_FEATURE_SOC_SEMA42_COUNT = 1 \
+             FSL_FEATURE_SOC_SIUL2_COUNT = 1 \
              FSL_FEATURE_SOC_STM_COUNT = 2 \
              FSL_FEATURE_SOC_TRGMUX_COUNT = 1 \
              FSL_FEATURE_SOC_WKPU_COUNT = 1 \
@@ -2226,7 +2231,6 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 3 \
              FSL_FEATURE_FLEXCAN_HAS_ERRATA_5829 = 0 \
              FSL_FEATURE_FLEXCAN_HAS_ERRATA_6032 = 0 \
              FSL_FEATURE_FLEXCAN_HAS_ERRATA_9595 = 0 \
-             FSL_FEATURE_FLEXCAN_HAS_ERRATA_052403 = 1 \
              FSL_FEATURE_FLEXCAN_HAS_FLEXIBLE_DATA_RATE = 1 \
              FSL_FEATURE_FLEXCAN_HAS_MEMORY_ERROR_CONTROL = 1 \
              FSL_FEATURE_FLEXCAN_HAS_ENHANCED_BIT_TIMING_REG = 1 \
@@ -2244,8 +2248,9 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 3 \
              FSL_FEATURE_FLEXCAN_HAS_ENDIANNESS_SELECTION = 0 \
              FSL_FEATURE_FLEXCAN_ENTER_FREEZE_MODE = 0 \
              FSL_FEATURE_FLEXCAN_HAS_ERRATA_8341 = 0 \
+             FSL_FEATURE_FLEXCAN_HAS_ERRATA_052403 = 1 \
              FSL_FEATURE_FLEXCAN_HAS_ERRATA_050443 = 0 \
-             FSL_FEATURE_FLEXIO_HAS_DOZE_MODE_SUPPORT = 0 \
+             FSL_FEATURE_FLEXCAN_HAS_MEMORY_ERROR_INTERRUPT = 1 \
              FSL_FEATURE_FLEXIO_HAS_RESET = 0 \
              FSL_FEATURE_FLEXIO_HAS_SHIFTER_STATUS = 1 \
              FSL_FEATURE_FLEXIO_HAS_PIN_STATUS = 1 \
@@ -2258,6 +2263,7 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 3 \
              FSL_FEATURE_FLEXIO_DMA_REQUEST_BASE_CHANNEL = 0 \
              FSL_FEATURE_FLEXIO_TIMCFG_TIMDCE_FIELD_WIDTH = 3 \
              FSL_FEATURE_FLEXIO_HAS_PIN_REGISTER = 1 \
+             FSL_FEATURE_FLEXIO_HAS_DOZE_MODE_SUPPORT = 0 \
              FSL_FEATURE_INTM_MONITOR_COUNT = 4 \
              FSL_FEATURE_LPCMP_HAS_CCR1_FUNC_CLK_SEL = 0 \
              FSL_FEATURE_LPCMP_HAS_IER_RRF_IE = 1 \
@@ -2277,9 +2283,12 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 3 \
              FSL_FEATURE_LPCMP_HAS_RRCR2 = 0 \
              FSL_FEATURE_LPCMP_HAS_CCR0_CMP_STOP_EN = 1 \
              FSL_FEATURE_LPI2C_HAS_ROLE_SPLIT_IRQ = 0 \
+             FSL_FEATURE_LPI2C_IS_LPFLEXCOMM = 0 \
              FSL_FEATURE_LPSPI_HAS_CCR1 = 1 \
              FSL_FEATURE_LPSPI_HAS_NO_PCSCFG = 0 \
              FSL_FEATURE_LPSPI_HAS_NO_MULTI_WIDTH = 0 \
+             FSL_FEATURE_LPSPI_HAS_ERRATA_050456 = 1 \
+             FSL_FEATURE_LPSPI_IS_LPFLEXCOMM = 0 \
              FSL_FEATURE_LPUART_HAS_IRQ_EXTENDED_FUNCTIONS = 0 \
              FSL_FEATURE_LPUART_HAS_LOW_POWER_UART_SUPPORT = 1 \
              FSL_FEATURE_LPUART_HAS_EXTENDED_DATA_REGISTER_FLAGS = 1 \
@@ -2357,13 +2366,14 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 3 \
              FSL_FEATURE_MU_HAS_HR = 0 \
              FSL_FEATURE_MU_GPI_COUNT = 4 \
              FSL_FEATURE_INTERRUPT_IRQ_MIN = -14 \
-             FSL_FEATURE_INTERRUPT_IRQ_MAX = 207 \
-             FSL_FEATURE_PIT_HAS_RTI = 1 \
+             FSL_FEATURE_INTERRUPT_IRQ_MAX = 223 \
              FSL_FEATURE_PIT_TIMER_COUNT = 4 \
              FSL_FEATURE_PIT_HAS_LIFETIME_TIMER = 1 \
              FSL_FEATURE_PIT_HAS_CHAIN_MODE = 1 \
              FSL_FEATURE_PIT_HAS_SHARED_IRQ_HANDLER = 1 \
              FSL_FEATURE_PIT_HAS_MDIS = 1 \
+             FSL_FEATURE_PIT_HAS_RTI = 1 \
+             FSL_FEATURE_PIT_HAS_ERRATA_7914 = 0 \
              FSL_FEATURE_PMC_HAS_15V_SUPPLY = 1 \
              FSL_FEATURE_PMC_HAS_LAST_MILE_REGULATOR = 1 \
              FSL_FEATURE_PMC_HAS_VDD_HV_B_SUPPLY = 1 \
@@ -2393,7 +2403,6 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 3 \
              FSL_FEATURE_QSPI_HAS_TX_BUFF_ENOUGH_DATA = 0 \
              FSL_FEATURE_QSPI_HAS_DDR = 0 \
              FSL_FEATURE_QSPI_HAS_SOC_SPECIFIC_CONFIG = 1 \
-             FSL_FEATURE_SAI_HAS_FIFO = 1 \
              FSL_FEATURE_SAI_MAX_WORDS_PER_FRAME = 16 \
              FSL_FEATURE_SAI_HAS_FIFO_COMBINE_MODE = 1 \
              FSL_FEATURE_SAI_HAS_FIFO_PACKING = 1 \
@@ -2408,9 +2417,11 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 3 \
              FSL_FEATURE_SAI_HAS_BCLK_BYPASS = 1 \
              FSL_FEATURE_SAI_HAS_MCR_MCLK_POST_DIV = 0 \
              FSL_FEATURE_SAI_HAS_CHANNEL_MODE = 1 \
+             FSL_FEATURE_SAI_HAS_FIFO = 1 \
              FSL_FEATURE_SAI_HAS_SYNC_WITH_ANOTHER_SAI = 0 \
              FSL_FEATURE_SAI_HAS_BIT_CLOCK_SWAP = 0 \
              FSL_FEATURE_SAI_SAI5_SAI6_SHARE_IRQ = 0 \
+             FSL_FEATURE_SAI_HAS_ERRATA_051421 = 1 \
              FSL_FEATURE_SEMA42_GATE_COUNT = 16 \
              FSL_FEATURE_SWT_HAS_ERRATA_052226 = 1 \
              FSL_FEATURE_SYSTICK_HAS_EXT_REF = 0 \

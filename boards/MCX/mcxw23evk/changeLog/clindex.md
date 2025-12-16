@@ -64,10 +64,6 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/mailbox/doxygen/ChangeLog_mailbox.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/mrt/doxygen/ChangeLog_mrt.md
 :heading-offset: 2
 ```
