@@ -8,7 +8,7 @@ This guide explains how to install the essential tools for development with the 
 
 The **MCUXpresso Installer** is the fastest way to get started. It automatically installs all the basic tools you need.
 
-1. **Download the MCUXpresso Installer** from: https://github.com/nxp-mcuxpresso/vscode-for-mcux/wiki/Dependency-Installation
+1. **Download the MCUXpresso Installer** from: [Dependency-Installation](https://docs.mcuxpresso.nxp.com/mcux-vscode/latest/html/Dependency-Installation.html)
 
 2. **Run the installer** and select **"MCUXpresso SDK Developer"** from the menu
 
