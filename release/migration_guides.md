@@ -1,7 +1,7 @@
 # MCUXpresso SDK Migration Guide
 
 ## Introduction
-Starting with version **25.12.00**, the Arm GCC SDK package will have a new format. The new format will unify the **CMake + Kconfig** support between the SDK package and the GitHub repository. When users select Arm GCC in SDK Builder, the system will deliver a ZIP package that contains similar folders/files to that found in the GitHub SDK distribution. Additionally, VS Code integration provides access to Arm GCC Archive SDK packages. Starting with 25.12.00, VS Code will import the same Arm GCC Archive SDK package users download [Setup Guide](docs/setup.mdfrom the SDK Builder site.
+Starting with version **25.12.00**, the Arm GCC SDK package will have a new format. The new format will unify the **CMake + Kconfig** support between the SDK package and the GitHub repository. When users select Arm GCC in SDK Builder, the system will deliver a ZIP package that contains similar folders/files to that found in the GitHub SDK distribution. Additionally, VS Code integration provides access to Arm GCC Archive SDK packages. Starting with 25.12.00, VS Code will import the same Arm GCC Archive SDK package users download from the SDK Builder site.
 
 ## Overview of Changes
 - VS Code and GitHub workflows are based on CMake.
@@ -24,7 +24,7 @@ For more details on how to use the new SDK structure, refer to [Workspace Struct
 The new SDK format introduces changes to how projects are organized and configured.
 In the new project structure:  
 - Your application source files (e.g., hello_world.c) remain within the example folder, so you still have everything you need to build and modify your demo.  
-- Board-specific files (like pin_mux.c, clock_config.c, and hardware initialization code) are no longer inside the same project folder. These are now located in shared directories under mcuxsdk to reduce duplication and improve maintainability.  
+- Board-specific files (like pin_mux.c, clock_config.c, and hardware initialization code) are no longer inside the same project folder. These are now located in shared directories under mcuxsdk further details in [board specific files](../gsd/explore_sdk.md#board-specific-files).  
 - Build configuration files (CMakeLists.txt, Kconfig, example.yaml) are included in the example folder for easier project setup.
 
 Looking at FRDM-MCXN947 as an example, we can see how a hello_world demo application is structured:  
@@ -74,10 +74,10 @@ The new project format introduces **Kconfig**, which enables advanced configurat
 - [**Using CMake Extensions**](../gsd/cmake_project_walkthrough.md)
 
 
-## Result of the Documented Process??
-While the folder organization has changed, the process for importing the SDK and projects remains the same:
+## Getting Started with 25.12.00 SDK
+While the content noted above has changed, the process for importing the SDK and projects remains the same:
 
-- [**Use SDK Builder**](../gsd/install/sdk_builder.md) to download your Arm GCC SDK as a ZIP file
+- [**Use SDK Builder**](../gsd/install/sdk_builder.md) to download your Arm GCC SDK as a ZIP/archive file
 - [**Import SDK**](../gsd/install/github.md) to download your Arm  GCC SDK from GitHub directly to your VS Code workspace
 - [**Import projects**]() and checkout the new project structure
 - [**Build and run**]() a project using the updated CMake configuration
@@ -85,7 +85,8 @@ While the folder organization has changed, the process for importing the SDK and
 
 ## Additional Resources
 - [MCUXpresso for VS Code Docs](https://docs.mcuxpresso.nxp.com/mcux-vscode/latest/html/index.html)
-- [Official GitHub Repositories](https://github.com/nxp-mcuxpresso)
+- [MCUXpresso GitHub SDK Distribution](https://github.com/nxp-mcuxpresso/mcuxsdk-manifests)
+- [MCUxpresso Archive SDK Builder](https://mcuxpresso.nxp.com/)
 
 
 
