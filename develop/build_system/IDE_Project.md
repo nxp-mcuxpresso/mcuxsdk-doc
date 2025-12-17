@@ -703,8 +703,6 @@ mdk:
 
 ## Ruby Environment Setup
 
-**For IDE GUI project generation, ruby version equal or later than `3.1.2` is required.**
-
 ### Use Provided Portable Ruby Environment (recommended)
 
 You can simply run `west install_ruby` to get a portable version of ruby with all required gems. It supports following platforms:
@@ -717,7 +715,11 @@ You can simply run `west install_ruby` to get a portable version of ruby with al
 The west extension `install_ruby` is implemented in core repo `scripts` folder, please refer [Get MCUXpresso SDK Repo](../../gsd/repo_setup.md#workspace-initilization) to setup the repository. After the repository is ready, you should firstly run `west config commands.allow_extensions true` to enable west extensions otherwise you will get error <span style="color:red">unknown command install_ruby</span>.
 ```
 
-By default, portable_ruby will be extracted to `~/portable-ruby` for Linux/macOS and `C:\portable_ruby` for Windows. You can use `west install_ruby -o <path>` if you want to extract it to another place.
+By default, portable_ruby will be extracted to User home directory `~/portable-ruby`. You can use `west install_ruby -o <path>` if you want to extract it to another place.
+
+```{note}
+The portable ruby archive already have a top-level directory `portable-ruby`, so you don't need to create an extra directory for extraction.
+```
 
 The `bin` dir of portable_ruby will be automatically added to your user PATH in Windows. 
 For Linux/macOS, please follow the guide in command line to add it to your shell profile:
@@ -730,6 +732,10 @@ export PATH=/home/user_name/portable-ruby/3.1.4/bin:$PATH
 ```
 
 ### Install Ruby Environment by Yourself
+
+```{important}
+For IDE GUI project generation, ruby version equal or later than `3.1.2` is required.
+```
 
 #### For Windows
 
