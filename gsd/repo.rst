@@ -69,3 +69,4 @@ Get started with building and running projects:
    first_build
    run_a_demo_using_mcuxvsc
    run_project
+   config_tools
