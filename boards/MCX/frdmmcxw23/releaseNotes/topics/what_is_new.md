@@ -28,9 +28,17 @@ The following changes have been implemented compared to the previous SDK release
 
     - **Bluetooth LE host stack and applications**
         - Support for **EATT Central/Peripheral** applications.
-        - Support for **FSCI black box** application.
+        - Support for **FSCI Black Box** application.
         - Support for **Beacon** application.
-        - **HCI transport** now uses the Connectivity Framework's PLATFORM API implementation
+        - Support for **Temperature Collector/Sensor** applications.
+        - Support for **ANCS Client** application.
+        - Support for **Extended Advertising Central/Peripheral** applications.
+        - Support for **HID Device/Host** applications.
+        - Support for **BLE Shell** application.
+        - **HCI transport** now uses the Connectivity Framework's Platform API implementation
+
+        **Note**
+            These applications do not support low-power operation. For low-power features, see the reference design `Health Care IoT` applications.
 
 - **Connectivity Framework**
 
