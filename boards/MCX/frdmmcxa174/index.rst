@@ -1,13 +1,13 @@
-:pdf-download: ../../../_assets/boards/frdmmcxa344/mcuxsdk-frdmmcxa344.pdf
-.. _frdmmcxa344:
+:pdf-download: ../../../_assets/boards/frdmmcxa174/mcuxsdk-frdmmcxa174.pdf
+.. _frdmmcxa174:
 
-FRDM-MCXA344
+FRDM-MCXA174
 ####################
 
 Overview
 ********
 
-FRDM-MCXA344 are compact and scalable development boards for rapid prototyping of
+FRDM-MCXA174 are compact and scalable development boards for rapid prototyping of
 MCX A27X MCUs. They offer industry standard headers for easy access to the MCUs I/Os,
 integrated open-standard serial interfaces and an on-board MCU-Link debugger.
 MCX A Series are high-performance, low-power microcontrollers with MAU,SmartDMA and performance efficiency.
@@ -17,18 +17,18 @@ The board is compatible with Arduino boards (Arduino UNO R3 and Arduino A4/A5), 
 wide range of development tools, including NXP MCUXpresso IDE, IAR Embedded Workbench, and Arm Keil
 MDK. The board is lead-free and RoHS-compliant.
 
-For debugging the MCXA346 MCU, the FRDM-MCXA344 board uses an onboard (OB) debug probe, MCU-Link lite
+For debugging the MCXA346 MCU, the FRDM-MCXA174 board uses an onboard (OB) debug probe, MCU-Link lite
 OB, which is based on another NXP MCU: LPC55S16
 
-.. image:: ./frdmmcxa344.png
+.. image:: ./frdmmcxa174.png
    :width: 240px
    :align: center
-   :alt: FRDM-MCXA344
+   :alt: FRDM-MCXA174
 
 MCU device and part on board is shown below:
 
- - Device: MCXA344
- - PartNumber: MCXA344VLL
+ - Device: MCXA174
+ - PartNumber: MCXA174VLL
 
 
 Getting Started with MCUXpresso SDK Package
@@ -63,7 +63,7 @@ Driver API Reference Manual
 
 This section provides a link to the Driver API RM, detailing available drivers and their usage to help you integrate hardware efficiently.
 
-:ref:`MCXA344_drivers`
+:ref:`MCXA174_drivers`
 
 Middleware Documentation
 *****************************
