@@ -7,54 +7,54 @@ External client: Apple MacBook Air
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|37|40|63|62|
-|WPA2-AES|35|38|58|60|
-|WPA3-SAE|37|39|61|61|
+|Open security|48|44|61|61|
+|WPA2-AES|47|43|59|59|
+|WPA3-SAE|47|43|59|59|
 
 **Mobile AP mode throughput - AN Mode | 5 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|38|41|62|64|
-|WPA2-AES|38|40|62|64|
-|WPA3-SAE|38|40|62|62|
+|Open security|49|46|64|63|
+|WPA2-AES|48|45|62|61|
+|WPA3-SAE|48|45|62|61|
 
-**Mobile AP mode throughput - VHT Mode | 2.4 GHz Band | 20 MHz (HT)**
+**Mobile AP mode throughput - VHT Mode | 2.4 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|39|43|68|73|
-|WPA2-AES|40|43|71|72|
-|WPA3-SAE|39|43|68|72|
+|Open security|54|50|73|73|
+|WPA2-AES|53|49|73|72|
+|WPA3-SAE|52|49|73|72|
 
 **Mobile AP mode throughput - VHT Mode | 5 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|42|45|72|74|
-|WPA2-AES|41|44|71|73|
-|WPA3-SAE|41|44|71|73|
+|Open security|54|51|71|70|
+|WPA2-AES|53|50|71|70|
+|WPA3-SAE|52|50|71|70|
 
 **Mobile AP mode throughput - HE Mode | 2.4 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|44|48|94|94|
-|WPA2-AES|43|46|95|95|
-|WPA3-SAE|43|46|95|95|
+|Open security|59|56|93|90|
+|WPA2-AES|57|53|94|84|
+|WPA3-SAE|57|53|94|84|
 
 **Mobile AP mode throughput - HE Mode | 5 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|45|49|97|97|
-|WPA2-AES|44|48|97|97|
-|WPA3-SAE|44|48|96|95|
+|Open security|61|58|96|91|
+|WPA2-AES|59|56|98|85|
+|WPA3-SAE|59|55|98|85|
 
 **Parent topic:**[Wi-Fi throughput](../topics/wi-fi_throughput_06.md)
 
