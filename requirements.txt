@@ -2,7 +2,7 @@
 
 breathe>=4.34
 sphinx~=7.1.0
-sphinx_rtd_theme~=2.0
+sphinx_book_theme
 sphinx-tabs
 sphinxcontrib-svg2pdfconverter
 pygments>=2.9

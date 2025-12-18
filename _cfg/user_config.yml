@@ -2,7 +2,7 @@ project: mcuxsdk
 copyright: 2025, NXP
 author: NXP
 extensions:
-- sphinx_rtd_theme
+- sphinx_book_theme
 - sphinx.ext.extlinks
 - vcs_link
 - sphinx.ext.todo

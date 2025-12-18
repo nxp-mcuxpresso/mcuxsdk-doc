@@ -1,0 +1,361 @@
+{#
+Navbar-style toolbar for MCUXpresso SDK Documentation
+
+Copyright (c) 2024 NXP
+SPDX-License-Identifier: BSD-3-Clause
+#}
+
+{% extends "!page.html" %}
+
+{% block extrahead %}
+{{ super() }}
+<style>
+/* Hide the original sphinx-book-theme navigation elements */
+.bd-header-article,
+.bd-navbar,
+.theme-switch-button,
+.repository-button,
+.download-button,
+.fullscreen-button {
+  display: none !important;
+}
+
+.bd-header .bd-header__inner .bd-header-article__right {
+  display: none !important;
+}
+
+.bd-container {
+  padding-top: 0 !important;
+}
+
+.bd-content {
+  padding-top: 1rem !important;
+}
+</style>
+{% endblock %}
+
+{% block docs_body %}
+{# Navbar-style toolbar #}
+<div class="custom-page-toolbar">
+  <div class="toolbar-left">
+    {# Menu button (icon only) - toggles primary sidebar #}
+    <button class="toolbar-menu-btn" onclick="togglePrimarySidebar()" title="Toggle Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    {# Logo and brand #}
+    <div class="toolbar-brand">
+      <i class="fas fa-microchip"></i>
+      <span>{{ html_title }}</span>
+    </div>
+    
+    {# Version Selector #}
+    {% if versions and versions|length > 0 %}
+    <div class="version-selector-inline">
+      <label for="version-select-inline">Version:</label>
+      <select id="version-select-inline" onchange="navigateToVersion(this.value)" class="version-select-inline">
+        {% for slug, url in versions %}
+        <option value="{{ url }}" {% if slug == current_version %}selected{% endif %}>
+          {{ slug }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+    {% endif %}
+  </div>
+  
+  <div class="toolbar-right">
+    {# Repo button (icon only) #}
+    {% if display_vcs_link %}
+    <div class="repo-dropdown">
+      <button class="repo-btn" title="Repository" onclick="toggleRepoDropdown(event)">
+        <i class="fab fa-github"></i>
+      </button>
+      <div class="repo-dropdown-content" id="repo-dropdown-content">
+        {% set vcs_url = pagename | vcs_link_get_url %}
+        {% if vcs_url %}
+        <a href="{{ vcs_url }}" class="repo-dropdown-item" target="_blank" rel="noopener">
+          <i class="fas fa-external-link-alt"></i>
+          Open on Repo
+        </a>
+        {% endif %}
+        <a href="{{ pagename | vcs_link_get_open_issue_url }}" class="repo-dropdown-item" target="_blank" rel="noopener">
+          <i class="fas fa-bug"></i>
+          Open an Issue
+        </a>
+      </div>
+    </div>
+    {% endif %}
+    
+    {# Download button (dropdown) #}
+    <div class="download-dropdown">
+      <button class="download-btn" title="Download" onclick="toggleDownloadDropdown(event)">
+        <i class="fas fa-download"></i>
+      </button>
+      <div class="download-dropdown-content" id="download-dropdown-content">
+        <a href="javascript:void(0)" class="download-dropdown-item" onclick="downloadSourceFile()">
+          <i class="fas fa-file-code"></i>
+          <span id="source-format">Source (.md/.rst)</span>
+        </a>
+        <a href="javascript:void(0)" class="download-dropdown-item" onclick="generatePDF()">
+          <i class="fas fa-file-pdf"></i>
+          Page PDF (.pdf)
+        </a>
+      </div>
+    </div>
+    
+    {# PDF button (only show if board PDF is available) #}
+    {% if meta and meta.get('pdf-download') %}
+    <a href="{{ meta['pdf-download'] }}" class="toolbar-icon-btn" title="Board PDF" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i>
+    </a>
+    {% endif %}
+    
+    {# Fullscreen button (icon only) #}
+    <button class="toolbar-icon-btn" onclick="toggleFullscreen()" title="Full Screen">
+      <i class="fas fa-expand" id="fullscreen-icon"></i>
+    </button>
+    
+    {# Theme switch button (icon only) #}
+    {# Theme switch button (icon only) - uses sphinx_book_theme's switcher #}
+    <button class="toolbar-icon-btn" onclick="triggerSphinxThemeToggle()" title="Toggle Theme">
+      <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+  </div>
+</div>
+
+{{ super() }}
+
+<script>
+// Navigation function
+function navigateToVersion(url) {
+  if (url && url !== window.location.href) {
+    window.location.href = url;
+  }
+}
+
+function togglePrimarySidebar() {
+  console.log('toggleSidebar called');
+  
+  const sidebar = document.querySelector('.bd-sidebar-primary');
+  const mainContent = document.querySelector('.bd-main');
+  
+  if (!sidebar) {
+    console.log('No sidebar found');
+    return;
+  }
+  
+  const isHidden = sidebar.classList.contains('hidden');
+  console.log('Sidebar is currently hidden:', isHidden);
+  
+  if (isHidden) {
+    // Show sidebar
+    console.log('Showing sidebar');
+    sidebar.classList.remove('hidden');
+    if (mainContent) {
+      mainContent.classList.remove('sidebar-hidden');
+    }
+    
+    // Add overlay for mobile
+    if (window.innerWidth <= 991) {
+      const overlay = document.createElement('div');
+      overlay.className = 'sidebar-overlay';
+      overlay.onclick = toggleSidebar;
+      document.body.appendChild(overlay);
+    }
+    
+  } else {
+    // Hide sidebar
+    console.log('Hiding sidebar');
+    sidebar.classList.add('hidden');
+    if (mainContent) {
+      mainContent.classList.add('sidebar-hidden');
+    }
+    
+    // Remove overlay
+    const overlay = document.querySelector('.sidebar-overlay');
+    if (overlay) {
+      overlay.remove();
+    }
+  }
+  
+  console.log('After toggle - sidebar classes:', sidebar.className);
+}
+
+// Fullscreen toggle
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(err => {
+      console.log('Fullscreen not supported:', err);
+    });
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+// Theme toggle - Use sphinx_book_theme's built-in functionality
+function triggerSphinxThemeToggle() {
+  // Find and click the hidden sphinx theme button
+  const sphinxThemeBtn = document.querySelector('.theme-switch-button');
+  if (sphinxThemeBtn) {
+    sphinxThemeBtn.click();
+  }
+}
+
+// Update fullscreen icon
+function updateFullscreenIcon() {
+  const icon = document.getElementById('fullscreen-icon');
+  if (icon) {
+    icon.className = document.fullscreenElement ? 'fas fa-compress' : 'fas fa-expand';
+  }
+}
+
+// Repo dropdown toggle
+function toggleRepoDropdown(event) {
+  event.stopPropagation();
+  const dropdown = document.getElementById('repo-dropdown-content');
+  if (dropdown) {
+    const isVisible = dropdown.style.display === 'block';
+    dropdown.style.display = isVisible ? 'none' : 'block';
+  }
+}
+
+// Download dropdown toggle
+function toggleDownloadDropdown(event) {
+  event.stopPropagation();
+  const dropdown = document.getElementById('download-dropdown-content');
+  if (dropdown) {
+    const isVisible = dropdown.style.display === 'block';
+    dropdown.style.display = isVisible ? 'none' : 'block';
+    
+    if (!isVisible) {
+      updateSourceFormat();
+    }
+  }
+}
+
+// Update source format
+function updateSourceFormat() {
+  const sourceFormat = document.getElementById('source-format');
+  const sourceName = '{{ sourcename }}';
+  
+  let extension = '.md';
+  if (sourceName) {
+    if (sourceName.toLowerCase().endsWith('.md')) {
+      extension = '.md';
+    } else if (sourceName.toLowerCase().endsWith('.rst')) {
+      extension = '.rst';
+    }
+  }
+  
+  if (sourceFormat) {
+    sourceFormat.textContent = `Source (${extension})`;
+  }
+}
+
+// Download source file
+function downloadSourceFile() {
+  const sourceName = '{{ sourcename }}';
+  if (sourceName) {
+    const baseUrl = window.location.origin;
+    const sourceUrl = `${baseUrl}/_sources/${sourceName}`;
+    
+    const link = document.createElement('a');
+    link.href = sourceUrl;
+    link.download = sourceName;
+    link.style.display = 'none';
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Close dropdown
+    const dropdown = document.getElementById('download-dropdown-content');
+    if (dropdown) dropdown.style.display = 'none';
+  } else {
+    alert('Source file not available for download.');
+  }
+}
+
+// Generate PDF
+function generatePDF() {
+  const originalTitle = document.title;
+  const pageTitle = document.querySelector('h1') ? document.querySelector('h1').textContent : 'Documentation';
+  document.title = `{{ html_title }} - ${pageTitle}`;
+  
+  // Hide toolbar for printing
+  const toolbar = document.querySelector('.custom-page-toolbar');
+  if (toolbar) toolbar.style.display = 'none';
+  
+  // Add print styles
+  const printStyle = document.createElement('style');
+  printStyle.textContent = `
+    @media print {
+      .bd-sidebar-primary, .bd-sidebar-secondary { display: none !important; }
+      .bd-main { margin: 0 !important; max-width: none !important; }
+      .bd-content { max-width: none !important; padding: 0 !important; }
+      body { font-size: 12pt !important; }
+      h1, h2, h3, h4, h5, h6 { page-break-after: avoid; }
+      pre, blockquote { page-break-inside: avoid; }
+      img { max-width: 100% !important; height: auto !important; }
+    }
+  `;
+  document.head.appendChild(printStyle);
+  
+  window.print();
+  
+  // Restore after print
+  setTimeout(() => {
+    if (toolbar) toolbar.style.display = 'flex';
+    document.title = originalTitle;
+    document.head.removeChild(printStyle);
+  }, 1000);
+  
+  // Close dropdown
+  const dropdown = document.getElementById('download-dropdown-content');
+  if (dropdown) dropdown.style.display = 'none';
+}
+
+// Event listeners
+document.addEventListener('fullscreenchange', updateFullscreenIcon);
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', function(event) {
+  const repoDropdown = document.getElementById('repo-dropdown-content');
+  const downloadDropdown = document.getElementById('download-dropdown-content');
+  const repoButton = event.target.closest('.repo-dropdown');
+  const downloadButton = event.target.closest('.download-dropdown');
+  
+  if (repoDropdown && !repoButton) {
+    repoDropdown.style.display = 'none';
+  }
+  
+  if (downloadDropdown && !downloadButton) {
+    downloadDropdown.style.display = 'none';
+  }
+});
+
+// Initialize theme icon on page load
+document.addEventListener('DOMContentLoaded', function() {
+  // Get current mode from sphinx_book_theme
+  const currentMode = document.documentElement.getAttribute('data-mode') || 'light';
+  updateThemeIcon(currentMode);
+  
+  // Watch for theme changes from sphinx_book_theme
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'data-mode') {
+        const newMode = document.documentElement.getAttribute('data-mode');
+        updateThemeIcon(newMode);
+      }
+    });
+  });
+  
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-mode']
+  });
+});
+</script>
+
+{% endblock %}

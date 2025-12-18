@@ -1,0 +1,761 @@
+/*
+ * Custom CSS for MCUXpresso SDK Documentation with sphinx_book_theme
+ * 
+ * Copyright (c) 2024 NXP
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+/* Hide original navigation elements */
+.bd-header-article,
+.bd-navbar,
+.theme-switch-button,
+.repository-button,
+.download-button,
+.fullscreen-button {
+    display: none !important;
+}
+
+/* Adjust content spacing */
+.bd-container {
+    padding-top: 0 !important;
+}
+
+.bd-content {
+    padding-top: 1rem !important;
+}
+
+/* Custom page toolbar - NAVBAR STYLE */
+.custom-page-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    margin-bottom: 20px;
+    background: var(--pst-color-background);
+    border-bottom: 1px solid var(--pst-color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    min-height: 50px;
+}
+
+/* Left side of navbar */
+.toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+/* Toolbar brand (logo + text) */
+.toolbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--pst-color-primary);
+    font-size: 1rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.toolbar-brand i {
+    font-size: 1.1rem;
+    color: var(--pst-color-primary);
+}
+
+.toolbar-brand span {
+    font-weight: 600;
+}
+
+/* Dark mode support for brand */
+html[data-theme="dark"] .toolbar-brand {
+    color: var(--pst-color-text-base);
+}
+
+html[data-theme="dark"] .toolbar-brand i {
+    color: var(--pst-color-primary);
+}
+
+/* Responsive: hide brand text on small screens */
+@media (max-width: 768px) {
+    .toolbar-brand span {
+        display: none;
+    }
+    
+    .toolbar-brand {
+        gap: 0;
+    }
+}
+
+/* Ensure proper spacing on mobile */
+@media (max-width: 768px) {
+    .toolbar-left {
+        gap: 10px;
+    }
+}
+
+/* Right side of navbar */
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Menu button (icon only) */
+.toolbar-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--pst-color-border);
+    border-radius: 4px;
+    background: var(--pst-color-background);
+    color: var(--pst-color-text-base);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.toolbar-menu-btn:hover {
+    background: var(--pst-color-surface);
+    border-color: var(--pst-color-primary);
+}
+
+/* Version selector */
+.version-selector-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.version-selector-inline label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--pst-color-text-base);
+    margin: 0;
+}
+
+.version-select-inline {
+    padding: 6px 10px;
+    border: 1px solid var(--pst-color-border);
+    border-radius: 4px;
+    background: var(--pst-color-background);
+    color: var(--pst-color-text-base);
+    font-size: 0.85rem;
+    cursor: pointer;
+    min-width: 100px;
+}
+
+.version-select-inline:focus {
+    outline: none;
+    border-color: var(--pst-color-primary);
+}
+/* Repo dropdown container */
+.repo-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Repo button styling - separate from toolbar-icon-btn */
+.repo-btn {
+    padding: 8px;
+    border: none;
+    background: transparent !important;
+    color: var(--pst-color-text-base);
+    cursor: pointer;
+    border-radius: 0;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    box-shadow: none !important;
+}
+
+.repo-btn:hover {
+    background: transparent !important;
+    color: var(--pst-color-primary);
+    box-shadow: none !important;
+}
+
+.repo-btn i {
+    font-size: 1rem;
+}
+
+/* Dropdown content */
+.repo-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: var(--pst-color-background);
+    border: 1px solid var(--pst-color-border);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    min-width: 160px;
+    margin-top: 4px;
+    padding: 4px 0;
+}
+
+.repo-dropdown:hover .repo-dropdown-content {
+    display: block;
+}
+
+/* Dropdown items */
+.repo-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    color: var(--pst-color-text-base);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.repo-dropdown-item:hover {
+    background: var(--pst-color-surface);
+    color: var(--pst-color-text-base);
+    text-decoration: none;
+}
+
+.repo-dropdown-item i {
+    font-size: 0.8rem;
+    width: 12px;
+}
+
+/* Dark mode support for repo button */
+html[data-theme="dark"] .repo-btn {
+    color: var(--pst-color-text-base);
+    background: transparent !important;
+}
+
+html[data-theme="dark"] .repo-btn:hover {
+    background: transparent !important;
+    color: var(--pst-color-primary);
+}
+
+html[data-theme="dark"] .repo-dropdown-content {
+    background: var(--pst-color-background);
+    border-color: var(--pst-color-border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+html[data-theme="dark"] .repo-dropdown-item {
+    color: var(--pst-color-text-base);
+}
+
+html[data-theme="dark"] .repo-dropdown-item:hover {
+    background: var(--pst-color-surface);
+    color: var(--pst-color-text-base);
+}
+/* Icon-only buttons */
+.toolbar-icon-btn {
+    padding: 8px;
+    border: none;
+    background: transparent !important;
+    color: var(--pst-color-text-base);
+    cursor: pointer;
+    border-radius: 0;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    box-shadow: none !important;
+    text-decoration: none;
+}
+
+.toolbar-icon-btn:hover {
+    background: transparent !important;
+    color: var(--pst-color-primary);
+    transform: none;
+    box-shadow: none !important;
+    text-decoration: none;
+}
+
+.toolbar-icon-btn:active {
+    transform: none;
+    background: transparent !important;
+}
+
+.toolbar-icon-btn i {
+    font-size: 1rem;
+}
+
+/* Dark mode - no background changes */
+html[data-theme="dark"] .toolbar-icon-btn {
+    color: var(--pst-color-text-base);
+    background: transparent !important;
+}
+
+html[data-theme="dark"] .toolbar-icon-btn:hover {
+    background: transparent !important;
+    color: var(--pst-color-primary);
+}
+
+/* Dark mode support */
+html[data-theme="dark"] .custom-page-toolbar {
+    background: var(--pst-color-background);
+    border-bottom-color: var(--pst-color-border);
+}
+
+html[data-theme="dark"] .toolbar-menu-btn,
+html[data-theme="dark"] .version-select-inline,
+html[data-theme="dark"] .repo-dropdown-btn,
+html[data-theme="dark"] .toolbar-icon-btn {
+    background: var(--pst-color-background);
+    border-color: var(--pst-color-border);
+    color: var(--pst-color-text-base);
+}
+
+html[data-theme="dark"] .toolbar-menu-btn:hover,
+html[data-theme="dark"] .version-select-inline:hover,
+html[data-theme="dark"] .repo-dropdown-btn:hover,
+html[data-theme="dark"] .toolbar-icon-btn:hover {
+    background: var(--pst-color-surface);
+}
+
+html[data-theme="dark"] .repo-dropdown-content {
+    background: var(--pst-color-background);
+    border-color: var(--pst-color-border);
+}
+
+html[data-theme="dark"] .repo-dropdown-item {
+    color: var(--pst-color-text-base);
+    border-bottom-color: var(--pst-color-border);
+}
+
+html[data-theme="dark"] .repo-dropdown-item:hover {
+    background: var(--pst-color-surface);
+}
+
+/* Download modal */
+#download-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+#download-modal > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--pst-color-background);
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--pst-color-border);
+    min-width: 320px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#download-modal h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: var(--pst-color-text-base);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--pst-color-border);
+    padding-bottom: 8px;
+}
+
+#download-modal .toolbar-icon-btn {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 10px 16px;
+    height: auto;
+    min-height: 40px;
+}
+
+html[data-theme="dark"] #download-modal > div {
+    background: var(--pst-color-background);
+    border-color: var(--pst-color-border);
+}
+
+html[data-theme="dark"] #download-modal h3 {
+    color: var(--pst-color-text-base);
+    border-bottom-color: var(--pst-color-border);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .custom-page-toolbar {
+        padding: 6px 15px;
+    }
+    
+    .toolbar-left,
+    .toolbar-right {
+        gap: 8px;
+    }
+    
+    .version-selector-inline label {
+        display: none;
+    }
+    
+    .version-select-inline {
+        min-width: 80px;
+        font-size: 0.8rem;
+    }
+    
+    .repo-dropdown-btn {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+    
+    .toolbar-icon-btn {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .custom-page-toolbar {
+        display: none;
+    }
+    
+    #download-modal {
+        display: none;
+    }
+}
+
+/* Animation */
+.custom-page-toolbar {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Download dropdown styling (same pattern as repo dropdown) */
+.download-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.download-btn {
+  padding: 8px;
+  border: none;
+  background: transparent !important;
+  color: var(--pst-color-text-base);
+  cursor: pointer;
+  border-radius: 0;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  box-shadow: none !important;
+}
+
+.download-btn:hover {
+  background: transparent !important;
+  color: var(--pst-color-primary);
+  box-shadow: none !important;
+}
+
+.download-btn i {
+  font-size: 1rem;
+}
+
+.download-dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: var(--pst-color-background);
+  border: 1px solid var(--pst-color-border);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+  min-width: 160px;
+  margin-top: 4px;
+  padding: 4px 0;
+}
+
+.download-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  color: var(--pst-color-text-base);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.download-dropdown-item:hover {
+  background: var(--pst-color-surface);
+  color: var(--pst-color-text-base);
+  text-decoration: none;
+}
+
+.download-dropdown-item i {
+  font-size: 0.8rem;
+  width: 12px;
+}
+
+/* Dark mode support for download dropdown */
+html[data-theme="dark"] .download-btn {
+  color: var(--pst-color-text-base);
+  background: transparent !important;
+}
+
+html[data-theme="dark"] .download-btn:hover {
+  background: transparent !important;
+  color: var(--pst-color-primary);
+}
+
+html[data-theme="dark"] .download-dropdown-content {
+  background: var(--pst-color-background);
+  border-color: var(--pst-color-border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+html[data-theme="dark"] .download-dropdown-item {
+  color: var(--pst-color-text-base);
+}
+
+html[data-theme="dark"] .download-dropdown-item:hover {
+  background: var(--pst-color-surface);
+  color: var(--pst-color-text-base);
+}
+  /* ========================================
+   SIDEBAR MANAGEMENT
+   ======================================== */
+
+/* Primary sidebar toggle styles */
+.bd-sidebar-primary {
+    max-height: 100vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    transition: all 0.3s ease;
+}
+
+.bd-sidebar-primary.hidden {
+    display: none !important;
+}
+
+/* Fix content layout to prevent TOC overlap */
+.bd-article-container {
+    display: flex !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.bd-article {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+}
+
+/* Ensure secondary sidebar (table of contents) is properly positioned */
+.bd-sidebar-secondary {
+    flex: 0 0 200px !important;
+    min-width: 200px !important;
+    max-width: 200px !important;
+    display: block !important;
+    transition: none;
+    order: 2 !important; /* Ensure it comes after the article */
+}
+
+/* Ensure TOC is properly positioned */
+.bd-sidebar-secondary .bd-toc {
+    position: sticky !important;
+    top: 80px !important;
+    max-height: calc(100vh - 100px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    word-wrap: break-word !important;
+    padding-right: 0 !important; /* Remove any right padding that might cause misalignment */
+}
+
+/* Handle long titles in TOC without breaking layout */
+.bd-sidebar-secondary .bd-toc a {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    line-height: 1.3 !important;
+    display: block !important;
+    font-size: 0.85rem !important; /* Slightly smaller font to fit better */
+}
+
+/* Ensure proper spacing and no overlap */
+.bd-main {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.bd-content {
+    width: 100% !important;
+    padding-right: 1rem !important; /* Ensure some space between content and TOC */
+}
+
+/* Adjust main content when primary sidebar is hidden */
+.bd-main.sidebar-hidden {
+    margin-left: 0 !important;
+}
+
+.bd-main.sidebar-hidden .bd-content {
+    max-width: none !important;
+}
+/* Mobile responsive sidebar behavior */
+@media (max-width: 991px) {
+    .bd-article {
+        max-width: 100% !important;
+    }
+    
+    .bd-article-container {
+        flex-direction: column !important;
+    }
+    
+    .bd-sidebar-secondary {
+        flex: none !important;
+        min-width: auto !important;
+        max-width: none !important;
+        margin-top: 1rem !important;
+    }
+    
+    .bd-sidebar-secondary .bd-toc {
+        position: relative !important;
+        top: auto !important;
+        max-height: none !important;
+    }
+    
+    .bd-sidebar-primary {
+        position: fixed !important;
+        top: 0 !important;
+        left: -100% !important;
+        height: 100vh !important;
+        z-index: 1050 !important;
+        width: 280px !important;
+        background: var(--pst-color-background) !important;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        transition: left 0.3s ease !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
+    
+    .bd-sidebar-primary:not(.hidden) {
+        left: 0 !important;
+    }
+    
+    .bd-sidebar-primary.hidden {
+        left: -100% !important;
+        display: block !important; /* Override the display: none for mobile */
+    }
+    
+    /* Overlay for mobile sidebar */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1049;
+        cursor: pointer;
+    }
+    
+    /* Adjust main content on mobile */
+    .bd-main {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
+
+/* Desktop behavior */
+@media (min-width: 992px) {
+    .bd-sidebar-primary.hidden {
+        display: none !important;
+    }
+    
+    .bd-main {
+        transition: margin-left 0.3s ease, max-width 0.3s ease;
+    }
+    
+    .bd-main.sidebar-hidden {
+        margin-left: 0 !important;
+    }
+}
+
+/* Dark mode support for sidebar */
+html[data-theme="dark"] .bd-sidebar-primary {
+    background: var(--pst-color-background) !important;
+    border-right: 1px solid var(--pst-color-border);
+}
+
+html[data-theme="dark"] .sidebar-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Custom scrollbar for webkit browsers */
+.bd-sidebar-primary::-webkit-scrollbar {
+    width: 6px;
+}
+
+.bd-sidebar-primary::-webkit-scrollbar-track {
+    background: var(--pst-color-surface);
+}
+
+.bd-sidebar-primary::-webkit-scrollbar-thumb {
+    background: var(--pst-color-border);
+    border-radius: 3px;
+}
+
+.bd-sidebar-primary::-webkit-scrollbar-thumb:hover {
+    background: var(--pst-color-text-muted);
+}
+
+.bd-sidebar-secondary .bd-toc::-webkit-scrollbar {
+    width: 6px;
+}
+
+.bd-sidebar-secondary .bd-toc::-webkit-scrollbar-track {
+    background: var(--pst-color-surface);
+}
+
+.bd-sidebar-secondary .bd-toc::-webkit-scrollbar-thumb {
+    background: var(--pst-color-border);
+    border-radius: 3px;
+}
+
+.bd-sidebar-secondary .bd-toc::-webkit-scrollbar-thumb:hover {
+    background: var(--pst-color-text-muted);
+}
+
+.footer-branch-rev {
+  font-size: 0.85rem;
+  color: var(--pst-color-text-muted);
+  margin-top: 0.35rem;
+}
+.footer-branch-rev code {
+  background: var(--pst-color-surface);
+  padding: 0.075rem 0.25rem;
+  border-radius: 4px;
+}

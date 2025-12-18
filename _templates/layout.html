@@ -1,25 +1,54 @@
+{#
+Custom layout template for MCUXpresso SDK Documentation
+
+Copyright (c) 2024 NXP
+SPDX-License-Identifier: BSD-3-Clause
+#}
+
 {% extends "!layout.html" %}
-{% block menu %}
-  <div data-nosnippet>
-    {% include "sversions.html" %}
-    {{ super() }}
-    {% if reference_links %}
-    <div class="toctree-wrapper compound">
-      <p class="caption"><span class="caption-text">Reference</span></p>
-      <ul>
-        {% for title, url in reference_links.items() %}
-        <li class="toctree-l1">
-          <a class="reference internal" href="{{ url }}">{{ title }}</a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-  </div>
-{% endblock %}
+
 {% block extrahead %}
-  <meta name="color-scheme" content="dark light">
-  {# Light/Dark stylesheets added here due to https://github.com/readthedocs/sphinx_rtd_theme/issues/1100 #}
-  <link rel="stylesheet" href="{{ pathto('_static/css/light.css', 1) }}" type="text/css" media="(prefers-color-scheme: light)"/>
-  <link rel="stylesheet" href="{{ pathto('_static/css/dark.css', 1) }}" type="text/css" media="(prefers-color-scheme: dark)"/>
+{{ super() }}
+
+{# Add Font Awesome for icons #}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+  integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+  crossorigin="anonymous" referrerpolicy="no-referrer">
+
+{# Apply theme immediately to prevent flash #}
+<script>
+(function() {
+  try {
+      const theme = localStorage.getItem('mcux-docs-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      document.body.classList.add(`theme-${theme}`);
+  } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.body.classList.add('theme-light');
+  }
+})();
+</script>
+
+{# Load theme persistence script #}
+<script src="{{ pathto('_static/theme-persistence.js', 1) }}"></script>
+{% endblock %}
+
+{% block docs_body %}
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+  {{ super() }}
+</div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+  {{ super() }}
+  {% if branch_info or rev_info %}
+  <div class="footer-branch-rev">
+    Built from 
+    {% if branch_info %}branch: <code>{{ branch_info }}</code>{% endif %}
+    {% if rev_info %}{% if branch_info %}, {% endif %}revision: <code>{{ rev_info[:8] }}</code>{% endif %}
+  </div>
+  {% endif %}
 {% endblock %}

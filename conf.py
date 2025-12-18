@@ -31,7 +31,7 @@ import textwrap
 import yaml
 import json
 from sphinx.cmd.build import get_parser
-import sphinx_rtd_theme
+import sphinx_book_theme
 from sphinx.util import logging
 
 # -- MCUXpresso SDK Configuration Data ----------------------------------------
@@ -280,51 +280,54 @@ exclude_patterns = []
 
 # -- Options for HTML output -------------------------------------------------
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
-html_theme = 'sphinx_rtd_theme'
+# The theme to use for HTML and HTML Help pages.
+html_theme = 'sphinx_book_theme'
 
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['_static']
-# html_extra_path = ['../SW-Content-Register.txt', '../COPYING-BSD-3', '../CMSIS/LICENSE.txt']
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+
+# Updated theme options for sphinx_book_theme
 html_theme_options = {
-    "logo_only": True,
-    'navigation_depth': 5,
-    "prev_next_buttons_location": None,
-    'collapse_navigation' : True,
+    "repository_url": "https://github.com/nxp-mcuxpresso/mcuxsdk-doc",  # Update with your actual repo
+    "use_repository_button": False,
+    "use_issues_button": False,
+    "use_edit_page_button": False,
+    "use_download_button": False,
+    "show_toc_level": 2,
+    "collapse_navigation": True,
+    "navigation_with_keys": True,
+    "show_navbar_depth": 1,
+    "navigation_depth": 3,
+    "use_sidenotes": True,
+    "announcement": None,  # Can be used for announcements
+    "home_page_in_toc": True,
+    "use_fullscreen_button": False,
 }
+
+# Keep your existing configuration
 html_baseurl = "https://kex-dev.nxp.com/docs/latest/"
+html_title = "MCUXpresso SDK Documentation"
 
-# Build mode specific HTML title
-if is_pdf_build:
-    html_title = "MCUXpresso SDK Documentation (PDF Build)"
-elif build_mode == 'html':
-    html_title = "MCUXpresso SDK Documentation (HTML Mode for Drivers)"
-elif build_mode == 'sphinx':
-    html_title = "MCUXpresso SDK Documentation (Sphinx Mode for Drivers)"
-else:
-    html_title = "MCUXpresso SDK Documentation"
-
+# Update static paths - sphinx_book_theme has different requirements
 static_path = [str(DOC_BASE / "_static")]
 if os.path.exists(os.path.join(DOC_BASE, "internal")):
     static_path.append(str(DOC_BASE / "internal" / "public"))
     static_path.append(str(DOC_BASE / "internal" / "images"))
     html_logo = str(DOC_BASE / "internal" / "images" / "nxp_logo_small.png")
     html_favicon = str(DOC_BASE / "internal" / "images" / "nxp_logo_small.png")
+
 html_static_path = static_path
 html_last_updated_fmt = "%b %d, %Y %H:%M%z"
 html_domain_indices = False
 html_split_index = True
 html_show_sourcelink = False
 html_show_sphinx = False
+
+# Get existing variables
 docgen_branch = os.getenv("DOCGEN_BRANCH")
 docgen_rev = os.getenv("DOCGEN_REV")
+
+# Add CSS files for customization
 html_css_files = [
-    'custom.css',
+    'book_theme_custom.css',  # New CSS file for book theme customizations
 ]
 
 is_release = tags.has("release")  # pylint: disable=undefined-variable
@@ -333,6 +336,7 @@ if tags.has("publish"):  # pylint: disable=undefined-variable
     reference_prefix = f"/{version}" if is_release else "/latest"
 docs_title = "Docs"
 
+# Define html_context (this was missing in the original)
 html_context = {
     "show_license": True,
     "docs_title": docs_title,
@@ -341,19 +345,20 @@ html_context = {
     "branch_info": docgen_branch,
     "rev_info": docgen_rev,
     "display_vcs_link": True,
-    "build_mode": build_mode,
-    "is_pdf_build": is_pdf_build,
+    "html_title": html_title
 }
 
+# Keep your existing version handling
 is_internal_doc = mcux_config.is_internal_doc
 with open(DOC_BASE / "versions.json", "r", encoding="utf-8") as f:
     versions_data = json.load(f)
 if is_internal_doc:
-    version_list = [(v, f"/mcuxsdk-internal/{v}/html/") for v in versions_data]
+    version_list = [(version, f"/mcuxsdk-internal/{version}/html/") for version in versions_data]
 else:
-    version_list = [(v, f"/mcuxsdk/{v}/html/") for v in versions_data]
+    version_list = [(version, f"/mcuxsdk/{version}/html/") for version in versions_data]
     
 html_context["versions"] = tuple(version_list)
+
 
 # -- Options for notfound.extension ---------------------------------------
 if is_internal_doc:

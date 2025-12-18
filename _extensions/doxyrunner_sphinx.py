@@ -238,6 +238,7 @@ def create_device_sphinx_project(project_name: str, project_config: dict, base_d
     device_name = project_name.split('_')[-1] if '_' in project_name else project_name
     project_dir = base_dir / f"device_{device_name}"
     project_dir.mkdir(parents=True, exist_ok=True)
+    sdk_version = project_config.get('version', '1.0.0')
     
     logger.info(f"Creating Sphinx project for {device_name} at {project_dir}")
     
@@ -252,11 +253,15 @@ import sys
 project = 'MCUXpresso SDK - {device_name} API Reference'
 copyright = '2025, NXP'
 author = 'NXP'
+version = '{sdk_version}'
 
 extensions = [
     'breathe',
-    'sphinx_rtd_theme',
+    'sphinx_book_theme',
 ]
+
+if os.path.exists(os.path.join(os.path.dirname(__file__), '../../../internal/images/nxp_logo_small.png')):
+    html_logo = "../../../internal/images/nxp_logo_small.png"
 
 breathe_projects = {{
     "{device_name}": "_doxygen/xml"
@@ -269,8 +274,15 @@ breathe_domain_by_extension = {{
     "c": "c",
 }}
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx_book_theme'
 html_title = f'{{project}}'
+
+
+html_theme_options = {{
+    "logo": {{
+        "text": f"{{project}} v{{version}}",
+    }},
+}}
 
 master_doc = 'index'
 '''
@@ -442,7 +454,7 @@ def build_device_project(project_dir: Path) -> bool:
         cmd = [
             "sphinx-build",
             "-b", "html",
-            "-W", "--keep-going", "-T",
+            "--keep-going", "-T",
             str(project_dir),
             str(project_dir / "_build" / "html")
         ]
@@ -509,6 +521,7 @@ def doxygen_sphinx_build(app: Sphinx) -> None:
         
         doxyfile_path = project_config['doxyfile']
         outdir = Path(project_config['outdir'])
+        project_config['version'] = project_config.get('version',str(app.config.version))
         
         # Create output directory
         doxy_outdir = outdir / "_doxygen"
@@ -580,7 +593,7 @@ def setup(app: Sphinx) -> Dict[str, Any]:
     app.add_config_value("doxyrunner_sphinx_fmt_vars", {}, "env")
     app.add_config_value("doxyrunner_sphinx_outdir_var", None, "env")
     app.add_config_value("doxyrunner_sphinx_fmt_pattern", "@{}@", "env")
-    app.add_config_value("doxyrunner_sphinx_mode", 1, "")    
+    app.add_config_value("doxyrunner_sphinx_mode", 1, "")
     app.connect("builder-inited", doxygen_sphinx_build)
 
     return {
