@@ -1,43 +1,20 @@
 # Getting Started with Package
 
--   [Overview](topics/overview.md)
--   [MCUXpresso SDK board support package folders](topics/mcuxpresso_sdk_board_support_package_folders.md)
-    -   [Example application structure](topics/example_application_structure.md)
-    -   [Locating example application source files](topics/locating_example_application_source_files.md)
-        -   [What is the plain load image?](topics/what_is_the_plain_load_image.md)
-        -   [What is the XIP image?](topics/what_is_the_xip_image.md)
-        -   [What is the SRAM target image?](topics/what_is_the_sram_target_image.md)
--   [Run a demo application using IAR](topics/run_a_demo_application_using_iar.md)
-    -   [Build an non-XIP \(plain load\) example application](topics/build_an_non-xip_plain_load_example_application.md)
-    -   [Run a non-XIP \(plain load\) example application using CMSIS DAP](topics/run_a_non-xip_plain_load_example_application_using_001.md)
-    -   [Run a non-XIP \(plain load\) example application using J-Link/J-Trace](topics/run_a_non-xip_plain_load_example_application_using.md)
-    -   [Build an XIP example application](topics/build_an_xip_example_application_003.md)
-    -   [Run an XIP example application](topics/run_an_xip_example_application.md)
--   [Run a demo using Keil® MDK/μVision](topics/run_a_demo_using_keil__mdk_vision.md)
-    -   [Install CMSIS device pack](topics/install_cmsis_device_pack.md)
-    -   [Build a non-XIP \(plain load\) example application](topics/build_a_non-xip_plain_load_example_application.md)
-    -   [Run a non-XIP \(plain load\) example application](topics/run_a_non-xip_plain_load_example_application.md)
-    -   [How to program the non-XIP \(plain load\) example application to external flash](topics/how_to_program_the_non-xip_plain_load_example_appl_001.md)
-    -   [How to program the non-XIP \(plain load\) example application to external flash using J-Link](topics/how_to_program_the_non-xip_plain_load_example_appl.md)
-    -   [Build an XIP example application](topics/build_an_xip_example_application_001.md)
-    -   [Run an XIP example application](topics/run_an_xip_example_application_003.md)
--   [Run a demo using Arm® GCC](topics/run_a_demo_using_arm__gcc.md)
--   [Run a demo using MCUXpresso IDE](topics/run_a_demo_using_mcuxpresso_ide.md)
-    -   [Select the workspace location](topics/select_the_workspace_location.md)
-    -   [Build a non-XIP \(plain load\) example application](topics/build_a_non-xip_plain_load_example_application_001.md)
-    -   [Run a non-XIP \(plain load\) example application](topics/run_a_non-xip_plain_load_example_application_001.md)
-    -   [How to program the non-XIP \(plain load\) example bin file to external flash](topics/how_to_program_the_non-xip_plain_load_example_bin_.md)
-    -   [Build an XIP example application](topics/build_an_xip_example_application_002.md)
-    -   [Run an XIP example application](topics/run_an_xip_example_application_002.md)
--   [MCUXpresso Config Tools](topics/mcuxpresso_config_tools.md)
--   [MCUXpresso IDE New Project Wizard](topics/mcuxpresso_ide_new_project_wizard.md)
--   [How to determine COM port](topics/how_to_determine_com_port.md#GUID-26CA3042-6F7E-48DF-8B17-4DC4C6ECA786)
--   [Default debug interfaces](topics/default_debug_interfaces.md#GUID-854D01E3-8AA5-4008-9321-8B93BF327232)
--   [Updating debugger firmware](topics/updating_debugger_firmware.md#GUID-628BC299-395D-499B-B8A9-C38DC23EF942)
-    -   [Updating LPCXpresso board firmware](topics/updating_lpcxpresso_board_firmware.md)
--   [How to update SPIFI clock Frequency](topics/how_to_update_spifi_clock_frequency.md#GUID-D14640C8-6B2B-4F69-BBB4-44B4093B093E)
-    -   [Updating SPIFI clock frequency in IAR](topics/updating_spifi_clock_frequency_in_iar.md)
-    -   [Updating SPIFI clock frequency in Keil® MDK/μVision](topics/updating_spifi_clock_frequency_in_keil__mdk_vision.md)
-    -   [Updating SPIFI clock frequency in Arm® GCC](topics/updating_spifi_clock_frequency_in_arm__gcc.md)
-    -   [Updating SPIFI clock frequency in MCUXpresso IDE](topics/updating_spifi_clock_frequency_in_mcuxpresso_ide.md)
 
+```{tocTree}
+:maxdepth: 4
+:caption: Table of Contents
+
+topics/overview.md
+topics/mcuxpresso_sdk_board_support_package_folders.md
+topics/run_a_demo_application_using_iar.md
+topics/run_a_demo_using_keil__mdk_vision.md
+topics/run_a_demo_using_arm__gcc.md
+topics/run_a_demo_using_mcuxpresso_ide.md
+topics/mcuxpresso_config_tools.md
+topics/mcuxpresso_ide_new_project_wizard.md
+topics/how_to_determine_com_port.md
+topics/default_debug_interfaces.md
+topics/updating_debugger_firmware.md
+topics/how_to_update_spifi_clock_frequency.md
+```
