@@ -353,7 +353,7 @@ is_internal_doc = mcux_config.is_internal_doc
 with open(DOC_BASE / "versions.json", "r", encoding="utf-8") as f:
     versions_data = json.load(f)
 if is_internal_doc:
-    version_list = [(version, f"/mcuxsdk-internal/{('release-' + version) if is_release else version}/html/") for version in versions_data]
+    version_list = [(version, f"/mcuxsdk-internal/{('release-' + version) if version != "latest" else version}/html/") for version in versions_data]
 else:
     version_list = [(version, f"/mcuxsdk/{version}/html/") for version in versions_data]
 
