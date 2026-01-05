@@ -67,27 +67,27 @@ def patch_mcuboot_readme(app, docname, source):
     # Only patch for PDF builds and if this is the mcuboot README
     if not is_pdf_build:
         return
-    
+
     if 'middleware/mcuboot_opensource/README' in docname or docname.endswith('mcuboot_opensource/README'):
         logger.info(f"Patching mcuboot README for PDF build: {docname}")
-        
+
         # Replace the license badge with plain text
         # Pattern: [![Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)][license]
         badge_pattern = r'\[!\[Apache 2\.0\]\(https://img\.shields\.io/badge/License-Apache%202\.0-blue\.svg\)\]\[license\]'
         replacement = 'License: Apache 2.0'
-        
+
         # Also handle variations of the badge
         badge_pattern_alt = r'\[!\[.*?\]\(https://img\.shields\.io/badge/.*?\)\]\[.*?\]'
-        
+
         original_content = source[0]
-        
+
         # Try specific pattern first
         patched_content = re.sub(badge_pattern, replacement, original_content)
-        
+
         # If no match, try alternative pattern
         if patched_content == original_content:
             patched_content = re.sub(badge_pattern_alt, replacement, original_content)
-        
+
         if patched_content != original_content:
             source[0] = patched_content
             logger.info(f"Successfully patched license badge in {docname}")
@@ -202,7 +202,7 @@ latex_engine = "xelatex"
 # Get doxygen projects organized by extension
 if mcux_config.has_doxygen_projects:
     doxygen_projects = mcux_config.get_doxygen_projects_by_extension(DOC_BUILD)
-    
+
     # Configure doxyrunner (breathe mode)
     if doxygen_projects['doxyrunner'] and 'doxyrunner' in extensions:
         doxyrunner_doxygen = os.environ.get("DOXYGEN_EXECUTABLE", "doxygen")
@@ -216,9 +216,9 @@ if mcux_config.has_doxygen_projects:
         doxyrunner_fmt = True
         doxyrunner_fmt_vars = {"SDK_BASE": str(SDK_BASE)}
         doxyrunner_outdir_var = "DOXY_OUT"
-        
+
         logger.info(f"Configured {len(doxyrunner_doxydicts)} projects for doxyrunner (breathe)")
-    
+
     # Configure breathe
     if 'breathe' in extensions:
         breathe_projects = mcux_config.get_breathe_projects(DOC_BUILD)
@@ -228,9 +228,9 @@ if mcux_config.has_doxygen_projects:
             "h": "c",
             "c": "c",
         }
-        
+
         logger.info(f"Configured {len(breathe_projects)} projects for breathe")
-    
+
     # Configure doxyrunner_html
     if doxygen_projects['doxyrunner_html'] and 'doxyrunner_html' in extensions:
         doxyrunner_html_doxygen = os.environ.get("DOXYGEN_EXECUTABLE", "doxygen")
@@ -245,9 +245,9 @@ if mcux_config.has_doxygen_projects:
         doxyrunner_html_fmt_vars = {"SDK_BASE": str(SDK_BASE)}
         doxyrunner_html_outdir_var = "DOXY_OUT"
         doxyrunner_html_mode = 1
-        
+
         logger.info(f"Configured {len(doxyrunner_html_doxydicts)} projects for doxyrunner_html")
-    
+
     # Configure doxyrunner_sphinx
     if doxygen_projects['doxyrunner_sphinx'] and 'doxyrunner_sphinx' in extensions:
         doxyrunner_sphinx_doxygen = os.environ.get("DOXYGEN_EXECUTABLE", "doxygen")
@@ -262,7 +262,7 @@ if mcux_config.has_doxygen_projects:
         doxyrunner_sphinx_fmt_vars = {"SDK_BASE": str(SDK_BASE)}
         doxyrunner_sphinx_outdir_var = "DOXY_OUT"
         doxyrunner_sphinx_mode = 1
-        
+
         logger.info(f"Configured {len(doxyrunner_sphinx_doxydicts)} projects for doxyrunner_sphinx")
 
 # Set up inline comments
@@ -353,10 +353,10 @@ is_internal_doc = mcux_config.is_internal_doc
 with open(DOC_BASE / "versions.json", "r", encoding="utf-8") as f:
     versions_data = json.load(f)
 if is_internal_doc:
-    version_list = [(version, f"/mcuxsdk-internal/{version}/html/") for version in versions_data]
+    version_list = [(version, f"/mcuxsdk-internal/{('release-' + version) if is_release else version}/html/") for version in versions_data]
 else:
     version_list = [(version, f"/mcuxsdk/{version}/html/") for version in versions_data]
-    
+
 html_context["versions"] = tuple(version_list)
 
 
@@ -397,22 +397,22 @@ logger.info(f"  - {', '.join(extensions)}")
 
 if mcux_config.has_doxygen_projects:
     logger.info(f"Doxygen Projects Configuration:")
-    
+
     if 'doxyrunner_doxydicts' in locals():
         logger.info(f"  - doxyrunner (breathe): {len(doxyrunner_doxydicts)} projects")
         for name in doxyrunner_doxydicts.keys():
             logger.info(f"    * {name}")
-    
+
     if 'doxyrunner_html_doxydicts' in locals():
         logger.info(f"  - doxyrunner_html: {len(doxyrunner_html_doxydicts)} projects")
         for name in doxyrunner_html_doxydicts.keys():
             logger.info(f"    * {name}")
-    
+
     if 'doxyrunner_sphinx_doxydicts' in locals():
         logger.info(f"  - doxyrunner_sphinx: {len(doxyrunner_sphinx_doxydicts)} projects")
         for name in doxyrunner_sphinx_doxydicts.keys():
             logger.info(f"    * {name}")
-    
+
     if 'breathe_projects' in locals():
         logger.info(f"  - breathe projects: {len(breathe_projects)}")
 
