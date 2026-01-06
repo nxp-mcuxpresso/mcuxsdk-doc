@@ -40,15 +40,9 @@ The following changes have been implemented compared to the previous SDK release
         **Note**
             These applications do not support low-power operation. For low-power features, see the reference design `Health Care IoT` applications.
 
-- **Connectivity Framework**
+-   **Connectivity framework**
 
-      **Minor Changes**
-        -   [RNG] Replaced `gRngHasSecLibDependency_d` compilation switch with `gRngUseSecLib_d`.
-        -   [mcxw23] Defined `gRngIsrPrio_c` on the preprocessor to make it global and avoid redefinition warnings.
-        -   [mcxw23] Implemented `PLATFORM_ResetCrypto()` API called by RNG_reinit/SecLib_reinit.
-        -   [mcxw23] Added support of Timer Manager timestamp with OSTIMER.
+      **Major Changes**
+        -   [SecLib] Removed unused cryptographic implementations (SHA1, AES-EAX, AES-OFB) and obsolete `FSL_FEATURE_SOC_AES_HW` option to reduce code size and complexity.
       **Bug fixes**
-        -   [NVM] Fixed `NvIdle()` to prevent looping for more operations than the queue size.
-        -   [NVS] Fixed blank check procedure to return false (non-blank) when checking a 0 length area.
-        -   [NVS] Made external and internal flash ports consistent.
-        -   [MISRA] Various MISRA compliance fixes in NVM, HWParameter, LowPower, SecLib, Platform modules and IFR offset definitions.
+        -   [MISRA] Various MISRA compliance fixes in SFC, SecLib, Platform (including platform_ics and platform low power), FSCI, and PDUM modules.
