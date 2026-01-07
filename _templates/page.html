@@ -119,7 +119,7 @@ SPDX-License-Identifier: BSD-3-Clause
     {# Theme switch button (icon only) #}
     {# Theme switch button (icon only) - uses sphinx_book_theme's switcher #}
     <button class="toolbar-icon-btn" onclick="triggerSphinxThemeToggle()" title="Toggle Theme">
-      <i class="fas fa-moon" id="theme-icon"></i>
+      <i class="fas fa-sun" id="theme-icon"></i>
     </button>
   </div>
 </div>
@@ -127,6 +127,38 @@ SPDX-License-Identifier: BSD-3-Clause
 {{ super() }}
 
 <script>
+// Set theme icon immediately - before DOMContentLoaded
+(function() {
+  function setInitialThemeIcon() {
+    const currentMode = document.documentElement.getAttribute('data-mode') || 'light';
+    const icon = document.getElementById('theme-icon');
+    
+    if (icon) {
+      icon.classList.remove('fa-moon', 'fa-sun');
+      
+      if (currentMode === 'dark') {
+        icon.classList.add('fa-moon');
+      } else {
+        icon.classList.add('fa-sun');
+      }
+      
+      console.log('Initial icon set for mode:', currentMode);
+    }
+  }
+  
+  // Try to set icon immediately if element exists
+  if (document.getElementById('theme-icon')) {
+    setInitialThemeIcon();
+  }
+  
+  // Also set it when DOM is ready (fallback)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setInitialThemeIcon);
+  } else {
+    setInitialThemeIcon();
+  }
+})();
+
 // Navigation function
 function navigateToVersion(url) {
   if (url && url !== window.location.href) {
@@ -193,12 +225,77 @@ function toggleFullscreen() {
   }
 }
 
-// Theme toggle - Use sphinx_book_theme's built-in functionality
+// Theme toggle - Simple light/dark toggle only
 function triggerSphinxThemeToggle() {
-  // Find and click the hidden sphinx theme button
-  const sphinxThemeBtn = document.querySelector('.theme-switch-button');
-  if (sphinxThemeBtn) {
-    sphinxThemeBtn.click();
+  // Get current mode
+  const currentMode = document.documentElement.getAttribute('data-mode') || 'light';
+  
+  // Toggle between light and dark only
+  const newMode = currentMode === 'dark' ? 'light' : 'dark';
+  
+  console.log('Toggling theme from', currentMode, 'to', newMode);
+  
+  // Find sphinx_book_theme's theme buttons
+  const themeButtons = document.querySelectorAll('button[data-mode]');
+  
+  if (themeButtons.length > 0) {
+    // Find and click the button for the new mode
+    themeButtons.forEach(btn => {
+      if (btn.getAttribute('data-mode') === newMode) {
+        console.log('Clicking sphinx theme button for mode:', newMode);
+        btn.click();
+        // Update icon immediately after click
+        setTimeout(() => updateThemeIcon(newMode), 50);
+      }
+    });
+  } else {
+    console.warn('Sphinx theme buttons not found, using fallback');
+    // Fallback: manually set the theme
+    setThemeManually(newMode);
+  }
+}
+
+// Fallback function to manually set theme if sphinx buttons not found
+function setThemeManually(mode) {
+  // Only allow light or dark
+  const validMode = (mode === 'dark') ? 'dark' : 'light';
+  
+  document.documentElement.setAttribute('data-mode', validMode);
+  document.documentElement.setAttribute('data-theme', validMode);
+  
+  // Update classes
+  document.documentElement.classList.remove('mode-light', 'mode-dark', 'mode-auto');
+  document.documentElement.classList.add('mode-' + validMode);
+  
+  document.body.classList.remove('theme-light', 'theme-dark', 'theme-auto');
+  document.body.classList.add('theme-' + validMode);
+  
+  // Store in localStorage
+  try {
+    localStorage.setItem('sphinx-book-theme-mode', validMode);
+  } catch (e) {
+    console.warn('Could not save theme');
+  }
+  
+  // Update icon
+  updateThemeIcon(validMode);
+}
+
+// Update theme icon based on current mode (light/dark only)
+function updateThemeIcon(mode) {
+  const icon = document.getElementById('theme-icon');
+  if (icon) {
+    // Remove all possible icon classes
+    icon.classList.remove('fa-moon', 'fa-sun');
+    
+    // Add the appropriate icon (sun for light, moon for dark)
+    if (mode === 'dark') {
+      icon.classList.add('fa-moon');
+    } else {
+      icon.classList.add('fa-sun');
+    }
+    
+    console.log('Icon updated for mode:', mode, 'Classes:', icon.classList.toString());
   }
 }
 
@@ -335,10 +432,15 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Initialize theme icon on page load
+// Initialize and sync theme icon with sphinx_book_theme
 document.addEventListener('DOMContentLoaded', function() {
-  // Get current mode from sphinx_book_theme
+  console.log('DOMContentLoaded: Syncing theme icon...');
+  
+  // Get current mode
   const currentMode = document.documentElement.getAttribute('data-mode') || 'light';
+  console.log('Current theme mode:', currentMode);
+  
+  // Update icon
   updateThemeIcon(currentMode);
   
   // Watch for theme changes from sphinx_book_theme
@@ -346,6 +448,7 @@ document.addEventListener('DOMContentLoaded', function() {
     mutations.forEach(function(mutation) {
       if (mutation.type === 'attributes' && mutation.attributeName === 'data-mode') {
         const newMode = document.documentElement.getAttribute('data-mode');
+        console.log('Theme changed via MutationObserver to:', newMode);
         updateThemeIcon(newMode);
       }
     });
@@ -355,6 +458,20 @@ document.addEventListener('DOMContentLoaded', function() {
     attributes: true,
     attributeFilter: ['data-mode']
   });
+  
+  // Wait a bit for sphinx_book_theme to initialize its buttons
+  setTimeout(function() {
+    const themeButtons = document.querySelectorAll('button[data-mode]');
+    console.log('Found', themeButtons.length, 'sphinx theme buttons');
+    
+    themeButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const mode = this.getAttribute('data-mode');
+        console.log('Sphinx theme button clicked for mode:', mode);
+        setTimeout(() => updateThemeIcon(mode), 50);
+      });
+    });
+  }, 500);
 });
 </script>
 
