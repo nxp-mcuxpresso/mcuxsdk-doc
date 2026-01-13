@@ -13,12 +13,7 @@ The following changes have been implemented compared to the previous SDK release
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE controller**
-    - Periodic Advertising updates:
-        -   Fixed PerAdvSync skip scheduling.
-        -   Improved PAwR Responses (TX & RX) instant.
-        -   Fixed calculation of the count parameters in Periodic Advertising Subevent Data Request.
-
-    - Fixed a corner case where LL_CONNECTION_PARAM_REQ is immediately followed by LL_TERMINATE_IND.
+    - Fixed an issue where the procedure timeout was not stopped once the LL_PAUSE_ENC_RSP PDU is received on the peripheral side.
 
 -   **Transceiver Drivers (XCVR)**
     -   Added API to control PA ramp type and duration.

@@ -48,6 +48,7 @@
     -   LL Extended Feature Set.
     -   Monitoring Advertisers.
     -   Randomized Resolvable Private Address (\RPA\).
+    -   LE Enhanced Connection Update.
 
         
         **Note:**

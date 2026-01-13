@@ -20,7 +20,6 @@ KW47/MCXW72:
 Channel Sounding (CS): 
 Limitations:
 -   RTT with Sounding Sequence is not supported.
--   LE 2M 2BT PHY is not supported.
 -   Maximum 6 Channel Sounding procedures are supported in parallel.
 -   Scheduling of activities may be non optimal when multiple Channel Sounding procedures are running in parallel.
 -   Phase measurement bias is within certification range (<1.7x2πns) with KW47 EVK board. However, if different PCB or antenna matching is used, some bias may appear due to increased delay.
