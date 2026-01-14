@@ -17,7 +17,7 @@ The GitHub installation method provides:
 ### Quick Start with Installer
 
 1. **Download MCUXpresso Installer**
-   - Visit: https://github.com/nxp-mcuxpresso/vscode-for-mcux/wiki/Dependency-Installation
+   - Visit: [Dependency-Installation](https://github.com/nxp-mcuxpresso/vscode-for-mcux/wiki/Dependency-Installation)
    - Download for your operating system
 
 2. **Run Installer**

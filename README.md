@@ -1,6 +1,6 @@
 # MCUXpresso SDK : mcuxsdk-doc
 
-This repository contains the documentation source files and build infrastructure for MCUXpresso SDK. The repository also includes examples guidelines, middleware documentation, and so on. The documentation is built using [Sphinx](https://www.sphinx-doc.org/) with the [sphinx-rtd-theme](https://sphinx-rtd-theme.readthedocs.io/) theme and leverages the Zephyr project's documentation framework. The content is authored in the reStructuredText (.rst) and Markdown (.md) formats. The authored content is then processed by Sphinx to generate a standalone website and is deployed at https://mcuxpresso.nxp.com/mcuxsdk/latest/html/.
+This repository contains the documentation source files and build infrastructure for MCUXpresso SDK. The repository also includes examples guidelines, middleware documentation, and so on. The documentation is built using [Sphinx](https://www.sphinx-doc.org/) with the [sphinx-rtd-theme](https://sphinx-rtd-theme.readthedocs.io/) theme and leverages the Zephyr project's documentation framework. The content is authored in the reStructuredText (.rst) and Markdown (.md) formats. The authored content is then processed by Sphinx to generate a standalone website and is deployed at [mcuxpresso.nxp.com](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/).
 
 ## Architecture Overview
 
@@ -190,7 +190,7 @@ Currently, community contributions are not accepted. Guidelines for the external
 
 For details on the recent updates, see:
 
-- **Official Documentation:** https://mcuxpresso.nxp.com/mcuxsdk/latest/html/
+- **Official Documentation:** [mcuxpresso.nxp.com](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/)
 - **Installation Guide:** [Getting Started with SDK - Detailed Installation Instructions](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/gsd/installation.html#installation)
 - **SDK Manifest Repository:** [mcuxsdk-manifests](https://github.com/nxp-mcuxpresso/mcuxsdk-manifests)
 

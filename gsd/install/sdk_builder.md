@@ -21,7 +21,7 @@ This method is ideal for:
 
 ### Step 1: Navigate to SDK Builder
 
-Visit: https://mcuxpresso.nxp.com/
+Visit: [mcuxpresso.nxp.com](https://mcuxpresso.nxp.com/)
 
 ### Step 2: Select Your Board
 
@@ -265,7 +265,7 @@ SDK Builder releases new versions periodically with:
 
 ### Check for Updates
 
-1. Visit SDK Builder: https://mcuxpresso.nxp.com/
+1. Visit SDK Builder: [mcuxpresso.nxp.com](https://mcuxpresso.nxp.com/)
 2. Select your board
 3. Check version number against your current SDK
 
@@ -366,7 +366,7 @@ SDK Builder doesn't provide API access, but you can:
 
 ## Additional Resources
 
-- **SDK Builder:** https://mcuxpresso.nxp.com/
-- **SDK Documentation:** https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/html/index.html
-- **NXP Community:** https://community.nxp.com/
-- **Technical Support:** https://www.nxp.com/support
+- **SDK Builder:** [mcuxpresso.nxp.com](https://mcuxpresso.nxp.com/)
+- **SDK Documentation:** [docs.mcuxpresso.nxp.com](https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/html/index.html)
+- **NXP Community:** [community.nxp.com](https://community.nxp.com/)
+- **Technical Support:** [nxp.com](https://www.nxp.com/support)

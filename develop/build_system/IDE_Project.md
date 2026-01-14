@@ -773,7 +773,7 @@ For IDE GUI project generation, ruby version equal or later than `3.1.2` is requ
 
 Please use the version manager tool [rbenv](https://github.com/rbenv/rbenv). It can help you avoid the complex configuration of package managers of different linux distribution.
 
-If your platform does not support `rbenv`, please refer https://www.ruby-lang.org/en/documentation/installation/
+If your platform does not support `rbenv`, please refer [ruby-lang.org](https://www.ruby-lang.org/en/documentation/installation/)
 
 #### Install necessary Gems
 
