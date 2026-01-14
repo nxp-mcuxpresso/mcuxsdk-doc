@@ -29,12 +29,12 @@ Main features supported:
 * Encrypted Advertising Data (EAD)
 * Monitoring Advertisers - Experimental feature
 * Randomized RPA - Experimental feature
-* LE Enhanced Connection Update- Experimental feature
+* LE Enhanced Connection Update - Experimental feature
 * Intrusion Detection System (IDS)
 
   **Note:** The CDE (Complex-domain Distance Estimation) algorithm is an experimental feature intended only for testing purposes. It is not maintained and must not be included in the production environments.
 
   
 
-**Parent topic:**[Wireless connectivity middleware summary](../topics/wireless_connectivity_middleware_summary.md)
+  **Parent topic:**[Wireless connectivity middleware summary](../topics/wireless_connectivity_middleware_summary.md)
 
