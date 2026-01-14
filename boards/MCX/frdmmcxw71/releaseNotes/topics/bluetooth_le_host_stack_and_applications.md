@@ -27,8 +27,9 @@ Main features supported:
 * Advertising Coding Selection (ACS)
 * Periodic Advertising with Responses (PAwR)
 * Encrypted Advertising Data (EAD)
-* Monitoring Advertisers- Experimental feature
-* Randomized RPA- Experimental feature
+* Monitoring Advertisers - Experimental feature
+* Randomized RPA - Experimental feature
+* LE Enhanced Connection Update- Experimental feature
 * Intrusion Detection System (IDS)
 
   

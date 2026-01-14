@@ -1,21 +1,24 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.12.00-pvw2\).
+The following changes have been implemented compared to the previous SDK release version \(25.12.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   IoT Channel Sounding Localization applications on the GitHub repository
-	-   'Monitoring Advertisers' support in the 'fsci_black_box' and 'ble_shell' applications
-	-   Local average and remote average RSSI values to the CS measurement report
-	-   The "-Os" optimization flag to the ARMGCC release configuration for the NCP applications
+	-   Added an API to update local synchronization parameters after PAwR is already established on the scanner side
+	-   Added Connection Subrating feature (experimental) in the Bluetooth LE Host
+	-   Added Connection Subrating feature in ble_shell
 
     ### Improved
-	-   Enabled low power support in the 'loc_reader_host' application
+	-   Improved localization applications timer mechanism to reduce the number of wakeups
+	-   Updated localization timeout values to be overridable by the application
+	-   Retain the subevent_done_status local and remote values for all subevents and pass them to the algorithm
+	-   Documentation miscellaneous updates
 
     ### Fixed
-	-   'loc_reader_host' application event set issue
-	-   Missing handler for Version2 of the Set RPA Timeout command
+	-   Fixed L2CAP credit-based channel disconnection where the channel's timer ID would be set to 0 instead of gTmrInvalidTimerID_c
+	-   Fixed Channel Sounding applications issue: clear the Indication Pending flag for a peer device on disconnect
+	-   ble_shell: Set maximum arguments in command (SHELL_MAX_ARGS = 20) in app_preinclude.h
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

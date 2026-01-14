@@ -27,9 +27,10 @@ Main features supported:
 * Advertising Coding Selection (ACS)
 * Periodic Advertising with Responses (PAwR)
 * Encrypted Advertising Data (EAD)
-* Monitoring Advertisers - Experimental feature
-* Randomized RPA - Experimental feature
-* Intrusion Detection System (IDS) - Experimental feature
+* Monitoring Advertisers - Experimental feature
+* Randomized RPA - Experimental feature
+* LE Enhanced Connection Update- Experimental feature
+* Intrusion Detection System (IDS)
 
   **Note:** The CDE (Complex-domain Distance Estimation) algorithm is an experimental feature intended only for testing purposes. It is not maintained and must not be included in the production environments.
 
