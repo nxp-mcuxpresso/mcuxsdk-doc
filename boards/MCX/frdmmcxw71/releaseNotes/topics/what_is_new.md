@@ -5,16 +5,16 @@ The following changes have been implemented compared to the previous SDK release
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Added an API to update local synchronization parameters after PAwR is already established on the scanner side
-	-   Added Connection Subrating feature (experimental) in the Bluetooth LE Host
-	-   Added Connection Subrating feature in ble_shell
+	-   Added an API to update local synchronization parameters after PAwR is already established on the scanner side.
+	-   Added Connection Subrating feature (experimental) in the Bluetooth LE Host.
+	-   Added Connection Subrating feature in ble_shell.
 
     ### Improved
-	-   Documentation miscellaneous updates
+	-   Documentation miscellaneous updates.
 
     ### Fixed
-	-   Fixed L2CAP credit-based channel disconnection where the channel's timer ID would be set to 0 instead of gTmrInvalidTimerID_c
-	-   ble_shell: Set maximum arguments in command (SHELL_MAX_ARGS = 20) in app_preinclude.h
+	-   Fixed L2CAP credit-based channel disconnection where the channel's timer ID would be set to 0 instead of gTmrInvalidTimerID_c.
+	-   ble_shell: Set maximum arguments in command (SHELL_MAX_ARGS = 20) in app_preinclude.h. 
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

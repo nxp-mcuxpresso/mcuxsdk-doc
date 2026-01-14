@@ -5,19 +5,19 @@ The following changes have been implemented compared to the previous SDK release
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Added an API to update local synchronization parameters after PAwR is already established on the scanner side
-	-   Added Connection Subrating feature (experimental) in the Bluetooth LE Host
-	-   CCC v4.1.0: renamed DK_VERSION to VDBT_VERSION as per updated specification
+	-   Added an API to update local synchronization parameters after PAwR is already established on the scanner side.
+	-   Added Connection Subrating feature (experimental) in the Bluetooth LE Host.
+	-   CCC v4.1.0: renamed DK_VERSION to VDBT_VERSION as per updated specification.
 
     ### Improved
-	-   Improved localization applications timer mechanism to reduce the number of wakeups
-	-   Updated localization timeout values to be overridable by the application
-	-   Retain the subevent_done_status local and remote values for all subevents and pass them to the algorithm
-	-   Documentation miscellaneous updates
+	-   Improved localization applications timer mechanism to reduce the number of wakeups.
+	-   Updated localization timeout values to be overridable by the application.
+	-   Retain the subevent_done_status local and remote values for all subevents and pass them to the algorithm.
+	-   Documentation miscellaneous updates.
 
     ### Fixed
-	-   Fixed L2CAP credit-based channel disconnection where the channel's timer ID would be set to 0 instead of gTmrInvalidTimerID_c
-	-   Fixed Channel Sounding applications issue: clear the Indication Pending flag for a peer device on disconnect
+	-   Fixed L2CAP credit-based channel disconnection where the channel's timer ID would be set to 0 instead of gTmrInvalidTimerID_c.
+	-   ble_shell: Set maximum arguments in command (SHELL_MAX_ARGS = 20) in app_preinclude.h. 
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
