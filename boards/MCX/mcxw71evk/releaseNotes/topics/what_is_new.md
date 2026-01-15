@@ -14,7 +14,7 @@ The following changes have been implemented compared to the previous SDK release
 
     ### Fixed
 	-   Fixed L2CAP credit-based channel disconnection where the channel's timer ID would be set to `0` instead of `gTmrInvalidTimerID_c`.
-	-   ble_shell sample application: Set maximum arguments in command ( SHELL_MAX_ARGS = 20 ) in app_preinclude.h. 
+	-   ble_shell sample application: Set maximum arguments in command (SHELL_MAX_ARGS = 20) in app_preinclude.h. 
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
