@@ -2,7 +2,7 @@
 
 This section describes the steps required to configure MCUXpresso IDE to build, run, and debug example applications. The `hello_world` demo application targeted for the FRDM-IMXRT1186 hardware platform is used as an example, through these steps can be applied to any example application in the MCUXpresso SDK.
 
-Both CMSIS-DAP and J-Link debugging interface is supported for MCUX IDE. When using CMSIS-DAP debugging interface to debug CM33, the `J60[1..3]` should be put to `001` for SPI boot mode. **Since Segger is not ready for FRDMIMXRT1186 currently, 3rd party patch is provided: [iar_segger_support_patch_rt1186](https://mcuxpresso.nxp.com/download/e8ca8e655b4a5eeff3d9265ef11fa3f2)**
+Both CMSIS‑DAP and J‑Link debugging interfaces are supported in the MCUX IDE. When using the CMSIS‑DAP interface to debug the CM33 core, the J60[1..3] pins must be set to 001 to enable SPI boot mode.
 ```{include} ../topics/ide_select_the_workspace_location.md
 :heading-offset: 1
 ```

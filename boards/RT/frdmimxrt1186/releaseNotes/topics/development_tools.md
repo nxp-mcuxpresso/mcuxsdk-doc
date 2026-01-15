@@ -2,13 +2,11 @@
 
 The MCUXpresso SDK was tested with following development tools. Same versions or above are recommended.
 
-The SDK 25.12.00 release has been fully validated with IAR 9.60.4. However, since IAR 9.60.4 does not officially support the MIMXRT1186 device, you must install an additional IAR patch, enabling you to build and debug FRDMIMXRT1186 SDK projects in the IDE.
+IAR 9.70.2 does not yet support the MIMXRT1186 device. If you need to build your project using IAR 9.70.2, you must install the corresponding IAR patch.
 
-IAR 9.70.2 is not ready for MIMXRT1186 device. If you want to use IAR 9.70.2 to build your project, you need to install the IAR patch, too.
+IAR patch is distributed via [iar_segger_support_patch_rt1186](https://mcuxpresso.nxp.com/download/e8ca8e655b4a5eeff3d9265ef11fa3f2).
 
-SEGGER V8.86 is not ready for MIMXRT1186 device. If you want to use SEGGER V8.86 to debug your project, you need to install the SEGGER patch, too.
-
-IAR and SEGGER patch are distributed via [iar_segger_support_patch_rt1186](https://mcuxpresso.nxp.com/download/e8ca8e655b4a5eeff3d9265ef11fa3f2).
+Segger J‑Link v9.10 has been verified to support MIMXRT1186 devices, and using J‑Link version 9.10 or later is strongly recommended.
 
 ```{include} /release/commonrn/topics/development_tools_mcuxpresso.md
 :heading-offset: 2
