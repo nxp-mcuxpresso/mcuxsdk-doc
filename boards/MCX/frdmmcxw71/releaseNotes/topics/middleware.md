@@ -6,10 +6,6 @@
 
 # Middleware
 
-```{include} /release/commonrn/topics/nxp_zigbee.md
-:heading-offset: 2
-```
-
 ```{include} /release/commonrn/topics/nxp_ieee_802_15_4.md
 :heading-offset: 2
 ```

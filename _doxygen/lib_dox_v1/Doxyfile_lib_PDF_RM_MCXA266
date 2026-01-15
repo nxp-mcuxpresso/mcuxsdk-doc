@@ -758,6 +758,7 @@ INPUT = @SDK_BASE@/devices/MCX/MCXA/MCXA266/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
         @SDK_BASE@/drivers/eim/doxygen/eim.dox \
         @SDK_BASE@/drivers/eim/fsl_eim.h \
+        @SDK_BASE@/drivers/eim/eim_channel_word.h \
         @SDK_BASE@/drivers/eqdc/doxygen/eqdc.dox \
         @SDK_BASE@/drivers/eqdc/fsl_eqdc.h \
         @SDK_BASE@/drivers/erm/doxygen/erm.dox \
@@ -2209,6 +2210,7 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_LPADC_CFG_TPRICTRL_BITFIELD_WIDTH = 2 \
              FSL_FEATURE_LPADC_HAS_CMDH_CMPEN = 1 \
              FSL_FEATURE_LPADC_HAS_CTRL_CALHS = 1 \
+             FSL_FEATURE_LPADC_HAS_CFG2_JLEFT = 1 \
              FSL_FEATURE_LPADC_HAS_INTERNAL_TEMP_SENSOR = 1 \
              FSL_FEATURE_LPADC_TEMP_SENS_BUFFER_SIZE = 2 \
              FSL_FEATURE_AOI_MODULE_INPUTS = 4 \
@@ -2246,6 +2248,8 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_MCX_CMC_HAS_BSR_REG = 0 \
              FSL_FEATURE_MCX_CMC_HAS_RSTCNT_REG = 0 \
              FSL_FEATURE_MCX_CMC_HAS_BLR_REG = 0 \
+             FSL_FEATURE_MCX_CMC_HAS_NO_FLASHCR_WAKE = 0 \
+             FSL_FEATURE_MCX_CMC_HAS_BSR_SCR_BIT = 0 \
              FSL_FEATURE_LPCMP_HAS_CCR1_FUNC_CLK_SEL = 1 \
              FSL_FEATURE_LPCMP_HAS_IER_RRF_IE = 1 \
              FSL_FEATURE_LPCMP_HAS_CSR_RRF = 1 \
@@ -2300,7 +2304,9 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_EDMA_HAS_BANDWIDTH = 1 \
              FSL_FEATURE_EDMA_HAS_TRANSFER_MODE = 0 \
              FSL_FEATURE_EDMA_HAS_NO_CH_SBR_SEC = 1 \
+             FSL_FEATURE_EQDC_HAS_ERRATA_051383 = 0 \
              FSL_FEATURE_EQDC_CTRL2_HAS_EMIP_BIT_FIELD = 1 \
+             FSL_FEATURE_EQDC_HAS_NO_COMPARE_INTERRUPT = 0 \
              FSL_FEATURE_FLEXIO_HAS_RESET = 0 \
              FSL_FEATURE_FLEXIO_HAS_SHIFTER_STATUS = 1 \
              FSL_FEATURE_FLEXIO_HAS_PIN_STATUS = 1 \
@@ -2529,6 +2535,9 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_MCX_VBAT_HAS_OSCCTL_REG = 0 \
              FSL_FEATURE_MCX_VBAT_HAS_SWICTL_REG = 0 \
              FSL_FEATURE_MCX_VBAT_HAS_CLKMON_REG = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_OSCCTLA_FINE_AMP_GAIN_BIT = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_B_SIDE_REG = 0 \
+             FSL_FEATURE_WUU_HAS_MF = 0 \
              FSL_FEATURE_WWDT_HAS_NO_OSCILLATOR_LOCK = 0 \
              FSL_FEATURE_WWDT_HAS_NO_RESET = 1 \
              FSL_FEATURE_WWDT_HAS_LPOSC_CLOCK_SOURCE = 0 \

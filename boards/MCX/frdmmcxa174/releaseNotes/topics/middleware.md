@@ -10,10 +10,6 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_safety_iec60730b.md
-:heading-offset: 2
-```
-
 ```{include} /release/commonrn/topics/christopher_haster_littlefs.md
 :heading-offset: 2
 ```

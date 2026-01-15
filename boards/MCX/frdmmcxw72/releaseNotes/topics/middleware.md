@@ -10,10 +10,6 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_zigbee.md
-:heading-offset: 2
-```
-
 ```{include} /release/commonrn/topics/nxp_genfsk.md
 :heading-offset: 2
 ```

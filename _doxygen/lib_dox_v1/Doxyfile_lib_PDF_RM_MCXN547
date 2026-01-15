@@ -749,6 +749,7 @@ INPUT = @SDK_BASE@/drivers/cdog/doxygen/cdog.dox \
         @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
         @SDK_BASE@/drivers/eim/doxygen/eim.dox \
         @SDK_BASE@/drivers/eim/fsl_eim.h \
+        @SDK_BASE@/drivers/eim/eim_channel_word.h \
         @SDK_BASE@/drivers/erm/doxygen/erm.dox \
         @SDK_BASE@/drivers/erm/fsl_erm.h \
         @SDK_BASE@/drivers/evtg/doxygen/evtg.dox \
@@ -912,6 +913,7 @@ INPUT = @SDK_BASE@/drivers/cdog/doxygen/cdog.dox \
         @SDK_BASE@/drivers/edma4/fsl_edma.h \
         @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
         @SDK_BASE@/drivers/eim/fsl_eim.h \
+        @SDK_BASE@/drivers/eim/eim_channel_word.h \
         @SDK_BASE@/drivers/erm/fsl_erm.h \
         @SDK_BASE@/drivers/evtg/fsl_evtg.h \
         @SDK_BASE@/drivers/ewm/fsl_ewm.h \
