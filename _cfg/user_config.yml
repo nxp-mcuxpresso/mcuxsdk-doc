@@ -1488,6 +1488,24 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA366
       outdir: drivers/MCX/MCXA/MCXA366
+  board_frdmmcxa577:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/MCX/index.rst
+    - root: docs
+      pattern: boards/MCX/frdmmcxa577/*
+    - root: .
+      pattern: examples/_boards/frdmmcxa577/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXA/MCXA577/index.rst
+    - root: .
+      pattern: devices/MCX/MCXA/MCXA577/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA577
+      outdir: drivers/MCX/MCXA/MCXA577
   board_frdmmcxc041:
     default: true
     external_contents:
