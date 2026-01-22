@@ -828,8 +828,6 @@ INPUT = @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/trdc/fsl_trdc.h \
         @SDK_BASE@/drivers/trgmux/doxygen/trgmux.dox \
         @SDK_BASE@/drivers/trgmux/fsl_trgmux.h \
-        @SDK_BASE@/drivers/tstmr/doxygen/tstmr.dox \
-        @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
         @SDK_BASE@/drivers/vbat/doxygen/vbat.dox \
         @SDK_BASE@/drivers/vbat/fsl_vbat.h \
         @SDK_BASE@/drivers/vref_1/doxygen/vref.dox \
@@ -906,7 +904,6 @@ INPUT = @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/tpm/fsl_tpm.h \
         @SDK_BASE@/drivers/trdc/fsl_trdc.h \
         @SDK_BASE@/drivers/trgmux/fsl_trgmux.h \
-        @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
         @SDK_BASE@/drivers/vbat/fsl_vbat.h \
         @SDK_BASE@/drivers/vref_1/fsl_vref.h \
         @SDK_BASE@/drivers/wdog32/fsl_wdog32.h \
@@ -1061,7 +1058,6 @@ IMAGE_PATH = @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/doxygen \
              @SDK_BASE@/drivers/tpm/doxygen \
              @SDK_BASE@/drivers/trdc/doxygen \
              @SDK_BASE@/drivers/trgmux/doxygen \
-             @SDK_BASE@/drivers/tstmr/doxygen \
              @SDK_BASE@/drivers/vbat/doxygen \
              @SDK_BASE@/drivers/vref_1/doxygen \
              @SDK_BASE@/drivers/wdog32/doxygen \
