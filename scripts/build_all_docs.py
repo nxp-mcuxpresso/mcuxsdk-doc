@@ -25,6 +25,11 @@ import multiprocessing
 from datetime import datetime
 import yaml
 
+# Import path validation module
+script_dir = Path(__file__).parent
+sys.path.insert(0, str(script_dir))
+from validate_paths import PathValidator
+
 logger = logging.getLogger(__name__)
 
 def setup_logging(log_dir, board_name=None):
@@ -506,6 +511,46 @@ def main():
         main_logger.info(f"Move {build_dir}/full/html to {build_dir}/html")
         if (build_dir/'full'/'html').exists():
             shutil.move(str(build_dir/'full'/'html'), str(build_dir/'html'))
+    
+    # Validate paths in the generated HTML output
+    main_logger.info("\n" + "="*80)
+    main_logger.info("Running Path Validation Checks")
+    main_logger.info("="*80)
+    
+    html_output_dir = build_dir / 'html'
+    if html_output_dir.exists():
+        main_logger.info(f"Validating HTML output in: {html_output_dir}")
+        validator = PathValidator()
+        
+        try:
+            is_valid = validator.validate_html_output(html_output_dir)
+            
+            if is_valid:
+                main_logger.info("✓ Path validation PASSED: No prohibited characters found in HTML paths")
+            else:
+                main_logger.error("✗ Path validation FAILED: Prohibited characters found in HTML paths")
+                main_logger.error("Please review the validation errors above and fix the source files")
+                main_logger.error(f"Prohibited characters: {validator.PROHIBITED_CHARS}")
+                # Add to failed builds
+                failed_builds.append(('path_validation', {
+                    'success': False,
+                    'error': 'HTML paths contain prohibited characters',
+                    'build_mode': args.build_mode
+                }))
+        except Exception as e:
+            main_logger.error(f"Error during path validation: {str(e)}")
+            import traceback
+            main_logger.error(f"Traceback: {traceback.format_exc()}")
+            failed_builds.append(('path_validation', {
+                'success': False,
+                'error': f'Path validation error: {str(e)}',
+                'build_mode': args.build_mode
+            }))
+    else:
+        main_logger.warning(f"HTML output directory not found: {html_output_dir}")
+        main_logger.warning("Skipping path validation")
+    
+    main_logger.info("="*80 + "\n")
     
     # Calculate and display build summary
     total_time = time.time() - start_time

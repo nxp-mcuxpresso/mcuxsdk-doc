@@ -94,9 +94,65 @@ def patch_mcuboot_readme(app, docname, source):
         else:
             logger.warning(f"License badge pattern not found in {docname}")
 
+def validate_html_paths(app, exception):
+    """
+    Validate that HTML output paths don't contain prohibited characters.
+    Called after build is complete.
+    """
+    if exception is not None:
+        return
+    
+    from pathlib import Path
+    import re
+    
+    # Prohibited characters according to IT security policy
+    PROHIBITED_CHARS = r'[$%();<>?\[\]`{|}]'
+    
+    outdir = Path(app.outdir)
+    if not outdir.exists():
+        return
+    
+    violations = []
+    
+    # Check all HTML files and their paths
+    for html_file in outdir.rglob('*.html'):
+        rel_path = html_file.relative_to(outdir)
+        path_str = str(rel_path)
+        
+        # Check for prohibited characters in the path
+        matches = re.findall(PROHIBITED_CHARS, path_str)
+        if matches:
+            violations.append({
+                'path': path_str,
+                'chars': set(matches)
+            })
+    
+    # Report violations
+    if violations:
+        logger.error("=" * 80)
+        logger.error("SECURITY POLICY VIOLATION: Prohibited characters found in HTML paths")
+        logger.error("=" * 80)
+        logger.error("The following paths contain prohibited characters: \"$%();<>?[]`{|}")
+        logger.error("")
+        
+        for v in violations:
+            logger.error(f"Path: {v['path']}")
+            logger.error(f"  Prohibited characters found: {', '.join(sorted(v['chars']))}")
+            logger.error("")
+        
+        logger.error("=" * 80)
+        logger.error("Please rename files/directories to remove these characters")
+        logger.error("=" * 80)
+        
+        # Make the build fail
+        raise Exception("Build failed: HTML paths contain prohibited characters")
+    else:
+        logger.info("Path validation: No prohibited characters found in HTML output paths")
+
 def setup(app):
     app.connect('source-read', patch_example_readme_md)
     app.connect('source-read', patch_mcuboot_readme)
+    app.connect('build-finished', validate_html_paths)
 
 # Parse command line arguments
 args = get_parser().parse_args()

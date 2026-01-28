@@ -305,11 +305,11 @@ class MCUXDoc(WestCommand):
             
             # Print timing for this target
             target_time = time.time() - target_start
-            self.inf(f"⏱️  {target} completed in {format_time(target_time)}")
+            self.inf(f"[TIME] {target} completed in {format_time(target_time)}")
         
         # Print overall timing
         overall_time = time.time() - overall_start
         self.banner("Build Complete")
-        self.inf(f"⏱️  Total time: {format_time(overall_time)}")
+        self.inf(f"[TIME] Total time: {format_time(overall_time)}")
         
         return 0
