@@ -11,6 +11,5 @@ The tabulated results cover findings that are classified as issues.
 
 |Development boards|HIGH IMPACT|Memory Leaks|CWE|CCM > 20|No. Examples|
 |:--               |:--    |:--    |:--    |:--    |:--    |
-|FRDM-MCXA174|-|-|-|-|0|
-|FRDM-MCXA344|0|0|0|6|25|
+No boards with declared quality are in the scope of this preview.
 
