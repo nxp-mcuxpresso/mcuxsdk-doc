@@ -42,13 +42,14 @@
     Additional features supported for KW47 and MCX W72 devices:
     -   Channel Sounding
     Additional features supported as EAR (\Early Access Release\) in the KW47 experimental build:
-    -   Channel Sounding TX/SNR.
+    -   Channel Sounding TX/SNR
+    -   Channel Sounding PHY 2Mbps BT2.0
+    -   Channel Sounding T_PM=10us
     Additional features supported as EAR (\Early Access Release\) in the KW45/KW47 experimental builds:
-    -   LE Test Mode Enhancement (\UTP/OTA\).
-    -   LL Extended Feature Set.
-    -   Monitoring Advertisers.
-    -   Randomized Resolvable Private Address (\RPA\).
-    -   LE Enhanced Connection Update.
+    -   LL Extended Feature Set
+    -   Monitoring Advertisers
+    -   Randomized Resolvable Private Address (\RPA\)
+    -   LE Enhanced Connection Update
 
         
         **Note:**

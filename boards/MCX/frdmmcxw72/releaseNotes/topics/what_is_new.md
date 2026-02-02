@@ -22,8 +22,13 @@ The following changes have been implemented compared to the previous SDK release
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
--   **Bluetooth LE controller**
-    - Fixed an issue where the procedure timeout was not stopped once the LL_PAUSE_ENC_RSP PDU is received on the peripheral side.
+-   **Bluetooth LE Controller**
+    Periodic Advertising with Responses (PAwR):
+    -  Fixed Periodic Advertising Subevent Data mechanism when handling more than five subevents.
+    -  Fixed a problem preventing PAwR from being enabled while another advertising activity was active.
+    Channel Sounding:
+    -  Fixed an issue where an incorrect “Procedure Done Status” was reported after disabling and re‑enabling a Channel Sounding procedure.
+    -  Fixed a condition where Channel Map Indication and CS Indication occurring within the same connection event caused incorrect behavior.
 
 -   **Transceiver drivers (XCVR)**
     -   Added support for Bluetooth LE Channel Sounding.
