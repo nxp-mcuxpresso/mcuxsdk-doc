@@ -1,24 +1,30 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.12.00\).
+The following changes have been implemented compared to the previous SDK release version \(26.03.00-pvw1\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Added an API to update local synchronization parameters after PAwR is already established on the scanner side.
-	-   Added Connection Subrating feature (experimental) in the Bluetooth LE Host.
-	-   Added Connection Subrating feature in ble_shell sample application.
+	-   Implemented Bluetooth LE Host Transient Application Key feature (experimental).
+	-   Added Bluetooth LE Host Transient Application Key in ble_shell, loc_reader and loc_user_device.
+	-   Added Channel Sounding phase calibration, with 0.5m compensation for all boards.
+	-   Added Vendor Specific Command to enable Link Layer experimental features.
+	-   Added Channel Sounding **phase calibration** logic and updates in RAS CS Procedure Timing Measurement.
 
     ### Improved
-	-   Improved localization applications timer mechanism to reduce the number of wakeups.
-	-   Updated localization timeout values to be overridable by the application.
-	-   Retain the subevent_done_status local and remote values for all subevents and pass them to the algorithm.
+	-   Updated RADE algorithm source files license description with NXP proprietary license.
+	-   Updated Intrusion Detection System documentation with event details.
 	-   Documentation miscellaneous updates.
 
     ### Fixed
-	-   Fixed L2CAP credit-based channel disconnection where the channel's timer ID would be set to `0` instead of `gTmrInvalidTimerID_c`.
-	-   Fixed Channel Sounding applications issue: clear the Indication Pending flag for a peer device on disconnect.
-	-   ble_shell sample application: Set maximum arguments in command (SHELL_MAX_ARGS = 20) in app_preinclude.h. 
+	-   Fixed ranging data body parser on the client side — aborted steps are now counted correctly to prevent subevent misalignment.
+	-   Fixed handling of CS Procedure Disable at Host and application level.
+	-   Fixed app_localization timer blocking when sensors were disabled.
+	-   Removed pin_mux files from core1 application projects.
+	-   Fixed issues in data transfer and event updates related to timing measurement.
+
+    ### Changed
+	-   Updated `(SHELL_MAX_ARGS = 20)` in `app_preinclude.h` for localization applications.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

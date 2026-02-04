@@ -1,21 +1,19 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(25.12.00\).
+The following changes have been implemented compared to the previous SDK release version \(26.03.00-pvw1\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Added an API to update local synchronization parameters after PAwR is already established on the scanner side.
-	-   Added Connection Subrating feature (experimental) in the Bluetooth LE Host.
-	-   Added Connection Subrating feature in ble_shell sample application.
-	-   CCC v4.1.0: renamed DK_VERSION to VDBT_VERSION as per updated specification.
+	-   Implemented Bluetooth LE Host Transient Application Key feature (experimental).
+	-   Added Bluetooth LE Host Transient Application Key in ble_shell.
+	-   Added Vendor Specific Command to enable Link Layer experimental features.
 
     ### Improved
+	-   Updated CCC enumeration values to align with CCC v4.0.0 specification.
+	-   Updated Intrusion Detection System documentation with event details.
 	-   Documentation miscellaneous updates.
 
-    ### Fixed
-	-   Fixed L2CAP credit-based channel disconnection where the channel's timer ID would be set to `0` instead of `gTmrInvalidTimerID_c`.
-	-   ble_shell sample application: Set maximum arguments in command (SHELL_MAX_ARGS = 20) in app_preinclude.h. 
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
