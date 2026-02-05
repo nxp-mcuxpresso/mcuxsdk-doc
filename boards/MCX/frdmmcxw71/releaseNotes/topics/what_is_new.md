@@ -6,13 +6,12 @@ The following changes have been implemented compared to the previous SDK release
 
     ### Added
 	-   Implemented Bluetooth LE Host Transient Application Key feature (experimental).
-	-   Added Bluetooth LE Host Transient Application Key in ble_shell.
-	-   Added Vendor Specific Command to enable Link Layer experimental features.
+	-   Added Bluetooth LE Host Transient Application Key in 'ble_shell' application.
+	-   Added Vendor-specific command to enable Link Layer experimental features.
 
     ### Improved
-	-   Updated CCC enumeration values to align with CCC v4.0.0 specification.
 	-   Updated Intrusion Detection System documentation with event details.
-	-   Documentation miscellaneous updates.
+	-   Miscellaneous Documentation updates.
 
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.

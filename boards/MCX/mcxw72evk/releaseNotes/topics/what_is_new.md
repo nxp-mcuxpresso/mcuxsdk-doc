@@ -6,18 +6,18 @@ The following changes have been implemented compared to the previous SDK release
 
     ### Added
 	-   Implemented Bluetooth LE Host Transient Application Key feature (experimental).
-	-   Added Bluetooth LE Host Transient Application Key in ble_shell, loc_reader and loc_user_device.
-	-   Added Channel Sounding phase calibration, with 0.5m compensation for all boards.
-	-   Added Vendor Specific Command to enable Link Layer experimental features.
-	-   Added Channel Sounding **phase calibration** logic and updates in RAS CS Procedure Timing Measurement.
+	-   Added Bluetooth LE Host Transient Application Key in 'ble_shell', 'loc_reader' and 'loc_user_device' applications.
+	-   Added Channel Sounding phase calibration, with 0.5 m compensation for all boards.
+	-   Added Vendor-specific command to enable Link Layer experimental features.
+	-   Added Channel Sounding **phase calibration** logic and updates in Ranging Service CS Procedure Timing Measurement.
 
     ### Improved
 	-   Updated RADE algorithm source files license description with NXP proprietary license.
 	-   Updated Intrusion Detection System documentation with event details.
-	-   Documentation miscellaneous updates.
+	-   Miscellaneous Documentation updates.
 
     ### Fixed
-	-   Fixed ranging data body parser on the client side — aborted steps are now counted correctly to prevent subevent misalignment.
+	-   Fixed ranging data body parser on the client side; aborted steps are now counted correctly to prevent subevent misalignment.
 	-   Fixed handling of CS Procedure Disable at Host and application level.
 	-   Fixed app_localization timer blocking when sensors were disabled.
 	-   Removed pin_mux files from core1 application projects.
