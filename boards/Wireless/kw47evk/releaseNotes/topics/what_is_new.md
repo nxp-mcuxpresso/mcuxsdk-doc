@@ -9,7 +9,7 @@ The following changes have been implemented compared to the previous SDK release
 	-   Added Bluetooth LE Host Transient Application Key in 'ble_shell', 'loc_reader' and 'loc_user_device' applications.
 	-   Added Channel Sounding phase calibration, with 0.5 m compensation for all boards.
 	-   Added Vendor-specific command to enable Link Layer experimental features.
-	-   Added `gAppCsTimeInfo_d` define in app_preinclude.h for digital_key_car_anchor_cs on KW47-EVK.
+	-   Added `gAppCsTimeInfo_d` define in 'app_preinclude.h' for 'digital_key_car_anchor_cs' on KW47-EVK.
 	-   Added Channel Sounding **phase calibration** logic and updates in Ranging Service CS Procedure Timing Measurement.
 
     ### Improved
