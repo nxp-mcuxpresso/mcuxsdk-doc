@@ -11,5 +11,6 @@ The tabulated results cover findings that are classified as issues.
 
 |Development boards|HIGH IMPACT|Memory Leaks|CWE|CCM > 20|No. Examples|
 |:--               |:--    |:--    |:--    |:--    |:--    |
+
 No boards with declared quality are in the scope of this preview.
 
