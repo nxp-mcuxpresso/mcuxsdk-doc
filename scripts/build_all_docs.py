@@ -520,7 +520,7 @@ def main():
     html_output_dir = build_dir / 'html'
     if html_output_dir.exists():
         main_logger.info(f"Validating HTML output in: {html_output_dir}")
-        validator = PathValidator()
+        validator = PathValidator(html_output_dir)
         
         try:
             is_valid = validator.validate_html_output(html_output_dir)
