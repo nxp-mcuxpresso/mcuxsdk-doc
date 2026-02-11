@@ -523,7 +523,7 @@ def main():
         validator = PathValidator(html_output_dir)
         
         try:
-            is_valid = validator.validate_html_output(html_output_dir)
+            is_valid = validator.scan_directory()
             
             if is_valid:
                 main_logger.info("✓ Path validation PASSED: No prohibited characters found in HTML paths")
