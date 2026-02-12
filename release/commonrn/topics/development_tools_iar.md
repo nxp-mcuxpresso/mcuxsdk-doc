@@ -1,1 +1,1 @@
--   IAR Embedded Workbench for Arm, version is 9.60.4
+-   IAR Embedded Workbench for Arm, version is 9.70.2
