@@ -1,6 +1,6 @@
 # What is new
 
-The following changes have been implemented compared to the previous SDK release version \(25.06.00\).
+The following changes have been implemented compared to the previous SDK release version \(26.03.00-pvw2\).
 
 - **Bluetooth Synopsys controller**
     - LE ping stops after feature exchange.
@@ -13,31 +13,10 @@ The following changes have been implemented compared to the previous SDK release
     - Fixed the wrong Local Resolvable Private Address in the LE Enhanced Connection Complete event.
 
 - **Bluetooth LE**
-    - **Common changes**
-        - Support for **IAR toolchain** added.
-        - Support for the **MCXW235B SoC variant** added.
-        - **SRAM placement updated** - data placement now starts at `0x20004000` instead of `0x20008000`.
-        - **NVM storage integration improved** - NVM operations are now performed when the radio is not active for enough time
-        - **Experimental** support of mebdtls PSA. The feature can be enabled for **testing** purpose by setting `CONFIG_MCUX_COMPONENT_middleware.wireless.framework.seclib_rng_port.psa=y`, `CONFIG_MCUX_COMPONENT_component.psa_crypto_driver.casper=y`, `CONFIG_MCUX_COMPONENT_component.psa_crypto_driver.hashcrypt=y` configs in the application `prj.conf` file.
-
-    - **Health Care IoT Reference design applications**
-        - Support for **Keil toolchain** added.
-        - Fixed central application not retaining bonding information
-        - Moved **ENABLE_LOW_POWER** flag to app_preinclude.h for the peripheral application
-
-    - **Bluetooth LE host stack and applications**
-        - Support for **EATT Central/Peripheral** applications.
-        - Support for **FSCI Black Box** application.
-        - Support for **Beacon** application.
-        - Support for **Temperature Collector/Sensor** applications.
-        - Support for **ANCS Client** application.
-        - Support for **Extended Advertising Central/Peripheral** applications.
-        - Support for **HID Device/Host** applications.
-        - Support for **BLE Shell** application.
-        - **HCI transport** now uses the Connectivity Framework's Platform API implementation
-
-        **Note**
-            These applications do not support low-power operation. For low-power features, see the reference design `Health Care IoT` applications.
+    - **Major Changes**
+        - Added support for switching to the coded PHY mode.
+    - **Minor Changes**
+        - [PSA] Added the project_segment Kconfig option to enable selection of an optimized PSA configuration for Bluetooth LE applications.
 
 - **Connectivity Framework**
 
