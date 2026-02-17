@@ -176,6 +176,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/lpflexcomm/lpuart/doxygen/ChangeLog_lpuart_edma.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/mrt/doxygen/ChangeLog_mrt.md
 :heading-offset: 2
 ```

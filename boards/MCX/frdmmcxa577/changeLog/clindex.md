@@ -8,15 +8,7 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/cache/lpcac_n4a_mcxn/doxygen/ChangeLog_cache_lpcac.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/cdog/doxygen/ChangeLog_cdog.md
-:heading-offset: 2
-```
----
-```{include} /devices/MCX/MCXA/MCXA577/drivers/doxygen/ChangeLog_clock.md
 :heading-offset: 2
 ```
 ---
@@ -44,19 +36,15 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/mcx_enet/doxygen/ChangeLog_enet.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/erm/doxygen/ChangeLog_erm.md
 :heading-offset: 2
 ```
 ---
 ```{include} /drivers/ewm/doxygen/ChangeLog_ewm.md
-:heading-offset: 2
-```
----
-```{include} /drivers/flexcan/doxygen/ChangeLog_flexcan.md
-:heading-offset: 2
-```
----
-```{include} /drivers/flexcan/doxygen/ChangeLog_flexcan_edma.md
 :heading-offset: 2
 ```
 ---
@@ -68,15 +56,19 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/flexio/i2s/doxygen/ChangeLog_flexio_i2s.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/flexio/i2s/doxygen/ChangeLog_flexio_i2s_edma.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/flexio/mculcd/doxygen/ChangeLog_flexio_mculcd.md
 :heading-offset: 2
 ```
 ---
 ```{include} /drivers/flexio/mculcd/doxygen/ChangeLog_flexio_mculcd_edma.md
-:heading-offset: 2
-```
----
-```{include} /drivers/flexio/mculcd/doxygen/ChangeLog_flexio_mculcd_smartdma.md
 :heading-offset: 2
 ```
 ---
@@ -100,7 +92,7 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/gdet/doxygen/ChangeLog_gdet.md
+```{include} /drivers/lpc_freqme/doxygen/ChangeLog_freqme.md
 :heading-offset: 2
 ```
 ---
@@ -124,23 +116,7 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/irtc/doxygen/ChangeLog_irtc.md
-:heading-offset: 2
-```
----
-```{include} /drivers/itrc/doxygen/ChangeLog_itrc.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/lpadc/doxygen/ChangeLog_lpadc.md
-:heading-offset: 2
-```
----
-```{include} /drivers/lpc_freqme/doxygen/ChangeLog_freqme.md
-:heading-offset: 2
-```
----
-```{include} /drivers/lpcmp/doxygen/ChangeLog_lpcmp.md
 :heading-offset: 2
 ```
 ---
@@ -172,22 +148,6 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/mcx_cmc/doxygen/ChangeLog_cmc.md
-:heading-offset: 2
-```
----
-```{include} /drivers/mcx_enet/doxygen/ChangeLog_enet.md
-:heading-offset: 2
-```
----
-```{include} /drivers/mcx_spc/doxygen/ChangeLog_spc.md
-:heading-offset: 2
-```
----
-```{include} /drivers/mcx_vbat/doxygen/ChangeLog_vbat.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/ostimer/doxygen/ChangeLog_ostimer.md
 :heading-offset: 2
 ```
@@ -196,19 +156,11 @@
 :heading-offset: 2
 ```
 ---
-```{include} /devices/MCX/MCXA/MCXA577/drivers/doxygen/ChangeLog_reset.md
-:heading-offset: 2
-```
----
-```{include} /drivers/smartdma/doxygen/ChangeLog_smartdma.md
+```{include} /drivers/mcx_spc/doxygen/ChangeLog_spc.md
 :heading-offset: 2
 ```
 ---
 ```{include} /drivers/spi_filter/doxygen/ChangeLog_spi_filter.md
-:heading-offset: 2
-```
----
-```{include} /drivers/tdet/doxygen/ChangeLog_tdet.md
 :heading-offset: 2
 ```
 ---
@@ -221,10 +173,6 @@
 ```
 ---
 ```{include} /drivers/trng/doxygen/ChangeLog_trng.md
-:heading-offset: 2
-```
----
-```{include} /drivers/tsi/tsi_v6/doxygen/ChangeLog_tsi_v6.md
 :heading-offset: 2
 ```
 ---

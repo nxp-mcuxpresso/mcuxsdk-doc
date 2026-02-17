@@ -184,6 +184,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/tstmr/doxygen/ChangeLog_tstmr.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/vbat/doxygen/ChangeLog_vbat.md
 :heading-offset: 2
 ```

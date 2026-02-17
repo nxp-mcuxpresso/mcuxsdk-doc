@@ -116,6 +116,14 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/i3c/doxygen/ChangeLog_i3c.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/i3c/doxygen/ChangeLog_i3c_edma.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/igf/doxygen/ChangeLog_igf.md
 :heading-offset: 2
 ```
@@ -241,6 +249,14 @@
 ```
 ---
 ```{include} /drivers/xbar_1/doxygen/ChangeLog_xbar.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/xspi/doxygen/ChangeLog_xspi.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/xspi/doxygen/ChangeLog_xspi_edma.md
 :heading-offset: 2
 ```
 ---
