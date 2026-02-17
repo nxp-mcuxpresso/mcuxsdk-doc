@@ -1,7 +1,7 @@
 /*
  * Custom CSS for MCUXpresso SDK Documentation with sphinx_book_theme
- * 
- * Copyright (c) 2024 NXP
+ *
+ * Copyright 2024,2026 NXP
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
@@ -22,6 +22,41 @@
 
 .bd-content {
     padding-top: 1rem !important;
+}
+
+.audio_FW_spec_table,
+.audio_FW_spec_table th,
+.audio_FW_spec_table td {
+	text-align:center;
+	border: 1px solid black;
+	border-collapse: collapse;
+	color: black;
+}
+
+.audio_FW_spec_table th,
+.audio_FW_spec_table td {
+	padding-left: .5em;
+	padding-right: .5em;
+}
+
+.audio_FW_spec_table th {
+	background-color: #3ECAFB !important;
+	color:white;
+}
+
+.audio_FW_spec_table_supported {
+	background-color: #00A700 !important;
+	color: black;
+}
+
+.audio_FW_spec_table_modification {
+	background-color: #69CA00 !important;
+	color: black;
+}
+
+.audio_FW_spec_table_limited {
+	background-color: #F9B500 !important;
+	color: black;
 }
 
 /* Custom page toolbar - NAVBAR STYLE */
@@ -83,7 +118,7 @@ html[data-theme="dark"] .toolbar-brand i {
     .toolbar-brand span {
         display: none;
     }
-    
+
     .toolbar-brand {
         gap: 0;
     }
@@ -396,26 +431,26 @@ html[data-theme="dark"] #download-modal h3 {
     .custom-page-toolbar {
         padding: 6px 15px;
     }
-    
+
     .toolbar-left,
     .toolbar-right {
         gap: 8px;
     }
-    
+
     .version-selector-inline label {
         display: none;
     }
-    
+
     .version-select-inline {
         min-width: 80px;
         font-size: 0.8rem;
     }
-    
+
     .repo-dropdown-btn {
         padding: 6px 8px;
         font-size: 0.8rem;
     }
-    
+
     .toolbar-icon-btn {
         width: 32px;
         height: 32px;
@@ -427,7 +462,7 @@ html[data-theme="dark"] #download-modal h3 {
     .custom-page-toolbar {
         display: none;
     }
-    
+
     #download-modal {
         display: none;
     }
@@ -629,24 +664,24 @@ html[data-theme="dark"] .download-dropdown-item:hover {
     .bd-article {
         max-width: 100% !important;
     }
-    
+
     .bd-article-container {
         flex-direction: column !important;
     }
-    
+
     .bd-sidebar-secondary {
         flex: none !important;
         min-width: auto !important;
         max-width: none !important;
         margin-top: 1rem !important;
     }
-    
+
     .bd-sidebar-secondary .bd-toc {
         position: relative !important;
         top: auto !important;
         max-height: none !important;
     }
-    
+
     .bd-sidebar-primary {
         position: fixed !important;
         top: 0 !important;
@@ -660,16 +695,16 @@ html[data-theme="dark"] .download-dropdown-item:hover {
         overflow-y: auto !important;
         overflow-x: hidden !important;
     }
-    
+
     .bd-sidebar-primary:not(.hidden) {
         left: 0 !important;
     }
-    
+
     .bd-sidebar-primary.hidden {
         left: -100% !important;
         display: block !important; /* Override the display: none for mobile */
     }
-    
+
     /* Overlay for mobile sidebar */
     .sidebar-overlay {
         position: fixed;
@@ -681,7 +716,7 @@ html[data-theme="dark"] .download-dropdown-item:hover {
         z-index: 1049;
         cursor: pointer;
     }
-    
+
     /* Adjust main content on mobile */
     .bd-main {
         margin-left: 0 !important;
@@ -694,11 +729,11 @@ html[data-theme="dark"] .download-dropdown-item:hover {
     .bd-sidebar-primary.hidden {
         display: none !important;
     }
-    
+
     .bd-main {
         transition: margin-left 0.3s ease, max-width 0.3s ease;
     }
-    
+
     .bd-main.sidebar-hidden {
         margin-left: 0 !important;
     }
