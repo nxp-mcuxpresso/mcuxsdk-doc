@@ -1,5 +1,5 @@
 project: mcuxsdk
-copyright: 2025, NXP
+copyright: 2026, NXP
 author: NXP
 extensions:
 - sphinx_book_theme
