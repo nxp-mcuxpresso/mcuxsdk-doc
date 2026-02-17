@@ -3,14 +3,10 @@
 The following changes have been implemented compared to the previous SDK release version \(26.03.00-pvw2\).
 
 - **Bluetooth Synopsys controller**
-    - LE ping stops after feature exchange.
-    - Connection drops as central after Connection Update from the slave.
-    - Fixed state not correctly reset when terminating periodic advertising sync leading to hard fault.
-    - Tx power is not changed in the database when the Tx power table changes.
-    - Provide API to enable/disable Channel Assessment.
-    - Debug HCI: Fix missed deferred HCI event logs.
-    - Disable checking irq priorities against unused BLE_SLP_TMR_IRQ.
-    - Fixed the wrong Local Resolvable Private Address in the LE Enhanced Connection Complete event.
+    - Fix scan response not always sent when filtering duplicates is enabled
+    - Avoid network privacy if Peer IRK is all zero
+    - Take also SID into account when adding a unique entry in the periodic advertiser list
+    - Reject peer random static addresses in the resolving list when it does not contain 11 as MSb
 
 - **Bluetooth LE**
     - **Major Changes**
