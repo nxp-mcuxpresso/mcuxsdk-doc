@@ -28,9 +28,8 @@
 .audio_FW_spec_table th,
 .audio_FW_spec_table td {
 	text-align:center;
-	border: 1px solid black;
+	border: 1px solid gray;
 	border-collapse: collapse;
-	color: black;
 }
 
 .audio_FW_spec_table th,
