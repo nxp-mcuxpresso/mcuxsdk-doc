@@ -1524,6 +1524,24 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXC041
       outdir: drivers/MCX/MCXC/MCXC041
+  board_frdmmcxc162:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/MCX/index.rst
+    - root: docs
+      pattern: boards/MCX/frdmmcxc162/*
+    - root: .
+      pattern: examples/_boards/frdmmcxc162/ChangeLog_board.md
+    - root: .
+      pattern: drivers/MCX/MCXC/MCXC162/index.rst
+    - root: .
+      pattern: devices/MCX/MCXC/MCXC162/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXC162
+      outdir: drivers/MCX/MCXC/MCXC162
   board_frdmmcxc242:
     default: true
     external_contents:
