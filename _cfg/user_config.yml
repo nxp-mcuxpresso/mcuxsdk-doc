@@ -861,6 +861,24 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9352
       outdir: drivers/iMX/iMX93/MIMX9352
+  board_mcimx93wevk:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/i.MX/index.rst
+    - root: docs
+      pattern: boards/i.MX/mcimx93wevk/*
+    - root: .
+      pattern: examples/_boards/mcimx93wevk/ChangeLog_board.md
+    - root: .
+      pattern: drivers/iMX/iMX93W/MIMX93W52/index.rst
+    - root: .
+      pattern: devices/iMX/iMX93W/MIMX93W52/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX93W52
+      outdir: drivers/iMX/iMX93W/MIMX93W52
   board_mcimx93qsb:
     default: true
     external_contents:
