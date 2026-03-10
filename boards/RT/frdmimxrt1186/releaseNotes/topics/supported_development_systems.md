@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**FRDM-IMXRT1186**|**MIMXRT1186CVJ8C**, MIMXRT1186XVJ8C|
+|**FRDM-IMXRT1186**|**MIMXRT1186CVJ8C**, MIMXRT1186XVJ8C, MIMXRT1185CVJ8C, MIMXRT1185XVJ8C, MIMXRT118CCVJ8C, MIMXRT118CXVJ8C|
