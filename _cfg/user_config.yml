@@ -164,7 +164,9 @@ modules:
     - root: docs
       pattern: middleware/lwip/*
     - root: .
-      pattern: middleware/lwip/ChangeLogKSDK.txt
+      pattern: middleware/lwip/README.md
+    - root: .
+      pattern: middleware/lwip/CHANGELOG.md
     - root: .
       pattern: middleware/lwip/port/README.md
   mid_lvgl:
