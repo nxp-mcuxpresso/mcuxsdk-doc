@@ -1,19 +1,22 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(26.03.00-pvw1\).
+The following changes have been implemented compared to the previous SDK release version \(26.03.00-pvw2\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Implemented Bluetooth LE Host Transient Application Key feature (experimental).
-	-   Added Bluetooth LE Host Transient Application Key in 'ble_shell' application.
-	-   Added Vendor-specific command to enable Link Layer experimental features.
+	-   Test mode functionality for the Intrusion Detection System.
+	-   GAP API for HCI LE_Set_Local_Slave_Latency_Enable vendor command.
 
     ### Improved
-	-   Updated CCC enumeration values to align with CCC v4.0.0 specification.
-	-   Updated Intrusion Detection System documentation with event details.
-	-   Miscellaneous Documentation updates.
+	-   ATT Write Commands can now be sent at any time, as per specification.
+	-   Eliminated the dependency on `hci_interface.h` in localization files.
+	-   Documentation updates.
+	-   Miscellaneous minor application bug fixes.
 
+    ### Fixed
+	-   Wrong data field type in `GAP2GenericEventVendorSpecificDebugFatalError`.
+	-   MISRA fixes.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

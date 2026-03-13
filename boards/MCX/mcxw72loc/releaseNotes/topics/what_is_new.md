@@ -1,30 +1,41 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(26.03.00-pvw1\).
+The following changes have been implemented compared to the previous SDK release version \(26.03.00-pvw2\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Implemented Bluetooth LE Host Transient Application Key feature (experimental).
-	-   Added Bluetooth LE Host Transient Application Key in 'loc_reader' and 'loc_user_device' applications.
-	-   Added Channel Sounding phase calibration, with 0.5 m compensation for all boards.
-	-   Added Vendor-specific command to enable Link Layer experimental features.
-	-   Added Channel Sounding **phase calibration** logic and updates in Ranging Service CS Procedure Timing Measurement.
+	-   Test mode functionality for the Intrusion Detection System.
+	-   GAP API for HCI LE_Set_Local_Slave_Latency_Enable vendor command.
+	-   `gRasUseNotifOrInd_c` to allow configuration of Indication or Notification on RAS.
+	-   `cs_sync_phy` argument to `setcsconfig` shell command.
+	-   `snr_control_init` and `snr_control_refl` arguments to `setcsproc` shell command.
+	-   Mode0 step information parsing for both RAS, made available for the export module.
 
     ### Improved
-	-   Updated RADE algorithm source files license description with NXP proprietary license.
-	-   Updated Intrusion Detection System documentation with event details.
-	-   Miscellaneous Documentation updates.
+	-   ATT Write Commands can now be sent at any time, as per specification.
+	-   Enhanced RAS Channel Sounding by incorporating real-time local and remote data decompression.
+	-   Localization applications now record the PHY used for establishing the connection and incorporate it into the CS procedure parameters configuration.
+	-   Localization applications keep the `subevtStopIdx` for the remote data and provide it to the algorithm.
+	-   Localization applications now pass remote mode map to algorithm.
+	-   Eliminated the dependency on `hci_interface.h` in localization files.
+	-   Documentation updates.
+	-   Miscellaneous minor application bug fixes.
 
     ### Fixed
-	-   Fixed ranging data body parser on the client side — aborted steps are now counted correctly to prevent subevent misalignment.
-	-   Fixed handling of CS Procedure Disable at Host and application level.
-	-   Fixed app_localization timer blocking when sensors were disabled.
-	-   Removed pin_mux files from core1 application projects.
-	-   Fixed issues in data transfer and event updates related to timing measurement.
+	-   Wrong data field type in `GAP2GenericEventVendorSpecificDebugFatalError`.
+	-   Localization application now processes CS results only when local data is available.
+	-   Issue with PACKET_NADM byte not being packed correctly into the TOF buffer for mode-3 steps.
+	-   MISRA fixes.
 
     ### Changed
-	-   Updated `(SHELL_MAX_ARGS = 20)` in `app_preinclude.h` for localization applications.
+	-   Modified linker section names, comments, and RAM layout in the `connectivity.icf` and `connectivity_ble_loc.ld` files.
+	-   Set the default CS submode and default `rtt_type` to 3.
+	-   Set the default radio core speed for the Channel Sounding application to 48 MHz.
+	-   Localization applications configured to use the extended heap as the final segment of DATA1.
+	-   Deleted the `gcGapMaximumActiveConnections_c` definition from applications.
+	-   Eliminated unused fields related to CS Test Mode.
+	-   Deleted initializations of range settings that were subsequently overwritten.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
