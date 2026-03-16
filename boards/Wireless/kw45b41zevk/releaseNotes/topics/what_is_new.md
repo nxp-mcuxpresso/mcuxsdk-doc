@@ -1,12 +1,12 @@
 # What is new 
 
-The following changes have been implemented compared to the previous SDK release version \(26.03.00-pvw2\).
+The following updates were implemented with respect to the previous SDK release version \(26.03.00-pvw2\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
 	-   Test mode functionality for the Intrusion Detection System.
-	-   GAP API for HCI LE_Set_Local_Slave_Latency_Enable vendor command.
+	-   Added GAP API for HCI LE_Set_Local_Slave_Latency_Enable vendor command.
 
     ### Improved
 	-   ATT Write Commands can now be sent at any time, as per specification.
