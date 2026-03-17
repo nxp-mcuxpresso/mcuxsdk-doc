@@ -13,7 +13,7 @@ This guide covers using MCUXpresso for VS Code extension to build, debug, and de
 
 ### Install MCUXpresso for VS Code
 
-The MCUXpresso for VS Code extension provides integrated development capabilities for MCUXpresso SDK projects. Refer to the [MCUXpresso for VS Code Wiki](https://github.com/nxp-mcuxpresso/vscode-for-mcux/wiki/Working-with-MCUXpresso-SDK) for detailed installation and setup instructions.
+The MCUXpresso for VS Code extension provides integrated development capabilities for MCUXpresso SDK projects. Refer to the [MCUXpresso for VS Code documentation](https://mcuxpresso.nxp.com/mcux-vscode/latest/html/Working-with-MCUXpresso-SDK.html) for detailed installation and setup instructions.
 
 ## SDK Import and Setup
 
@@ -27,7 +27,7 @@ Click **Import Repository** from the **QUICKSTART PANEL**
 
 ![](images/mcuxvsc_import_repository.png "Import Repository")
 
-**Note:** You can import the SDK in several ways. Refer to [MCUXpresso for VS Code Wiki](https://github.com/nxp-mcuxpresso/vscode-for-mcux/wiki/Working-with-MCUXpresso-SDK) for details.
+**Note:** You can import the SDK in several ways. Refer to the [MCUXpresso for VS Code documentation](https://mcuxpresso.nxp.com/mcux-vscode/latest/html/Working-with-MCUXpresso-SDK.html) for details.
 
 Select **Local** if you've already obtained the SDK according to [setting up the repo](repo_setup.md). Select your location and click **Import**.
 
@@ -131,7 +131,7 @@ Observe application output in the **Serial Monitor** to verify correct operation
 
 ## Debug Probe Support
 
-For comprehensive information on debug probe support and configuration, refer to the [MCUXpresso for VS Code Wiki DebugK section](https://github.com/nxp-mcuxpresso/vscode-for-mcux/wiki/DebugK).
+For comprehensive information on debug probe support and configuration, refer to the [MCUXpresso for VS Code Debug documentation](https://mcuxpresso.nxp.com/mcux-vscode/latest/html/Debug.html#debug).
 
 ## Project Configuration
 
@@ -198,5 +198,5 @@ The extension leverages the MCUXpresso SDK build system, providing access to all
 
 - Explore additional examples in the SDK
 - Review [Command Line Development](run_project) for advanced build options
-- Refer [MCUXpresso for VS Code Wiki](https://github.com/nxp-mcuxpresso/vscode-for-mcux/wiki) for detailed documentation
+- Refer to the [MCUXpresso for VS Code documentation](https://mcuxpresso.nxp.com/mcux-vscode/latest/html/index.html) for detailed documentation
 - Learn about [SDK Architecture](codebase.md) for better understanding of the development environment
