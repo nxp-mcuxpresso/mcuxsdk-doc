@@ -7,4 +7,4 @@ FreeRTOS kernel for MCUXpresso SDK ChangeLog
    :maxdepth: 1
    :glob:
 
-   CHANGELOG_mcuxsdk.md
+   CHANGELOG.md

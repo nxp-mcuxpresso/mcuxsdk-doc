@@ -7,4 +7,4 @@ FreeRTOS kernel for MCUXpresso SDK Readme
    :maxdepth: 1
    :glob:
 
-   README_mcuxsdk.md
+   README.md
