@@ -8,6 +8,7 @@ The MCUXpresso SDK provides the following summary of Coverity Static Analysis to
 
 This enables customers to make informed decisions and meet their own compliance requirements.
 The tabulated results cover findings that are classified as issues.
+*The 26.03.00 MCUXpresso SDK release excludes the Wireless middleware from the published summary. The 26.06.00 SDK release will reintroduce the wireless results.
 
 |Development boards|HIGH IMPACT|Memory Leaks|CWE|CCM > 20|No. Examples|
 |:--               |:--    |:--    |:--    |:--    |:--    |
