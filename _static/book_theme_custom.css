@@ -467,6 +467,20 @@ html[data-theme="dark"] #download-modal h3 {
     }
 }
 
+@media print {
+    #searchbox { display: none !important; }
+    #main-content .custom-page-toolbar { display: none !important; }
+    .bd-sidebar-primary,.bd-sidebar-secondary { display: none !important; }
+    #print-main-content { display: none !important; }
+    #jb-print-docs-body { display: none !important; }
+    .bd-main { margin: 0 !important; max-width: none !important; }
+    .bd-content { max-width: none !important; padding: 0 !important; }
+    body { font-size: 12pt !important; }
+    h1, h2, h3, h4, h5, h6 { page-break-after: avoid; }
+    pre, blockquote { page-break-inside: avoid; }
+    img { max-width: 100% !important; height: auto !important; }
+}
+
 /* Animation */
 .custom-page-toolbar {
     animation: slideDown 0.3s ease-out;
