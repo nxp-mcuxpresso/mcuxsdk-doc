@@ -27,7 +27,7 @@
     -   24 connections as a peripheral role
     -   Any combination of central and peripheral roles \(24 connections maximum\)
     -   8 connections with a 7.5 ms connection interval
-    -   Two advertising sets in parallel (\Four adv set as Early Access Release\).
+    -   Two advertising sets in parallel (\Five adv set as Early Access Release\).
     -   26 Accept List entries
     -   36 Resolvable Private Address \(RPA\) entries
     -   Up to two Chain Packets per Extended Advertising set
@@ -42,10 +42,16 @@
     Additional features supported for KW47 and MCX W72 devices:
     -   Channel Sounding
     Additional features supported as EAR (\Early Access Release\) in the KW47 experimental build:
-    -   Channel Sounding TX/SNR
+    -   Inline PCT return
+    -   Channel Sounding Enhancement 1
+    -   Channel Sounding TX/SNR (18dB, 21 dB, 24 dB and 27dB)
     -   Channel Sounding PHY 2Mbps BT2.0
-    -   Channel Sounding T_PM=10us
+    -   Channel Sounding additional supported timings:
+          - T_PM=10us
+          - T_IP1/T_IP2=60, 50, 30
+          - T_FCS=120, 100, 60
     Additional features supported as EAR (\Early Access Release\) in the KW45/KW47 experimental builds:
+    -   LE Test Mode Enhancement (\UTP/OTA\).
     -   LL Extended Feature Set
     -   Monitoring Advertisers
     -   Randomized Resolvable Private Address (\RPA\)

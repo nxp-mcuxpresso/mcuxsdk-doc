@@ -21,9 +21,7 @@ The following updates were implemented with respect to the previous SDK release 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE Controller**
-    Periodic Advertising with Responses (PAwR):
-    -  Fixed Periodic Advertising Subevent Data mechanism when handling more than five subevents.
-    -  Fixed a problem preventing PAwR from being enabled while another advertising activity was active.
+    No update.
 
 -   **Transceiver Drivers (XCVR)**
     -   Added API to control PA ramp type and duration.
