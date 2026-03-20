@@ -468,6 +468,8 @@ html[data-theme="dark"] #download-modal h3 {
 }
 
 @media print {
+    .bd-footer-content.noprint { display: block !important; }
+    .bd-footer-content p.last-updated { display: none !important; }
     #searchbox { display: none !important; }
     #main-content .custom-page-toolbar { display: none !important; }
     .bd-sidebar-primary,.bd-sidebar-secondary { display: none !important; }

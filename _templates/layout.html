@@ -1,7 +1,7 @@
 {#
 Custom layout template for MCUXpresso SDK Documentation
 
-Copyright (c) 2024 NXP
+Copyright (c) 2024,2026 NXP
 SPDX-License-Identifier: BSD-3-Clause
 #}
 
@@ -15,25 +15,25 @@ SPDX-License-Identifier: BSD-3-Clause
       // Check sphinx_book_theme's localStorage, default to 'light' if not set
       const sphinxTheme = localStorage.getItem('sphinx-book-theme-mode');
       const theme = sphinxTheme || 'light';
-      
+
       // Only allow light or dark, force to light if anything else
       const validTheme = (theme === 'dark') ? 'dark' : 'light';
-      
+
       console.log('Loading theme:', validTheme);
-      
+
       // Set data-mode attribute (sphinx_book_theme uses this)
       document.documentElement.setAttribute('data-mode', validTheme);
       document.documentElement.setAttribute('data-theme', validTheme);
-      
+
       // Remove any existing theme classes and add the correct one
       document.documentElement.classList.remove('mode-light', 'mode-dark', 'mode-auto');
       document.documentElement.classList.add('mode-' + validTheme);
-      
+
       if (document.body) {
         document.body.classList.remove('theme-light', 'theme-dark', 'theme-auto');
         document.body.classList.add('theme-' + validTheme);
       }
-      
+
       // Save the validated theme back to localStorage
       if (theme !== validTheme) {
         localStorage.setItem('sphinx-book-theme-mode', validTheme);
@@ -50,8 +50,8 @@ SPDX-License-Identifier: BSD-3-Clause
 {{ super() }}
 
 {# Add Font Awesome for icons #}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-  integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
   crossorigin="anonymous" referrerpolicy="no-referrer">
 
 {% endblock %}
@@ -65,13 +65,4 @@ SPDX-License-Identifier: BSD-3-Clause
 {% endblock %}
 
 
-{% block footer %}
-  {{ super() }}
-  {% if branch_info or rev_info %}
-  <div class="footer-branch-rev">
-    Built from 
-    {% if branch_info %}branch: <code>{{ branch_info }}</code>{% endif %}
-    {% if rev_info %}{% if branch_info %}, {% endif %}revision: <code>{{ rev_info[:8] }}</code>{% endif %}
-  </div>
-  {% endif %}
-{% endblock %}
+
