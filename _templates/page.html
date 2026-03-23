@@ -379,26 +379,8 @@ function generatePDF() {
   const originalTitle = document.title;
   const pageTitle = document.querySelector('h1') ? document.querySelector('h1').textContent : 'Documentation';
   document.title = `{{ html_title }} - ${pageTitle}`;
-  
-  // Hide toolbar for printing
-  const toolbar = document.querySelector('.custom-page-toolbar');
-  if (toolbar) toolbar.style.display = 'none';
-  
-  // Add print styles
-  const printStyle = document.createElement('style');
-  printStyle.textContent = `
-    @media print {
-      .bd-sidebar-primary, .bd-sidebar-secondary { display: none !important; }
-      .bd-main { margin: 0 !important; max-width: none !important; }
-      .bd-content { max-width: none !important; padding: 0 !important; }
-      body { font-size: 12pt !important; }
-      h1, h2, h3, h4, h5, h6 { page-break-after: avoid; }
-      pre, blockquote { page-break-inside: avoid; }
-      img { max-width: 100% !important; height: auto !important; }
-    }
-  `;
-  document.head.appendChild(printStyle);
-  
+
+
   window.print();
   
   // Restore after print
