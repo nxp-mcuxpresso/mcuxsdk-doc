@@ -44,6 +44,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/espi/doxygen/ChangeLog_espi.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/ewm/doxygen/ChangeLog_ewm.md
 :heading-offset: 2
 ```
@@ -157,10 +161,6 @@
 ```
 ---
 ```{include} /drivers/mcx_spc/doxygen/ChangeLog_spc.md
-:heading-offset: 2
-```
----
-```{include} /drivers/spi_filter/doxygen/ChangeLog_spi_filter.md
 :heading-offset: 2
 ```
 ---

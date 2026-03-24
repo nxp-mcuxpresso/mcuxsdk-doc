@@ -786,6 +786,10 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/drivers/gpt/fsl_gpt.h \
         @SDK_BASE@/drivers/hiperface/doxygen/hiperface.dox \
         @SDK_BASE@/drivers/hiperface/fsl_hiperface.h \
+        @SDK_BASE@/drivers/i3c/doxygen/i3c_edma.dox \
+        @SDK_BASE@/drivers/i3c/fsl_i3c_edma.h \
+        @SDK_BASE@/drivers/i3c/doxygen/i3c.dox \
+        @SDK_BASE@/drivers/i3c/fsl_i3c.h \
         @SDK_BASE@/drivers/igf/doxygen/igf.dox \
         @SDK_BASE@/drivers/igf/fsl_igf.h \
         @SDK_BASE@/drivers/irqsteer_1/doxygen/irqsteer.dox \
@@ -857,6 +861,10 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/drivers/tstmr/doxygen/tstmr.dox \
         @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
         @SDK_BASE@/drivers/xbar_1/fsl_xbar.h \
+        @SDK_BASE@/drivers/xspi/doxygen/xspi_edma.dox \
+        @SDK_BASE@/drivers/xspi/fsl_xspi_edma.h \
+        @SDK_BASE@/drivers/xspi/doxygen/xspi.dox \
+        @SDK_BASE@/drivers/xspi/fsl_xspi.h \
         @SDK_BASE@/drivers/flexio/a-format/fsl_flexio_a-format.h \
         @SDK_BASE@/drivers/flexio/i2c/doxygen/flexio_i2c_master.dox \
         @SDK_BASE@/drivers/flexio/i2c/fsl_flexio_i2c_master.h \
@@ -907,6 +915,8 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/drivers/fract_pll/fsl_fract_pll.h \
         @SDK_BASE@/drivers/gpt/fsl_gpt.h \
         @SDK_BASE@/drivers/hiperface/fsl_hiperface.h \
+        @SDK_BASE@/drivers/i3c/fsl_i3c_edma.h \
+        @SDK_BASE@/drivers/i3c/fsl_i3c.h \
         @SDK_BASE@/drivers/igf/fsl_igf.h \
         @SDK_BASE@/drivers/irqsteer_1/fsl_irqsteer.h \
         @SDK_BASE@/drivers/lpi2c/fsl_lpi2c_edma.h \
@@ -950,6 +960,8 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/drivers/tpm/fsl_tpm.h \
         @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
         @SDK_BASE@/drivers/xbar_1/fsl_xbar.h \
+        @SDK_BASE@/drivers/xspi/fsl_xspi_edma.h \
+        @SDK_BASE@/drivers/xspi/fsl_xspi.h \
         @SDK_BASE@/drivers/cache/xcache/doxygen/cache.dox \
         @SDK_BASE@/drivers/cache/xcache/fsl_cache.h \
         @SDK_BASE@/drivers/flexio/a-format/fsl_flexio_a-format.h \
@@ -995,6 +1007,8 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/drivers/fract_pll/fsl_fract_pll.h \
         @SDK_BASE@/drivers/gpt/fsl_gpt.h \
         @SDK_BASE@/drivers/hiperface/fsl_hiperface.h \
+        @SDK_BASE@/drivers/i3c/fsl_i3c_edma.h \
+        @SDK_BASE@/drivers/i3c/fsl_i3c.h \
         @SDK_BASE@/drivers/igf/fsl_igf.h \
         @SDK_BASE@/drivers/irqsteer_1/fsl_irqsteer.h \
         @SDK_BASE@/drivers/lpi2c/fsl_lpi2c_edma.h \
@@ -1038,6 +1052,8 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/drivers/tpm/fsl_tpm.h \
         @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
         @SDK_BASE@/drivers/xbar_1/fsl_xbar.h \
+        @SDK_BASE@/drivers/xspi/fsl_xspi_edma.h \
+        @SDK_BASE@/drivers/xspi/fsl_xspi.h \
         @SDK_BASE@/drivers/cache/armv7-m7/doxygen/cache.dox \
         @SDK_BASE@/drivers/cache/armv7-m7/fsl_cache.h \
         @SDK_BASE@/drivers/flexio/a-format/fsl_flexio_a-format.h \
@@ -1083,6 +1099,8 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/drivers/fract_pll/fsl_fract_pll.h \
         @SDK_BASE@/drivers/gpt/fsl_gpt.h \
         @SDK_BASE@/drivers/hiperface/fsl_hiperface.h \
+        @SDK_BASE@/drivers/i3c/fsl_i3c_edma.h \
+        @SDK_BASE@/drivers/i3c/fsl_i3c.h \
         @SDK_BASE@/drivers/igf/fsl_igf.h \
         @SDK_BASE@/drivers/irqsteer_1/fsl_irqsteer.h \
         @SDK_BASE@/drivers/lpi2c/fsl_lpi2c_edma.h \
@@ -1126,6 +1144,8 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/drivers/tpm/fsl_tpm.h \
         @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
         @SDK_BASE@/drivers/xbar_1/fsl_xbar.h \
+        @SDK_BASE@/drivers/xspi/fsl_xspi_edma.h \
+        @SDK_BASE@/drivers/xspi/fsl_xspi.h \
         @SDK_BASE@/drivers/cache/armv7-m7/fsl_cache.h \
         @SDK_BASE@/drivers/flexio/a-format/fsl_flexio_a-format.h \
         @SDK_BASE@/drivers/flexio/i2c/fsl_flexio_i2c_master.h \
@@ -1260,6 +1280,7 @@ IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/doxyge
              @SDK_BASE@/drivers/fract_pll/doxygen \
              @SDK_BASE@/drivers/gpt/doxygen \
              @SDK_BASE@/drivers/hiperface/doxygen \
+             @SDK_BASE@/drivers/i3c/doxygen \
              @SDK_BASE@/drivers/igf/doxygen \
              @SDK_BASE@/drivers/irqsteer_1/doxygen \
              @SDK_BASE@/drivers/lpi2c/doxygen \
@@ -1287,6 +1308,7 @@ IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/doxyge
              @SDK_BASE@/drivers/tpm/doxygen \
              @SDK_BASE@/drivers/tstmr/doxygen \
              @SDK_BASE@/drivers/xbar_1/doxygen \
+             @SDK_BASE@/drivers/xspi/doxygen \
              @SDK_BASE@/drivers/flexio/a-format/doxygen \
              @SDK_BASE@/drivers/flexio/i2c/doxygen \
              @SDK_BASE@/drivers/flexio/i2s/doxygen \
@@ -2459,6 +2481,7 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_SOC_USBNC_COUNT = 1 \
              FSL_FEATURE_SOC_WDOG_COUNT = 8 \
              FSL_FEATURE_SOC_XBAR_DSC_COUNT = 3 \
+             FSL_FEATURE_SOC_XCACHE_COUNT = 2 \
              FSL_FEATURE_ADC_CHANNEL_GROUPS_COUNT = 2 \
              FSL_FEATURE_ADC_THRESHOLDS_COUNT = 8 \
              FSL_FEATURE_ADC_SELF_TEST_THRESHOLDS_COUNT = 6 \
@@ -2614,6 +2637,8 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_LPUART_HAS_TIMEOUT = 1 \
              FSL_FEATURE_LPUART_HAS_CTRL_SWAP = 0 \
              FSL_FEATURE_LPUART_HAS_MODIR_RTSWATER = 1 \
+             FSL_FEATURE_XCACHE_LINESIZE_BYTE = 16 \
+             FSL_FEATURE_XCACHE_HAS_NO_WRITE_BUF = 1 \
              FSL_FEATURE_MEMORY_HAS_ADDRESS_OFFSET = 1 \
              FSL_FEATURE_MU_SIDE_A = 1 \
              FSL_FEATURE_MU_SIDE_B = 1 \
@@ -2746,13 +2771,15 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_XSPI_DLL_REF_VALUE_BYPASS_DELAY_ELEMENT_COARSE = 7 \
              FSL_FEATURE_XSPI_DLL_REF_VALUE_BYPASS_DELAY_ELEMENT_FINE = 0 \
              FSL_FEATURE_XSPI_DLL_REF_VALUE_AUTOUPDATE_FREQ_THRESHOLD = 130000000 \
-             FSL_FEATURE_XSPI_DLL_REF_VALUE_AUTOUPDATE_REF_COUNTER = 2 \
+             FSL_FEATURE_XSPI_DLL_REF_VALUE_AUTOUPDATE_REF_COUNTER = 8 \
              FSL_FEATURE_XSPI_DLL_REF_VALUE_AUTOUPDATE_RES = 4 \
              FSL_FEATURE_XSPI_DLL_REF_VALUE_AUTOUPDATE_T_DIV16_OFFSET_DELAY_ELEMENT_COUNT = 0 \
              FSL_FEATURE_XSPI_DLL_REF_VALUE_AUTOUPDATE_OFFSET_DELAY_ELEMENT_COUNT = 0 \
-             FSL_FEATURE_SOC_XCACHE_COUNT = 2 \
-             FSL_FEATURE_XCACHE_LINESIZE_BYTE = 16 \
-             FSL_FEATURE_XCACHE_HAS_NO_WRITE_BUF = 1
+             FSL_FEATURE_XSPI_HAS_DQS_LAT_EN = 1 \
+             FSL_FEATURE_XSPI_HAS_END_CFG = 0 \
+             FSL_FEATURE_XSPI_HAS_DOZE_MODE = 0 \
+             FSL_FEATURE_XSPI_HAS_WRTER_EN_BIT = 0 \
+             FSL_FEATURE_XSPI_MULTI_IRQ_COUNT = 5
 
 PREDEFINED += DOXYGEN_OUTPUT=1
 

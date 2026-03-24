@@ -8,6 +8,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/mcx_cmc/doxygen/ChangeLog_cmc.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/common/doxygen/ChangeLog_common.md
 :heading-offset: 2
 ```
@@ -40,6 +44,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/lpc_freqme/doxygen/ChangeLog_freqme.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/gpio/doxygen/ChangeLog_gpio.md
 :heading-offset: 2
 ```
@@ -49,10 +57,6 @@
 ```
 ---
 ```{include} /drivers/lpadc/doxygen/ChangeLog_lpadc.md
-:heading-offset: 2
-```
----
-```{include} /drivers/lpc_freqme/doxygen/ChangeLog_freqme.md
 :heading-offset: 2
 ```
 ---
@@ -88,18 +92,6 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/mcx_cmc/doxygen/ChangeLog_cmc.md
-:heading-offset: 2
-```
----
-```{include} /drivers/mcx_spc/doxygen/ChangeLog_spc.md
-:heading-offset: 2
-```
----
-```{include} /drivers/mcx_vbat/doxygen/ChangeLog_vbat.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/opamp/doxygen/ChangeLog_opamp.md
 :heading-offset: 2
 ```
@@ -120,11 +112,19 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/mcx_spc/doxygen/ChangeLog_spc.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/trdc_1/doxygen/ChangeLog_trdc.md
 :heading-offset: 2
 ```
 ---
 ```{include} /drivers/trng/doxygen/ChangeLog_trng.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/mcx_vbat/doxygen/ChangeLog_vbat.md
 :heading-offset: 2
 ```
 ---

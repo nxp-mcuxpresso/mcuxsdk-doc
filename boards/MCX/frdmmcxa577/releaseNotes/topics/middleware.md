@@ -10,6 +10,10 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/amazon_corehttp.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/arm_mbedtls_3x.md
 :heading-offset: 2
 ```
@@ -31,6 +35,10 @@
 ```
 
 ```{include} /release/commonrn/topics/gabor_kiss_amosi_lvgl.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nodejs_llhttp.md
 :heading-offset: 2
 ```
 

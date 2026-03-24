@@ -2,8 +2,6 @@
 
 This release supports board and devices listed in following table. The board and devices in bold were tested in this release.
 
-MCXL14x devices are preview only.
-
 |Development boards|MCU devices|
 |:--:              |:--:       |
 |**FRDM-MCXL255**|MCXL253VDF, MCXL253VLL, MCXL254VDF,<br/> MCXL254VLL, **MCXL255VDF**, MCXL255VLL,<br/> MCXL142VDH, MCXL142VLL, MCXL143VDH,<br/> MCXL143VLL, MCXL144VDH, MCXL144VLL<br/>|

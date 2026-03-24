@@ -10,10 +10,6 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_voicespot.md
-:heading-offset: 2
-```
-
 ```{include} /release/commonrn/topics/nxp_usb_power_delivery.md
 :heading-offset: 2
 ```
@@ -27,10 +23,6 @@
 ```
 
 ```{include} /release/commonrn/topics/oasis_pkcs11.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/nxp_multicore.md
 :heading-offset: 2
 ```
 

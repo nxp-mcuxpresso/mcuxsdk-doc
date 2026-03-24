@@ -825,6 +825,8 @@ INPUT = @SDK_BASE@/devices/MCX/MCXW/MCXW727C/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/trdc/fsl_trdc.h \
         @SDK_BASE@/drivers/trgmux/doxygen/trgmux.dox \
         @SDK_BASE@/drivers/trgmux/fsl_trgmux.h \
+        @SDK_BASE@/drivers/tstmr/doxygen/tstmr.dox \
+        @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
         @SDK_BASE@/drivers/vbat/doxygen/vbat.dox \
         @SDK_BASE@/drivers/vbat/fsl_vbat.h \
         @SDK_BASE@/drivers/vref_1/doxygen/vref.dox \
@@ -899,6 +901,7 @@ INPUT = @SDK_BASE@/devices/MCX/MCXW/MCXW727C/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/tpm/fsl_tpm.h \
         @SDK_BASE@/drivers/trdc/fsl_trdc.h \
         @SDK_BASE@/drivers/trgmux/fsl_trgmux.h \
+        @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
         @SDK_BASE@/drivers/vbat/fsl_vbat.h \
         @SDK_BASE@/drivers/vref_1/fsl_vref.h \
         @SDK_BASE@/drivers/wdog32/fsl_wdog32.h \
@@ -1052,6 +1055,7 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXW/MCXW727C/drivers/doxygen \
              @SDK_BASE@/drivers/tpm/doxygen \
              @SDK_BASE@/drivers/trdc/doxygen \
              @SDK_BASE@/drivers/trgmux/doxygen \
+             @SDK_BASE@/drivers/tstmr/doxygen \
              @SDK_BASE@/drivers/vbat/doxygen \
              @SDK_BASE@/drivers/vref_1/doxygen \
              @SDK_BASE@/drivers/wdog32/doxygen \
@@ -2256,6 +2260,7 @@ PREDEFINED = FSL_FEATURE_SOC_AXBS_COUNT = 1 \
              FSL_FEATURE_LPADC_CFG_TPRICTRL_BITFIELD_WIDTH = 2 \
              FSL_FEATURE_LPADC_HAS_CMDH_CMPEN = 1 \
              FSL_FEATURE_LPADC_HAS_CTRL_CALHS = 0 \
+             FSL_FEATURE_LPADC_HAS_CFG2_JLEFT = 0 \
              FSL_FEATURE_LPADC_HAS_INTERNAL_TEMP_SENSOR = 1 \
              FSL_FEATURE_LPADC_TEMP_PARAMETER_A = 787 \
              FSL_FEATURE_LPADC_TEMP_PARAMETER_B = 289 \
@@ -2425,6 +2430,8 @@ PREDEFINED = FSL_FEATURE_SOC_AXBS_COUNT = 1 \
              FSL_FEATURE_LTC_HAS_AES256 = 0 \
              FSL_FEATURE_LTC_HAS_NO_CLOCK_CONTROL_BIT = 1 \
              FSL_FEATURE_HAS_L1CACHE = 1 \
+             FSL_FEATURE_MSCM_HAS_CP_COUNT = 1 \
+             FSL_FEATURE_MSCM_HAS_DATACACHE = 0 \
              FSL_FEATURE_MU_SIDE_A = 1 \
              FSL_FEATURE_MU_HAS_RESET_ASSERT_INT = 1 \
              FSL_FEATURE_MU_HAS_RESET_DEASSERT_INT = 0 \
@@ -2509,6 +2516,7 @@ PREDEFINED = FSL_FEATURE_SOC_AXBS_COUNT = 1 \
              FSL_FEATURE_SYSPM_HAS_PMCR_DCIFSH = 1 \
              FSL_FEATURE_SYSPM_HAS_PMCR_RICTR = 1 \
              FSL_FEATURE_SYSPM_PMCR_COUNT = 2 \
+             FSL_FEATURE_SYSPM_HAS_PMICTR = 0 \
              FSL_FEATURE_SYSTICK_HAS_EXT_REF = 1 \
              FSL_FEATURE_SYSTICK_EXT_REF_CORE_DIV = 16 \
              FSL_FEATURE_TPM_HAS_COUNTER_RESET_BY_CAPTURE_EVENT = 0 \
@@ -2516,8 +2524,6 @@ PREDEFINED = FSL_FEATURE_SOC_AXBS_COUNT = 1 \
              FSL_FEATURE_TPM_HAS_VERID = 1 \
              FSL_FEATURE_TPM_HAS_GLOBAL = 1 \
              FSL_FEATURE_TPM_HAS_TRIG = 1 \
-             FSL_FEATURE_TPM_HAS_GLOBAL_TIME_BASE_EN = 1 \
-             FSL_FEATURE_TPM_HAS_GLOBAL_TIME_BASE_SYNC = 1 \
              FSL_FEATURE_TPM_HAS_PAUSE_COUNTER_ON_TRIGGER = 1 \
              FSL_FEATURE_TPM_HAS_EXTERNAL_TRIGGER_SELECTION = 1 \
              FSL_FEATURE_TPM_HAS_COMBINE = 1 \
@@ -2525,13 +2531,23 @@ PREDEFINED = FSL_FEATURE_SOC_AXBS_COUNT = 1 \
              FSL_FEATURE_TPM_HAS_FILTER = 1 \
              FSL_FEATURE_TPM_HAS_QDCTRL = 1 \
              FSL_FEATURE_TPM_HAS_PAUSE_LEVEL_SELECT = 1 \
+             FSL_FEATURE_TPM_HAS_GLOBAL_TIME_BASE_EN = 1 \
+             FSL_FEATURE_TPM_HAS_GLOBAL_TIME_BASE_SYNC = 1 \
+             FSL_FEATURE_TPM_HAS_ERRATA_050050 = 0 \
              FSL_FEATURE_VREF_HAS_CHOP_OSC = 0 \
              FSL_FEATURE_VREF_HAS_COMPENSATION = 0 \
              FSL_FEATURE_VREF_MODE_LV_TYPE = 0 \
              FSL_FEATURE_VREF_HAS_LOW_REFERENCE = 0 \
              FSL_FEATURE_VREF_HAS_TRM4 = 0 \
+             FSL_FEATURE_VREF_HAS_LOWPOWER_BUFFER = 1 \
+             FSL_FEATURE_VREF_HAS_LPBGEN = 1 \
+             FSL_FEATURE_VREF_HAS_IBIAS_EN = 0 \
+             FSL_FEATURE_VREF_HAS_REFCHSELN_EN = 1 \
+             FSL_FEATURE_VREF_HAS_REFCHSELP_EN = 1 \
+             FSL_FEATURE_VREF_SUPPORT_2V5 = 0 \
              FSL_FEATURE_WDOG_HAS_WATCHDOG = 1 \
              FSL_FEATURE_WDOG_HAS_32BIT_ACCESS = 1 \
+             FSL_FEATURE_WUU_HAS_MF = 0 \
              FSL_FEATURE_SOC_ATX_COUNT = 1 \
              FSL_FEATURE_SOC_BLE2_REG_COUNT = 1 \
              FSL_FEATURE_SOC_BTRTU1_COUNT = 1 \

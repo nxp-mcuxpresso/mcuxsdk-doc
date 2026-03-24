@@ -76,6 +76,14 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/isi/doxygen/ChangeLog_isi.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/lcdifv3/doxygen/ChangeLog_lcdifv3.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/lpi2c/doxygen/ChangeLog_lpi2c.md
 :heading-offset: 2
 ```
@@ -132,6 +140,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/pxp/doxygen/ChangeLog_pxp.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/rgpio/doxygen/ChangeLog_rgpio.md
 :heading-offset: 2
 ```
@@ -152,6 +164,14 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/spdif/doxygen/ChangeLog_spdif.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/spdif/doxygen/ChangeLog_spdif_edma.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/tmu_3/doxygen/ChangeLog_tmu.md
 :heading-offset: 2
 ```
@@ -164,7 +184,15 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/trgmux/doxygen/ChangeLog_trgmux.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/tstmr/doxygen/ChangeLog_tstmr.md
+:heading-offset: 2
+```
+---
+```{include} /drivers/usdhc/doxygen/ChangeLog_usdhc.md
 :heading-offset: 2
 ```
 ---
