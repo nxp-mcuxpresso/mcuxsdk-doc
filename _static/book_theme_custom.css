@@ -484,7 +484,7 @@ html[data-theme="dark"] #download-modal h3 {
 
     }
 
-
+    h1:first-of-type { display: inline !important; }
 
     #pst-back-to-top { display: none !important; }
     .bd-footer-content__inner.container { margin: 0; max-width:none !important; }
