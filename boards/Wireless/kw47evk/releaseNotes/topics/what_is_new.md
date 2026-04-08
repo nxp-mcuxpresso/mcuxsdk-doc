@@ -1,44 +1,38 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.03.00-pvw2\).
+The following updates were implemented with respect to the previous SDK release version \(26.03.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Test mode functionality for the Intrusion Detection System.
-	-   Added GAP API for HCI LE_Set_Local_Slave_Latency_Enable vendor command.
-	-   `gRasUseNotifOrInd_c` to allow configuration of Indication or Notification on RAS.
-	-   `cs_sync_phy` argument to `setcsconfig` shell command.
-	-   `snr_control_init` and `snr_control_refl` arguments to `setcsproc` shell command.
-	-   Detailed description for `setcsconfig` and `setcsproc` command arguments to the CCC w/ CS and Localization applications notes.
-	-   Mode0 step information parsing for both RAS and BTCS, made available for the export module.
+	-   RTT zero-meter calibration support in applications.
+	-   Support for CS Enhancements at the Host level: 
+		- Inline PCT Transfer.
+		- RTT 2M PHY.
+	-   New connection event 'gConnEvtRemoteFeaturesRead_c', providing the peer feature bitmask read via the Read Remote Features procedure.
+	-   Support for up to five advertising sets in the Bluetooth LE Host.
+	-   Method to specify GATT handles on the client, avoiding repeated service discovery.
+	-   Experimental CS slope calibration algorithm (disabled by default), computing distance and quality indicators per antenna path.
+	-   Handover broadcast time synchronization, allowing one connected anchor to synchronize multiple target anchors simultaneously.
+	-   Added common configuration header 'app_localization_config.h', overridable by the user.
 
     ### Improved
-	-   ATT Write Commands can now be sent at any time, as per specification.
-	-   Enhanced CCC and RAS Channel Sounding by incorporating real-time local and remote data decompression.
-	-   Localization applications now record the PHY used for establishing the connection and incorporate it into the CS procedure parameters configuration.
-	-   Localization applications keep the `subevtStopIdx` for the remote data and provide it to the algorithm.
-	-   Localization applications now pass remote mode map to algorithm.
-	-   Eliminated the dependency on `hci_interface.h` in localization files.
+	-   Updated handling of 'Procedure_Results_Start' to correctly process multiple subevents in a single message.
+	-   Improved CS temperature polling mechanism.
+	-   BTCS Server now explicitly notifies the PSM channel via 'AppLocalization_SetPsmChannelId' upon handover connection.
+	-   RAS/BTCS clients can disable algorithm execution via 'gRunAlgo_d'.
+	-   Updated and cleaned 'app_preinclude.h' for sample applications.
+	-   Documentation and configuration updates for LCE enable/disable.
 	-   Documentation updates.
 	-   Miscellaneous minor application bug fixes.
 
     ### Fixed
-	-   Wrong data field type in `GAP2GenericEventVendorSpecificDebugFatalError`.
-	-   Localization application now processes CS results only when local data is available.
-	-   Digital key car anchor application issue related to setting the GAP role prior to any use.
-	-   Error in the definition of a CCC PSM VDBT Version GATT characteristic.
-	-   Issue with PACKET_NADM byte not being packed correctly into the TOF buffer for mode-3 steps.
-	-   MISRA fixes.
+	-   If the LE Set Periodic Adv Subevent Data command finishes with an error, use 'gInternalError_c' with 'gLeSetPeriodicAdvSubeventData_c' as the source and the command complete status as the error code.
+	-   Correct handling of AddrType values in MonAdvReport generated from XML.
 
     ### Changed
-	-   Modified linker section names, comments, and RAM layout in the `connectivity.icf` and `connectivity_ble_loc.ld` files for every KW47 and MCXW72 board.
-	-   Set the default CS submode and default `rtt_type` to 3.
-	-   Set the default radio core speed for the Channel Sounding application to 48 MHz.
-	-   Localization applications configured to use the extended heap as the final segment of DATA1.
-	-   Deleted the `gcGapMaximumActiveConnections_c` definition from applications.
-	-   Eliminated unused fields related to CS Test Mode.
-	-   Deleted initializations of range settings that were subsequently overwritten.
+	-   Disabled use of Random Static Address for all applications except: digital_key_car_anchor and digital_key_car_anchor_cs.
+	-   Set maximum CS procedure duration to: (procedure interval x connection interval x 2 - 1) slots.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

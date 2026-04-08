@@ -1,22 +1,25 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.03.00-pvw2\).
+The following updates were implemented with respect to the previous SDK release version \(26.03.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Test mode functionality for the Intrusion Detection System.
-	-   Added GAP API for HCI LE_Set_Local_Slave_Latency_Enable vendor command.
+	-   New connection event 'gConnEvtRemoteFeaturesRead_c', providing the peer feature bitmask read via the Read Remote Features procedure.
+	-   Support for up to five advertising sets in the Bluetooth LE Host.
+	-   Method to specify GATT handles on the client, avoiding repeated service discovery.
+	-   Handover broadcast time synchronization, allowing one connected anchor to synchronize multiple target anchors simultaneously.
 
     ### Improved
-	-   ATT Write Commands can now be sent at any time, as per specification.
-	-   Eliminated the dependency on `hci_interface.h` in localization files.
+	-   Updated and cleaned 'app_preinclude.h' for sample applications.
 	-   Documentation updates.
 	-   Miscellaneous minor application bug fixes.
 
     ### Fixed
-	-   Wrong data field type in `GAP2GenericEventVendorSpecificDebugFatalError`.
-	-   MISRA fixes.
+	-   Correct handling of AddrType values in MonAdvReport generated from XML.
+    ### Changed
+	-   Removed the Bluetooth LE Host library from the wireless_uart_host project.
+	-   Disabled use of Random Static Address for all applications.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
