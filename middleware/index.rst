@@ -7,7 +7,6 @@ Middleware
    :maxdepth: 2
    
    boot.rst
-   cloud.rst
    connectivity.rst
    eiq.rst
    file_system.rst

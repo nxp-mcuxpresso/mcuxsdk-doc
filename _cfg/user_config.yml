@@ -128,21 +128,21 @@ modules:
         pattern: ecosystem/sdk_generator/doc_ecosystem/index.rst
       - root: .
         pattern: ecosystem/sdk_generator/doc_ecosystem/*
-  mid_aws_iot:
-    default: true
-    external_contents:
-    - root: docs
-      pattern: middleware/cloud.rst
-    - root: docs
-      pattern: middleware/aws_iot/*
-    - root: .
-      pattern: middleware/aws_iot/device-shadow/README.md
-    - root: .
-      pattern: middleware/aws_iot/device-defender/README.md
-    - root: .
-      pattern: middleware/aws_iot/jobs/README.md
-    - root: .
-      pattern: middleware/aws_iot/ota/README.md
+  # mid_aws_iot:
+  #   default: true
+  #   external_contents:
+  #   - root: docs
+  #     pattern: middleware/cloud.rst
+  #   - root: docs
+  #     pattern: middleware/aws_iot/*
+  #   - root: .
+  #     pattern: middleware/aws_iot/device-shadow/README.md
+  #   - root: .
+  #     pattern: middleware/aws_iot/device-defender/README.md
+  #   - root: .
+  #     pattern: middleware/aws_iot/jobs/README.md
+  #   - root: .
+  #     pattern: middleware/aws_iot/ota/README.md
   mid_wireless_fwk:
     default: true
     external_contents:
@@ -453,19 +453,19 @@ modules:
       pattern: middleware/wireless.rst
     - root: .
       pattern: middleware/edgefast_bluetooth/docs/*
-  mid_zigbee:
-    default: true
-    external_contents:
-    - root: docs
-      pattern: middleware/wireless.rst
-    - root: docs
-      pattern: middleware/wireless/Zigbee/*
-    - root: .
-      pattern: middleware/wireless/zigbee/Docs/**/*.*
-    - root: .
-      pattern: middleware/wireless/zigbee/examples/**/build_linux/*
-    - root: .
-      pattern: middleware/wireless/zigbee/examples/zigbee_ble/common/*
+  # mid_zigbee:
+  #   default: true
+  #   external_contents:
+  #   - root: docs
+  #     pattern: middleware/wireless.rst
+  #   - root: docs
+  #     pattern: middleware/wireless/Zigbee/*
+  #   - root: .
+  #     pattern: middleware/wireless/zigbee/Docs/**/*.*
+  #   - root: .
+  #     pattern: middleware/wireless/zigbee/examples/**/build_linux/*
+  #   - root: .
+  #     pattern: middleware/wireless/zigbee/examples/zigbee_ble/common/*
   mid_ieee:
     default: true
     external_contents:
