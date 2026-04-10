@@ -73,11 +73,6 @@ Wireless Bluetooth LE host stack and applications
 
 :ref:`examples__wireless_examples__bluetooth_docs`
 
-Wireless zigbee stack
-=====================
-
-:ref:`zigbee`
-
 IEEE 802.15.4 MACPHY Software
 =============================
 

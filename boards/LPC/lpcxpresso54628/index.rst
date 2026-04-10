@@ -69,12 +69,6 @@ FreeMASTER
 
 :doc:`freemaster <../../../middleware/freemaster/doc/index>`
 
-
-AWS IoT
-=======
-
-:ref:`aws_iot`
-
 FreeRTOS
 ========
 

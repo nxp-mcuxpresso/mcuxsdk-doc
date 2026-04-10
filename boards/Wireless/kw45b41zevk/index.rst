@@ -67,11 +67,6 @@ Wireless Bluetooth LE host stack and applications
 
 :ref:`examples__wireless_examples__bluetooth_docs`
 
-Wireless zigbee stack
-=====================
-
-:ref:`zigbee`
-
 Wireless Connectivity Framework
 ===============================
 
