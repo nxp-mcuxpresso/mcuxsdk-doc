@@ -13,7 +13,7 @@ The following changes have been implemented compared to the previous SDK release
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE Controller**
-    No update.
+    -   Fixed extended connection establishment failure when peer advertising address is on primary channel.
 
 -   **Transceiver Drivers (XCVR)**
     -   Added API to control PA ramp type and duration.

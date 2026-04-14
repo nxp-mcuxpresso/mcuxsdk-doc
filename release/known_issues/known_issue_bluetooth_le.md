@@ -10,8 +10,6 @@ Most sensor applications have pairing and bonding disabled to allow a faster int
 Periodic Advertising with Responses (PAwR):
 -   Periodic Advertising with Response (PAwR) is not supported with the configuration "Subevent Interval = Number of Response Slots x Response Slot Spacing with Response Slot Spacing = 0x2".
 -   The feature is not functional with the Free-Running Oscillator (FRO32K); it requires a 32 KHz Crystal Oscillator with accuracy less than 50 ppm.
-Decision Based Advertising Filtering (DBAF):
--   Fail to establish connection using extended create connection command if peer advertising address is on primary channel and if filter accept list and/or address resolution is being used. If the peer advertising address is on secondary, the connection establishment succeeds.
 
 KW45/MCXW71:
 No specific issues.
