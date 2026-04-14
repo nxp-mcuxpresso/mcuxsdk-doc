@@ -9,17 +9,17 @@ The following updates were implemented with respect to the previous SDK release 
 	-   Support for CS Enhancements at the Host level: 
 		- Inline PCT Transfer.
 		- RTT 2M PHY.
-	-   New connection event 'gConnEvtRemoteFeaturesRead_c', providing the peer feature bitmask read via the Read Remote Features procedure.
+	-   New connection event 'gConnEvtRemoteFeaturesRead_c', providing the 'peer feature bitmask' via the Read Remote Features procedure.
 	-   Support for up to five advertising sets in the Bluetooth LE Host.
 	-   Method to specify GATT handles on the client, avoiding repeated service discovery.
 	-   Experimental CS slope calibration algorithm (disabled by default), computing distance and quality indicators per antenna path.
 	-   Handover broadcast time synchronization, allowing one connected anchor to synchronize multiple target anchors simultaneously.
-	-   Added common configuration header 'app_localization_config.h', overridable by the user.
+	-   Added the common configuration header 'app_localization_config.h', overridable by the user.
 
     ### Improved
 	-   Updated handling of 'Procedure_Results_Start' to correctly process multiple subevents in a single message.
 	-   Improved CS temperature polling mechanism.
-	-   BTCS Server now explicitly notifies the PSM channel via 'AppLocalization_SetPsmChannelId' upon handover connection.
+	-   BTCS Server now explicitly notifies the PSM channel via 'AppLocalization_SetPsmChannelId' function upon handover connection.
 	-   RAS/BTCS clients can disable algorithm execution via 'gRunAlgo_d'.
 	-   Updated and cleaned 'app_preinclude.h' for sample applications.
 	-   Documentation and configuration updates for LCE enable/disable.
@@ -28,11 +28,11 @@ The following updates were implemented with respect to the previous SDK release 
 
     ### Fixed
 	-   If the LE Set Periodic Adv Subevent Data command finishes with an error, use 'gInternalError_c' with 'gLeSetPeriodicAdvSubeventData_c' as the source and the command complete status as the error code.
-	-   Correct handling of AddrType values in MonAdvReport generated from XML.
+	-   Corrected handling of AddrType values in MonAdvReport generated from XML.
 
     ### Changed
-	-   Disabled use of Random Static Address for all applications except: digital_key_car_anchor and digital_key_car_anchor_cs.
-	-   Set maximum CS procedure duration to: (procedure interval x connection interval x 2 - 1) slots.
+	-   Disabled the use of Random Static Address for all applications except: digital_key_car_anchor and digital_key_car_anchor_cs.
+	-   Set the maximum CS procedure duration to: (procedure interval x connection interval x 2 - 1) slots.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
