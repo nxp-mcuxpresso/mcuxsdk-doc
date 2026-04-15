@@ -305,6 +305,16 @@ html[data-theme="dark"] .repo-dropdown-item:hover {
     text-decoration: none;
 }
 
+html[data-theme="dark"] {
+  --pst-color-table-row-hover-bg: rgba(249, 181, 0, 0.4);
+
+}
+html[data-theme="light"] {
+  --pst-color-table-row-hover-bg: rgba(249, 181, 0, 0.6);
+
+}
+
+
 .toolbar-icon-btn:hover {
     background: transparent !important;
     color: var(--pst-color-primary);
