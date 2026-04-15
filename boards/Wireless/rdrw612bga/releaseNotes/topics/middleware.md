@@ -14,6 +14,10 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_secure_storage.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_conn_fwk.md
 :heading-offset: 2
 ```
@@ -51,10 +55,6 @@
 ```
 
 ```{include} /release/commonrn/topics/nxp_wifi.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/nxp_usb_power_delivery.md
 :heading-offset: 2
 ```
 

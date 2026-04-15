@@ -10,6 +10,14 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_mcu_boot.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/arm_mbedtls_3x.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_usb_power_delivery.md
 :heading-offset: 2
 ```
@@ -47,6 +55,10 @@
 ```
 
 ```{include} /release/commonrn/topics/segger_emwin.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_psa_crypto_driver.md
 :heading-offset: 2
 ```
 

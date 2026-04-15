@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**EVK-MIMXRT1015**|MIMXRT1015CAF4A, MIMXRT1015CAF4B, **MIMXRT1015DAF5A**,<br> MIMXRT1015DAF5B|
+|**EVK-MIMXRT1015**|MIMXRT1015CAF4A, MIMXRT1015CAF4B, **MIMXRT1015DAF5A**,<br/> MIMXRT1015DAF5B|

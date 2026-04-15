@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**EVK-MCIMX7ULP**|MCIMX7U5CVP06, MCIMX7U5DVK07, **MCIMX7U5DVP07**,<br> MCIMX7U3CVP06, MCIMX7U3DVK07|
+|**EVK-MCIMX7ULP**|MCIMX7U3CVP06, MCIMX7U3DVK07, MCIMX7U5CVP06,<br/> MCIMX7U5DVK07, **MCIMX7U5DVP07**|

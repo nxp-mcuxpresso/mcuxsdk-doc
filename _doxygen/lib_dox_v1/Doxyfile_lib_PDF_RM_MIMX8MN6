@@ -743,6 +743,7 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX8MN/MIMX8MN6/drivers/fsl_clock.h \
         @SDK_BASE@/drivers/easrc/fsl_asrc_sdma.h \
         @SDK_BASE@/drivers/easrc/doxygen/asrc.dox \
         @SDK_BASE@/drivers/easrc/fsl_asrc.h \
+        @SDK_BASE@/drivers/easrc/fsl_asrc_firmware.h \
         @SDK_BASE@/drivers/ecspi/doxygen/ecspi_sdma.dox \
         @SDK_BASE@/drivers/ecspi/fsl_ecspi_sdma.h \
         @SDK_BASE@/drivers/ecspi/doxygen/ecspi.dox \
@@ -759,18 +760,12 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX8MN/MIMX8MN6/drivers/fsl_clock.h \
         @SDK_BASE@/drivers/ii2c/fsl_i2c.h \
         @SDK_BASE@/drivers/ipwm/doxygen/pwm.dox \
         @SDK_BASE@/drivers/ipwm/fsl_pwm.h \
-        @SDK_BASE@/drivers/isi/doxygen/isi.dox \
-        @SDK_BASE@/drivers/isi/fsl_isi.h \
         @SDK_BASE@/drivers/iuart/doxygen/uart_sdma.dox \
         @SDK_BASE@/drivers/iuart/fsl_uart_sdma.h \
         @SDK_BASE@/drivers/iuart/doxygen/uart.dox \
         @SDK_BASE@/drivers/iuart/fsl_uart.h \
-        @SDK_BASE@/drivers/lcdif/doxygen/lcdif.dox \
-        @SDK_BASE@/drivers/lcdif/fsl_lcdif.h \
         @SDK_BASE@/drivers/mu/doxygen/mu.dox \
         @SDK_BASE@/drivers/mu/fsl_mu.h \
-        @SDK_BASE@/drivers/ocotp/doxygen/ocotp.dox \
-        @SDK_BASE@/drivers/ocotp/fsl_ocotp.h \
         @SDK_BASE@/drivers/pdm/doxygen/pdm_sdma.dox \
         @SDK_BASE@/drivers/pdm/fsl_pdm_sdma.h \
         @SDK_BASE@/drivers/pdm/doxygen/pdm.dox \
@@ -788,14 +783,6 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX8MN/MIMX8MN6/drivers/fsl_clock.h \
         @SDK_BASE@/drivers/sdma/fsl_sdma_script.h \
         @SDK_BASE@/drivers/sema4/doxygen/sema4.dox \
         @SDK_BASE@/drivers/sema4/fsl_sema4.h \
-        @SDK_BASE@/drivers/snvs_hp/doxygen/snvs_hp.dox \
-        @SDK_BASE@/drivers/snvs_hp/fsl_snvs_hp.h \
-        @SDK_BASE@/drivers/snvs_lp/doxygen/snvs_lp.dox \
-        @SDK_BASE@/drivers/snvs_lp/fsl_snvs_lp.h \
-        @SDK_BASE@/drivers/spdif/doxygen/spdif.dox \
-        @SDK_BASE@/drivers/spdif/fsl_spdif.h \
-        @SDK_BASE@/drivers/src/doxygen/src.dox \
-        @SDK_BASE@/drivers/src/fsl_src.h \
         @SDK_BASE@/drivers/tmu_1/doxygen/tmu.dox \
         @SDK_BASE@/drivers/tmu_1/fsl_tmu.h \
         @SDK_BASE@/drivers/wdog01/doxygen/wdog.dox \
@@ -918,21 +905,14 @@ IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX8MN/MIMX8MN6/drivers/doxygen \
              @SDK_BASE@/drivers/igpio/doxygen \
              @SDK_BASE@/drivers/ii2c/doxygen \
              @SDK_BASE@/drivers/ipwm/doxygen \
-             @SDK_BASE@/drivers/isi/doxygen \
              @SDK_BASE@/drivers/iuart/doxygen \
-             @SDK_BASE@/drivers/lcdif/doxygen \
              @SDK_BASE@/drivers/mu/doxygen \
-             @SDK_BASE@/drivers/ocotp/doxygen \
              @SDK_BASE@/drivers/pdm/doxygen \
              @SDK_BASE@/drivers/rdc/doxygen \
              @SDK_BASE@/drivers/rdc_sema42/doxygen \
              @SDK_BASE@/drivers/sai/doxygen \
              @SDK_BASE@/drivers/sdma/doxygen \
              @SDK_BASE@/drivers/sema4/doxygen \
-             @SDK_BASE@/drivers/snvs_hp/doxygen \
-             @SDK_BASE@/drivers/snvs_lp/doxygen \
-             @SDK_BASE@/drivers/spdif/doxygen \
-             @SDK_BASE@/drivers/src/doxygen \
              @SDK_BASE@/drivers/tmu_1/doxygen \
              @SDK_BASE@/drivers/wdog01/doxygen \
              @SDK_BASE@/drivers/cache/armv7-m7/doxygen
@@ -2066,6 +2046,7 @@ PREDEFINED = FSL_FEATURE_SOC_AIPSTZ_COUNT = 1 \
              FSL_FEATURE_SOC_CCM_ANALOG_COUNT = 1 \
              FSL_FEATURE_SOC_ECSPI_COUNT = 3 \
              FSL_FEATURE_SOC_ENET_COUNT = 1 \
+             FSL_FEATURE_SOC_FLEXSPI_COUNT = 1 \
              FSL_FEATURE_SOC_GPC_COUNT = 1 \
              FSL_FEATURE_SOC_GPC_PGC_COUNT = 1 \
              FSL_FEATURE_SOC_GPMI_COUNT = 1 \
@@ -2111,7 +2092,7 @@ PREDEFINED = FSL_FEATURE_SOC_AIPSTZ_COUNT = 1 \
              FSL_FEATURE_IGPIO_HAS_DR_SET = 0 \
              FSL_FEATURE_IGPIO_HAS_DR_CLEAR = 0 \
              FSL_FEATURE_IGPIO_HAS_DR_TOGGLE = 0 \
-             FSL_FEATURE_SAI_HAS_FIFO = 1 \
+             FSL_FEATURE_GPT_HAS_ERRATA_3777 = 0 \
              FSL_FEATURE_SAI_MAX_WORDS_PER_FRAME = 32 \
              FSL_FEATURE_SAI_HAS_FIFO_COMBINE_MODE = 1 \
              FSL_FEATURE_SAI_HAS_FIFO_PACKING = 1 \
@@ -2126,6 +2107,9 @@ PREDEFINED = FSL_FEATURE_SOC_AIPSTZ_COUNT = 1 \
              FSL_FEATURE_SAI_HAS_BCLK_BYPASS = 1 \
              FSL_FEATURE_SAI_HAS_MCR_MCLK_POST_DIV = 1 \
              FSL_FEATURE_SAI_HAS_CHANNEL_MODE = 1 \
+             FSL_FEATURE_SAI_HAS_FIFO = 1 \
+             FSL_FEATURE_SAI_HAS_SYNC_WITH_ANOTHER_SAI = 0 \
+             FSL_FEATURE_SAI_HAS_BIT_CLOCK_SWAP = 1 \
              FSL_FEATURE_SAI_SAI5_SAI6_SHARE_IRQ = 1 \
              FSL_FEATURE_MEMORY_HAS_ADDRESS_OFFSET = 1 \
              FSL_FEATURE_MU_SIDE_B = 1 \
@@ -2154,6 +2138,14 @@ PREDEFINED = FSL_FEATURE_SOC_AIPSTZ_COUNT = 1 \
              FSL_FEATURE_PDM_HIGH_QUALITY_CLKDIV_FACTOR = 125 \
              FSL_FEATURE_PDM_VERY_LOW_QUALITY_CLKDIV_FACTOR = 19 \
              FSL_FEATURE_PDM_HAS_NO_VADEF = 0 \
+             FSL_FEATURE_PDM_HAS_NO_MINIMUM_CLKDIV = 0 \
+             FSL_FEATURE_PDM_HAS_NO_FIR_RDY = 0 \
+             FSL_FEATURE_PDM_HAS_NO_DOZEN = 0 \
+             FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS = 0 \
+             FSL_FEATURE_PDM_HAS_DC_OUT_CTRL = 0 \
+             FSL_FEATURE_PDM_DC_CTRL_VALUE_FIXED = 0 \
+             FSL_FEATURE_PDM_HAS_NO_INDEPENDENT_ERROR_IRQ = 0 \
+             FSL_FEATURE_PDM_HAS_NO_HWVAD = 0 \
              FSL_FEATURE_SDMA_MODULE_CHANNEL = 32 \
              FSL_FEATURE_SDMA_EVENT_NUM = 48 \
              FSL_FEATURE_SDMA_M2M_ADDR = 644 \
@@ -2177,7 +2169,9 @@ PREDEFINED = FSL_FEATURE_SOC_AIPSTZ_COUNT = 1 \
              FSL_FEATURE_USDHC_HAS_SDR104_MODE = 1 \
              FSL_FEATURE_USDHC_HAS_RESET = 0 \
              FSL_FEATURE_USDHC_HAS_NO_RW_BURST_LEN = 0 \
-             FSL_FEATURE_USDHC_REGISTER_HOST_CTRL_CAP_HAS_NO_RETUNING_TIME_COUNTER = 0
+             FSL_FEATURE_USDHC_REGISTER_HOST_CTRL_CAP_HAS_NO_RETUNING_TIME_COUNTER = 0 \
+             FSL_FEATURE_USDHC_HAS_NO_VOLTAGE_SELECT = 0 \
+             FSL_FEATURE_USDHC_HAS_NO_VS18 = 0
 
 PREDEFINED += DOXYGEN_OUTPUT=1
 

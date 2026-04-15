@@ -733,97 +733,90 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT = @SDK_BASE@/devices/Kinetis/KM/MKM34Z7/drivers/doxygen/clock.dox \
-        @SDK_BASE@/devices/Kinetis/KM/MKM34Z7/drivers/fsl_clock.h \
-        @SDK_BASE@/drivers/adc16/doxygen/adc16.dox \
-        @SDK_BASE@/drivers/adc16/fsl_adc16.h \
-        @SDK_BASE@/drivers/afe/doxygen/afe.dox \
-        @SDK_BASE@/drivers/afe/fsl_afe.h \
-        @SDK_BASE@/drivers/cmp/doxygen/cmp.dox \
-        @SDK_BASE@/drivers/cmp/fsl_cmp.h \
-        @SDK_BASE@/drivers/common/doxygen/common.dox \
+INPUT = @SDK_BASE@/drivers/common/doxygen/common.dox \
         @SDK_BASE@/drivers/common/fsl_common.h \
         @SDK_BASE@/drivers/common/fsl_common_arm.h \
-        @SDK_BASE@/drivers/crc/doxygen/crc.dox \
-        @SDK_BASE@/drivers/crc/fsl_crc.h \
-        @SDK_BASE@/drivers/dma/doxygen/dma.dox \
-        @SDK_BASE@/drivers/dma/fsl_dma.h \
-        @SDK_BASE@/drivers/dmamux/doxygen/dmamux.dox \
-        @SDK_BASE@/drivers/dmamux/fsl_dmamux.h \
-        @SDK_BASE@/drivers/ewm/doxygen/ewm.dox \
-        @SDK_BASE@/drivers/ewm/fsl_ewm.h \
-        @SDK_BASE@/drivers/flash/doxygen/ftfx_adapter.dox \
-        @SDK_BASE@/drivers/flash/fsl_ftfx_adapter.h \
-        @SDK_BASE@/drivers/flash/doxygen/ftfx_utilities.dox \
-        @SDK_BASE@/drivers/flash/fsl_ftfx_utilities.h \
-        @SDK_BASE@/drivers/flash/doxygen/ftfx_features.dox \
-        @SDK_BASE@/drivers/flash/fsl_ftfx_features.h \
-        @SDK_BASE@/drivers/flash/doxygen/ftfx_controller.dox \
-        @SDK_BASE@/drivers/flash/fsl_ftfx_controller.h \
-        @SDK_BASE@/drivers/flash/doxygen/ftfx_flash.dox \
-        @SDK_BASE@/drivers/flash/fsl_ftfx_flash.h \
-        @SDK_BASE@/drivers/flash/doxygen/ftfx_cache.dox \
-        @SDK_BASE@/drivers/flash/fsl_ftfx_cache.h \
-        @SDK_BASE@/drivers/flash/doxygen/ftfx_flexnvm.dox \
-        @SDK_BASE@/drivers/flash/fsl_ftfx_flexnvm.h \
-        @SDK_BASE@/drivers/flash/doxygen/flash.dox \
-        @SDK_BASE@/drivers/flash/fsl_flash.h \
-        @SDK_BASE@/drivers/gpio/doxygen/gpio.dox \
-        @SDK_BASE@/drivers/gpio/fsl_gpio.h \
-        @SDK_BASE@/drivers/i2c/doxygen/i2c_dma.dox \
-        @SDK_BASE@/drivers/i2c/fsl_i2c_dma.h \
-        @SDK_BASE@/drivers/i2c/doxygen/i2c.dox \
-        @SDK_BASE@/drivers/i2c/fsl_i2c.h \
-        @SDK_BASE@/drivers/irtc/doxygen/irtc.dox \
-        @SDK_BASE@/drivers/irtc/fsl_irtc.h \
-        @SDK_BASE@/drivers/llwu/doxygen/llwu.dox \
-        @SDK_BASE@/drivers/llwu/fsl_llwu.h \
-        @SDK_BASE@/drivers/lptmr/doxygen/lptmr.dox \
-        @SDK_BASE@/drivers/lptmr/fsl_lptmr.h \
-        @SDK_BASE@/drivers/lpuart/doxygen/lpuart_dma.dox \
-        @SDK_BASE@/drivers/lpuart/fsl_lpuart_dma.h \
-        @SDK_BASE@/drivers/lpuart/doxygen/lpuart.dox \
-        @SDK_BASE@/drivers/lpuart/fsl_lpuart.h \
-        @SDK_BASE@/drivers/mcm/doxygen/mcm.dox \
-        @SDK_BASE@/drivers/mcm/fsl_mcm.h \
-        @SDK_BASE@/drivers/mmau/doxygen/mmau.dox \
-        @SDK_BASE@/drivers/mmau/fsl_mmau.h \
-        @SDK_BASE@/drivers/pdb/doxygen/pdb.dox \
-        @SDK_BASE@/drivers/pdb/fsl_pdb.h \
-        @SDK_BASE@/drivers/pit/doxygen/pit.dox \
-        @SDK_BASE@/drivers/pit/fsl_pit.h \
-        @SDK_BASE@/drivers/pmc/doxygen/pmc.dox \
-        @SDK_BASE@/drivers/pmc/fsl_pmc.h \
-        @SDK_BASE@/drivers/port/doxygen/port.dox \
-        @SDK_BASE@/drivers/port/fsl_port.h \
-        @SDK_BASE@/drivers/qtmr_2/doxygen/qtmr.dox \
-        @SDK_BASE@/drivers/qtmr_2/fsl_qtmr.h \
-        @SDK_BASE@/drivers/rcm/doxygen/rcm.dox \
-        @SDK_BASE@/drivers/rcm/fsl_rcm.h \
-        @SDK_BASE@/drivers/rnga/doxygen/rnga.dox \
-        @SDK_BASE@/drivers/rnga/fsl_rnga.h \
-        @SDK_BASE@/drivers/sim/doxygen/sim.dox \
-        @SDK_BASE@/drivers/sim/fsl_sim.h \
-        @SDK_BASE@/drivers/slcd/doxygen/slcd.dox \
-        @SDK_BASE@/drivers/slcd/fsl_slcd.h \
-        @SDK_BASE@/drivers/smc/doxygen/smc.dox \
-        @SDK_BASE@/drivers/smc/fsl_smc.h \
-        @SDK_BASE@/drivers/spi/doxygen/spi_dma.dox \
-        @SDK_BASE@/drivers/spi/fsl_spi_dma.h \
-        @SDK_BASE@/drivers/spi/doxygen/spi.dox \
-        @SDK_BASE@/drivers/spi/fsl_spi.h \
-        @SDK_BASE@/drivers/sysmpu/doxygen/sysmpu.dox \
-        @SDK_BASE@/drivers/sysmpu/fsl_sysmpu.h \
-        @SDK_BASE@/drivers/uart/doxygen/uart_dma.dox \
-        @SDK_BASE@/drivers/uart/fsl_uart_dma.h \
-        @SDK_BASE@/drivers/uart/doxygen/uart.dox \
-        @SDK_BASE@/drivers/uart/fsl_uart.h \
-        @SDK_BASE@/drivers/vref/doxygen/vref.dox \
-        @SDK_BASE@/drivers/vref/fsl_vref.h \
-        @SDK_BASE@/drivers/wdog/doxygen/wdog.dox \
-        @SDK_BASE@/drivers/wdog/fsl_wdog.h \
-        @SDK_BASE@/drivers/xbar/doxygen/xbar.dox \
-        @SDK_BASE@/drivers/xbar/fsl_xbar.h
+        @SDK_BASE@/drivers/ctimer/doxygen/ctimer.dox \
+        @SDK_BASE@/drivers/ctimer/fsl_ctimer.h \
+        @SDK_BASE@/drivers/dmic/doxygen/dmic_dma.dox \
+        @SDK_BASE@/drivers/dmic/fsl_dmic_dma.h \
+        @SDK_BASE@/drivers/dmic/doxygen/dmic.dox \
+        @SDK_BASE@/drivers/dmic/fsl_dmic.h \
+        @SDK_BASE@/drivers/dmic/fsl_dmic.h \
+        @SDK_BASE@/drivers/eeprom/doxygen/eeprom.dox \
+        @SDK_BASE@/drivers/eeprom/fsl_eeprom.h \
+        @SDK_BASE@/drivers/emc/doxygen/emc.dox \
+        @SDK_BASE@/drivers/emc/fsl_emc.h \
+        @SDK_BASE@/drivers/flashiap/doxygen/flashiap.dox \
+        @SDK_BASE@/drivers/flashiap/fsl_flashiap.h \
+        @SDK_BASE@/drivers/flexcomm/doxygen/flexcomm.dox \
+        @SDK_BASE@/drivers/flexcomm/fsl_flexcomm.h \
+        @SDK_BASE@/drivers/fmc/doxygen/fmc.dox \
+        @SDK_BASE@/drivers/fmc/fsl_fmc.h \
+        @SDK_BASE@/drivers/fmeas/doxygen/fmeas.dox \
+        @SDK_BASE@/drivers/fmeas/fsl_fmeas.h \
+        @SDK_BASE@/drivers/gint/doxygen/gint.dox \
+        @SDK_BASE@/drivers/gint/fsl_gint.h \
+        @SDK_BASE@/drivers/iap/doxygen/iap.dox \
+        @SDK_BASE@/drivers/iap/fsl_iap.h \
+        @SDK_BASE@/drivers/inputmux/doxygen/inputmux.dox \
+        @SDK_BASE@/drivers/inputmux/fsl_inputmux.h \
+        @SDK_BASE@/drivers/lpc_adc/doxygen/adc.dox \
+        @SDK_BASE@/drivers/lpc_adc/fsl_adc.h \
+        @SDK_BASE@/drivers/lpc_crc/doxygen/crc.dox \
+        @SDK_BASE@/drivers/lpc_crc/fsl_crc.h \
+        @SDK_BASE@/drivers/lpc_dma/doxygen/dma.dox \
+        @SDK_BASE@/drivers/lpc_dma/fsl_dma.h \
+        @SDK_BASE@/drivers/lpc_enet/doxygen/enet.dox \
+        @SDK_BASE@/drivers/lpc_enet/fsl_enet.h \
+        @SDK_BASE@/drivers/lpc_gpio/doxygen/gpio.dox \
+        @SDK_BASE@/drivers/lpc_gpio/fsl_gpio.h \
+        @SDK_BASE@/drivers/lpc_iocon/doxygen/iocon.dox \
+        @SDK_BASE@/drivers/lpc_iocon/fsl_iocon.h \
+        @SDK_BASE@/drivers/lpc_lcdc/doxygen/lcdc.dox \
+        @SDK_BASE@/drivers/lpc_lcdc/fsl_lcdc.h \
+        @SDK_BASE@/drivers/lpc_rit/doxygen/rit.dox \
+        @SDK_BASE@/drivers/lpc_rit/fsl_rit.h \
+        @SDK_BASE@/drivers/lpc_rtc/doxygen/rtc.dox \
+        @SDK_BASE@/drivers/lpc_rtc/fsl_rtc.h \
+        @SDK_BASE@/drivers/mcan/doxygen/mcan.dox \
+        @SDK_BASE@/drivers/mcan/fsl_mcan.h \
+        @SDK_BASE@/drivers/mrt/doxygen/mrt.dox \
+        @SDK_BASE@/drivers/mrt/fsl_mrt.h \
+        @SDK_BASE@/drivers/otp/doxygen/otp.dox \
+        @SDK_BASE@/drivers/otp/fsl_otp.h \
+        @SDK_BASE@/drivers/pint/doxygen/pint.dox \
+        @SDK_BASE@/drivers/pint/fsl_pint.h \
+        @SDK_BASE@/drivers/rng/doxygen/rng.dox \
+        @SDK_BASE@/drivers/rng/fsl_rng.h \
+        @SDK_BASE@/drivers/sctimer/doxygen/sctimer.dox \
+        @SDK_BASE@/drivers/sctimer/fsl_sctimer.h \
+        @SDK_BASE@/drivers/sdif/doxygen/sdif.dox \
+        @SDK_BASE@/drivers/sdif/fsl_sdif.h \
+        @SDK_BASE@/drivers/spifi/doxygen/spifi_dma.dox \
+        @SDK_BASE@/drivers/spifi/fsl_spifi_dma.h \
+        @SDK_BASE@/drivers/spifi/doxygen/spifi.dox \
+        @SDK_BASE@/drivers/spifi/fsl_spifi.h \
+        @SDK_BASE@/drivers/utick/doxygen/utick.dox \
+        @SDK_BASE@/drivers/utick/fsl_utick.h \
+        @SDK_BASE@/drivers/wwdt/doxygen/wwdt.dox \
+        @SDK_BASE@/drivers/wwdt/fsl_wwdt.h \
+        @SDK_BASE@/drivers/flexcomm/i2c/doxygen/i2c_dma.dox \
+        @SDK_BASE@/drivers/flexcomm/i2c/fsl_i2c_dma.h \
+        @SDK_BASE@/drivers/flexcomm/i2c/doxygen/i2c.dox \
+        @SDK_BASE@/drivers/flexcomm/i2c/fsl_i2c.h \
+        @SDK_BASE@/drivers/flexcomm/i2s/doxygen/i2s_dma.dox \
+        @SDK_BASE@/drivers/flexcomm/i2s/fsl_i2s_dma.h \
+        @SDK_BASE@/drivers/flexcomm/i2s/doxygen/i2s.dox \
+        @SDK_BASE@/drivers/flexcomm/i2s/fsl_i2s.h \
+        @SDK_BASE@/drivers/flexcomm/spi/doxygen/spi_dma.dox \
+        @SDK_BASE@/drivers/flexcomm/spi/fsl_spi_dma.h \
+        @SDK_BASE@/drivers/flexcomm/spi/doxygen/spi.dox \
+        @SDK_BASE@/drivers/flexcomm/spi/fsl_spi.h \
+        @SDK_BASE@/drivers/flexcomm/usart/doxygen/usart_dma.dox \
+        @SDK_BASE@/drivers/flexcomm/usart/fsl_usart_dma.h \
+        @SDK_BASE@/drivers/flexcomm/usart/doxygen/usart.dox \
+        @SDK_BASE@/drivers/flexcomm/usart/fsl_usart.h
 
 # If the value of the INPUT tag contains directories, you can use the
 # FILE_PATTERNS tag to specify one or more wildcard patterns (like *.cpp and
@@ -930,40 +923,41 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH = @SDK_BASE@/devices/Kinetis/KM/MKM34Z7/drivers/doxygen \
-             @SDK_BASE@/drivers/adc16/doxygen \
-             @SDK_BASE@/drivers/afe/doxygen \
-             @SDK_BASE@/drivers/cmp/doxygen \
-             @SDK_BASE@/drivers/common/doxygen \
-             @SDK_BASE@/drivers/crc/doxygen \
-             @SDK_BASE@/drivers/dma/doxygen \
-             @SDK_BASE@/drivers/dmamux/doxygen \
-             @SDK_BASE@/drivers/ewm/doxygen \
-             @SDK_BASE@/drivers/flash/doxygen \
-             @SDK_BASE@/drivers/gpio/doxygen \
-             @SDK_BASE@/drivers/i2c/doxygen \
-             @SDK_BASE@/drivers/irtc/doxygen \
-             @SDK_BASE@/drivers/llwu/doxygen \
-             @SDK_BASE@/drivers/lptmr/doxygen \
-             @SDK_BASE@/drivers/lpuart/doxygen \
-             @SDK_BASE@/drivers/mcm/doxygen \
-             @SDK_BASE@/drivers/mmau/doxygen \
-             @SDK_BASE@/drivers/pdb/doxygen \
-             @SDK_BASE@/drivers/pit/doxygen \
-             @SDK_BASE@/drivers/pmc/doxygen \
-             @SDK_BASE@/drivers/port/doxygen \
-             @SDK_BASE@/drivers/qtmr_2/doxygen \
-             @SDK_BASE@/drivers/rcm/doxygen \
-             @SDK_BASE@/drivers/rnga/doxygen \
-             @SDK_BASE@/drivers/sim/doxygen \
-             @SDK_BASE@/drivers/slcd/doxygen \
-             @SDK_BASE@/drivers/smc/doxygen \
-             @SDK_BASE@/drivers/spi/doxygen \
-             @SDK_BASE@/drivers/sysmpu/doxygen \
-             @SDK_BASE@/drivers/uart/doxygen \
-             @SDK_BASE@/drivers/vref/doxygen \
-             @SDK_BASE@/drivers/wdog/doxygen \
-             @SDK_BASE@/drivers/xbar/doxygen
+IMAGE_PATH = @SDK_BASE@/drivers/common/doxygen \
+             @SDK_BASE@/drivers/ctimer/doxygen \
+             @SDK_BASE@/drivers/dmic/doxygen \
+             @SDK_BASE@/drivers/eeprom/doxygen \
+             @SDK_BASE@/drivers/emc/doxygen \
+             @SDK_BASE@/drivers/flashiap/doxygen \
+             @SDK_BASE@/drivers/flexcomm/doxygen \
+             @SDK_BASE@/drivers/fmc/doxygen \
+             @SDK_BASE@/drivers/fmeas/doxygen \
+             @SDK_BASE@/drivers/gint/doxygen \
+             @SDK_BASE@/drivers/iap/doxygen \
+             @SDK_BASE@/drivers/inputmux/doxygen \
+             @SDK_BASE@/drivers/lpc_adc/doxygen \
+             @SDK_BASE@/drivers/lpc_crc/doxygen \
+             @SDK_BASE@/drivers/lpc_dma/doxygen \
+             @SDK_BASE@/drivers/lpc_enet/doxygen \
+             @SDK_BASE@/drivers/lpc_gpio/doxygen \
+             @SDK_BASE@/drivers/lpc_iocon/doxygen \
+             @SDK_BASE@/drivers/lpc_lcdc/doxygen \
+             @SDK_BASE@/drivers/lpc_rit/doxygen \
+             @SDK_BASE@/drivers/lpc_rtc/doxygen \
+             @SDK_BASE@/drivers/mcan/doxygen \
+             @SDK_BASE@/drivers/mrt/doxygen \
+             @SDK_BASE@/drivers/otp/doxygen \
+             @SDK_BASE@/drivers/pint/doxygen \
+             @SDK_BASE@/drivers/rng/doxygen \
+             @SDK_BASE@/drivers/sctimer/doxygen \
+             @SDK_BASE@/drivers/sdif/doxygen \
+             @SDK_BASE@/drivers/spifi/doxygen \
+             @SDK_BASE@/drivers/utick/doxygen \
+             @SDK_BASE@/drivers/wwdt/doxygen \
+             @SDK_BASE@/drivers/flexcomm/i2c/doxygen \
+             @SDK_BASE@/drivers/flexcomm/i2s/doxygen \
+             @SDK_BASE@/drivers/flexcomm/spi/doxygen \
+             @SDK_BASE@/drivers/flexcomm/usart/doxygen
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -2086,611 +2080,142 @@ INCLUDE_FILE_PATTERNS  =
 # recursively expanded use the := operator instead of the = operator.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-PREDEFINED = FSL_FEATURE_SOC_ADC16_COUNT = 1 \
-             FSL_FEATURE_SOC_AFE_COUNT = 1 \
-             FSL_FEATURE_SOC_AIPS_COUNT = 1 \
-             FSL_FEATURE_SOC_MMCAU_COUNT = 1 \
-             FSL_FEATURE_SOC_CMP_COUNT = 3 \
+PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
+             FSL_FEATURE_SOC_ASYNC_SYSCON_COUNT = 1 \
+             FSL_FEATURE_SOC_LPC_CAN_COUNT = 2 \
              FSL_FEATURE_SOC_CRC_COUNT = 1 \
+             FSL_FEATURE_SOC_CTIMER_COUNT = 5 \
              FSL_FEATURE_SOC_DMA_COUNT = 1 \
-             FSL_FEATURE_SOC_DMAMUX_COUNT = 1 \
-             FSL_FEATURE_SOC_EWM_COUNT = 1 \
-             FSL_FEATURE_SOC_FGPIO_COUNT = 13 \
-             FSL_FEATURE_SOC_FTFA_COUNT = 1 \
-             FSL_FEATURE_SOC_GPIO_COUNT = 13 \
-             FSL_FEATURE_SOC_I2C_COUNT = 2 \
-             FSL_FEATURE_SOC_SLCD_COUNT = 1 \
-             FSL_FEATURE_SOC_LLWU_COUNT = 1 \
-             FSL_FEATURE_SOC_LPTMR_COUNT = 1 \
-             FSL_FEATURE_SOC_LPUART_COUNT = 1 \
-             FSL_FEATURE_SOC_MCG_COUNT = 1 \
-             FSL_FEATURE_SOC_MCM_COUNT = 1 \
-             FSL_FEATURE_SOC_MMAU_COUNT = 1 \
-             FSL_FEATURE_SOC_SYSMPU_COUNT = 1 \
-             FSL_FEATURE_SOC_MTB_COUNT = 1 \
-             FSL_FEATURE_SOC_MTBDWT_COUNT = 1 \
-             FSL_FEATURE_SOC_OSC_COUNT = 1 \
-             FSL_FEATURE_SOC_PDB_COUNT = 1 \
-             FSL_FEATURE_SOC_PIT_COUNT = 2 \
-             FSL_FEATURE_SOC_PMC_COUNT = 1 \
-             FSL_FEATURE_SOC_PORT_COUNT = 13 \
-             FSL_FEATURE_SOC_RCM_COUNT = 1 \
-             FSL_FEATURE_SOC_RNG_COUNT = 1 \
-             FSL_FEATURE_SOC_ROM_COUNT = 1 \
+             FSL_FEATURE_SOC_DMIC_COUNT = 1 \
+             FSL_FEATURE_SOC_EEPROM_COUNT = 1 \
+             FSL_FEATURE_SOC_EMC_COUNT = 1 \
+             FSL_FEATURE_SOC_LPC_ENET_COUNT = 1 \
+             FSL_FEATURE_SOC_FLEXCOMM_COUNT = 10 \
+             FSL_FEATURE_SOC_FMC_COUNT = 1 \
+             FSL_FEATURE_SOC_GINT_COUNT = 2 \
+             FSL_FEATURE_SOC_GPIO_COUNT = 1 \
+             FSL_FEATURE_SOC_I2C_COUNT = 10 \
+             FSL_FEATURE_SOC_I2S_COUNT = 2 \
+             FSL_FEATURE_SOC_INPUTMUX_COUNT = 1 \
+             FSL_FEATURE_SOC_IOCON_COUNT = 1 \
+             FSL_FEATURE_SOC_LCD_COUNT = 1 \
+             FSL_FEATURE_SOC_MPU_COUNT = 1 \
+             FSL_FEATURE_SOC_MRT_COUNT = 1 \
+             FSL_FEATURE_SOC_PINT_COUNT = 1 \
+             FSL_FEATURE_SOC_RIT_COUNT = 1 \
+             FSL_FEATURE_SOC_LPC_RNG_COUNT = 1 \
              FSL_FEATURE_SOC_RTC_COUNT = 1 \
-             FSL_FEATURE_SOC_SIM_COUNT = 1 \
-             FSL_FEATURE_SOC_SMC_COUNT = 1 \
-             FSL_FEATURE_SOC_SPI_COUNT = 2 \
-             FSL_FEATURE_SOC_TMR_COUNT = 4 \
-             FSL_FEATURE_SOC_UART_COUNT = 4 \
-             FSL_FEATURE_SOC_VREF_COUNT = 1 \
-             FSL_FEATURE_SOC_WDOG_COUNT = 1 \
-             FSL_FEATURE_SOC_XBAR_COUNT = 1 \
-             FSL_FEATURE_ADC16_HAS_PGA = 0 \
-             FSL_FEATURE_ADC16_HAS_PGA_CHOPPING = 0 \
-             FSL_FEATURE_ADC16_HAS_PGA_OFFSET_MEASUREMENT = 0 \
-             FSL_FEATURE_ADC16_HAS_DMA = 1 \
-             FSL_FEATURE_ADC16_HAS_DIFF_MODE = 0 \
-             FSL_FEATURE_ADC16_HAS_FIFO = 0 \
-             FSL_FEATURE_ADC16_FIFO_SIZE = 0 \
-             FSL_FEATURE_ADC16_HAS_MUX_SELECT = 1 \
-             FSL_FEATURE_ADC16_HAS_HW_TRIGGER_MASK = 0 \
-             FSL_FEATURE_ADC16_HAS_CALIBRATION = 1 \
-             FSL_FEATURE_ADC16_HAS_HW_AVERAGE = 1 \
-             FSL_FEATURE_ADC16_HAS_OFFSET_CORRECTION = 1 \
-             FSL_FEATURE_ADC16_MAX_RESOLUTION = 16 \
-             FSL_FEATURE_ADC16_CONVERSION_CONTROL_COUNT = 4 \
-             FSL_FEATURE_ADC16_HAS_VREF_BANDGAP = 1 \
-             FSL_FEATURE_AFE_CHANNEL_NUMBER = 4 \
-             FSL_FEATURE_AFE_CHANNEL_NUMBER_WITH_PGA = 4 \
-             FSL_FEATURE_AFE_HAS_FOUR_CHANNELS = 1 \
-             FSL_FEATURE_CMP_HAS_TRIGGER_MODE = 1 \
-             FSL_FEATURE_CMP_HAS_WINDOW_MODE = 1 \
-             FSL_FEATURE_CMP_HAS_EXTERNAL_SAMPLE_SUPPORT = 1 \
-             FSL_FEATURE_CMP_HAS_DMA = 1 \
-             FSL_FEATURE_CMP_HAS_PASS_THROUGH_MODE = 0 \
-             FSL_FEATURE_CMP_HAS_DAC_TEST = 0 \
-             FSL_FEATURE_CRC_HAS_CRC_REG = 0 \
-             FSL_FEATURE_DMA_MODULE_CHANNEL = 4 \
-             FSL_FEATURE_DMA_DMAMUX_CHANNELS = 4 \
-             FSL_FEATURE_DMAMUX_MODULE_CHANNEL = 4 \
-             FSL_FEATURE_DMAMUX_DMAMUX_CHANNELS = 4 \
-             FSL_FEATURE_DMAMUX_HAS_TRIG = 1 \
-             FSL_FEATURE_DMAMUX_CHCFG_REGISTER_WIDTH = 8 \
-             FSL_FEATURE_EWM_HAS_CLOCK_SELECT = 1 \
-             FSL_FEATURE_EWM_HAS_PRESCALER = 1 \
-             FSL_FEATURE_FGPIO_HAS_ATTRIBUTE_CHECKER = 1 \
-             FSL_FEATURE_FLASH_IS_FTFA = 1 \
-             FSL_FEATURE_FLASH_IS_FTFE = 0 \
-             FSL_FEATURE_FLASH_IS_FTFL = 0 \
-             FSL_FEATURE_FLASH_HAS_FLEX_RAM_FLAGS = 0 \
-             FSL_FEATURE_FLASH_HAS_PFLASH_SWAPPING_STATUS_FLAG = 0 \
-             FSL_FEATURE_FLASH_HAS_EEROM_REGION_PROTECTION = 0 \
-             FSL_FEATURE_FLASH_HAS_DATA_FLASH_REGION_PROTECTION = 0 \
-             FSL_FEATURE_FLASH_HAS_ACCESS_CONTROL = 0 \
-             FSL_FEATURE_FLASH_HAS_FMC_FLASH_CACHE_CONTROLS = 0 \
-             FSL_FEATURE_FLASH_HAS_MCM_FLASH_CACHE_CONTROLS = 1 \
-             FSL_FEATURE_FLASH_HAS_MSCM_FLASH_CACHE_CONTROLS = 0 \
-             FSL_FEATURE_FLASH_PREFETCH_SPECULATION_CONTROL_IN_FLASH = 0 \
-             FSL_FEATURE_FLASH_SIZE_ENCODING_RULE_VERSION = 0 \
-             FSL_FEATURE_FLASH_PFLASH_BLOCK_COUNT = 1 \
-             FSL_FEATURE_FLASH_PFLASH_BLOCK_SIZE = 262144 \
-             FSL_FEATURE_FLASH_PFLASH_BLOCK_SECTOR_SIZE = 2048 \
-             FSL_FEATURE_FLASH_PFLASH_BLOCK_WRITE_UNIT_SIZE = 4 \
-             FSL_FEATURE_FLASH_PFLASH_BLOCK_DATA_PATH_WIDTH = 8 \
-             FSL_FEATURE_FLASH_HAS_PFLASH_BLOCK_SWAP = 0 \
-             FSL_FEATURE_FLASH_PFLASH_PROTECTION_REGION_COUNT = 32 \
-             FSL_FEATURE_FLASH_HAS_FLEX_NVM = 0 \
-             FSL_FEATURE_FLASH_HAS_FLEX_NVM_ALIAS = 0 \
-             FSL_FEATURE_FLASH_FLEX_NVM_BLOCK_COUNT = 0 \
-             FSL_FEATURE_FLASH_FLEX_NVM_BLOCK_SIZE = 0 \
-             FSL_FEATURE_FLASH_FLEX_NVM_BLOCK_SECTOR_SIZE = 0 \
-             FSL_FEATURE_FLASH_FLEX_NVM_BLOCK_WRITE_UNIT_SIZE = 0 \
-             FSL_FEATURE_FLASH_FLEX_BLOCK_DATA_PATH_WIDTH = 0 \
-             FSL_FEATURE_FLASH_HAS_FLEX_RAM = 0 \
-             FSL_FEATURE_FLASH_FLEX_RAM_SIZE = 0 \
-             FSL_FEATURE_FLASH_HAS_READ_1S_BLOCK_CMD = 0 \
-             FSL_FEATURE_FLASH_HAS_READ_1S_SECTION_CMD = 1 \
-             FSL_FEATURE_FLASH_HAS_PROGRAM_CHECK_CMD = 1 \
-             FSL_FEATURE_FLASH_HAS_READ_RESOURCE_CMD = 1 \
-             FSL_FEATURE_FLASH_HAS_PROGRAM_LONGWORD_CMD = 1 \
-             FSL_FEATURE_FLASH_HAS_PROGRAM_PHRASE_CMD = 0 \
-             FSL_FEATURE_FLASH_HAS_ERASE_FLASH_BLOCK_CMD = 0 \
-             FSL_FEATURE_FLASH_HAS_ERASE_FLASH_SECTOR_CMD = 1 \
-             FSL_FEATURE_FLASH_HAS_PROGRAM_SECTION_CMD = 0 \
-             FSL_FEATURE_FLASH_HAS_READ_1S_ALL_BLOCKS_CMD = 1 \
-             FSL_FEATURE_FLASH_HAS_READ_ONCE_CMD = 1 \
-             FSL_FEATURE_FLASH_HAS_PROGRAM_ONCE_CMD = 1 \
-             FSL_FEATURE_FLASH_HAS_ERASE_ALL_BLOCKS_CMD = 1 \
-             FSL_FEATURE_FLASH_HAS_VERIFY_BACKDOOR_ACCESS_KEY_CMD = 1 \
-             FSL_FEATURE_FLASH_HAS_SWAP_CONTROL_CMD = 0 \
-             FSL_FEATURE_FLASH_HAS_ERASE_ALL_BLOCKS_UNSECURE_CMD = 0 \
-             FSL_FEATURE_FLASH_HAS_READ_1S_ALL_EXECUTE_ONLY_SEGMENTS_CMD = 0 \
-             FSL_FEATURE_FLASH_HAS_ERASE_ALL_EXECUTE_ONLY_SEGMENTS_CMD = 0 \
-             FSL_FEATURE_FLASH_HAS_PROGRAM_PARTITION_CMD = 0 \
-             FSL_FEATURE_FLASH_HAS_SET_FLEXRAM_FUNCTION_CMD = 0 \
-             FSL_FEATURE_FLASH_PFLASH_BLOCK_CMD_ADDRESS_ALIGMENT = 4 \
-             FSL_FEATURE_FLASH_PFLASH_SECTOR_CMD_ADDRESS_ALIGMENT = 8 \
-             FSL_FEATURE_FLASH_PFLASH_SECTION_CMD_ADDRESS_ALIGMENT = 8 \
-             FSL_FEATURE_FLASH_PFLASH_RESOURCE_CMD_ADDRESS_ALIGMENT = 4 \
-             FSL_FEATURE_FLASH_PFLASH_CHECK_CMD_ADDRESS_ALIGMENT = 4 \
-             FSL_FEATURE_FLASH_PFLASH_SWAP_CONTROL_CMD_ADDRESS_ALIGMENT = 0 \
-             FSL_FEATURE_FLASH_FLEX_NVM_BLOCK_CMD_ADDRESS_ALIGMENT = 0 \
-             FSL_FEATURE_FLASH_FLEX_NVM_SECTOR_CMD_ADDRESS_ALIGMENT = 0 \
-             FSL_FEATURE_FLASH_FLEX_NVM_SECTION_CMD_ADDRESS_ALIGMENT = 0 \
-             FSL_FEATURE_FLASH_FLEX_NVM_RESOURCE_CMD_ADDRESS_ALIGMENT = 0 \
-             FSL_FEATURE_FLASH_FLEX_NVM_CHECK_CMD_ADDRESS_ALIGMENT = 0 \
-             FSL_FEATURE_GPIO_HAS_ATTRIBUTE_CHECKER = 1 \
-             FSL_FEATURE_GPIO_REGISTERS_WIDTH = 8 \
-             FSL_FEATURE_I2C_HAS_SMBUS = 1 \
-             FSL_FEATURE_I2C_MAX_BAUD_KBPS = 400 \
-             FSL_FEATURE_I2C_HAS_ERRATA_6070 = 0 \
-             FSL_FEATURE_I2C_HAS_DMA_SUPPORT = 1 \
-             FSL_FEATURE_I2C_HAS_START_STOP_DETECT = 1 \
-             FSL_FEATURE_I2C_HAS_STOP_DETECT = 0 \
-             FSL_FEATURE_I2C_HAS_STOP_HOLD_OFF = 1 \
-             FSL_FEATURE_I2C_MAX_GLITCH_FILTER_WIDTH = 15 \
-             FSL_FEATURE_I2C_HAS_HIGH_DRIVE_SELECTION = 1 \
-             FSL_FEATURE_I2C_HAS_DOUBLE_BUFFERING = 1 \
-             FSL_FEATURE_I2C_HAS_DOUBLE_BUFFER_ENABLE = 0 \
-             FSL_FEATURE_I2C_HAS_SHARED_IRQ0_IRQ1 = 1 \
-             FSL_FEATURE_SLCD_HAS_MULTI_ALTERNATE_CLOCK_SOURCE = 0 \
-             FSL_FEATURE_SLCD_HAS_FAST_FRAME_RATE = 0 \
-             FSL_FEATURE_SLCD_HAS_FRAME_FREQUENCY_INTERRUPT = 0 \
-             FSL_FEATURE_SLCD_HAS_HIGH_REFERENCE_SELECT = 0 \
-             FSL_FEATURE_SLCD_HAS_PAD_SAFE = 0 \
-             FSL_FEATURE_SLCD_HAS_LCD_WAIT = 0 \
-             FSL_FEATURE_SLCD_HAS_LCD_DOZE_ENABLE = 1 \
-             FSL_FEATURE_SLCD_HAS_PIN_NUM = 64 \
-             FSL_FEATURE_SLCD_HAS_PHASE_NUM = 8 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN = 24 \
-             FSL_FEATURE_LLWU_EXTERNAL_PIN_GROUP2 = 1 \
-             FSL_FEATURE_LLWU_HAS_INTERNAL_MODULE = 6 \
-             FSL_FEATURE_LLWU_HAS_PIN_FILTER = 2 \
-             FSL_FEATURE_LLWU_HAS_MF = 1 \
-             FSL_FEATURE_LLWU_HAS_PF = 1 \
-             FSL_FEATURE_LLWU_HAS_RESET_ENABLE = 0 \
-             FSL_FEATURE_LLWU_HAS_NO_INTERNAL_MODULE_WAKEUP_FLAG_REG = 0 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN0 = 1 \
-             FSL_FEATURE_LLWU_PIN0_GPIO_IDX = GPIOG_IDX \
-             FSL_FEATURE_LLWU_PIN0_GPIO_PIN = 6 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN1 = 1 \
-             FSL_FEATURE_LLWU_PIN1_GPIO_IDX = GPIOG_IDX \
-             FSL_FEATURE_LLWU_PIN1_GPIO_PIN = 2 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN2 = 1 \
-             FSL_FEATURE_LLWU_PIN2_GPIO_IDX = GPIOG_IDX \
-             FSL_FEATURE_LLWU_PIN2_GPIO_PIN = 1 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN3 = 1 \
-             FSL_FEATURE_LLWU_PIN3_GPIO_IDX = GPIOF_IDX \
-             FSL_FEATURE_LLWU_PIN3_GPIO_PIN = 6 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN4 = 1 \
-             FSL_FEATURE_LLWU_PIN4_GPIO_IDX = GPIOF_IDX \
-             FSL_FEATURE_LLWU_PIN4_GPIO_PIN = 0 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN5 = 1 \
-             FSL_FEATURE_LLWU_PIN5_GPIO_IDX = GPIOE_IDX \
-             FSL_FEATURE_LLWU_PIN5_GPIO_PIN = 6 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN6 = 1 \
-             FSL_FEATURE_LLWU_PIN6_GPIO_IDX = GPIOE_IDX \
-             FSL_FEATURE_LLWU_PIN6_GPIO_PIN = 5 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN7 = 1 \
-             FSL_FEATURE_LLWU_PIN7_GPIO_IDX = GPIOD_IDX \
-             FSL_FEATURE_LLWU_PIN7_GPIO_PIN = 7 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN8 = 1 \
-             FSL_FEATURE_LLWU_PIN8_GPIO_IDX = GPIOD_IDX \
-             FSL_FEATURE_LLWU_PIN8_GPIO_PIN = 6 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN9 = 1 \
-             FSL_FEATURE_LLWU_PIN9_GPIO_IDX = GPIOD_IDX \
-             FSL_FEATURE_LLWU_PIN9_GPIO_PIN = 4 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN10 = 1 \
-             FSL_FEATURE_LLWU_PIN10_GPIO_IDX = GPIOD_IDX \
-             FSL_FEATURE_LLWU_PIN10_GPIO_PIN = 2 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN11 = 1 \
-             FSL_FEATURE_LLWU_PIN11_GPIO_IDX = GPIOD_IDX \
-             FSL_FEATURE_LLWU_PIN11_GPIO_PIN = 0 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN12 = 1 \
-             FSL_FEATURE_LLWU_PIN12_GPIO_IDX = GPIOC_IDX \
-             FSL_FEATURE_LLWU_PIN12_GPIO_PIN = 5 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN13 = 1 \
-             FSL_FEATURE_LLWU_PIN13_GPIO_IDX = GPIOC_IDX \
-             FSL_FEATURE_LLWU_PIN13_GPIO_PIN = 3 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN14 = 1 \
-             FSL_FEATURE_LLWU_PIN14_GPIO_IDX = GPIOA_IDX \
-             FSL_FEATURE_LLWU_PIN14_GPIO_PIN = 6 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN15 = 1 \
-             FSL_FEATURE_LLWU_PIN15_GPIO_IDX = GPIOA_IDX \
-             FSL_FEATURE_LLWU_PIN15_GPIO_PIN = 4 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN16 = 1 \
-             FSL_FEATURE_LLWU_PIN16_GPIO_IDX = GPIOA_IDX \
-             FSL_FEATURE_LLWU_PIN16_GPIO_PIN = 0 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN17 = 1 \
-             FSL_FEATURE_LLWU_PIN17_GPIO_IDX = GPIOB_IDX \
-             FSL_FEATURE_LLWU_PIN17_GPIO_PIN = 1 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN18 = 1 \
-             FSL_FEATURE_LLWU_PIN18_GPIO_IDX = GPIOJ_IDX \
-             FSL_FEATURE_LLWU_PIN18_GPIO_PIN = 6 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN19 = 1 \
-             FSL_FEATURE_LLWU_PIN19_GPIO_IDX = GPIOK_IDX \
-             FSL_FEATURE_LLWU_PIN19_GPIO_PIN = 3 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN20 = 1 \
-             FSL_FEATURE_LLWU_PIN20_GPIO_IDX = GPIOF_IDX \
-             FSL_FEATURE_LLWU_PIN20_GPIO_PIN = 3 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN21 = 1 \
-             FSL_FEATURE_LLWU_PIN21_GPIO_IDX = GPIOI_IDX \
-             FSL_FEATURE_LLWU_PIN21_GPIO_PIN = 0 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN22 = 1 \
-             FSL_FEATURE_LLWU_PIN22_GPIO_IDX = GPIOI_IDX \
-             FSL_FEATURE_LLWU_PIN22_GPIO_PIN = 2 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN23 = 1 \
-             FSL_FEATURE_LLWU_PIN23_GPIO_IDX = GPIOL_IDX \
-             FSL_FEATURE_LLWU_PIN23_GPIO_PIN = 5 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN24 = 0 \
-             FSL_FEATURE_LLWU_PIN24_GPIO_IDX = 0 \
-             FSL_FEATURE_LLWU_PIN24_GPIO_PIN = 0 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN25 = 0 \
-             FSL_FEATURE_LLWU_PIN25_GPIO_IDX = 0 \
-             FSL_FEATURE_LLWU_PIN25_GPIO_PIN = 0 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN26 = 0 \
-             FSL_FEATURE_LLWU_PIN26_GPIO_IDX = 0 \
-             FSL_FEATURE_LLWU_PIN26_GPIO_PIN = 0 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN27 = 0 \
-             FSL_FEATURE_LLWU_PIN27_GPIO_IDX = 0 \
-             FSL_FEATURE_LLWU_PIN27_GPIO_PIN = 0 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN28 = 0 \
-             FSL_FEATURE_LLWU_PIN28_GPIO_IDX = 0 \
-             FSL_FEATURE_LLWU_PIN28_GPIO_PIN = 0 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN29 = 0 \
-             FSL_FEATURE_LLWU_PIN29_GPIO_IDX = 0 \
-             FSL_FEATURE_LLWU_PIN29_GPIO_PIN = 0 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN30 = 0 \
-             FSL_FEATURE_LLWU_PIN30_GPIO_IDX = 0 \
-             FSL_FEATURE_LLWU_PIN30_GPIO_PIN = 0 \
-             FSL_FEATURE_LLWU_HAS_EXTERNAL_PIN31 = 0 \
-             FSL_FEATURE_LLWU_PIN31_GPIO_IDX = 0 \
-             FSL_FEATURE_LLWU_PIN31_GPIO_PIN = 0 \
-             FSL_FEATURE_LLWU_HAS_INTERNAL_MODULE0 = 1 \
-             FSL_FEATURE_LLWU_HAS_INTERNAL_MODULE1 = 1 \
-             FSL_FEATURE_LLWU_HAS_INTERNAL_MODULE2 = 1 \
-             FSL_FEATURE_LLWU_HAS_INTERNAL_MODULE3 = 1 \
-             FSL_FEATURE_LLWU_HAS_INTERNAL_MODULE4 = 1 \
-             FSL_FEATURE_LLWU_HAS_INTERNAL_MODULE5 = 1 \
-             FSL_FEATURE_LLWU_HAS_INTERNAL_MODULE6 = 0 \
-             FSL_FEATURE_LLWU_HAS_INTERNAL_MODULE7 = 0 \
-             FSL_FEATURE_LLWU_HAS_VERID = 0 \
-             FSL_FEATURE_LLWU_HAS_PARAM = 0 \
-             FSL_FEATURE_LLWU_REG_BITWIDTH = 8 \
-             FSL_FEATURE_LLWU_HAS_DMA_ENABLE_REG = 0 \
-             FSL_FEATURE_LPTMR_HAS_SHARED_IRQ_HANDLER = 0 \
-             FSL_FEATURE_LPTMR_CNR_WIDTH_IS_32B = 0 \
-             FSL_FEATURE_LPTMR_HAS_CSR_TDRE = 0 \
-             FSL_FEATURE_LPTMR_HAS_NO_PRESCALER_CLOCK_SOURCE_0_SUPPORT = 0 \
-             FSL_FEATURE_LPTMR_HAS_NO_PRESCALER_CLOCK_SOURCE_1_SUPPORT = 0 \
-             FSL_FEATURE_LPTMR_HAS_NO_PRESCALER_CLOCK_SOURCE_2_SUPPORT = 0 \
-             FSL_FEATURE_LPTMR_HAS_NO_PRESCALER_CLOCK_SOURCE_3_SUPPORT = 0 \
-             FSL_FEATURE_LPUART_HAS_IRQ_EXTENDED_FUNCTIONS = 0 \
-             FSL_FEATURE_LPUART_HAS_LOW_POWER_UART_SUPPORT = 1 \
-             FSL_FEATURE_LPUART_HAS_EXTENDED_DATA_REGISTER_FLAGS = 1 \
-             FSL_FEATURE_LPUART_HAS_MODIR = 1 \
-             FSL_FEATURE_LPUART_HAS_MODEM_SUPPORT = 1 \
-             FSL_FEATURE_LPUART_HAS_IR_SUPPORT = 1 \
-             FSL_FEATURE_LPUART_HAS_STOP_BIT_CONFIG_SUPPORT = 1 \
-             FSL_FEATURE_LPUART_HAS_10BIT_DATA_SUPPORT = 1 \
-             FSL_FEATURE_LPUART_HAS_7BIT_DATA_SUPPORT = 0 \
-             FSL_FEATURE_LPUART_HAS_BAUD_RATE_FINE_ADJUST_SUPPORT = 0 \
-             FSL_FEATURE_LPUART_HAS_BAUD_RATE_OVER_SAMPLING_SUPPORT = 1 \
-             FSL_FEATURE_LPUART_HAS_RX_RESYNC_SUPPORT = 1 \
-             FSL_FEATURE_LPUART_HAS_BOTH_EDGE_SAMPLING_SUPPORT = 1 \
-             FSL_FEATURE_LPUART_IS_SCI = 1 \
-             FSL_FEATURE_LPUART_HAS_ADDRESS_MATCHING = 1 \
-             FSL_FEATURE_LPUART_HAS_DMA_ENABLE = 1 \
-             FSL_FEATURE_LPUART_HAS_DMA_SELECT = 0 \
-             FSL_FEATURE_LPUART_HAS_BIT_ORDER_SELECT = 1 \
-             FSL_FEATURE_LPUART_HAS_SMART_CARD_SUPPORT = 0 \
-             FSL_FEATURE_LPUART_HAS_IMPROVED_SMART_CARD_SUPPORT = 0 \
-             FSL_FEATURE_LPUART_HAS_LOCAL_OPERATION_NETWORK_SUPPORT = 0 \
-             FSL_FEATURE_LPUART_HAS_32BIT_REGISTERS = 1 \
-             FSL_FEATURE_LPUART_HAS_LIN_BREAK_DETECT = 1 \
-             FSL_FEATURE_LPUART_HAS_WAIT_MODE_OPERATION = 0 \
-             FSL_FEATURE_LPUART_HAS_SEPARATE_RX_TX_IRQ = 0 \
-             FSL_FEATURE_LPUART_HAS_PARAM = 0 \
-             FSL_FEATURE_LPUART_HAS_VERID = 0 \
-             FSL_FEATURE_LPUART_HAS_GLOBAL = 0 \
-             FSL_FEATURE_LPUART_HAS_PINCFG = 0 \
-             FSL_FEATURE_LPUART_IS_LPFLEXCOMM = 0 \
-             FSL_FEATURE_LPUART_HAS_MCR = 0 \
-             FSL_FEATURE_LPUART_HAS_HDCR = 0 \
-             FSL_FEATURE_LPUART_HAS_TIMEOUT = 0 \
-             FSL_FEATURE_LPUART_HAS_CTRL_SWAP = 0 \
-             FSL_FEATURE_LPUART_HAS_FIFO = 0 \
-             FSL_FEATURE_LPUART_HAS_MODIR_RTSWATER = 0 \
-             FSL_FEATURE_LPUART_HAS_SHARED_IRQ0_IRQ1 = 0 \
-             FSL_FEATURE_MCG_PLL_PRDIV_BASE = 0 \
-             FSL_FEATURE_MCG_PLL_PRDIV_MAX = 0 \
-             FSL_FEATURE_MCG_PLL_VDIV_BASE = 0 \
-             FSL_FEATURE_MCG_PLL_REF_MIN = 0 \
-             FSL_FEATURE_MCG_PLL_REF_MAX = 0 \
-             FSL_FEATURE_MCG_HAS_PLL_INTERNAL_DIV = 0 \
-             FSL_FEATURE_MCG_FRDIV_SUPPORT_1280 = 1 \
-             FSL_FEATURE_MCG_FRDIV_SUPPORT_1536 = 1 \
-             FSL_FEATURE_MCG_FFCLK_DIV = 1 \
-             FSL_FEATURE_MCG_HAS_PLL_EXTRA_DIV = 0 \
-             FSL_FEATURE_MCG_HAS_RTC_32K = 1 \
-             FSL_FEATURE_MCG_HAS_PLL1 = 0 \
-             FSL_FEATURE_MCG_HAS_IRC_48M = 0 \
-             FSL_FEATURE_MCG_HAS_OSC1 = 0 \
-             FSL_FEATURE_MCG_HAS_FCFTRIM = 0 \
-             FSL_FEATURE_MCG_HAS_LOLRE = 1 \
-             FSL_FEATURE_MCG_USE_OSCSEL = 1 \
-             FSL_FEATURE_MCG_USE_PLLREFSEL = 0 \
-             FSL_FEATURE_MCG_USE_SYSTEM_CLOCK = 0 \
-             FSL_FEATURE_MCG_HAS_PLL = 1 \
-             FSL_FEATURE_MCG_HAS_PLL_PRDIV = 0 \
-             FSL_FEATURE_MCG_HAS_PLL_VDIV = 0 \
-             FSL_FEATURE_MCG_HAS_PLL_OSC_INDEX = 1 \
-             FSL_FEATURE_MCG_HAS_FLL = 1 \
-             FSL_FEATURE_MCG_HAS_EXTERNAL_PLL = 0 \
-             FSL_FEATURE_MCG_HAS_EXT_REF_LOW_POWER_CONTROL = 1 \
-             FSL_FEATURE_MCG_HAS_PLL_FLL_SELECTION = 1 \
-             FSL_FEATURE_MCG_HAS_PLL_OUTPUT_SELECTION = 0 \
-             FSL_FEATURE_MCG_HAS_AUTO_TRIM_MACHINE = 1 \
-             FSL_FEATURE_MCG_HAS_EXTERNAL_CLOCK_MONITOR = 1 \
-             FSL_FEATURE_MCG_HAS_LOW_FREQ_IRC = 0 \
-             FSL_FEATURE_MCG_HAS_HIGH_FREQ_IRC = 0 \
-             FSL_FEATURE_MCG_HAS_PLL_INTERNAL_MODE = 1 \
-             FSL_FEATURE_MCG_RESET_IS_BLPI = 1 \
+             FSL_FEATURE_SOC_SCT_COUNT = 1 \
+             FSL_FEATURE_SOC_SDIF_COUNT = 1 \
+             FSL_FEATURE_SOC_SMARTCARD_COUNT = 2 \
+             FSL_FEATURE_SOC_SPI_COUNT = 10 \
+             FSL_FEATURE_SOC_SPIFI_COUNT = 1 \
+             FSL_FEATURE_SOC_SYSCON_COUNT = 1 \
+             FSL_FEATURE_SOC_USART_COUNT = 10 \
+             FSL_FEATURE_SOC_USB_COUNT = 1 \
+             FSL_FEATURE_SOC_USBFSH_COUNT = 1 \
+             FSL_FEATURE_SOC_USBHSD_COUNT = 1 \
+             FSL_FEATURE_SOC_USBHSH_COUNT = 1 \
+             FSL_FEATURE_SOC_UTICK_COUNT = 1 \
+             FSL_FEATURE_SOC_WWDT_COUNT = 1 \
+             FSL_FEATURE_ADC_HAS_NO_INSEL = 0 \
+             FSL_FEATURE_ADC_HAS_CTRL_ASYNMODE = 1 \
+             FSL_FEATURE_ADC_HAS_CTRL_RESOL = 1 \
+             FSL_FEATURE_ADC_HAS_CTRL_BYPASSCAL = 1 \
+             FSL_FEATURE_ADC_HAS_CTRL_TSAMP = 1 \
+             FSL_FEATURE_ADC_HAS_CTRL_LPWRMODE = 0 \
+             FSL_FEATURE_ADC_HAS_CTRL_CALMODE = 0 \
+             FSL_FEATURE_ADC_HAS_STARTUP_REG = 1 \
+             FSL_FEATURE_ADC_HAS_TRIM_REG = 0 \
+             FSL_FEATURE_ADC_HAS_CALIB_REG = 1 \
+             FSL_FEATURE_CAN_SUPPORT_CANFD = 1 \
+             FSL_FEATURE_CTIMER_HAS_NO_INPUT_CAPTURE = 0 \
+             FSL_FEATURE_CTIMER_HAS_NO_IR_CR2INT = 0 \
+             FSL_FEATURE_CTIMER_HAS_IR_CR3INT = 1 \
+             FSL_FEATURE_CTIMER_HAS_NO_CCR_CAP2 = 0 \
+             FSL_FEATURE_CTIMER_HAS_CCR_CAP3 = 1 \
+             FSL_FEATURE_CTIMER_HAS_MSR = 1 \
+             FSL_FEATURE_DMA_NUMBER_OF_CHANNELS = 30 \
+             FSL_FEATURE_DMA_DESCRIPTOR_ALIGN_SIZE = 512 \
+             FSL_FEATURE_DMA_LINK_DESCRIPTOR_ALIGN_SIZE = 16 \
+             FSL_FEATURE_DMIC_CHANNEL_NUM = 2 \
+             FSL_FEATURE_DMIC_IO_HAS_STEREO_2_4_6 = 0 \
+             FSL_FEATURE_DMIC_IO_HAS_NO_BYPASS = 0 \
+             FSL_FEATURE_DMIC_CHANNEL_HAS_SIGNEXTEND = 0 \
+             FSL_FEATURE_DMIC_HAS_NO_IOCFG = 0 \
+             FSL_FEATURE_DMIC_HAS_DECIMATOR_RESET_FUNC = 0 \
+             FSL_FEATURE_DMIC_HAS_GLOBAL_SYNC_FUNC = 0 \
+             FSL_FEATURE_EEPROM_PAGE_COUNT = 128 \
+             FSL_FEATURE_EEPROM_PROGRAM_CMD = 6 \
+             FSL_FEATURE_EEPROM_INTERNAL_FREQ = 1500000 \
+             FSL_FEATURE_FLEXCOMM0_USART_INDEX = 0 \
+             FSL_FEATURE_FLEXCOMM0_SPI_INDEX = 0 \
+             FSL_FEATURE_FLEXCOMM0_I2C_INDEX = 0 \
+             FSL_FEATURE_FLEXCOMM1_USART_INDEX = 1 \
+             FSL_FEATURE_FLEXCOMM1_SPI_INDEX = 1 \
+             FSL_FEATURE_FLEXCOMM1_I2C_INDEX = 1 \
+             FSL_FEATURE_FLEXCOMM2_USART_INDEX = 2 \
+             FSL_FEATURE_FLEXCOMM2_SPI_INDEX = 2 \
+             FSL_FEATURE_FLEXCOMM2_I2C_INDEX = 2 \
+             FSL_FEATURE_FLEXCOMM3_USART_INDEX = 3 \
+             FSL_FEATURE_FLEXCOMM3_SPI_INDEX = 3 \
+             FSL_FEATURE_FLEXCOMM3_I2C_INDEX = 3 \
+             FSL_FEATURE_FLEXCOMM4_USART_INDEX = 4 \
+             FSL_FEATURE_FLEXCOMM4_SPI_INDEX = 4 \
+             FSL_FEATURE_FLEXCOMM4_I2C_INDEX = 4 \
+             FSL_FEATURE_FLEXCOMM5_USART_INDEX = 5 \
+             FSL_FEATURE_FLEXCOMM5_SPI_INDEX = 5 \
+             FSL_FEATURE_FLEXCOMM5_I2C_INDEX = 5 \
+             FSL_FEATURE_FLEXCOMM6_USART_INDEX = 6 \
+             FSL_FEATURE_FLEXCOMM6_SPI_INDEX = 6 \
+             FSL_FEATURE_FLEXCOMM6_I2C_INDEX = 6 \
+             FSL_FEATURE_FLEXCOMM6_I2S_INDEX = 0 \
+             FSL_FEATURE_FLEXCOMM7_USART_INDEX = 7 \
+             FSL_FEATURE_FLEXCOMM7_SPI_INDEX = 7 \
+             FSL_FEATURE_FLEXCOMM7_I2C_INDEX = 7 \
+             FSL_FEATURE_FLEXCOMM7_I2S_INDEX = 1 \
+             FSL_FEATURE_FLEXCOMM8_USART_INDEX = 8 \
+             FSL_FEATURE_FLEXCOMM8_SPI_INDEX = 8 \
+             FSL_FEATURE_FLEXCOMM8_I2C_INDEX = 8 \
+             FSL_FEATURE_FLEXCOMM9_USART_INDEX = 9 \
+             FSL_FEATURE_FLEXCOMM9_SPI_INDEX = 9 \
+             FSL_FEATURE_FLEXCOMM9_I2C_INDEX = 9 \
+             FSL_FEATURE_I2S_SUPPORT_SECONDARY_CHANNEL = 1 \
+             FSL_FEATURE_FLEXCOMM_I2S_HAS_DMIC_INTERCONNECTION = 1 \
+             FSL_FEATURE_IOCON_FUNC_FIELD_WIDTH = 4 \
+             FSL_FEATURE_MRT_NUMBER_OF_CHANNELS = 4 \
              FSL_FEATURE_INTERRUPT_IRQ_MIN = -14 \
-             FSL_FEATURE_INTERRUPT_IRQ_MAX = 31 \
-             FSL_FEATURE_OSC_HAS_OSC1 = 0 \
-             FSL_FEATURE_OSC_HAS_OSC0 = 0 \
-             FSL_FEATURE_OSC_HAS_OSC = 0 \
-             FSL_FEATURE_OSC_OSC_COUNT = 0 \
-             FSL_FEATURE_OSC_HAS_EXT_REF_CLOCK_DIVIDER = 0 \
-             FSL_FEATURE_PDB_HAS_DAC = 0 \
-             FSL_FEATURE_PDB_HAS_SHARED_IRQ_HANDLER = 0 \
-             FSL_FEATURE_PDB_CHANNEL_COUNT = 1 \
-             FSL_FEATURE_PDB_CHANNEL_PRE_TRIGGER_COUNT = 4 \
-             FSL_FEATURE_PDB_DAC_INTERVAL_TRIGGER_COUNT = 0 \
-             FSL_FEATURE_PDB_PULSE_OUT_COUNT = 1 \
-             FSL_FEATURE_PIT_TIMER_COUNT = 2 \
-             FSL_FEATURE_PIT_HAS_LIFETIME_TIMER = 1 \
-             FSL_FEATURE_PIT_HAS_CHAIN_MODE = 1 \
-             FSL_FEATURE_PIT_HAS_SHARED_IRQ_HANDLER = 1 \
-             FSL_FEATURE_PIT_HAS_MDIS = 1 \
-             FSL_FEATURE_PIT_HAS_ERRATA_7914 = 0 \
-             FSL_FEATURE_PMC_HAS_BGEN = 1 \
-             FSL_FEATURE_PMC_HAS_BGBE = 1 \
-             FSL_FEATURE_PMC_HAS_BGBDS = 0 \
-             FSL_FEATURE_PMC_HAS_LVDV = 1 \
-             FSL_FEATURE_PMC_HAS_LVWV = 1 \
-             FSL_FEATURE_PMC_HAS_LPO = 0 \
-             FSL_FEATURE_PMC_HAS_VLPO = 0 \
-             FSL_FEATURE_PMC_HAS_ACKISO = 1 \
-             FSL_FEATURE_PMC_HAS_REGFPM = 0 \
-             FSL_FEATURE_PMC_HAS_REGONS = 1 \
-             FSL_FEATURE_PMC_HAS_HVDSC1 = 0 \
-             FSL_FEATURE_PMC_HAS_PARAM = 0 \
-             FSL_FEATURE_PMC_HAS_VERID = 0 \
-             FSL_FEATURE_PORT_HAS_PIN_CONTROL_LOCK = 1 \
-             FSL_FEATURE_PORT_HAS_OPEN_DRAIN = 1 \
-             FSL_FEATURE_PORT_HAS_DIGITAL_FILTER = 1 \
-             FSL_FEATURE_PORT_HAS_DMA_REQUEST = 1 \
-             FSL_FEATURE_PORT_HAS_PULL_SELECTION = 1 \
-             FSL_FEATURE_PORT_HAS_PULL_ENABLE = 1 \
-             FSL_FEATURE_PORT_HAS_SLEW_RATE = 1 \
-             FSL_FEATURE_PORT_HAS_PASSIVE_FILTER = 0 \
-             FSL_FEATURE_PORT_HAS_DRIVE_STRENGTH = 0 \
-             FSL_FEATURE_PORT_HAS_DRIVE_STRENGTH_REGISTER = 0 \
-             FSL_FEATURE_PORT_HAS_GLITCH_FILTER = 0 \
-             FSL_FEATURE_PORT_PCR_MUX_WIDTH = 3 \
-             FSL_FEATURE_PORT_HAS_INTERRUPT_VECTOR = 1 \
-             FSL_FEATURE_PORT_HAS_MULTIPLE_IRQ_CONFIG = 0 \
-             FSL_FEATURE_PORT_HAS_IRQC_FLAG = 0 \
-             FSL_FEATURE_PORT_HAS_IRQC_TRIGGER = 0 \
-             FSL_FEATURE_RCM_HAS_LOL = 1 \
-             FSL_FEATURE_RCM_HAS_LOC = 1 \
-             FSL_FEATURE_RCM_HAS_JTAG = 0 \
-             FSL_FEATURE_RCM_HAS_EZPORT = 0 \
-             FSL_FEATURE_RCM_HAS_EZPMS = 0 \
-             FSL_FEATURE_RCM_HAS_BOOTROM = 0 \
-             FSL_FEATURE_RCM_HAS_SSRS = 1 \
-             FSL_FEATURE_RCM_HAS_VERID = 0 \
-             FSL_FEATURE_RCM_HAS_PARAM = 0 \
-             FSL_FEATURE_RCM_HAS_SRIE = 0 \
-             FSL_FEATURE_RCM_REG_WIDTH = 8 \
-             FSL_FEATURE_RCM_HAS_CORE1 = 0 \
-             FSL_FEATURE_RCM_HAS_MDM_AP = 1 \
-             FSL_FEATURE_RCM_HAS_WAKEUP = 1 \
-             FSL_FEATURE_RTC_HAS_TAMPER_DIRECTION = 0 \
-             FSL_FEATURE_RTC_HAS_TAMPER_QUEUE = 0 \
-             FSL_FEATURE_RTC_IS_IRTC = 1 \
-             FSL_FEATURE_SIM_USBFS_USE_SPECIAL_DIVIDER = 0 \
-             FSL_FEATURE_SIM_PLLCLK_USE_SPECIAL_DIVIDER = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_RAMSIZE = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_OSC32K_OUT = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_OSC32K_SELECTION = 1 \
-             FSL_FEATURE_SIM_OPT_OSC32K_SELECTION_WIDTH = 2 \
-             FSL_FEATURE_SIM_OPT_HAS_RTC_CLOCK_OUT_SELECTION = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_USB_VOLTAGE_REGULATOR = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_USB_PHY = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_PTD7PAD = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_FBSL = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_PCR = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_MCC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_ODE = 0 \
-             FSL_FEATURE_SIM_OPT_LPUART_COUNT = 0 \
-             FSL_FEATURE_SIM_OPT_UART_COUNT = 4 \
-             FSL_FEATURE_SIM_OPT_HAS_UART0_ODE = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_UART1_ODE = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_UART2_ODE = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_LPUART0_ODE = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_LPUART1_ODE = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_CMTUARTPAD = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_LPUART0_TX_SRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_LPUART0_RX_SRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_LPUART1_TX_SRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_LPUART1_RX_SRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_UART0_TX_SRC = 0 \
-             FSL_FEATURE_SIM_OPT_UART0_TX_SRC_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_UART0_RX_SRC = 0 \
-             FSL_FEATURE_SIM_OPT_UART0_RX_SRC_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_UART1_TX_SRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_UART1_RX_SRC = 0 \
-             FSL_FEATURE_SIM_OPT_UART1_RX_SRC_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_FTM = 0 \
-             FSL_FEATURE_SIM_OPT_FTM_COUNT = 0 \
-             FSL_FEATURE_SIM_OPT_FTM_TRIGGER_COUNT = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_FTM0_TRIGGER = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_FTM3_TRIGGER = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_FTM1_CHANNELS = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_FTM2_CHANNELS = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_FTM3_CHANNELS = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_FTM2_CHANNEL1 = 0 \
-             FSL_FEATURE_SIM_OPT_FTM0_FAULT_COUNT = 0 \
-             FSL_FEATURE_SIM_OPT_FTM1_FAULT_COUNT = 0 \
-             FSL_FEATURE_SIM_OPT_FTM2_FAULT_COUNT = 0 \
-             FSL_FEATURE_SIM_OPT_FTM3_FAULT_COUNT = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_FTM_TRIGGER_SYNC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_FTM_CHANNELS_OUTPUT_SRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_TPM = 0 \
-             FSL_FEATURE_SIM_OPT_MAX_TPM_INDEX = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_TPM0 = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_TPM0_CLK_SEL = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_TPM_CHANNELS_CONFIG_IN_SOPT4_REG = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_TPM1_CH0_SRC_SELECTION = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_TPM1_CLK_SEL = 0 \
-             FSL_FEATURE_SIM_OPT_TPM1_CH0_SRC_SELECTION_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_TPM2_CH0_SRC_SELECTION = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_TPM2_CLK_SEL = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_PLL_FLL_SELECTION = 0 \
-             FSL_FEATURE_SIM_OPT_PLL_FLL_SELECTION_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_NFCSRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_ESDHCSRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_SDHCSRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_LCDCSRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_TIMESRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_RMIISRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_USBSRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_USBFSRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_USBHSRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_LPUARTSRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_LPUART0SRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_LPUART1SRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_FLEXIOSRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_UART0SRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_TPMSRC = 0 \
-             FSL_FEATURE_SIM_OPT_HAS_TRACE_CLKSEL = 0 \
-             FSL_FEATURE_SIM_OPT_ADC_COUNT = 0 \
-             FSL_FEATURE_SIM_OPT_ADC0ALTTRGEN_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_ADC1ALTTRGEN_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_ADC2ALTTRGEN_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_ADC3ALTTRGEN_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_HSADC0AALTTRGEN_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_HSADC1AALTTRGEN_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_ADCAALTTRGEN_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_HSADC0BALTTRGEN_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_HSADC1BALTTRGEN_WIDTH = 0 \
-             FSL_FEATURE_SIM_OPT_ADCBALTTRGEN_WIDTH = 0 \
-             FSL_FEATURE_SIM_DIVIDER_HAS_OUTDIV2 = 0 \
-             FSL_FEATURE_SIM_DIVIDER_HAS_OUTDIV3 = 0 \
-             FSL_FEATURE_SIM_DIVIDER_HAS_OUTDIV4 = 0 \
-             FSL_FEATURE_SIM_DIVIDER_OUTDIV4_WIDTH = 0 \
-             FSL_FEATURE_SIM_DIVIDER_HAS_OUTDIV5 = 0 \
-             FSL_FEATURE_SIM_DIVIDER_HAS_USBDIV = 0 \
-             FSL_FEATURE_SIM_DIVIDER_HAS_USBFSDIV = 0 \
-             FSL_FEATURE_SIM_DIVIDER_HAS_USBHSDIV = 0 \
-             FSL_FEATURE_SIM_DIVIDER_HAS_PLLFLLDIV = 0 \
-             FSL_FEATURE_SIM_DIVIDER_HAS_LCDCDIV = 0 \
-             FSL_FEATURE_SIM_DIVIDER_HAS_TRACEDIV = 0 \
-             FSL_FEATURE_SIM_DIVIDER_HAS_NFCDIV = 0 \
-             FSL_FEATURE_SIM_SDID_HAS_FAMILYID = 0 \
-             FSL_FEATURE_SIM_SDID_HAS_FAMID = 1 \
-             FSL_FEATURE_SIM_SDID_HAS_SUBFAMID = 1 \
-             FSL_FEATURE_SIM_SDID_HAS_SERIESID = 1 \
-             FSL_FEATURE_SIM_SDID_HAS_DIEID = 1 \
-             FSL_FEATURE_SIM_SDID_HAS_SRAMSIZE = 1 \
-             FSL_FEATURE_SIM_FCFG_HAS_FLASHDOZE = 1 \
-             FSL_FEATURE_SIM_FCFG_HAS_FLASHDIS = 1 \
-             FSL_FEATURE_SIM_FCFG_HAS_FTFDIS = 0 \
-             FSL_FEATURE_SIM_FCFG_HAS_NVMSIZE = 0 \
-             FSL_FEATURE_SIM_FCFG_HAS_EESIZE = 0 \
-             FSL_FEATURE_SIM_FCFG_HAS_DEPART = 0 \
-             FSL_FEATURE_SIM_FCFG_HAS_MAXADDR0 = 0 \
-             FSL_FEATURE_SIM_FCFG_HAS_MAXADDR1 = 0 \
-             FSL_FEATURE_SIM_FCFG_HAS_MAXADDR01 = 0 \
-             FSL_FEATURE_SIM_FCFG_HAS_MAXADDR23 = 0 \
-             FSL_FEATURE_SIM_FCFG_HAS_PFLSH = 0 \
-             FSL_FEATURE_SIM_FCFG_HAS_PFLSH_SWAP = 0 \
-             FSL_FEATURE_SIM_HAS_MISC_CONTROLS = 0 \
-             FSL_FEATURE_SIM_HAS_COP_WATCHDOG = 0 \
-             FSL_FEATURE_SIM_HAS_COP_STOP = 0 \
-             FSL_FEATURE_SIM_HAS_SCGC_LLWU = 0 \
-             FSL_FEATURE_SIM_HAS_UIDH = 1 \
-             FSL_FEATURE_SIM_HAS_UIDM = 0 \
-             FSL_FEATURE_SMC_HAS_PSTOPO = 1 \
-             FSL_FEATURE_SMC_HAS_LPOPO = 0 \
-             FSL_FEATURE_SMC_HAS_PORPO = 1 \
-             FSL_FEATURE_SMC_HAS_LPWUI = 0 \
-             FSL_FEATURE_SMC_HAS_LLS_SUBMODE = 0 \
-             FSL_FEATURE_SMC_USE_VLLSCTRL_REG = 0 \
-             FSL_FEATURE_SMC_USE_STOPCTRL_VLLSM = 1 \
-             FSL_FEATURE_SMC_HAS_RAM2_POWER_OPTION = 0 \
-             FSL_FEATURE_SMC_HAS_HIGH_SPEED_RUN_MODE = 0 \
-             FSL_FEATURE_SMC_HAS_LOW_LEAKAGE_STOP_MODE = 0 \
-             FSL_FEATURE_SMC_HAS_VERY_LOW_LEAKAGE_STOP_MODE = 1 \
-             FSL_FEATURE_SMC_HAS_SUB_STOP_MODE = 1 \
-             FSL_FEATURE_SMC_HAS_STOP_SUBMODE0 = 1 \
-             FSL_FEATURE_SMC_HAS_STOP_SUBMODE1 = 1 \
-             FSL_FEATURE_SMC_HAS_STOP_SUBMODE2 = 1 \
-             FSL_FEATURE_SMC_HAS_PARAM = 0 \
-             FSL_FEATURE_SMC_HAS_VERID = 0 \
-             FSL_FEATURE_SMC_HAS_PMCTRL_STOPA = 1 \
-             FSL_FEATURE_SMC_HAS_SRS_TAMPER = 0 \
-             FSL_FEATURE_SMC_HAS_SRS_SECVIO = 0 \
-             FSL_FEATURE_SMC_REG_WIDTH = 8 \
-             FSL_FEATURE_SPI_HAS_FIFO = 1 \
-             FSL_FEATURE_SPI_HAS_DMA_SUPPORT = 1 \
-             FSL_FEATURE_SPI_MAX_DATA_WIDTH = 16 \
-             FSL_FEATURE_SPI_DATA_REGISTER_HAS_POSTFIX = 1 \
-             FSL_FEATURE_SPI_HAS_SEPARATE_TXDATA_CMD_FIFO = 0 \
-             FSL_FEATURE_SPI_HAS_SHARED_IRQ0_IRQ1 = 1 \
-             FSL_FEATURE_SPI_16BIT_TRANSFERS = 1 \
-             FSL_FEATURE_SYSMPU_DESCRIPTOR_COUNT = 8 \
-             FSL_FEATURE_SYSMPU_HAS_PROCESS_IDENTIFIER = 1 \
-             FSL_FEATURE_SYSMPU_SLAVE_COUNT = 2 \
-             FSL_FEATURE_SYSMPU_MASTER_COUNT = 3 \
-             FSL_FEATURE_SYSTICK_HAS_EXT_REF = 1 \
-             FSL_FEATURE_SYSTICK_EXT_REF_CORE_DIV = 16 \
-             FSL_FEATURE_UART_HAS_IRQ_EXTENDED_FUNCTIONS = 1 \
-             FSL_FEATURE_UART_HAS_LOW_POWER_UART_SUPPORT = 0 \
-             FSL_FEATURE_UART_HAS_EXTENDED_DATA_REGISTER_FLAGS = 1 \
-             FSL_FEATURE_UART_HAS_FIFO = 1 \
-             FSL_FEATURE_UART_HAS_MODEM_SUPPORT = 1 \
-             FSL_FEATURE_UART_HAS_IR_SUPPORT = 0 \
-             FSL_FEATURE_UART_HAS_STOP_BIT_CONFIG_SUPPORT = 0 \
-             FSL_FEATURE_UART_HAS_10BIT_DATA_SUPPORT = 1 \
-             FSL_FEATURE_UART_HAS_BAUD_RATE_FINE_ADJUST_SUPPORT = 1 \
-             FSL_FEATURE_UART_HAS_BAUD_RATE_OVER_SAMPLING_SUPPORT = 0 \
-             FSL_FEATURE_UART_HAS_RX_RESYNC_SUPPORT = 0 \
-             FSL_FEATURE_UART_HAS_BOTH_EDGE_SAMPLING_SUPPORT = 0 \
-             FSL_FEATURE_UART_IS_SCI = 0 \
-             FSL_FEATURE_UART_HAS_ADDRESS_MATCHING = 1 \
-             FSL_FEATURE_UART_HAS_DMA_ENABLE = 0 \
-             FSL_FEATURE_UART_HAS_DMA_SELECT = 1 \
-             FSL_FEATURE_UART_HAS_BIT_ORDER_SELECT = 1 \
-             FSL_FEATURE_UART_HAS_SMART_CARD_SUPPORT = 1 \
-             FSL_FEATURE_UART_HAS_IMPROVED_SMART_CARD_SUPPORT = 1 \
-             FSL_FEATURE_UART_HAS_LOCAL_OPERATION_NETWORK_SUPPORT = 0 \
-             FSL_FEATURE_UART_HAS_32BIT_REGISTERS = 0 \
-             FSL_FEATURE_UART_HAS_LIN_BREAK_DETECT = 0 \
-             FSL_FEATURE_UART_HAS_WAIT_MODE_OPERATION = 0 \
-             FSL_FEATURE_UART_HAS_SHARED_IRQ0_IRQ1_IRQ2_IRQ3 = 1 \
-             FSL_FEATURE_VREF_HAS_CHOP_OSC = 1 \
-             FSL_FEATURE_VREF_HAS_COMPENSATION = 1 \
-             FSL_FEATURE_VREF_MODE_LV_TYPE = 1 \
-             FSL_FEATURE_VREF_HAS_LOW_REFERENCE = 1 \
-             FSL_FEATURE_VREF_HAS_TRM4 = 0 \
-             FSL_FEATURE_WDOG_HAS_WATCHDOG = 1 \
-             FSL_FEATURE_WDOG_HAS_WAITEN = 0 \
-             FSL_FEATURE_XBAR_INTERRUPT_COUNT = 4
+             FSL_FEATURE_INTERRUPT_IRQ_MAX = 105 \
+             FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS = 8 \
+             FSL_FEATURE_RTC_HAS_NO_RESET = 1 \
+             FSL_FEATURE_SCT_NUMBER_OF_EVENTS = 10 \
+             FSL_FEATURE_SCT_NUMBER_OF_STATES = 10 \
+             FSL_FEATURE_SCT_NUMBER_OF_MATCH_CAPTURE = 10 \
+             FSL_FEATURE_SCT_NUMBER_OF_OUTPUTS = 10 \
+             FSL_FEATURE_SCT_WRITE_ZERO_ASSERT_RESET = 0 \
+             FSL_FEATURE_SDIF_FIFO_DEPTH_64_32BITS = 64 \
+             FSL_FEATURE_SDIF_INTERNAL_DMA_MAX_BUFFER_SIZE = 4096 \
+             FSL_FEATURE_SDIF_MAX_SOURCE_CLOCK = 52000000 \
+             FSL_FEATURE_SPI_SSEL_COUNT = 4 \
+             FSL_FEATURE_SPIFI_DATALEN_CTRL = 1 \
+             FSL_FEATURE_SYSCON_IAP_REINVOKE_ISP_PARAM_POINTER = 1 \
+             FSL_FEATURE_SYSCON_FLASH_PAGE_SIZE_BYTES = 256 \
+             FSL_FEATURE_SYSCON_FLASH_SECTOR_SIZE_BYTES = 32768 \
+             FSL_FEATURE_SYSCON_FLASH_SIZE_BYTES = 524288 \
+             FSL_FEATURE_IAP_HAS_FLASH_FUNCTION = 1 \
+             FSL_FEATURE_IAP_HAS_EEPROM_FUNCTION = 1 \
+             FSL_FEATURE_IAP_HAS_FLASH_SIGNATURE_READ = 0 \
+             FSL_FEATURE_IAP_HAS_FLASH_EXTENDED_SIGNATURE_READ = 1 \
+             FSL_FEATURE_RIT_HAS_NO_RESET = 1 \
+             FSL_FEATURE_SYSTICK_HAS_EXT_REF = 0 \
+             FSL_FEATURE_SYSTICK_EXT_REF_CORE_DIV = 0 \
+             FSL_FEATURE_USB_EP_NUM = 5 \
+             FSL_FEATURE_USBHSD_EP_NUM = 6 \
+             FSL_FEATURE_USBHSH_HAS_TURNAROUND_TIMEOUT = 0 \
+             FSL_FEATURE_WWDT_HAS_NO_OSCILLATOR_LOCK = 0 \
+             FSL_FEATURE_WWDT_HAS_NO_RESET = 1 \
+             FSL_FEATURE_WWDT_HAS_LPOSC_CLOCK_SOURCE = 0 \
+             FSL_FEATURE_WWDT_WDTRESET_FROM_PMC = 0
 
 PREDEFINED += DOXYGEN_OUTPUT=1
 

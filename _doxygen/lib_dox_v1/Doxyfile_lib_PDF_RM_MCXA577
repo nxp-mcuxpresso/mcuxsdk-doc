@@ -735,13 +735,18 @@ WARN_LOGFILE           =
 
 INPUT = @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/doxygen/romapi.dox \
         @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/fsl_romapi.h \
+        @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/fsl_romapi_tree.h \
         @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/flash/fsl_flash.h \
         @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/flash/fsl_flexspi_nor_flash.h \
         @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/flash/fsl_lpspi_flash.h \
+        @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/fsl_romapi_tree.h \
         @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/nboot/fsl_nboot_hal.h \
         @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/nboot/fsl_nboot.h \
+        @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/fsl_romapi_tree.h \
         @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/runbootloader/fsl_runbootloader.h \
+        @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/fsl_romapi_tree.h \
         @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/kbapi/fsl_kbapi.h \
+        @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/fsl_romapi_tree.h \
         @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/doxygen/clock.dox \
         @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/fsl_clock.h \
         @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/fsl_edma_soc.h \
@@ -2154,6 +2159,7 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_SOC_LPTMR_COUNT = 1 \
              FSL_FEATURE_SOC_LPUART_COUNT = 6 \
              FSL_FEATURE_SOC_MCX_ENET_COUNT = 1 \
+             FSL_FEATURE_SOC_MPU_COUNT = 1 \
              FSL_FEATURE_SOC_OSTIMER_COUNT = 1 \
              FSL_FEATURE_SOC_PKC_COUNT = 1 \
              FSL_FEATURE_SOC_PORT_COUNT = 6 \
@@ -2256,7 +2262,7 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_LPCMP_HAS_WINDOW_CONTROL = 1 \
              FSL_FEATURE_LPCMP_HAS_NO_CCR0_CMP_STOP_EN = 0 \
              FSL_FEATURE_LPCMP_HAS_RRCR0_RR_CLK_SEL = 1 \
-             FSL_FEATURE_LPCMP_HAS_RRCR0_RR_TRG_SEL = 0 \
+             FSL_FEATURE_LPCMP_HAS_RRCR0_RR_TRG_SEL = 1 \
              FSL_FEATURE_LPCMP_HAS_RRCR0_RR_SAMPLE_CNT = 1 \
              FSL_FEATURE_LPCMP_HAS_RRCR0_RR_SAMPLE_THRESHOLD = 1 \
              FSL_FEATURE_LPCMP_HAS_CCR2_INPSEL = 0 \
@@ -2266,6 +2272,7 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_LPCMP_HAS_CCR0_LINKEN = 0 \
              FSL_FEATURE_LPCMP_HAS_RRCR2 = 1 \
              FSL_FEATURE_LPCMP_HAS_CCR0_CMP_STOP_EN = 1 \
+             FSL_FEATURE_CRC_HAS_CRC_REG = 0 \
              FSL_FEATURE_CTIMER_HAS_NO_INPUT_CAPTURE = 0 \
              FSL_FEATURE_CTIMER_HAS_NO_IR_CR2INT = 0 \
              FSL_FEATURE_CTIMER_HAS_IR_CR3INT = 1 \
@@ -2285,24 +2292,27 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_EDMA_SUPPORT_16_BYTES_TRANSFER = 1 \
              FSL_FEATURE_EDMA_HAS_ERROR_IRQ = 1 \
              FSL_FEATURE_EDMA_SUPPORT_64_BYTES_TRANSFER = 1 \
-             FSL_FEATURE_EDMA_SUPPORT_128_BYTES_TRANSFER = 1 \
              FSL_FEATURE_EDMA_CHANNEL_HAS_OWN_CLOCK_GATE = 1 \
-             FSL_FEATURE_EDMA_HAS_CHANNEL_CONFIG = 1 \
-             FSL_FEATURE_EDMA_HAS_CHANNEL_MUX = 1 \
+             FSL_FEATURE_EDMA_SUPPORT_128_BYTES_TRANSFER = 1 \
              FSL_FEATURE_EDMA_HAS_NO_MP_CSR_EBW = 1 \
+             FSL_FEATURE_EDMA_HAS_CHANNEL_CONFIG = 1 \
              FSL_FEATURE_EDMA_HAS_COMMON_CLOCK_GATE = 0 \
-             FSL_FEATURE_EDMA_HAS_SBR = 1 \
+             FSL_FEATURE_EDMA_HAS_CHANNEL_MUX = 1 \
              FSL_FEATURE_EDMA_MODULE_CHANNEL_IRQ_ENTRY_SUPPORT_PARAMETER = 0 \
-             FSL_FEATURE_EDMA_HAS_NO_CH_SBR_ATTR = 1 \
              FSL_FEATURE_EDMA_HAS_ERRATA_51327 = 0 \
-             FSL_FEATURE_EDMA_HAS_CHANNEL_SWAP_SIZE = 0 \
+             FSL_FEATURE_EDMA_HAS_SBR = 1 \
+             FSL_FEATURE_EDMA_HAS_NO_CH_SBR_ATTR = 1 \
              FSL_FEATURE_EDMA_HAS_GLOBAL_MASTER_ID_REPLICATION = 1 \
+             FSL_FEATURE_EDMA_HAS_CHANNEL_SWAP_SIZE = 0 \
              FSL_FEATURE_EDMA_HAS_CHANNEL_ACCESS_TYPE = 0 \
              FSL_FEATURE_EDMA_HAS_CHANNEL_MEMORY_ATTRIBUTE = 0 \
              FSL_FEATURE_EDMA_HAS_CHANNEL_SIGN_EXTENSION = 0 \
              FSL_FEATURE_EDMA_HAS_BANDWIDTH = 1 \
              FSL_FEATURE_EDMA_HAS_TRANSFER_MODE = 0 \
              FSL_FEATURE_EDMA_HAS_NO_CH_SBR_SEC = 0 \
+             FSL_FEATURE_EDMA_ASYNCHRO_REQUEST_CHANNEL_COUNT = 12 \
+             FSL_FEATURE_EWM_HAS_CLOCK_SELECT = 1 \
+             FSL_FEATURE_EWM_HAS_PRESCALER = 1 \
              FSL_FEATURE_FLEXIO_HAS_RESET = 0 \
              FSL_FEATURE_FLEXIO_HAS_SHIFTER_STATUS = 1 \
              FSL_FEATURE_FLEXIO_HAS_PIN_STATUS = 1 \
@@ -2492,6 +2502,8 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_SYSCON_STARTER_DISCONTINUOUS = 1 \
              FSL_FEATURE_SYSCON_HAS_LPCAC_CTRL_PARITY_MISS_EN_BIT = 0 \
              FSL_FEATURE_SYSCON_HAS_LPCAC_CTRL_PARITY_FAULT_EN_BIT = 0 \
+             FSL_FEATURE_SYSTICK_HAS_EXT_REF = 0 \
+             FSL_FEATURE_SYSTICK_EXT_REF_CORE_DIV = 0 \
              FSL_FEATURE_TRNG_HAS_NO_TRNG_SCR4L = 1 \
              FSL_FEATURE_TRNG_HAS_NO_TRNG_SCR5L = 1 \
              FSL_FEATURE_TRNG_HAS_NO_TRNG_SCR6L = 1 \

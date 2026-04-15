@@ -765,8 +765,6 @@ INPUT = @SDK_BASE@/devices/LPC/LPC800/LPC845/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/lpc_dma/fsl_dma.h \
         @SDK_BASE@/drivers/lpc_gpio/doxygen/gpio.dox \
         @SDK_BASE@/drivers/lpc_gpio/fsl_gpio.h \
-        @SDK_BASE@/drivers/lpc_i2c/doxygen/i2c_dma.dox \
-        @SDK_BASE@/drivers/lpc_i2c/fsl_i2c_dma.h \
         @SDK_BASE@/drivers/lpc_i2c/doxygen/i2c.dox \
         @SDK_BASE@/drivers/lpc_i2c/fsl_i2c.h \
         @SDK_BASE@/drivers/lpc_iocon_lite/doxygen/iocon.dox \
@@ -2121,7 +2119,10 @@ PREDEFINED = FSL_FEATURE_SOC_ACOMP_COUNT = 1 \
              FSL_FEATURE_USART_HAS_INTENSET_TXIDLEEN = 1 \
              FSL_FEATURE_USART_HAS_ABERR_CHECK = 1 \
              FSL_FEATURE_WKT_HAS_CTRL_SEL_EXTCLK = 1 \
-             FSL_FEATURE_WWDT_HAS_NO_RESET = 1
+             FSL_FEATURE_WWDT_HAS_NO_OSCILLATOR_LOCK = 0 \
+             FSL_FEATURE_WWDT_HAS_NO_RESET = 1 \
+             FSL_FEATURE_WWDT_HAS_LPOSC_CLOCK_SOURCE = 0 \
+             FSL_FEATURE_WWDT_WDTRESET_FROM_PMC = 0
 
 PREDEFINED += DOXYGEN_OUTPUT=1
 

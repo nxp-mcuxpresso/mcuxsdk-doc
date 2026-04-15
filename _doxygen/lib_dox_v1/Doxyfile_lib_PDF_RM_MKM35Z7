@@ -776,8 +776,6 @@ INPUT = @SDK_BASE@/devices/Kinetis/KM/MKM35Z7/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/i2c/fsl_i2c.h \
         @SDK_BASE@/drivers/irtc/doxygen/irtc.dox \
         @SDK_BASE@/drivers/irtc/fsl_irtc.h \
-        @SDK_BASE@/drivers/lin/lin_driver.h \
-        @SDK_BASE@/drivers/lin/fsl_lin_lpuart.h \
         @SDK_BASE@/drivers/llwu/doxygen/llwu.dox \
         @SDK_BASE@/drivers/llwu/fsl_llwu.h \
         @SDK_BASE@/drivers/lptmr/doxygen/lptmr.dox \
@@ -808,10 +806,6 @@ INPUT = @SDK_BASE@/devices/Kinetis/KM/MKM35Z7/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/sim/fsl_sim.h \
         @SDK_BASE@/drivers/slcd/doxygen/slcd.dox \
         @SDK_BASE@/drivers/slcd/fsl_slcd.h \
-        @SDK_BASE@/drivers/smartcard/doxygen/smartcard.dox \
-        @SDK_BASE@/drivers/smartcard/fsl_smartcard.h \
-        @SDK_BASE@/drivers/smartcard/doxygen/smartcard_uart.dox \
-        @SDK_BASE@/drivers/smartcard/fsl_smartcard_uart.h \
         @SDK_BASE@/drivers/smc/doxygen/smc.dox \
         @SDK_BASE@/drivers/smc/fsl_smc.h \
         @SDK_BASE@/drivers/spi/doxygen/spi_dma.dox \
@@ -949,7 +943,6 @@ IMAGE_PATH = @SDK_BASE@/devices/Kinetis/KM/MKM35Z7/drivers/doxygen \
              @SDK_BASE@/drivers/gpio/doxygen \
              @SDK_BASE@/drivers/i2c/doxygen \
              @SDK_BASE@/drivers/irtc/doxygen \
-             @SDK_BASE@/drivers/lin/doxygen \
              @SDK_BASE@/drivers/llwu/doxygen \
              @SDK_BASE@/drivers/lptmr/doxygen \
              @SDK_BASE@/drivers/lpuart/doxygen \
@@ -964,7 +957,6 @@ IMAGE_PATH = @SDK_BASE@/devices/Kinetis/KM/MKM35Z7/drivers/doxygen \
              @SDK_BASE@/drivers/rnga/doxygen \
              @SDK_BASE@/drivers/sim/doxygen \
              @SDK_BASE@/drivers/slcd/doxygen \
-             @SDK_BASE@/drivers/smartcard/doxygen \
              @SDK_BASE@/drivers/smc/doxygen \
              @SDK_BASE@/drivers/spi/doxygen \
              @SDK_BASE@/drivers/sysmpu/doxygen \
@@ -2370,7 +2362,10 @@ PREDEFINED = FSL_FEATURE_SOC_ADC16_COUNT = 1 \
              FSL_FEATURE_LPTMR_HAS_SHARED_IRQ_HANDLER = 1 \
              FSL_FEATURE_LPTMR_CNR_WIDTH_IS_32B = 0 \
              FSL_FEATURE_LPTMR_HAS_CSR_TDRE = 0 \
-             FSL_FEATURE_LPUART_HAS_SHARED_IRQ0_IRQ1 = 0 \
+             FSL_FEATURE_LPTMR_HAS_NO_PRESCALER_CLOCK_SOURCE_0_SUPPORT = 0 \
+             FSL_FEATURE_LPTMR_HAS_NO_PRESCALER_CLOCK_SOURCE_1_SUPPORT = 0 \
+             FSL_FEATURE_LPTMR_HAS_NO_PRESCALER_CLOCK_SOURCE_2_SUPPORT = 0 \
+             FSL_FEATURE_LPTMR_HAS_NO_PRESCALER_CLOCK_SOURCE_3_SUPPORT = 0 \
              FSL_FEATURE_LPUART_HAS_IRQ_EXTENDED_FUNCTIONS = 0 \
              FSL_FEATURE_LPUART_HAS_LOW_POWER_UART_SUPPORT = 1 \
              FSL_FEATURE_LPUART_HAS_EXTENDED_DATA_REGISTER_FLAGS = 1 \
@@ -2401,6 +2396,13 @@ PREDEFINED = FSL_FEATURE_SOC_ADC16_COUNT = 1 \
              FSL_FEATURE_LPUART_HAS_VERID = 0 \
              FSL_FEATURE_LPUART_HAS_GLOBAL = 0 \
              FSL_FEATURE_LPUART_HAS_PINCFG = 0 \
+             FSL_FEATURE_LPUART_IS_LPFLEXCOMM = 0 \
+             FSL_FEATURE_LPUART_HAS_MCR = 0 \
+             FSL_FEATURE_LPUART_HAS_HDCR = 0 \
+             FSL_FEATURE_LPUART_HAS_TIMEOUT = 0 \
+             FSL_FEATURE_LPUART_HAS_CTRL_SWAP = 0 \
+             FSL_FEATURE_LPUART_HAS_MODIR_RTSWATER = 1 \
+             FSL_FEATURE_LPUART_HAS_SHARED_IRQ0_IRQ1 = 0 \
              FSL_FEATURE_MCG_PLL_PRDIV_BASE = 0 \
              FSL_FEATURE_MCG_PLL_PRDIV_MAX = 0 \
              FSL_FEATURE_MCG_PLL_VDIV_BASE = 0 \
@@ -2685,6 +2687,7 @@ PREDEFINED = FSL_FEATURE_SOC_ADC16_COUNT = 1 \
              FSL_FEATURE_VREF_HAS_COMPENSATION = 1 \
              FSL_FEATURE_VREF_MODE_LV_TYPE = 1 \
              FSL_FEATURE_VREF_HAS_LOW_REFERENCE = 1 \
+             FSL_FEATURE_VREF_HAS_TRM4 = 0 \
              FSL_FEATURE_WDOG_HAS_WATCHDOG = 1 \
              FSL_FEATURE_WDOG_HAS_WAITEN = 0 \
              FSL_FEATURE_XBAR_INTERRUPT_COUNT = 4

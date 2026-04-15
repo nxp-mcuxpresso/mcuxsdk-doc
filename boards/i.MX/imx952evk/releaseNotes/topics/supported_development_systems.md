@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**IMX952-EVK**|MIMX9529xxVTx, MIMX9529xxVYx, **MIMX9529xxVZx**<br/>|
+|**IMX952-EVK**|MIMX9529xxVTx, **MIMX9529xxVZx**|

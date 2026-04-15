@@ -791,7 +791,6 @@ INPUT = @SDK_BASE@/devices/LPC/LPC54000/LPC54628/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/mcan/fsl_mcan.h \
         @SDK_BASE@/drivers/mrt/doxygen/mrt.dox \
         @SDK_BASE@/drivers/mrt/fsl_mrt.h \
-        @SDK_BASE@/drivers/mx25/fsl_mx25.h \
         @SDK_BASE@/drivers/otp/doxygen/otp.dox \
         @SDK_BASE@/drivers/otp/fsl_otp.h \
         @SDK_BASE@/drivers/pint/doxygen/pint.dox \
@@ -958,7 +957,6 @@ IMAGE_PATH = @SDK_BASE@/devices/LPC/LPC54000/LPC54628/drivers/doxygen \
              @SDK_BASE@/drivers/lpc_rtc/doxygen \
              @SDK_BASE@/drivers/mcan/doxygen \
              @SDK_BASE@/drivers/mrt/doxygen \
-             @SDK_BASE@/drivers/mx25/doxygen \
              @SDK_BASE@/drivers/otp/doxygen \
              @SDK_BASE@/drivers/pint/doxygen \
              @SDK_BASE@/drivers/rng/doxygen \
@@ -2153,6 +2151,13 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_DMA_NUMBER_OF_CHANNELS = 30 \
              FSL_FEATURE_DMA_DESCRIPTOR_ALIGN_SIZE = 512 \
              FSL_FEATURE_DMA_LINK_DESCRIPTOR_ALIGN_SIZE = 16 \
+             FSL_FEATURE_DMIC_CHANNEL_NUM = 2 \
+             FSL_FEATURE_DMIC_IO_HAS_STEREO_2_4_6 = 0 \
+             FSL_FEATURE_DMIC_IO_HAS_NO_BYPASS = 0 \
+             FSL_FEATURE_DMIC_CHANNEL_HAS_SIGNEXTEND = 0 \
+             FSL_FEATURE_DMIC_HAS_NO_IOCFG = 0 \
+             FSL_FEATURE_DMIC_HAS_DECIMATOR_RESET_FUNC = 0 \
+             FSL_FEATURE_DMIC_HAS_GLOBAL_SYNC_FUNC = 0 \
              FSL_FEATURE_EEPROM_PAGE_COUNT = 128 \
              FSL_FEATURE_EEPROM_PROGRAM_CMD = 6 \
              FSL_FEATURE_EEPROM_INTERNAL_FREQ = 1500000 \
@@ -2200,11 +2205,13 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_SCT_NUMBER_OF_STATES = 10 \
              FSL_FEATURE_SCT_NUMBER_OF_MATCH_CAPTURE = 10 \
              FSL_FEATURE_SCT_NUMBER_OF_OUTPUTS = 10 \
+             FSL_FEATURE_SCT_WRITE_ZERO_ASSERT_RESET = 0 \
              FSL_FEATURE_SDIF_FIFO_DEPTH_64_32BITS = 64 \
              FSL_FEATURE_SDIF_INTERNAL_DMA_MAX_BUFFER_SIZE = 4096 \
              FSL_FEATURE_SDIF_MAX_SOURCE_CLOCK = 52000000 \
              FSL_FEATURE_SHA_HAS_MEMADDR_DMA = 1 \
              FSL_FEATURE_SPI_SSEL_COUNT = 4 \
+             FSL_FEATURE_SPIFI_DATALEN_CTRL = 1 \
              FSL_FEATURE_SYSCON_IAP_REINVOKE_ISP_PARAM_POINTER = 1 \
              FSL_FEATURE_SYSCON_FLASH_PAGE_SIZE_BYTES = 256 \
              FSL_FEATURE_SYSCON_FLASH_SECTOR_SIZE_BYTES = 32768 \
@@ -2218,7 +2225,11 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_SYSTICK_EXT_REF_CORE_DIV = 0 \
              FSL_FEATURE_USB_EP_NUM = 5 \
              FSL_FEATURE_USBHSD_EP_NUM = 6 \
-             FSL_FEATURE_WWDT_HAS_NO_RESET = 1
+             FSL_FEATURE_USBHSH_HAS_TURNAROUND_TIMEOUT = 0 \
+             FSL_FEATURE_WWDT_HAS_NO_OSCILLATOR_LOCK = 0 \
+             FSL_FEATURE_WWDT_HAS_NO_RESET = 1 \
+             FSL_FEATURE_WWDT_HAS_LPOSC_CLOCK_SOURCE = 0 \
+             FSL_FEATURE_WWDT_WDTRESET_FROM_PMC = 0
 
 PREDEFINED += DOXYGEN_OUTPUT=1
 
