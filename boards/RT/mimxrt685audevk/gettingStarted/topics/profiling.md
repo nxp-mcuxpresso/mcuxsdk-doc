@@ -4,6 +4,7 @@ The Xtensa Xplorer IDE tool can run software simulation and profile the applicat
 
 [Figure 1](profiling.md#MJDHFVWC) shows profiling result of the helloworld program on simulation console.
 
+(MJDHFVWC)=
 |![](../images/image48.png "Profiling result of the helloworld program")
 
 |

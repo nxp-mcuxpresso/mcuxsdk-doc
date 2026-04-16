@@ -7,10 +7,6 @@ Sorry, Page Not Found
 
 .. raw:: html
 
-We couldn’t find the page you were looking for.
-
-This might be because the URL was misspelled, or the page may have been moved or removed.
-
-Please double-check the address in your browser’s location bar, you could also return to the homepage to start from the beginning.
-
-.. raw:: html
+   <p>We couldn't find the page you were looking for.</p>
+   <p>This might be because the URL was misspelled, or the page may have been moved or removed.</p>
+   <p>Please double-check the address in your browser's location bar, you could also return to the homepage to start from the beginning.</p>

@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/evkmimx8ulp/mcuxsdk-evkmimx8ulp.pdf
+
 .. _evkmimx8ulp:
 
 EVK-MIMX8ULP
@@ -20,7 +21,7 @@ MCU device and part on board is shown below:
 
 
 Getting Started with MCUXpresso SDK Package
-***************
+*******************************************
 .. toctree::
    :maxdepth: 1
    

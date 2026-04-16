@@ -4,6 +4,7 @@ MCUXpresso IDE features a new project wizard. The wizard provides functionality 
 
 To use the wizard, start the MCUXpresso IDE. This is located in the **QuickStart Panel** at the bottom left of the MCUXpresso IDE window. Select **New project**, as shown in [Figure 1](mcuxpresso_ide_new_project_wizard.md#IDEQSPANEL).
 
+(IDEQSPANEL)=
 ![](../images/mcuxpresso_ide.png "MCUXpresso IDE Quickstart Panel")
 
 For more details and usage of new project wizard, see the *MCUXpresso\_IDE\_User\_Guide.pdf* in the MCUXpresso IDE installation folder.

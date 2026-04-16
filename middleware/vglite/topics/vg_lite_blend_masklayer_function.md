@@ -21,7 +21,7 @@ vg_lite_error_t vg_lite_blend_masklayer (
 |---------|-----------|
 |`*dst_masklayer`|Points to the address of the buffer of the destination mask layer.|
 |`*src_masklayer`|Points to the address of the buffer of the source mask layer.|
-|`operation`|Blending mode to be applied to each image pixel, as defined by the enum [vg\_lite\_mask\_operation\_t](vg_lite_filter_t_enumeration_001%20-%20Copy%20-%20Copy.md).|
+|`operation`|Blending mode to be applied to each image pixel, as defined by the enum [vg\_lite\_mask\_operation\_t](vg_lite_mask_operation_t_enumeration.md).|
 |`*rect`|The rectangle area \(x, y, width, height\) of the blend operation.|
 
 **Returns:**

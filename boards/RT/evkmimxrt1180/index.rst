@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/evkmimxrt1180/mcuxsdk-evkmimxrt1180.pdf
+
 .. _evkmimxrt1180:
 
 MIMXRT1180-EVK
@@ -69,7 +70,7 @@ Multicore
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 eIQ
 ===

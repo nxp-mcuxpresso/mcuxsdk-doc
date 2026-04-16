@@ -20,6 +20,7 @@ cmake --version    # Should show 3.20+
 west --version     # Should show west tool installation
 ```
 
+(workspace-initilization)=
 ## Workspace Initialization
 
 The GitHub Repository SDK uses the Zephyr west tool to manage multiple repositories containing different SDK components.

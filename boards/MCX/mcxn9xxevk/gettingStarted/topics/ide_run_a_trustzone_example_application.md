@@ -1,7 +1,9 @@
 # Run a TrustZone example application 
 
-To download and run the application perform all steps as described in [Run an example application](ide_run_an_example_application.md). These steps are common for single core, dual-core, and TrustZone applications, ensuring both sides of the TrustZone application are properly loaded and started secure application. However, there is one additional dialogue that is specific to TrustZone examples. See [Figure 1](#DEBUGLPC) and [Figure 2](#ATTACHEDPROBES) as reference.
+To download and run the application perform all steps as described in [Run an example application](ide_run_an_example_application.md). These steps are common for single core, dual-core, and TrustZone applications, ensuring both sides of the TrustZone application are properly loaded and started secure application. However, there is one additional dialogue that is specific to TrustZone examples. See [Figure 1](ide_run_a_trustzone_example_application.md#DEBUGLPC) and [Figure 2](ide_run_a_trustzone_example_application.md#ATTACHEDPROBES) as reference.
 
+(ATTACHEDPROBES)=
+(DEBUGLPC)=
 ![](../images/ide_run_trustzone_example_load_hello_world.png "Load mcxn9xxevk_hello_world_ns case")
 
 ![](../images/ide_run_trustzone_example_attached_probes.png "Attached Probes: debug emulator selection")

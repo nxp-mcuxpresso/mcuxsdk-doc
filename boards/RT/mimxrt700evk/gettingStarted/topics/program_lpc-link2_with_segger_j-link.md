@@ -32,6 +32,7 @@ The steps are:
 
 7.  Verify once you select the firmware \(in this case J-Link\), MCU-Link. The console appears as shown in [Figure 4](program_lpc-link2_with_segger_j-link.md#JJEFJHWV).
 
+(JJEFJHWV)=
     |![](../images/image14.png "Console after selecting the firmware")
 
 |

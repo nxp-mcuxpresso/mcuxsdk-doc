@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/frdmmcxn947/mcuxsdk-frdmmcxn947.pdf
+
 .. _frdmmcxn947:
 
 FRDM-MCXN947
@@ -69,7 +70,7 @@ Multicore
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 eIQ
 ===

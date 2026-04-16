@@ -4,6 +4,8 @@ The MCUXpresso SDK supports various hardware platforms that come loaded with a v
 
 **Note:** The [OpenSDA details](default_debug_interfaces.md#OPENSDA) column is not applicable to LPC.
 
+(OPENSDA)=
+(TABLE_HARDWAREPLATFORM)=
 |Hardware platform|Default interface|OpenSDA details|
 |-----------------|-----------------|---------------|
 |FRDM-KE17Z|CMSIS-DAP/mbed/DAPLink|OpenSDA v2.2|

@@ -243,16 +243,16 @@ du -sh ~/MCUXpresso
 If you need to reinstall the SDK later:
 
 **GitHub Repository SDK:**
-- Follow [GitHub Installation Guide](install/github.md)
+- Follow [GitHub Installation Guide](/gsd/install/github.md)
 - Previous workspace can be recreated from scratch
 
 **Classic Package:**
-- Re-download from [SDK Builder](install/sdk_builder.md)
+- Re-download from [SDK Builder](/gsd/install/sdk_builder.md)
 - Extract to desired location
 
 **IDE-Integrated:**
 - Use IDE's SDK import wizard
-- Follow [IDE Import Wizard Guide](install/ide_import_wizard.md)
+- Follow [IDE Import Wizard Guide](/gsd/install/ide_import_wizard.md)
 
 ## Troubleshooting Uninstallation
 

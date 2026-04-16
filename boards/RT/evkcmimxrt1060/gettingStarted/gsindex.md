@@ -18,3 +18,10 @@ topics/how_to_define_irq_handler_in_cpp_files.md
 topics/how_to_add_or_remove_boot_header_for_xip_targets.md
 topics/note_jtag.md
 ```
+
+```{toctree}
+:hidden:
+:glob:
+
+topics/*
+```

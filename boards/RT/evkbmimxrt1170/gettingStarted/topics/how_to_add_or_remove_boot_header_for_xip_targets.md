@@ -4,8 +4,9 @@ The MCUXpresso SDK for i.MX RT1170 provides `flexspi_nor_debug` and `flexspi_nor
 
 **Macros for the boot leader:**
 
--   The following three macros are added in `flexspi_nor` targets to support XIP, as described in [Table 1](#TABLE_HBQ_GX5_5CB).
+-   The following three macros are added in `flexspi_nor` targets to support XIP, as described in [Table 1](how_to_add_or_remove_boot_header_for_xip_targets.md#TABLE_HBQ_GX5_5CB).
 
+(TABLE_HBQ_GX5_5CB)=
     |**XIP\_​EXTERNAL\_​FLASH**|1: Exclude the code which changes the clock of FLEXSPI.​|
     |0: Make no changes.​|
     |**XIP\_​BOOT\_​HEADER\_​ENABLE**|1: Add FLEXSPI configuration block, image vector table, boot data, and device configuration data \(optional\) to the image by default.​|
@@ -13,8 +14,9 @@ The MCUXpresso SDK for i.MX RT1170 provides `flexspi_nor_debug` and `flexspi_nor
     |**XIP\_​BOOT\_​HEADER\_​DCD\_​ENABLE**|1: Add device configuration data to the image.​|
     |0: Do **NOT** add device configuration data to the image.​|
 
--   [Table 2](#TABLE_YK2_PX5_5CB) shows the different effect on the built image with a different combination of these macros.
+-   [Table 2](how_to_add_or_remove_boot_header_for_xip_targets.md#TABLE_YK2_PX5_5CB) shows the different effect on the built image with a different combination of these macros.
 
+(TABLE_YK2_PX5_5CB)=
     ||**XIP\_​BOOT\_​HEADER\_​DCD\_​ENABLE=1**|**XIP\_​BOOT\_​HEADER\_​DCD\_​ENABLE=0**|
     |--|----------------------------------------|----------------------------------------|
     |**XIP\_​EXTERNAL\_​FLASH=1**|**XIP\_​BOOT\_​HEADER\_​ENABLE=1**|    -   Can be programmed to `qspiflash` by IDE and can run after POR reset if `qspiflash` is the boot source.​

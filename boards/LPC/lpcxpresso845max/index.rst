@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/lpcxpresso845max/mcuxsdk-lpcxpresso845max.pdf
+
 .. _lpcxpresso845max:
 
 LPCXpresso845MAX
@@ -33,6 +34,7 @@ Getting Started with MCUXpresso SDK GitHub
    :maxdepth: 1
 
    ../../../gsd/repo.rst
+
 Release Notes
 *******************************************
 .. toctree::

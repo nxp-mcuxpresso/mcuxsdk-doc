@@ -3,7 +3,7 @@
 This section lists the known issues, limitations, and/or workarounds.
 
 
-```{include} /release/known_issues/maximum_file_path_length_in_windows_7_operating_sy.md
+```{include} /boards/i.MX/mcimx93autoevk/releaseNotes/topics/maximum_file_path_length_in_windows_7_operating_sy.md
 :heading-offset: 1
 ```
 
@@ -16,6 +16,6 @@ This section lists the known issues, limitations, and/or workarounds.
 ```
 
 
-```{include} ../../../../release/known_issues/examples_hello_world_ns_secure_faults_ns_and_secure_faults_trdc_ns_have_incorrect_library_path_in_gui_projects.md
+```{include} /release/known_issues/examples_hello_world_ns_secure_faults_ns_and_secure_faults_trdc_ns_have_incorrect_library_path_in_gui_projects.md
 :heading-offset: 1
 ```

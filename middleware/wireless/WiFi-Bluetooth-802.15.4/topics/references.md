@@ -3,7 +3,7 @@
 1.  Application note - AN13681 – Wi-Fi Alliance \(WFA\) Derivative Certification Process \(available in the SDK package\)
 2.  User manual – UM11442 - NXP Wi-Fi and Bluetooth Demo Applications User Guide for i.MX RT Platforms \(available in the SDK package\)
 3.  User manual – UM11799 - NXP Wi-Fi and Bluetooth Demo Applications User Guide for RW61x \(available in the SDK package\)
-4.  Certification – Bluetooth controller - QDID \(*[link](https:/launchstudio.bluetooth.com/ListingDetails/115533)*\)
+4.  Certification – Bluetooth controller - QDID \(*[link](https://launchstudio.bluetooth.com/ListingDetails/115533)*\)
 5.  User manual - UM12133 - NXP NCP Application Guide for RW612 with MCU Host
 6.  Technical note - TN00066 – Wi-Fi Alliance \(WFA\) Derivative Certification Process \(available in the SDK package\)
 7.  Web page – Thread certified products \([link](https://www.threadgroup.org/What-is-Thread/Thread-Benefits)\)

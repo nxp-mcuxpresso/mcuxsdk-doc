@@ -40,6 +40,7 @@ Do the following steps to build the `hello_world` example application.
 
 3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](build_an_example_application_002.md#BUILDINGDEMOAPP).
 
+(BUILDINGDEMOAPP)=
     ![](../images/build_demo_application_rt1050.png "Build the demo application")
 
 4.  The build completes without errors.

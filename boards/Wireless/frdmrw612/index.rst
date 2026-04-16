@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/frdmrw612/mcuxsdk-frdmrw612.pdf
+
 .. _frdmrw612:
 
 FRDM-RW612
@@ -70,7 +71,7 @@ Wireless Connectivity Framework
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 FreeMASTER
 ==========

@@ -4,6 +4,8 @@ The MCUXpresso SDK supports various hardware platforms that come loaded with a v
 
 **Note:** The [OpenSDA details](default_debug_interfaces.md#COLUMNC) column in [Table 1](default_debug_interfaces.md#TABLE_UVC_BLB_DR_20REL4) is not applicable to LPC. ^
 
+(COLUMNC)=
+(TABLE_UVC_BLB_DR_20REL4)=
 |Hardware platform|Default interface|OpenSDA details|
 |-----------------|-----------------|---------------|
 |EVK-MC56F83000|P&E Micro OSJTAG|N/A|

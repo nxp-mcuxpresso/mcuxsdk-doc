@@ -16,3 +16,10 @@ topics/mcuxpresso_ide_new_project_wizard.md
 topics/how_to_determine_com_port.md
 topics/how_to_define_irq_handler_in_cpp_files.md
 ```
+
+```{toctree}
+:hidden:
+:glob:
+
+topics/*
+```

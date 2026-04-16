@@ -196,7 +196,7 @@ To support MCUXpresso SDK development, we introduce some customized Kconfig rule
 
 ### Introduce Component, Project Segment and Dependency Definition Symbols
 
-To support [Componentization](../sdk/component_development.md#Componentization) and [Complex Dependency](./Dependency.md), we introduce some customized Kconfig symbol definitions with the following namings:
+To support [Componentization](./Software_Componentization.md#Componentization) and [Complex Dependency](./Dependency.md), we introduce some customized Kconfig symbol definitions with the following namings:
 
 | Naming                                   | Functionality                            |
 | ---------------------------------------- | ---------------------------------------- |

@@ -16,3 +16,10 @@ topics/how_to_determine_com_port.md
 topics/default_debug_interfaces.md
 topics/how_to_add_or_remove_boot_header_for_xip_targets.md
 ```
+
+```{toctree}
+:hidden:
+:glob:
+
+topics/*
+```

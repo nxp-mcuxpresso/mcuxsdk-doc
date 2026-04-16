@@ -16,7 +16,7 @@ vg_lite_error_t vg_lite_set_color_transform (
 
 |Parameter|Description|
 |---------|-----------|
-|`*values`|Pointer to the color transformation values to set. See enum [`vg_lite_color_transform_t.`](vg_lite_color_t_parameter_001%20-%20Copy.md)|
+|`*values`|Pointer to the color transformation values to set. See enum [`vg_lite_color_transform_t.`](vg_lite_color_transform_t.md)|
 
 **Returns:**
 

@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/mcimx93autoevk/mcuxsdk-mcimx93autoevk.pdf
+
 .. _mcimx93autoevk:
 
 MCIMX93AUTO-EVK
@@ -20,7 +21,7 @@ MCU device and part on board is shown below:
 
 
 Getting Started with MCUXpresso SDK Package
-***************
+*******************************************
 .. toctree::
    :maxdepth: 1
 

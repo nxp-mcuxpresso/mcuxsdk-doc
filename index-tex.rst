@@ -19,9 +19,7 @@ MCUXpresso SDK Documentation
    middleware/index
    rtos/index
    boards/index
-   develop/architect.md
    develop/build_system/index
    develop/sdk/index
    release/index
-   contribute/index
 

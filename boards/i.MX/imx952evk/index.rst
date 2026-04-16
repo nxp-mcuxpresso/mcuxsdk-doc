@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/imx952evk/mcuxsdk-imx952evk.pdf
+
 .. _imx952evk:
 
 IMX952EVK

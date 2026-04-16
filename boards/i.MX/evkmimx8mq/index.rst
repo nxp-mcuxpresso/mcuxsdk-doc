@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/evkmimx8mq/mcuxsdk-evkmimx8mq.pdf
+
 .. _evkmimx8mq:
 
 EVK-MIMX8MQ
@@ -32,6 +33,7 @@ Getting Started with MCUXpresso SDK GitHub
    :maxdepth: 1
 
    ../../../gsd/repo.rst
+
 Release Notes
 *******************************************
 .. toctree::

@@ -327,4 +327,3 @@
 ```{include} /drivers/xbar_1/doxygen/ChangeLog_xbar.md
 :heading-offset: 2
 ```
----

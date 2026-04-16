@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/frdmk32l2a4s/mcuxsdk-frdmk32l2a4s.pdf
+
 .. _frdmk32l2a4s:
 
 FRDM-K32L2A4S

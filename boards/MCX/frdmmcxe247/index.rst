@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/frdmmcxe247/mcuxsdk-frdmmcxe247.pdf
+
 .. _frdmmcxe247:
 
 FRDM-MCXE247
@@ -75,7 +76,7 @@ MCU Boot
 .. toctree::
    :maxdepth: 1
 
-   ../../../middleware/mcuboot_opensource/README.md
+   ../../../middleware/mcuboot_opensource/README
 
 lwIP
 ====

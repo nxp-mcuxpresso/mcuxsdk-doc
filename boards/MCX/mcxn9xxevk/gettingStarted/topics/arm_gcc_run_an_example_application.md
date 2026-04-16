@@ -35,8 +35,9 @@ To complete the set-up check if your board supports OpenSDA, see [Default debug 
 
         4.  Open the J-Link GDB Server application. Assuming the J-Link software is installed, the application can be launched by going to the Windows operating system Start menu and selecting **Programs** -\> **SEGGER** -\> **J-Link <version\> J-Link GDB Server**.
         5.  Modify the settings as shown below. The target device selection chosen for this example is **MCXN947\_cm33\_core0**.
-        6.  After it is connected, the screen should look like [Figure 2](#SEGGER).
+        6.  After it is connected, the screen should look like [Figure 2](arm_gcc_run_an_example_application.md#SEGGER).
 
+(SEGGER)=
             ![](../images/arm_gcc_run_example_segger_jlink_success.png "SEGGER J-Link GDB Server screen after successful
                                                     connection")
 

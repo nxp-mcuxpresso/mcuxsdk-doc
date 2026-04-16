@@ -20,6 +20,7 @@ To download and run the application, perform these steps:
 
     **Note:** Make sure that the board is set to FlexSPI flash boot mode \(ISP2: ISP1: ISP0 = ON, OFF, ON\) before using Keil debug.
 
+(S1234098A702)=
     |![](../images/49_rt600.png "Stop at main() when run
 											debugging")
 
@@ -27,12 +28,14 @@ To download and run the application, perform these steps:
 
 5.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](run_an_example_application_001.md#S12702).
 
+(S12702)=
     |![](../images/50_rt600.png "Run button")
 
 |
 
     The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](run_an_example_application_001.md#S127DD02). If this is not true, check your terminal settings and connections.
 
+(S127DD02)=
     |![](../images/hello_world_lowercase.png "Text display of the hello_world
 											demo")
 

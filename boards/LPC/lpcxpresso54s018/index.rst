@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/lpcxpresso54s018/mcuxsdk-lpcxpresso54s018.pdf
+
 .. _lpcxpresso54s018:
 
 LPCXpresso54S018

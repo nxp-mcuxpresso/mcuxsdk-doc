@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/frdmmcxe31b/mcuxsdk-frdmmcxe31b.pdf
+
 .. _frdmmcxe31b:
 
 FRDM-MCXE31B

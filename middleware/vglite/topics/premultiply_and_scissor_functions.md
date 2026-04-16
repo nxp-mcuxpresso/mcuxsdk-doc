@@ -49,10 +49,6 @@ Applications can use the VGLite API `vg_lite_query_feature` to determine HW supp
 :heading-offset: 2
 ```
 
-```{include} ../topics/vg_lite_fill_masklayer_function.md
-:heading-offset: 2
-```
-
 ```{include} ../topics/vg_lite_blend_masklayer_function.md
 :heading-offset: 2
 ```

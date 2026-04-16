@@ -11,5 +11,5 @@ External client: IW620-Kestrel
 |WPA2-AES|32|48|37|61|
 |WPA3-SAE|32|48|36|60|
 
-**Parent topic:**[Wi-Fi throughput](../topics/wi-fi_throughput_05.md)
+**Parent topic:**Wi-Fi throughput
 

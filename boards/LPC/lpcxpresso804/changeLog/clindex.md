@@ -95,4 +95,3 @@
 ```{include} /drivers/wwdt/doxygen/ChangeLog_wwdt.md
 :heading-offset: 2
 ```
----

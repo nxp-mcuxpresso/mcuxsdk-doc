@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/mcxn9xxevk/mcuxsdk-mcxn9xxevk.pdf
+
 .. _mcxn9xxevk:
 
 MCX-N9XX-EVK
@@ -69,7 +70,7 @@ Multicore
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 eIQ
 ===

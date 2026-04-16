@@ -18,3 +18,10 @@ topics/default_debug_interfaces.md
 topics/updating_debugger_firmware.md
 topics/how_to_update_spifi_clock_frequency.md
 ```
+
+```{toctree}
+:hidden:
+:glob:
+
+topics/*
+```

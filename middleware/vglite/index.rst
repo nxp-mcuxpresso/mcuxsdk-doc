@@ -1,7 +1,7 @@
 .. _vglite:
 
 VGLite Graphics Driver
-#####################
+######################
 
 .. toctree::
    :maxdepth: 1

@@ -15,7 +15,7 @@ These steps show how to update the debugger firmware on your board for Windows o
 5.  Open a command shell and call the appropriate script located in the LPCScrypt installation directory \(`<LPCScrypt install dir>`\).
     1.  To program CMSIS-DAP debug firmware: `<LPCScrypt install dir>/scripts/program_CMSIS`
     2.  To program J-Link debug firmware: `<LPCScrypt install dir>/scripts/program_JLINK`
-6.  Remove DFU link \(remove the jumper installed in [Step 3](#STEP3)\).
+6.  Remove DFU link \(remove the jumper installed in [Step 3](updating_mcxn_board_firmware.md#STEP3)\).
 7.  Re-power the board by removing the USB cable and plugging it in again.
 
 **Parent topic:**[Updating debugger firmware](../topics/updating_debugger_firmware.md)

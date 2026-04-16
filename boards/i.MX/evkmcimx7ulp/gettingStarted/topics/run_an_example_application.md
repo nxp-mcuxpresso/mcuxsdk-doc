@@ -2,7 +2,7 @@
 
 To download and run the application, perform these steps:
 
-1.  This board supports the J-Link debug probe. Before using it, install SEGGER J-Link software, which can be downloaded from [www.segger.com](www.segger.com).
+1.  This board supports the J-Link debug probe. Before using it, install SEGGER J-Link software, which can be downloaded from [www.segger.com](https://www.segger.com).
 2.  Connect the development platform to your PC via USB cable between the USB-UART MICRO USB connector and the PC USB connector, then connect 5 V power supply and J-Link Plus to the device.
 3.  Open the terminal application on the PC, such as PuTTY or TeraTerm, and connect to the debug COM port \(to determine the COM port number, see Appendix A\). Configure the terminal with these settings:
     1.  115200 baud rate

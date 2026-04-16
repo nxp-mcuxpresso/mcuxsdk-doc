@@ -38,7 +38,7 @@ First we will import a MCUXpresso SDK sample application into VS Code, build it,
 
 1.	Open VS Code.  In the Quickstart Panel, click **Import Example from Repository**.  
 
-    **_NOTE:_** If needed, the steps to import an example, build, and debug it are included in [MCUXpresso SDK Lab MCXN947 Hello World](./MCUXpresso SDK-Lab-MCXN947-Hello-World).  
+    **_NOTE:_** If needed, the steps to import an example, build, and debug it are included in [Run a demo using MCUXpresso for VS Code](./run_a_demo_using_mcuxvsc.md).  
 
 
     ![Import MCUXpresso SDK Example](./images/kconfig_import_example.png)

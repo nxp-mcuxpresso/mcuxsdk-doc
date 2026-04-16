@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/lpcxpresso804/mcuxsdk-lpcxpresso804.pdf
+
 .. _lpcxpresso804:
 
 LPCXpresso804
@@ -33,6 +34,7 @@ Getting Started with MCUXpresso SDK GitHub
    :maxdepth: 1
 
    ../../../gsd/repo.rst
+
 Release Notes
 *******************************************
 .. toctree::

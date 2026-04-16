@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/evkmimxrt1040/mcuxsdk-evkmimxrt1040.pdf
+
 .. _evkmimxrt1040:
 
 MIMXRT1040-EVK
@@ -67,7 +68,7 @@ Find links to detailed middleware documentation for key components. While not al
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 Audio Voice components
 ======================

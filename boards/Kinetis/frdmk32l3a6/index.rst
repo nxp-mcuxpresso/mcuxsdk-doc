@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/frdmk32l3a6/mcuxsdk-frdmk32l3a6.pdf
+
 .. _frdmk32l3a6:
 
 FRDM-K32L3A6

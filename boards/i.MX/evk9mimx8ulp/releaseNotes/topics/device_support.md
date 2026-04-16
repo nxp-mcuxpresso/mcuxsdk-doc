@@ -11,5 +11,5 @@ The device folder contains the whole software enablement available for the speci
 :heading-offset: 2
 ```
 
-**Parent topic:**[MCUXpresso SDK release package](../topics/mcuxpresso_sdk_release_package.md)
+**Parent topic:**[MCUXpresso SDK release package](/release/commonrn/topics/mcuxpresso_sdk_release_package.md)
 

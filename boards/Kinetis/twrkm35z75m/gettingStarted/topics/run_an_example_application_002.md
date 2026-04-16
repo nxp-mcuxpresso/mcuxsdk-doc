@@ -5,8 +5,8 @@ For more information on debug probe support in the MCUXpresso IDE 11.1.1, visit 
 To download and run the application, perform these steps:
 
 1.  Reference the table in Appendix B to determine the debug interface that comes loaded on your specific hardware platform.
-    -   For boards with a P&E Micro interface, visit [www.pemicro.com/support/downloads\_find.cfm](www.pemicro.com/support/downloads_find.cfm) and download and install the P&E Micro Hardware Interface Drivers package.
-    -   If using J-Link with either a standalone debug pod or OpenSDA, install the J-Link software \(drivers and utilities\) from [www.segger.com/jlink-software.html](www.segger.com/jlink-software.html).
+    -   For boards with a P&E Micro interface, visit [www.pemicro.com/support/downloads\_find.cfm](https://www.pemicro.com/support/downloads_find.cfm) and download and install the P&E Micro Hardware Interface Drivers package.
+    -   If using J-Link with either a standalone debug pod or OpenSDA, install the J-Link software \(drivers and utilities\) from [www.segger.com/jlink-software.html](https://www.segger.com/jlink-software.html).
 2.  Connect the development platform to your PC via USB cable.
 3.  Open the terminal application on the PC, such as PuTTY or TeraTerm, and connect to the debug serial port number \(to determine the COM port number, see Appendix A\). Configure the terminal with these settings:
 

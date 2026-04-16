@@ -1,5 +1,5 @@
 Developing with MCUXpresso SDK
-=========================
+==============================
 
 As illustrated in previous chapters, MCUXpresso SDK is based on CMake and Kconfig to build. Please go through the `Build and Configuration System`_ before you start developing.
 
@@ -20,5 +20,6 @@ As illustrated in previous chapters, MCUXpresso SDK is based on CMake and Kconfi
       :maxdepth: 1
       :caption: Internal Doc
 
+      Internal Example, Device and Board Definition <internal_example_device_board_definition.md>
       Internal Example, Device and Board Development <internal_example_device_board_development.md>
       Platform Library <platform_library.md>

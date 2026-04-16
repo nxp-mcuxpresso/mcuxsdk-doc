@@ -21,7 +21,7 @@ vg_lite_error_t vg_lite_set_mirror (
 
 |Parameter|Description|
 |---------|-----------|
-|`orientation`|The orientation mode as defined by the enum [vg\_lite\_orientation\_t](vg_lite_filter_t_enumeration_001_Copy_Copy_Copy.md).`|
+|`orientation`|The orientation mode as defined by the enum [vg\_lite\_orientation\_t](vg_lite_orientation_t_enumeration.md).`|
 
 **Returns:**
 

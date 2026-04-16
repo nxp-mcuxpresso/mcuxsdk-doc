@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/evkcmimxrt1060/mcuxsdk-evkcmimxrt1060.pdf
+
 .. _evkcmimxrt1060:
 
 MIMXRT1060-EVKC
@@ -75,7 +76,7 @@ Multicore
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 Audio Voice components
 ======================

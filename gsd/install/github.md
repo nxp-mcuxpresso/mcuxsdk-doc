@@ -97,4 +97,4 @@ For complete manual installation instructions, see:
 
 ## Custom Manifests
 
-For advanced users who need custom repository combinations or private forks, see [Custom Manifests](custom_manifests.md).
+For advanced users who need custom repository combinations or private forks, see [Custom Manifests](custom_manifest.md).

@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/frdmke02z40m/mcuxsdk-frdmke02z40m.pdf
+
 .. _frdmke02z40m:
 
 FRDM-KE02Z40M

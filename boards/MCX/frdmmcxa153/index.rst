@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/frdmmcxa153/mcuxsdk-frdmmcxa153.pdf
+
 .. _frdmmcxa153:
 
 FRDM-MCXA153
@@ -64,7 +65,7 @@ Find links to detailed middleware documentation for key components. While not al
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 FreeMASTER
 ==========

@@ -2,6 +2,7 @@
 
 All MCUXpresso SDK drivers comply to MISRA 2012 rules with exceptions in [Table 1](misra_compliance.md#NEWIDTABLE).
 
+(NEWIDTABLE)=
 |Exception rules
 
 |Description

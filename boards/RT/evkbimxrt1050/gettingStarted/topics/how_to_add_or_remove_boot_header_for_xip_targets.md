@@ -8,6 +8,7 @@ The MCUXpresso SDK for i.MX RT1050 provides `flexspi_nor_debug` and `flexspi_nor
 
     ^
 
+(TABLE_HBQ_GX5_5CB)=
     |**XIP\_EXTERNAL\_FLASH**|1: Exclude the code which changes the clock of FLEXSPI.|
     |0: Make no changes.|
     |**XIP\_BOOT\_HEADER\_ENABLE**|1: Add FLEXSPI configuration block, image vector table, boot data, and device configuration data \(optional\) to the image by default.|
@@ -19,6 +20,7 @@ The MCUXpresso SDK for i.MX RT1050 provides `flexspi_nor_debug` and `flexspi_nor
 
     ^
 
+(TABLE_YK2_PX5_5CB)=
     ||**XIP\_BOOT\_HEADER\_DCD\_ENABLE=1**|**XIP\_BOOT\_HEADER\_DCD\_ENABLE=0**|
     |--|------------------------------------|------------------------------------|
     |**XIP\_EXTERNAL\_FLASH=1**|**XIP\_BOOT\_HEADER\_ENABLE=1**|    -   Can be programmed to `hyperflash` by IDE and can run after POR reset if `hyperflash` is the boot source.

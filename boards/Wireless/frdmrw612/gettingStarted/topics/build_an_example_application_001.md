@@ -26,6 +26,7 @@ Do the following steps to build the `hello_world` example application.
 
 3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](build_an_example_application_001.md#BUILDINGDEMOAPP).
 
+(BUILDINGDEMOAPP)=
     |![](../images/fig22.png "Build the demo application")
 
 |

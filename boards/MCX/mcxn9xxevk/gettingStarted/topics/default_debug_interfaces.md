@@ -1,9 +1,11 @@
 # Default debug interfaces 
 
-The MCUXpresso SDK supports various hardware platforms that come loaded with a variety of factory programmed debug interface configurations. [Table 1](#TABLE_UVC_BLB_DR_20REL4) lists the hardware platforms supported by the MCUXpresso SDK, their default debug interface, and any version information that helps differentiate a specific interface configuration.
+The MCUXpresso SDK supports various hardware platforms that come loaded with a variety of factory programmed debug interface configurations. [Table 1](default_debug_interfaces.md#TABLE_UVC_BLB_DR_20REL4) lists the hardware platforms supported by the MCUXpresso SDK, their default debug interface, and any version information that helps differentiate a specific interface configuration.
 
-**Note:** The [OpenSDA details](#COLUMNC) column in [Table 1](#TABLE_UVC_BLB_DR_20REL4) is not applicable to LPC.
+**Note:** The [OpenSDA details](default_debug_interfaces.md#COLUMNC) column in [Table 1](default_debug_interfaces.md#TABLE_UVC_BLB_DR_20REL4) is not applicable to LPC.
 
+(COLUMNC)=
+(TABLE_UVC_BLB_DR_20REL4)=
 |Hardware platform|Default interface|OpenSDA details|
 |-----------------|-----------------|---------------|
 |EVK-​MC56F83000|P&E Micro OSJTAG|N/​A|

@@ -5,7 +5,7 @@ To download and run the application, perform these steps:
 1.  See the table in [Default debug interfaces](default_debug_interfaces.md) to determine the debug interface that comes loaded on your specific hardware platform.
     -   For boards with CMSIS-DAP/mbed/DAPLink interfaces, visit [developer.mbed.org/handbook/Windows-serial-configuration](http://developer.mbed.org/handbook/Windows-serial-configuration) and follow the instructions to install the Windows® operating system serial driver. If running on Linux® OS, this step is not required.
     -   For boards with P&E Micro interfaces, visit [www.pemicro.com/support/downloads\_find.cfm](http://www.pemicro.com/support/downloads_find.cfm) and download the P&E Micro Hardware Interface Drivers package.
-    -   If using J-Link either a standalone debug pod or OpenSDA, install SEGGER software which can be downloaded from [www.segger.html](www.segger.com/downloads.html).
+    -   If using J-Link either a standalone debug pod or OpenSDA, install SEGGER software which can be downloaded from [www.segger.html](https://www.segger.com/downloads.html).
 2.  Connect the development platform to your PC via USB cable.
 3.  Open the terminal application on the PC, such as PuTTY or TeraTerm, and connect to the debug COM port \(to determine the COM port number, see [How to determine COM port](how_to_determine_com_port.md)\). Configure the terminal with these settings:
 

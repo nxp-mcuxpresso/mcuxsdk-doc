@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/mimxrt685audevk/mcuxsdk-mimxrt685audevk.pdf
+
 .. _mimxrt685audevk:
 
 MIMXRT685-AUD-EVK
@@ -40,6 +41,7 @@ Getting Started with MCUXpresso SDK Xplorer
    :maxdepth: 1
 
    gettingStartedXplorer/gsxindex.md
+
 Release Notes
 *******************************************
 .. toctree::
@@ -75,7 +77,7 @@ Multicore
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 eIQ
 ===

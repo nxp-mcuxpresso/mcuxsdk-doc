@@ -25,21 +25,17 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
-```{include} /release/known_issues/cannot_add_sdk_components_into_freertos_projects.md
-:heading-offset: 1
-```
-
 ```{include} /release/known_issues/aws_httpscli_corehttp_example_for_evkmimxrt1160_is.md
 :heading-offset: 1
 ```
-```{include} ../../../../release/known_issues/aws_httpscli_corehttp_example_for_evkmimxrt1160_issue_in_mcuxpressoide_release_target.md
+```{include} /release/known_issues/aws_httpscli_corehttp_example_for_evkmimxrt1160_issue_in_mcuxpressoide_release_target.md
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/known_issues/the_cmsis_lpi2c_edma_b2b_transfer_examples_dont_work_correctly_on_cm4_core.md
+```{include} /release/known_issues/the_cmsis_lpi2c_edma_b2b_transfer_examples_dont_work_correctly_on_cm4_core.md
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/known_issues/modify_dummy_cycles_value_for_external_qspi_flash.md
+```{include} /release/known_issues/modify_dummy_cycles_value_for_external_qspi_flash.md
 :heading-offset: 1
 ```

@@ -10,10 +10,6 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
-```{include} /release/known_issues/cannot_add_sdk_components_into_freertos_projects.md
-:heading-offset: 1
-```
-
 ```{include} /release/known_issues/log_output.md
 :heading-offset: 1
 ```
@@ -38,6 +34,6 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/known_issues/the_wifi_webconfig_example_can_crash_while_obtaining_ip_address.md
+```{include} /release/known_issues/the_wifi_webconfig_example_can_crash_while_obtaining_ip_address.md
 :heading-offset: 1
 ```

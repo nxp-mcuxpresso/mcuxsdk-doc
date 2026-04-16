@@ -21,7 +21,3 @@ This section lists the known issues, limitations, and/or workarounds.
 ```{include} /release/known_issues/corrupted_data_in_freertos_lpspi_b2b_slave_example.md
 :heading-offset: 1
 ```
-
-```{include} /release/known_issues/cannot_add_sdk_components_into_freertos_projects.md
-:heading-offset: 1
-```

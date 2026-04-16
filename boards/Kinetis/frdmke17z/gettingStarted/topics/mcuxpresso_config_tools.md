@@ -4,6 +4,7 @@ MCUXpresso Config Tools can help configure the processor and generate initializa
 
 [Table 1](mcuxpresso_config_tools.md#TABLE_E1V_M1C_CDB) describes the tools included in the MCUXpresso Config Tools.
 
+(TABLE_E1V_M1C_CDB)=
 |Config Tool|Description|Image|
 |:---------:|-----------|:---:|
 |**Pins tool**|For configurations of pin routing and pin electrical properties​|![](../images/pin.png)|

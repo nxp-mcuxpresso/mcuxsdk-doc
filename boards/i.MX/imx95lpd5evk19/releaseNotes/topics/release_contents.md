@@ -2,6 +2,7 @@
 
 [Table 1](release_contents.md#TABLE_2E09182E-3443-4F02-A7C8-D3C0F3658361) provides an overview of the MCUXpresso SDK release package contents and locations.
 
+(TABLE_2E09182E-3443-4F02-A7C8-D3C0F3658361)=
 |Deliverable
 
 |Location

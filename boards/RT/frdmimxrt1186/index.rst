@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/frdmimxrt1186/mcuxsdk-frdmimxrt1186.pdf
+
 .. _frdmimxrt1186:
 
 FRDM-IMXRT1186
@@ -69,7 +70,7 @@ Multicore
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 eIQ
 ===

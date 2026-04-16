@@ -19,3 +19,10 @@ topics/default_debug_interfaces.md
 topics/updating_debugger_firmware.md
 
 ```
+
+```{toctree}
+:hidden:
+:glob:
+
+topics/*
+```

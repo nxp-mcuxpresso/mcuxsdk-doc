@@ -19,19 +19,15 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
-```{include} /release/known_issues/cannot_add_sdk_components_into_freertos_projects.md
-:heading-offset: 1
-```
-
 ```{include} /release/known_issues/lwip_httpssrv_ota_wifi_example_fails_to_accept_the.md
 :heading-offset: 1
 ```
 
-```{include} /release/board_may_reset_itself_when_running_sd_card_relate.md
+```{include} /release/known_issues/board_may_reset_itself_when_running_sd_card_relate.md
 :heading-offset: 1
 ```
 
-```{include} /release/log_output.md
+```{include} /release/known_issues/log_output.md
 :heading-offset: 1
 ```
 
@@ -56,9 +52,9 @@ This section lists the known issues, limitations, and/or workarounds.
 ```
 
 
-```{include} ../../../../release/known_issues/lwip_httpssrv_ota_wifi_example_fails_to_accept_the_new_image_on_evkmimxrt685.md
+```{include} /release/known_issues/lwip_httpssrv_ota_wifi_example_fails_to_accept_the_new_image_on_evkmimxrt685.md
 :heading-offset: 1
 ```
-```{include} ../../../../release/known_issues/examples_hello_world_ns_secure_faults_ns_and_secure_faults_trdc_ns_have_incorrect_library_path_in_gui_projects.md
+```{include} /release/known_issues/examples_hello_world_ns_secure_faults_ns_and_secure_faults_trdc_ns_have_incorrect_library_path_in_gui_projects.md
 :heading-offset: 1
 ```

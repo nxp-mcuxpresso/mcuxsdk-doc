@@ -67,4 +67,10 @@ SBOM file with license information. We provide a west extension `sbom_collect` t
    develop/build_system/index
    develop/sdk/index
 
+.. toctree::
+   :hidden:
+   :glob:
+
+   devices/**/ChangeLog_*
+
 .. todolist::

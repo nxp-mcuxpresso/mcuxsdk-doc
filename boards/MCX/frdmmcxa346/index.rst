@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/frdmmcxa346/mcuxsdk-frdmmcxa346.pdf
+
 .. _frdmmcxa346:
 
 FRDM-MCXA346
@@ -45,6 +46,7 @@ Getting Started with MCUXpresso SDK GitHub
    :maxdepth: 1
 
    ../../../gsd/repo.rst
+
 Release Notes
 *******************************************
 .. toctree::
@@ -75,7 +77,7 @@ Find links to detailed middleware documentation for key components. While not al
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 FreeMASTER
 ==========

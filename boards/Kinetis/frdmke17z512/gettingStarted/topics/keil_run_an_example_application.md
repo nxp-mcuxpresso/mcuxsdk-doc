@@ -19,8 +19,9 @@ To download and run the application, perform these steps:
 
     ![](../images/keil_download_button.png "Download button")
 
-5.  After clicking the **Download** button, the application downloads to the target and is running. To debug the application, click the **Start/Stop Debug Session** button, highlighted in red in [Figure 3](#FIG_STOPATMAIN).
+5.  After clicking the **Download** button, the application downloads to the target and is running. To debug the application, click the **Start/Stop Debug Session** button, highlighted in red in [Figure 3](keil_run_an_example_application.md#FIG_STOPATMAIN).
 
+(FIG_STOPATMAIN)=
     ![](../images/keil_stop_at_main_running_debugging.png "Stop at main() when run debugging")
 
 6.  Run the code by clicking the **Run** button to start the application.

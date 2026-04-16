@@ -24,10 +24,5 @@ To explore boards tailored to your needs, click the corresponding processor fami
    :maxdepth: 1
    :glob:
 
-   DSC/index
-   i.MX/index
-   RT/index
-   Kinetis/index
-   LPC/index
-   MCX/index
-   Wireless/index
+   */index
+

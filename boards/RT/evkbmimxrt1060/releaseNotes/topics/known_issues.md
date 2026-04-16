@@ -22,10 +22,6 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
-```{include} /release/known_issues/cannot_add_sdk_components_into_freertos_projects.md
-:heading-offset: 1
-```
-
 ```{include} /release/known_issues/log_output.md
 :heading-offset: 1
 ```
@@ -49,10 +45,10 @@ This section lists the known issues, limitations, and/or workarounds.
 ```{include} /release/known_issues/debugger_cannot_connect_to_target_board_when_conne.md
 :heading-offset: 1
 ```
-```{include} ../../../../release/known_issues/corrupted_data_in_freertos_lpspi_b2b_slave_example.md
+```{include} /release/known_issues/corrupted_data_in_freertos_lpspi_b2b_slave_example.md
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/known_issues/modify_dummy_cycles_value_for_external_qspi_flash.md
+```{include} /release/known_issues/modify_dummy_cycles_value_for_external_qspi_flash.md
 :heading-offset: 1
 ```

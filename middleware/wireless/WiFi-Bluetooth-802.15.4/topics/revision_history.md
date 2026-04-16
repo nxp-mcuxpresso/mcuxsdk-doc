@@ -18,7 +18,7 @@
 
  **Feature enable and memory impact**
 
- -   [Kconfig memory optimizer feature](Kconfig_memory_optimizer.md): updated.
+ -   Kconfig memory optimizer feature: updated.
 
  **88W8987 release notes**
 
@@ -31,7 +31,7 @@
  -   [Package information](package_information_01.md): updated.
 -   [Version information](version_information_01.md): updated.
 -   [Wi-Fi throughput](wi-fi_throughput_01.md): updated.
--   [Firmware version: From 16.92.21.p151.7 to 16.92.21.p153.5](firmware_version_from_16_91_21_p149_4_to_16_91_21_p151_7_01.md): added.
+-   Firmware version: From 16.92.21.p151.7 to 16.92.21.p153.5: added.
 -   [Known issues](known_issues_01.md): updated.
 
  **IW611/IW612 release notes**
@@ -53,11 +53,11 @@
 
  **AW611 release notes**
 
- -   [Package information](package_information_04.md): updated.
--   [Version information](version_information_04.md): updated.
--   [Wi-Fi throughput](wi-fi_throughput_04.md): updated.
--   [Firmware version: 18.99.3.p25.11 to 18.99.3.p26.10](firmware_version_18_99_3_p25_11_0_to_18_99_3_p26_10_0.md): added.
--   [Known issues](known_issues_04.md): updated.
+ -   Package information: updated.
+-   Version information: updated.
+-   Wi-Fi throughput: updated.
+-   Firmware version: 18.99.3.p25.11 to 18.99.3.p26.10: added.
+-   Known issues: updated.
 
 **IW610 release notes**
 
@@ -79,7 +79,7 @@
 
  **Feature enable and memory impact**
 
- -   [Kconfig memory optimizer feature](Kconfig_memory_optimizer.md): updated.
+ -   Kconfig memory optimizer feature: updated.
 
  **88W8987 release notes**
 
@@ -93,7 +93,7 @@
  -   [Package information](package_information_01.md): updated.
 -   [Version information](version_information_01.md): updated.
 -   [Wi-Fi throughput](wi-fi_throughput_01.md): updated.
--   [Firmware version: From 16.91.21.p149.4 to 16.92.21.p151.7](firmware_version_from_16_91_21_p149_4_to_16_91_21_p151_7.md): added.
+-   Firmware version: From 16.91.21.p149.4 to 16.92.21.p151.7: added.
 -   [Known issues](known_issues_01.md): updated.
 
  **IW611/IW612 release notes**
@@ -115,11 +115,11 @@
 
  **AW611 release notes**
 
- -   [Package information](package_information_04.md): updated.
--   [Version information](version_information_04.md): updated.
--   [Wi-Fi throughput](wi-fi_throughput_04.md): updated.
--   [Firmware version: 18.99.3.p23.16 to 18.99.3.p25.11](firmware_version_18_99_3_p23_16_to_18_99_3_p25_11_0.md): added.
--   [Known issues](known_issues_04.md): updated.
+ -   Package information: updated.
+-   Version information: updated.
+-   Wi-Fi throughput: updated.
+-   Firmware version: 18.99.3.p23.16 to 18.99.3.p25.11: added.
+-   Known issues: updated.
 
  
 |
@@ -137,7 +137,7 @@
 
  **Feature enable and memory impact**
 
- -   [SLIM feature](slim_feature.md): updated.
+ -   SLIM feature: updated.
 
  **88W8987 release notes**
 
@@ -170,17 +170,17 @@
 
  **AW611 release notes**
 
- -   [Package information](package_information_04.md): updated.
--   [Version information](version_information_04.md): updated.
--   [Wi-Fi throughput](wi-fi_throughput_04.md): updated.
--   [Firmware version: 18.99.3.p21.154 to 18.99.3.p23.16](firmware_version_18_99_3_p21_154_to_18_99_3_p23_16_0.md): added.
--   [Known issues](known_issues_04.md): updated.
+ -   Package information: updated.
+-   Version information: updated.
+-   Wi-Fi throughput: updated.
+-   Firmware version: 18.99.3.p21.154 to 18.99.3.p23.16: added.
+-   Known issues: updated.
 
  **88W8801 release notes**
 
- -   [Package information](package_information_05.md): updated.
--   [Wi-Fi throughput](wi-fi_throughput_05.md): updated.
--   [Firmware version: From 14.91.36.p196 to 14.91.36.p197](firmware_version_from_14_91_36_p196_to_14_91_36_p197.md): added.
+ -   Package information: updated.
+-   Wi-Fi throughput: updated.
+-   Firmware version: From 14.91.36.p196 to 14.91.36.p197: added.
 
 |
 |-------------|------|----------------|
@@ -197,7 +197,7 @@
  **Feature enable and memory impact**
 
  -   [Feature enable and memory impact](feature_enable_and_memory_impact.md): updated.
--   [SLIM feature](slim_feature.md): added.
+-   SLIM feature: added.
 
  **88W8987 release notes**
 
@@ -230,17 +230,17 @@
 
  **AW611 release notes**
 
- -   [Package information](package_information_04.md): updated.
--   [Version information](version_information_04.md): updated.
--   [Wi-Fi throughput](wi-fi_throughput_04.md): updated.
--   [Firmware version: 18.99.3.p17.9 to 18.99.3.p21.154](firmware_version_18_99_3_p17_9_to_18_99_3_p21_154_0.md): added.
--   [Known issues](known_issues_04.md): updated.
+ -   Package information: updated.
+-   Version information: updated.
+-   Wi-Fi throughput: updated.
+-   Firmware version: 18.99.3.p17.9 to 18.99.3.p21.154: added.
+-   Known issues: updated.
 
  **88W8801 release notes**
 
- -   [Package information](package_information_05.md): updated.
--   [Wi-Fi throughput](wi-fi_throughput_05.md): updated.
--   [Firmware version: From 14.91.36.p192 to 14.91.36.p196](firmware_version_from_14_91_36_p192_to_14_91_36_p196.md): added.
+ -   Package information: updated.
+-   Wi-Fi throughput: updated.
+-   Firmware version: From 14.91.36.p192 to 14.91.36.p196: added.
 
 |
 |RN00174 v.10.0|24 September 2024|-   [About this document](about_this_document.md): updated the SDK release version.
@@ -288,15 +288,15 @@
 
  **AW611 release notes**
 
- -   [Package information](package_information_04.md): updated.
--   [Version information](version_information_04.md): updated.
--   [Wi-Fi throughput](wi-fi_throughput_04.md): updated.
--   [Bug fixes and/or feature enhancements](bug_fixes_and_or_feature_enhancements_04.md): added.
--   [Known issues](known_issues_04.md): updated.
+ -   Package information: updated.
+-   Version information: updated.
+-   Wi-Fi throughput: updated.
+-   Bug fixes and/or feature enhancements: added.
+-   Known issues: updated.
 
  **88W8801 release notes**
 
- -   [Package information](package_information_05.md): updated.
+ -   Package information: updated.
 
 |
 |RN00174 v.9.0
@@ -313,8 +313,8 @@
 -   [IW416 release notes](iw416-release-notes.md): updated the SDK and firmware versions, throughput numbers, fixes and known issues.
 -   [IW611/IW612 release notes](iw611-iw612-release-notes.md): updated the SDK and firmware versions, throughput numbers, fixes and known issues.
 -   [RW610/RW612 release notes](rw610-rw612-release-notes.md): added.
--   [AW611 release notes](aw611-release-notes.md): added.
--   [88W8801 release notes](88w8801-release-notes.md): updated the SDK and firmware versions.
+-   AW611 release notes: added.
+-   88W8801 release notes: updated the SDK and firmware versions.
 
 |
 |RN00174 v.8.0
@@ -411,8 +411,8 @@
 -   [STA throughput](sta_throughput_01.md): updated.
 -   [Mobile AP throughput](mobile_ap_throughput_01.md): updated.
 -   [Bug fixes and/or feature enhancements](bug_fixes_andor_feature_enhancements_01.md): updated the firmware version and added details about the fixed issues.
--   [Package information](package_information_05.md): updated the SDK version.
--   [Version information](version_information_05.md): updated the firmware version.
+-   Package information: updated the SDK version.
+-   Version information: updated the firmware version.
 -   [WFA certifications](wfa_certifications_05.md): mentioned FFD, SVD and WPA3 SAE \(R3\) for STA.
 -   [STA throughput](sta_throughput_05.md): updated.
 -   [Mobile AP throughput](mobile_ap_throughput_05.md): updated.
@@ -427,8 +427,8 @@
 -   [Version information](version_information.md): updated the firmware version.
 -   [Package information](package_information_01.md): updated the SDK version.
 -   [Version information](version_information_01.md): updated the firmware version.
--   [Package information](package_information_05.md): updated the SDK version.
--   [Version information](version_information_05.md): updated the firmware version.
+-   Package information: updated the SDK version.
+-   Version information: updated the firmware version.
 -   [STA throughput](sta_throughput_05.md): updated.
 -   [Mobile AP throughput](mobile_ap_throughput_05.md): updated.
 
@@ -456,7 +456,7 @@
 -   [STA throughput](sta_throughput_01.md): updated.
 -   [Mobile AP throughput](mobile_ap_throughput_01.md): updated.
 -   [Bug fixes and/or feature enhancements](bug_fixes_andor_feature_enhancements_01.md): updated the firmware version and fixed issues.
--   [Package information](package_information_05.md): updated the SDK version.
+-   Package information: updated the SDK version.
 -   [STA throughput](sta_throughput_05.md): updated the throughput numbers.
 -   [Mobile AP throughput](mobile_ap_throughput_05.md): updated the throughput numbers.
 

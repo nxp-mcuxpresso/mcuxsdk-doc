@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/mimxrt700evk/mcuxsdk-mimxrt700evk.pdf
+
 .. _mimxrt700evk:
 
 MIMXRT700-EVK
@@ -80,7 +81,7 @@ Multicore
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 eIQ
 ===

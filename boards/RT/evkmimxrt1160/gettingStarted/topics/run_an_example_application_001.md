@@ -18,12 +18,14 @@ To download and run the application, perform these steps:
 
     -   When using CMSIS-DAP to debug cm4 project on IAR, an extra option needs to be specified in debugger settings. Check and fill in **--macro\_param enable\_core=1** in **Debugger** -\> **Extra Options** -\> **Command line options**, as shown in [Figure 3](run_an_example_application_001.md#FIG_COMMANDLINE).
 
+(FIG_COMMANDLINE)=
         ![](../images/iar_options_for_node.png "Selecting Command line options")
 
     -   If debugging with JLINK as probe, `jlinkscript` file is needed.
 
         -   When downloading the `cm7` project, check **Use command line options**, as shown in [Figure 4](run_an_example_application_001.md#FIG_CHECK).
 
+(FIG_CHECK)=
             ![](../images/iar_check_use_command_line_options.png "Check Use command line options")
 
         -   When downloading the `cm4` project, uncheck **Use flash loader\(s\)**, as shown in [Figure 5](run_an_example_application_001.md#FIG_UNCHECK), and change the contents of command line options as below:

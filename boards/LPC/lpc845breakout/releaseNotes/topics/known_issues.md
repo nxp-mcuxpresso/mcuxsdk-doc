@@ -6,6 +6,6 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/known_issues/the_spi_transfer_interrupt_examples_dont_work.md
+```{include} /release/known_issues/the_spi_transfer_interrupt_examples_dont_work.md
 :heading-offset: 1
 ```

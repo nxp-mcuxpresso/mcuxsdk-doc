@@ -24,6 +24,7 @@ Do the following steps to build the `hello_world` example application..
 
 3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](build_an_example_application.md#FIG_BUILDDEMO).
 
+(FIG_BUILDDEMO)=
     ![](../images/iar_building_the_demo_application.jpg "Building the demo application")
 
 4.  The build completes without errors.

@@ -2,6 +2,8 @@
 
 [Table 1](peripheral_devices_tested_with_usb_host_stack.md#TABLE_D6E278B7-B99C-4A8E-9A79-BDFC51525F78) provides a list of USB devices tested with the USB Host stack.
 
+
+(TABLE_D6E278B7-B99C-4A8E-9A79-BDFC51525F78)=
 |Device type|Device|
 |-------------|--------|
 |USB HUB|BELKIN F5U233BELKIN F5U304BELKIN F5U307BELKIN F4U040UNITEK Y-2151Z-TEK ZK032AHYUNDAI HY-HB608|

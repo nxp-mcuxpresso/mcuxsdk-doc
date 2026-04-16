@@ -6,8 +6,8 @@ To download and run the application, perform these steps:
 
     -   For boards with the CMSIS-DAP/mbed/DAPLink interface, visit [mbed Windows serial configuration](https://developer.mbed.org/handbook/Windows-serial-configuration) and follow the instructions to install the Windows operating system serial driver. If running on Linux OS, this step is not required.
     -   For boards with a P&E Micro interface, visit [www.pemicro.com/support/downloads\_find.cfm](http://www.pemicro.com/support/downloads_find.cfm) and download and install the P&E Micro Hardware Interface Drivers package.
-    -   If using J-Link either a standalone debug pod or OpenSDA, install the J-Link software \(drivers and utilities\) from [www.segger.com/jlink-software.html](www.segger.com/jlink-software.html).
-    -   If using J-Link either a standalone debug pod or J-link firmware programmed into the onboard debug probe, install the J-Link software \(drivers and utilities\) from [www.segger.com/jlink-software.html](www.segger.com/jlink-software.html).
+    -   If using J-Link either a standalone debug pod or OpenSDA, install the J-Link software \(drivers and utilities\) from [www.segger.com/jlink-software.html](https://www.segger.com/jlink-software.html).
+    -   If using J-Link either a standalone debug pod or J-link firmware programmed into the onboard debug probe, install the J-Link software \(drivers and utilities\) from [www.segger.com/jlink-software.html](https://www.segger.com/jlink-software.html).
     -   For boards with the OSJTAG interface, install the driver from [www.keil.com/download/docs/408](http://www.keil.com/download/docs/408.asp).
 2.  Connect the development platform to your PC via USB cable using OpenSDA USB connector.
 3.  Open the terminal application on the PC, such as PuTTY or TeraTerm and connect to the debug serial port number \(to determine the COM port number, see [How to determine COM port](how_to_determine_com_port.md#)\). Configure the terminal with these settings:

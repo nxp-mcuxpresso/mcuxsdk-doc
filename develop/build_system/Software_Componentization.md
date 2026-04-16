@@ -1,3 +1,4 @@
+(Componentization)=
 # Software Componentization
 
 This chapter illustrates the MCUXpresso SDK Componentization concept and composition supported by the build system.

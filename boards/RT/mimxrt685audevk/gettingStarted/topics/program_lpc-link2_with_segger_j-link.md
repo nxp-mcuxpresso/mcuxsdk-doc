@@ -12,6 +12,7 @@ The steps are:
 3.  To update the LPC-Link2 debug circuit firmware, unplug the USB cable on J5 and then connect to the DFULink jumper. In the MIMXRT685-EVK, JP1 is the LPCXpresso DFU jumper as shown in [Figure 1](program_lpc-link2_with_segger_j-link.md#JUFHSVHCV). 
 4.  Connect JP1 using the jumper.
 
+(JUFHSVHCV)=
     |![](../images/image11.png "Connect JP1")
 
 |
@@ -34,6 +35,7 @@ The steps are:
 
 8.  Verify once you select the firmware \(in this case J-Link\), LPCScrypt. The console appears as shown in [Figure 4](program_lpc-link2_with_segger_j-link.md#JJEFJHWV).
 
+(JJEFJHWV)=
     |![](../images/image14.png "Console after selecting the firmware")
 
 |

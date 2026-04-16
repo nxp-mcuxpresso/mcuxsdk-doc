@@ -14,6 +14,7 @@
 
 2.  To build the demo project, select **Rebuild**, highlighted in red in [Figure 1](build_an_example_application_003.md#FIG_BUILDTHEDEMO).
 
+(FIG_BUILDTHEDEMO)=
     |![](../images/keil_build_the_demo.png "Build the demo")
 
 |

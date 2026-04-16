@@ -4,6 +4,7 @@ The SPIFI clock frequency is defined in the header, offset 0x1C. [Table 1](how_t
 
 **Note:** If header sets SPIFI clock frequency to zero, the serial clock defaults to 24 MHz. And this setting affects both SPI boot or SPIFI boot clock. For SPIFI, the clock and other configuration settings are retained after boot unless modified by the application program.
 
+(SPISPIFICLOCKSPEED)=
 |Header SPI/SPIFI clock frequency value|SPI/SPIFI clock speed|
 |--------------------------------------|---------------------|
 |< 24000000 \(SPI only\)|12000000 \(SPI only\)|

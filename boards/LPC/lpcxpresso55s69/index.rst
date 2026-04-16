@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/lpcxpresso55s69/mcuxsdk-lpcxpresso55s69.pdf
+
 .. _lpcxpresso55s69:
 
 LPCXpresso55S69
@@ -70,7 +71,7 @@ Multicore
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 Audio Voice components
 ======================

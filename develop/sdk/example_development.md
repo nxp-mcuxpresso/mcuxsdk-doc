@@ -181,6 +181,7 @@ sdk_next/
      │                     ├── example.yml
 ```
 
+(hierarchical-configuration-for-board-porting)=
 ##### Hierarchical Configuration
 
 MCUXpresso SDK build system supports hierarchical configuration for repository examples by involving different levels of project configuration (prj.conf) files, each with its own priority. These prj.conf files are organized into four groups: device, board, example category/example, and example board-specific parts. For more details, see [prj.conf](../build_system/Configuration_System.md#prjconf).

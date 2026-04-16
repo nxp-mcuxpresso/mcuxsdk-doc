@@ -1,8 +1,9 @@
 :pdf-download: ../../../_assets/boards/mcimx93wevk/mcuxsdk-mcimx93wevk.pdf
+
 .. _mcimx93wevk:
 
 MCIMX93W-EVK
-###########
+############
 
 Overview
 ********

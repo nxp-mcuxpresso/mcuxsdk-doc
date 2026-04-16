@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/evkbmimxrt1170/mcuxsdk-evkbmimxrt1170.pdf
+
 .. _evkbmimxrt1170:
 
 MIMXRT1170-EVKB
@@ -74,7 +75,7 @@ Multicore
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 Audio Voice components
 ======================

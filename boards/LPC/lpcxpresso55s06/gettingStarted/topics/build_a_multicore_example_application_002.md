@@ -16,6 +16,7 @@ This section describes the steps required to configure MCUXpresso IDE to build, 
 
 3.  Now, two projects should be imported into the workspace. To start building the multicore application, highlight the `lpcxpresso55s69_hello_world_cm33_core0` project \(multicore master project\) in the Project Explorer. Then choose the appropriate build target, **Debug** or **Release**, by clicking the downward facing arrow next to the hammer icon, as shown in [Figure 3](build_a_multicore_example_application_002.md#TERMINALSSPUTTY). For this example, select **Debug**.
 
+(TERMINALSSPUTTY)=
     |![](../images/7_4_selection_of_build_target_mcuxpresso_ide_lpc55.png "Selection of the build target in MCUXpresso
 											IDE")
 

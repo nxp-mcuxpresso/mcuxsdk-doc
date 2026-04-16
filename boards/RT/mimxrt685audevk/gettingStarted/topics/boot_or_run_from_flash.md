@@ -2,6 +2,7 @@
 
 Boot from Flash is straight forward when using IAR environment. SDK provides either two or four different build configurations based on the project: debug \(from SRAM\)/ release \(from SRAM\)/ flash\_debug/ flash\_release. Flash configurations use different memory map in project linker options. For details, see [Figure 1](boot_or_run_from_flash.md#JFEFH).
 
+(JFEFH)=
 |![](../images/image45.png "Linker settings")
 
 |

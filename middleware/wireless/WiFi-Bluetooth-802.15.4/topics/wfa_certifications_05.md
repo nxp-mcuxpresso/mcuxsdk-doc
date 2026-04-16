@@ -10,5 +10,5 @@ Refer to [6](references.md#item_tn00066).
 
 **Note:** This release supports STAUT only certifications.
 
-**Parent topic:**[Wi-Fi certification](../topics/wi-fi_certification.md)
+**Parent topic:**Wi-Fi certification
 

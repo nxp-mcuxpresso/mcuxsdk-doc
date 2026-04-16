@@ -10,6 +10,6 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
-```{include} /release/known_issue_import_issue.md
+```{include} /release/known_issues/known_issue_import_issue.md
 :heading-offset: 1
 ```

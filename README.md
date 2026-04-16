@@ -107,7 +107,7 @@ Generate documentation for a specific module:
 west doc html -t <module_name>
 ```
 
-Available module names and their included sources are defined in the [configuration file](docs/_cfg/user_config.yml). This approach includes only the specified module's documentation sources in the build process.
+Available module names and their included sources are defined in the [configuration file](/_cfg/user_config.yml). This approach includes only the specified module's documentation sources in the build process.
 
 #### Board-Level Generation
 

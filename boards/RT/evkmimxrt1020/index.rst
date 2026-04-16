@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/evkmimxrt1020/mcuxsdk-evkmimxrt1020.pdf
+
 .. _evkmimxrt1020:
 
 MIMXRT1020-EVK
@@ -64,7 +65,7 @@ Find links to detailed middleware documentation for key components. While not al
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 FreeMASTER
 ==========

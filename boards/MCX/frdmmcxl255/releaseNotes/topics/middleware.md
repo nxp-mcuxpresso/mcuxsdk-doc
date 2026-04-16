@@ -26,10 +26,6 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_sgi_pkc.md
-:heading-offset: 2
-```
-
 ```{include} /release/commonrn/topics/mcuboot_opensource.md
 :heading-offset: 2
 ```

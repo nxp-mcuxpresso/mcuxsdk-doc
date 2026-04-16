@@ -4,6 +4,8 @@ The primary core debugger handles flashing of both the primary and the auxiliary
 
 **Note:** On MCUXpresso IDE, the feature to simultaneously debug two cores is only supported by CMSIS-DAP debugger.
 
+(FIG_HELLOWORLD)=
+(FIG_DEBUGHELLOWORLD)=
 ![](../images/ide_multicore_debug_hello_world_cm7_case.png "Debug hello_world_cm7 case")
 
 ![](../images/ide_multicore_attached_probes.png "Attached Probes: debug emulator selection")

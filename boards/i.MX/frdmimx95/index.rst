@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/frdmimx95/mcuxsdk-frdmimx95.pdf
+
 .. _frdmimx95:
 
 FRDM-IMX95
@@ -39,7 +40,7 @@ Release Notes
 .. toctree::
    :maxdepth: 1
 
- releaseNotes/rnindex.md
+   releaseNotes/rnindex.md
 
 ChangeLog
 *******************************************

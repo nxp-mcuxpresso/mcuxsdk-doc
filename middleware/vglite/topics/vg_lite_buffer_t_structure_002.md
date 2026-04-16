@@ -24,11 +24,11 @@ Used in draw functions: `vg_lite_draw, vg_lite_draw_pattern, vg_lite_draw_grad, 
 |`address`|vg\_lite\_uint32\_t|GPU address|
 |`yuv`|[vg\_lite\_yuvinfo\_t](vg_lite_yuvinfo_t_structure.md)|YUV format info struct|
 |`image_mode`|[vg\_lite\_image\_mode\_t](vg_lite_yuv2rgb_t_enumeration.md)|Blit image mode enum|
-|`transparency_mode`|[vg\_lite\_transparency\_t](vg_lite_yuv2rgb_t_enumeration%20-%20Copy%20-%20Copy%20-%20Copy.md)|Image transparency mode enum|
+|`transparency_mode`|[vg\_lite\_transparency\_t](vg_lite_transparency_t_enumeration.md)|Image transparency mode enum|
 |`fc_buffer[3]`|vg\_lite\_fc\_buffer\_t|Three \(3\) fast clear buffers, reserved YUV format *\(from March 2023\)*|
 |`compress_mode`|vg\_lite\_compress\_mode|Compression mode *\(from March 2023\)*|
 |`index_endian`|vg\_lite\_index\_endian\_t|Big/Little Endian setting for index formats *\(from March 2023\)*|
-|`paintType`|[vg\_lite\_paint\_type\_t](vg_lite_yuv2rgb_t_enumeration%20-%20Copy%20-%20Copy.md)|Paint type enum *\(from May 2023\)*|
+|`paintType`|[vg\_lite\_paint\_type\_t](vg_lite_paint_type_t_enumeration.md)|Paint type enum *\(from May 2023\)*|
 |`fc_enable`|vg\_lite\_int8\_t|Enable Image fast clear *\(moved from Aug 2023\)*|
 |`scissor_layer`|vg\_lite\_int8\_t|Get paintcolor from different paint types *\(from Aug 2023\)*|
 |`premulitplied`|vg\_lite\_int8\_t|The RGB pixel values are alpha-premultipled *\(from Aug 2023\)*|

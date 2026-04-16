@@ -1,4 +1,3 @@
-(gsd_tool_installation)=
 
 # Development Tools Installation
 

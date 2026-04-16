@@ -22,14 +22,6 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
-```{include} /release/known_issues/cannot_add_sdk_components_into_freertos_projects.md
-:heading-offset: 1
-```
-
-```{include} /release/known_issues/meastro_recording.md
-:heading-offset: 1
-```
-
 ```{include} /release/known_issues/log_output.md
 :heading-offset: 1
 ```
@@ -53,6 +45,6 @@ This section lists the known issues, limitations, and/or workarounds.
 ```{include} /release/known_issues/EF_BL_stack_NPW.md
 :heading-offset: 1
 ```
-```{include} ../../../../release/known_issues/fail_to_set_security_after_building_connection_with_peer_device_and_failed_ratio_is_110.md
+```{include} /release/known_issues/fail_to_set_security_after_building_connection_with_peer_device_and_failed_ratio_is_110.md
 :heading-offset: 1
 ```

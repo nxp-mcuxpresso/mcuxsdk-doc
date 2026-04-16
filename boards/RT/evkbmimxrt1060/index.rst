@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/evkbmimxrt1060/mcuxsdk-evkbmimxrt1060.pdf
+
 .. _evkbmimxrt1060:
 
 MIMXRT1060-EVKB
@@ -38,6 +39,7 @@ Getting Started with MCUXpresso SDK GitHub
    :maxdepth: 1
 
    ../../../gsd/repo.rst
+
 Release Notes
 *******************************************
 .. toctree::
@@ -73,7 +75,7 @@ Multicore
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 Audio Voice components
 ======================

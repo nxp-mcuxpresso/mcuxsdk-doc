@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/evkmimxrt685/mcuxsdk-evkmimxrt685.pdf
+
 .. _evkmimxrt685:
 
 MIMXRT685-EVK
@@ -76,7 +77,7 @@ Multicore
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 eIQ
 ===

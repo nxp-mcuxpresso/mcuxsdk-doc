@@ -15,5 +15,11 @@ topics/mcuxpresso_config_tools.md
 topics/mcuxpresso_ide_new_project_wizard.md
 topics/how_to_determine_com_port.md
 topics/default_debug_interfaces.md
-topics/updating_debugger_firmware.md
 ``````
+
+```{toctree}
+:hidden:
+:glob:
+
+topics/*
+```

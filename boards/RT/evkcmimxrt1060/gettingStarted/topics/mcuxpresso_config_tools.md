@@ -2,8 +2,9 @@
 
 MCUXpresso configuration tools can help configure the processor and generate initialization code for the on chip peripherals. The tools are able to modify any existing example project, or create a new configuration for the selected board or processor. The generated code is designed to be used with MCUXpresso SDK version 2.x.
 
-[Table 1](#table_configtool) describes the tools included in the MCUXpresso configuration tools.
+[Table 1](mcuxpresso_config_tools.md#table_configtool) describes the tools included in the MCUXpresso configuration tools.
 
+(table_configtool)=
 |Configuration tool|Description|Image|
 |------------------|-----------|:---:|
 |**Pins tool**

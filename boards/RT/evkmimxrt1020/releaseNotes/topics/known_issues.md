@@ -10,10 +10,6 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
-```{include} /release/known_issues/cannot_add_sdk_components_into_freertos_projects.md
-:heading-offset: 1
-```
-
 
 ```{include} /release/known_issues/non_xip_target_debug_issue_on_toolchain_mdk.md
 :heading-offset: 1
@@ -23,10 +19,10 @@ This section lists the known issues, limitations, and/or workarounds.
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/known_issues/the_bee_example_does_not_complete_successfully_on_mcuxpresso_ide.md
+```{include} /release/known_issues/the_bee_example_does_not_complete_successfully_on_mcuxpresso_ide.md
 :heading-offset: 1
 ```
 
-```{include} ../../../../release/known_issues/modify_dummy_cycles_value_for_external_qspi_flash.md
+```{include} /release/known_issues/modify_dummy_cycles_value_for_external_qspi_flash.md
 :heading-offset: 1
 ```

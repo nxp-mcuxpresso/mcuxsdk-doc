@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/frdmk22f/mcuxsdk-frdmk22f.pdf
+
 .. _frdmk22f:
 
 FRDM-K22F

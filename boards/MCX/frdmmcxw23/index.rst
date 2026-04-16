@@ -29,7 +29,6 @@ Getting Started with MCUXpresso SDK GitHub
    ../../../gsd/repo.rst
 
    gettingStarted/topics/how_to_determine_com_port.md
-   gettingStarted/topics/updating_debugger_firmware.md
    
 Release Notes
 *******************************************

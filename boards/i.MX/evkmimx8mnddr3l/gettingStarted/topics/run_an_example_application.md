@@ -19,6 +19,7 @@ To download and run the application via UUU, perform these steps:
 
     The UUU puts the platform into fast boot mode and automatically flashes the target bootloader to QSPI. The command line and fast boot console is as shown in [Figure 2](run_an_example_application.md#COMMANDLINSEFASTBOOT).
 
+(COMMANDLINSEFASTBOOT)=
     |![](../images/figure_28.png "Command line and fast boot console output when executing
             UUU")
 

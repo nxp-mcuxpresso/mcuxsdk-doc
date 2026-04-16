@@ -1,4 +1,5 @@
 :pdf-download: ../../../_assets/boards/rdrw612bga/mcuxsdk-rdrw612bga.pdf
+
 .. _rdrw612bga:
 
 RD-RW612-BGA
@@ -33,6 +34,7 @@ Getting Started with MCUXpresso SDK GitHub
    :maxdepth: 1
 
    ../../../gsd/repo.rst
+
 Release Notes
 *******************************************
 .. toctree::
@@ -68,7 +70,7 @@ Wireless Connectivity Framework
 MCU Boot
 ========
 
-:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README.md>`
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
 
 Audio Voice components
 ======================
