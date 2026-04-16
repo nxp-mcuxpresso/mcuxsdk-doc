@@ -71,8 +71,8 @@ _ORPHAN_PATTERNS = (
     'lcdifv2_examples_readme',
     'dcif_examples_readme',
     'jpegdec_examples_readme',
-    # Examples: ecat servo_motor topics
-    'ecat_examples/servo_motor/topics/',
+    # Examples: ecat topics (shared across ecat_examples)
+    'ecat_examples/topics/',
     # Examples: other standalone docs
     'examples/ncp_examples/',
     'examples/ota_examples/',
