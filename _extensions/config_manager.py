@@ -557,10 +557,15 @@ class ConfigurationManager:
         return 'index'
     
     def create_board_index(self, doc_base: Path):
-        """Create a temporary board index file."""
+        """Create a temporary board index file.
+
+        Only includes toctree entries for modules that are active in
+        the current board build (based on module_tags) and whose index
+        files actually exist in the doc source tree.
+        """
         if not self.board_target:
             return
-        
+
         # Determine board path
         board_parts = self.board_target.split('/')
         if len(board_parts) == 2:
@@ -577,7 +582,7 @@ class ConfigurationManager:
             else:
                 logger.error(f"Could not find board path for {board_name}")
                 return
-        
+
         # Find device path from modules
         device_path = "drivers"
         for module_name in self.module_tags:
@@ -587,7 +592,35 @@ class ConfigurationManager:
                 if outdir.startswith("drivers"):
                     device_path = outdir.replace("\\", "/")
                     break
-        
+
+        # Build toctree entries, only including paths that exist
+        toctree_entries = []
+        toctree_entries.append(f"   {board_path}/index")
+
+        # Only include driver index if it exists
+        for ext in ['.rst', '.md', '/index.rst', '/index.md']:
+            if (doc_base / (device_path + ext)).exists():
+                toctree_entries.append(f"   {device_path}/index")
+                break
+
+        # Only include middleware/rtos if those modules are active
+        active_module_prefixes = set()
+        for mod in self.module_tags:
+            mod_cfg = self.config['modules'].get(mod, {})
+            for ec in mod_cfg.get('external_contents', []):
+                pattern = ec.get('pattern', '')
+                if pattern.startswith('middleware/'):
+                    active_module_prefixes.add('middleware')
+                elif pattern.startswith('rtos/'):
+                    active_module_prefixes.add('rtos')
+
+        if 'middleware' in active_module_prefixes and (doc_base / "middleware" / "index.rst").exists():
+            toctree_entries.append("   middleware/index")
+        if 'rtos' in active_module_prefixes and (doc_base / "rtos" / "index.rst").exists():
+            toctree_entries.append("   rtos/index")
+
+        toctree_body = '\n'.join(toctree_entries)
+
         # Create board index content
         board_index_content = f"""
 Board-Specific Documentation: {self.board_target}
@@ -598,19 +631,16 @@ This documentation contains information specific to the {board_name} board.
 .. toctree::
    :maxdepth: 1
 
-   {board_path}/index
-   {device_path}/index
-   middleware/index
-   rtos/index
+{toctree_body}
 """
-        
+
         # Write the board index file
         board_index_path = doc_base / "board_index.rst"
         with open(board_index_path, 'w', encoding='utf-8') as f:
             f.write(board_index_content)
-        
+
         logger.info(f"Created board index at {board_index_path}")
-    
+
     def _get_mod_config(self, mod_name: str, mod_config: Dict, key: str):
         """Get module configuration for a specific key."""
         mod_option = mod_config.get(key, [] if key != 'doxygen_runner' else None)

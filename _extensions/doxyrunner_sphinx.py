@@ -288,6 +288,50 @@ html_theme_options = {{
 }}
 
 master_doc = 'index'
+
+class _CDomainParseErrorFilter:
+    """Filter out C domain parse errors from breathe/doxygen-generated declarations.
+
+    These warnings are caused by complex C macros, function pointers, and
+    non-standard syntax in doxygen XML that the Sphinx C domain parser cannot
+    handle.  They are not actionable without modifying upstream headers.
+    """
+    _SUPPRESSED = (
+        'Invalid C declaration',
+        'Error in declarator',
+    )
+
+    def filter(self, record):
+        msg = record.getMessage() if hasattr(record, 'getMessage') else str(record.msg)
+        return not any(p in msg for p in self._SUPPRESSED)
+
+suppress_warnings = [
+    'duplicate_declaration.c',   # Duplicate C declarations from breathe/doxygen
+]
+
+class _DuplicateTargetFilter:
+    """Filter out duplicate explicit target warnings from breathe-generated content.
+
+    Breathe's doxygengroup directive with :members: includes cross-referenced
+    functions from other groups, creating duplicate target IDs (e.g., a slave
+    function referenced in the master group page).
+    """
+    _SUPPRESSED = (
+        'Duplicate explicit target name',
+    )
+
+    def filter(self, record):
+        msg = record.getMessage() if hasattr(record, 'getMessage') else str(record.msg)
+        return not any(p in msg for p in self._SUPPRESSED)
+
+def setup(app):
+
+    # Suppress C domain parse errors from breathe/doxygen
+    import logging
+    logging.getLogger('sphinx.domains.c').addFilter(_CDomainParseErrorFilter())
+    # Suppress duplicate explicit target from breathe cross-group references
+    logging.getLogger('docutils').addFilter(_DuplicateTargetFilter())
+
 '''
     
     with open(project_dir / "conf.py", "w") as f:

@@ -12,8 +12,7 @@ extensions:
 - sphinx.ext.graphviz
 - sphinx_tabs.tabs
 - sphinxmermaid
-- sphinx.ext.imgconverter
-- latex_writer
+- sphinxcontrib.rsvgconverter
 - notfound.extension
 source_suffix:
   .rst: restructuredtext
@@ -90,7 +89,11 @@ modules:
     - root: .
       pattern: examples/**/*.jpg
     - root: .
+      pattern: examples/**/*.jpeg
+    - root: .
       pattern: examples/**/*.png
+    - root: .
+      pattern: examples/**/*.svg
     - root: .
       pattern: examples/**/index.rst
   contribute:
@@ -819,12 +822,12 @@ modules:
     - root: .
       pattern: examples/_boards/imx952evk/ChangeLog_board.md
     - root: .
-      pattern: drivers/iMX//MIMX95294/index.rst
+      pattern: drivers/iMX/MIMX9529/index.rst
     - root: .
-      pattern: devices/iMX//MIMX95294/drivers/**/ChangeLog_*.md
+      pattern: devices/iMX/MIMX9529/drivers/**/ChangeLog_*.md
     doxygen_runner:
-      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX95294
-      outdir: drivers/iMX/iMX952/MIMX95294
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9529
+      outdir: drivers/iMX/iMX952/MIMX9529
   board_mcimx93autoevk:
     default: true
     external_contents:

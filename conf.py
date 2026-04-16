@@ -48,17 +48,6 @@ is_pdf_build = os.environ.get('SPHINX_TARGET', '').upper() in ['PDF', 'LATEX']
 if is_pdf_build:
     logger.info("PDF/LaTeX build detected - all projects will use breathe mode")
 
-# Patch the example_board_readme.md to avoid the warning
-# WARNING: document isn't included in any toctree
-def patch_example_readme_md(app, docname, source):
-    if docname.endswith('example_board_readme') or docname.find('ChangeLog_') != -1 or docname.find('commonrn') != -1:
-        source[0] = f'''---
-orphan: true
----
-
-{source[0]}
-'''
-
 def patch_mcuboot_readme(app, docname, source):
     """
     Patch the mcuboot README.md file for PDF builds.
@@ -149,10 +138,29 @@ def validate_html_paths(app, exception):
     else:
         logger.info("Path validation: No prohibited characters found in HTML output paths")
 
+class _CDomainParseErrorFilter:
+    """Filter out C domain parse errors from breathe/doxygen-generated declarations.
+
+    These warnings are caused by complex C macros, function pointers, and
+    non-standard syntax in doxygen XML that the Sphinx C domain parser cannot
+    handle.  They are not actionable without modifying upstream headers.
+    """
+    _SUPPRESSED = (
+        'Invalid C declaration',
+        'Error in declarator',
+    )
+
+    def filter(self, record):
+        msg = record.getMessage() if hasattr(record, 'getMessage') else str(record.msg)
+        return not any(p in msg for p in self._SUPPRESSED)
+
 def setup(app):
-    app.connect('source-read', patch_example_readme_md)
     app.connect('source-read', patch_mcuboot_readme)
     app.connect('build-finished', validate_html_paths)
+
+    # Suppress C domain parse errors from breathe/doxygen
+    import logging
+    logging.getLogger('sphinx.domains.c').addFilter(_CDomainParseErrorFilter())
 
 # Parse command line arguments
 args = get_parser().parse_args()
@@ -207,7 +215,14 @@ version = release
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = mcux_config.get_extensions()
+if is_pdf_build:
+    extensions.append('latex_writer')
 source_suffix = mcux_config.get_source_suffix()
+
+# -- Options for rsvg-convert (SVG to PDF conversion) ---------------------
+# The --unlimited flag lifts the default SVG size limit in rsvg-convert,
+# preventing build failures on large SVG files from external repos.
+rsvg_converter_args = ['--unlimited']
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -430,11 +445,16 @@ if 'vcs_link' in extensions:
 # -- Options for external_content ----------------------------------
 if 'external_content' in extensions:
     external_content_contents = mcux_config.get_external_contents()
-    external_content_keep = []
+    external_content_keep = [
+        # Images added to docs repo as ad-hoc fixes for external repo issues.
+        # These must be kept so external_content doesn't delete them.
+        'middleware/wireless/bluetooth/doc/Bluetooth Low Energy CCC Digital Key with Channel Sounding Application Note/images/serial_conn_2.jpg',
+    ]
 
 suppress_warnings = [
-    "myst.header", # WARNING: Non-consecutive header level increase; H4 to H7 [myst.header]
-    'image.fetch'
+    "myst.header",              # Non-consecutive header level increase; H4 to H7
+    'image.fetch',
+    'duplicate_declaration.c',  # Duplicate C declarations from BLE API Reference doxygenfile directives
 ]
 # suppress_warnings = ['image.fetch']
 # conf.py
