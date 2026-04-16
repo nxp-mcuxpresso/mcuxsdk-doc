@@ -12,10 +12,3 @@ topics/running_an_application_from_qspi_flash.md
 topics/how_to_determine_com_port.md
 topics/how_to_define_irq_handler_in_cpp_files.md
 ```
-
-```{toctree}
-:hidden:
-:glob:
-
-topics/*
-```

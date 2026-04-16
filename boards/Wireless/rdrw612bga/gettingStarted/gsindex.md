@@ -14,10 +14,3 @@ topics/run_a_demo_using_keil__mdk_vision.md
 topics/mcuxpresso_ide_new_project_wizard.md
 topics/how_to_define_irq_handler_in_cpp_files.md
 ```
-
-```{toctree}
-:hidden:
-:glob:
-
-topics/*
-```

@@ -7,10 +7,11 @@ FreeRTOS
    :maxdepth: 1
    :glob:
 
-   */index
-
-.. toctree::
-   :hidden:
-   :glob:
-
-   coremqtt-agent/README
+   freertos-kernel/index.rst
+   freertos-drivers/index.rst
+   backoffalgorithm/index.rst
+   corehttp/index.rst
+   corejson/index.rst
+   coremqtt/index.rst
+   corepkcs11/index.rst
+   freertos-plus-tcp/index.rst

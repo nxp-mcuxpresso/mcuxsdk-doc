@@ -20,10 +20,3 @@ topics/updating_lpcxpresso_board_firmware.md
 topics/revision_history.md
 topics/legal_information.md
 ```
-
-```{toctree}
-:hidden:
-:glob:
-
-topics/*
-```

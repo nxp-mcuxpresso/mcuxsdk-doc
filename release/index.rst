@@ -8,11 +8,3 @@ The supported development systems and their quality are listed below. To view th
 .. include:: release_metrics.md
    :parser: myst_parser.sphinx_
 
-.. toctree::
-   :hidden:
-   :glob:
-
-   known_issues/*
-   commonrn/topics/*
-
-

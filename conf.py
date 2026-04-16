@@ -48,6 +48,86 @@ is_pdf_build = os.environ.get('SPHINX_TARGET', '').upper() in ['PDF', 'LATEX']
 if is_pdf_build:
     logger.info("PDF/LaTeX build detected - all projects will use breathe mode")
 
+# Patch documents not included in any toctree to suppress orphan warnings.
+# These are legitimate standalone documents (readmes, changelogs, known issues,
+# shared readmes, etc.) that are included via `{include}` directives or are
+# auxiliary files copied by external_content but not directly in a toctree.
+_ORPHAN_PATTERNS = (
+    # Board getting-started topics (gsindex.md hidden toctree: topics/*)
+    'gettingStarted/',
+    # Board release notes
+    'releaseNotes/',
+    # Examples: _boards and _common (examples/index.rst hidden toctrees)
+    'examples/_boards/',
+    'examples/_common/',
+    'examples/README',
+    'example_board_readme',
+    'examples_shared_readme',
+    'board_readme',
+    'readme_modules',
+    # Examples: display/lvgl readmes
+    'lvgl_examples_readme',
+    'lcdif_examples_readme',
+    'lcdifv2_examples_readme',
+    'dcif_examples_readme',
+    'jpegdec_examples_readme',
+    # Examples: ecat servo_motor topics
+    'ecat_examples/servo_motor/topics/',
+    # Examples: other standalone docs
+    'examples/ncp_examples/',
+    'examples/ota_examples/',
+    'wifi_examples/common/',
+    # ChangeLog / CHANGELOG files (drivers, examples, boards)
+    'ChangeLog_',
+    'ChangeLog',
+    'CHANGELOG',
+    # Release: known_issues, commonrn
+    'release/known_issues/',
+    'commonrn',
+    # FreeRTOS: coremqtt-agent README
+    'rtos/freertos/coremqtt-agent/README',
+    # GSD common docs
+    'gsd/package',
+    'gsd/repo',
+)
+
+def patch_orphan_docs(app, docname, source):
+    if any(pattern in docname for pattern in _ORPHAN_PATTERNS):
+        source[0] = f'''---
+orphan: true
+---
+
+{source[0]}
+'''
+
+def patch_transition_issues(app, docname, source):
+    """
+    Fix documents that begin or end with MyST thematic breaks (---),
+    which Sphinx treats as transitions and rejects at document boundaries.
+    """
+    content = source[0]
+    lines = content.split('\n')
+
+    first_content_idx = None
+    for i, line in enumerate(lines):
+        if line.strip():
+            first_content_idx = i
+            break
+    if first_content_idx is not None and lines[first_content_idx].strip() == '---':
+        lines[first_content_idx] = ''
+
+    last_content_idx = None
+    for i in range(len(lines) - 1, -1, -1):
+        if lines[i].strip():
+            last_content_idx = i
+            break
+    if last_content_idx is not None and lines[last_content_idx].strip() == '---':
+        lines[last_content_idx] = ''
+
+    modified = '\n'.join(lines)
+    if modified != content:
+        source[0] = modified
+
 def patch_mcuboot_readme(app, docname, source):
     """
     Patch the mcuboot README.md file for PDF builds.
@@ -155,7 +235,9 @@ class _CDomainParseErrorFilter:
         return not any(p in msg for p in self._SUPPRESSED)
 
 def setup(app):
+    app.connect('source-read', patch_orphan_docs)
     app.connect('source-read', patch_mcuboot_readme)
+    app.connect('source-read', patch_transition_issues)
     app.connect('build-finished', validate_html_paths)
 
     # Suppress C domain parse errors from breathe/doxygen

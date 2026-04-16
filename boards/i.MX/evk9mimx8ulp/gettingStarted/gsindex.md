@@ -16,10 +16,3 @@ topics/how_to_determine_com_port.md
 topics/how_to_set_up_windows_linux_host_system.md
 
 ```
-
-```{toctree}
-:hidden:
-:glob:
-
-topics/*
-```

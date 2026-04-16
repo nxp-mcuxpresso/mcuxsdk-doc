@@ -42,9 +42,3 @@ Repository-Layout SDK Package
    run_a_demo_using_mcuxvsc
    run_project
    explore_sdk
-
-.. toctree::
-   :hidden:
-   :glob:
-
-   package/*

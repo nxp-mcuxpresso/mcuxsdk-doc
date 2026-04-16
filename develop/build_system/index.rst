@@ -13,7 +13,6 @@ Build And Configuration System
    Variables <Variables.md>
    IDE Project Generation <IDE_Project.md>
    Frequently Asked Questions <Frequently_Asked_Questions.md>
-   Best Practice <Best_Practice.md>
 
 .. only:: internal_doc
 

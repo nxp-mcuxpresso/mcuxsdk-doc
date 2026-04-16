@@ -14,10 +14,3 @@ topics/how_to_set_the_board_to_bootloader.md
 topics/updating_debugger_firmware.md
 topics/program_nbu_firmware.md
 ```
-
-```{toctree}
-:hidden:
-:glob:
-
-topics/*
-```

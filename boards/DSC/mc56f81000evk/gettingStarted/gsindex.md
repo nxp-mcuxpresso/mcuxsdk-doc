@@ -11,10 +11,3 @@ topics/build_run_sdk_example.md
 /gsd/package/how_to_determine_com_port.md
 
 ```
-
-```{toctree}
-:hidden:
-:glob:
-
-topics/*
-```

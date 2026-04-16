@@ -14,11 +14,6 @@ topics/running_an_application_by_u-boot.md
 topics/run_a_flash_target_demo_by_uuu.md
 topics/how_to_determine_com_port.md
 topics/how_to_define_irq_handler_in_cpp_files.md
-```
-
-```{toctree}
-:hidden:
-:glob:
-
-topics/*
+topics/host_setup.md
+topics/revision_history.md
 ```

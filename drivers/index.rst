@@ -9,11 +9,10 @@ The following is a list of the Driver API Reference Manuals categorized by devic
    :maxdepth: 1
    :glob:
 
-   */index
-   */*/index
-
-.. toctree::
-   :hidden:
-   :glob:
-
-   **/ChangeLog_*
+   DSC/index
+   iMX/index
+   RT/index
+   Kinetis/index
+   LPC/index
+   MCX/index
+   Wireless/index

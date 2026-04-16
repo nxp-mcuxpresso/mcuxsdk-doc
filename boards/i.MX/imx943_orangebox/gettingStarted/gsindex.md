@@ -16,10 +16,3 @@ topics/run_a_demo_application.md
 topics/how_to_determine_com_port.md
 topics/host_setup.md
 ```
-
-```{toctree}
-:hidden:
-:glob:
-
-topics/*
-```

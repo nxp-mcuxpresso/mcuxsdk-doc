@@ -22,7 +22,11 @@ To explore boards tailored to your needs, click the corresponding processor fami
 
 .. toctree::
    :maxdepth: 1
-   :glob:
 
-   */index
-
+   DSC/index
+   i.MX/index
+   RT/index
+   Kinetis/index
+   LPC/index
+   MCX/index
+   Wireless/index

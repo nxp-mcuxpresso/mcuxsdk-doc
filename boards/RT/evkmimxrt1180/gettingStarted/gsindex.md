@@ -17,10 +17,3 @@ topics/how_to_determine_com_port.md
 topics/default_debug_interfaces.md
 topics/note_source_code.md
 ```
-
-```{toctree}
-:hidden:
-:glob:
-
-topics/*
-```
