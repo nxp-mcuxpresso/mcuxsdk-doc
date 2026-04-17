@@ -74,6 +74,7 @@ def parse_args():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(description="Build documentation for all boards and full documentation")
     parser.add_argument("--build_html", action="store_true", help="Build HTML documentation for boards (default: PDF only)")
+    parser.add_argument("--pdf_only", action="store_true", help="Build board PDFs only, skip full HTML docs (for parallel CI)")
     return mcux_doc.add_new_arguments(parser).parse_args()
 
 def find_all_boards(docs_dir):
@@ -640,14 +641,17 @@ def main():
     # Runs after board PDFs complete so it gets all system memory and CPU.
     # The full docs build is memory-intensive (100 doxygen projects + sphinx
     # with parallel workers), running it concurrently with boards risks OOM.
-    main_logger.info("\nPhase 3: Building full HTML documentation")
-    full_result = process_full_docs(args, build_dir, assets_dir)
-    result_list.append(full_result)
-    main_logger.info("\nCompleted processing full documentation")
-    print_status(full_result.get('full', {}), main_logger)
-    if isinstance(full_result.get('full', {}), dict) and not full_result['full'].get('success', False):
-        failed_builds.append(('full', full_result['full']))
-    
+    if args.pdf_only:
+        main_logger.info("\nSkipping full HTML build (--pdf_only mode)")
+    else:
+        main_logger.info("\nPhase 3: Building full HTML documentation")
+        full_result = process_full_docs(args, build_dir, assets_dir)
+        result_list.append(full_result)
+        main_logger.info("\nCompleted processing full documentation")
+        print_status(full_result.get('full', {}), main_logger)
+        if isinstance(full_result.get('full', {}), dict) and not full_result['full'].get('success', False):
+            failed_builds.append(('full', full_result['full']))
+
     # Move the assets folder to the _build folder
     main_logger.info(f"Move assets from {assets_dir} to {build_dir}/full/html")
     if assets_dir.exists() and (build_dir / 'full').exists():

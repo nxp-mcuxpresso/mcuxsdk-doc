@@ -528,7 +528,14 @@ def build_device_project(project_dir: Path) -> bool:
 
 def doxygen_sphinx_build(app: Sphinx) -> None:
     """Main entry point for Sphinx mode Doxygen build."""
-    
+
+    # Skip device project HTML generation for PDF/LaTeX builds.
+    # PDF builds use breathe mode (via doxyrunner) for API RM integration,
+    # not separate device project HTML.
+    if app.builder.name in ('latex',):
+        logger.info("PDF build: skipping device project HTML generation")
+        return
+
     # Check if Sphinx mode is enabled
     if not getattr(app.config, 'doxyrunner_sphinx_mode', 0):
         logger.info("Sphinx mode disabled, skipping doxyrunner_sphinx")

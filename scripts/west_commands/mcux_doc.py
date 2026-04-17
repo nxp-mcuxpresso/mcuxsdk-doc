@@ -157,7 +157,7 @@ class MCUXDoc(WestCommand):
 
         parser.add_argument(
             'target', action='store', type=str,
-            choices=['clean', 'html', 'latex', 'doxygen', 'pdf', 'config', 'view', 'validate', 'all'],
+            choices=['clean', 'html', 'latex', 'doxygen', 'pdf', 'config', 'view', 'validate', 'all', 'pdf-boards', 'merge'],
             help='Target for the document creation'
         )
         
@@ -275,18 +275,18 @@ class MCUXDoc(WestCommand):
                 build_dir = DOC_PATH / args.build_dir
                 if build_dir.exists():
                     shutil.rmtree(build_dir)
-                
+
                 if args.board:
                     build_all_cmd = [
-                        sys.executable, 
+                        sys.executable,
                         str(script_dir / "build_all_docs.py")
                     ] + args_to_cmdline(args)
                 else:
                     build_all_cmd = [
-                        sys.executable, 
+                        sys.executable,
                         str(script_dir / "build_all_docs.py")
                     ] + args_to_cmdline(args, ['board'])
-                
+
                 try:
                     result = subprocess.run(build_all_cmd, check=True)
                     if result.returncode != 0:
@@ -296,7 +296,57 @@ class MCUXDoc(WestCommand):
                     self.err(f"Error running build_all_docs.py: {e}")
                     self.err(f"Exit code: {e.returncode}")
                     return 1
-                
+
+                return 0
+
+            elif target == 'pdf-boards':
+                # Build board PDFs only (for parallel CI - Agent 1)
+                build_dir = DOC_PATH / args.build_dir
+                if build_dir.exists():
+                    shutil.rmtree(build_dir)
+
+                build_all_cmd = [
+                    sys.executable,
+                    str(script_dir / "build_all_docs.py"),
+                    "--pdf_only"
+                ] + args_to_cmdline(args, ['board'])
+
+                try:
+                    result = subprocess.run(build_all_cmd, check=True)
+                except subprocess.CalledProcessError as e:
+                    self.err(f"Error running pdf-boards: {e}")
+                    return 1
+
+                return 0
+
+            elif target == 'merge':
+                # Merge board PDF artifacts into HTML output (for parallel CI - Agent 2 post-step)
+                build_dir = DOC_PATH / args.build_dir
+                html_dir = build_dir / 'html'
+                pdf_assets = build_dir / '_assets'
+
+                if not html_dir.exists():
+                    self.err(f"HTML output not found at {html_dir}")
+                    return 1
+
+                if pdf_assets.exists():
+                    dest = html_dir / '_assets'
+                    if dest.exists():
+                        shutil.rmtree(dest)
+                    shutil.copytree(str(pdf_assets), str(dest))
+                    self.inf(f"Merged PDF assets into {dest}")
+                else:
+                    self.inf(f"No PDF assets found at {pdf_assets}, skipping merge")
+
+                # Run path validation
+                sys.path.insert(0, str(script_dir))
+                from validate_paths import PathValidator
+                validator = PathValidator(html_dir)
+                is_valid = validator.scan_directory()
+                if not is_valid:
+                    self.err("Path validation failed: prohibited characters in HTML paths")
+                    return 1
+
                 return 0
             else:
                 cmd = shlex.split(f'cmake --build {args.build_dir} --target {target}')
