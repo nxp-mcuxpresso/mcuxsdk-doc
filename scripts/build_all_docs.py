@@ -99,18 +99,6 @@ def get_optimal_worker_count(build_mode, low_memory=False):
         return max(1, int(cpu_count * 0.5))
 
 
-def get_sphinx_jobs(num_workers, low_memory=False):
-    """Calculate per-worker sphinx parallelism to avoid CPU oversubscription.
-
-    Without this, each of N workers runs sphinx with -j auto (all cores),
-    causing N * cpu_count threads competing for cpu_count cores.
-    """
-    cpu_count = multiprocessing.cpu_count()
-    if low_memory:
-        return 1
-    # Allocate fair share of cores to each worker
-    return max(1, cpu_count // num_workers)
-
 def backup_documentation(build_dir, assets_dir, board_target=None, doc_type="html"):
     """Backup generated documentation to assets directory."""
     # Create assets directory if it doesn't exist
@@ -244,14 +232,8 @@ def get_system_memory_info():
     except ImportError:
         return "Memory info not available (psutil not installed)"
 
-def process_board(args, board_target, build_dir, assets_dir, sphinx_jobs=None):
-    """Wrapper function for parallel processing of board documentation.
-
-    Args:
-        sphinx_jobs: Number of sphinx parallel jobs for this worker.
-            Limits CPU usage to avoid oversubscription when multiple
-            boards build concurrently.
-    """
+def process_board(args, board_target, build_dir, assets_dir):
+    """Wrapper function for parallel processing of board documentation."""
     board_start = time.time()
 
     # Setup board-specific logging
@@ -283,13 +265,7 @@ def process_board(args, board_target, build_dir, assets_dir, sphinx_jobs=None):
         if args.low_memory:
             base_cmd.append("--low_memory")
 
-        # Build sphinx_opts with per-worker job limit
-        extra_args = mcux_doc.args_to_cmdline(args, ["board", "example_scope", "build_mode", "low_memory"])
-        if sphinx_jobs is not None:
-            # Override -j in sphinx_opts to prevent CPU oversubscription
-            extra_args = _override_sphinx_jobs(extra_args, sphinx_jobs)
-
-        pdf_cmd = base_cmd + ["pdf"] + extra_args
+        pdf_cmd = base_cmd + ["pdf"] + mcux_doc.args_to_cmdline(args, ["board", "example_scope", "build_mode", "low_memory"])
 
         pdf_success = False
         needs_retry = False
@@ -335,10 +311,7 @@ def process_board(args, board_target, build_dir, assets_dir, sphinx_jobs=None):
         # Build HTML documentation only if --build_html is specified
         if args.build_html:
             board_logger.info(f"Building HTML documentation for {board_target}...")
-            html_extra_args = mcux_doc.args_to_cmdline(args, ["board", "build_mode", "low_memory"])
-            if sphinx_jobs is not None:
-                html_extra_args = _override_sphinx_jobs(html_extra_args, sphinx_jobs)
-            html_cmd = base_cmd + ["html"] + html_extra_args
+            html_cmd = base_cmd + ["html"] + mcux_doc.args_to_cmdline(args, ["board", "build_mode", "low_memory"])
 
             try:
                 run_command_with_logging(board_logger, html_cmd)
@@ -431,26 +404,6 @@ def _print_latex_errors(logger, board_build_dir, board_target):
     except Exception:
         pass  # Don't fail the build over log parsing
 
-
-def _override_sphinx_jobs(extra_args, sphinx_jobs):
-    """Replace -j value in sphinx_opts args to limit parallelism."""
-    result = []
-    i = 0
-    replaced = False
-    while i < len(extra_args):
-        if extra_args[i] == '--sphinx_opts':
-            result.append(extra_args[i])
-            if i + 1 < len(extra_args):
-                i += 1
-                # Replace -j <N>/auto with -j <sphinx_jobs>
-                import re
-                opts = re.sub(r'-j\s+\S+', f'-j {sphinx_jobs}', extra_args[i])
-                result.append(opts)
-                replaced = True
-        else:
-            result.append(extra_args[i])
-        i += 1
-    return result
 
 def _check_build_errors(process):
     """Check if a command that exited with code 0 actually had build errors.
@@ -599,9 +552,8 @@ def main():
     
     # Calculate optimal number of workers based on build mode
     num_workers = get_optimal_worker_count(args.build_mode, args.low_memory)
-    sphinx_jobs = get_sphinx_jobs(num_workers, args.low_memory)
     main_logger.info(f"Using {num_workers} parallel workers (optimized for {args.build_mode} mode)")
-    main_logger.info(f"Sphinx parallelism per worker: -j {sphinx_jobs} (total cores: {multiprocessing.cpu_count()})")
+    main_logger.info(f"CPU cores: {multiprocessing.cpu_count()}")
 
     # Phase 1: Build all board PDFs in parallel
     # Board PDFs run first so the full HTML docs build (which is memory-heavy
@@ -612,7 +564,7 @@ def main():
 
     with ProcessPoolExecutor(max_workers=num_workers) as executor:
         future_to_board = {
-            executor.submit(process_board, args, board, build_dir, assets_dir, sphinx_jobs): board
+            executor.submit(process_board, args, board, build_dir, assets_dir): board
             for board in boards
         }
 
@@ -654,7 +606,7 @@ def main():
                     break
                 main_logger.info(f"Retry attempt {retry_attempt} for {len(retry_boards)} boards")
                 future_to_board = {
-                    executor.submit(process_board, args, board, build_dir, assets_dir, sphinx_jobs): board
+                    executor.submit(process_board, args, board, build_dir, assets_dir): board
                     for board in retry_boards
                 }
                 still_need_retry = []
