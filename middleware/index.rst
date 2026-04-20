@@ -5,14 +5,14 @@ Middleware
 
 .. toctree::
    :maxdepth: 2
-   
+
    boot.rst
    connectivity.rst
    eiq.rst
    file_system.rst
    mbedtls3x.rst
    motor_control.rst
-   multicore.rst
+   multicore/index.rst
    multimedia.rst
    wireless.rst
    sensors.rst

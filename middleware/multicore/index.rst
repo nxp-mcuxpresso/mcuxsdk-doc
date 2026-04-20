@@ -3,46 +3,76 @@
 Multicore SDK
 #############
 
-Multicore Software Development Kit (MCSDK) is a Software Development Kit that provides comprehensive software support for NXP dual/multicore devices. The MCSDK is combined with the MCUXpresso SDK to make the software framework for easy development of multicore applications.
+Multicore Software Development Kit (MCSDK) provides comprehensive software support for NXP multicore devices. The MCSDK is combined with the MCUXpresso SDK to form a framework for easy development of multicore applications.
+
+.. only:: html
+
+   .. raw:: html
+
+      <div class="mcsdk-stack-figure" style="max-width: 1100px; margin: 0 auto;">
+        <style>
+          .mcsdk-stack-figure svg.mcsdk-stack-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+          }
+        </style>
+
+   .. raw:: html
+      :file: multicore-software-stack.svg
+
+   .. raw:: html
+
+        <p style="text-align:center; margin-top: 0.75rem; color: var(--pst-color-text-muted, #57606a);">Multicore SDK software stack (simplified).</p>
+      </div>
+
+.. only:: not html
+
+   .. figure:: multicore-software-stack.svg
+      :alt: Multicore SDK software stack
+      :align: center
+      :width: 85%
+
+      Multicore SDK software stack (simplified).
+
+Quick links
+===========
+
+* :doc:`Release Notes <mcsdk-release-notes>`
+* :doc:`Getting Started <mcsdk-getting-started>`
+* :doc:`Multicore SDK Changelog <CHANGELOG>`
+
+Components
+==========
+
+.. list-table::
+   :widths: 25 75
+   :header-rows: 1
+
+   * - Component
+     - Description
+   * - :doc:`RPMSG-Lite <rpmsg-lite>`
+     - Lightweight implementation of the Remote Processor Messaging (RPMsg) protocol for inter-core messaging.
+   * - :doc:`Multicore Manager <mcmgr>`
+     - Services for multicore systems (core start/stop, events, and monitoring).
+   * - :doc:`eRPC <erpc>`
+     - Embedded RPC system suitable for multicore and multiprocessor designs.
 
 .. toctree::
    :maxdepth: 1
-   :glob:
+   :hidden:
+   :caption: Quick links
 
-   Release Notes <mcuxsdk-doc/MCSDK_ReleaseNotes/mcsdk_releasenotes.md>
-   Getting Started <mcuxsdk-doc/MCSDK_GettingStarted/mcsdk_gettingstarted.md>
-   Changelog <CHANGELOG.md>
-
-Multicore SDK Components
-========================
-
-RPMSG-Lite
-----------
+   Release Notes <mcsdk-release-notes>
+   Getting Started <mcsdk-getting-started>
+   Multicore SDK Changelog <CHANGELOG>
 
 .. toctree::
-   :maxdepth: 1
-   :glob:
+   :maxdepth: 2
+   :hidden:
+   :caption: Components
 
-   Readme <rpmsg-lite/README>
-   Changelog <rpmsg-lite/CHANGELOG>
-
-Multicore Manager
------------------
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   Readme <mcmgr/README>
-   Changelog <mcmgr/CHANGELOG>
-
-eRPC
-----
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   Readme <erpc/README>
-   Getting Started <mcuxsdk-doc/eRPC_GettingStarted/ugindex.md>
-   Changelog <erpc/CHANGELOG>
+   RPMSG-Lite <rpmsg-lite>
+   Multicore Manager (MCMGR) <mcmgr>
+   eRPC <erpc>

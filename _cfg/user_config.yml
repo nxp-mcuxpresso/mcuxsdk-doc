@@ -261,8 +261,6 @@ modules:
     default: true
     external_contents:
     - root: docs
-      pattern: middleware/multicore.rst
-    - root: docs
       pattern: middleware/multicore/*
     - root: .
       pattern: middleware/multicore/*.md
