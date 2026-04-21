@@ -205,10 +205,10 @@ class MCUXDoc(WestCommand):
             targets = ['view']
         elif args.target == 'config':
             targets = ['config']
-        elif args.target != 'all':
-            targets = ['clean', 'config', args.target]
+        elif args.target in ('all', 'pdf-boards', 'merge'):
+            targets = [args.target]
         else:
-            targets = ['all']
+            targets = ['clean', 'config', args.target]
 
         for target in targets:
             self.banner(f'Target Execution - {target}')
@@ -309,7 +309,7 @@ class MCUXDoc(WestCommand):
                     sys.executable,
                     str(script_dir / "build_all_docs.py"),
                     "--pdf_only"
-                ] + args_to_cmdline(args, ['board'])
+                ] + args_to_cmdline(args, ['pdf_only'])
 
                 try:
                     result = subprocess.run(build_all_cmd, check=True)

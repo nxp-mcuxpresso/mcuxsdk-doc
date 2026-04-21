@@ -266,7 +266,7 @@ def process_board(args, board_target, build_dir, assets_dir):
         if args.low_memory:
             base_cmd.append("--low_memory")
 
-        pdf_cmd = base_cmd + ["pdf"] + mcux_doc.args_to_cmdline(args, ["board", "example_scope", "build_mode", "low_memory"])
+        pdf_cmd = base_cmd + ["pdf"] + mcux_doc.args_to_cmdline(args, ["board", "example_scope", "build_mode", "low_memory", "pdf_only"])
 
         pdf_success = False
         needs_retry = False
@@ -450,7 +450,7 @@ def process_full_docs(args, build_dir, assets_dir):
         if args.low_memory:
             base_cmd.append("--low_memory")
 
-        html_cmd = base_cmd + ["html"] + mcux_doc.args_to_cmdline(args, ["board", "build_mode", "low_memory"])
+        html_cmd = base_cmd + ["html"] + mcux_doc.args_to_cmdline(args, ["build_mode", "low_memory"])
 
         try:
             result = run_command_with_logging(full_logger, html_cmd)
