@@ -85,7 +85,17 @@ modules:
     default: true
     external_contents:
     - root: .
-      pattern: examples/**/*.md
+      pattern: examples/*_apps/**/*.md
+    - root: .
+      pattern: examples/*_examples/**/*.md
+    - root: .
+      pattern: examples/ele_crypto/**/*.md
+    - root: .
+      pattern: examples/ele_hseb/**/*.md
+    - root: .
+      pattern: examples/_common/**/*.md
+    - root: .
+      pattern: examples/README.md
     - root: .
       pattern: examples/**/*.jpg
     - root: .
@@ -499,7 +509,7 @@ modules:
     - root: docs
       pattern: boards/DSC/mc56f80000evk/*
     - root: .
-      pattern: examples/_boards/mc56f80000evk/ChangeLog_board.md
+      pattern: examples/_boards/mc56f80000evk/**/*.md
     - root: .
       pattern: drivers/DSC/MC56F80xxx/MC56F80748/index.rst
     - root: .
@@ -517,7 +527,7 @@ modules:
     - root: docs
       pattern: boards/DSC/mc56f81000evk/*
     - root: .
-      pattern: examples/_boards/mc56f81000evk/ChangeLog_board.md
+      pattern: examples/_boards/mc56f81000evk/**/*.md
     - root: .
       pattern: drivers/DSC/MC56F81xxx/MC56F81768/index.rst
     - root: .
@@ -535,7 +545,7 @@ modules:
     - root: docs
       pattern: boards/DSC/mc56f83000evk/*
     - root: .
-      pattern: examples/_boards/mc56f83000evk/ChangeLog_board.md
+      pattern: examples/_boards/mc56f83000evk/**/*.md
     - root: .
       pattern: drivers/DSC/MC56F83xxx/MC56F83789/index.rst
     - root: .
@@ -553,7 +563,7 @@ modules:
     - root: docs
       pattern: boards/DSC/twrmc56f8200/*
     - root: .
-      pattern: examples/_boards/twrmc56f8200/ChangeLog_board.md
+      pattern: examples/_boards/twrmc56f8200/**/*.md
     - root: .
       pattern: drivers/DSC/MC56F82xxx/MC56F82748/index.rst
     - root: .
@@ -571,7 +581,7 @@ modules:
     - root: docs
       pattern: boards/DSC/twrmc56f8400/*
     - root: .
-      pattern: examples/_boards/twrmc56f8400/ChangeLog_board.md
+      pattern: examples/_boards/twrmc56f8400/**/*.md
     - root: .
       pattern: drivers/DSC/MC56F84xxx/MC56F84789/index.rst
     - root: .
@@ -589,7 +599,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/evk9mimx8ulp/*
     - root: .
-      pattern: examples/_boards/evk9mimx8ulp/ChangeLog_board.md
+      pattern: examples/_boards/evk9mimx8ulp/**/*.md
     - root: .
       pattern: drivers/iMX/iMX8ULP/MIMX8UD5/index.rst
     - root: .
@@ -607,7 +617,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/evkmcimx7ulp/*
     - root: .
-      pattern: examples/_boards/evkmcimx7ulp/ChangeLog_board.md
+      pattern: examples/_boards/evkmcimx7ulp/**/*.md
     - root: .
       pattern: drivers/iMX/iMX7ULP/MCIMX7U5/index.rst
     - root: .
@@ -625,7 +635,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/evkmimx8mm/*
     - root: .
-      pattern: examples/_boards/evkmimx8mm/ChangeLog_board.md
+      pattern: examples/_boards/evkmimx8mm/**/*.md
     - root: .
       pattern: drivers/iMX/iMX8MM/MIMX8MM6/index.rst
     - root: .
@@ -643,7 +653,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/evkmimx8mn/*
     - root: .
-      pattern: examples/_boards/evkmimx8mn/ChangeLog_board.md
+      pattern: examples/_boards/evkmimx8mn/**/*.md
     - root: .
       pattern: drivers/iMX/iMX8MN/MIMX8MN6/index.rst
     - root: .
@@ -661,7 +671,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/evkmimx8mnddr3l/*
     - root: .
-      pattern: examples/_boards/evkmimx8mnddr3l/ChangeLog_board.md
+      pattern: examples/_boards/evkmimx8mnddr3l/**/*.md
     - root: .
       pattern: drivers/iMX/iMX8MN/MIMX8MN6/index.rst
     - root: .
@@ -679,7 +689,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/evkmimx8mp/*
     - root: .
-      pattern: examples/_boards/evkmimx8mp/ChangeLog_board.md
+      pattern: examples/_boards/evkmimx8mp/**/*.md
     - root: .
       pattern: drivers/iMX/iMX8MP/MIMX8ML8/index.rst
     - root: .
@@ -697,7 +707,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/evkmimx8mq/*
     - root: .
-      pattern: examples/_boards/evkmimx8mq/ChangeLog_board.md
+      pattern: examples/_boards/evkmimx8mq/**/*.md
     - root: .
       pattern: drivers/iMX/iMX8M/MIMX8MQ6/index.rst
     - root: .
@@ -715,7 +725,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/evkmimx8ulp/*
     - root: .
-      pattern: examples/_boards/evkmimx8ulp/ChangeLog_board.md
+      pattern: examples/_boards/evkmimx8ulp/**/*.md
     - root: .
       pattern: drivers/iMX/iMX8ULP/MIMX8UD7/index.rst
     - root: .
@@ -733,7 +743,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/imx943evk/*
     - root: .
-      pattern: examples/_boards/imx943evk/ChangeLog_board.md
+      pattern: examples/_boards/imx943evk/**/*.md
     - root: .
       pattern: drivers/iMX/iMX943/MIMX94398/index.rst
     - root: .
@@ -748,7 +758,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/imx95lp4xevk15/*
     - root: .
-      pattern: examples/_boards/imx95lp4xevk15/ChangeLog_board.md
+      pattern: examples/_boards/imx95lp4xevk15/**/*.md
     - root: .
       pattern: drivers/iMX//MIMX9596/index.rst
     - root: .
@@ -766,7 +776,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/frdmimx95/*
     - root: .
-      pattern: examples/_boards/frdmimx95/ChangeLog_board.md
+      pattern: examples/_boards/frdmimx95/**/*.md
     - root: .
       pattern: drivers/iMX//MIMX9596/index.rst
     - root: .
@@ -784,7 +794,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/imx95lpd5evk19/*
     - root: .
-      pattern: examples/_boards/imx95lpd5evk19/ChangeLog_board.md
+      pattern: examples/_boards/imx95lpd5evk19/**/*.md
     - root: .
       pattern: drivers/iMX//MIMX9596/index.rst
     - root: .
@@ -802,7 +812,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/imx95verdinevk/*
     - root: .
-      pattern: examples/_boards/imx95verdinevk/ChangeLog_board.md
+      pattern: examples/_boards/imx95verdinevk/**/*.md
     - root: .
       pattern: drivers/iMX//MIMX9596/index.rst
     - root: .
@@ -820,7 +830,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/imx952evk/*
     - root: .
-      pattern: examples/_boards/imx952evk/ChangeLog_board.md
+      pattern: examples/_boards/imx952evk/**/*.md
     - root: .
       pattern: drivers/iMX/MIMX9529/index.rst
     - root: .
@@ -838,7 +848,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/mcimx93autoevk/*
     - root: .
-      pattern: examples/_boards/mcimx93autoevk/ChangeLog_board.md
+      pattern: examples/_boards/mcimx93autoevk/**/*.md
     - root: .
       pattern: drivers/iMX/iMX93/MIMX9352/index.rst
     - root: .
@@ -856,7 +866,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/mcimx93evk/*
     - root: .
-      pattern: examples/_boards/mcimx93evk/ChangeLog_board.md
+      pattern: examples/_boards/mcimx93evk/**/*.md
     - root: .
       pattern: drivers/iMX/iMX93/MIMX9352/index.rst
     - root: .
@@ -874,7 +884,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/mcimx93wevk/*
     - root: .
-      pattern: examples/_boards/mcimx93wevk/ChangeLog_board.md
+      pattern: examples/_boards/mcimx93wevk/**/*.md
     - root: .
       pattern: drivers/iMX/iMX93W/MIMX93W52/index.rst
     - root: .
@@ -892,7 +902,7 @@ modules:
     - root: docs
       pattern: boards/i.MX/mcimx93qsb/*
     - root: .
-      pattern: examples/_boards/mcimx93qsb/ChangeLog_board.md
+      pattern: examples/_boards/mcimx93qsb/**/*.md
     - root: .
       pattern: drivers/iMX/iMX93/MIMX9322/index.rst
     - root: .
@@ -910,7 +920,7 @@ modules:
     - root: docs
       pattern: boards/Kinetis/frdmk22f/*
     - root: .
-      pattern: examples/_boards/frdmk22f/ChangeLog_board.md
+      pattern: examples/_boards/frdmk22f/**/*.md
     - root: .
       pattern: drivers/Kinetis/K/MK22F51212/index.rst
     - root: .
@@ -928,7 +938,7 @@ modules:
     - root: docs
       pattern: boards/Kinetis/frdmk32l2a4s/*
     - root: .
-      pattern: examples/_boards/frdmk32l2a4s/ChangeLog_board.md
+      pattern: examples/_boards/frdmk32l2a4s/**/*.md
     - root: .
       pattern: drivers/Kinetis/K32L/K32L2A41A/index.rst
     - root: .
@@ -946,7 +956,7 @@ modules:
     - root: docs
       pattern: boards/Kinetis/frdmk32l2b/*
     - root: .
-      pattern: examples/_boards/frdmk32l2b/ChangeLog_board.md
+      pattern: examples/_boards/frdmk32l2b/**/*.md
     - root: .
       pattern: drivers/Kinetis/K32L/K32L2B31A/index.rst
     - root: .
@@ -964,7 +974,7 @@ modules:
     - root: docs
       pattern: boards/Kinetis/frdmk32l3a6/*
     - root: .
-      pattern: examples/_boards/frdmk32l3a6/ChangeLog_board.md
+      pattern: examples/_boards/frdmk32l3a6/**/*.md
     - root: .
       pattern: drivers/Kinetis/K32L/K32L3A60/index.rst
     - root: .
@@ -982,7 +992,7 @@ modules:
     - root: docs
       pattern: boards/Kinetis/frdmke02z40m/*
     - root: .
-      pattern: examples/_boards/frdmke02z40m/ChangeLog_board.md
+      pattern: examples/_boards/frdmke02z40m/**/*.md
     - root: .
       pattern: drivers/Kinetis/KE/MKE02Z4/index.rst
     - root: .
@@ -1000,7 +1010,7 @@ modules:
     - root: docs
       pattern: boards/Kinetis/frdmke15z/*
     - root: .
-      pattern: examples/_boards/frdmke15z/ChangeLog_board.md
+      pattern: examples/_boards/frdmke15z/**/*.md
     - root: .
       pattern: drivers/Kinetis/KE/MKE15Z7/index.rst
     - root: .
@@ -1018,7 +1028,7 @@ modules:
     - root: docs
       pattern: boards/Kinetis/frdmke16z/*
     - root: .
-      pattern: examples/_boards/frdmke16z/ChangeLog_board.md
+      pattern: examples/_boards/frdmke16z/**/*.md
     - root: .
       pattern: drivers/Kinetis/KE/MKE16Z4/index.rst
     - root: .
@@ -1036,7 +1046,7 @@ modules:
     - root: docs
       pattern: boards/Kinetis/frdmke17z/*
     - root: .
-      pattern: examples/_boards/frdmke17z/ChangeLog_board.md
+      pattern: examples/_boards/frdmke17z/**/*.md
     - root: .
       pattern: drivers/Kinetis/KE/MKE17Z7/index.rst
     - root: .
@@ -1054,7 +1064,7 @@ modules:
     - root: docs
       pattern: boards/Kinetis/frdmke17z512/*
     - root: .
-      pattern: examples/_boards/frdmke17z512/ChangeLog_board.md
+      pattern: examples/_boards/frdmke17z512/**/*.md
     - root: .
       pattern: drivers/Kinetis/KE/MKE17Z9/index.rst
     - root: .
@@ -1072,7 +1082,7 @@ modules:
     - root: docs
       pattern: boards/Kinetis/twrkm34z50mv3/*
     - root: .
-      pattern: examples/_boards/twrkm34z50mv3/ChangeLog_board.md
+      pattern: examples/_boards/twrkm34z50mv3/**/*.md
     - root: .
       pattern: drivers/Kinetis/KM/MKM34ZA5/index.rst
     - root: .
@@ -1090,7 +1100,7 @@ modules:
     - root: docs
       pattern: boards/Kinetis/twrkm34z75m/*
     - root: .
-      pattern: examples/_boards/twrkm34z75m/ChangeLog_board.md
+      pattern: examples/_boards/twrkm34z75m/**/*.md
     - root: .
       pattern: drivers/Kinetis/KM/MKM34Z7/index.rst
     - root: .
@@ -1108,7 +1118,7 @@ modules:
     - root: docs
       pattern: boards/Kinetis/twrkm35z75m/*
     - root: .
-      pattern: examples/_boards/twrkm35z75m/ChangeLog_board.md
+      pattern: examples/_boards/twrkm35z75m/**/*.md
     - root: .
       pattern: drivers/Kinetis/KM/MKM35Z7/index.rst
     - root: .
@@ -1126,7 +1136,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpc845breakout/*
     - root: .
-      pattern: examples/_boards/lpc845breakout/ChangeLog_board.md
+      pattern: examples/_boards/lpc845breakout/**/*.md
     - root: .
       pattern: drivers/LPC/LPC800/LPC845/index.rst
     - root: .
@@ -1144,7 +1154,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso51u68/*
     - root: .
-      pattern: examples/_boards/lpcxpresso51u68/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso51u68/**/*.md
     - root: .
       pattern: drivers/LPC/LPC51U68/LPC51U68/index.rst
     - root: .
@@ -1162,7 +1172,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso54628/*
     - root: .
-      pattern: examples/_boards/lpcxpresso54628/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso54628/**/*.md
     - root: .
       pattern: drivers/LPC/LPC54000/LPC54628/index.rst
     - root: .
@@ -1180,7 +1190,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso54s018/*
     - root: .
-      pattern: examples/_boards/lpcxpresso54s018/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso54s018/**/*.md
     - root: .
       pattern: drivers/LPC/LPC54000/LPC54S018/index.rst
     - root: .
@@ -1198,7 +1208,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso54s018m/*
     - root: .
-      pattern: examples/_boards/lpcxpresso54s018m/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso54s018m/**/*.md
     - root: .
       pattern: drivers/LPC/LPC54000/LPC54S018M/index.rst
     - root: .
@@ -1216,7 +1226,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso55s06/*
     - root: .
-      pattern: examples/_boards/lpcxpresso55s06/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso55s06/**/*.md
     - root: .
       pattern: drivers/LPC/LPC5500/LPC55S06/index.rst
     - root: .
@@ -1234,7 +1244,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso55s16/*
     - root: .
-      pattern: examples/_boards/lpcxpresso55s16/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso55s16/**/*.md
     - root: .
       pattern: drivers/LPC/LPC5500/LPC55S16/index.rst
     - root: .
@@ -1252,7 +1262,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso55s28/*
     - root: .
-      pattern: examples/_boards/lpcxpresso55s28/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso55s28/**/*.md
     - root: .
       pattern: drivers/LPC/LPC5500/LPC55S28/index.rst
     - root: .
@@ -1270,7 +1280,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso55s36/*
     - root: .
-      pattern: examples/_boards/lpcxpresso55s36/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso55s36/**/*.md
     - root: .
       pattern: drivers/LPC/LPC5500/LPC55S36/index.rst
     - root: .
@@ -1288,7 +1298,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso55s69/*
     - root: .
-      pattern: examples/_boards/lpcxpresso55s69/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso55s69/**/*.md
     - root: .
       pattern: drivers/LPC/LPC5500/LPC55S69/index.rst
     - root: .
@@ -1306,7 +1316,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso802/*
     - root: .
-      pattern: examples/_boards/lpcxpresso802/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso802/**/*.md
     - root: .
       pattern: drivers/LPC/LPC800/LPC802/index.rst
     - root: .
@@ -1324,7 +1334,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso804/*
     - root: .
-      pattern: examples/_boards/lpcxpresso804/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso804/**/*.md
     - root: .
       pattern: drivers/LPC/LPC800/LPC804/index.rst
     - root: .
@@ -1342,7 +1352,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso824max/*
     - root: .
-      pattern: examples/_boards/lpcxpresso824max/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso824max/**/*.md
     - root: .
       pattern: drivers/LPC/LPC800/LPC824/index.rst
     - root: .
@@ -1360,7 +1370,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso845max/*
     - root: .
-      pattern: examples/_boards/lpcxpresso845max/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso845max/**/*.md
     - root: .
       pattern: drivers/LPC/LPC800/LPC845/index.rst
     - root: .
@@ -1375,7 +1385,7 @@ modules:
     - root: docs
       pattern: boards/LPC/lpcxpresso860max/*
     - root: .
-      pattern: examples/_boards/lpcxpresso860max/ChangeLog_board.md
+      pattern: examples/_boards/lpcxpresso860max/**/*.md
     - root: .
       pattern: drivers/LPC/LPC800/LPC865/index.rst
     - root: .
@@ -1393,7 +1403,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxa153/*
     - root: .
-      pattern: examples/_boards/frdmmcxa153/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxa153/**/*.md
     - root: .
       pattern: drivers/MCX/MCXA/MCXA153/index.rst
     - root: .
@@ -1411,7 +1421,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxa156/*
     - root: .
-      pattern: examples/_boards/frdmmcxa156/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxa156/**/*.md
     - root: .
       pattern: drivers/MCX/MCXA/MCXA156/index.rst
     - root: .
@@ -1429,7 +1439,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxa174/*
     - root: .
-      pattern: examples/_boards/frdmmcxa174/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxa174/**/*.md
     - root: .
       pattern: drivers/MCX/MCXA/MCXA174/index.rst
     - root: .
@@ -1447,7 +1457,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxa266/*
     - root: .
-      pattern: examples/_boards/frdmmcxa266/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxa266/**/*.md
     - root: .
       pattern: drivers/MCX/MCXA/MCXA266/index.rst
     - root: .
@@ -1465,7 +1475,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxa344/*
     - root: .
-      pattern: examples/_boards/frdmmcxa344/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxa344/**/*.md
     - root: .
       pattern: drivers/MCX/MCXA/MCXA344/index.rst
     - root: .
@@ -1483,7 +1493,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxa346/*
     - root: .
-      pattern: examples/_boards/frdmmcxa346/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxa346/**/*.md
     - root: .
       pattern: drivers/MCX/MCXA/MCXA346/index.rst
     - root: .
@@ -1501,7 +1511,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxa366/*
     - root: .
-      pattern: examples/_boards/frdmmcxa366/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxa366/**/*.md
     - root: .
       pattern: drivers/MCX/MCXA/MCXA366/index.rst
     - root: .
@@ -1519,7 +1529,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxa577/*
     - root: .
-      pattern: examples/_boards/frdmmcxa577/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxa577/**/*.md
     - root: .
       pattern: drivers/MCX/MCXA/MCXA577/index.rst
     - root: .
@@ -1537,7 +1547,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxc041/*
     - root: .
-      pattern: examples/_boards/frdmmcxc041/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxc041/**/*.md
     - root: .
       pattern: drivers/MCX/MCXC/MCXC041/index.rst
     - root: .
@@ -1555,7 +1565,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxc162/*
     - root: .
-      pattern: examples/_boards/frdmmcxc162/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxc162/**/*.md
     - root: .
       pattern: drivers/MCX/MCXC/MCXC162/index.rst
     - root: .
@@ -1573,7 +1583,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxc242/*
     - root: .
-      pattern: examples/_boards/frdmmcxc242/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxc242/**/*.md
     - root: .
       pattern: drivers/MCX/MCXC/MCXC242/index.rst
     - root: .
@@ -1591,7 +1601,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxc444/*
     - root: .
-      pattern: examples/_boards/frdmmcxc444/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxc444/**/*.md
     - root: .
       pattern: drivers/MCX/MCXC/MCXC444/index.rst
     - root: .
@@ -1609,7 +1619,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxn236/*
     - root: .
-      pattern: examples/_boards/frdmmcxn236/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxn236/**/*.md
     - root: .
       pattern: drivers/MCX/MCXN/MCXN236/index.rst
     - root: .
@@ -1627,7 +1637,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxn947/*
     - root: .
-      pattern: examples/_boards/frdmmcxn947/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxn947/**/*.md
     - root: .
       pattern: drivers/MCX/MCXN/MCXN947/index.rst
     - root: .
@@ -1645,7 +1655,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxw23/*
     - root: .
-      pattern: examples/_boards/frdmmcxw23/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxw23/**/*.md
     - root: .
       pattern: drivers/MCX/MCXW/MCXW236/index.rst
     - root: .
@@ -1663,7 +1673,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxw71/*
     - root: .
-      pattern: examples/_boards/frdmmcxw71/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxw71/**/*.md
     - root: .
       pattern: drivers/MCX/MCXW/MCXW716C/index.rst
     - root: .
@@ -1681,7 +1691,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxw72/*
     - root: .
-      pattern: examples/_boards/frdmmcxw72/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxw72/**/*.md
     - root: .
       pattern: drivers/MCX/MCXW/MCXW727C/index.rst
     - root: .
@@ -1699,7 +1709,7 @@ modules:
     - root: docs
       pattern: boards/MCX/mcxn5xxevk/*
     - root: .
-      pattern: examples/_boards/mcxn5xxevk/ChangeLog_board.md
+      pattern: examples/_boards/mcxn5xxevk/**/*.md
     - root: .
       pattern: drivers/MCX/MCXN/MCXN547/index.rst
     - root: .
@@ -1717,7 +1727,7 @@ modules:
     - root: docs
       pattern: boards/MCX/mcxn9xxevk/*
     - root: .
-      pattern: examples/_boards/mcxn9xxevk/ChangeLog_board.md
+      pattern: examples/_boards/mcxn9xxevk/**/*.md
     - root: .
       pattern: drivers/MCX/MCXN/MCXN947/index.rst
     - root: .
@@ -1735,7 +1745,7 @@ modules:
     - root: docs
       pattern: boards/MCX/mcxw71evk/*
     - root: .
-      pattern: examples/_boards/mcxw71evk/ChangeLog_board.md
+      pattern: examples/_boards/mcxw71evk/**/*.md
     - root: .
       pattern: drivers/MCX/MCXW/MCXW716C/index.rst
     - root: .
@@ -1753,7 +1763,7 @@ modules:
     - root: docs
       pattern: boards/MCX/mcxw72evk/*
     - root: .
-      pattern: examples/_boards/mcxw72evk/ChangeLog_board.md
+      pattern: examples/_boards/mcxw72evk/**/*.md
     - root: .
       pattern: drivers/MCX/MCXW/MCXW727C/index.rst
     - root: .
@@ -1771,7 +1781,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkbimxrt1050/*
     - root: .
-      pattern: examples/_boards/evkbimxrt1050/ChangeLog_board.md
+      pattern: examples/_boards/evkbimxrt1050/**/*.md
     - root: .
       pattern: drivers/RT/RT1050/MIMXRT1052/index.rst
     - root: .
@@ -1789,7 +1799,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkbmimxrt1060/*
     - root: .
-      pattern: examples/_boards/evkbmimxrt1060/ChangeLog_board.md
+      pattern: examples/_boards/evkbmimxrt1060/**/*.md
     - root: .
       pattern: drivers/RT/RT1060/MIMXRT1062/index.rst
     - root: .
@@ -1807,7 +1817,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkbmimxrt1170/*
     - root: .
-      pattern: examples/_boards/evkbmimxrt1170/ChangeLog_board.md
+      pattern: examples/_boards/evkbmimxrt1170/**/*.md
     - root: .
       pattern: drivers/RT/RT1170/MIMXRT1176/index.rst
     - root: .
@@ -1825,7 +1835,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkcmimxrt1060/*
     - root: .
-      pattern: examples/_boards/evkcmimxrt1060/ChangeLog_board.md
+      pattern: examples/_boards/evkcmimxrt1060/**/*.md
     - root: .
       pattern: drivers/RT/RT1060/MIMXRT1062/index.rst
     - root: .
@@ -1843,7 +1853,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkmimxrt1010/*
     - root: .
-      pattern: examples/_boards/evkmimxrt1010/ChangeLog_board.md
+      pattern: examples/_boards/evkmimxrt1010/**/*.md
     - root: .
       pattern: drivers/RT/RT1010/MIMXRT1011/index.rst
     - root: .
@@ -1861,7 +1871,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkmimxrt1015/*
     - root: .
-      pattern: examples/_boards/evkmimxrt1015/ChangeLog_board.md
+      pattern: examples/_boards/evkmimxrt1015/**/*.md
     - root: .
       pattern: drivers/RT/RT1015/MIMXRT1015/index.rst
     - root: .
@@ -1879,7 +1889,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkmimxrt1020/*
     - root: .
-      pattern: examples/_boards/evkmimxrt1020/ChangeLog_board.md
+      pattern: examples/_boards/evkmimxrt1020/**/*.md
     - root: .
       pattern: drivers/RT/RT1020/MIMXRT1021/index.rst
     - root: .
@@ -1897,7 +1907,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkmimxrt1024/*
     - root: .
-      pattern: examples/_boards/evkmimxrt1024/ChangeLog_board.md
+      pattern: examples/_boards/evkmimxrt1024/**/*.md
     - root: .
       pattern: drivers/RT/RT1020/MIMXRT1024/index.rst
     - root: .
@@ -1915,7 +1925,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkmimxrt1040/*
     - root: .
-      pattern: examples/_boards/evkmimxrt1040/ChangeLog_board.md
+      pattern: examples/_boards/evkmimxrt1040/**/*.md
     - root: .
       pattern: drivers/RT/RT1040/MIMXRT1042/index.rst
     - root: .
@@ -1933,7 +1943,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkmimxrt1064/*
     - root: .
-      pattern: examples/_boards/evkmimxrt1064/ChangeLog_board.md
+      pattern: examples/_boards/evkmimxrt1064/**/*.md
     - root: .
       pattern: drivers/RT/RT1064/MIMXRT1064/index.rst
     - root: .
@@ -1951,7 +1961,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkmimxrt1160/*
     - root: .
-      pattern: examples/_boards/evkmimxrt1160/ChangeLog_board.md
+      pattern: examples/_boards/evkmimxrt1160/**/*.md
     - root: .
       pattern: drivers/RT/RT1160/MIMXRT1166/index.rst
     - root: .
@@ -1969,7 +1979,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkmimxrt1180/*
     - root: .
-      pattern: examples/_boards/evkmimxrt1180/ChangeLog_board.md
+      pattern: examples/_boards/evkmimxrt1180/**/*.md
     - root: .
       pattern: drivers/RT/RT1180/MIMXRT1189/index.rst
     - root: .
@@ -1987,7 +1997,7 @@ modules:
     - root: docs
       pattern: boards/RT/frdmimxrt1186/*
     - root: .
-      pattern: examples/_boards/frdmimxrt1186/ChangeLog_board.md
+      pattern: examples/_boards/frdmimxrt1186/**/*.md
     - root: .
       pattern: drivers/RT/RT1180/MIMXRT1186/index.rst
     - root: .
@@ -2005,7 +2015,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkmimxrt595/*
     - root: .
-      pattern: examples/_boards/evkmimxrt595/ChangeLog_board.md
+      pattern: examples/_boards/evkmimxrt595/**/*.md
     - root: .
       pattern: drivers/RT/RT500/MIMXRT595S/index.rst
     - root: .
@@ -2023,7 +2033,7 @@ modules:
     - root: docs
       pattern: boards/RT/evkmimxrt685/*
     - root: .
-      pattern: examples/_boards/evkmimxrt685/ChangeLog_board.md
+      pattern: examples/_boards/evkmimxrt685/**/*.md
     - root: .
       pattern: drivers/RT/RT600/MIMXRT685S/index.rst
     - root: .
@@ -2041,7 +2051,7 @@ modules:
     - root: docs
       pattern: boards/RT/mimxrt685audevk/*
     - root: .
-      pattern: examples/_boards/mimxrt685audevk/ChangeLog_board.md
+      pattern: examples/_boards/mimxrt685audevk/**/*.md
     - root: .
       pattern: drivers/RT/RT600/MIMXRT685S/index.rst
     - root: .
@@ -2059,7 +2069,7 @@ modules:
     - root: docs
       pattern: boards/RT/mimxrt700evk/*
     - root: .
-      pattern: examples/_boards/mimxrt700evk/ChangeLog_board.md
+      pattern: examples/_boards/mimxrt700evk/**/*.md
     - root: .
       pattern: drivers/RT/RT700/MIMXRT798S/index.rst
     - root: .
@@ -2077,7 +2087,7 @@ modules:
     - root: docs
       pattern: boards/Wireless/frdmrw612/*
     - root: .
-      pattern: examples/_boards/frdmrw612/ChangeLog_board.md
+      pattern: examples/_boards/frdmrw612/**/*.md
     - root: .
       pattern: drivers/Wireless/RW/RW612/index.rst
     - root: .
@@ -2095,7 +2105,7 @@ modules:
     - root: docs
       pattern: boards/Wireless/kw45b41zevk/*
     - root: .
-      pattern: examples/_boards/kw45b41zevk/ChangeLog_board.md
+      pattern: examples/_boards/kw45b41zevk/**/*.md
     - root: .
       pattern: drivers/Wireless/KW/KW45B41Z83/index.rst
     - root: .
@@ -2113,7 +2123,7 @@ modules:
     - root: docs
       pattern: boards/Wireless/kw45b41zloc/*
     - root: .
-      pattern: examples/_boards/kw45b41zloc/ChangeLog_board.md
+      pattern: examples/_boards/kw45b41zloc/**/*.md
     - root: .
       pattern: drivers/Wireless/KW/KW45B41Z83/index.rst
     - root: .
@@ -2131,7 +2141,7 @@ modules:
     - root: docs
       pattern: boards/Wireless/kw47evk/*
     - root: .
-      pattern: examples/_boards/kw47evk/ChangeLog_board.md
+      pattern: examples/_boards/kw47evk/**/*.md
     - root: .
       pattern: drivers/Wireless/KW/KW47B42ZB7/index.rst
     - root: .
@@ -2149,7 +2159,7 @@ modules:
     - root: docs
       pattern: boards/Wireless/kw47loc/*
     - root: .
-      pattern: examples/_boards/kw47loc/ChangeLog_board.md
+      pattern: examples/_boards/kw47loc/**/*.md
     - root: .
       pattern: drivers/Wireless/KW/KW47B42ZB7/index.rst
     - root: .
@@ -2167,7 +2177,7 @@ modules:
     - root: docs
       pattern: boards/Wireless/rdrw612bga/*
     - root: .
-      pattern: examples/_boards/rdrw612bga/ChangeLog_board.md
+      pattern: examples/_boards/rdrw612bga/**/*.md
     - root: .
       pattern: drivers/Wireless/RW/RW612/index.rst
     - root: .
@@ -2185,7 +2195,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxe247/*
     - root: .
-      pattern: examples/_boards/frdmmcxe247/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxe247/**/*.md
     - root: .
       pattern: drivers/MCX/MCXE/MCXE247/index.rst
     - root: .
@@ -2203,7 +2213,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxe31b/*
     - root: .
-      pattern: examples/_boards/frdmmcxe31b/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxe31b/**/*.md
     - root: .
       pattern: drivers/MCX/MCXE/MCXE31B/index.rst
     - root: .
@@ -2221,7 +2231,7 @@ modules:
     - root: docs
       pattern: boards/MCX/frdmmcxl255/*
     - root: .
-      pattern: examples/_boards/frdmmcxl255/ChangeLog_board.md
+      pattern: examples/_boards/frdmmcxl255/**/*.md
     - root: .
       pattern: drivers/MCX/MCXL/MCXL255/index.rst
     - root: .
@@ -2239,7 +2249,7 @@ modules:
     - root: docs
       pattern: boards/MCX/mcxw23evk/*
     - root: .
-      pattern: examples/_boards/mcxw23evk/ChangeLog_board.md
+      pattern: examples/_boards/mcxw23evk/**/*.md
     - root: .
       pattern: drivers/MCX/MCXW/MCXW236/index.rst
     - root: .
@@ -2257,7 +2267,7 @@ modules:
     - root: docs
       pattern: boards/MCX/mcxw72loc/*
     - root: .
-      pattern: examples/_boards/mcxw72loc/ChangeLog_board.md
+      pattern: examples/_boards/mcxw72loc/**/*.md
     - root: .
       pattern: drivers/MCX/MCXW/MCXW727C/index.rst
     - root: .

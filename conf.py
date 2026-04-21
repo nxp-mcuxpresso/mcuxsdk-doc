@@ -92,41 +92,27 @@ _ORPHAN_PATTERNS = (
 )
 
 def patch_orphan_docs(app, docname, source):
-    if any(pattern in docname for pattern in _ORPHAN_PATTERNS):
-        source[0] = f'''---
-orphan: true
----
+    if not any(pattern in docname for pattern in _ORPHAN_PATTERNS):
+        return
 
-{source[0]}
-'''
-
-def patch_transition_issues(app, docname, source):
-    """
-    Fix documents that begin or end with MyST thematic breaks (---),
-    which Sphinx treats as transitions and rejects at document boundaries.
-    """
     content = source[0]
-    lines = content.split('\n')
+    is_markdown = str(app.env.doc2path(docname)).endswith('.md')
 
-    first_content_idx = None
-    for i, line in enumerate(lines):
-        if line.strip():
-            first_content_idx = i
-            break
-    if first_content_idx is not None and lines[first_content_idx].strip() == '---':
-        lines[first_content_idx] = ''
+    if is_markdown:
+        if content.lstrip().startswith('---'):
+            # Has existing frontmatter — insert orphan into it
+            stripped = content.lstrip()
+            end = stripped.find('---', 3)
+            if end != -1 and 'orphan' not in stripped[:end]:
+                source[0] = content[:len(content)-len(stripped)] + '---\norphan: true\n' + stripped[3:]
+        else:
+            # No frontmatter — add one
+            source[0] = '---\norphan: true\n---\n\n' + content
+    else:
+        # RST files
+        if ':orphan:' not in content:
+            source[0] = ':orphan:\n\n' + content
 
-    last_content_idx = None
-    for i in range(len(lines) - 1, -1, -1):
-        if lines[i].strip():
-            last_content_idx = i
-            break
-    if last_content_idx is not None and lines[last_content_idx].strip() == '---':
-        lines[last_content_idx] = ''
-
-    modified = '\n'.join(lines)
-    if modified != content:
-        source[0] = modified
 
 def patch_mcuboot_readme(app, docname, source):
     """
@@ -237,7 +223,6 @@ class _CDomainParseErrorFilter:
 def setup(app):
     app.connect('source-read', patch_orphan_docs)
     app.connect('source-read', patch_mcuboot_readme)
-    app.connect('source-read', patch_transition_issues)
     app.connect('build-finished', validate_html_paths)
 
     # Suppress C domain parse errors from breathe/doxygen

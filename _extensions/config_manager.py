@@ -66,9 +66,16 @@ class ConfigurationManager:
             if 'mid_eiq' in self.config.get('modules', {}):
                 external_contents = self.config['modules']['mid_eiq'].get('external_contents', [])
                 self.config['modules']['mid_eiq']['external_contents'] = [
-                    item for item in external_contents 
+                    item for item in external_contents
                     if 'eiq/mpp' not in item.get('pattern', '')
                 ]
+
+        # PDF build: exclude examples module entirely — it adds 10,000+ files
+        # that are only needed for HTML output, significantly slowing PDF builds.
+        if self.is_pdf_build:
+            if 'examples' in self.config.get('modules', {}):
+                logger.info("PDF build: Excluding examples module (HTML-only)")
+                del self.config['modules']['examples']
         
         # Handle example scope
         if example_scope:
@@ -129,6 +136,12 @@ class ConfigurationManager:
         # Always include the board module itself
         board_module = f'board_{self.board_target.split("/")[-1]}'
         included_modules.add(board_module)
+
+        # Always include examples for HTML builds (board dependency resolver
+        # doesn't detect it because examples are linked via board_index, not
+        # via file-level references from the board's index.rst)
+        if not self.is_pdf_build and 'examples' in self.config.get('modules', {}):
+            included_modules.add('examples')
         
         # Filter module tags
         self.module_tags = [m for m in self.module_tags if m in included_modules]
@@ -420,12 +433,11 @@ class ConfigurationManager:
         """Apply URL mapping for internal documentation."""
         if not self.url_map:
             return
-        
+
         link = link_config.get("link", "")
-        if "github.com" not in link:
-            key = link.rstrip('/')
-            if key in self.url_map:
-                link_config["link"] = self.url_map[key]
+        key = link.rstrip('/')
+        if key in self.url_map:
+            link_config["link"] = self.url_map[key]
     
     @property
     def has_doxygen_projects(self) -> bool:
@@ -597,27 +609,28 @@ class ConfigurationManager:
         toctree_entries = []
         toctree_entries.append(f"   {board_path}/index")
 
-        # Only include driver index if it exists
-        for ext in ['.rst', '.md', '/index.rst', '/index.md']:
-            if (doc_base / (device_path + ext)).exists():
-                toctree_entries.append(f"   {device_path}/index")
-                break
+        # Always include driver index — the file is copied by external_content
+        # after conf.py runs, so it won't exist at this point but will be
+        # present when sphinx processes the toctree.
+        if device_path != "drivers":
+            toctree_entries.append(f"   {device_path}/index")
 
-        # Only include middleware/rtos if those modules are active
-        active_module_prefixes = set()
-        for mod in self.module_tags:
-            mod_cfg = self.config['modules'].get(mod, {})
-            for ec in mod_cfg.get('external_contents', []):
-                pattern = ec.get('pattern', '')
-                if pattern.startswith('middleware/'):
-                    active_module_prefixes.add('middleware')
-                elif pattern.startswith('rtos/'):
-                    active_module_prefixes.add('rtos')
+        # Include examples only for HTML builds (not PDF)
+        if not self.is_pdf_build and (doc_base / "examples" / "index.rst").exists():
+            toctree_entries.append("   examples/index")
 
-        if 'middleware' in active_module_prefixes and (doc_base / "middleware" / "index.rst").exists():
-            toctree_entries.append("   middleware/index")
-        if 'rtos' in active_module_prefixes and (doc_base / "rtos" / "index.rst").exists():
-            toctree_entries.append("   rtos/index")
+        # Include middleware, rtos, release sections if their index exists.
+        # Sub-module content is copied by external_content later; --keep-going
+        # tolerates missing refs in board-filtered builds.
+        # PDF excludes: examples (HTML-only, 10k+ files), release (HTML tables
+        # render poorly in LaTeX), gsd (already in board index via board path).
+        pdf_exclude = {'release'} if self.is_pdf_build else set()
+        for section in ['middleware', 'rtos', 'release']:
+            if section in pdf_exclude:
+                continue
+            index_path = doc_base / section / "index.rst"
+            if index_path.exists():
+                toctree_entries.append(f"   {section}/index")
 
         toctree_body = '\n'.join(toctree_entries)
 
