@@ -427,6 +427,8 @@ modules:
     external_contents:
     - root: docs
       pattern: middleware/wireless.rst
+    - root: docs
+      pattern: middleware/wireless/bluetooth/doc/*
     - root: .
       pattern: middleware/wireless/bluetooth/index.rst
     - root: .
