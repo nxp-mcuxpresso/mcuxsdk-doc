@@ -622,7 +622,203 @@ There are following ways to do the customization.
 
    For component selection and configuration, you can use different scope prj.conf to achieve it. Refer the priority of prj.conf in [prj.conf](../build_system/Configuration_System.md#prjconf) chapter to set the data.
 
-## Build The Example
+### Multi-Project Examples
+
+Some examples consist of multiple cooperating sub-projects that must be built together. For example, a primary core plus one or more secondary cores in a multicore design, or a secure plus non-secure pair on a TrustZone-capable device. The MCUXpresso SDK uses [Sysbuild](../build_system/Sysbuild.md) for the full sysbuild reference to orchestrate these multi-project examples. One project acts as the entry point, owns the sysbuild configuration, and registers its sibling sub-projects via `ExternalMCUXProject_Add`.
+
+#### Directory Layout
+
+A typical multi-project example includes the following:
+
+```
+examples/<category>/<example_name>/
+├── <main_project>/                   ← sysbuild entry point
+│   ├── CMakeLists.txt
+│   ├── prj.conf
+│   ├── sysbuild.cmake                ← register sub-projects
+│   ├── Kconfig.sysbuild              ← (optional) propagate parameters to sub-projects
+│   └── sysbuild/
+│       └── <sub_project>.conf        ← (optional) sysbuild-scope config per sub-project
+└── <sub_project>/
+    ├── CMakeLists.txt
+    └── prj.conf
+```
+
+The main project is the one passed to `west build --sysbuild`; it drives the entire build.
+
+#### Required Files in the Main Project
+
+**1. `sysbuild.cmake`** — registers each sub-project and declares a build-order dependency. Use `ExternalMCUXProject_Add`:
+
+```cmake
+ExternalMCUXProject_Add(
+    APPLICATION <sub_project_name>
+    SOURCE_DIR  ${APP_DIR}/../<sub_project_folder>
+    board       ${SB_CONFIG_secondary_board}
+    core_id     ${SB_CONFIG_secondary_core_id}
+    config      ${SB_CONFIG_secondary_config}
+    toolchain   ${SB_CONFIG_secondary_toolchain}
+)
+
+# Build the sub-project before the main project
+add_dependencies(${DEFAULT_IMAGE} <sub_project_name>)
+```
+
+**2. `Kconfig.sysbuild`** — needed when a sub-project's parameters (board, `core_id`, toolchain, build config) must be derived from, but differ from, the values passed on the command line. The classic case is a secondary core whose `core_id` differs from the primary core:
+
+```kconfig
+config secondary_core_id
+    string
+    default "cm4"        if $(board) = "evkbmimxrt1170" && $(core_id) = "cm7"
+    default "cm33_core1" if $(board) = "lpcxpresso55s69" && $(core_id) = "cm33_core0"
+
+config secondary_toolchain
+    string
+    default "$(toolchain)"
+```
+
+```{note}
+If every sub-project shares the same `core_id` as the main project (for example, a TrustZone secure / non-secure pair running on the same core), `Kconfig.sysbuild` is **not required** — pass `core_id ${core_id}` directly to `ExternalMCUXProject_Add`. As soon as a sub-project needs a different `core_id`, you must introduce `Kconfig.sysbuild` to map the value.
+```
+
+**3. `sysbuild/<project>.conf`** *(optional)* — its file name must match the project identifier given by the sub-project's `project()` call. These conf files are sysbuild-scoped and override the sub-project's local `prj.conf`.
+
+#### Linking Sub-Project Outputs into the Main Image
+
+There are two common patterns in the SDK, distinguished by what the sub-project produces and how the main project consumes it.
+
+**Pattern A — Embed a binary (multicore example).**
+The sub-project converts its ELF to a raw `.bin`; the main project embeds that `.bin` into its own image at link time. The technique used in the main project is **toolchain-specific**.
+
+In the sub-project's `CMakeLists.txt`:
+
+```cmake
+mcux_convert_binary(
+    TOOLCHAINS armgcc mdk iar
+    BINARY ${APPLICATION_BINARY_DIR}/${CONFIG_TOOLCHAIN}/core1_image.bin
+)
+```
+
+In the main project's `CMakeLists.txt`:
+
+```cmake
+# IAR — the linker natively embeds a raw .bin via --image_input
+mcux_add_iar_configuration(
+    LD "--image_input=${APPLICATION_BINARY_DIR}/../<sub>/iar/core1_image.bin,_core1_image,__core1_image,4 \
+        --keep _core1_image"
+)
+
+# ARM GCC / MDK — embed the .bin via the SDK utility component fsl_incbin.S
+# (assembler-level `.incbin` / `INCBIN` directive). The include path below lets
+# fsl_incbin.S locate the secondary's core1_image.bin at assembly time.
+mcux_add_include(
+    TOOLCHAINS mdk armgcc
+    BASE_PATH ${APPLICATION_BINARY_DIR}
+    INCLUDES ../<sub>/${CONFIG_TOOLCHAIN}/
+)
+
+mcux_add_mdk_configuration(
+    LD "--keep=*(*core1_code)"
+)
+
+mcux_add_configuration(
+        CC "-DCORE1_IMAGE_COPY_TO_RAM"
+)
+
+```
+
+For ARM GCC and MDK, the main project enables the incbin utility in its `prj.conf` so that the helper assembly file is added to the build:
+
+```text
+CONFIG_MCUX_COMPONENT_utility.incbin=y
+```
+
+The component, located at `components/misc_utilities/fsl_incbin.S`, uses the assembler's `.incbin` (GAS) / `INCBIN` (armasm) directive to embed the raw `.bin` into a dedicated section (`.core1_code` for GCC, `core1_code` AREA for MDK).
+
+For ARM GCC, `fsl_incbin.S` itself exports the symbols `core1_image_start`, `core1_image_end`, and `core1_image_size`; the board port's `app.h` simply re-declares them, e.g. `extern const char core1_image_start[];`, and the standard SDK linker script places the section in flash.
+
+For MDK, `fsl_incbin.S` only deposits the bytes into the `core1_code` AREA; the scatter file maps that AREA into an execution region named `CORE1_REGION`, and `--keep=*(*core1_code)` prevents the linker from stripping it. The board port's `app.h` then uses the scatter-file-generated symbols, e.g.
+
+```c
+extern uint32_t Image$$CORE1_REGION$$Base;
+extern uint32_t Image$$CORE1_REGION$$Length;
+```
+
+At runtime, with `CORE1_IMAGE_COPY_TO_RAM` defined, the main core copies the embedded image to the secondary core's RAM and releases the secondary core from reset. The result is a **single flashed image** containing both cores' code.
+
+```{note}
+IAR does **not** use `fsl_incbin.S` — the IAR linker natively embeds a raw binary via `--image_input`, so no assembler helper is needed. `fsl_incbin.S` is built only for ARM GCC and MDK.
+```
+
+A real example using this pattern is at `examples/multicore_examples/hello_world`.
+
+**Pattern B — Link a CMSE veneer object (TrustZone example).**
+The secure sub-project produces a CMSE veneer object file, which the main (non‑secure) project links as a standard library. All three toolchains produce the same artifact (`*_CMSE_lib.o`); only the flags used to generate it differ.
+
+In the secure sub-project's `CMakeLists.txt`:
+
+```cmake
+mcux_add_iar_configuration(
+    CC "--cmse"  CX "--cmse"
+    LD "--import_cmse_lib_out=${APPLICATION_BINARY_DIR}/${CONFIG_TOOLCHAIN}/<s_app>_CMSE_lib.o"
+)
+mcux_add_armgcc_configuration(
+    AS "-mcmse" CC "-mcmse" CX "-mcmse"
+    LD "-Wl,--cmse-implib -Wl,--out-implib=${APPLICATION_BINARY_DIR}/${CONFIG_TOOLCHAIN}/<s_app>_CMSE_lib.o"
+)
+mcux_add_mdk_configuration(
+    AS "-mcmse" CC "-mcmse" CX "-mcmse"
+    LD "--import-cmse-lib-out=${APPLICATION_BINARY_DIR}/${CONFIG_TOOLCHAIN}/<s_app>_CMSE_lib.o"
+)
+```
+
+In the non-secure (main) project's `CMakeLists.txt`:
+
+```cmake
+mcux_add_library(
+    BASE_PATH ${APPLICATION_BINARY_DIR}
+    LIBS "../<s_app>/${CONFIG_TOOLCHAIN}/<s_app>_CMSE_lib.o"
+    TOOLCHAINS armgcc mdk iar
+    GENERATED TRUE
+)
+```
+
+The two sides are produced as **two independent images** flashed to separate memory regions; they communicate at runtime through Secure Gateway (SG) instructions, not through binary embedding.
+
+A real example using this pattern is at `examples/trustzone_examples/hello_world_ns` (the non-secure side is the sysbuild entry point) together with `examples/trustzone_examples/hello_world_s`.
+
+#### Customizing the Linker Scripts
+
+The default linker scripts are under `devices/<soc_portfolio>/<soc_series>/<device>/{gcc,iar,arm}`. Each project has its own board-port `reconfig.cmake` at `examples/_boards/<board>/<category>/<example_name>/reconfig.cmake`. Update its default linker script there using the `mcux_remove_<toolchain>_linker_script` and `mcux_add_<toolchain>_linker_script`. What is specific to multi-project setups is that **the two scripts must agree on the memory split**.
+
+For **Pattern A (multicore)**, the primary script reserves a section — conventionally `m_core1_code` / `.core1_code` — sized to hold the embedded secondary binary, and the secondary script places its code at the run-time address the primary copies the image to:
+
+```ld
+/* primary *.ld — reserve a region for the embedded secondary .bin */
+MEMORY {
+    m_text       (RX) : ORIGIN = 0x30000400, LENGTH = 0x000FFC00
+    m_core1_code (RX) : ORIGIN = 0x30100000, LENGTH = 0x00100000
+}
+SECTIONS { .core1_code : { KEEP(*(.core1_code)) } > m_core1_code }
+```
+
+For **Pattern B (TrustZone)**, the secure side uses `*_flash_s.{ld,icf,scf}` and the non-secure side uses `*_flash_ns.{ld,icf,scf}`.
+
+For both patterns, only update linker scripts setting in `reconfig.cmake` when the board needs a non-default memory map. For example:
+```cmake
+mcux_remove_armgcc_linker_script(
+    TARGETS debug release
+    BASE_PATH ${SdkRootDirPath}
+    LINKER ${device_root}/${soc_portfolio}/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash.ld
+)
+mcux_add_armgcc_linker_script(
+    TARGETS debug release
+    BASE_PATH ${SdkRootDirPath}
+    LINKER ${device_root}/${soc_portfolio}/${soc_series}/${device}/gcc/${CONFIG_MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX}_flash_ns.ld
+)
+```
+
+## Build the Example
 
 Run `west build -h` to see help information for west build command.
 Compared to zephyr's west build, MCUXpresso SDK build command provides following additional options for examples:
