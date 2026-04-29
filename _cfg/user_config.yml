@@ -2282,3 +2282,39 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW727C
       outdir: drivers/MCX/MCXW/MCXW727C
+  board_frdmkw43:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/Wireless/index.rst
+    - root: docs
+      pattern: boards/Wireless/frdmkw43/*
+    - root: .
+      pattern: examples/_boards/frdmkw43/**/*.md
+    - root: .
+      pattern: drivers/Wireless/KW/KW43B43ZC7/index.rst
+    - root: .
+      pattern: devices/Wireless/KW/KW43B43ZC7/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_KW43B43ZC7
+      outdir: drivers/Wireless/KW/KW43B43ZC7
+  board_frdmmcxw70:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/MCX/index.rst
+    - root: docs
+      pattern: boards/MCX/frdmkw43/*
+    - root: .
+      pattern: examples/_boards/frdmkw43/**/*.md
+    - root: .
+      pattern: drivers/MCX/MCXW/MCXW70AC/index.rst
+    - root: .
+      pattern: devices/MCX/MCXW/MCXW70AC/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW70AC
+      outdir: drivers/MCX/MCXW/MCXW70AC
