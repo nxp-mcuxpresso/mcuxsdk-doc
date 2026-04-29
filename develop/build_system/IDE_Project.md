@@ -355,6 +355,16 @@ Then you can open the project to see both projects:
 
 ![shared_workspace](_doc/shared_workspace.png)
 
+- *CodeWarrior*
+
+    For CodeWarrior, only `sharing-workspace` is required. There is no `shared-workspace` field because CodeWarrior adds cross-project references directly into the `.project` file. Each entry is a relative path to another project.
+
+    ```yaml
+    codewarrior:
+      sharing-workspace:
+      - ../../mu_polling_secondary_core/codewarrior/mu_polling_secondary_core_dsp56800ef_core1
+    ```
+
 #### Keil MDK Specific Settings
 
 ##### Change C library
@@ -596,6 +606,23 @@ Supported option for IAR are:
     ```
     ![suppress_download](./_doc/ide_option_iar_suppress_download.png)
 
+#### CodeWarrior
+
+Supported options for CodeWarrior are:
+
+- Connected Targets
+
+    Specifies which core(s) to connect during a debug session. This setting controls the `.launch` file properties including SMP mode, core index, and the SMPCores list. It is typically set under `__common__` so it applies to all build configurations. No need for single core devices.
+
+    Example:
+
+    ```yaml
+    codewarrior:
+      config:
+        __common__:
+          connected_targets: ${core_id}
+    ```
+
 ### IDE Script Setting
 
 The IDE script is set in IDE.yml. To record a script in yml, you should set at least the following properties:
@@ -687,6 +714,44 @@ Supported attribute for script files are:
   ```
 
   ![jlink_script_file](./_doc/ide_file_jlink_script_file.png)
+
+#### CodeWarrior
+
+Supported attribute for script files are:
+
+- `target_initialization_file`
+
+    Specifies the TCL initialization script used by the CodeWarrior debugger to initialize the target before a debug session. For multicore devices, use the `apply_targets` field to declare which core(s) this file applies to.
+
+    For example:
+
+    ```yaml
+    target_initialization_file:
+      files:
+      - source: ${device_root}/${soc_portfolio}/${soc_series}/${device}/codewarrior/${device}${core_id_suffix_name}.tcl
+        toolchains: codewarrior
+        attribute: target_initialization_file
+        project_path: "${device}/codewarrior"
+        package_path: project-root-path
+        apply_targets: ${core_id}
+    ```
+
+- `memory_config_file`
+
+    Specifies the memory configuration file (`.mem`) used by the CodeWarrior debugger to describe the target memory layout. For multicore devices, use the `apply_targets` field to declare which core(s) this file applies to.
+
+    Example:
+
+    ```yaml
+    memory_config_file:
+      files:
+      - source: ${device_root}/${soc_portfolio}/${soc_series}/${device}/codewarrior/${device}${core_id_suffix_name}.mem
+        toolchains: codewarrior
+        attribute: memory_config_file
+        project_path: "${device}/codewarrior"
+        package_path: project-root-path
+        apply_targets: ${core_id}
+    ```
 
 ### IDE language Setting
 

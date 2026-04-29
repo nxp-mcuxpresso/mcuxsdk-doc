@@ -212,6 +212,24 @@ mcux_add_codewarrior_sys_include(
 )
 ```
 
+#### mcux_add_codewarrior_lib_path
+
+Add library search path for the codewarrior linker. Each path is appended to the linker as a `-L<path>` option and is also recorded under `lib-search-path` in the generated GUI project.
+
+| Argument Name | Argument Type | Explanation                                                  |
+| ------------- | ------------- | ------------------------------------------------------------ |
+| TARGETS       | Multiple      | The build targets, like debug release. If omitted, the setting applies to all targets. |
+| LIB_PATH      | Multiple      | The directories to be searched by the linker for libraries. |
+
+Here is one example
+
+```cmake
+mcux_add_codewarrior_lib_path(
+    LIB_PATH
+    "${APPLICATION_BINARY_DIR}/../mu_polling_secondary_core/codewarrior/${CMAKE_BUILD_TYPE}"
+)
+```
+
 #### mcux_add_library
 
 Specify the library to be linked.
