@@ -13,6 +13,7 @@ As illustrated in previous chapters, MCUXpresso SDK is based on CMake and Kconfi
    Soc Arch, Device, Board and Shield Definition <device_board_shield_definition.md>
    SDK Integration <integration.md>
    Custom Board Development <custom_board_development.md>
+   Useful Tools <useful_tools.rst>
 
 .. only:: internal_doc
 
