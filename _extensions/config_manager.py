@@ -137,6 +137,12 @@ class ConfigurationManager:
         board_module = f'board_{self.board_target.split("/")[-1]}'
         included_modules.add(board_module)
 
+        # Remove other board modules that were incorrectly matched via shared
+        # files like boards/index.rst, which appears in every board module's
+        # external_contents and causes cross-board pollution.
+        included_modules = {m for m in included_modules
+                            if not m.startswith('board_') or m == board_module}
+
         # Always include examples for HTML builds (board dependency resolver
         # doesn't detect it because examples are linked via board_index, not
         # via file-level references from the board's index.rst)
