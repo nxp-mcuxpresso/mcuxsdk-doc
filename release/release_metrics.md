@@ -13,6 +13,9 @@ The tabulated results cover findings that are classified as issues.
 
 |Development boards|HIGH IMPACT|Memory Leaks|CWE|CCM > 20|No. Examples|
 |:--               |:--    |:--    |:--    |:--    |:--    |
-|FRDM-MCXC162|0|0|0|4|1|
-|FRDM-MCXL255|2|0|2|12|48|
+|FRDM-KW43|0|0|0|2|13|
+|FRDM-MCXA287|2|0|2|21|35|
+|FRDM-MCXA577|5|0|5|99|40|
+|FRDM-MCXL255|3|0|3|12|47|
+|FRDM-MCXW70|-|-|-|-|0|
 
