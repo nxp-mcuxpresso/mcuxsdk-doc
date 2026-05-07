@@ -1,25 +1,19 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.03.00\).
+The following updates were implemented with respect to the previous SDK release version \(26.06.00-pvw1\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   New connection event 'gConnEvtRemoteFeaturesRead_c', providing the 'peer feature bitmask' via the Read Remote Features procedure.
-	-   Support for up to five advertising sets in the Bluetooth LE Host.
-	-   Method to specify GATT handles on the client, avoiding repeated service discovery.
-	-   Handover broadcast time synchronization, allowing one connected anchor to synchronize multiple target anchors simultaneously.
+	-   Support for LE Read All Remote Features after connection is established.
 
     ### Improved
-	-   Updated and cleaned 'app_preinclude.h' for sample applications.
+	-   Updated handover documentation with broadcast time synchronization details.
 	-   Documentation updates.
-	-   Miscellaneous minor application bug fixes.
 
     ### Fixed
-	-   Corrected handling of AddrType values in MonAdvReport generated from XML.
-    ### Changed
-	-   Removed the Bluetooth LE Host library from the wireless_uart_host project.
-	-   Disabled the use of Random Static Address for all applications.
+	-   Fixed double free issue in L2ca_SendAclDataWithSegmentation.
+	-   Miscellaneous minor application bug fixes.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
