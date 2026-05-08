@@ -10,18 +10,18 @@ The following updates were implemented with respect to the previous SDK release 
 	-   Support for configurable limits for concurrent Channel Sounding connections/procedures.
 
     ### Improved
-	-   Optimized memory allocation in isp_mciq_ranging_compute for localization applications.
+	-   Optimized memory allocation in `isp_mciq_ranging_compute` function for localization applications.
 	-   Updated RAS loc_reader application for multiple CS connections.
 	-   Updated handover documentation with broadcast time synchronization details.
 	-   Documentation updates.
 
     ### Fixed
-	-   Fixed double free issue in L2ca_SendAclDataWithSegmentation.
+	-   Fixed double free issue in `L2ca_SendAclDataWithSegmentation` function.
 	-   Fixed consecutive CS procedures sustainability issue.
 	-   Miscellaneous minor application bug fixes.
 
     ### Changed
-	-  CS procedure state management: do not allow new procedure to start before previous one completes.
+	-  CS procedure state management: do not allow a new procedure to start before the previous one completes.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

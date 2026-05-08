@@ -12,7 +12,7 @@ The following updates were implemented with respect to the previous SDK release 
 	-   Documentation updates.
 
     ### Fixed
-	-   Fixed double free issue in L2ca_SendAclDataWithSegmentation.
+	-   Fixed double free issue in `L2ca_SendAclDataWithSegmentation` function.
 	-   Miscellaneous minor application bug fixes.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
