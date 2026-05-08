@@ -2107,6 +2107,24 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT798S
       outdir: drivers/RT/RT700/MIMXRT798S
+  board_frdmimxrt700:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/RT/index.rst
+    - root: docs
+      pattern: boards/RT/frdmimxrt700/*
+    - root: .
+      pattern: examples/_boards/frdmimxrt700/**/*.md
+    - root: .
+      pattern: drivers/RT/RT700/MIMXRT798S/index.rst
+    - root: .
+      pattern: devices/RT/RT700/MIMXRT798S/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT798S
+      outdir: drivers/RT/RT700/MIMXRT798S
   board_frdmrw612:
     default: true
     external_contents:
