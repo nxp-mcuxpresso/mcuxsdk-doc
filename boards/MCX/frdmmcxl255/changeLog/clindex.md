@@ -116,6 +116,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/pls_pmu/doxygen/ChangeLog_pmu.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/port/doxygen/ChangeLog_port.md
 :heading-offset: 2
 ```
@@ -163,3 +167,4 @@
 ```{include} /drivers/wwdt/doxygen/ChangeLog_wwdt.md
 :heading-offset: 2
 ```
+---
