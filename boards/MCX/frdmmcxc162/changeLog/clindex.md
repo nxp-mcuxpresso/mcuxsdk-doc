@@ -32,10 +32,6 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/eqdc/doxygen/ChangeLog_eqdc.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/erm/doxygen/ChangeLog_erm.md
 :heading-offset: 2
 ```
@@ -135,3 +131,4 @@
 ```{include} /drivers/wwdt/doxygen/ChangeLog_wwdt.md
 :heading-offset: 2
 ```
+---

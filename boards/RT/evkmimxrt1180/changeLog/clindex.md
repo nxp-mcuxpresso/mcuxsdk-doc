@@ -24,11 +24,11 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/cache/armv7-m7/doxygen/ChangeLog_cache.md
+```{include} /drivers/cache/xcache/doxygen/ChangeLog_cache.md
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/cache/xcache/doxygen/ChangeLog_cache.md
+```{include} /drivers/cache/armv7-m7/doxygen/ChangeLog_cache.md
 :heading-offset: 2
 ```
 ---
@@ -319,3 +319,4 @@
 ```{include} /drivers/xbar_1/doxygen/ChangeLog_xbar.md
 :heading-offset: 2
 ```
+---

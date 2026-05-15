@@ -115,3 +115,4 @@
 ```{include} /drivers/wdog32/doxygen/ChangeLog_wdog32.md
 :heading-offset: 2
 ```
+---

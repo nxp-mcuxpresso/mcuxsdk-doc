@@ -108,10 +108,6 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/mau/doxygen/ChangeLog_mau.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/opamp_fast/doxygen/ChangeLog_opamp.md
 :heading-offset: 2
 ```
@@ -167,3 +163,4 @@
 ```{include} /drivers/wwdt/doxygen/ChangeLog_wwdt.md
 :heading-offset: 2
 ```
+---

@@ -143,3 +143,4 @@
 ```{include} /drivers/vref/doxygen/ChangeLog_vref.md
 :heading-offset: 2
 ```
+---

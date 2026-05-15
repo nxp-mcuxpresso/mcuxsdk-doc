@@ -791,8 +791,6 @@ INPUT = @SDK_BASE@/devices/MCX/MCXA/MCXA174/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/lpuart/fsl_lpuart_edma.h \
         @SDK_BASE@/drivers/lpuart/doxygen/lpuart.dox \
         @SDK_BASE@/drivers/lpuart/fsl_lpuart.h \
-        @SDK_BASE@/drivers/mau/doxygen/mau.dox \
-        @SDK_BASE@/drivers/mau/fsl_mau.h \
         @SDK_BASE@/drivers/mcx_cmc/doxygen/cmc.dox \
         @SDK_BASE@/drivers/mcx_cmc/fsl_cmc.h \
         @SDK_BASE@/drivers/mcx_spc/doxygen/spc.dox \
@@ -953,7 +951,6 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXA/MCXA174/drivers/doxygen \
              @SDK_BASE@/drivers/lpspi/doxygen \
              @SDK_BASE@/drivers/lptmr/doxygen \
              @SDK_BASE@/drivers/lpuart/doxygen \
-             @SDK_BASE@/drivers/mau/doxygen \
              @SDK_BASE@/drivers/mcx_cmc/doxygen \
              @SDK_BASE@/drivers/mcx_spc/doxygen \
              @SDK_BASE@/drivers/mcx_vbat/doxygen \
@@ -2440,9 +2437,6 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_WWDT_WDTRESET_FROM_PMC = 0
 
 PREDEFINED += DOXYGEN_OUTPUT=1
-PREDEFINED += __IO=
-PREDEFINED += __O=
-PREDEFINED += __I=
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

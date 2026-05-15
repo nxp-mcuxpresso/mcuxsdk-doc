@@ -79,3 +79,4 @@
 ```{include} /drivers/wdog8/doxygen/ChangeLog_wdog8.md
 :heading-offset: 2
 ```
+---

@@ -267,3 +267,4 @@
 ```{include} /drivers/xspi/doxygen/ChangeLog_xspi_edma.md
 :heading-offset: 2
 ```
+---

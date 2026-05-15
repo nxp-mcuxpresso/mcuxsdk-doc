@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**FRDM-IMX95**|**MIMX9596AVZXN**, MIMX9596CVTXN, MIMX9596CVZXN,<br/> MIMX9596DVTXN, MIMX9596DVZXN, MIMX9596XVTXN,<br/> MIMX9596XVZXN|
+|**FRDM-IMX95**|MIMX9596AVZXN, **MIMX9596CVTXN**, MIMX9596CVZXN,<br/> MIMX9596DVTXN, MIMX9596DVZXN, MIMX9596XVTXN,<br/> MIMX9596XVZXN|

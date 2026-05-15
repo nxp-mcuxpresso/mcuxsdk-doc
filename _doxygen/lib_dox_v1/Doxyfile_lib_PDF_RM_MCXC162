@@ -753,8 +753,6 @@ INPUT = @SDK_BASE@/devices/MCX/MCXC/MCXC162/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/eim/doxygen/eim.dox \
         @SDK_BASE@/drivers/eim/fsl_eim.h \
         @SDK_BASE@/drivers/eim/eim_channel_word.h \
-        @SDK_BASE@/drivers/eqdc/doxygen/eqdc.dox \
-        @SDK_BASE@/drivers/eqdc/fsl_eqdc.h \
         @SDK_BASE@/drivers/erm/doxygen/erm.dox \
         @SDK_BASE@/drivers/erm/fsl_erm.h \
         @SDK_BASE@/drivers/flash_k4/doxygen/flash.dox \
@@ -922,7 +920,6 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXC/MCXC162/drivers/doxygen \
              @SDK_BASE@/drivers/ctimer/doxygen \
              @SDK_BASE@/drivers/edma4/doxygen \
              @SDK_BASE@/drivers/eim/doxygen \
-             @SDK_BASE@/drivers/eqdc/doxygen \
              @SDK_BASE@/drivers/erm/doxygen \
              @SDK_BASE@/drivers/flash_k4/doxygen \
              @SDK_BASE@/drivers/gpio/doxygen \
@@ -2155,6 +2152,7 @@ PREDEFINED = FSL_FEATURE_SOC_CMC_COUNT = 1 \
              FSL_FEATURE_LPCMP_HAS_CCR0_LINKEN = 0 \
              FSL_FEATURE_LPCMP_HAS_RRCR2 = 1 \
              FSL_FEATURE_LPCMP_HAS_CCR0_CMP_STOP_EN = 1 \
+             FSL_FEATURE_CRC_HAS_CRC_REG = 0 \
              FSL_FEATURE_CTIMER_HAS_NO_INPUT_CAPTURE = 0 \
              FSL_FEATURE_CTIMER_HAS_NO_IR_CR2INT = 0 \
              FSL_FEATURE_CTIMER_HAS_IR_CR3INT = 1 \
@@ -2167,24 +2165,25 @@ PREDEFINED = FSL_FEATURE_SOC_CMC_COUNT = 1 \
              FSL_FEATURE_EDMA_SUPPORT_16_BYTES_TRANSFER = 1 \
              FSL_FEATURE_EDMA_HAS_ERROR_IRQ = 1 \
              FSL_FEATURE_EDMA_SUPPORT_64_BYTES_TRANSFER = 1 \
-             FSL_FEATURE_EDMA_SUPPORT_128_BYTES_TRANSFER = 1 \
              FSL_FEATURE_EDMA_CHANNEL_HAS_OWN_CLOCK_GATE = 1 \
-             FSL_FEATURE_EDMA_HAS_CHANNEL_CONFIG = 1 \
-             FSL_FEATURE_EDMA_HAS_CHANNEL_MUX = 1 \
+             FSL_FEATURE_EDMA_SUPPORT_128_BYTES_TRANSFER = 1 \
              FSL_FEATURE_EDMA_HAS_NO_MP_CSR_EBW = 1 \
+             FSL_FEATURE_EDMA_HAS_CHANNEL_CONFIG = 1 \
              FSL_FEATURE_EDMA_HAS_COMMON_CLOCK_GATE = 0 \
-             FSL_FEATURE_EDMA_HAS_SBR = 1 \
+             FSL_FEATURE_EDMA_HAS_CHANNEL_MUX = 1 \
              FSL_FEATURE_EDMA_MODULE_CHANNEL_IRQ_ENTRY_SUPPORT_PARAMETER = 0 \
-             FSL_FEATURE_EDMA_HAS_NO_CH_SBR_ATTR = 1 \
              FSL_FEATURE_EDMA_HAS_ERRATA_51327 = 0 \
-             FSL_FEATURE_EDMA_HAS_CHANNEL_SWAP_SIZE = 0 \
+             FSL_FEATURE_EDMA_HAS_SBR = 1 \
+             FSL_FEATURE_EDMA_HAS_NO_CH_SBR_ATTR = 1 \
              FSL_FEATURE_EDMA_HAS_GLOBAL_MASTER_ID_REPLICATION = 1 \
+             FSL_FEATURE_EDMA_HAS_CHANNEL_SWAP_SIZE = 0 \
              FSL_FEATURE_EDMA_HAS_CHANNEL_ACCESS_TYPE = 0 \
              FSL_FEATURE_EDMA_HAS_CHANNEL_MEMORY_ATTRIBUTE = 0 \
              FSL_FEATURE_EDMA_HAS_CHANNEL_SIGN_EXTENSION = 0 \
              FSL_FEATURE_EDMA_HAS_BANDWIDTH = 1 \
              FSL_FEATURE_EDMA_HAS_TRANSFER_MODE = 0 \
              FSL_FEATURE_EDMA_HAS_NO_CH_SBR_SEC = 1 \
+             FSL_FEATURE_EDMA_ASYNCHRO_REQUEST_CHANNEL_COUNT = 4 \
              FSL_FEATURE_PWM_HAS_CHANNELA = 1 \
              FSL_FEATURE_PWM_HAS_CHANNELB = 1 \
              FSL_FEATURE_PWM_HAS_CHANNELX = 1 \
@@ -2383,9 +2382,6 @@ PREDEFINED = FSL_FEATURE_SOC_CMC_COUNT = 1 \
              FSL_FEATURE_WWDT_WDTRESET_FROM_PMC = 0
 
 PREDEFINED += DOXYGEN_OUTPUT=1
-PREDEFINED += __IO=
-PREDEFINED += __O=
-PREDEFINED += __I=
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

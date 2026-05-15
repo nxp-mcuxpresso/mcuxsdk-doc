@@ -16,10 +16,6 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/ce/doxygen/ChangeLog_ce.md
-:heading-offset: 2
-```
----
 ```{include} /devices/Wireless/KW/KW43B43ZC7/drivers/doxygen/ChangeLog_clock.md
 :heading-offset: 2
 ```

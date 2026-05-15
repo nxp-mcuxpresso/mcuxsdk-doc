@@ -32,11 +32,11 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/cache/armv7-m7/doxygen/ChangeLog_cache.md
+```{include} /drivers/cache/lmem/doxygen/ChangeLog_cache.md
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/cache/lmem/doxygen/ChangeLog_cache.md
+```{include} /drivers/cache/armv7-m7/doxygen/ChangeLog_cache.md
 :heading-offset: 2
 ```
 ---
@@ -367,3 +367,4 @@
 ```{include} /drivers/xrdc2/doxygen/ChangeLog_xrdc2.md
 :heading-offset: 2
 ```
+---

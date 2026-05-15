@@ -779,12 +779,18 @@ INPUT = @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/doxygen/romapi.dox \
         @SDK_BASE@/drivers/espi/fsl_espi.h \
         @SDK_BASE@/drivers/ewm/doxygen/ewm.dox \
         @SDK_BASE@/drivers/ewm/fsl_ewm.h \
+        @SDK_BASE@/drivers/flexcan/doxygen/flexcan_edma.dox \
+        @SDK_BASE@/drivers/flexcan/fsl_flexcan_edma.h \
+        @SDK_BASE@/drivers/flexcan/doxygen/flexcan.dox \
+        @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
         @SDK_BASE@/drivers/flexio/doxygen/flexio.dox \
         @SDK_BASE@/drivers/flexio/fsl_flexio.h \
         @SDK_BASE@/drivers/flexspi/doxygen/flexspi_edma.dox \
         @SDK_BASE@/drivers/flexspi/fsl_flexspi_edma.h \
         @SDK_BASE@/drivers/flexspi/doxygen/flexspi.dox \
         @SDK_BASE@/drivers/flexspi/fsl_flexspi.h \
+        @SDK_BASE@/drivers/gdet/doxygen/gdet.dox \
+        @SDK_BASE@/drivers/gdet/fsl_gdet.h \
         @SDK_BASE@/drivers/glikey/doxygen/glikey.dox \
         @SDK_BASE@/drivers/glikey/fsl_glikey.h \
         @SDK_BASE@/drivers/gpio/doxygen/gpio.dox \
@@ -795,10 +801,16 @@ INPUT = @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/doxygen/romapi.dox \
         @SDK_BASE@/drivers/i3c/fsl_i3c.h \
         @SDK_BASE@/drivers/inputmux/doxygen/inputmux.dox \
         @SDK_BASE@/drivers/inputmux/fsl_inputmux.h \
+        @SDK_BASE@/drivers/irtc/doxygen/irtc.dox \
+        @SDK_BASE@/drivers/irtc/fsl_irtc.h \
+        @SDK_BASE@/drivers/itrc/doxygen/itrc.dox \
+        @SDK_BASE@/drivers/itrc/fsl_itrc.h \
         @SDK_BASE@/drivers/lpadc/doxygen/lpadc.dox \
         @SDK_BASE@/drivers/lpadc/fsl_lpadc.h \
         @SDK_BASE@/drivers/lpc_freqme/doxygen/freqme.dox \
         @SDK_BASE@/drivers/lpc_freqme/fsl_freqme.h \
+        @SDK_BASE@/drivers/lpcmp/doxygen/lpcmp.dox \
+        @SDK_BASE@/drivers/lpcmp/fsl_lpcmp.h \
         @SDK_BASE@/drivers/lpi2c/doxygen/lpi2c_edma.dox \
         @SDK_BASE@/drivers/lpi2c/fsl_lpi2c_edma.h \
         @SDK_BASE@/drivers/lpi2c/doxygen/lpi2c.dox \
@@ -813,15 +825,24 @@ INPUT = @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/doxygen/romapi.dox \
         @SDK_BASE@/drivers/lpuart/fsl_lpuart_edma.h \
         @SDK_BASE@/drivers/lpuart/doxygen/lpuart.dox \
         @SDK_BASE@/drivers/lpuart/fsl_lpuart.h \
+        @SDK_BASE@/drivers/mcx_cmc/doxygen/cmc.dox \
+        @SDK_BASE@/drivers/mcx_cmc/fsl_cmc.h \
         @SDK_BASE@/drivers/mcx_enet/doxygen/enet.dox \
         @SDK_BASE@/drivers/mcx_enet/fsl_enet.h \
         @SDK_BASE@/drivers/mcx_spc/doxygen/spc.dox \
         @SDK_BASE@/drivers/mcx_spc/fsl_spc.h \
+        @SDK_BASE@/drivers/mcx_vbat/doxygen/vbat.dox \
+        @SDK_BASE@/drivers/mcx_vbat/fsl_vbat.h \
         @SDK_BASE@/drivers/ostimer/doxygen/ostimer.dox \
         @SDK_BASE@/drivers/ostimer/fsl_ostimer.h \
         @SDK_BASE@/drivers/port/doxygen/port.dox \
         @SDK_BASE@/drivers/port/fsl_port.h \
+        @SDK_BASE@/drivers/smartdma/doxygen/smartdma.dox \
+        @SDK_BASE@/drivers/smartdma/fsl_smartdma.h \
+        @SDK_BASE@/drivers/smartdma/fsl_smartdma_prv.h \
         @SDK_BASE@/drivers/smartdma/mcxa/fsl_smartdma_fw.h \
+        @SDK_BASE@/drivers/tdet/doxygen/tdet.dox \
+        @SDK_BASE@/drivers/tdet/fsl_tdet.h \
         @SDK_BASE@/drivers/tenbaset_phy/doxygen/tenbaset_phy.dox \
         @SDK_BASE@/drivers/tenbaset_phy/fsl_tenbaset_phy.h \
         @SDK_BASE@/drivers/trdc_1/doxygen/trdc.dox \
@@ -839,6 +860,8 @@ INPUT = @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/doxygen/romapi.dox \
         @SDK_BASE@/drivers/wuu/fsl_wuu.h \
         @SDK_BASE@/drivers/wwdt/doxygen/wwdt.dox \
         @SDK_BASE@/drivers/wwdt/fsl_wwdt.h \
+        @SDK_BASE@/drivers/cache/lpcac_n4a_mcxn/doxygen/cache_lpcac.dox \
+        @SDK_BASE@/drivers/cache/lpcac_n4a_mcxn/fsl_cache_lpcac.h \
         @SDK_BASE@/drivers/flexio/i2c/doxygen/flexio_i2c_master.dox \
         @SDK_BASE@/drivers/flexio/i2c/fsl_flexio_i2c_master.h \
         @SDK_BASE@/drivers/flexio/i2s/doxygen/flexio_i2s_edma.dox \
@@ -847,6 +870,8 @@ INPUT = @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/doxygen/romapi.dox \
         @SDK_BASE@/drivers/flexio/i2s/fsl_flexio_i2s.h \
         @SDK_BASE@/drivers/flexio/mculcd/doxygen/flexio_mculcd_edma.dox \
         @SDK_BASE@/drivers/flexio/mculcd/fsl_flexio_mculcd_edma.h \
+        @SDK_BASE@/drivers/flexio/mculcd/doxygen/flexio_mculcd_smartdma.dox \
+        @SDK_BASE@/drivers/flexio/mculcd/fsl_flexio_mculcd_smartdma.h \
         @SDK_BASE@/drivers/flexio/mculcd/doxygen/flexio_mculcd.dox \
         @SDK_BASE@/drivers/flexio/mculcd/fsl_flexio_mculcd.h \
         @SDK_BASE@/drivers/flexio/spi/doxygen/flexio_spi_edma.dox \
@@ -856,7 +881,9 @@ INPUT = @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/doxygen/romapi.dox \
         @SDK_BASE@/drivers/flexio/uart/doxygen/flexio_uart_edma.dox \
         @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart_edma.h \
         @SDK_BASE@/drivers/flexio/uart/doxygen/flexio_uart.dox \
-        @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart.h
+        @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart.h \
+        @SDK_BASE@/drivers/tsi/tsi_v6/doxygen/tsi_v6.dox \
+        @SDK_BASE@/drivers/tsi/tsi_v6/fsl_tsi_v6.h
 
 # If the value of the INPUT tag contains directories, you can use the
 # FILE_PATTERNS tag to specify one or more wildcard patterns (like *.cpp and
@@ -980,23 +1007,32 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/doxygen \
              @SDK_BASE@/drivers/erm/doxygen \
              @SDK_BASE@/drivers/espi/doxygen \
              @SDK_BASE@/drivers/ewm/doxygen \
+             @SDK_BASE@/drivers/flexcan/doxygen \
              @SDK_BASE@/drivers/flexio/doxygen \
              @SDK_BASE@/drivers/flexspi/doxygen \
+             @SDK_BASE@/drivers/gdet/doxygen \
              @SDK_BASE@/drivers/glikey/doxygen \
              @SDK_BASE@/drivers/gpio/doxygen \
              @SDK_BASE@/drivers/i3c/doxygen \
              @SDK_BASE@/drivers/inputmux/doxygen \
+             @SDK_BASE@/drivers/irtc/doxygen \
+             @SDK_BASE@/drivers/itrc/doxygen \
              @SDK_BASE@/drivers/lpadc/doxygen \
              @SDK_BASE@/drivers/lpc_freqme/doxygen \
+             @SDK_BASE@/drivers/lpcmp/doxygen \
              @SDK_BASE@/drivers/lpi2c/doxygen \
              @SDK_BASE@/drivers/lpspi/doxygen \
              @SDK_BASE@/drivers/lptmr/doxygen \
              @SDK_BASE@/drivers/lpuart/doxygen \
+             @SDK_BASE@/drivers/mcx_cmc/doxygen \
              @SDK_BASE@/drivers/mcx_enet/doxygen \
              @SDK_BASE@/drivers/mcx_spc/doxygen \
+             @SDK_BASE@/drivers/mcx_vbat/doxygen \
              @SDK_BASE@/drivers/ostimer/doxygen \
              @SDK_BASE@/drivers/port/doxygen \
+             @SDK_BASE@/drivers/smartdma/doxygen \
              @SDK_BASE@/drivers/smartdma/mcxa/doxygen \
+             @SDK_BASE@/drivers/tdet/doxygen \
              @SDK_BASE@/drivers/tenbaset_phy/doxygen \
              @SDK_BASE@/drivers/trdc_1/doxygen \
              @SDK_BASE@/drivers/trng/doxygen \
@@ -1005,11 +1041,13 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXA/MCXA577/drivers/romapi/doxygen \
              @SDK_BASE@/drivers/waketimer/doxygen \
              @SDK_BASE@/drivers/wuu/doxygen \
              @SDK_BASE@/drivers/wwdt/doxygen \
+             @SDK_BASE@/drivers/cache/lpcac_n4a_mcxn/doxygen \
              @SDK_BASE@/drivers/flexio/i2c/doxygen \
              @SDK_BASE@/drivers/flexio/i2s/doxygen \
              @SDK_BASE@/drivers/flexio/mculcd/doxygen \
              @SDK_BASE@/drivers/flexio/spi/doxygen \
-             @SDK_BASE@/drivers/flexio/uart/doxygen
+             @SDK_BASE@/drivers/flexio/uart/doxygen \
+             @SDK_BASE@/drivers/tsi/tsi_v6/doxygen
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -2558,9 +2596,6 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_WWDT_WDTRESET_FROM_PMC = 0
 
 PREDEFINED += DOXYGEN_OUTPUT=1
-PREDEFINED += __IO=
-PREDEFINED += __O=
-PREDEFINED += __I=
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

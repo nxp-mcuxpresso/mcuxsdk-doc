@@ -1,6 +1,6 @@
 # MCUXpresso SDK Changelog
 
-```{include} /examples/_boards/frdmmcxa577/ChangeLog_board.md
+```{include} /examples/_boards/frdmmcxa287/ChangeLog_board.md
 :heading-offset: 2
 ```
 ---
@@ -44,15 +44,7 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/mcx_enet/doxygen/ChangeLog_enet.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/erm/doxygen/ChangeLog_erm.md
-:heading-offset: 2
-```
----
-```{include} /drivers/espi/doxygen/ChangeLog_espi.md
 :heading-offset: 2
 ```
 ---
@@ -208,19 +200,11 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/tenbaset_phy/doxygen/ChangeLog_tenbaset_phy.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/trdc_1/doxygen/ChangeLog_trdc.md
 :heading-offset: 2
 ```
 ---
 ```{include} /drivers/trng/doxygen/ChangeLog_trng.md
-:heading-offset: 2
-```
----
-```{include} /drivers/tsi/tsi_v6/doxygen/ChangeLog_tsi_v6.md
 :heading-offset: 2
 ```
 ---

@@ -247,3 +247,4 @@
 ```{include} /drivers/xbarb/doxygen/ChangeLog_xbarb.md
 :heading-offset: 2
 ```
+---

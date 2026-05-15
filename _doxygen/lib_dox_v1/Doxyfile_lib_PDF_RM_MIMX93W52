@@ -762,10 +762,6 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX93W/MIMX93W52/drivers/fsl_clock.h \
         @SDK_BASE@/drivers/i3c/fsl_i3c_edma.h \
         @SDK_BASE@/drivers/i3c/doxygen/i3c.dox \
         @SDK_BASE@/drivers/i3c/fsl_i3c.h \
-        @SDK_BASE@/drivers/isi/doxygen/isi.dox \
-        @SDK_BASE@/drivers/isi/fsl_isi.h \
-        @SDK_BASE@/drivers/lcdifv3/doxygen/lcdifv3.dox \
-        @SDK_BASE@/drivers/lcdifv3/fsl_lcdifv3.h \
         @SDK_BASE@/drivers/lpi2c/doxygen/lpi2c_edma.dox \
         @SDK_BASE@/drivers/lpi2c/fsl_lpi2c_edma.h \
         @SDK_BASE@/drivers/lpi2c/doxygen/lpi2c.dox \
@@ -794,8 +790,6 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX93W/MIMX93W52/drivers/fsl_clock.h \
         @SDK_BASE@/drivers/pdm/fsl_pdm_edma.h \
         @SDK_BASE@/drivers/pdm/doxygen/pdm.dox \
         @SDK_BASE@/drivers/pdm/fsl_pdm.h \
-        @SDK_BASE@/drivers/pxp/doxygen/pxp.dox \
-        @SDK_BASE@/drivers/pxp/fsl_pxp.h \
         @SDK_BASE@/drivers/rgpio/doxygen/rgpio.dox \
         @SDK_BASE@/drivers/rgpio/fsl_rgpio.h \
         @SDK_BASE@/drivers/sai/doxygen/sai_edma.dox \
@@ -806,10 +800,6 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX93W/MIMX93W52/drivers/fsl_clock.h \
         @SDK_BASE@/drivers/sar_adc/fsl_sar_adc.h \
         @SDK_BASE@/drivers/sema42/doxygen/sema42.dox \
         @SDK_BASE@/drivers/sema42/fsl_sema42.h \
-        @SDK_BASE@/drivers/spdif/doxygen/spdif_edma.dox \
-        @SDK_BASE@/drivers/spdif/fsl_spdif_edma.h \
-        @SDK_BASE@/drivers/spdif/doxygen/spdif.dox \
-        @SDK_BASE@/drivers/spdif/fsl_spdif.h \
         @SDK_BASE@/drivers/tmu_3/doxygen/tmu.dox \
         @SDK_BASE@/drivers/tmu_3/fsl_tmu.h \
         @SDK_BASE@/drivers/tpm/doxygen/tpm.dox \
@@ -817,12 +807,8 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX93W/MIMX93W52/drivers/fsl_clock.h \
         @SDK_BASE@/drivers/trdc_1/doxygen/trdc.dox \
         @SDK_BASE@/drivers/trdc_1/fsl_trdc.h \
         @SDK_BASE@/drivers/trdc_1/fsl_trdc_core.h \
-        @SDK_BASE@/drivers/trgmux/doxygen/trgmux.dox \
-        @SDK_BASE@/drivers/trgmux/fsl_trgmux.h \
         @SDK_BASE@/drivers/tstmr/doxygen/tstmr.dox \
         @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
-        @SDK_BASE@/drivers/usdhc/doxygen/usdhc.dox \
-        @SDK_BASE@/drivers/usdhc/fsl_usdhc.h \
         @SDK_BASE@/drivers/wdog32/doxygen/wdog32.dox \
         @SDK_BASE@/drivers/wdog32/fsl_wdog32.h \
         @SDK_BASE@/drivers/cache/xcache/doxygen/cache.dox \
@@ -956,8 +942,6 @@ IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX93W/MIMX93W52/drivers/doxygen \
              @SDK_BASE@/drivers/flexio/doxygen \
              @SDK_BASE@/drivers/flexspi/doxygen \
              @SDK_BASE@/drivers/i3c/doxygen \
-             @SDK_BASE@/drivers/isi/doxygen \
-             @SDK_BASE@/drivers/lcdifv3/doxygen \
              @SDK_BASE@/drivers/lpi2c/doxygen \
              @SDK_BASE@/drivers/lpit/doxygen \
              @SDK_BASE@/drivers/lpspi/doxygen \
@@ -968,18 +952,14 @@ IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX93W/MIMX93W52/drivers/doxygen \
              @SDK_BASE@/drivers/mu1/doxygen \
              @SDK_BASE@/drivers/otfad/doxygen \
              @SDK_BASE@/drivers/pdm/doxygen \
-             @SDK_BASE@/drivers/pxp/doxygen \
              @SDK_BASE@/drivers/rgpio/doxygen \
              @SDK_BASE@/drivers/sai/doxygen \
              @SDK_BASE@/drivers/sar_adc/doxygen \
              @SDK_BASE@/drivers/sema42/doxygen \
-             @SDK_BASE@/drivers/spdif/doxygen \
              @SDK_BASE@/drivers/tmu_3/doxygen \
              @SDK_BASE@/drivers/tpm/doxygen \
              @SDK_BASE@/drivers/trdc_1/doxygen \
-             @SDK_BASE@/drivers/trgmux/doxygen \
              @SDK_BASE@/drivers/tstmr/doxygen \
-             @SDK_BASE@/drivers/usdhc/doxygen \
              @SDK_BASE@/drivers/wdog32/doxygen \
              @SDK_BASE@/drivers/cache/xcache/doxygen \
              @SDK_BASE@/drivers/flexio/i2c/doxygen \
@@ -2413,9 +2393,6 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_WDOG_HAS_32BIT_ACCESS = 1
 
 PREDEFINED += DOXYGEN_OUTPUT=1
-PREDEFINED += __IO=
-PREDEFINED += __O=
-PREDEFINED += __I=
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The
