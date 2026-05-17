@@ -314,8 +314,6 @@ modules:
       pattern: middleware/boot.rst
     - root: .
       pattern: middleware/mcuboot_opensource/*.md
-    - root: .
-      pattern: middleware/mcuboot_opensource/docs/*
   mid_mcubootloader:
     default: true
     external_contents:
