@@ -11,6 +11,7 @@ Middleware
    eiq.rst
    file_system.rst
    mbedtls3x.rst
+   tfm.rst
    motor_control.rst
    multicore/index.rst
    multimedia.rst

@@ -259,6 +259,53 @@ modules:
       pattern: middleware/mbedtls3x/**/*.md
     - root: .
       pattern: middleware/mbedtls3x/docs/**/*.md
+  mid_tfm:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: middleware/tfm.rst
+    - root: docs
+      pattern: middleware/tfm/**/*.rst
+    - root: docs
+      pattern: middleware/tfm/**/*.md
+    - root: .
+      pattern: middleware/tfm/tf-m/README.md
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/index.rst
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/design_docs/*.rst
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/introduction/*.rst
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/introduction/*.png
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/configuration/profiles/*.rst
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/configuration/header_file_system.rst
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/integration_guide/platform/*.rst
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/integration_guide/services/*.rst
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/integration_guide/source_structure/*.rst
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/design_docs/**/*.rst
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/security/**/*.rst
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/security/threat_models/*.png
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/releases/2*.rst
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/releases/index.rst
+    - root: .
+      pattern: middleware/tfm/tf-m-tests/docs/*.rst
+    - root: .
+      pattern: middleware/tfm/tf-m-tests/readme.md
+    - root: .
+      pattern: middleware/tfm/psa-arch-tests/api-tests/*.md
+    - root: .
+      pattern: middleware/tfm/psa-arch-tests/README.md
   mid_multicore-xaf:
     default: true
     external_contents:
