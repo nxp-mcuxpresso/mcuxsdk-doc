@@ -34,6 +34,8 @@
 
     -   mx95alt for `m33_image.bin` is used for almost other examples.
 
+    -   For IMX95LP4XEVK-15, use the boot images from the Linux BSP release with version Linux 6.18.2_1.0.0.
+
 2.  Copy binary built by ARMGCC/IAR into imx-mkimage/i.MX95, and rename it to m7\_image.bin.
 3.  make image for ram target.
 
