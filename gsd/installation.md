@@ -84,12 +84,14 @@ pip install -U west
 
 Choose and install the compiler toolchain you want to use:
 
-| Toolchain | Best For | Download Link | Environment Variable |
-|-----------|----------|---------------|---------------------|
-| **ARM GCC** (Recommended) | Most users, free | [ARM GNU Toolchain](https://learn.arm.com/install-guides/gcc/arm-gnu/) | `ARMGCC_DIR` |
-| **IAR EWARM** | Professional development | [IAR Systems](https://www.iar.com/) | `IAR_DIR` |
-| **Keil MDK** | ARM ecosystem | [ARM Developer](https://developer.arm.com/documentation/109350/v6/Installation) | `MDK_DIR` |
-| **ARM Compiler** | Advanced optimization | [ARM Developer](https://developer.arm.com/documentation/100748/0618/Getting-Started/Installing-Arm-Compiler-for-Embedded) | `ARMCLANG_DIR` |
+| Toolchain                       | Best For                 | Download Link                                                                                                                | Environment Variable |
+| ------------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| **Arm GCC** (Recommended) | Most users, free         | [Arm GNU Toolchain](https://learn.arm.com/install-guides/gcc/arm-gnu/)                                                          | `ARMGCC_DIR`       |
+| **IAR EWARM**             | Professional development | [IAR Systems](https://www.iar.com/)                                                                                             | `IAR_DIR`          |
+| **Keil MDK**              | Arm ecosystem            | [Arm Developer](https://developer.arm.com/documentation/109350/v6/Installation)                                                 | `MDK_DIR`          |
+| **Arm Compiler**          | Advanced optimization    | [Arm Developer](https://developer.arm.com/documentation/100748/0618/Getting-Started/Installing-Arm-Compiler-for-Embedded)       | `ARMCLANG_DIR`     |
+| **Code Warrior**          | DSC platforms            | [NXP CodeWarrior](https://www.nxp.com/design/design-center/software/development-software/codewarrior-development-tools:CW_HOME) | `CW_DIR`           |
+| **Xtensa**                | DSP core                 | [Tensilica Tools](https://tensilicatools.com/platforms/)                                                                       | `XCC_DIR`          |
 
 #### Setting Up Environment Variables
 
