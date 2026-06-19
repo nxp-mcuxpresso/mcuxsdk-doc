@@ -10,16 +10,16 @@ The following updates were implemented with respect to the previous SDK release 
 
     ### Improved
 	-   CS procedure auto-loop shell command; improved RAS data drop mechanism.
-	-   Allow 'setnumprocs' 0 for infinite CS procedure repeats.
+	-   Allow setting the value of the `setnumprocs` parameter to `0` for infinite CS procedure repeats.
 	-   Subevent interval added to RADE algoritm API.
 	-   Documentation updates.
 
     ### Fixed
 	-   L2CAP data fragmentation fix causing inccorect fragmentation over the air.
 	-   Fix for no valid subevents in localization.
-	-   Allow sub_mode_type 255 in CS config params.
+	-   Allowed the value `255` for the `sub_mode_type` parameter in CS config params.
 	-   Channel Sounding subevent abort (No CS_SYNC mode0) after rebond.
-	-   Set 'preferredPeerAntenna' based on peer capabilities.
+	-   Set `preferredPeerAntenna` based on peer capabilities.
 	-   Miscellaneous minor application bug fixes.
 
     ### Changed

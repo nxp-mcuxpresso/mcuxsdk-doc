@@ -6,7 +6,7 @@ The following updates were implemented with respect to the previous SDK release 
 
     ### Added
 	-   Tire Pressure Monitoring System (TPMS) sample demo applications.
-	-   Tire Pressure Monitoring System (TPMS) documentation added to DAUG.
+	-   Tire Pressure Monitoring System (TPMS) documentation added to the Demo Applications User Guide (DAUG).
 	-   Added LE Power Control support in BLE Shell application.
 	-   LE Read All Remote Features (LLEFS) support in HOST-GAP.
 	-   LE Channel Assessment (CHAS) Config HCI command support in HOST-GAP.
