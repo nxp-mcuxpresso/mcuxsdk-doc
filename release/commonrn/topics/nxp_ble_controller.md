@@ -42,7 +42,8 @@
     Additional features supported for KW47 and MCX W72 devices:
     -   Channel Sounding
     Additional features supported as EAR (\Early Access Release\) in the KW47 experimental build:
-    -   Inline PCT return
+    -   Inline PCT Transfer (IPT)
+    -   RTT_PHY capability
     -   Channel Sounding Enhancement 1
     -   Channel Sounding TX/SNR (18dB, 21 dB, 24 dB and 27dB)
     -   Channel Sounding PHY 2Mbps BT2.0
@@ -50,6 +51,8 @@
           - T_PM=10us
           - T_IP1/T_IP2=60, 50, 30
           - T_FCS=120, 100, 60
+    -   LE Power Control (\LEPC\). Requires vendor command to enable.
+
     Additional features supported as EAR (\Early Access Release\) in the KW45/KW47 experimental builds:
     -   LE Test Mode Enhancement (\UTP/OTA\).
     -   LL Extended Feature Set

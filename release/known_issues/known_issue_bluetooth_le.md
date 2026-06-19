@@ -6,6 +6,8 @@ Most sensor applications have pairing and bonding disabled to allow a faster int
 
 -   The maximum Advertising data length is limited to 800 bytes.
 -   The scanner may sporadically miss some chained packets.
+-   When fro32k is used, the define BOARD_32KHZ_SRC_CLK_ACCURACY shall be set in application (#define BOARD_32KHZ_SRC_CLK_ACCURACY 0).
+-   It is not possible to establish more than 16 connections (will be fixed in next release).
 
 Periodic Advertising with Responses (PAwR):
 -   Periodic Advertising with Response (PAwR) is not supported with the configuration "Subevent Interval = Number of Response Slots x Response Slot Spacing with Response Slot Spacing = 0x2".

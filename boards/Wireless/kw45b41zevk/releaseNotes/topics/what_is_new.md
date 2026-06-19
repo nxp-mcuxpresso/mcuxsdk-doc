@@ -25,7 +25,20 @@ The following updates were implemented with respect to the previous SDK release 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE Controller**
-    No update.
+    -   Fixed incorrect SCA value (always 500 ppm) reported in LE connection complete event.
+    -   Fixed stale byte reported in LE Extended Advertising report when scan response data shrinks between consecutive advertisements.
+    -   Fixed new anchor point of connection update overlapping with existing connection.
+    -   Fixed Periodic Advertising EBQ test failures after reset due to unreleased buffer and signals (HCI/CCO/BI-124-C, HCI/DDI/BI-50-C).
+    -   Fixed issue where the controller failed to reject LL PDUs larger than 26 bytes when no feature exchange was performed (LL/CON/CEN/BV-108-C).
+    -   Fixed invalid RSSI value from 0xFF to 0x7F in enhanced notification event.
+    -   Fixed KW47 Tx output power exceeding 10 dBm causing RFPHY qualification failures (RFPHY/TRM/BV-01-C, RFPHY/TRM/BV-19-C).
+    -   Added new HCI vendor command to retrieve BLE Tx statistics.
+    -   Added HCI command to transmit continuously modulated or unmodulated signal for RF tests.
+    LL Extended Feature Set:
+      -   Fixed Extended Feature Set EBQ test failures (HCI/CIN/BV-15-C, LL/CON/CEN/BV-164-C, LL/CON/CEN/BV-165-C, LL/CON/CEN/BV-166-C, LL/CON/PER/BV-168-C, LL/CON/PER/BV-169-C, LL/CON/PER/BV-170-C).
+    Periodic Advertising Sync Transfer:
+      -   Fixed Periodic Advertising sync lost event not generated after losing sync in PAST mode or when sync timeout smaller than Periodic Advertising interval.
+      -   Fixed sync offset management when value exceeds maximum (PAwR intervals in seconds range).
 
 -   **Transceiver Drivers (XCVR)**
     -   Added API to control Power Amplifier (PA) ramp type and duration.
