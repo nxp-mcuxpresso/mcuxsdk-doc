@@ -11,7 +11,7 @@ The following updates were implemented with respect to the previous SDK release 
 
     ### Improved
 	-   CS procedure auto-loop shell command; improved RAS data drop mechanism.
-	-   Allow 'setnumprocs' 0 for infinite CS procedure repeats.
+	-   Allow setting the value of the `setnumprocs` parameter to `0` for infinite CS procedure repeats.
 	-   Subevent interval added to RADE algoritm API.
 	-   Documentation updates.
 
@@ -34,7 +34,7 @@ The following updates were implemented with respect to the previous SDK release 
 
 -   **Transceiver drivers (XCVR)**
     -   Added support for Bluetooth LE Channel Sounding.
-    -   Added API to control PA ramp type and duration.
+    -   Added API to control Power Amplifier (PA) ramp type and duration.
 
 -   **Connectivity framework**
 

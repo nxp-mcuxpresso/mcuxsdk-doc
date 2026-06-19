@@ -34,7 +34,7 @@ The following updates were implemented with respect to the previous SDK release 
 
 -   **Transceiver drivers (XCVR)**
     -   Added support for Bluetooth LE Channel Sounding.
-    -   Added API to control PA ramp type and duration.
+    -   Added API to control Power Amplifier (PA) ramp type and duration.
 
 -   **Connectivity framework**
 
