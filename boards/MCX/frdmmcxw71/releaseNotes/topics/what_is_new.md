@@ -1,20 +1,24 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.06.00-pvw1\).
+The following updates were implemented with respect to the previous SDK release version \(26.06.00-pvw2\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Support for LE Read All Remote Features after connection is established.
+	-   Added LE Power Control support in BLE Shell application.
+	-   LE Read All Remote Features (LLEFS) support in HOST-GAP.
+	-   LE Channel Assessment (CHAS) Config HCI command support in HOST-GAP.
 
     ### Improved
-	-   Updated handover documentation with broadcast time synchronization details.
 	-   Documentation updates.
 
     ### Fixed
-	-   Fixed double free issue in `L2ca_SendAclDataWithSegmentation` function.
+	-   L2CAP data fragmentation fix causing inccorect fragmentation over the air.
 	-   Miscellaneous minor application bug fixes.
 
+    ### Changed
+	-   Reduced cyclomatic complexity (CCM) in multiple localization functions.
+	-   Decoupled buttons from LEDs in Bluetooth applications.
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE Controller**

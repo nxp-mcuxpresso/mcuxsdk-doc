@@ -1,27 +1,32 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.06.00-pvw1\).
+The following updates were implemented with respect to the previous SDK release version \(26.06.00-pvw2\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Support for LE Read All Remote Features after connection is established.
-	-   Experimental Inline PCT Transfer support for localization sample applications.
-	-   Support for configurable limits for concurrent Channel Sounding connections/procedures.
+	-   Added LE Power Control support in BLE Shell application.
+	-   LE Read All Remote Features (LLEFS) support in HOST-GAP.
+	-   LE Channel Assessment (CHAS) Config HCI command support in HOST-GAP.
 
     ### Improved
-	-   Optimized memory allocation in `isp_mciq_ranging_compute` function for localization applications.
-	-   Updated RAS loc_reader application for multiple CS connections.
-	-   Updated handover documentation with broadcast time synchronization details.
+	-   CS procedure auto-loop shell command; improved RAS data drop mechanism.
+	-   Allow 'setnumprocs' 0 for infinite CS procedure repeats.
+	-   Synchronize code between loc_reader and ncp_loc_reader application files.
+	-   Subevent interval added to RADE algoritm API.
 	-   Documentation updates.
 
     ### Fixed
-	-   Fixed double free issue in `L2ca_SendAclDataWithSegmentation` function.
-	-   Fixed consecutive CS procedures sustainability issue.
+	-   L2CAP data fragmentation fix causing inccorect fragmentation over the air.
+	-   Fix for no valid subevents in localization.
+	-   Allow sub_mode_type 255 in CS config params.
+	-   Channel Sounding subevent abort (No CS_SYNC mode0) after rebond.
+	-   Set 'preferredPeerAntenna' based on peer capabilities.
 	-   Miscellaneous minor application bug fixes.
 
     ### Changed
-	-  CS procedure state management: do not allow a new procedure to start before the previous one completes.
+	-   Reduced cyclomatic complexity (CCM) in multiple localization functions.
+	-   Decoupled buttons from LEDs in Bluetooth applications.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

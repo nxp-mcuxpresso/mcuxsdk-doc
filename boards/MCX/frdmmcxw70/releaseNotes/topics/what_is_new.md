@@ -1,12 +1,32 @@
 # What is new 
 
-This is the first SDK version supporting this product familiy. The following SDK and Middleware updates and limitations are applicable.
+The following updates were implemented with respect to the previous SDK release version \(26.06.00-pvw2\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
-    - **Added**
-        - First enablement includes: digital_key_car_anchor_cs, digital_key_device_cs, w_uart, loc_reader, loc_user_device, and wireless_ranging.
-            - Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
+    ### Added
+	-   Localization accelerator LCE support.
+	-   Sensor support enabled.
+
+    ### Improved
+	-   CS procedure auto-loop shell command; improved RAS data drop mechanism.
+	-   Allow 'setnumprocs' 0 for infinite CS procedure repeats.
+	-   Subevent interval added to RADE algoritm API.
+	-   Documentation updates.
+
+    ### Fixed
+	-   L2CAP data fragmentation fix causing inccorect fragmentation over the air.
+	-   Fix for no valid subevents in localization.
+	-   Allow sub_mode_type 255 in CS config params.
+	-   Channel Sounding subevent abort (No CS_SYNC mode0) after rebond.
+	-   Set 'preferredPeerAntenna' based on peer capabilities.
+	-   Miscellaneous minor application bug fixes.
+
+    ### Changed
+	-   Reduced cyclomatic complexity (CCM) in multiple localization functions.
+	-   Decoupled buttons from LEDs in Bluetooth applications.
+
+    -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE Controller**
     -   Fixed extended connection establishment failure when peer advertising address is on primary channel.
