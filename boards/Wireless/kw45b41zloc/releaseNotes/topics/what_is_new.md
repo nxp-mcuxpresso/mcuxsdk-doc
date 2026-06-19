@@ -16,7 +16,7 @@ The following changes have been implemented compared to the previous SDK release
     No update.
 
 -   **Transceiver Drivers (XCVR)**
-    -   Added API to control PA ramp type and duration.
+    -   Added API to control Power Amplifier (PA) ramp type and duration.
 
 -   **Connectivity framework**
 
