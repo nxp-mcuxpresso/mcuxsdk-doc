@@ -13,11 +13,11 @@ The following updates were implemented with respect to the previous SDK release 
 	-   CS procedure auto-loop shell command; improved RAS data drop mechanism.
 	-   Allow setting the value of the `setnumprocs` parameter to `0` for infinite CS procedure repeats.
 	-   Synchronize code between loc_reader and ncp_loc_reader application files.
-	-   Subevent interval added to RADE algoritm API.
+	-   Subevent interval added to RADE algorithm API.
 	-   Documentation updates.
 
     ### Fixed
-	-   L2CAP data fragmentation fix causing inccorect fragmentation over the air.
+	-   L2CAP data fragmentation fix causing incorrect fragmentation over the air.
 	-   Fix for no valid subevents in localization.
 	-   Allowed the value `255` for the `sub_mode_type` parameter in CS config params.
 	-   Channel Sounding subevent abort (No CS_SYNC mode0) after rebond.

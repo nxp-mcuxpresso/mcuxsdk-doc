@@ -13,7 +13,7 @@ The following updates were implemented with respect to the previous SDK release 
 	-   Documentation updates.
 
     ### Fixed
-	-   L2CAP data fragmentation fix causing inccorect fragmentation over the air.
+	-   L2CAP data fragmentation fix causing incorrect fragmentation over the air.
 	-   Miscellaneous minor application bug fixes.
 
     ### Changed

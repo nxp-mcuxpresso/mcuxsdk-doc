@@ -15,12 +15,12 @@ The following updates were implemented with respect to the previous SDK release 
 	-   Documentation updates.
 
     ### Fixed
-	-   L2CAP data fragmentation fix causing inccorect fragmentation over the air.
+	-   L2CAP data fragmentation fix causing incorrect fragmentation over the air.
 	-   Miscellaneous minor application bug fixes.
 
     ### Changed
-	-   Reduced cyclomatic complexity (CCM) in multiple localization functions
-	-   Decoupled buttons from LEDs in Bluetooth applications
+	-   Reduced cyclomatic complexity (CCM) in multiple localization functions.
+	-   Decoupled buttons from LEDs in Bluetooth applications.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
