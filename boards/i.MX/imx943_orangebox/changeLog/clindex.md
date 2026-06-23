@@ -104,10 +104,6 @@
 :heading-offset: 2
 ```
 ---
-```{include} /drivers/fract_pll/doxygen/ChangeLog_fract_pll.md
-:heading-offset: 2
-```
----
 ```{include} /drivers/gpt/doxygen/ChangeLog_gpt.md
 :heading-offset: 2
 ```

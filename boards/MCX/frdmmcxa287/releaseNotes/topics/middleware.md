@@ -10,10 +10,6 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_safety_iec60730b.md
-:heading-offset: 2
-```
-
 ```{include} /release/commonrn/topics/arm_psa_test.md
 :heading-offset: 2
 ```
@@ -27,10 +23,6 @@
 ```
 
 ```{include} /release/commonrn/topics/nxp_psa_crypto_driver.md
-:heading-offset: 2
-```
-
-```{include} /release/commonrn/topics/nxp_sgi_pkc.md
 :heading-offset: 2
 ```
 
@@ -66,7 +58,7 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/segger_emwin.md
+```{include} /release/commonrn/topics/nxp_sgi_pkc.md
 :heading-offset: 2
 ```
 

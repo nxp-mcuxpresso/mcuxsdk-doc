@@ -778,6 +778,8 @@ INPUT = @SDK_BASE@/devices/MCX/MCXW/MCXW70AC/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/gpio/fsl_gpio.h \
         @SDK_BASE@/drivers/intm/doxygen/intm.dox \
         @SDK_BASE@/drivers/intm/fsl_intm.h \
+        @SDK_BASE@/drivers/itrc/doxygen/itrc.dox \
+        @SDK_BASE@/drivers/itrc/fsl_itrc.h \
         @SDK_BASE@/drivers/lin/fsl_lin_lpuart.h \
         @SDK_BASE@/drivers/lin/doxygen/lin.dox \
         @SDK_BASE@/drivers/lin/fsl_lin.h \
@@ -965,6 +967,7 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXW/MCXW70AC/drivers/doxygen \
              @SDK_BASE@/drivers/glikey/doxygen \
              @SDK_BASE@/drivers/gpio/doxygen \
              @SDK_BASE@/drivers/intm/doxygen \
+             @SDK_BASE@/drivers/itrc/doxygen \
              @SDK_BASE@/drivers/lin/doxygen \
              @SDK_BASE@/drivers/lpadc/doxygen \
              @SDK_BASE@/drivers/lpcmp/doxygen \
@@ -2219,17 +2222,17 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_LPCMP_HAS_CCR0_CMP_STOP_EN = 1 \
              FSL_FEATURE_CRC_HAS_CRC_REG = 0 \
              FSL_FEATURE_EDMA_MODULE_CHANNEL = 16 \
-             FSL_FEATURE_EDMA_SOC_REQUIRES_SECURE_MASTER = 1 \
-             FSL_FEATURE_EDMA_CHANNEL_GROUP_COUNT = 1 \
              FSL_FEATURE_EDMA_HAS_CH_SBR_SEC = 1 \
-             FSL_FEATURE_EDMA_HAS_ERROR_IRQ = 0 \
+             FSL_FEATURE_EDMA_CHANNEL_GROUP_COUNT = 1 \
              FSL_FEATURE_EDMA_HAS_CH_SBR_EMI = 1 \
+             FSL_FEATURE_EDMA_HAS_ERROR_IRQ = 0 \
              FSL_FEATURE_HAVE_DMA_CONTROL_REGISTER_ACCESS_PERMISSION = 1 \
              FSL_FEATURE_EDMA_HAS_COMMON_CLOCK_GATE = 1 \
              FSL_FEATURE_EDMA_HAS_NO_MP_CSR_EMI = 0 \
              FSL_FEATURE_EDMA_HAS_NO_MP_CSR_EBW = 1 \
              FSL_FEATURE_EDMA_HAS_CHANNEL_MUX = 1 \
              FSL_FEATURE_EDMA_HAS_ARBITRATION_GROUP = 1 \
+             FSL_FEATURE_EDMA_SOC_REQUIRES_SECURE_MASTER = 1 \
              FSL_FEATURE_EWM_HAS_CLOCK_SELECT = 1 \
              FSL_FEATURE_EWM_HAS_PRESCALER = 1 \
              FSL_FEATURE_PWM_HAS_CHANNELA = 1 \
@@ -2429,6 +2432,8 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_SPC_HAS_SYS_LDO = 0 \
              FSL_FEATURE_SPC_HAS_LPBUFF = 0 \
              FSL_FEATURE_SPC_HAS_VDD_SYS = 0 \
+             FSL_FEATURE_SPC_HAS_VDD1P8_LVD = 1 \
+             FSL_FEATURE_SPC_HAS_NO_DCDC_FREQ_CNTRL = 1 \
              FSL_FEATURE_RTC_HAS_WAKEUP_PIN = 1 \
              FSL_FEATURE_RTC_HAS_WAKEUP_PIN_SELECTION = 0 \
              FSL_FEATURE_RTC_HAS_MONOTONIC = 0 \

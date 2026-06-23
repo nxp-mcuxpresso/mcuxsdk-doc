@@ -38,3 +38,7 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_g2d_dpu.md
+:heading-offset: 2
+```
+

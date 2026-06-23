@@ -828,8 +828,6 @@ INPUT = @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/trdc/fsl_trdc.h \
         @SDK_BASE@/drivers/trgmux/doxygen/trgmux.dox \
         @SDK_BASE@/drivers/trgmux/fsl_trgmux.h \
-        @SDK_BASE@/drivers/tstmr/doxygen/tstmr.dox \
-        @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
         @SDK_BASE@/drivers/vbat/doxygen/vbat.dox \
         @SDK_BASE@/drivers/vbat/fsl_vbat.h \
         @SDK_BASE@/drivers/vref_1/doxygen/vref.dox \
@@ -906,7 +904,6 @@ INPUT = @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/tpm/fsl_tpm.h \
         @SDK_BASE@/drivers/trdc/fsl_trdc.h \
         @SDK_BASE@/drivers/trgmux/fsl_trgmux.h \
-        @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
         @SDK_BASE@/drivers/vbat/fsl_vbat.h \
         @SDK_BASE@/drivers/vref_1/fsl_vref.h \
         @SDK_BASE@/drivers/wdog32/fsl_wdog32.h \
@@ -1061,7 +1058,6 @@ IMAGE_PATH = @SDK_BASE@/devices/Wireless/KW/KW47B42ZB7/drivers/doxygen \
              @SDK_BASE@/drivers/tpm/doxygen \
              @SDK_BASE@/drivers/trdc/doxygen \
              @SDK_BASE@/drivers/trgmux/doxygen \
-             @SDK_BASE@/drivers/tstmr/doxygen \
              @SDK_BASE@/drivers/vbat/doxygen \
              @SDK_BASE@/drivers/vref_1/doxygen \
              @SDK_BASE@/drivers/wdog32/doxygen \
@@ -2228,7 +2224,6 @@ PREDEFINED = FSL_FEATURE_SOC_ATX_COUNT = 1 \
              FSL_FEATURE_SOC_SYSPM_COUNT = 1 \
              FSL_FEATURE_SOC_TPM_COUNT = 3 \
              FSL_FEATURE_SOC_TRGMUX_COUNT = 1 \
-             FSL_FEATURE_SOC_TSTMR_COUNT = 1 \
              FSL_FEATURE_SOC_UART_COUNT = 1 \
              FSL_FEATURE_SOC_UART_PFU_COUNT = 1 \
              FSL_FEATURE_SOC_VBAT_COUNT = 1 \
@@ -2302,6 +2297,7 @@ PREDEFINED = FSL_FEATURE_SOC_ATX_COUNT = 1 \
              FSL_FEATURE_FLEXCAN_HAS_ENDIANNESS_SELECTION = 1 \
              FSL_FEATURE_FLEXCAN_ENTER_FREEZE_MODE = 0 \
              FSL_FEATURE_FLEXCAN_HAS_ERRATA_8341 = 0 \
+             FSL_FEATURE_FLEXCAN_HAS_ERRATA_052403 = 1 \
              FSL_FEATURE_FLEXCAN_HAS_ERRATA_050443 = 0 \
              FSL_FEATURE_FLEXCAN_HAS_MEMORY_ERROR_INTERRUPT = 0 \
              FSL_FEATURE_CCM32K_HAS_FINE_AMP_GAIN = 0 \
@@ -2316,7 +2312,9 @@ PREDEFINED = FSL_FEATURE_SOC_ATX_COUNT = 1 \
              FSL_FEATURE_CMC_HAS_SRIE_SCG_BIT = 0 \
              FSL_FEATURE_CRC_HAS_CRC_REG = 0 \
              FSL_FEATURE_EDMA_MODULE_CHANNEL = 16 \
+             FSL_FEATURE_EDMA_HAS_CH_SBR_EMI = 1 \
              FSL_FEATURE_EDMA_CHANNEL_GROUP_COUNT = 1 \
+             FSL_FEATURE_EDMA_HAS_CH_SBR_SEC = 1 \
              FSL_FEATURE_EDMA_HAS_ERROR_IRQ = 0 \
              FSL_FEATURE_HAVE_DMA_CONTROL_REGISTER_ACCESS_PERMISSION = 1 \
              FSL_FEATURE_EDMA_HAS_COMMON_CLOCK_GATE = 1 \
@@ -2324,6 +2322,7 @@ PREDEFINED = FSL_FEATURE_SOC_ATX_COUNT = 1 \
              FSL_FEATURE_EDMA_HAS_NO_MP_CSR_EBW = 1 \
              FSL_FEATURE_EDMA_HAS_CHANNEL_MUX = 1 \
              FSL_FEATURE_EDMA_HAS_ARBITRATION_GROUP = 1 \
+             FSL_FEATURE_EDMA_SOC_REQUIRES_SECURE_MASTER = 0 \
              FSL_FEATURE_ELEMU_HAS_SEMA4_STATUS_REGISTER = 1 \
              FSL_FEATURE_EDGELOCK = 1 \
              FSL_FEATURE_EWM_HAS_CLOCK_SELECT = 0 \
@@ -2394,7 +2393,7 @@ PREDEFINED = FSL_FEATURE_SOC_ATX_COUNT = 1 \
              FSL_FEATURE_LPTMR_HAS_SHARED_IRQ_HANDLER = 0 \
              FSL_FEATURE_LPTMR_CNR_WIDTH_IS_32B = 1 \
              FSL_FEATURE_LPTMR_HAS_CSR_TDRE = 1 \
-             FSL_FEATURE_LPTMR_HAS_NO_PRESCALER_CLOCK_SOURCE_0_SUPPORT = 0 \
+             FSL_FEATURE_LPTMR_HAS_NO_PRESCALER_CLOCK_SOURCE_0_SUPPORT = 1 \
              FSL_FEATURE_LPTMR_HAS_NO_PRESCALER_CLOCK_SOURCE_1_SUPPORT = 1 \
              FSL_FEATURE_LPTMR_HAS_NO_PRESCALER_CLOCK_SOURCE_2_SUPPORT = 0 \
              FSL_FEATURE_LPTMR_HAS_NO_PRESCALER_CLOCK_SOURCE_3_SUPPORT = 0 \
@@ -2526,6 +2525,8 @@ PREDEFINED = FSL_FEATURE_SOC_ATX_COUNT = 1 \
              FSL_FEATURE_SPC_HAS_SYS_LDO = 1 \
              FSL_FEATURE_SPC_HAS_LPBUFF = 1 \
              FSL_FEATURE_SPC_HAS_VDD_SYS = 1 \
+             FSL_FEATURE_SPC_HAS_VDD1P8_LVD = 0 \
+             FSL_FEATURE_SPC_HAS_NO_DCDC_FREQ_CNTRL = 0 \
              FSL_FEATURE_SYSPM_HAS_PMCR_DCIFSH = 1 \
              FSL_FEATURE_SYSPM_HAS_PMCR_RICTR = 1 \
              FSL_FEATURE_SYSPM_PMCR_COUNT = 2 \

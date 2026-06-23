@@ -4,4 +4,4 @@ This release supports board and devices listed in following table. The board and
 
 |Development boards|MCU devices|
 |:--:              |:--:       |
-|**FRDM-MCXE31B**|MCXE31BMLL, **MCXE31BMPB**, MCXE315MLF,<br/> MCXE315MPA, MCXE316MLF, MCXE316MPA,<br/> MCXE317MLL, MCXE317MPA, MCXE317MPB<br/>|
+|**FRDM-MCXA287**|MCXA286VLL, MCXA286VLQ, MCXA286VPN,<br/> MCXA287VLL, MCXA287VLQ, **MCXA287VPN**<br/>|

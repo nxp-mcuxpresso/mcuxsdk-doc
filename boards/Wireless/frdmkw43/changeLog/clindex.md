@@ -68,6 +68,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/itrc/doxygen/ChangeLog_itrc.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/lin/doxygen/ChangeLog_lin.md
 :heading-offset: 2
 ```
