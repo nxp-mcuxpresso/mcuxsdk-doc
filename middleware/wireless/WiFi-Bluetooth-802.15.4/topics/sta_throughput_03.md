@@ -7,54 +7,45 @@ External AP: Asus AX88u
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|38|38|62|62|
-|WPA2-AES|37|37|61|63|
-|WPA3-SAE|37|37|60|61|
+|Open Security|34|38|62|63|
+|WPA2-AES|34|37|60|63|
+|WPA3-SAE|34|37|60|62|
 
 **STA mode throughput - AN Mode | 5 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|39|39|64|64|
-|WPA2-AES|37|38|62|64|
-|WPA3-SAE|39|38|62|64|
-
-**STA mode throughput - VHT Mode | 2.4 GHz Band | 20 MHz (HT)**
-
-|Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
-|--------|--------------|--------------|--------------|--------------|
-|Direction|TX|RX|TX|RX|
-|OpenSecurity|41|41|75|74|
-|WPA2-AES|41|41|73|74|
-|WPA3-SAE|40|41|72|73|
+|Open Security|35|40|64|65|
+|WPA2-AES|34|40|62|64|
+|WPA3-SAE|34|39|61|64|
 
 **STA mode throughput - VHT Mode | 5 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|42|42|76|76|
-|WPA2-AES|42|41|75|75|
-|WPA3-SAE|42|41|75|74|
+|Open Security|38|46|77|77|
+|WPA2-AES|36|43|74|76|
+|WPA3-SAE|35|45|74|76|
 
 **STA mode throughput - HE Mode | 2.4 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|44|45|97|99|
-|WPA2-AES|43|44|96|98|
-|WPA3-SAE|42|44|97|98|
+|Open Security|40|40|91|97|
+|WPA2-AES|41|40|90|91|
+|WPA3-SAE|41|40|90|93|
 
 **STA mode throughput - HE Mode | 5 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|47|47|100|103|
-|WPA2-AES|45|46|100|101|
-|WPA3-SAE|47|46|100|101|
+|Open Security|41|47|99|102|
+|WPA2-AES|41|46|99|99|
+|WPA3-SAE|41|46|99|100|
 
 **Parent topic:**[Wi-Fi throughput](../topics/wi-fi_throughput_03.md)
 

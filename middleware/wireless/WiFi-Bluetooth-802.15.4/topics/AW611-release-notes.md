@@ -1,14 +1,14 @@
-# IW611/IW612 release notes
+# AW611 release notes
 
 ```{include} ../topics/package_information_02.md
 :heading-offset: 1
 ```
 
-```{include} ../topics/version_information_02.md
+```{include} ../topics/version_information_05.md
 :heading-offset: 1
 ```
 
-```{include} ../topics/host_platform_02.md
+```{include} ../topics/host_platform_05.md
 :heading-offset: 1
 ```
 

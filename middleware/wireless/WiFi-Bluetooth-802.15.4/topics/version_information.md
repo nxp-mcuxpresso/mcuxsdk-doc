@@ -1,11 +1,11 @@
 # Version information
 
 -   Wireless SoC: 88W8987
--   Wi-Fi and Bluetooth/Bluetooth LE firmware version: 16.92.21.p155.2
+-   Wi-Fi and Bluetooth/Bluetooth LE firmware version: 16.92.21.p156.1
     -   16 - Major revision
     -   92 - Feature pack
     -   21 - Release version
-    -   p155.2 - Patch number
+    -   p156.1 - Patch number
 
 **Parent topic:**[88W8987 release notes](../topics/88w8987-release-notes.md)
 

@@ -37,6 +37,15 @@
 ```{include} ../topics/firmware_version_from_16_92_21_p153_5_to_16_92_21_p153_6_01.md
 :heading-offset: 2
 ```
+```{include} ../topics/firmware_version_from_16_92_21_p153_6_to_16_92_21_p153_9_01.md
+:heading-offset: 2
+```
+```{include} ../topics/firmware_version_from_16_92_21_p153_9_to_16_92_21_p155_2_01.md
+:heading-offset: 2
+```
+```{include} ../topics/firmware_version_from_16_92_21_p155_2_to_16_92_21_p161_01.md
+:heading-offset: 2
+```
 
 **Parent topic:**[IW416 release notes](../topics/iw416-release-notes.md)
 

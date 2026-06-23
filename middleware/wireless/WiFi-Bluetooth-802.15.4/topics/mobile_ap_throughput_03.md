@@ -7,27 +7,18 @@ External client: Apple MacBook Air
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|39|39|62|62|
-|WPA2-AES|39|39|61|61|
-|WPA3-SAE|38|39|61|61|
+|Open Security|36|38|61|59|
+|WPA2-AES|35|37|58|57|
+|WPA3-SAE|35|37|58|57|
 
 **Mobile AP throughput - AN Mode | 5 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|40|40|63|63|
-|WPA2-AES|39|39|62|61|
-|WPA3-SAE|39|39|62|61|
-
-**Mobile AP throughput - VHT Mode | 2.4 GHz Band | 20 MHz**
-
-|Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
-|--------|--------------|--------------|--------------|--------------|
-|Direction|TX|RX|TX|RX|
-|OpenSecurity|43|43|73|73|
-|WPA2-AES|43|42|72|72|
-|WPA3-SAE|43|42|73|72|
+|Open Security|42|45|75|75|
+|WPA2-AES|41|44|75|74|
+|WPA3-SAE|41|44|75|74|
 
 **Mobile AP throughput - VHT Mode | 5 GHz Band | 20 MHz**
 
@@ -43,18 +34,18 @@ External client: Apple MacBook Air
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|48|48|95|96|
-|WPA2-AES|47|47|98|95|
-|WPA3-SAE|47|47|97|95|
+|Open Security|41|45|91|94|
+|WPA2-AES|40|45|93|99|
+|WPA3-SAE|41|44|93|99|
 
 **Mobile AP throughput - HE Mode | 5 GHz Band | 20 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|OpenSecurity|49|49|96|97|
-|WPA2-AES|48|48|101|97|
-|WPA3-SAE|48|48|101|97|
+|Open Security|45|49|97|97|
+|WPA2-AES|44|48|99|105|
+|WPA3-SAE|44|48|99|104|
 
 **Parent topic:**[Wi-Fi throughput](../topics/wi-fi_throughput_03.md)
 
