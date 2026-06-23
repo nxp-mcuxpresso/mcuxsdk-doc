@@ -283,6 +283,8 @@ modules:
     - root: .
       pattern: middleware/tfm/tf-m/docs/configuration/header_file_system.rst
     - root: .
+      pattern: middleware/tfm/tf-m/docs/configuration/header_file_config_diagram.svg
+    - root: .
       pattern: middleware/tfm/tf-m/docs/integration_guide/platform/*.rst
     - root: .
       pattern: middleware/tfm/tf-m/docs/integration_guide/services/*.rst
