@@ -283,7 +283,13 @@ modules:
     - root: .
       pattern: middleware/tfm/tf-m/docs/configuration/header_file_system.rst
     - root: .
-      pattern: middleware/tfm/tf-m/docs/configuration/header_file_config_diagram.svg
+      pattern: middleware/tfm/tf-m/docs/**/*.svg
+    - root: .
+      pattern: middleware/tfm/tf-m/docs/**/*.png
+    - root: middleware/tfm/tf-m/docs
+      pattern: design_docs/media/**/*.svg
+    - root: middleware/tfm/tf-m/docs
+      pattern: design_docs/media/**/*.png
     - root: .
       pattern: middleware/tfm/tf-m/docs/integration_guide/platform/*.rst
     - root: .
@@ -302,6 +308,10 @@ modules:
       pattern: middleware/tfm/tf-m/docs/releases/index.rst
     - root: .
       pattern: middleware/tfm/tf-m-tests/docs/*.rst
+    - root: .
+      pattern: middleware/tfm/tf-m-tests/docs/media/**/*.svg
+    - root: .
+      pattern: middleware/tfm/tf-m-tests/docs/media/**/*.png
     - root: .
       pattern: middleware/tfm/tf-m-tests/readme.md
     - root: .
