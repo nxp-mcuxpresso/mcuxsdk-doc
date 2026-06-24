@@ -23,7 +23,7 @@ The tabulated results cover findings that are classified as issues.
 |EVK-MIMXRT1010|0|0|0|12|5|
 |EVK-MIMXRT1015|0|0|0|2|5|
 |EVK-MIMXRT1020|0|0|0|18|5|
-|EVK-MIMXRT1064|1|0|1|243|134|
+|EVK-MIMXRT1064|1|0|1|243|136|
 |EVK-MIMXRT595|1|0|1|241|84|
 |EVK-MIMXRT685|0|0|0|4|5|
 |EVK9-MIMX8ULP|0|0|0|15|5|
@@ -57,7 +57,7 @@ The tabulated results cover findings that are classified as issues.
 |FRDM-MCXW23|0|0|0|8|5|
 |FRDM-MCXW70|1|0|1|4|5|
 |FRDM-MCXW71|0|0|0|10|5|
-|FRDM-MCXW72|2|0|2|5|10|
+|FRDM-MCXW72|1|0|1|5|10|
 |FRDM-RW612|1|1|1|233|38|
 |IMX943-EVK|0|0|0|95|49|
 |IMX943-ORANGEBOX|0|0|0|57|5|
@@ -66,7 +66,7 @@ The tabulated results cover findings that are classified as issues.
 |IMX95LPD5EVK-19|0|0|0|1|5|
 |KW45B41Z-EVK|0|0|0|6|5|
 |KW45B41Z-LOC|0|0|0|4|6|
-|KW47-EVK|3|0|5|65|230|
+|KW47-EVK|0|0|0|56|230|
 |KW47-LOC|0|0|0|6|5|
 |LPCXpresso54628|0|0|0|16|38|
 |LPCXpresso54S018|1|0|1|18|10|
@@ -90,7 +90,7 @@ The tabulated results cover findings that are classified as issues.
 |MCIMX93W-EVK|0|0|0|13|6|
 |MCX-N5XX-EVK|0|0|0|27|6|
 |MCX-N9XX-EVK|0|0|0|39|5|
-|MCX-W71-EVK|1|0|3|37|5|
+|MCX-W71-EVK|0|0|0|27|5|
 |MCX-W72-EVK|0|0|0|28|6|
 |MCXW23-EVK|0|0|0|19|77|
 |MCXW72-LOC|0|0|0|10|5|
