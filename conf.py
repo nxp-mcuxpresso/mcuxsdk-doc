@@ -156,24 +156,24 @@ def validate_html_paths(app, exception):
     """
     if exception is not None:
         return
-    
+
     from pathlib import Path
     import re
-    
+
     # Prohibited characters according to IT security policy
     PROHIBITED_CHARS = r'[$%();<>?\[\]`{|}]'
-    
+
     outdir = Path(app.outdir)
     if not outdir.exists():
         return
-    
+
     violations = []
-    
+
     # Check all HTML files and their paths
     for html_file in outdir.rglob('*.html'):
         rel_path = html_file.relative_to(outdir)
         path_str = str(rel_path)
-        
+
         # Check for prohibited characters in the path
         matches = re.findall(PROHIBITED_CHARS, path_str)
         if matches:
@@ -181,7 +181,7 @@ def validate_html_paths(app, exception):
                 'path': path_str,
                 'chars': set(matches)
             })
-    
+
     # Report violations
     if violations:
         logger.error("=" * 80)
@@ -189,16 +189,16 @@ def validate_html_paths(app, exception):
         logger.error("=" * 80)
         logger.error("The following paths contain prohibited characters: \"$%();<>?[]`{|}")
         logger.error("")
-        
+
         for v in violations:
             logger.error(f"Path: {v['path']}")
             logger.error(f"  Prohibited characters found: {', '.join(sorted(v['chars']))}")
             logger.error("")
-        
+
         logger.error("=" * 80)
         logger.error("Please rename files/directories to remove these characters")
         logger.error("=" * 80)
-        
+
         # Make the build fail
         raise Exception("Build failed: HTML paths contain prohibited characters")
     else:
@@ -500,14 +500,14 @@ html_context["versions"] = tuple(version_list)
 
 # -- Options for notfound.extension ---------------------------------------
 if is_internal_doc:
-    notfound_urls_prefix = f"/mcuxsdk-internal/release-{version}/html/" if is_release else "/mcuxsdk-internal/main/html/"
+    notfound_urls_prefix = f"/mcuxsdk-internal/release-{version.removesuffix('-lts')}/html/" if is_release else "/mcuxsdk-internal/main/html/"
 else:
-    notfound_urls_prefix =  f"/mcuxsdk/{version}/html/" if is_release else "/mcuxsdk/latest/html/"
+    notfound_urls_prefix =  f"/mcuxsdk/{version.removesuffix('-lts')}/html/" if is_release else "/mcuxsdk/latest/html/"
 
 # -- Options for vcs_link ------------------------------------------
 if 'vcs_link' in extensions:
     vcs_link_prefixes = mcux_config.get_vcs_links()
-    vcs_link_version = f"release/{version}" if is_release else "main"
+    vcs_link_version = f"release/{version.removesuffix('-lts')}" if is_release else "main"
 
 # -- Options for external_content ----------------------------------
 if 'external_content' in extensions:
