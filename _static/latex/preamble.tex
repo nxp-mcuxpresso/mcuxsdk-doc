@@ -14,3 +14,15 @@
 \addto\captionsenglish{\renewcommand{\contentsname}{Table of contents}}
 
 \allsectionsfont{\color{bg-color}}
+
+% Fix: \subparagraph is a run-in heading; \sphinxAtStartPar (\leavevmode\nobreak
+% \hskip\z@skip) consumes the paragraph trigger without printing the run-in text,
+% causing the heading to appear after images instead of before them. Override with
+% a direct-print block heading that does not rely on run-in paragraph mechanics.
+\AtBeginDocument{%
+  \renewcommand{\subparagraph}[1]{%
+    \par\addvspace{1.5ex plus .5ex minus .2ex}%
+    \noindent{\color{bg-color}\bfseries #1}\par\nobreak%
+    \addvspace{0.5ex}%
+  }%
+}
