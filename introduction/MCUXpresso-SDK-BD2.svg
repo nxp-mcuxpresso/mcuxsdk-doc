@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <g id="White_BGD" data-name="White BGD">
+    <rect width="1200" height="675" fill="none"/>
+  </g>
+  <g id="Layer_4" data-name="Layer 4">
+    <rect x="21" y="114.11" width="946.66" height="180.16" fill="#fcc059"/>
+    <rect x="21" y="305.14" width="946.66" height="69.82" fill="#bfc8cf"/>
+    <rect x="980.47" y="114.11" width="198.52" height="180.16" fill="#c6def0"/>
+    <rect x="483.18" y="663.99" width="10.73" height="10.2" fill="none"/>
+    <text transform="translate(38.48 283.79)" fill="#010101" font-family="ArialMT, Arial" font-size="16" isolation="isolate"><tspan x="0" y="0">Middleware</tspan></text>
+    <rect x="21" y="47.2" width="1157.99" height="54.09" fill="#f49b1e"/>
+    <text transform="translate(487.28 79.56)" fill="#010101" font-family="ArialMT, Arial" font-size="16" isolation="isolate"><tspan x="0" y="0">Application Code and Examples</tspan></text>
+    <rect x="21" y="470.33" width="1157.99" height="102.47" fill="#e5eaec"/>
+    <text transform="translate(411.22 345.21)" fill="#010101" font-family="ArialMT, Arial" font-size="16" isolation="isolate"><tspan x="0" y="0">CMSIS Generic Drivers</tspan></text>
+    <rect x="21" y="386.45" width="946.66" height="69.82" fill="#6facde"/>
+    <text transform="translate(424.7 426.51)" fill="#010101" font-family="ArialMT, Arial" font-size="16" isolation="isolate"><tspan x="0" y="0">NX</tspan><tspan x="22.23" y="0" letter-spacing="-.02em">P</tspan><tspan x="32.61" y="0" xml:space="preserve"> Drivers (Base)</tspan></text>
+    <g>
+      <rect x="37.42" y="126.96" width="17.48" height="17.48" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="1.64"/>
+      <polygon points="50.94 130.22 44.27 136.89 41.47 134.09 39.61 135.96 44.27 140.62 52.8 132.09 50.94 130.22" fill="#231f20"/>
+    </g>
+    <g>
+      <rect x="37.42" y="317.01" width="17.48" height="17.48" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="1.64"/>
+      <polygon points="50.94 320.27 44.27 326.94 41.47 324.14 39.61 326.01 44.27 330.67 52.8 322.14 50.94 320.27" fill="#231f20"/>
+    </g>
+    <g>
+      <rect x="37.42" y="396.4" width="17.48" height="17.48" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="1.64"/>
+      <polygon points="50.94 399.66 44.27 406.33 41.47 403.53 39.61 405.39 44.27 410.06 52.8 401.53 50.94 399.66" fill="#231f20"/>
+    </g>
+    <g>
+      <rect x="37.42" y="482.5" width="17.48" height="17.48" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="1.64"/>
+      <polygon points="50.94 485.76 44.27 492.42 41.47 489.62 39.61 491.49 44.27 496.15 52.8 487.62 50.94 485.76" fill="#231f20"/>
+    </g>
+    <g>
+      <rect x="80.39" y="126.11" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="72.73" y="132.29" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="65.08" y="138.47" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(125.2 156.85)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Boot</tspan></text>
+    </g>
+    <g>
+      <rect x="80.86" y="485.94" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <rect x="72.97" y="493.62" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <rect x="65.08" y="501.29" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <text transform="translate(120.86 524.13)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Kinetis</tspan></text>
+    </g>
+    <g>
+      <rect x="266.41" y="485.94" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <rect x="258.52" y="493.62" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <rect x="250.63" y="501.29" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <text transform="translate(313.81 524.13)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">LPC</tspan></text>
+    </g>
+    <g>
+      <rect x="451.97" y="485.94" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <rect x="444.08" y="493.62" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <rect x="436.19" y="501.29" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <text transform="translate(497.42 524.13)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">MCX</tspan></text>
+    </g>
+    <g>
+      <rect x="637.52" y="485.94" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <rect x="629.63" y="493.62" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <rect x="621.74" y="501.29" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <text transform="translate(671.31 524.13)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">i.MX RT </tspan></text>
+    </g>
+    <g>
+      <rect x="823.08" y="485.94" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <rect x="815.18" y="493.62" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <rect x="807.29" y="501.29" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <text transform="translate(857.25 524.13)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Wireless</tspan></text>
+    </g>
+    <g>
+      <rect x="1008.63" y="485.94" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <rect x="1000.74" y="493.62" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <rect x="992.85" y="501.29" width="153.72" height="35.85" fill="#f6f7f8" stroke="#e5eaec" stroke-miterlimit="10" stroke-width="1.92"/>
+      <text transform="translate(1055.64 524.13)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">i.MX</tspan></text>
+    </g>
+    <g>
+      <rect x="80.39" y="175.45" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="72.73" y="181.63" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="65.08" y="187.81" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(111.58 206.19)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Cadence</tspan></text>
+    </g>
+    <g>
+      <rect x="80.39" y="224.79" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="72.73" y="230.97" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="65.08" y="237.15" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(121.31 255.54)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Cloud</tspan></text>
+    </g>
+    <text transform="translate(994.34 283.79)" fill="#010101" font-family="ArialMT, Arial" font-size="16" isolation="isolate"><tspan x="0" y="0" letter-spacing="-.02em">RT</tspan><tspan x="20.75" y="0">OS</tspan></text>
+    <g>
+      <rect x="993.28" y="126.96" width="17.48" height="17.48" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="1.64"/>
+      <polygon points="1006.79 130.22 1000.13 136.89 997.33 134.09 995.46 135.96 1000.13 140.62 1008.66 132.09 1006.79 130.22" fill="#231f20"/>
+    </g>
+    <g>
+      <rect x="1033.92" y="126.11" width="126.52" height="44.37" fill="#e5eaec" stroke="#c6def0" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="1027.43" y="135.6" width="126.52" height="44.37" fill="#e5eaec" stroke="#c6def0" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="1020.94" y="145.1" width="126.52" height="44.37" fill="#e5eaec" stroke="#c6def0" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(1058.08 171.2)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Freertos</tspan></text>
+    </g>
+    <g>
+      <rect x="1033.92" y="201.22" width="126.52" height="44.37" fill="#e5eaec" stroke="#c6def0" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="1027.43" y="210.71" width="126.52" height="44.37" fill="#e5eaec" stroke="#c6def0" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="1020.94" y="220.21" width="126.52" height="44.37" fill="#e5eaec" stroke="#c6def0" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(1059.63 245.59)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Zephyr*</tspan></text>
+    </g>
+    <rect x="980.47" y="306.94" width="198.52" height="149.46" fill="#dce194"/>
+    <text transform="translate(1027.16 388.9)" fill="#010101" font-family="ArialMT, Arial" font-size="16" isolation="isolate"><tspan x="0" y="0">Board Support</tspan></text>
+    <g>
+      <rect x="993.28" y="321.49" width="17.48" height="17.48" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="1.64"/>
+      <polygon points="1006.79 324.75 1000.13 331.42 997.33 328.62 995.46 330.49 1000.13 335.15 1008.66 326.62 1006.79 324.75" fill="#231f20"/>
+    </g>
+    <g>
+      <rect x="261.39" y="126.11" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="253.73" y="132.29" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="246.07" y="138.47" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(282.47 156.85)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Connectivity</tspan></text>
+    </g>
+    <g>
+      <rect x="261.39" y="175.45" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="253.73" y="181.63" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="246.07" y="187.81" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(309.31 206.19)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">eIQ</tspan></text>
+    </g>
+    <g>
+      <rect x="261.39" y="224.79" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="253.73" y="230.97" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="246.07" y="237.15" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(284.03 255.54)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">File System</tspan></text>
+    </g>
+    <g>
+      <rect x="442.39" y="126.11" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="434.73" y="132.29" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="427.07" y="138.47" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(474.36 156.85)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Metering</tspan></text>
+    </g>
+    <g>
+      <rect x="442.39" y="175.45" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="434.73" y="181.63" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="427.07" y="187.81" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(459.19 206.19)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Motor Control</tspan></text>
+    </g>
+    <g>
+      <rect x="442.39" y="224.79" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="434.73" y="230.97" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="427.07" y="237.15" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(473.2 255.54)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Multicore</tspan></text>
+    </g>
+    <g>
+      <rect x="623.38" y="126.11" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="615.73" y="132.29" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="608.07" y="138.47" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(648.75 156.85)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Multimedia</tspan></text>
+    </g>
+    <g>
+      <rect x="623.38" y="175.45" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="615.73" y="181.63" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="608.07" y="187.81" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(655.76 206.19)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Wireless</tspan></text>
+    </g>
+    <g>
+      <rect x="623.38" y="224.79" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="615.73" y="230.97" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="608.07" y="237.15" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(662.75 255.54)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Safety</tspan></text>
+    </g>
+    <g>
+      <rect x="804.38" y="126.11" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="796.72" y="132.29" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="789.07" y="138.47" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(838.3 156.85)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Security</tspan></text>
+    </g>
+    <g>
+      <rect x="804.38" y="175.45" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="796.72" y="181.63" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="789.07" y="187.81" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(844.13 206.19)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Touch</tspan></text>
+    </g>
+    <g>
+      <rect x="804.38" y="224.79" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="796.72" y="230.97" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <rect x="789.07" y="237.15" width="149.17" height="28.87" fill="#ffe0a8" stroke="#fcc059" stroke-miterlimit="10" stroke-width="2"/>
+      <text transform="translate(842.58 255.54)" font-family="ArialMT, Arial" font-size="14"><tspan x="0" y="0">Others</tspan></text>
+    </g>
+    <text transform="translate(38.48 557.74)" fill="#010101" font-family="ArialMT, Arial" font-size="16" isolation="isolate"><tspan x="0" y="0">Microcontroller Hardware</tspan></text>
+    <text transform="translate(14.76 660.3)" font-family="ArialMT, Arial" font-size="13"><tspan x="0" y="0" letter-spacing=".12em">*</tspan><tspan x="6.62" y="0">Zephyr </tspan><tspan x="50.69" y="0" letter-spacing="-.02em">RT</tspan><tspan x="67.55" y="0">OS leverages base SDK components via NX</tspan><tspan x="324.79" y="0" letter-spacing="-.02em">P</tspan><tspan x="333.23" y="0" xml:space="preserve"> Zepher HA</tspan><tspan x="399.7" y="0" letter-spacing="-.04em">L</tspan></text>
+  </g>
+</svg>

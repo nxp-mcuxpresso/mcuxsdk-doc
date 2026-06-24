@@ -1,45 +1,26 @@
-# MCUXpresso SDK
+# MCUXpresso Software Development Kit (SDK)
 
-The **MCUXpresso SDK** is NXP's comprehensive software platform for embedded development on NXP microcontrollers. It includes peripheral drivers, RTOS support, middleware, and example applications to accelerate development from prototype to production.
+The MCUXpresso SDK is a comprehensive software enablement package designed to
+simplify and accelerate application development with Arm® Cortex®-M based
+devices from NXP, including its general purpose, crossover and
+wireless-enabled MCUs. It includes production-grade software with integrated
+enabling software technologies (stacks and middleware), reference examples,
+and more.
 
-## Distribution Formats
+![High-Level Block Diagram](MCUXpresso-SDK-BD2.svg)
 
-MCUXpresso SDK is available in two main formats:
+## Features
 
-### GitHub Repository SDK
-Git-based distribution hosted on GitHub for modular development, continuous updates, and collaborative workflows. The SDK uses multiple repositories managed by the Zephyr west tool to provide flexible, component-based development.
-
-### SDK Package
-Downloadable packages from [SDK Builder](https://mcuxpresso.nxp.com/) for offline development. Starting with release 25.09.00, MCUXpresso SDK introduced two package versions for offline development:
-- **Classic SDK Package**: Traditional board-specific packages with pre-configured IDE projects for MCUXpresso IDE, IAR, Keil, and other toolchains.
-- **Repository-Layout SDK Package**: Board-specific packages that maintain the same structure and build system as the GitHub Repository SDK, providing offline access to the repository-based development experience. Available when selecting the ARMGCC toolchain.
-
-From version 25.12.00 onward:
-- When you select ARMGCC, the SDK download will use the Repository-Layout version.
-- For all other toolchains, the SDK download will remain in the Classic version.
-
-```{note}
-The Repository-Layout SDK package was first introduced in version 25.09.00, but initially only for MCXW23x platforms.
-```
-
-## Key Features
-
-**Comprehensive Driver Library**
+### Comprehensive Driver Library
 - Flexible peripheral drivers for rapid development
 - Optimized for performance and code size
 
-**Extensive Examples**
-- Basic peripheral use cases to full technology demonstrations
-- Board-specific reference implementations
-- Out-of-box Demo Applications
-- Middleware component examples and integrations
-
-**RTOS Integration**
+### RTOS Integration
 - FreeRTOS support with optimized configurations
 - Real-time application frameworks
 - Task management and scheduling examples
 
-**Middleware Components**
+### Middleware Components
 - Connectivity stacks (USB, Ethernet, wireless, communication protocols)
 - AI inference engines and neural network libraries
 - Audio processing and voice recognition libraries
@@ -47,112 +28,117 @@ The Repository-Layout SDK package was first introduced in version 25.09.00, but 
 - Graphics and user interface components
 - Motor control and real-time control libraries
 - File systems and storage solutions
+- Partner middleware can be added using CMake and west manifests
 
-## GitHub Repository Setup
+### Extensive Examples
+- Basic peripheral use cases to full technology demonstrations
+- Board-specific reference implementations
+- Out-of-box Demo Applications
+- Middleware component examples and integrations
 
-```{note}
-Skip this section if using Classic SDK Package
-```
+## Distribution Formats
 
-For users working with **GitHub Repository SDK** or **Repository-Layout SDK Package**, follow the instructions below:
+MCUXpresso SDK is available in two main formats:
 
-### Prerequisites
+### GitHub Repository SDK
+Git-based distribution hosted on GitHub for modular development, continuous
+updates, and collaborative workflows. The SDK uses multiple repositories
+managed by the Zephyr west tool to provide flexible, component-based
+development. See [Getting Started](../gsd/install/index.rst) for setup
+instructions.
 
-Ensure you have the required tools installed. Follow the [Installation Guide](../gsd/installation.md) for detailed setup instructions.
+### SDK Package
+Downloadable packages from [SDK Builder](https://mcuxpresso.nxp.com/) for
+offline development. Starting with release 25.12.00, two package versions are
+available:
 
-### Workspace Initialization
-
-```{note}
-Skip this subsection if using Repository-Layout SDK Package
-```
-
-The GitHub Repository SDK uses multiple repositories managed by the Zephyr west tool for modular organization and flexible component selection.
-
-**Initialize with latest SDK:**
-```bash
-west init -m https://github.com/nxp-mcuxpresso/mcuxsdk-manifests.git mcuxpresso-sdk
-```
-
-**Initialize with specific version:**
-```bash
-west init -m https://github.com/nxp-mcuxpresso/mcuxsdk-manifests.git mcuxpresso-sdk --mr {revision}
-```
-*Replace `{revision}` with the desired release tag, such as `v25.09.00`*
-
-**Navigate to workspace:**
-```bash
-cd mcuxpresso-sdk
-```
-
-### Repository Checkout
+- **Classic SDK Package**: Traditional board-specific packages with
+  pre-configured IDE projects for MCUXpresso IDE, IAR, Keil, and other
+  toolchains.
+- **Repository-Layout SDK Package**: Board-specific packages that maintain the
+  same structure and build system as the GitHub Repository SDK, providing
+  offline access to the repository-based development experience. Available
+  when selecting the ARMGCC toolchain.
 
 ```{note}
-Skip this subsection if using Repository-Layout SDK Package
+From version 25.12.00 onward, selecting ARMGCC downloads the
+Repository-Layout version; all other toolchains remain in the Classic
+version.
 ```
 
-The west tool manages multiple repositories containing different SDK components:
+## Delivery and Release
 
-**Checkout all repositories:**
-```bash
-west update
-```
+NXP integrates Coverity® Static Analysis and Black Duck Software Composition
+Analysis into the SDK development process to deliver secure, high-quality
+software.
 
-**Selective checkout for specific hardware:**
-```bash
-# Checkout only repositories for a specific board
-west update_board --set board your_board_name
+- **Annual releases (June)** for popular products, with Long Term Support
+  (LTS) on GitHub — back-ported security (SVE/PSIRT) and severe bug fixes for
+  two years.
+- **Quarterly releases** for NPI and recent products.
+- SBOMs provided for all GitHub SDK repositories.
 
-# Checkout only repositories for a specific MCU part
-west update_board --set device your_mcu_part
-```
+| Release | Release Name | Maintenance |
+|:-------:|:------------:|:-----------:|
+| LTS     | 26.06.00-LTS | 2 years until June 2028 |
+| Quarterly | 26.09.00 | None, rebase to mainline |
+| LTS     | 27.06.00-LTS | 2 years until June 2029 |
 
-```{tip}
-Selective checkout reduces download time and disk space by including only repositories required for your target hardware.
-```
+Supported platforms are listed at
+[mcuxpresso.nxp.com/sdk-versions](https://mcuxpresso.nxp.com/sdk-versions).
 
-### Environment Configuration
+## Toolchain Support
 
-```bash
-export ARMGCC_DIR=/path/to/gcc-arm-none-eabi
-west --version
-cmake --version
-```
+All driver examples and most application examples are provided for the
+following toolchains:
 
-### Quick Start Example
+| Toolchain | GitHub | Archive/Zip | Generated (west) | Getting Started |
+|:---------:|:------:|:-----------:|:----------------:|:---------------:|
+| MCUXpresso IDE | ❌ | ✅ eclipse | ❌ | [Link](../gsd/package/run_a_demo_using_mcuxpresso_ide.md) |
+| MCUXpresso for VS Code | ✅ | ✅ CMake | N.A. | [Link](../gsd/run_a_demo_using_mcuxvsc.md) |
+| IAR Embedded Workbench | ✅ | ✅ EWARM | ✅ EWARM | [Link](../gsd/package/run_a_demo_application_using_iar.md) |
+| Keil™ MDK-Arm | ❌ | ✅ uVision | ✅ uVision | [Link](../gsd/package/run_a_demo_using_keil__mdk_vision.md) |
+| CLI GNU toolchain | ✅ | ✅ CMake | N.A. | [Link](../gsd/run_project.md) |
 
-```bash
-west build -b your_board examples/demo_apps/hello_world
-west flash
-```
+Archive/Zip packages can be downloaded from
+[SDK Builder](https://mcuxpresso.nxp.com) or imported directly in VS Code and
+MCUXpresso IDE using the
+[Import Wizard](../gsd/install/ide_import_wizard.md). 
+
+IAR and Keil projects can
+be generated from the GitHub SDK CMake examples using a
+[west build command](../gsd/cli.md).
 
 ## Repository Architecture
 
-The SDK uses a multi-repository structure hosted on GitHub and managed by the [Zephyr West Tool](https://docs.zephyrproject.org/latest/guides/west/index.html), enabling:
+The SDK uses a multi-repository structure on GitHub managed by the
+[Zephyr West Tool](https://docs.zephyrproject.org/latest/guides/west/index.html),
+enabling:
 
-- **Modular Organization**: Drivers, RTOS, middleware, and examples in separate GitHub repositories
+- **Modular Organization**: Drivers, RTOS, middleware, and examples in
+  separate repositories
 - **Customizable Manifests**: Targeted setups for specific requirements
-- **Selective Downloads**: Include only needed components from relevant repositories
-- **Independent Updates**: Component-level version control and updates
+- **Selective Downloads**: Include only needed components
+- **Independent Updates**: Component-level version control
 - **Scalable Integration**: Easy addition of new repository components
-
-## Development Workflows
-
-**Recommended Approach**  
-[MCUXpresso for VS Code](../gsd/run_a_demo_using_mcuxvsc.md) - Modern IDE experience with integrated debugging and project management
-
-**Command Line Development**  
-[ARM GCC/IAR/MDK Command Line](../gsd/run_project.md) - Terminal-based development with full toolchain support
-
-**Traditional IDE Integration**  
-Export projects to IAR, Keil, and other development environments
 
 ## Support and Resources
 
-**Community Support**  
-Open GitHub issues and discussions for questions and contributions
+### Community Support
+- Open GitHub issues and discussions for questions and contributions
+- [MCUXpresso SDK Community Forum](https://community.nxp.com/t5/MCUXpresso-SDK/bd-p/mcuxpresso-sdk)
+- [MCUXpresso Software and Tools Forum](https://community.nxp.com/t5/MCUXpresso-Software-and-Tools/ct-p/mcuxpresso)
 
-**Documentation**  
-Comprehensive guides and API documentation available [online](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/index.html)
+### Documentation
+- Comprehensive guides and API documentation [online](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/index.html)
 
-**Technical Support**  
-Contact NXP technical support for commercial development assistance
+### Technical Support
+- [NXP Support](https://www.nxp.com/support/support:SUPPORTHOME) for
+  commercial development assistance
+
+### SDK Product Page
+- [MCUXpresso SDK on NXP.com](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-software-development-kit-sdk:MCUXpresso-SDK)
+
+### Trainings
+- [MCUXpresso Training Hub](https://community.nxp.com/t5/MCUXpresso-Training-Hub/tkb-p/MCUXpresso-Training)
+- [MCUXpresso SDK Curriculum](https://community.nxp.com/t5/MCUXpresso-General/bd-p/mcuxpresso)
