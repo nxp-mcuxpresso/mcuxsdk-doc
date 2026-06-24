@@ -22,7 +22,7 @@ To download and run the application, perform the following steps:
 
 5.  The first time you debug a project, the **Debug Emulator Selection** dialog is displayed, showing all supported probes that are attached to your computer. Select the probe through which you want to debug and click **OK**. Here we assume that you are using a CMSIS-DAP debug interface. \(For any future debug sessions, the stored probe selection is automatically used, unless the probe cannot be found.\)
 
-(FIG_DEBUGHELLOWORLDCASES)=
+    (FIG_DEBUGHELLOWORLDCASES)=
     ![](../images/ide_attached_probes_debug_emulator_selection.png "Attached Probes: debug emulator selection")
 
 6.  The application is downloaded to the target and automatically runs to `main()`.

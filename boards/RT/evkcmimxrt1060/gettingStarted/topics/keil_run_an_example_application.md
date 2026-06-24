@@ -20,12 +20,12 @@ To download and run the application, perform these steps:
 
     For details, see Segger Wiki. For the contents in this *JlinkSettings.JLinkScript*, use contents in *evkcmimxrt1060\_sdram\_init.jlinkscript*.
 
-(fig_stopatmain)=
+    (fig_stopatmain)=
     ![](../images/keil_stop_at_main.png "Stop at main() when run debugging")
 
 5.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](keil_run_an_example_application.md#fig_runbutton).
 
-(fig_runbutton)=
+    (fig_runbutton)=
     ![](../images/keil_run_button.jpeg "Run button")
 
 

@@ -20,17 +20,17 @@ To download and run the application, perform these steps:
 
     For the contents in this `JlinkSettings.JLinkScript`, use contents in `evkbmimxrt1170_connect_cm4_cm4side.jlinkscript` \(non-sdram targets\) and `evkbmimxrt1170_connect_cm4_cm4side_sdram.jlinkscript` \(sdram targets\).
 
-(FIG_STOPATMAIN)=
+    (FIG_STOPATMAIN)=
     ![](../images/keil_stop_at_main.png "Stop at main() when run debugging")
 
 5.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](keil_run_an_example_application.md#FIG_RUNBUTTON).
 
-(FIG_RUNBUTTON)=
+    (FIG_RUNBUTTON)=
     ![](../images/keil_run_button.png "Run button")
 
     The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](keil_run_an_example_application.md#FIG_TEXTDISPLAY). If this is not true, check your terminal settings and connections.
 
-(FIG_TEXTDISPLAY)=
+    (FIG_TEXTDISPLAY)=
     ![](../images/keil_text_display.png "Text display of the hello_world demo")
 
 

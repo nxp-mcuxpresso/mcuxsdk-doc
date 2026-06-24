@@ -13,17 +13,17 @@ The default MDK project settings assumes CMSIS-DAP debug interface is used. If y
 
 3.  To debug the application, click the **Start/Stop Debug Session** button or **Ctrl** + **F5**, highlighted in [Figure 2](keil_run_an_example_application.md#FIG_STOPATMAIN).
 
-(FIG_STOPATMAIN)=
+    (FIG_STOPATMAIN)=
     ![](../images/keil_stop_at_main.png "Stop at main() when run debugging")
 
 4.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](keil_run_an_example_application.md#FIG_RUNBUTTON).
 
-(FIG_RUNBUTTON)=
+    (FIG_RUNBUTTON)=
     ![](../images/keil_run_button.png "Run button")
 
     The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](keil_run_an_example_application.md#FIG_TEXTDISPLAY). If this is not true, check your terminal settings and connections.
 
-(FIG_TEXTDISPLAY)=
+    (FIG_TEXTDISPLAY)=
     ![](../images/keil_text_display.png "Text display of the hello_world demo")
 
 
