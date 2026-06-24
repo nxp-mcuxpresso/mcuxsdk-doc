@@ -9,11 +9,7 @@ Quick links
 
 .. toctree::
    :maxdepth: 1
-   :hidden:
    :caption: Multicore Manager
 
+   Overview <mcmgr/README>
    Changelog <mcmgr/CHANGELOG>
-
-.. include:: mcmgr/README.md
-   :parser: myst_parser.sphinx_
-   :start-after: # Multicore Manager (MCMGR)

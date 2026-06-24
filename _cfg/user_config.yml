@@ -357,6 +357,8 @@ modules:
     - root: .
       pattern: middleware/multicore/rpmsg-lite/doxygen/*
     - root: .
+      pattern: middleware/multicore/rpmsg-lite/doxygen/images/*.*
+    - root: .
       pattern: middleware/multicore/mcmgr/*.md
     - root: .
       pattern: middleware/multicore/mcmgr/doc/*

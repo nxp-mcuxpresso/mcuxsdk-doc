@@ -9,11 +9,7 @@ Quick links
 
 .. toctree::
    :maxdepth: 1
-   :hidden:
    :caption: RPMSG-Lite
 
+   Overview <rpmsg-lite/README>
    Changelog <rpmsg-lite/CHANGELOG>
-
-.. include:: rpmsg-lite/README.md
-   :parser: myst_parser.sphinx_
-   :start-after: # RPMSG-Lite
