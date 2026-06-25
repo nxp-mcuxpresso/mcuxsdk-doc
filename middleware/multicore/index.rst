@@ -52,9 +52,9 @@ Components
 
    * - Component
      - Description
-   * - :doc:`RPMSG-Lite <rpmsg-lite>`
+   * - :doc:`RPMSG-Lite <rpmsg-lite/index>`
      - Lightweight implementation of the Remote Processor Messaging (RPMsg) protocol for inter-core messaging.
-   * - :doc:`Multicore Manager <mcmgr>`
+   * - :doc:`Multicore Manager <mcmgr/index>`
      - Services for multicore systems (core start/stop, events, and monitoring).
    * - :doc:`eRPC <erpc>`
      - Embedded RPC system suitable for multicore and multiprocessor designs.
@@ -73,6 +73,6 @@ Components
    :hidden:
    :caption: Components
 
-   RPMSG-Lite <rpmsg-lite>
-   Multicore Manager (MCMGR) <mcmgr>
+   RPMSG-Lite <rpmsg-lite/index>
+   Multicore Manager (MCMGR) <mcmgr/index>
    eRPC <erpc>

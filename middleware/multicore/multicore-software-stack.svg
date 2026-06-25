@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="mcsdk-stack-svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-label="Multicore SDK software stack">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="mcsdk-stack-svg" width="884" height="508" viewBox="52 56 884 508" role="img" aria-label="Multicore SDK software stack">
   <defs>
     <!-- NXP brand primaries -->
     <!-- Orange #F9B500 | Blue #0EAFE0 | Green #69CA00 -->
@@ -85,7 +85,7 @@
   </a>
 
   <!-- RPMSG-Lite (clickable) -->
-  <a class="hotspot" xlink:href="rpmsg-lite.html">
+  <a class="hotspot" xlink:href="rpmsg-lite/index.html">
     <rect class="halo" x="113" y="320" width="290" height="108" rx="22" ry="22" fill="rgba(105,202,0,0.20)" filter="url(#haloBlur)"/>
     <rect class="hit"  x="123" y="330" width="270" height="88" rx="18" ry="18"/>
     <g class="tile" transform="translate(123 330)">
@@ -100,7 +100,7 @@
   </a>
 
   <!-- MCMGR (clickable) -->
-  <a class="hotspot" xlink:href="mcmgr.html">
+  <a class="hotspot" xlink:href="mcmgr/index.html">
     <rect class="halo" x="417" y="214" width="456" height="214" rx="26" ry="26" fill="rgba(14,175,224,0.18)" filter="url(#haloBlur)"/>
     <rect class="hit"  x="433" y="230" width="424" height="182" rx="20" ry="20"/>
     <g class="tile" transform="translate(433 230)">
