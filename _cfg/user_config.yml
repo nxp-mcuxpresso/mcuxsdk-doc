@@ -814,24 +814,6 @@ modules:
       pattern: drivers/iMX/iMX943/MIMX94398/index.rst
     - root: .
       pattern: devices/iMX/iMX943/MIMX94398/drivers/**/ChangeLog_*.md
-  board_imx95lp4xevk15:
-    default: true
-    external_contents:
-    - root: docs
-      pattern: boards/index.rst
-    - root: docs
-      pattern: boards/i.MX/index.rst
-    - root: docs
-      pattern: boards/i.MX/imx95lp4xevk15/*
-    - root: .
-      pattern: examples/_boards/imx95lp4xevk15/**/*.md
-    - root: .
-      pattern: drivers/iMX//MIMX9596/index.rst
-    - root: .
-      pattern: devices/iMX//MIMX9596/drivers/**/ChangeLog_*.md
-    doxygen_runner:
-      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9596
-      outdir: drivers/iMX/iMX95/MIMX9596
   board_frdmimx95:
     default: true
     external_contents:
@@ -861,24 +843,6 @@ modules:
       pattern: boards/i.MX/imx95lpd5evk19/*
     - root: .
       pattern: examples/_boards/imx95lpd5evk19/**/*.md
-    - root: .
-      pattern: drivers/iMX//MIMX9596/index.rst
-    - root: .
-      pattern: devices/iMX//MIMX9596/drivers/**/ChangeLog_*.md
-    doxygen_runner:
-      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9596
-      outdir: drivers/iMX/iMX95/MIMX9596
-  board_imx95verdinevk:
-    default: true
-    external_contents:
-    - root: docs
-      pattern: boards/index.rst
-    - root: docs
-      pattern: boards/i.MX/index.rst
-    - root: docs
-      pattern: boards/i.MX/imx95verdinevk/*
-    - root: .
-      pattern: examples/_boards/imx95verdinevk/**/*.md
     - root: .
       pattern: drivers/iMX//MIMX9596/index.rst
     - root: .

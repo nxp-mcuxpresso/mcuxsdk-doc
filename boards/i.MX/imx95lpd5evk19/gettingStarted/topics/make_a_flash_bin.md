@@ -8,13 +8,13 @@
 
     `- m33_image.bin (m33_image-mx95alt.bin/m33_image-mx95evk.bin/m33_image-mx95netc. bin)`
 
-    `- lpddr5_dmem_qb_v202311.bin (lpddr4x_dmem_qb_v202311.bin for IMX95LP4XEVK-15 and FRDM-IMX95)`
+    `- lpddr5_dmem_qb_v202311.bin (lpddr4x_dmem_qb_v202311.bin for FRDM-IMX95)`
 
-    `- lpddr5_dmem_v202311.bin (lpddr4x_dmem_v202311.bin for IMX95LP4XEVK-15 and FRDM-IMX95)`
+    `- lpddr5_dmem_v202311.bin (lpddr4x_dmem_v202311.bin for FRDM-IMX95)`
 
-    `- lpddr5_imem_qb_v202311.bin (lpddr4x_imem_qb_v202311.bin for IMX95LP4XEVK-15 and FRDM-IMX95)`
+    `- lpddr5_imem_qb_v202311.bin (lpddr4x_imem_qb_v202311.bin for FRDM-IMX95)`
 
-    `- lpddr5_imem_v202311.bin (lpddr4x_imem_v202311.bin for IMX95LP4XEVK-15 and FRDM-IMX95)`
+    `- lpddr5_imem_v202311.bin (lpddr4x_imem_v202311.bin for FRDM-IMX95)`
 
     `- u-boot.bin`
 
@@ -24,7 +24,7 @@
 
     `- tee.bin`
 
-    `- mx95a0-ahab-container.img`
+    `- mx95b0-ahab-container.img`
 
     **Note:**
 
@@ -33,8 +33,6 @@
     -   mx95netc for `m33_image.bin` is used for `netc_share`.
 
     -   mx95alt for `m33_image.bin` is used for almost other examples.
-
-    -   For IMX95LP4XEVK-15, use the boot images from the Linux BSP release with version Linux 6.18.2_1.0.0.
 
 2.  Copy binary built by ARMGCC/IAR into imx-mkimage/i.MX95, and rename it to m7\_image.bin.
 3.  make image for ram target.
@@ -49,11 +47,11 @@
 
     2.  Make image for ddr target:
 
-        `make SOC=i.MX95 OEI=YES flash_m7_ddr LPDDR_TYPE=lpddr5`
+        `make SOC=iMX95 OEI=YES flash_m7_ddr LPDDR_TYPE=lpddr5`
 
         `make SOC=iMX95 OEI=YES flash_lpboot_sm_m7 LPDDR_TYPE=lpddr5`
 
-    **Note:** For IMX95LP4XEVK-15 and FRDM-IMX95, LPDDR\_TYPE=lpddr4x.
+    **Note:** For FRDM-IMX95, LPDDR\_TYPE=lpddr4x.
 
 4.  Burn flash.bin to MicroSD/eMMC at 32 K\(0x8000\) offset with dd or HxD or UUU and then plug the MicroSD card to the board.
 
@@ -73,7 +71,7 @@
 
         **Note:**
 
-        -   `imx-boot-imx95-19x19-lpddr5-evk-sd.bin-flash_all (imx-boot-imx95-15x15-lpddr4x-evk-sd.bin-flash_all for IMX95LP4XEVK-15, imx-boot-imx95-15x15-lpddr4x-frdm-sd.bin-flash_all for FRDM-IMX95 and imx-boot-imx95-19x19-verdin-sd.bin-flash_all for imx95verdinevk)`. Get it from linux bsp.
+        -   `imx-boot-imx95-19x19-lpddr5-evk-sd.bin-flash_all (imx-boot-imx95-15x15-lpddr4x-frdm-sd.bin-flash_all for FRDM-IMX95)`. Get it from linux bsp.
         -   `new-flash.bin`. Generate it yourself.
 5.  Change the boot mode to `SW7[1:4] = 1011` for sd boot, `SW7[1:4] = 1010` for emmc boot.
     **Note:** For FRDM-IMX95, `SW1[1:2] = 11` for sd boot. `SW7[1:2] = 10` for emmc boot
