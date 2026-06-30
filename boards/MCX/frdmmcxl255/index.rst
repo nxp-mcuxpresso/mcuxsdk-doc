@@ -28,6 +28,19 @@ MCU device and part on board is shown below:
  - Device: MCXL255
  - PartNumber: MCXL255VDF
 
+
+Build without Secure Installer
+******************************
+
+Flash memory occupied by the Secure Installer can be reclaimed for user code, as described in
+reference manual section Secure Installer.
+Alternative linker files are provided to build with this configuration.
+
+For MCUXpresso SDK Builder projects, select the alternative linker file from the device directory
+in the IDE linker settings.
+For West projects, add `MCUX_TOOLCHAIN_LINKER_DEVICE_PREFIX` set to `MCXL255_nosi_cm33`
+in your `prj.conf`.
+
 Getting Started with MCUXpresso SDK Package
 *******************************************
 .. toctree::
