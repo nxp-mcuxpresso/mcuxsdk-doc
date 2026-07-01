@@ -868,6 +868,42 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9529
       outdir: drivers/iMX/iMX952/MIMX9529
+  board_frdmimx952:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/i.MX/index.rst
+    - root: docs
+      pattern: boards/i.MX/frdmimx952/*
+    - root: .
+      pattern: examples/_boards/frdmimx952/**/*.md
+    - root: .
+      pattern: drivers/iMX/MIMX9529/index.rst
+    - root: .
+      pattern: devices/iMX/MIMX9529/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9529
+      outdir: drivers/iMX/iMX952/MIMX9529
+  board_frdmimx937:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/i.MX/index.rst
+    - root: docs
+      pattern: boards/i.MX/frdmimx937/*
+    - root: .
+      pattern: examples/_boards/frdmimx937/**/*.md
+    - root: .
+      pattern: drivers/iMX/MIMX9375/index.rst
+    - root: .
+      pattern: devices/iMX/MIMX9375/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9375
+      outdir: drivers/iMX/iMX937/MIMX9375
   board_mcimx93autoevk:
     default: true
     external_contents:

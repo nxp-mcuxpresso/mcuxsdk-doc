@@ -4,7 +4,7 @@ The MCUXpresso SDK i.MX 93 release supports building and debugging with the tool
 
 The user can choose the appropriate one for development.
 
-For supported toolchain versions, see MCUXpresso SDK Release Notes for MCIMX93-QSB \(*document: MCUXSDKMCIMX93QSBRN*\).
+For supported toolchain versions, see MCUXpresso SDK Release Notes.
 
 -   Arm GCC + SEGGER J-Link GDB Server. This is a command line tool option and it supports both Windows OS and Linux OS.
 -   IAR Embedded Workbench for Arm and SEGGER J-Link software. The IAR Embedded Workbench is an IDE integrated with editor, compiler, debugger, and other components. The SEGGER J-Link software provides the driver for the J-Link Plus debugger probe and supports the device to attach, debug, and download.

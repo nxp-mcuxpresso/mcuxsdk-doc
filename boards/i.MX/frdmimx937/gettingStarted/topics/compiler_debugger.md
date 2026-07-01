@@ -1,6 +1,6 @@
 # Compiler/Debugger
 
-The MCUXpresso SDK i.MX 952 release supports building and debugging with the toolchains listed in [Table 1](compiler_debugger.md#TABLE_TOOLCHAININFO).
+The MCUXpresso SDK FRDM i.MX 937 release supports building and debugging with the toolchains listed in [Table 1](compiler_debugger.md#TABLE_TOOLCHAININFO).
 
 The user can choose the appropriate one for development.
 
@@ -27,7 +27,7 @@ Download the corresponding tools for the specific host OS from the website.
 
 **Note:**
 
--   To support i.MX 952, the patch for IAR and Segger J-Link must be installed. To get the patch, contact your local field applications engineer \(FAE\) or the sales representative.
+-   To support FRDM i.MX 937, the patch for IAR and Segger J-Link must be installed. To get the patch, contact your local field applications engineer \(FAE\) or the sales representative.
 
 **Parent topic:**[Toolchain introduction](../topics/toolchain_introduction.md)
 
