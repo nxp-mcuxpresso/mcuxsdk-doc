@@ -221,6 +221,28 @@ if(LATEX_PDFLATEX_FOUND AND LATEXMK)
 endif()
 
 #-------------------------------------------------------------------------------
+# Add link-check target
+
+add_doc_target(
+  linkcheck
+  COMMAND ${CMAKE_COMMAND} -E env ${SPHINX_ENV}
+  ${SPHINXBUILD}
+    -b linkcheck
+    -c ${DOCS_CFG_DIR}
+    -d ${DOCS_DOCTREE_DIR}
+    -w ${DOCS_BUILD_DIR}/linkcheck.log
+    -D example_scope=${EXAMPLE_SCOPE}
+    ${SPHINX_DOC_TAGS}
+    ${SPHINX_DOC_DEFINES}
+    ${SPHINXOPTS}
+    ${SPHINXOPTS_EXTRA}
+    ${DOCS_SRC_DIR}
+    ${DOCS_LINKCHECK_DIR}
+  USES_TERMINAL
+  COMMENT "Checking links for ${name} ..."
+)
+
+#-------------------------------------------------------------------------------
 # Clean targets for build mode specific directories
 
 add_custom_target(

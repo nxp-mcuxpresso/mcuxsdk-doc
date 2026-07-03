@@ -157,7 +157,7 @@ class MCUXDoc(WestCommand):
 
         parser.add_argument(
             'target', action='store', type=str,
-            choices=['clean', 'html', 'latex', 'doxygen', 'pdf', 'config', 'view', 'validate', 'all', 'pdf-boards', 'merge'],
+            choices=['clean', 'html', 'latex', 'doxygen', 'pdf', 'linkcheck', 'config', 'view', 'validate', 'all', 'pdf-boards', 'merge'],
             help='Target for the document creation'
         )
         
