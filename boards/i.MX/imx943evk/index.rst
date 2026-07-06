@@ -33,6 +33,20 @@ MCU device and part on board is shown below:
    - IMX943LP4CPU-15 SOM board is using the PartNumber MIMX94398AVMM
 
 
+SDK Introduction
+*******************
+
+.. only:: html
+
+   For an introduction to the MCUXpresso SDK, see :doc:`MCUXpresso Software Development Kit (SDK) </introduction/README>`.
+
+.. only:: latex
+
+   .. toctree::
+      :maxdepth: 1
+
+      /introduction/README
+
 Getting Started with MCUXpresso SDK Package
 *******************************************
 .. toctree::

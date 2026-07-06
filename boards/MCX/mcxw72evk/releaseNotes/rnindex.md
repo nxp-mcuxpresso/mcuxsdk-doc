@@ -1,13 +1,5 @@
 # MCUXpresso SDK Release Notes
 
-```{include} /release/commonrn/topics/overview.md
-:heading-offset: 1
-```
-
-```{include} /release/commonrn/topics/mcuxpresso_sdk.md
-:heading-offset: 1
-```
-
 ```{include} topics/development_tools.md
 :heading-offset: 1
 ```

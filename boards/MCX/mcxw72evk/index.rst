@@ -24,6 +24,20 @@ MCU device and part on board is shown below:
  - Device: MCXW727C
  - PartNumber: MCXW727CMFTA
 
+SDK Introduction
+*******************
+
+.. only:: html
+
+   For an introduction to the MCUXpresso SDK, see :doc:`MCUXpresso Software Development Kit (SDK) </introduction/README>`.
+
+.. only:: latex
+
+   .. toctree::
+      :maxdepth: 1
+
+      /introduction/README
+
 Getting Started with MCUXpresso SDK Package
 *******************************************
 .. toctree::
