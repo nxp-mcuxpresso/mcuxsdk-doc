@@ -40,7 +40,7 @@ Getting Started with MCUXpresso SDK Package
 .. toctree::
    :maxdepth: 1
 
-   ../mcxn9xxevk/gettingStarted/gsindex.md
+   ../../../gsd/package.rst
 
 Getting Started with MCUXpresso SDK GitHub
 *******************************************
