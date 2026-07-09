@@ -6,7 +6,6 @@ The following updates were implemented with respect to the previous SDK release 
 
     ### Added
 	-   RSSI-based adaptive CS procedure interval for localization applications (experimental; disabled by default).
-	-   Added BTCS timer mechanism to ensure CS procedure loop restarts are not blocked by failed L2CAP transfers.
 
     ### Improved
 	-   CS procedure parameters are now updated on connection interval change to avoid CS request rejection.
@@ -28,7 +27,6 @@ The following updates were implemented with respect to the previous SDK release 
 	-   Corrected bounds check for deviceId.
 	-   Fixed wireless_uart mAdvPending flag to prevent multiple advertising starts during multi-peer disconnect.
 	-   Fixed missing RSSI variables causing compilation issues in app_localization_utils.c.
-	-   TPMS sensor Signing Key and sequence number now saved in NVM to prevent MAC check failures.
 	-   CS IPT mode now configured with only 1 antenna path to fix Samsung phone CS request rejection.
 	-   FSCI Extended NBU: Added LL_API_NotifyWakeUp call in idle_task to detect NBU stuck condition; added leExtendedFeatures to NCP GAP init complete event.
 	-   Fixed systick drift when PWR_DisallowDeviceToSleep() is active.
