@@ -1,32 +1,41 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.06.00-pvw2\).
+The following updates were implemented with respect to the previous SDK release version \(26.06.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Added LE Power Control support in BLE Shell application.
-	-   LE Read All Remote Features (LLEFS) support in HOST-GAP.
-	-   LE Channel Assessment (CHAS) Config HCI command support in HOST-GAP.
+	-   RSSI-based adaptive CS procedure interval for localization applications (experimental; disabled by default).
 
     ### Improved
-	-   CS procedure auto-loop shell command; improved RAS data drop mechanism.
-	-   Allow setting the value of the `setnumprocs` parameter to `0` for infinite CS procedure repeats.
-	-   Synchronize code between loc_reader and ncp_loc_reader application files.
-	-   Subevent interval added to RADE algorithm API.
-	-   Documentation updates.
+	-   CS procedure parameters are now updated on connection interval change to avoid CS request rejection.
+	-   Aligned wireless_uart preinclude settings across all platforms for consistency.
+	-   Updated ble_shell periodic advertising default interval set to 1 second for improved discoverability.
+	-   Increased host task stack size across multiple applications.
+	-   Extended ble_shell periodic advertising handling to support gPeriodicDeviceScannedV2_c event.
+	-   RADE component naming updated in documentation.
+	-   Unified CS results complete event handling; real-time transfer moved to AppLocalization_HandleCompleteResults().
 
     ### Fixed
-	-   L2CAP data fragmentation fix causing incorrect fragmentation over the air.
-	-   Fix for no valid subevents in localization.
-	-   Allowed the value `255` for the `sub_mode_type` parameter in CS config params.
-	-   Channel Sounding subevent abort (No CS_SYNC mode0) after rebond.
-	-   Set `preferredPeerAntenna` based on peer capabilities.
-	-   Miscellaneous minor application bug fixes.
+	-   Fixed out-of-bounds access in gap.c.
+	-   HCI LE Read All Remote Features command is now issued if supported by the controller.
+	-   Power Control APIs now return gBleFeatureNotSupported_c if the controller does not indicate support.
+	-   Fixed array index overflow in application ranging_client.c.
+	-   Fixed local RSSI parsing: correct byte is now collected before advancing parse pointer.
+	-   Fixed bounds check for gaAntPermNAp in processMode2Data and processMode3Data.
+	-   Fixed localization index overflow; added sanity check.
+	-   Corrected bounds check for deviceId.
+	-   Fixed wireless_uart mAdvPending flag to prevent multiple advertising starts during multi-peer disconnect.
+	-   Fixed missing RSSI variables causing compilation issues in app_localization_utils.c.
+	-   CS IPT mode now configured with only 1 antenna path to fix Samsung phone CS request rejection.
+	-   FSCI Extended NBU: Added LL_API_NotifyWakeUp call in idle_task to detect NBU stuck condition; added leExtendedFeatures to NCP GAP init complete event.
+	-   Fixed systick drift when PWR_DisallowDeviceToSleep() is active.
+	-   CS: Added check for valid numAntennaPaths in processCsResultsEvent.
+	-   Miscellaneous MISRA fixes.
+	-   Miscellaneous Coverity fixes.
 
     ### Changed
-	-   Reduced cyclomatic complexity (CCM) in multiple localization functions.
-	-   Decoupled buttons from LEDs in Bluetooth applications.
+	-   Reverted incorrect connection handle handling for non-connection enhanced notification events.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

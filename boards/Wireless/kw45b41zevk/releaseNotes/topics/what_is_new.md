@@ -1,26 +1,28 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.06.00-pvw2\).
+The following updates were implemented with respect to the previous SDK release version \(26.06.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
-    ### Added
-	-   Tire Pressure Monitoring System (TPMS) sample demo applications.
-	-   Tire Pressure Monitoring System (TPMS) documentation added to the Demo Applications User Guide (DAUG).
-	-   Added LE Power Control support in BLE Shell application.
-	-   LE Read All Remote Features (LLEFS) support in HOST-GAP.
-	-   LE Channel Assessment (CHAS) Config HCI command support in HOST-GAP.
-
     ### Improved
-	-   Documentation updates.
+	-   Aligned wireless_uart preinclude settings across all platforms for consistency.
+	-   Updated ble_shell periodic advertising default interval set to 1 second for improved discoverability.
+	-   Increased host task stack size across multiple applications.
+	-   Extended ble_shell periodic advertising handling to support gPeriodicDeviceScannedV2_c event.
 
     ### Fixed
-	-   L2CAP data fragmentation fix causing incorrect fragmentation over the air.
-	-   Miscellaneous minor application bug fixes.
+	-   Fixed out-of-bounds access in gap.c.
+	-   HCI LE Read All Remote Features command is now issued if supported by the controller.
+	-   Power Control APIs now return gBleFeatureNotSupported_c if the controller does not indicate support.
+	-   Corrected bounds check for deviceId.
+	-   Fixed wireless_uart mAdvPending flag to prevent multiple advertising starts during multi-peer disconnect.
+	-   TPMS sensor Signing Key and sequence number now saved in NVM to prevent MAC check failures.
+	-   Fixed systick drift when PWR_DisallowDeviceToSleep() is active.
+	-   Miscellaneous MISRA fixes.
+	-   Miscellaneous Coverity fixes.
 
     ### Changed
-	-   Reduced cyclomatic complexity (CCM) in multiple localization functions.
-	-   Decoupled buttons from LEDs in Bluetooth applications.
+	-   Reverted incorrect connection handle handling for non-connection enhanced notification events.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
