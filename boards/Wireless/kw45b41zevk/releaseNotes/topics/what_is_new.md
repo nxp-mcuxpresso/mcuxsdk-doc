@@ -6,18 +6,18 @@ The following updates were implemented with respect to the previous SDK release 
 
     ### Improved
 	-   Aligned wireless_uart preinclude settings across all platforms for consistency.
-	-   Updated ble_shell periodic advertising default interval set to 1 second for improved discoverability.
+	-   Updated ble_shell periodic advertising default interval; set to 1 second for improved discoverability.
 	-   Increased host task stack size across multiple applications.
-	-   Extended ble_shell periodic advertising handling to support gPeriodicDeviceScannedV2_c event.
+	-   Extended ble_shell periodic advertising handling to support `gPeriodicDeviceScannedV2_c` event.
 
     ### Fixed
-	-   Fixed out-of-bounds access in gap.c.
+	-   Fixed out-of-bounds access in `gap.c`.
 	-   HCI LE Read All Remote Features command is now issued if supported by the controller.
-	-   Power Control APIs now return gBleFeatureNotSupported_c if the controller does not indicate support.
+	-   Power Control APIs now return `gBleFeatureNotSupported_c` if the controller does not indicate support.
 	-   Corrected bounds check for deviceId.
-	-   Fixed wireless_uart mAdvPending flag to prevent multiple advertising starts during multi-peer disconnect.
+	-   Fixed `wireless_uart` `mAdvPending` flag to prevent multiple advertising starts during multi-peer disconnect.
 	-   TPMS sensor Signing Key and sequence number now saved in NVM to prevent MAC check failures.
-	-   Fixed systick drift when PWR_DisallowDeviceToSleep() is active.
+	-   Fixed systick drift when `PWR_DisallowDeviceToSleep()` is active.
 	-   Miscellaneous MISRA fixes.
 	-   Miscellaneous Coverity fixes.
 

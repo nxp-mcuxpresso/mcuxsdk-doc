@@ -34,6 +34,6 @@ Known issues:
 -   When CS Subevents are configured very close from each other (<700us), some Subevents may be aborted with reason 0x3.
 -   When CS offset is configured too close from ACL anchor point, the anchor point may not be served (TX on central or RX on peripheral will not happen). Ideally, CS Offset should be configured greater than 1ms.
 -   RTT bias compensation:
-    - For parts not properly configured at production (IFR blank), RTT bias may not be compensated properly. Consequently, an inaccuracy of +/-2m may be observed.
--   Pairing procedure fails to complete after connection is established. Affects digital_key sample applications. Increase 'gHost_TaskStackSize_c' to 1900U.
--   Channel Sounding measurement cannot start after handover. Affects digital_key sample applications.
+    - For parts not properly configured at production (IFR blank), RTT bias is not compensated properly. Consequently, an inaccuracy of +/-2m can be observed.
+-   Pairing procedure fails to complete after connection is established. Affects **digital_key** sample applications. Increase `gHost_TaskStackSize_c` to `1900U`.
+-   Channel Sounding measurement cannot start after handover. Affects **digital_key** sample applications.

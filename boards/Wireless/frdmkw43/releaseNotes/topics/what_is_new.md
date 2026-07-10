@@ -11,28 +11,28 @@ The following updates were implemented with respect to the previous SDK release 
     ### Improved
 	-   CS procedure parameters are now updated on connection interval change to avoid CS request rejection.
 	-   Aligned wireless_uart preinclude settings across all platforms for consistency.
-	-   Updated ble_shell periodic advertising default interval set to 1 second for improved discoverability.
+	-   Updated ble_shell periodic advertising default interval; set to 1 second for improved discoverability.
 	-   Increased host task stack size across multiple applications.
-	-   Extended ble_shell periodic advertising handling to support gPeriodicDeviceScannedV2_c event.
+	-   Extended ble_shell periodic advertising handling to support `gPeriodicDeviceScannedV2_c` event.
 	-   RADE component naming updated in documentation.
-	-   Unified CS results complete event handling; real-time transfer moved to AppLocalization_HandleCompleteResults().
+	-   Unified CS results complete event handling; real-time transfer moved to `AppLocalization_HandleCompleteResults()`.
 
     ### Fixed
-	-   Fixed out-of-bounds access in gap.c.
+	-   Fixed out-of-bounds access in `gap.c`.
 	-   HCI LE Read All Remote Features command is now issued if supported by the controller.
-	-   Power Control APIs now return gBleFeatureNotSupported_c if the controller does not indicate support.
-	-   Fixed array index overflow in application ranging_client.c.
+	-   Power Control APIs now return `gBleFeatureNotSupported_c` if the controller does not indicate support.
+	-   Fixed array index overflow in application `ranging_client.c`.
 	-   Fixed local RSSI parsing: correct byte is now collected before advancing parse pointer.
-	-   Fixed bounds check for gaAntPermNAp in processMode2Data and processMode3Data.
+	-   Fixed bounds check for `gaAntPermNAp` in `processMode2Data` and `processMode3Data`.
 	-   Fixed localization index overflow; added sanity check.
 	-   Corrected bounds check for deviceId.
-	-   Fixed wireless_uart mAdvPending flag to prevent multiple advertising starts during multi-peer disconnect.
-	-   Fixed missing RSSI variables causing compilation issues in app_localization_utils.c.
+	-   Fixed `wireless_uart` `mAdvPending` flag to prevent multiple advertising starts during multi-peer disconnect.
+	-   Fixed missing RSSI variables causing compilation issues in `app_localization_utils.c`.
 	-   TPMS sensor Signing Key and sequence number now saved in NVM to prevent MAC check failures.
 	-   CS IPT mode now configured with only 1 antenna path to fix Samsung phone CS request rejection.
-	-   FSCI Extended NBU: Added LL_API_NotifyWakeUp call in idle_task to detect NBU stuck condition; added leExtendedFeatures to NCP GAP init complete event.
-	-   Fixed systick drift when PWR_DisallowDeviceToSleep() is active.
-	-   CS: Added check for valid numAntennaPaths in processCsResultsEvent.
+	-   FSCI Extended NBU: Added `LL_API_NotifyWakeUp` call in `idle_task` to detect NBU stuck condition; added `leExtendedFeatures` to NCP GAP init complete event.
+	-   Fixed systick drift when `PWR_DisallowDeviceToSleep()` is active.
+	-   CS: Added check for valid `numAntennaPaths` in `processCsResultsEvent`.
 	-   Miscellaneous MISRA fixes.
 	-   Miscellaneous Coverity fixes.
 
