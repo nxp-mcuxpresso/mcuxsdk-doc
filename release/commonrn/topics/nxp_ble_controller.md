@@ -51,7 +51,7 @@
           - T_PM=10us
           - T_IP1/T_IP2=60, 50, 30
           - T_FCS=120, 100, 60
-    -   LE Power Control (\LEPC\). Requires vendor command to enable.
+    -   LE Power Control (\LEPC\).
 
     Additional features supported as EAR (\Early Access Release\) in the KW45/KW47 experimental builds:
     -   LE Test Mode Enhancement (\UTP/OTA\).

@@ -7,7 +7,6 @@ Most sensor applications have pairing and bonding disabled to allow a faster int
 -   The maximum Advertising data length is limited to 800 bytes.
 -   The scanner may sporadically miss some chained packets.
 -   When fro32k is used, the define BOARD_32KHZ_SRC_CLK_ACCURACY shall be set in application (#define BOARD_32KHZ_SRC_CLK_ACCURACY 0).
--   It is not possible to establish more than 16 connections (will be fixed in next release).
 
 Periodic Advertising with Responses (PAwR):
 -   Periodic Advertising with Response (PAwR) is not supported with the configuration "Subevent Interval = Number of Response Slots x Response Slot Spacing with Response Slot Spacing = 0x2".
@@ -28,9 +27,9 @@ Limitations:
 -   RTT with Sounding Sequence is not supported.
 -   Maximum 6 Channel Sounding procedures are supported in parallel.
 -   Phase measurement bias is within certification range (<1.7x2πns) with KW47 EVK board. However, if different PCB or antenna matching is used, some bias may appear due to increased delay.
+-   For experimental feature IPT(Inline PCT Transfer), only 1x1 configuration is supported.
 
 Known issues:
--   NADM RTT payload 96bits BT2.0 raises false positives.
 -   When CS Subevents are configured very close from each other (<700us), some Subevents may be aborted with reason 0x3.
 -   When CS offset is configured too close from ACL anchor point, the anchor point may not be served (TX on central or RX on peripheral will not happen). Ideally, CS Offset should be configured greater than 1ms.
 -   RTT bias compensation:
