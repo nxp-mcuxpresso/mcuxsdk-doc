@@ -15,7 +15,7 @@ The following updates were implemented with respect to the previous SDK release 
 	-   HCI LE Read All Remote Features command is now issued if supported by the controller.
 	-   Power Control APIs now return `gBleFeatureNotSupported_c` if the controller does not indicate support.
 	-   Corrected bounds check for deviceId.
-	-   Fixed `wireless_uart` `mAdvPending` flag to prevent multiple advertising starts during multi-peer disconnect.
+	-   Fixed `mAdvPending` flag of wireless_uart application to prevent multiple advertising starts during multi-peer disconnect.
 	-   Fixed systick drift when `PWR_DisallowDeviceToSleep()` is active.
 	-   Miscellaneous MISRA fixes.
 	-   Miscellaneous Coverity fixes.

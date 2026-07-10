@@ -25,7 +25,7 @@ The following updates were implemented with respect to the previous SDK release 
 	-   Fixed bounds check for `gaAntPermNAp` in `processMode2Data` and `processMode3Data`.
 	-   Fixed localization index overflow; added sanity check.
 	-   Corrected bounds check for deviceId.
-	-   Fixed `wireless_uart` `mAdvPending` flag to prevent multiple advertising starts during multi-peer disconnect.
+	-   Fixed `mAdvPending` flag of wireless_uart application to prevent multiple advertising starts during multi-peer disconnect.
 	-   Fixed missing RSSI variables causing compilation issues in `app_localization_utils.c`.
 	-   CS IPT mode now configured with only 1 antenna path to fix Samsung phone CS request rejection.
 	-   Fixed systick drift when `PWR_DisallowDeviceToSleep()` is active.
