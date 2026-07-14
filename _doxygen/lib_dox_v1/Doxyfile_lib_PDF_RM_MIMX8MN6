@@ -750,6 +750,8 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX8MN/MIMX8MN6/drivers/fsl_clock.h \
         @SDK_BASE@/drivers/ecspi/fsl_ecspi.h \
         @SDK_BASE@/drivers/enet/doxygen/enet.dox \
         @SDK_BASE@/drivers/enet/fsl_enet.h \
+        @SDK_BASE@/drivers/flexspi/doxygen/flexspi.dox \
+        @SDK_BASE@/drivers/flexspi/fsl_flexspi.h \
         @SDK_BASE@/drivers/gpc_2/doxygen/gpc.dox \
         @SDK_BASE@/drivers/gpc_2/fsl_gpc.h \
         @SDK_BASE@/drivers/gpt/doxygen/gpt.dox \
@@ -900,6 +902,7 @@ IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX8MN/MIMX8MN6/drivers/doxygen \
              @SDK_BASE@/drivers/easrc/doxygen \
              @SDK_BASE@/drivers/ecspi/doxygen \
              @SDK_BASE@/drivers/enet/doxygen \
+             @SDK_BASE@/drivers/flexspi/doxygen \
              @SDK_BASE@/drivers/gpc_2/doxygen \
              @SDK_BASE@/drivers/gpt/doxygen \
              @SDK_BASE@/drivers/igpio/doxygen \
@@ -2061,6 +2064,7 @@ PREDEFINED = FSL_FEATURE_SOC_AIPSTZ_COUNT = 1 \
              FSL_FEATURE_SOC_ISI_COUNT = 1 \
              FSL_FEATURE_SOC_IUART_COUNT = 4 \
              FSL_FEATURE_SOC_LCDIF_COUNT = 1 \
+             FSL_FEATURE_SOC_LMEM_COUNT = 1 \
              FSL_FEATURE_SOC_MU_COUNT = 1 \
              FSL_FEATURE_SOC_OCOTP_COUNT = 1 \
              FSL_FEATURE_SOC_PDM_COUNT = 1 \
@@ -2089,6 +2093,32 @@ PREDEFINED = FSL_FEATURE_SOC_AIPSTZ_COUNT = 1 \
              FSL_FEATURE_ENET_HAS_RGMII_RXC_DELAY = 0 \
              FSL_FEATURE_ENET_TIMESTAMP_CAPTURE_BIT_INVALID = 0 \
              FSL_FEATURE_ENET_HAS_EXTRA_CLOCK_GATE = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_DATA_LEARN = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_INTEN_AHBBUSERROREN = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_AHBCR_CLRAHBTX_RXBUF = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_IP_PARALLEL_MODE = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_AHB_PARALLEL_MODE = 0 \
+             FSL_FEATURE_FLEXSPI_SUPPORT_ADDRESS_SHIFT = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_MCR0_ARDFEN = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_MCR0_ATDFEN = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_MCR0_COMBINATIONEN = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_FLSHCR4_WMENB = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_STS0_DATALEARNPHASEB = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_MCR2_SCKBDIFFOPT = 0 \
+             FSL_FEATURE_FLEXSPI_ARRAY_LEN = 1 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_STS2_BSLVLOCK = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_NO_STS2_BREFLOCK = 0 \
+             FSL_FEATURE_FLEXSPI_NO_SUPPORT_PORTB = 0 \
+             FSL_FEATURE_FLEXSPI_LUTKEY_IS_RO = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_SHARED_IRQ0_IRQ1 = 0 \
+             FSL_FEATURE_FLEXSPI_DMA_MULTIPLE_DES = 0 \
+             FSL_FEATURE_FLEXSPI_DQS_DELAY_MIN = 0 \
+             FSL_FEATURE_FLEXSPI_SUPPORT_SEPERATE_RXCLKSRC_PORTB = 0 \
+             FSL_FEATURE_FLEXSPI_SUPPORT_RXCLKSRC_DIFF = 0 \
+             FSL_FEATURE_FLEXSPI_IPED_REGION_COUNT = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_ERRATA_052733 = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_ERRATA_051426 = 0 \
+             FSL_FEATURE_FLEXSPI_HAS_RESUMEDISABLE_BIT_CONFIG_SUPPORT = 0 \
              FSL_FEATURE_GPC_HAS_PGC_MF = 0 \
              FSL_FEATURE_IGPIO_HAS_DR_SET = 0 \
              FSL_FEATURE_IGPIO_HAS_DR_CLEAR = 0 \
@@ -2112,6 +2142,8 @@ PREDEFINED = FSL_FEATURE_SOC_AIPSTZ_COUNT = 1 \
              FSL_FEATURE_SAI_HAS_SYNC_WITH_ANOTHER_SAI = 0 \
              FSL_FEATURE_SAI_HAS_BIT_CLOCK_SWAP = 1 \
              FSL_FEATURE_SAI_SAI5_SAI6_SHARE_IRQ = 1 \
+             FSL_FEATURE_L1ICACHE_LINESIZE_BYTE = 32 \
+             FSL_FEATURE_L1DCACHE_LINESIZE_BYTE = 32 \
              FSL_FEATURE_MEMORY_HAS_ADDRESS_OFFSET = 1 \
              FSL_FEATURE_MU_SIDE_B = 1 \
              FSL_FEATURE_MU_HAS_CCR = 0 \

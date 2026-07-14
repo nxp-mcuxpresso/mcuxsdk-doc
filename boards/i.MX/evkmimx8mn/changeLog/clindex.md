@@ -28,6 +28,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/flexspi/doxygen/ChangeLog_flexspi.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/gpc_2/doxygen/ChangeLog_gpc.md
 :heading-offset: 2
 ```

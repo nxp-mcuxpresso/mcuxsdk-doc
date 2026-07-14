@@ -770,6 +770,8 @@ INPUT = @SDK_BASE@/devices/Wireless/KW/KW43B43ZC7/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan_edma.h \
         @SDK_BASE@/drivers/flexcan/doxygen/flexcan.dox \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
+        @SDK_BASE@/drivers/flexpwm/doxygen/flexpwm.dox \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/gdet/doxygen/gdet.dox \
         @SDK_BASE@/drivers/gdet/fsl_gdet.h \
         @SDK_BASE@/drivers/glikey/doxygen/glikey.dox \
@@ -963,6 +965,7 @@ IMAGE_PATH = @SDK_BASE@/devices/Wireless/KW/KW43B43ZC7/drivers/doxygen \
              @SDK_BASE@/drivers/ewm/doxygen \
              @SDK_BASE@/drivers/flash_k4/doxygen \
              @SDK_BASE@/drivers/flexcan/doxygen \
+             @SDK_BASE@/drivers/flexpwm/doxygen \
              @SDK_BASE@/drivers/gdet/doxygen \
              @SDK_BASE@/drivers/glikey/doxygen \
              @SDK_BASE@/drivers/gpio/doxygen \
@@ -2248,6 +2251,9 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELB = 0 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELX = 1 \
              FSL_FEATURE_PWM_HAS_ERRATA_51989 = 0 \
+             FSL_FEATURE_PWM_MASK_HAS_UPDATE_MASK_BITFIELD = 1 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_STRETCH_CNT_PRSC_BITFIELD = 1 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_WRPROT_BITFIELD = 1 \
              FSL_FEATURE_FLASH_IS_MSF1 = 1 \
              FSL_FEATURE_FLASH_PFLASH_BLOCK_COUNT = 1 \
              FSL_FEATURE_FLASH_PFLASH_SECTOR_SIZE = 8192 \
@@ -2433,6 +2439,10 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_SPC_HAS_VDD_SYS = 0 \
              FSL_FEATURE_SPC_HAS_VDD1P8_LVD = 1 \
              FSL_FEATURE_SPC_HAS_NO_DCDC_FREQ_CNTRL = 1 \
+             FSL_FEATURE_SPC_HAS_DCDC_VOUT2P5_SEL = 1 \
+             FSL_FEATURE_SPC_DCDC_VOUT2P5_SEL_IN_ACTIVE_CFG = 1 \
+             FSL_FEATURE_SPC_HAS_DCDC_RAMP_CNTRL = 1 \
+             FSL_FEATURE_SPC_HAS_DCDC_RAMP_CNTRL_LP = 1 \
              FSL_FEATURE_RTC_HAS_WAKEUP_PIN = 1 \
              FSL_FEATURE_RTC_HAS_WAKEUP_PIN_SELECTION = 0 \
              FSL_FEATURE_RTC_HAS_MONOTONIC = 0 \
@@ -2487,6 +2497,7 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_TRDC_HAS_DOMAIN_ASSIGNMENT = 1 \
              FSL_FEATURE_TRDC_HAS_DOMAIN_ERROR = 1 \
              FSL_FEATURE_TRDC_HAS_FLW = 1 \
+             FSL_FEATURE_TRDC_DERRLOC_MBCINST_FLAT_ENCODING = 1 \
              FSL_FEATURE_TRNG_HAS_NO_TRNG_SCR4L = 1 \
              FSL_FEATURE_TRNG_HAS_NO_TRNG_SCR5L = 1 \
              FSL_FEATURE_TRNG_HAS_NO_TRNG_SCR6L = 1 \

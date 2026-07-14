@@ -116,6 +116,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/flexpwm/doxygen/ChangeLog_flexpwm.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/flexspi/doxygen/ChangeLog_flexspi.md
 :heading-offset: 2
 ```

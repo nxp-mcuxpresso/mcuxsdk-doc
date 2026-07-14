@@ -769,6 +769,8 @@ INPUT = @SDK_BASE@/devices/MCX/MCXA/MCXA156/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
         @SDK_BASE@/drivers/flexio/doxygen/flexio.dox \
         @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/flexpwm/doxygen/flexpwm.dox \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/glikey/doxygen/glikey.dox \
         @SDK_BASE@/drivers/glikey/fsl_glikey.h \
         @SDK_BASE@/drivers/gpio/doxygen/gpio.dox \
@@ -963,6 +965,7 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXA/MCXA156/drivers/doxygen \
              @SDK_BASE@/drivers/erm/doxygen \
              @SDK_BASE@/drivers/flexcan/doxygen \
              @SDK_BASE@/drivers/flexio/doxygen \
+             @SDK_BASE@/drivers/flexpwm/doxygen \
              @SDK_BASE@/drivers/glikey/doxygen \
              @SDK_BASE@/drivers/gpio/doxygen \
              @SDK_BASE@/drivers/i3c/doxygen \
@@ -2257,6 +2260,10 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_ANALOG_NUM_OF_VREF_SRC = 3 \
              FSL_FEATURE_LPDAC_HAS_INTERNAL_REFERENCE_CURRENT = 1 \
              FSL_FEATURE_LPDAC_HAS_PERIODIC_TRIGGER_MODE = 1 \
+             FSL_FEATURE_LPDAC_HAS_GCR_DAC_OPTION_EN = 0 \
+             FSL_FEATURE_LPDAC_HAS_GCR_IREF_PTAT_EXT_SEL = 1 \
+             FSL_FEATURE_LPDAC_HAS_GCR_IREF_INT_SEL = 0 \
+             FSL_FEATURE_LPDAC_HAS_GCR_IREF_INT_TRIM = 0 \
              FSL_FEATURE_EDMA_MODULE_CHANNEL = 8 \
              FSL_FEATURE_EDMA_SUPPORT_8_BYTES_TRANSFER = 1 \
              FSL_FEATURE_EDMA_CHANNEL_GROUP_COUNT = 1 \
@@ -2309,12 +2316,17 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELB = 0 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELX = 1 \
              FSL_FEATURE_PWM_HAS_ERRATA_51989 = 0 \
+             FSL_FEATURE_PWM_MASK_HAS_UPDATE_MASK_BITFIELD = 1 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_STRETCH_CNT_PRSC_BITFIELD = 1 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_WRPROT_BITFIELD = 1 \
              FSL_FEATURE_FSL_FEATURE_FLASH_IS_MSF1 = 1 \
              FSL_FEATURE_FLASH_PFLASH_BLOCK_COUNT = 1 \
              FSL_FEATURE_FLASH_PFLASH_PAGE_SIZE = 128 \
              FSL_FEATURE_FLASH_PFLASH_PHRASE_SIZE = 16 \
              FSL_FEATURE_FLASH_HAS_IFR = 1 \
              FSL_FEATURE_FLASH_IFR_PAGE_SIZE = 128 \
+             FSL_FEATURE_FREQME_HAS_CLOCK_SOURCE_SELECT = 0 \
+             FSL_FEATURE_FREQME_RESULT_CALCULATION_MODE = 0 \
              FSL_FEATURE_GPIO_HAS_ATTRIBUTE_CHECKER = 0 \
              FSL_FEATURE_GPIO_REGISTERS_WIDTH = 32 \
              FSL_FEATURE_GPIO_HAS_VERSION_INFO_REGISTER = 1 \
@@ -2396,6 +2408,7 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_OPAMP_HAS_OPAMP_CTR_INPSEL = 1 \
              FSL_FEATURE_OPAMP_HAS_OPAMP_CTR_TRIGMD = 1 \
              FSL_FEATURE_OPAMP_HAS_SUPPORT_REFERENCE_BUFFER = 1 \
+             FSL_FEATURE_OSTIMER_HAS_BINARY_ENCODED_COUNTER = 0 \
              FSL_FEATURE_PORT_HAS_PIN_CONTROL_LOCK = 1 \
              FSL_FEATURE_PORT_HAS_OPEN_DRAIN = 1 \
              FSL_FEATURE_PORT_HAS_DIGITAL_FILTER = 0 \

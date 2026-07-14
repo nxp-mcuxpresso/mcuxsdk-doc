@@ -778,6 +778,8 @@ INPUT = @SDK_BASE@/devices/LPC/LPC5500/LPC55S36/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/enc/fsl_enc.h \
         @SDK_BASE@/drivers/flexcomm/doxygen/flexcomm.dox \
         @SDK_BASE@/drivers/flexcomm/fsl_flexcomm.h \
+        @SDK_BASE@/drivers/flexpwm/doxygen/flexpwm.dox \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/flexspi/doxygen/flexspi_dma.dox \
         @SDK_BASE@/drivers/flexspi/fsl_flexspi_dma.h \
         @SDK_BASE@/drivers/flexspi/doxygen/flexspi.dox \
@@ -981,6 +983,7 @@ IMAGE_PATH = @SDK_BASE@/devices/LPC/LPC5500/LPC55S36/drivers/doxygen \
              @SDK_BASE@/drivers/dmic/doxygen \
              @SDK_BASE@/drivers/enc/doxygen \
              @SDK_BASE@/drivers/flexcomm/doxygen \
+             @SDK_BASE@/drivers/flexpwm/doxygen \
              @SDK_BASE@/drivers/flexspi/doxygen \
              @SDK_BASE@/drivers/gint/doxygen \
              @SDK_BASE@/drivers/hscmp/doxygen \
@@ -2254,6 +2257,10 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_ANALOG_NUM_OF_VREF_SRC = 3 \
              FSL_FEATURE_LPDAC_HAS_INTERNAL_REFERENCE_CURRENT = 1 \
              FSL_FEATURE_LPDAC_HAS_PERIODIC_TRIGGER_MODE = 1 \
+             FSL_FEATURE_LPDAC_HAS_GCR_DAC_OPTION_EN = 0 \
+             FSL_FEATURE_LPDAC_HAS_GCR_IREF_PTAT_EXT_SEL = 1 \
+             FSL_FEATURE_LPDAC_HAS_GCR_IREF_INT_SEL = 0 \
+             FSL_FEATURE_LPDAC_HAS_GCR_IREF_INT_TRIM = 0 \
              FSL_FEATURE_DMA_MAX_CHANNELS = 52 \
              FSL_FEATURE_DMA_ALL_CHANNELS = 68 \
              FSL_FEATURE_DMA0_DESCRIPTOR_ALIGN_SIZE = 1024 \
@@ -2330,6 +2337,8 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_FLEXSPI_HAS_ERRATA_052733 = 1 \
              FSL_FEATURE_FLEXSPI_HAS_ERRATA_051426 = 0 \
              FSL_FEATURE_FLEXSPI_HAS_RESUMEDISABLE_BIT_CONFIG_SUPPORT = 1 \
+             FSL_FEATURE_FREQME_HAS_CLOCK_SOURCE_SELECT = 0 \
+             FSL_FEATURE_FREQME_RESULT_CALCULATION_MODE = 0 \
              FSL_FEATURE_GINT_PORT_COUNT = 2 \
              FSL_FEATURE_I2S_SUPPORT_SECONDARY_CHANNEL = 1 \
              FSL_FEATURE_FLEXCOMM_I2S_HAS_DMIC_INTERCONNECTION = 1 \
@@ -2349,6 +2358,7 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_INPUTMUX_HAS_CHANNEL_MUX = 0 \
              FSL_FEATURE_IOCON_FUNC_FIELD_WIDTH = 4 \
              FSL_FEATURE_MRT_NUMBER_OF_CHANNELS = 4 \
+             FSL_FEATURE_OSTIMER_HAS_BINARY_ENCODED_COUNTER = 0 \
              FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS = 8 \
              FSL_FEATURE_SECPINT_NUMBER_OF_CONNECTED_OUTPUTS = 2 \
              FSL_FEATURE_UTICK_HAS_NO_PDCFG = 1 \
@@ -2370,6 +2380,9 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELB = 1 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELX = 1 \
              FSL_FEATURE_PWM_HAS_ERRATA_51989 = 0 \
+             FSL_FEATURE_PWM_MASK_HAS_UPDATE_MASK_BITFIELD = 1 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_STRETCH_CNT_PRSC_BITFIELD = 0 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_WRPROT_BITFIELD = 0 \
              FSL_FEATURE_RTC_HAS_RESET = 1 \
              FSL_FEATURE_RTC_HAS_TAMPER_DIRECTION = 0 \
              FSL_FEATURE_RTC_HAS_TAMPER_QUEUE = 1 \

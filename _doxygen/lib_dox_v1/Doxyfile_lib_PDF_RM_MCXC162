@@ -761,6 +761,8 @@ INPUT = @SDK_BASE@/devices/MCX/MCXC/MCXC162/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/flash_k4/fsl_flash_utilities.h \
         @SDK_BASE@/drivers/flash_k4/fsl_flash_adapter.h \
         @SDK_BASE@/drivers/flash_k4/fsl_k4_controller.h \
+        @SDK_BASE@/drivers/flexpwm/doxygen/flexpwm.dox \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/gpio/doxygen/gpio.dox \
         @SDK_BASE@/drivers/gpio/fsl_gpio.h \
         @SDK_BASE@/drivers/inputmux/doxygen/inputmux.dox \
@@ -922,6 +924,7 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXC/MCXC162/drivers/doxygen \
              @SDK_BASE@/drivers/eim/doxygen \
              @SDK_BASE@/drivers/erm/doxygen \
              @SDK_BASE@/drivers/flash_k4/doxygen \
+             @SDK_BASE@/drivers/flexpwm/doxygen \
              @SDK_BASE@/drivers/gpio/doxygen \
              @SDK_BASE@/drivers/inputmux/doxygen \
              @SDK_BASE@/drivers/lpadc/doxygen \
@@ -2199,12 +2202,17 @@ PREDEFINED = FSL_FEATURE_SOC_CMC_COUNT = 1 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELB = 0 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELX = 1 \
              FSL_FEATURE_PWM_HAS_ERRATA_51989 = 0 \
+             FSL_FEATURE_PWM_MASK_HAS_UPDATE_MASK_BITFIELD = 1 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_STRETCH_CNT_PRSC_BITFIELD = 1 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_WRPROT_BITFIELD = 1 \
              FSL_FEATURE_FSL_FEATURE_FLASH_IS_MSF1 = 1 \
              FSL_FEATURE_FLASH_PFLASH_BLOCK_COUNT = 1 \
              FSL_FEATURE_FLASH_PFLASH_PAGE_SIZE = 128 \
              FSL_FEATURE_FLASH_PFLASH_PHRASE_SIZE = 16 \
              FSL_FEATURE_FLASH_HAS_IFR = 1 \
              FSL_FEATURE_FLASH_IFR_PAGE_SIZE = 128 \
+             FSL_FEATURE_FREQME_HAS_CLOCK_SOURCE_SELECT = 0 \
+             FSL_FEATURE_FREQME_RESULT_CALCULATION_MODE = 0 \
              FSL_FEATURE_GPIO_HAS_ATTRIBUTE_CHECKER = 0 \
              FSL_FEATURE_GPIO_REGISTERS_WIDTH = 32 \
              FSL_FEATURE_GPIO_HAS_VERSION_INFO_REGISTER = 1 \

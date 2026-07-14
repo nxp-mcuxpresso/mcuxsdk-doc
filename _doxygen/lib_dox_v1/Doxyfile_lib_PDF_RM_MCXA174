@@ -765,6 +765,8 @@ INPUT = @SDK_BASE@/devices/MCX/MCXA/MCXA174/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan_edma.h \
         @SDK_BASE@/drivers/flexcan/doxygen/flexcan.dox \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
+        @SDK_BASE@/drivers/flexpwm/doxygen/flexpwm.dox \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/glikey/doxygen/glikey.dox \
         @SDK_BASE@/drivers/glikey/fsl_glikey.h \
         @SDK_BASE@/drivers/gpio/doxygen/gpio.dox \
@@ -941,6 +943,7 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXA/MCXA174/drivers/doxygen \
              @SDK_BASE@/drivers/eqdc/doxygen \
              @SDK_BASE@/drivers/erm/doxygen \
              @SDK_BASE@/drivers/flexcan/doxygen \
+             @SDK_BASE@/drivers/flexpwm/doxygen \
              @SDK_BASE@/drivers/glikey/doxygen \
              @SDK_BASE@/drivers/gpio/doxygen \
              @SDK_BASE@/drivers/inputmux/doxygen \
@@ -2265,12 +2268,17 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELB = 0 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELX = 1 \
              FSL_FEATURE_PWM_HAS_ERRATA_51989 = 0 \
+             FSL_FEATURE_PWM_MASK_HAS_UPDATE_MASK_BITFIELD = 1 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_STRETCH_CNT_PRSC_BITFIELD = 1 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_WRPROT_BITFIELD = 1 \
              FSL_FEATURE_FSL_FEATURE_FLASH_IS_MSF1 = 1 \
              FSL_FEATURE_FLASH_PFLASH_BLOCK_COUNT = 1 \
              FSL_FEATURE_FLASH_PFLASH_PAGE_SIZE = 128 \
              FSL_FEATURE_FLASH_PFLASH_PHRASE_SIZE = 16 \
              FSL_FEATURE_FLASH_HAS_IFR = 1 \
              FSL_FEATURE_FLASH_IFR_PAGE_SIZE = 128 \
+             FSL_FEATURE_FREQME_HAS_CLOCK_SOURCE_SELECT = 0 \
+             FSL_FEATURE_FREQME_RESULT_CALCULATION_MODE = 0 \
              FSL_FEATURE_GPIO_HAS_ATTRIBUTE_CHECKER = 0 \
              FSL_FEATURE_GPIO_REGISTERS_WIDTH = 32 \
              FSL_FEATURE_GPIO_HAS_VERSION_INFO_REGISTER = 1 \
@@ -2340,6 +2348,7 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_OPAMP_HAS_OPAMP_CTR_INPSEL = 0 \
              FSL_FEATURE_OPAMP_HAS_OPAMP_CTR_TRIGMD = 0 \
              FSL_FEATURE_OPAMP_HAS_SUPPORT_REFERENCE_BUFFER = 1 \
+             FSL_FEATURE_OSTIMER_HAS_BINARY_ENCODED_COUNTER = 0 \
              FSL_FEATURE_PORT_HAS_PIN_CONTROL_LOCK = 1 \
              FSL_FEATURE_PORT_HAS_OPEN_DRAIN = 1 \
              FSL_FEATURE_PORT_HAS_DIGITAL_FILTER = 0 \

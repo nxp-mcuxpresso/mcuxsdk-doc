@@ -782,6 +782,8 @@ INPUT = @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
         @SDK_BASE@/drivers/flexio/doxygen/flexio.dox \
         @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/flexpwm/doxygen/flexpwm.dox \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/flexram/doxygen/flexram.dox \
         @SDK_BASE@/drivers/flexram/fsl_flexram.h \
         @SDK_BASE@/drivers/flexspi/doxygen/flexspi_edma.dox \
@@ -927,6 +929,7 @@ INPUT = @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan_edma.h \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
         @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/flexram/fsl_flexram.h \
         @SDK_BASE@/drivers/flexspi/fsl_flexspi_edma.h \
         @SDK_BASE@/drivers/flexspi/fsl_flexspi.h \
@@ -1115,6 +1118,7 @@ IMAGE_PATH = @SDK_BASE@/devices/RT/RT1160/MIMXRT1166/drivers/doxygen \
              @SDK_BASE@/drivers/ewm/doxygen \
              @SDK_BASE@/drivers/flexcan/doxygen \
              @SDK_BASE@/drivers/flexio/doxygen \
+             @SDK_BASE@/drivers/flexpwm/doxygen \
              @SDK_BASE@/drivers/flexram/doxygen \
              @SDK_BASE@/drivers/flexspi/doxygen \
              @SDK_BASE@/drivers/gpt/doxygen \
@@ -2653,6 +2657,9 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 4 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELB = 1 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELX = 1 \
              FSL_FEATURE_PWM_HAS_ERRATA_51989 = 0 \
+             FSL_FEATURE_PWM_MASK_HAS_UPDATE_MASK_BITFIELD = 0 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_STRETCH_CNT_PRSC_BITFIELD = 0 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_WRPROT_BITFIELD = 0 \
              FSL_FEATURE_PXP_HAS_DITHER = 0 \
              FSL_FEATURE_PXP_HAS_EN_REPEAT = 1 \
              FSL_FEATURE_PXP_HAS_NO_CSC2 = 1 \
@@ -2727,10 +2734,10 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 4 \
              FSL_FEATURE_SOC_LMEM_COUNT = 1 \
              FSL_FEATURE_SOC_MMCAU_COUNT = 1 \
              FSL_FEATURE_LMEM_HAS_SYSTEMBUS_CACHE = 1 \
-             FSL_FEATURE_HAS_L1CACHE = 1 \
              FSL_FEATURE_LMEM_SUPPORT_ICACHE_DEMOTE_REMOVE = 1 \
              FSL_FEATURE_HAS_NO_NONCACHEABLE_SECTION = 0 \
              FSL_FEATURE_LMEM_HAS_ENWRBUF_BIT_CONFIG_SUPPORT = 1 \
+             FSL_FEATURE_HAS_L1CACHE = 1 \
              FSL_FEATURE_MEMORY_HAS_ADDRESS_OFFSET = 1 \
              FSL_FEATURE_MU_SIDE_B = 1
 

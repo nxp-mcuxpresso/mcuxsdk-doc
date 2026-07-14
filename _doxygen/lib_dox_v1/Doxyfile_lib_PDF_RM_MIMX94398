@@ -736,19 +736,14 @@ WARN_LOGFILE           =
 INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqsteer_soc.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_elec_spec.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_reset.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_trdc_soc.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/doxygen/clock.dox \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_clock.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_edma_soc.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/doxygen/iomuxc.dox \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_iomuxc.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_supply.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_cpu.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_memory.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_power.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_ccm.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_src.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_fro.h \
         @SDK_BASE@/drivers/aoi/doxygen/aoi.dox \
         @SDK_BASE@/drivers/aoi/fsl_aoi.h \
         @SDK_BASE@/drivers/bbnsm/doxygen/bbnsm.dox \
@@ -780,6 +775,8 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
         @SDK_BASE@/drivers/flexio/doxygen/flexio.dox \
         @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/flexpwm/doxygen/flexpwm.dox \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/gpt/doxygen/gpt.dox \
         @SDK_BASE@/drivers/gpt/fsl_gpt.h \
         @SDK_BASE@/drivers/hiperface/doxygen/hiperface.dox \
@@ -882,17 +879,12 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core1/fsl_irqsteer_soc.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_elec_spec.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_reset.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_trdc_soc.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_clock.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_edma_soc.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_iomuxc.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_supply.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_cpu.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_memory.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_power.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_ccm.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_src.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_fro.h \
         @SDK_BASE@/drivers/aoi/fsl_aoi.h \
         @SDK_BASE@/drivers/bbnsm/fsl_bbnsm.h \
         @SDK_BASE@/drivers/biss/fsl_biss.h \
@@ -910,6 +902,7 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/drivers/flexcan/fsl_flexcan_edma.h \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
         @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/gpt/fsl_gpt.h \
         @SDK_BASE@/drivers/hiperface/fsl_hiperface.h \
         @SDK_BASE@/drivers/i3c/fsl_i3c_edma.h \
@@ -973,17 +966,12 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm7_core0/fsl_irqsteer_soc.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_elec_spec.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_reset.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_trdc_soc.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_clock.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_edma_soc.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_iomuxc.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_supply.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_cpu.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_memory.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_power.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_ccm.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_src.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_fro.h \
         @SDK_BASE@/drivers/aoi/fsl_aoi.h \
         @SDK_BASE@/drivers/bbnsm/fsl_bbnsm.h \
         @SDK_BASE@/drivers/biss/fsl_biss.h \
@@ -1001,6 +989,7 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/drivers/flexcan/fsl_flexcan_edma.h \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
         @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/gpt/fsl_gpt.h \
         @SDK_BASE@/drivers/hiperface/fsl_hiperface.h \
         @SDK_BASE@/drivers/i3c/fsl_i3c_edma.h \
@@ -1064,17 +1053,12 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm7_core1/fsl_irqsteer_soc.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_elec_spec.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_reset.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_trdc_soc.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_clock.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_edma_soc.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_iomuxc.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_supply.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_cpu.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_memory.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_power.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_ccm.h \
         @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_src.h \
-        @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/fsl_fro.h \
         @SDK_BASE@/drivers/aoi/fsl_aoi.h \
         @SDK_BASE@/drivers/bbnsm/fsl_bbnsm.h \
         @SDK_BASE@/drivers/biss/fsl_biss.h \
@@ -1092,6 +1076,7 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/fsl_irqstee
         @SDK_BASE@/drivers/flexcan/fsl_flexcan_edma.h \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
         @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/gpt/fsl_gpt.h \
         @SDK_BASE@/drivers/hiperface/fsl_hiperface.h \
         @SDK_BASE@/drivers/i3c/fsl_i3c_edma.h \
@@ -1272,6 +1257,7 @@ IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX943/MIMX94398/drivers/cm33_core0/doxyge
              @SDK_BASE@/drivers/ewm/doxygen \
              @SDK_BASE@/drivers/flexcan/doxygen \
              @SDK_BASE@/drivers/flexio/doxygen \
+             @SDK_BASE@/drivers/flexpwm/doxygen \
              @SDK_BASE@/drivers/gpt/doxygen \
              @SDK_BASE@/drivers/hiperface/doxygen \
              @SDK_BASE@/drivers/i3c/doxygen \
@@ -2714,6 +2700,9 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELB = 1 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELX = 1 \
              FSL_FEATURE_PWM_HAS_ERRATA_51989 = 0 \
+             FSL_FEATURE_PWM_MASK_HAS_UPDATE_MASK_BITFIELD = 0 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_STRETCH_CNT_PRSC_BITFIELD = 0 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_WRPROT_BITFIELD = 0 \
              FSL_FEATURE_PXP_HAS_DITHER = 0 \
              FSL_FEATURE_PXP_HAS_EN_REPEAT = 0 \
              FSL_FEATURE_PXP_HAS_NO_CSC2 = 0 \

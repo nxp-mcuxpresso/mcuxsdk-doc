@@ -104,6 +104,10 @@
 :heading-offset: 2
 ```
 ---
+```{include} /drivers/flexpwm/doxygen/ChangeLog_flexpwm.md
+:heading-offset: 2
+```
+---
 ```{include} /drivers/lpc_freqme/doxygen/ChangeLog_freqme.md
 :heading-offset: 2
 ```

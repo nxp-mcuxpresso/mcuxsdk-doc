@@ -778,6 +778,8 @@ INPUT = @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/doxygen/pmu.dox \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
         @SDK_BASE@/drivers/flexio/doxygen/flexio.dox \
         @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/flexpwm/doxygen/flexpwm.dox \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/flexspi/doxygen/flexspi_edma.dox \
         @SDK_BASE@/drivers/flexspi/fsl_flexspi_edma.h \
         @SDK_BASE@/drivers/flexspi/doxygen/flexspi.dox \
@@ -926,6 +928,7 @@ INPUT = @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/doxygen/pmu.dox \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan_edma.h \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
         @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/flexspi/fsl_flexspi_edma.h \
         @SDK_BASE@/drivers/flexspi/fsl_flexspi.h \
         @SDK_BASE@/drivers/flexspi_flr/fsl_flexspi_flr.h \
@@ -1115,6 +1118,7 @@ IMAGE_PATH = @SDK_BASE@/devices/RT/RT1180/MIMXRT1189/drivers/doxygen \
              @SDK_BASE@/drivers/ewm/doxygen \
              @SDK_BASE@/drivers/flexcan/doxygen \
              @SDK_BASE@/drivers/flexio/doxygen \
+             @SDK_BASE@/drivers/flexpwm/doxygen \
              @SDK_BASE@/drivers/flexspi/doxygen \
              @SDK_BASE@/drivers/flexspi_flr/doxygen \
              @SDK_BASE@/drivers/gpt/doxygen \
@@ -2663,6 +2667,9 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 4 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELB = 1 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELX = 1 \
              FSL_FEATURE_PWM_HAS_ERRATA_51989 = 1 \
+             FSL_FEATURE_PWM_MASK_HAS_UPDATE_MASK_BITFIELD = 0 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_STRETCH_CNT_PRSC_BITFIELD = 0 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_WRPROT_BITFIELD = 1 \
              FSL_FEATURE_RGPIO_HAS_ATTRIBUTE_CHECKER = 0 \
              FSL_FEATURE_RGPIO_HAS_IRQ_CONFIG = 1 \
              FSL_FEATURE_RGPIO_HAS_PORT_INPUT_DISABLE = 1 \
