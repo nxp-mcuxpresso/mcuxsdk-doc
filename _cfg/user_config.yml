@@ -2053,6 +2053,24 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1189
       outdir: drivers/RT/RT1180/MIMXRT1189
+  board_frdmimxrt1152:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/RT/index.rst
+    - root: docs
+      pattern: boards/RT/frdmimxrt1152/*
+    - root: .
+      pattern: examples/_boards/frdmimxrt1152/**/*.md
+    - root: .
+      pattern: drivers/RT/RT1150/MIMXRT1152/index.rst
+    - root: .
+      pattern: devices/RT/RT1150/MIMXRT1152/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1152
+      outdir: drivers/RT/RT1150/MIMXRT1152
   board_frdmimxrt1186:
     default: true
     external_contents:
