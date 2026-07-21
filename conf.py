@@ -30,6 +30,7 @@ import re
 import textwrap
 import yaml
 import json
+import html
 from sphinx.cmd.build import get_parser
 from sphinx.util import logging
 
@@ -402,9 +403,77 @@ source_pages_files = [
     'ecosystem/sdk_generator/data/sdk_data_schema/v3/license_schema.json',
 ]
 
+_TITLE_TOOLTIP_LINK_RE = re.compile(r'\[([^\]]+)\]\(#\s+"((?:\\.|[^"])*)"\)')
+_MARKDOWN_INCLUDE_RE = re.compile(r'^\s*\.\.\s+include::\s+(.+?\.md)\s*$', re.MULTILINE)
+_MYST_HASH_LINK_RE = re.compile(
+    r'(<a\b(?=[^>]*\bhref="#")(?![^>]*\bdata-title-tooltip=)[^>]*>)'
+    r'(\s*<span class="xref myst">)(.*?)(</span>\s*</a>)',
+    re.DOTALL,
+)
+
+def _decode_markdown_title(title):
+    return re.sub(r'\\(.)', r'\1', title)
+
+def _read_title_tooltip_source(source_path):
+    if not source_path.exists():
+        return ''
+
+    source = source_path.read_text(encoding='utf-8')
+    if source_path.suffix.lower() != '.rst':
+        return source
+
+    included_sources = []
+    for include_path in _MARKDOWN_INCLUDE_RE.findall(source):
+        included_path = (source_path.parent / include_path).resolve()
+        if included_path.exists():
+            included_sources.append(included_path.read_text(encoding='utf-8'))
+    return '\n'.join(included_sources)
+
+def _add_title_tooltips_to_body(body, source):
+    title_by_label = {}
+    for label, title in _TITLE_TOOLTIP_LINK_RE.findall(source):
+        title_by_label.setdefault(label, []).append(_decode_markdown_title(title))
+    if not title_by_label:
+        return body
+
+    def add_tooltip(match):
+        label = html.unescape(match.group(3))
+        titles = title_by_label.get(label)
+        if not titles:
+            return match.group(0)
+        tooltip = html.escape(titles.pop(0), quote=True)
+        return f'{match.group(1)[:-1]} data-title-tooltip="{tooltip}">{match.group(2)}{match.group(3)}{match.group(4)}'
+
+    return _MYST_HASH_LINK_RE.sub(add_tooltip, body)
+
+def add_title_tooltips(app, exception):
+    if exception or app.builder.format != 'html':
+        return
+
+    updated = 0
+    for pagename in app.env.found_docs:
+        source_path = Path(app.srcdir) / app.env.doc2path(pagename, base=False)
+        source = _read_title_tooltip_source(source_path)
+        if not source:
+            continue
+
+        html_path = Path(app.builder.get_outfilename(pagename))
+        if not html_path.exists():
+            continue
+
+        body = html_path.read_text(encoding='utf-8')
+        updated_body = _add_title_tooltips_to_body(body, source)
+        if updated_body != body:
+            html_path.write_text(updated_body, encoding='utf-8')
+            updated += 1
+
+    if updated:
+        logger.info(f"Added title tooltip data to {updated} HTML page(s)")
+
 def setup(app):
     app.connect('source-read', patch_orphan_docs)
     app.connect('source-read', patch_mcuboot_readme)
+    app.connect('build-finished', add_title_tooltips)
     app.connect('build-finished', validate_html_paths)
     app.connect('builder-inited', _install_third_party_warning_filter)
 
@@ -686,7 +755,11 @@ docgen_rev = os.getenv("DOCGEN_REV")
 
 # CSS files - book_theme_custom.css is now provided by mcux_book_theme
 # Only list project-specific CSS here if needed.
-html_css_files = ["css/sdk_overrides.css"]
+html_css_files = [
+    'css/sdk_overrides.css',  # New CSS file for book theme customizations
+    'title-tooltips.css',
+]
+html_js_files = globals().get('html_js_files', []) + ['title-tooltips.js']
 
 is_release = tags.has("release")  # pylint: disable=undefined-variable
 reference_prefix = DOC_BUILD
