@@ -6,8 +6,8 @@ Wi-Fi, Bluetooth, 802.15.4
 Application notes
 #################
 
-* `Link AN12918-Wi-Fi-Tx-Power-Table-and-Channel-Scan-Management-for-i.MX-RT-SDK.pdf <https://www.nxp.com/docs/en/application-note/AN12918.pdf>`_
-* `Link TN00066-WFA-Derivative-Certification-Process.pdf <https://www.nxp.com/docs/en/application-note/TN00066.pdf>`_
+* `Link AN12918-Wi-Fi-Tx-Power-Table-and-Channel-Scan-Management-for-i.MX-RT-SDK.pdf <https://www.nxp.com.cn/docs/en/application-note/AN12918.pdf>`_
+* `Link TN00066-WFA-Derivative-Certification-Process.pdf <https://www.nxp.com.cn/docs/en/application-note/TN00066.pdf>`_
 
 User manuals
 ############

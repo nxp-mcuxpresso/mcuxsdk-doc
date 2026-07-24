@@ -1,6 +1,6 @@
 # Peripheral devices tested with USB Host stack
 
-[Table 1](peripheral_devices_tested_with_usb_host_stack.md#TABLE_D6E278B7-B99C-4A8E-9A79-BDFC51525F78) provides a list of USB devices tested with the USB Host stack.
+[Table 1](TABLE_D6E278B7-B99C-4A8E-9A79-BDFC51525F78) provides a list of USB devices tested with the USB Host stack.
 
 
 (TABLE_D6E278B7-B99C-4A8E-9A79-BDFC51525F78)=

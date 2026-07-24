@@ -10,7 +10,7 @@ This function calls the kernel to allocate the memory. The kernel fills in the m
 
 **Alignment note:**
 
-Vivante GPUs have an alignment requirement of 64 bytes. However, to meet the alignment requirements of the Vivante display controller, the VGLite driver sets the render target buffer alignment to 128 bytes. For source image buffer alignment requirements, see the alignment notes available in [Table 1](alignment_notes.md#IMAGE_SOURCE_ALIGNMENT_SUMMARY).
+Vivante GPUs have an alignment requirement of 64 bytes. However, to meet the alignment requirements of the Vivante display controller, the VGLite driver sets the render target buffer alignment to 128 bytes. For source image buffer alignment requirements, see the alignment notes available in [Table 1](alignment_notes.md).
 
 The vg\_lite\_buffer\_format\_t value descriptions:
 

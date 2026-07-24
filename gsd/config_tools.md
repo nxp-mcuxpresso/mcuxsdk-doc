@@ -12,7 +12,7 @@ MCUXpresso Config tools provide a user-friendly way to configure hardware initia
 
 MCUXpresso Config Tools generate source files for the board. These files include pin_mux.c/h and clock_config.c/h. The files contain initialization code functions that reflect the hardware configuration in the Config Tools.
 Within the SDK codebase, these files are specific for the board and either shared by multiple example projects or specific for one example.
-Open or import the configuration from the SDK project in the Config Tools and customize the settings to match the custom board or specific project use case and regenerate the code. See *User Guide for MCUXpresso Config Tools (Desktop)*  (document [GSMCUXCTUG](https://www.nxp.com/doc/GSMCUXCTUG) ) for details.
+Open or import the configuration from the SDK project in the Config Tools and customize the settings to match the custom board or specific project use case and regenerate the code. See *User Guide for MCUXpresso Config Tools (Desktop)*  (document [GSMCUXCTUG](https://www.nxp.com/webapp/Download?colCode=GSMCUXCTUG&location=null) ) for details.
 
 **Note:** When opening the configuration for SDK example projects, the board files may be shared across multiple examples. To ensure a separate copy of the board configuration files exists, create a freestanding project with copied board files.
 

@@ -7,4 +7,3 @@ MbedTLS 3.x
    :maxdepth: 1
 
    mbedtls3x/index
-   mbedtls3x/index_3rd_party

@@ -106,7 +106,7 @@ The section is defined as `.interrupts` and is placed in the `m_interrupts` memo
 
 In code, the vector table must be defined as follows to be placed in the correct location:
 
-```a
+```c
 __attribute__ ((used, section(".isr_vector")))
 void (* const g_pfnVectors[])(void) = {
     // Vector table entries

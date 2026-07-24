@@ -1,4 +1,4 @@
-.. _mbedtls3x:
+.. _mbedtls3x_3rd_party_proposed:
 
 Proposed
 ########

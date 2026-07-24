@@ -1,12 +1,12 @@
 # References
 
-1.  Application note - AN13681 – Wi-Fi Alliance \(WFA\) Derivative Certification Process \(available in the SDK package\)
-2.  User manual – UM11442 - NXP Wi-Fi and Bluetooth Demo Applications User Guide for i.MX RT Platforms \(available in the SDK package\)
-3.  User manual – UM11799 - NXP Wi-Fi and Bluetooth Demo Applications User Guide for RW61x \(available in the SDK package\)
-4.  Certification – Bluetooth controller - QDID \(*[link](https://launchstudio.bluetooth.com/ListingDetails/115533)*\)
-5.  User manual - UM12133 - NXP NCP Application Guide for RW612 with MCU Host
-6.  Technical note - TN00066 – Wi-Fi Alliance \(WFA\) Derivative Certification Process \(available in the SDK package\)
-7.  Web page – Thread certified products \([link](https://www.threadgroup.org/What-is-Thread/Thread-Benefits)\)
-8.  Web page – Connectivity standard alliance \(csa\) – NXP RW612 Tri-Radio Wireless MCU Development Platform \([link](https://csa-iot.org/csa_product/nxp-rw612-tri-radio-wireless-mcu-development-platform)\)
-9.  Web page – Connectivity standard alliance \(csa\) – NXP RW610 Wireless MCU Development Platform \([link](https://csa-iot.org/csa_product/nxp-rw610-wireless-mcu-development-platform/)\)
-10.  Application note - AN14634 – Kconfig Memory Optimizer \([link](https://docs.nxp.com/bundle/AN14634/page/topics/about_this_document.html)\)
+1.  <a id="item_an13681"></a>Application note - AN13681 – Wi-Fi Alliance \(WFA\) Derivative Certification Process \(available in the SDK package\)
+2.  <a id="item_um11442"></a>User manual – UM11442 - NXP Wi-Fi and Bluetooth Demo Applications User Guide for i.MX RT Platforms \(available in the SDK package\)
+3.  <a id="item_um11799"></a>User manual – UM11799 - NXP Wi-Fi and Bluetooth Demo Applications User Guide for RW61x \(available in the SDK package\)
+4.  <a id="item_bluetooth-qdid"></a>Certification – Bluetooth controller - QDID \(*[link](https://launchstudio.bluetooth.com/ListingDetails/115533)*\)
+5.  <a id="item_um12133"></a>User manual - UM12133 - NXP NCP Application Guide for RW612 with MCU Host
+6.  <a id="item_tn00066"></a>Technical note - TN00066 – Wi-Fi Alliance \(WFA\) Derivative Certification Process \(available in the SDK package\)
+7.  <a id="item_thread-certified"></a>Web page – Thread certified products \([link](https://www.threadgroup.org/What-is-Thread/Thread-Benefits)\)
+8.  <a id="item_csa-rw612"></a>Web page – Connectivity standard alliance \(csa\) – NXP RW612 Tri-Radio Wireless MCU Development Platform \([link](https://csa-iot.org/csa_product/nxp-rw612-tri-radio-wireless-mcu-development-platform)\)
+9.  <a id="item_csa-rw610"></a>Web page – Connectivity standard alliance \(csa\) – NXP RW610 Wireless MCU Development Platform \([link](https://csa-iot.org/csa_product/nxp-rw610-wireless-mcu-development-platform/)\)
+10.  <a id="item_an14634"></a>Application note - AN14634 – Kconfig Memory Optimizer \([link](https://docs.nxp.com/bundle/AN14634/page/topics/about_this_document.html)\)

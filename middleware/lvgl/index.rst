@@ -10,4 +10,4 @@ For usage and API of LVGL, refer LVGL official documentation at https://docs.lvg
 .. toctree::
    :maxdepth: 1
 
-   NXP Chips Integration Guide <docs/integration/chip/nxp>
+   NXP Chips Integration Guide <docs/src/details/integration/chip_vendors/nxp/index>

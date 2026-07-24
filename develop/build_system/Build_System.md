@@ -317,6 +317,7 @@ Note: Please ensure the target is executable type, otherwise the conversion will
 CMake Warning at mcuxsdk/cmake/extension/logging.cmake:46 (message):
   WARNING: mcux_platformlib is library type, can't be converted to binary file by mcux_convert_binary
 ```
+(mcux_add_iar_linker_script)=
 (mcux_add_iar_linker_script/mcux_add_mdk_linker_script/mcux_add_armgcc_linker_script)=
 #### mcux_add_iar_linker_script/mcux_add_mdk_linker_script/mcux_add_armgcc_linker_script/mcux_add_codewarrior_linker_script/mcux_add_riscvllvm_linker_script
 

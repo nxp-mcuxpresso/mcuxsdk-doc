@@ -1,4 +1,4 @@
-.. _tfm:
+.. _tfm_3rd_party:
 
 Third Party Documents
 #####################
@@ -9,12 +9,7 @@ TF-M Documents
 .. toctree::
    :maxdepth: 1
 
-   introduction
-   configuration
-   integration_guide
-   design_docs
-   security
-   releases
+   Trusted Firmware-M <../../../../middleware/tfm/tf-m/docs/index>
 
 TF-M-Tests Documents
 ====================

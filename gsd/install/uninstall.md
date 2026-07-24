@@ -325,7 +325,7 @@ find . -name "release" -type d -exec rm -rf {} +
 rm -rf docs/
 ```
 
-**Note:** Documentation can be accessed online at [docs.mcuxpresso.nxp.com](https://docs.mcuxpresso.nxp.com/mcuxsdk)
+**Note:** Documentation can be accessed online at [docs.mcuxpresso.nxp.com](https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/html/index.html)
 
 ## Complete System Cleanup
 

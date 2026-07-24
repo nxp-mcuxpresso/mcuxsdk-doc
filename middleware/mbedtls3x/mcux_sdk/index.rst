@@ -1,4 +1,4 @@
-.. _mbedtls3x:
+.. _mbedtls3x_mcux_sdk:
 
 MCUX SDK Documents
 ##################

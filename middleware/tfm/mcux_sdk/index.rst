@@ -1,4 +1,4 @@
-.. _tfm:
+.. _tfm_mcux_sdk:
 
 MCUX SDK Documents
 ##################

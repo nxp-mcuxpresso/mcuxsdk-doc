@@ -481,7 +481,7 @@ This pre-include file will be prefixed for each compiler automaitcally. Such as 
 
 ### Linker file
 
-The Linker file setting are set in CMake file, please refer to [CMake Extension Linker Setting](./Build_System.md#mcux_add_iar_linker_script/mcux_add_mdk_linker_script/mcux_add_armgcc_linker_script)
+The Linker file setting are set in CMake file, please refer to [CMake Extension Linker Setting](#mcux_add_iar_linker_script)
 
 ### Link libraries
 
@@ -777,7 +777,7 @@ You can simply run `west install_ruby` to get a portable version of ruby with al
 - MacOS Big Sur or later (including M series chip).
 
 ```{important}
-The west extension `install_ruby` is implemented in core repo `scripts` folder, please refer [Get MCUXpresso SDK Repo](../../gsd/repo_setup.md#workspace-initilization) to setup the repository. After the repository is ready, you should firstly run `west config commands.allow_extensions true` to enable west extensions otherwise you will get error <span style="color:red">unknown command install_ruby</span>.
+The west extension `install_ruby` is implemented in core repo `scripts` folder, please refer [Get MCUXpresso SDK Repo](../../gsd/repo_setup.md) to setup the repository. After the repository is ready, you should firstly run `west config commands.allow_extensions true` to enable west extensions otherwise you will get error <span style="color:red">unknown command install_ruby</span>.
 ```
 
 By default, portable_ruby will be extracted to User home directory `~/portable-ruby`. You can use `west install_ruby -o <path>` if you want to extract it to another place.

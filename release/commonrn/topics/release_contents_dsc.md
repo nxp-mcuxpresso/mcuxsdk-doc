@@ -1,6 +1,6 @@
 # Release contents
 
-[Table 1](release_contents_dsc.md#TABLE_RN_REL_CONTENTS) provides an overview of the MCUXpresso DSC SDK release package contents and locations.
+[Table 1](TABLE_RN_REL_CONTENTS) provides an overview of the MCUXpresso DSC SDK release package contents and locations.
 
 (TABLE_RN_REL_CONTENTS)=
 |Deliverable|Location|

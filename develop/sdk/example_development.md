@@ -484,10 +484,10 @@ Hence, to ensure an SDK repository example can be successfully exported as a Fre
 6. For sysbuild examples, `ExternalMCUXProject_Add` is expected in the root `sysbuild.cmake` file. For board with multiple different core ids, we only allow one level `include`. That means, you can `include` another `sysbuild.cmake` file in your board folder, but you cannot `include` again in that board specific `sysbuild.cmake`. Here is an example:
 
     ```cmake
-    mcuxsdk/examples/dsp_examples/hello_world_usart/cm/sysbuild.cmake
+    # mcuxsdk/examples/dsp_examples/hello_world_usart/cm/sysbuild.cmake
     include(${SdkRootDirPath}/${board_root}/${board}/dsp_examples/hello_world_usart/${core_id}/sysbuild.cmake)
 
-    mcuxsdk/examples/_boards/mimxrt700evk/dsp_examples/hello_world_usart/cm33_core0/sysbuild.cmake
+    # mcuxsdk/examples/_boards/mimxrt700evk/dsp_examples/hello_world_usart/cm33_core0/sysbuild.cmake
     ExternalZephyrProject_Add(
             APPLICATION hello_world_usart_hifi4
             SOURCE_DIR  ${APP_DIR}/../dsp
@@ -899,7 +899,7 @@ To specify the build directory, use `--build-dir` (or `-d`).
 
 Here are the typical supported debugger servers:
 
-1. [LinkServer](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER)
+1. [LinkServer](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKSERVER)
 2. [JLink](https://www.segger.com/downloads/jlink/)
 
 Please install LinkServer or JLink and add it to PATH environment variable firstly, then specify debug server with `-r`.

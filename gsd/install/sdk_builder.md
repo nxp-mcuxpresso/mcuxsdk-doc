@@ -369,4 +369,4 @@ SDK Builder doesn't provide API access, but you can:
 - **SDK Builder:** [mcuxpresso.nxp.com](https://mcuxpresso.nxp.com/)
 - **SDK Documentation:** [docs.mcuxpresso.nxp.com](https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/html/index.html)
 - **NXP Community:** [community.nxp.com](https://community.nxp.com/)
-- **Technical Support:** [nxp.com](https://www.nxp.com/support)
+- **Technical Support:** [nxp.com](https://www.nxp.com/support/support:SUPPORTHOME)

@@ -1,6 +1,6 @@
 # `vg_lite_format_t` enumeration
 
-Values for `vg_lite_format_t` enum are defined in [Table 1](common_parameter_types.md#COMMON_PARAMETER_TYPES).
+Values for `vg_lite_format_t` enum are defined in [Table 1](common_parameter_types.md).
 
 
 

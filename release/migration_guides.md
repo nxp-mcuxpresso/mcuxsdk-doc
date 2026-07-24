@@ -79,8 +79,8 @@ While the content noted above has changed, the process for importing the SDK and
 
 - [**Use SDK Builder**](../gsd/install/sdk_builder.md) to download your Arm GCC SDK as a ZIP/archive file
 - [**Import SDK**](../gsd/install/github.md) to download your Arm  GCC SDK from GitHub directly to your VS Code workspace
-- [**Import projects**]() and checkout the new project structure
-- [**Build and run**]() a project using the updated CMake configuration
+- **Import projects** and checkout the new project structure
+- **Build and run** a project using the updated CMake configuration
 
 
 ## Additional Resources
