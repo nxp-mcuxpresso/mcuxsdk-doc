@@ -4,7 +4,7 @@ The NXP MCUXpresso software and tools offer comprehensive development solutions 
 
 For supported toolchain versions, see *MCUXpresso SDK Release Notes for MIMXRT1060-EVKC* \(document MCUXSDKMIMXRT1060EVKCRN\).
 
-For more details about MCUXpresso SDK, see [MCUXpresso Software Development Kit \(SDK\)](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-software-development-kit-sdk:MCUXpresso-SDK?tid=vanMCUXPRESSO/SDK).
+For more details about MCUXpresso SDK, see [MCUXpresso Software Development Kit \(SDK\)](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-software-development-kit-sdk:MCUXpresso-SDK?tid=vanMCUXPRESSO/SDK).
 
 ![](../images/ksdk_layers_20.svg "MCUXpresso SDK layers")
 

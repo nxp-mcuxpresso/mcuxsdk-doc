@@ -12,9 +12,9 @@
     <install_dir>/boards/evkmimxrt1040/demo_apps/hello_world/mdk/hello_world.uvmpw
     ```
 
-2.  To build the demo project, select **Rebuild**, highlighted in red in [Figure 1](build_an_example_application_003.md#FIG_BUILDTHEDEMO).
+2.  To build the demo project, select **Rebuild**, highlighted in red in [Figure 1](#evkmimxrt1040_FIG_BUILDTHEDEMO).
 
-(FIG_BUILDTHEDEMO)=
+(evkmimxrt1040_FIG_BUILDTHEDEMO)=
     |![](../images/keil_build_the_demo.png "Build the demo")
 
 |

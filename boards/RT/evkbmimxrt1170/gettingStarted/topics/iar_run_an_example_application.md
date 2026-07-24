@@ -2,6 +2,7 @@
 
 To download and run the application, perform these steps:
 
+(evkbmimxrt1170_iar_step1)=
 1.  This board supports the CMSIS-DAP/mbed/DAPLink debug probe by default. Visit [MBED](https://os.mbed.com/handbook/Windows-serial-configuration) and follow the instructions to install the Windows® operating system serial driver. If running on Linux OS, this step is not required.
 2.  Connect the development platform to your PC via USB cable. Connect the USB cable to J11 and make sure SW1\[1:4\] is **0010b**.
 3.  Open the terminal application on the PC, such as PuTTY or TeraTerm, and connect to the debug COM port \(to determine the COM port number, see [How to determine COM port](how_to_determine_com_port.md)\). Configure the terminal with these settings:
@@ -12,23 +13,24 @@ To download and run the application, perform these steps:
     4.  1 stop bit
     ![](../images/iar_terminal_putty_configuration.png "Terminal (PuTTY) configuration")
 
+(evkbmimxrt1170_iar_step4)=
 4.  In IAR, click the **Download and Debug** button to download the application to the target.
 
     ![](../images/iar_download_and_debug_button.png "Download and Debug button")
 
-    -   When using CMSIS-DAP to debug cm4 project on IAR, an extra option need to be specified in debugger settings. Check and fill in **--macro\_param enable\_core=1** in **Debugger** -\> **Extra Options** -\> **Command line options**, as shown in [Figure 3](iar_run_an_example_application.md#FIG_COMMANDLINE).
+    -   When using CMSIS-DAP to debug cm4 project on IAR, an extra option need to be specified in debugger settings. Check and fill in **--macro\_param enable\_core=1** in **Debugger** -\> **Extra Options** -\> **Command line options**, as shown in [Figure 3](#evkbmimxrt1170_FIG_COMMANDLINE).
 
-        (FIG_COMMANDLINE)=
+        (evkbmimxrt1170_FIG_COMMANDLINE)=
         ![](../images/iar_options_for_node.png "Selecting Command line options")
 
     -   If debug with JLINK as probe, `jlinkscript` file is needed.
 
-        -   When downloading the `cm7` project, check **Use command line options**, as shown in [Figure 4](iar_run_an_example_application.md#FIG_CHECK).
+        -   When downloading the `cm7` project, check **Use command line options**, as shown in [Figure 4](#evkbmimxrt1170_FIG_CHECK).
 
-            (FIG_CHECK)=
+            (evkbmimxrt1170_FIG_CHECK)=
             ![](../images/iar_check_use_command_line_options.png "Check Use command line options")
 
-        -   When downloading the `cm4` project, uncheck **Use flash loaders**, as shown in [Figure 5](iar_run_an_example_application.md#FIG_UNCHECK), and change the contents of command line options as below:
+        -   When downloading the `cm4` project, uncheck **Use flash loaders**, as shown in [Figure 5](#evkbmimxrt1170_iar_FIG_UNCHECK), and change the contents of command line options as below:
 
             -   Target with SDRAM
 
@@ -42,6 +44,7 @@ To download and run the application, perform these steps:
                 --jlink_script_file=$PROJ_DIR$/../evkbmimxrt1170_connect_cm4_cm4side.jlinkscript
                 ```
 
+        (evkbmimxrt1170_iar_FIG_UNCHECK)=
         ![](../images/iar_uncheck_use_flash_loaders.png "Uncheck Use flash loader(s)")
 
 5.  The application is then downloaded to the target and automatically runs to the `main()` function.

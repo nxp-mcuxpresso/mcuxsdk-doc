@@ -121,10 +121,6 @@ FreeRTOS
 
 :ref:`freertos`
 
-Wireless EdgeFast Bluetooth PAL
-===============================
-
-:ref:`edgefast_bluetooth`
 
 lwIP
 ====

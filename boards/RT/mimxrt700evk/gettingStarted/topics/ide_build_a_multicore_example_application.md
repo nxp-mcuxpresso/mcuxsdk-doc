@@ -9,6 +9,7 @@ This section describes the steps required to configure MCUXpresso IDE to build, 
 
 3.  Now, two projects should be imported into the workspace. To start building the multicore application, highlight the `hello_world_cm33_core0` project \(multicore master project\) in the Project Explorer. Then choose the appropriate build target, Debug or Release, by clicking the downward facing arrow next to the hammer icon, as shown in [Figure 2](#fig_selectbuildtarget). For this example, select **Debug**.
 
+    (fig_selectbuildtarget)=
     ![](../images/ide_selection_of_the_build_target_in_MCUXpresso_IDE.png "Selection of the build target in MCUXpresso IDE")
 
     Press the **Build** button to start the multi-core project build.. Because of the project reference settings in multicore projects, triggering the build of the primary core application \(`cm33_core0`\) also makes the referenced auxiliary core application \(`cm33_core1`\) to build.

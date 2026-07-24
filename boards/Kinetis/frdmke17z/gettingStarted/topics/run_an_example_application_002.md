@@ -4,7 +4,7 @@ For more information on debug probe support in the MCUXpresso IDE, see [Communit
 
 To download and run the application, perform the following steps:
 
-1.  See [Table 1](default_debug_interfaces.md#TABLE_HARDWAREPLATFORM) to determine the debug interface that comes loaded on your specific hardware platform.
+1.  See [Table 1](#frdmke17z_TABLE_HARDWAREPLATFORM) to determine the debug interface that comes loaded on your specific hardware platform.
     -   For boards with the CMSIS-DAP/mbed/DAPLink interface, visit [Windows serial configuration](https://developer.mbed.org/handbook/Windows-serial-configuration) and follow the instructions to install the Windows operating system serial driver. If running on Linux OS, this step is not required.
     -   For boards with a P&E Micro interface, visit [PE micro](http://www.pemicro.com/support/downloads_find.cfm) and download and install the P&E Micro Hardware Interface Drivers package.
     -   If using J-Link either a standalone debug pod or OpenSDA, install the J-Link software \(drivers and utilities\) from [Segger](https://www.segger.com/).

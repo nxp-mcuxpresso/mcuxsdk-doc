@@ -12,6 +12,7 @@ To build an example application, perform the following steps:
 
 2.  To build the demo project, select **Rebuild**, as shown in [Figure 1](#fig_builddemo), highlighted in red.
 
+    (fig_builddemo)=
     ![](../images/keil_build_the_demo.png "Build the demo")
 
 3.  The build completes without errors.

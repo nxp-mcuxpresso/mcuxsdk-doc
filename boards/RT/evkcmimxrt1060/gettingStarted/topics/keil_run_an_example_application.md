@@ -12,7 +12,7 @@ To download and run the application, perform these steps:
     4.  1 stop bit
     ![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configurations")
 
-4.  To debug the application, click **load** \(or press the **F8** key\). Then, click the **Start/ Stop Debug Session** button, highlighted in red in [Figure 2](keil_run_an_example_application.md#fig_stopatmain). If using **J-Link**as the debugger, click **Project option**\> **Debug**\> **Settings**\> **Debug**\> **Port**, and select **SW**.
+4.  To debug the application, click **load** \(or press the **F8** key\). Then, click the **Start/ Stop Debug Session** button, highlighted in red in [Figure 2](#evkcmimxrt1060_fig_stopatmain). If using **J-Link**as the debugger, click **Project option**\> **Debug**\> **Settings**\> **Debug**\> **Port**, and select **SW**.
 
     **Note:**
 
@@ -20,18 +20,18 @@ To download and run the application, perform these steps:
 
     For details, see Segger Wiki. For the contents in this *JlinkSettings.JLinkScript*, use contents in *evkcmimxrt1060\_sdram\_init.jlinkscript*.
 
-    (fig_stopatmain)=
+    (evkcmimxrt1060_fig_stopatmain)=
     ![](../images/keil_stop_at_main.png "Stop at main() when run debugging")
 
-5.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](keil_run_an_example_application.md#fig_runbutton).
+5.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](#evkcmimxrt1060_fig_runbutton).
 
-    (fig_runbutton)=
+    (evkcmimxrt1060_fig_runbutton)=
     ![](../images/keil_run_button.jpeg "Run button")
 
 
-The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](keil_run_an_example_application.md#fig_textdisplay). If this is not true, check your terminal settings and connections.
+The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](#evkcmimxrt1060_fig_textdisplay). If this is not true, check your terminal settings and connections.
 
-(fig_textdisplay)=
+(evkcmimxrt1060_fig_textdisplay)=
 ![](../images/text_display_hello_world.png "Text display of the hello_world demo")
 
 **Parent topic:**[Run a demo using Keil MDK/μVision](../topics/run_a_demo_using_keil_mdkvision.md)

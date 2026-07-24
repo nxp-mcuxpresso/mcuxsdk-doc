@@ -4,7 +4,7 @@ The NXP MCUXpresso software and tools offer comprehensive development solutions 
 
 For supported toolchain versions, see *MCUXpresso SDK Release Notes for FRDM-KE17Z512* \(Document MCUXSDKKE17Z512RN\).
 
-For the latest version of this and other MCUXpresso SDK documents, see [MCUXpresso Software Development Kit \(SDK\)](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-software-development-kit-sdk:MCUXpresso-SDK).
+For the latest version of this and other MCUXpresso SDK documents, see [MCUXpresso Software Development Kit \(SDK\)](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-software-development-kit-sdk:MCUXpresso-SDK).
 
 ![](../images/ksdk_layers.svg "MCUXpresso SDK layers")
 

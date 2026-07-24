@@ -48,13 +48,6 @@ ChangeLog
 
    changeLog/clindex.md
 
-Driver API Reference Manual
-****************************
-
-This section provides a link to the Driver API RM, detailing available drivers and their usage to help you integrate hardware efficiently.
-
-:ref:`MIMX9375_drivers`
-
 Middleware Documentation
 *****************************
 

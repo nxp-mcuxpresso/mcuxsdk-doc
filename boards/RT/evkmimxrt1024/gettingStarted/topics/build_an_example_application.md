@@ -8,16 +8,16 @@ To build an example application, follow these steps.
 
 |
 
-2.  On the **Quickstart Panel**, click **Import SDK example\(s\)…**, as shown in [Figure 2](build_an_example_application.md#IMPORTANSDKEXAMPLE).
+2.  On the **Quickstart Panel**, click **Import SDK example\(s\)…**, as shown in [Figure 2](#evkmimxrt1024_IMPORTANSDKEXAMPLE).
 
-(IMPORTANSDKEXAMPLE)=
+(evkmimxrt1024_IMPORTANSDKEXAMPLE)=
     |![](../images/import_sdk_example.png "Import an SDK example")
 
 |
 
-3.  In the window that appears, expand the **MIMXRT1024**folder and select MIMXRT1024xxxxx. Then, select evkmimxrt1024 and click **Next**, as shown in [Figure 3](build_an_example_application.md#SELECTBOARD).
+3.  In the window that appears, expand the **MIMXRT1024**folder and select MIMXRT1024xxxxx. Then, select evkmimxrt1024 and click **Next**, as shown in [Figure 3](#evkmimxrt1024_SELECTBOARD).
 
-(SELECTBOARD)=
+(evkmimxrt1024_SELECTBOARD)=
     |![](../images/select_evk-imxrt1020_board.jpg "Selecting MIMXRT1024-EVK board")
 
 |
@@ -32,16 +32,16 @@ To build an example application, follow these steps.
 
 |
 
-    **Note:** If you want to use semihost to print log, first select the **Semihost** button when importing projects, as shown in [Figure 5](build_an_example_application.md#FLOAATING).
+    **Note:** If you want to use semihost to print log, first select the **Semihost** button when importing projects, as shown in [Figure 5](#evkmimxrt1024_FLOAATING).
 
-(FLOAATING)=
+(evkmimxrt1024_FLOAATING)=
     |![](../images/import.png "Selecting Semihost")
 
 |
 
-6.  On the **Quickstart** panel, click **build `evkmimxrt1024\_demo\_apps\_hello\_world \[Debug\]`**, as shown in [Figure 6](build_an_example_application.md#FSLOATINSG).
+6.  On the **Quickstart** panel, click **build `evkmimxrt1024\_demo\_apps\_hello\_world \[Debug\]`**, as shown in [Figure 6](#evkmimxrt1024_FSLOATINSG).
 
-(FSLOATINSG)=
+(evkmimxrt1024_FSLOATINSG)=
     |![](../images/build_hello_world_case_rt1020.png "Building hello world case")
 
 |

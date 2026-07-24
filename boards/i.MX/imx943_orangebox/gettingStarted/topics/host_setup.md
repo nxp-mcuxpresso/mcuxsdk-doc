@@ -36,11 +36,11 @@ An MCUXpresso SDK build requires that some packages are installed on the Host. D
 
     5.  Add the appropriate item to the Windows operating system path environment variable. It can be found under **Control Panel**-\>**System and Security**-\>**System**-\>**Advanced System Settings** in the **Environment Variables...** section. The path is: `<mingw_install_dir>\bin`.
 
-        Assuming the default installation path, `C:\MinGW`, an example is as shown in [Figure 3](host_setup.md#ADDINGPATH). If the path is not set correctly, the toolchain does not work.
+        Assuming the default installation path, `C:\MinGW`, an example is as shown in [Figure 3](#imx943_orangebox_ADDINGPATH). If the path is not set correctly, the toolchain does not work.
 
         **Note:** If you have `C:\MinGW\msys\x.x\bin` in your PATH variable \(as required by KSDK 1.0.0\), remove it to ensure that the new GCC build system works correctly.
 
-(ADDINGPATH)=
+(imx943_orangebox_ADDINGPATH)=
         |![](../images/add_path_to_systems_environment.png "Add Path to systems environment")
 
 

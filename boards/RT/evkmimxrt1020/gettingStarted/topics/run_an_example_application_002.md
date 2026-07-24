@@ -12,21 +12,21 @@ To download and run the application, perform these steps:
     4.  1 stop bit
     ![](../images/terminal_putty_configuration_001.png "Terminal (PuTTY) configurations")
 
-4.  To debug the application, click **load** \(or press the F8 key\). Then, click the **Start/Stop Debug Session** button, highlighted in red in [Figure 2](run_an_example_application_002.md#S1234098A702). If using **J-Link** as the debugger, click **Project option** \>**Debug** \>**Settings** \>**Debug** \>**Port**, and select **SW**.
+4.  To debug the application, click **load** \(or press the F8 key\). Then, click the **Start/Stop Debug Session** button, highlighted in red in [Figure 2](#evkmimxrt1020_S1234098A702). If using **J-Link** as the debugger, click **Project option** \>**Debug** \>**Settings** \>**Debug** \>**Port**, and select **SW**.
 
     **Note:** When debugging with jlink, it expects one jlinkscript file named JLinkSettings.JLinkScript in the folder where the uVision project files are located. For details, see Segger Wiki. For the contents in this JlinkSettings.JLinkScript, use contents in evkmimxrt1020\_sdram\_init.jlinkscript.
 
-(S1234098A702)=
+(evkmimxrt1020_S1234098A702)=
     ![](../images/stop_at_main_when_running_debugging_rt1020.png "Stop at main() when run debugging")
 
-5.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](run_an_example_application_002.md#S12702).
+5.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](#evkmimxrt1020_S12702).
 
-(S12702)=
+(evkmimxrt1020_S12702)=
     ![](../images/go_button.png "Run button")
 
-    The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](run_an_example_application_002.md#S127DD02). If this is not true, check your terminal settings and connections.
+    The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](#evkmimxrt1020_S127DD02). If this is not true, check your terminal settings and connections.
 
-(S127DD02)=
+(evkmimxrt1020_S127DD02)=
     ![](../images/hello_world_lowercase_001.png "Text display of the hello_world demo")
 
 

@@ -8,8 +8,9 @@
 
     *<install\_dir\>/boards/frdmke17z512/demo\_apps/hello\_world/mdk/hello\_world.uvmpw*
 
-2.  To build the demo project, select **Rebuild**, as shown in [Figure 1](#FIG_BUILDTHEDEMO), highlighted in red.
+2.  To build the demo project, select **Rebuild**, as shown in [Figure 1](#frdmke17z512_FIG_BUILDTHEDEMO), highlighted in red.
 
+    (frdmke17z512_FIG_BUILDTHEDEMO)=
     ![](../images/keil_build_the_demo.png "Build the demo")
 
 3.  The build completes without errors.

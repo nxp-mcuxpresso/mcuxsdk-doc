@@ -20,9 +20,9 @@ The following steps guide you through opening the `hello_world` example applicat
 
 |
 
-3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](build_an_example_application_002.md#DEVICEMANAGSER).
+3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](#evkmimx8mm_DEVICEMANAGSER).
 
-(DEVICEMANAGSER)=
+(evkmimx8mm_DEVICEMANAGSER)=
     |![](../images/build_the_demo_application_8mm.png "Building the demo application")
 
 |

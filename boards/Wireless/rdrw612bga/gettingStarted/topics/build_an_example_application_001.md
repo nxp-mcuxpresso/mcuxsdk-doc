@@ -24,9 +24,9 @@ Do the following steps to build the `hello_world` example application.
 
 |
 
-3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](build_an_example_application_001.md#BUILDINGDEMOAPP).
+3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](#rdrw612bga_BUILDINGDEMOAPP).
 
-(BUILDINGDEMOAPP)=
+(rdrw612bga_BUILDINGDEMOAPP)=
     |![](../images/fig22.png "Build the demo application")
 
 |

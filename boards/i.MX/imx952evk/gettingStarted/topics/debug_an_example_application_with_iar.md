@@ -7,10 +7,10 @@ To debug an application with IAR, perform these steps:
 3.  power on the board, make sure the M7 is booted by SM
 4.  Open hello world example with IAR, click **download and debug** to debug
 
-    |![](../images/download_and_debug.png "Download and debug")
+    |![](/boards/i.MX/imx952evk/gettingStarted/images/download_and_debug.png "Download and debug")
 5.  click button such as **step over** to debug
 
-    |![](../images/debug.png "debug")
+    |![](/boards/i.MX/imx952evk/gettingStarted/images/debug.png "debug")
 
 **Parent topic:**[Run a demo application](../topics/run_a_demo_application.md)
 

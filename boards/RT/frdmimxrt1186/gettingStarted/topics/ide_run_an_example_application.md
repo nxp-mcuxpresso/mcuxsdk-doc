@@ -2,7 +2,7 @@
 
 To download and run the application, perform the following steps:
 
-1.  See [Table 1](default_debug_interfaces.md#TABLE_HWPLATFORMS) to determine the debug interface that comes loaded on your specific hardware platform.
+1.  See [Table 1](#frdmimxrt1186_TABLE_HWPLATFORMS) to determine the debug interface that comes loaded on your specific hardware platform.
     -   For FRDMIMXRT1186, LPC55S69 is used.
     -   J23 is used as the debugging port which provides both debugging functionality and console out.
 2.  Connect USB cable between J23 on EVK and PC USB port.
@@ -18,11 +18,11 @@ To download and run the application, perform the following steps:
 
     ![](../images/ide_debugging_hello_world_case.png "Debug hello_world case")
 
-    **Note:** Erase the flash memory before running the MCUX IDE projects for the first time. To do so, use the **Erase Flash action using LinkServer** in [Figure 2](ide_run_an_example_application.md#FIG_DEBUGHELLOWORLDCASES) with `J60[1..3]` on `001`. In the worst case when MCUX IDE cannot erase the flash, use the secure provisioning tool. For more information, see [Use Secure Provisiong Tool to erase flash](use_secure_provisiong_tool_to_erase_flash.md).
+    **Note:** Erase the flash memory before running the MCUX IDE projects for the first time. To do so, use the **Erase Flash action using LinkServer** in [Figure 2](#frdmimxrt1186_FIG_DEBUGHELLOWORLDCASES) with `J60[1..3]` on `001`. In the worst case when MCUX IDE cannot erase the flash, use the secure provisioning tool. For more information, see [Use Secure Provisiong Tool to erase flash](use_secure_provisiong_tool_to_erase_flash.md).
 
 5.  The first time you debug a project, the **Debug Emulator Selection** dialog is displayed, showing all supported probes that are attached to your computer. Select the probe through which you want to debug and click **OK**. Here we assume that you are using a CMSIS-DAP debug interface. \(For any future debug sessions, the stored probe selection is automatically used, unless the probe cannot be found.\)
 
-    (FIG_DEBUGHELLOWORLDCASES)=
+    (frdmimxrt1186_FIG_DEBUGHELLOWORLDCASES)=
     ![](../images/ide_attached_probes_debug_emulator_selection.png "Attached Probes: debug emulator selection")
 
 6.  The application is downloaded to the target and automatically runs to `main()`.

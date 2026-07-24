@@ -1,6 +1,6 @@
 # Run a multicore example application
 
-The primary core debugger flashes both the primary and the auxiliary core applications into the SoC flash memory. To download and run the multicore application, switch to the primary core application project and perform Steps [1](keil_run_an_example_application.md#step1) – [5](keil_run_an_example_application.md#step5) as described in [Run an example application](keil_run_an_example_application.md). These steps are common for both single-core and dual-core applications in μVision.
+The primary core debugger flashes both the primary and the auxiliary core applications into the SoC flash memory. To download and run the multicore application, switch to the primary core application project and perform Steps {ref}`1 <evkbmimxrt1170_keil_step1>` – {ref}`5 <evkbmimxrt1170_keil_step5>` as described in [Run an example application](keil_run_an_example_application.md). These steps are common for both single-core and dual-core applications in μVision.
 
 Both the primary and the auxiliary image is loaded into the flash memory. After clicking **Run**, the primary core application is executed. During the primary core code execution, the auxiliary core code is re-allocated from the SPI flash memory to the RAM, and the auxiliary core is released from the reset. The `hello_world` multicore application is now running and a banner is displayed on the terminal. If this is not true, check your terminal settings and connections.
 

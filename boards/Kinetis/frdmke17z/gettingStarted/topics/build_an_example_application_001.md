@@ -24,9 +24,9 @@ Perform the following steps to build the `hello_world` example application.
 
 |
 
-3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](build_an_example_application_001.md#FIG_BUILDINGDEMOAPP).
+3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](#frdmke17z_FIG_BUILDINGDEMOAPP).
 
-(FIG_BUILDINGDEMOAPP)=
+(frdmke17z_FIG_BUILDINGDEMOAPP)=
     |![](../images/build_the_demo_application_20.png "Build the demo application")
 
 |

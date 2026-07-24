@@ -2,6 +2,7 @@
 
 When JLink Debug Interface is used, manually revise **Debug Configuration** under **Project** \> **Options** \> **Debugging**.
 
+(step1)=
 1.  Change the debug driver to `J-Link/J-Trace`.
 
 2.  Uncheck **Use macro file\(s\)**.

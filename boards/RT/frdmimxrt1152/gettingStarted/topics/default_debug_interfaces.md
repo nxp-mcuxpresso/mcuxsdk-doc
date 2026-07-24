@@ -1,10 +1,11 @@
 # Default debug interfaces
 
-The MCUXpresso SDK supports various hardware platforms that come loaded with a variety of factory programmed debug interface configurations. [Table 1](default_debug_interfaces.md#TABLE_HWPLATFORMS) lists the hardware platforms supported by the MCUXpresso SDK, their default debug interface, and any version information that helps differentiate a specific interface configuration.
+The MCUXpresso SDK supports various hardware platforms that come loaded with a variety of factory programmed debug interface configurations. [Table 1](#frdmimxrt1152_TABLE_HWPLATFORMS) lists the hardware platforms supported by the MCUXpresso SDK, their default debug interface, and any version information that helps differentiate a specific interface configuration.
 
-(fntarg_1)=
-(TABLE_HWPLATFORMS)=
-|Hardware platform|Default interface|OpenSDA details[1](default_debug_interfaces.md#fntarg_1)|
+(fnsrc_1)=
+(frdmimxrt1152_fntarg_1)=
+(frdmimxrt1152_TABLE_HWPLATFORMS)=
+|Hardware platform|Default interface|OpenSDA details[1](#frdmimxrt1152_fntarg_1)|
 |-----------------|-----------------|-----------------------------|
 |EVK-​MC56F83000|P&E Micro OSJTAG|N/​A|
 |EVK-​MIMXRT595|CMSIS-​DAP|N/​A|
@@ -85,5 +86,5 @@ The MCUXpresso SDK supports various hardware platforms that come loaded with a v
 |USB-​KW24D512|N/​A External probe|N/​A|
 |USB-​KW41Z|CMSIS-​DAP\\DAPLink|OpenSDA v2.​1 or greater|
 
-[1](default_debug_interfaces.md#fnsrc_1) The OpenSDA details is not applicable to LPC.
+[1](#fnsrc_1) The OpenSDA details is not applicable to LPC.
 

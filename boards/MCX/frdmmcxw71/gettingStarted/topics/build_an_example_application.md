@@ -22,9 +22,9 @@ Do the following steps to build the `hello_world` example application..
 
     ![](../images/iar_demo_build_target_selection.jpg "Demo build target selection")
 
-3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](build_an_example_application.md#FIG_BUILDDEMO).
+3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](#frdmmcxw71_FIG_BUILDDEMO).
 
-    (FIG_BUILDDEMO)=
+    (frdmmcxw71_FIG_BUILDDEMO)=
     ![](../images/iar_build_the_demo_application.jpg "Build the demo application")
 
 4.  The build completes without errors.

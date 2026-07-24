@@ -54,6 +54,7 @@ To run the ‘Hello World’ demo, import the SDK sources into the Xplorer IDE.
 
 7.  Expand the **Xtensa On Chip Debug** tree option and select ‘*dsp\_hello\_world\_hifi4\_debug\_jlink*’.
 
+    (HVHWEG)=
     |![](../images/image26.png "Select dsp_hello_world_hifi4_debug_jlink")
 
 |
@@ -74,7 +75,7 @@ To run the ‘Hello World’ demo, import the SDK sources into the Xplorer IDE.
 
 10. The Xplorer IDE transitions to the **Debug** perspective after the binary download.
 
-    **Note:** After initial configuration, it is possible to select the same debug configuration as in [Figure 8](prepare_dsp_core_for_hello_world.md#HVHWEG).
+    **Note:** After initial configuration, it is possible to select the same debug configuration as in [Figure 8](#HVHWEG).
 
     |![](../images/image29.png "Select debug configuration")
 

@@ -1,6 +1,6 @@
 # Run a multicore example application
 
-The primary core debugger handles flashing both primary and the auxiliary core applications into the SoC flash memory. To download and run the multicore application, switch to the primary core application project and perform Steps [1](iar_run_an_example_application.md#step1) – [4](iar_run_an_example_application.md#step4) as described in [Figure 5](iar_run_an_example_application.md#FIG_UNCHECK). These steps are common for both single core and dual-core applications in IAR.
+The primary core debugger handles flashing both primary and the auxiliary core applications into the SoC flash memory. To download and run the multicore application, switch to the primary core application project and perform Steps {ref}`1 <evkbmimxrt1170_iar_step1>` – {ref}`4 <evkbmimxrt1170_iar_step4>` as described in {ref}`Figure 5 <evkbmimxrt1170_iar_FIG_UNCHECK>`. These steps are common for both single core and dual-core applications in IAR.
 
 After clicking the **Download and Debug** button, the auxiliary core project is opened in the separate EWARM instance. Both the primary and auxiliary image are loaded into the device flash memory and the primary core application is executed. It stops at the default C language entry point in the `main()` function.
 

@@ -2,6 +2,7 @@
 
 To download and run the application, perform these steps:
 
+(evkbmimxrt1170_keil_step1)=
 1.  This board supports the `CMSIS-DAP/mbed/DAPLink` debug probe by default. Visit [MBED](https://os.mbed.com/handbook/Windows-serial-configuration) serial-configuration and follow the instructions to install the Windows® operating system serial driver. If running on Linux OS, this step is not required.
 2.  Connect the development platform to your PC via USB cable.
 3.  Open the terminal application on the PC, such as PuTTY or TeraTerm, J11, and connect to the debug serial port number. To determine the COM port number, see [How to determine COM port](how_to_determine_com_port.md). Configure the terminal with these settings:
@@ -12,7 +13,7 @@ To download and run the application, perform these steps:
     4.  1 stop bit
     ![](../images/keil_terminal_putty_configuration.png "Terminal (PuTTY) configurations")
 
-4.  To debug the application, click **load** or press the F8 key for flexspi target which needs to download the program to flash memory. Then, click the **Start/Stop Debug Session**button, highlighted in red in [Figure 2](keil_run_an_example_application.md#FIG_STOPATMAIN). If using **J-Link**as the debugger, click **Project option**\>**Debug**\>**Settings**\>**Debug** \>**Port**, and select **SW**.
+4.  To debug the application, click **load** or press the F8 key for flexspi target which needs to download the program to flash memory. Then, click the **Start/Stop Debug Session**button, highlighted in red in [Figure 2](#evkbmimxrt1170_FIG_STOPATMAIN). If using **J-Link**as the debugger, click **Project option**\>**Debug**\>**Settings**\>**Debug** \>**Port**, and select **SW**.
 
     **Note:**
 
@@ -20,17 +21,18 @@ To download and run the application, perform these steps:
 
     For the contents in this `JlinkSettings.JLinkScript`, use contents in `evkbmimxrt1170_connect_cm4_cm4side.jlinkscript` \(non-sdram targets\) and `evkbmimxrt1170_connect_cm4_cm4side_sdram.jlinkscript` \(sdram targets\).
 
-    (FIG_STOPATMAIN)=
+    (evkbmimxrt1170_FIG_STOPATMAIN)=
     ![](../images/keil_stop_at_main.png "Stop at main() when run debugging")
 
-5.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](keil_run_an_example_application.md#FIG_RUNBUTTON).
+(evkbmimxrt1170_keil_step5)=
+5.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](#evkbmimxrt1170_FIG_RUNBUTTON).
 
-    (FIG_RUNBUTTON)=
+    (evkbmimxrt1170_FIG_RUNBUTTON)=
     ![](../images/keil_run_button.png "Run button")
 
-    The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](keil_run_an_example_application.md#FIG_TEXTDISPLAY). If this is not true, check your terminal settings and connections.
+    The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](#evkbmimxrt1170_FIG_TEXTDISPLAY). If this is not true, check your terminal settings and connections.
 
-    (FIG_TEXTDISPLAY)=
+    (evkbmimxrt1170_FIG_TEXTDISPLAY)=
     ![](../images/keil_text_display.png "Text display of the hello_world demo")
 
 

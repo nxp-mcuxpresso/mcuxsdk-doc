@@ -8,23 +8,23 @@ To build an example application, follow these steps.
 
 |
 
-2.  On the **Quickstart Panel**, click **Import SDK example\(s\)…**, as shown in [Figure 2](build_an_example_application.md#IMPORTANSDKEXAMPLE).
+2.  On the **Quickstart Panel**, click **Import SDK example\(s\)…**, as shown in [Figure 2](#evkmimxrt1064_IMPORTANSDKEXAMPLE).
 
-(IMPORTANSDKEXAMPLE)=
+(evkmimxrt1064_IMPORTANSDKEXAMPLE)=
     |![](../images/import_sdk_example.png "Import an SDK example")
 
 |
 
-3.  In the window that appears, expand the **MIMXRT1064** folder and select **MIMXRT1064xxxxx**. Then, select **evkmimxrt1064** and click **Next**, as shown in [Figure 3](build_an_example_application.md#SELECTBOARD).
+3.  In the window that appears, expand the **MIMXRT1064** folder and select **MIMXRT1064xxxxx**. Then, select **evkmimxrt1064** and click **Next**, as shown in [Figure 3](#evkmimxrt1064_SELECTBOARD).
 
-(SELECTBOARD)=
+(evkmimxrt1064_SELECTBOARD)=
     |![](../images/select_evkb-imxrt1064_board.png "Selecting MIMXRT1064-EVK board")
 
 |
 
-4.  Expand the `demo_apps` folder, select `hello_world`, and then click **Next**, as shown in [Figure 4](build_an_example_application.md#SELECTHELLOWORLDCASE).
+4.  Expand the `demo_apps` folder, select `hello_world`, and then click **Next**, as shown in [Figure 4](#evkmimxrt1064_SELECTHELLOWORLDCASE).
 
-(SELECTHELLOWORLDCASE)=
+(evkmimxrt1064_SELECTHELLOWORLDCASE)=
     |![](../images/select_hello_world_rt1064.png "Selecting hello_world")
 
 |
@@ -37,9 +37,9 @@ To build an example application, follow these steps.
 
 |
 
-    **Note:** If you want to use semihost to print log, first select the **Semihost** button when importing projects, as shown in [Figure 6](build_an_example_application.md#FLOAATING).
+    **Note:** If you want to use semihost to print log, first select the **Semihost** button when importing projects, as shown in [Figure 6](#evkmimxrt1064_FLOAATING).
 
-(FLOAATING)=
+(evkmimxrt1064_FLOAATING)=
     |![](../images/select_semihost_rt1064.png "Selecting Semihost")
 
 |
@@ -48,9 +48,9 @@ To build an example application, follow these steps.
 
 |
 
-6.  On the **Quickstart** panel, click **build `evkmimxrt1064\_demo\_apps\_hello\_world \[Debug\]`**, as shown in [Figure 8](build_an_example_application.md#FSLOATINSG).
+6.  On the **Quickstart** panel, click **build `evkmimxrt1064\_demo\_apps\_hello\_world \[Debug\]`**, as shown in [Figure 8](#evkmimxrt1064_FSLOATINSG).
 
-(FSLOATINSG)=
+(evkmimxrt1064_FSLOATINSG)=
     |![](../images/build_hello_world_case_rt1064.png "Building hello world case")
 
 |

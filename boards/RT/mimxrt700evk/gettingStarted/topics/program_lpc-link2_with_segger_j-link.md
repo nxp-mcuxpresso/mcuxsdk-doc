@@ -30,9 +30,9 @@ The steps are:
 
     **Note:** File paths in this document use the Windows directory separator, on Linux or Mac OSX. The file paths must be replaced with ‘/.’ For Windows users, shortcuts to the scripts are available from the MCU-LInk entry on the Start menu.
 
-7.  Verify once you select the firmware \(in this case J-Link\), MCU-Link. The console appears as shown in [Figure 4](program_lpc-link2_with_segger_j-link.md#JJEFJHWV).
+7.  Verify once you select the firmware \(in this case J-Link\), MCU-Link. The console appears as shown in [Figure 4](#mimxrt700evk_JJEFJHWV).
 
-(JJEFJHWV)=
+(mimxrt700evk_JJEFJHWV)=
     |![](../images/image14.png "Console after selecting the firmware")
 
 |

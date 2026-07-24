@@ -10,9 +10,9 @@ In the current SDK package, most CM33 demos generate POR images by default, whil
 -   These POR images are not signed, just for develop convenience, not recommended for product usage.
 -   It is highly recommended to use SPT for image download.
 
-For the SDK CM33 IAR/MDK/ARMGCC project, `flexspi_nor` targets, as well as for MCUX project, debug/release targets. It is easy to switch RAW/POR image, via the project macro `XIP_BOOT_HEADER_ENABLE` setting. [Table 1](RAW_POR_image_switch.md#table_rules)describes the rules.
+For the SDK CM33 IAR/MDK/ARMGCC project, `flexspi_nor` targets, as well as for MCUX project, debug/release targets. It is easy to switch RAW/POR image, via the project macro `XIP_BOOT_HEADER_ENABLE` setting. [Table 1](#evkmimxrt1180_table_rules)describes the rules.
 
-(table_rules)=
+(evkmimxrt1180_table_rules)=
 |XIP\_BOOT\_HEADER\_ENABLE setting|Image type|
 |---------------------------------|----------|
 |1|POR|

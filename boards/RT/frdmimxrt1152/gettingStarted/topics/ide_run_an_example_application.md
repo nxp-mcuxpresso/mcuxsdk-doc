@@ -2,7 +2,7 @@
 
 To download and run the application, perform the following steps:
 
-1.  See [Table 1](default_debug_interfaces.md#TABLE_HWPLATFORMS) to determine the debug interface that comes loaded on your specific hardware platform.
+1.  See [Table 1](#frdmimxrt1152_TABLE_HWPLATFORMS) to determine the debug interface that comes loaded on your specific hardware platform.
     -   If using J-Link with either a standalone debug pod or OpenSDA, install the J-Link software \(drivers and utilities\) from [SEGGER](https://www.segger.com/downloads/jlink/).
 2.  Connect the development platform to your PC via a USB cable.
 3.  Connect USB cable between J13 on board and PC USB port.

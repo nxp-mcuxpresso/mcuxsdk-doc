@@ -16,14 +16,14 @@ To download and run the application, perform these steps:
 
     ![](../images/iar_download_and_debug_button.png "Download and Debug button")
 
-    -   If debugging with J-Link as the probe, a `jlinkscript` file is needed. Select **J-Link/J-Trace** as the driver and uncheck **Use macro file(s)**, as shown in [Figure 3](iar_run_an_example_application.md#FIG_JLINK).
+    -   If debugging with J-Link as the probe, a `jlinkscript` file is needed. Select **J-Link/J-Trace** as the driver and uncheck **Use macro file(s)**, as shown in [Figure 3](#frdmimxrt1152_FIG_JLINK).
 
-        (FIG_JLINK)=
+        (frdmimxrt1152_FIG_JLINK)=
         ![](../images/iar_set_jlink_and_uncheck_use_macro_files.png "Select J-Link/J-Trace and uncheck Use macro file(s)")
 
-        Then check **Use command line options**, as shown in [Figure 4](iar_run_an_example_application.md#FIG_CHECK), and set the command line option:
+        Then check **Use command line options**, as shown in [Figure 4](#frdmimxrt1152_FIG_CHECK), and set the command line option:
 
-        (FIG_CHECK)=
+        (frdmimxrt1152_FIG_CHECK)=
         ![](../images/iar_check_use_command_line_options.png "Check Use command line options")
 
         ```

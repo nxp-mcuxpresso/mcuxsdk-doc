@@ -2,14 +2,14 @@
 
 The Xtensa Xplorer IDE tool can run software simulation and profile the application directly. Both simulation and profiling are cycle accurate. This is convenient for algorithm or heavy application developers.
 
-[Figure 1](profiling.md#MJDHFVWC) shows profiling result of the helloworld program on simulation console.
+[Figure 1](#mimxrt685audevk_MJDHFVWC) shows profiling result of the helloworld program on simulation console.
 
-(MJDHFVWC)=
+(mimxrt685audevk_MJDHFVWC)=
 |![](../images/image48.png "Profiling result of the helloworld program")
 
 |
 
-[Figure 1](profiling.md#MJDHFVWC) shows the profiling chart, partially.
+[Figure 1](#mimxrt685audevk_MJDHFVWC) shows the profiling chart, partially.
 
 |![](../images/image49.png "Partial profiling chart")
 

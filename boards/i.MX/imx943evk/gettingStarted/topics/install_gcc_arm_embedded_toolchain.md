@@ -2,5 +2,5 @@
 
 Download and run the installer from the GNU Arm Embedded Toolchain Downloads page. The GNU Arm embedded toolchain contains the GCC compiler, libraries, and other tools required for bare-metal software development. The GCC toolchain should correspond to the latest supported version, as described in the MCUXpresso SDK Release Notes for IMX943 Series \(document MCUXSDKIMX943SERIESRN\).
 
-**Parent topic:**[Set up toolchain](../topics/set_up_toolchain_0.md)
+**Parent topic:**[Set up toolchain](/boards/i.MX/imx943evk/gettingStarted/topics/set_up_toolchain_0.md)
 

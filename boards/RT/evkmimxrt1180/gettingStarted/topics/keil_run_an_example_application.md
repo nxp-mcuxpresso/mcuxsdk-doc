@@ -11,19 +11,19 @@ The default MDK project settings assumes CMSIS-DAP debug interface is used. If y
     4.  1 stop bit
     ![](../images/keil_terminal_putty_configuration.png "Terminal (PuTTY) configurations")
 
-3.  To debug the application, click the **Start/Stop Debug Session** button or **Ctrl** + **F5**, highlighted in [Figure 2](keil_run_an_example_application.md#FIG_STOPATMAIN).
+3.  To debug the application, click the **Start/Stop Debug Session** button or **Ctrl** + **F5**, highlighted in [Figure 2](#evkmimxrt1180_FIG_STOPATMAIN).
 
-    (FIG_STOPATMAIN)=
+    (evkmimxrt1180_FIG_STOPATMAIN)=
     ![](../images/keil_stop_at_main.png "Stop at main() when run debugging")
 
-4.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](keil_run_an_example_application.md#FIG_RUNBUTTON).
+4.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](#evkmimxrt1180_FIG_RUNBUTTON).
 
-    (FIG_RUNBUTTON)=
+    (evkmimxrt1180_FIG_RUNBUTTON)=
     ![](../images/keil_run_button.png "Run button")
 
-    The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](keil_run_an_example_application.md#FIG_TEXTDISPLAY). If this is not true, check your terminal settings and connections.
+    The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](#evkmimxrt1180_FIG_TEXTDISPLAY). If this is not true, check your terminal settings and connections.
 
-    (FIG_TEXTDISPLAY)=
+    (evkmimxrt1180_FIG_TEXTDISPLAY)=
     ![](../images/keil_text_display.png "Text display of the hello_world demo")
 
 

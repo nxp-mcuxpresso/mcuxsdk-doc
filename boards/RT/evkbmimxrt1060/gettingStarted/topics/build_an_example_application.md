@@ -8,16 +8,16 @@ To build an example application, follow these steps.
 
 |
 
-2.  On the **Quickstart Panel**, click **Import SDK example\(s\)…**, as shown in [Figure 2](build_an_example_application.md#IMPORTANSDKEXAMPLE).
+2.  On the **Quickstart Panel**, click **Import SDK example\(s\)…**, as shown in [Figure 2](#evkbmimxrt1060_IMPORTANSDKEXAMPLE).
 
-(IMPORTANSDKEXAMPLE)=
+(evkbmimxrt1060_IMPORTANSDKEXAMPLE)=
     |![](../images/import_sdk_example.png "Import an SDK example")
 
 |
 
-3.  In the window that appears, expand the **MIMXRT1060** folder and select. **** Then, select **evkbmimxrt1060** and click **Next**, as shown in [Figure 3](build_an_example_application.md#SELECTBOARD).
+3.  In the window that appears, expand the **MIMXRT1060** folder and select. **** Then, select **evkbmimxrt1060** and click **Next**, as shown in [Figure 3](#evkbmimxrt1060_SELECTBOARD).
 
-(SELECTBOARD)=
+(evkbmimxrt1060_SELECTBOARD)=
     |![](../images/mcux_select_board_rt1960evkb.png "Selecting MIMXRT1060-EVKB board")
 
 |
@@ -36,9 +36,9 @@ To build an example application, follow these steps.
 
 |
 
-    **Note:** If you want to use semihost to print log, first select the **Semihost** button when importing projects, as shown in [Figure 6](build_an_example_application.md#FLOAATING).
+    **Note:** If you want to use semihost to print log, first select the **Semihost** button when importing projects, as shown in [Figure 6](#evkbmimxrt1060_FLOAATING).
 
-(FLOAATING)=
+(evkbmimxrt1060_FLOAATING)=
     |![](../images/semihost_rt1060evkb.png "Selecting Semihost")
 
 |
@@ -47,9 +47,9 @@ To build an example application, follow these steps.
 
 |
 
-6.  On the **Quickstart** panel, click **build `evkbmimxrt1060\_demo\_apps\_hello\_world \[Debug\]`**, as shown in [Figure 8](build_an_example_application.md#FSLOATINSG).
+6.  On the **Quickstart** panel, click **build `evkbmimxrt1060\_demo\_apps\_hello\_world \[Debug\]`**, as shown in [Figure 8](#evkbmimxrt1060_FSLOATINSG).
 
-(FSLOATINSG)=
+(evkbmimxrt1060_FSLOATINSG)=
     |![](../images/mcux_build_rt1060evkb.png "Building hello world case")
 
 |

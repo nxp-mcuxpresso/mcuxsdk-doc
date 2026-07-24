@@ -4,11 +4,11 @@ The MCUXpresso SDK for i.MX RT1050 provides `flexspi_nor_debug` and `flexspi_nor
 
 **Macros for the boot leader:**
 
--   The following three macros are added in `flexspi_nor` targets to support XIP, as described in [Table 1](how_to_add_or_remove_boot_header_for_xip_targets.md#TABLE_HBQ_GX5_5CB).
+-   The following three macros are added in `flexspi_nor` targets to support XIP, as described in [Table 1](#evkbimxrt1050_TABLE_HBQ_GX5_5CB).
 
     ^
 
-(TABLE_HBQ_GX5_5CB)=
+(evkbimxrt1050_TABLE_HBQ_GX5_5CB)=
     |**XIP\_EXTERNAL\_FLASH**|1: Exclude the code which changes the clock of FLEXSPI.|
     |0: Make no changes.|
     |**XIP\_BOOT\_HEADER\_ENABLE**|1: Add FLEXSPI configuration block, image vector table, boot data, and device configuration data \(optional\) to the image by default.|
@@ -16,11 +16,11 @@ The MCUXpresso SDK for i.MX RT1050 provides `flexspi_nor_debug` and `flexspi_nor
     |**XIP\_BOOT\_HEADER\_DCD\_ENABLE**|1: Add device configuration data to the image.|
     |0: Do **NOT** add device configuration data to the image.|
 
--   [Table 2](how_to_add_or_remove_boot_header_for_xip_targets.md#TABLE_YK2_PX5_5CB) shows the different effect on the built image with a different combination of these macros.
+-   [Table 2](#evkbimxrt1050_TABLE_YK2_PX5_5CB) shows the different effect on the built image with a different combination of these macros.
 
     ^
 
-(TABLE_YK2_PX5_5CB)=
+(evkbimxrt1050_TABLE_YK2_PX5_5CB)=
     ||**XIP\_BOOT\_HEADER\_DCD\_ENABLE=1**|**XIP\_BOOT\_HEADER\_DCD\_ENABLE=0**|
     |--|------------------------------------|------------------------------------|
     |**XIP\_EXTERNAL\_FLASH=1**|**XIP\_BOOT\_HEADER\_ENABLE=1**|    -   Can be programmed to `hyperflash` by IDE and can run after POR reset if `hyperflash` is the boot source.

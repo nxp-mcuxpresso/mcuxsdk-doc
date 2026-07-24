@@ -17,9 +17,9 @@ To download and run the application via UUU, perform these steps:
 4.  Get the fspi version U-Boot image from release package and rename it to `uboot_flash.bin`.
 5.  In the command line, execute uuu with the *-b qspi* switch: `uuu -b qspi uboot_flash.bin m7_flash.bin` .
 
-    The UUU puts the platform into fast boot mode and automatically flashes the target bootloader to QSPI. The command line and fast boot console is as shown in [Figure 2](run_an_example_application.md#COMMANDLINSEFASTBOOT).
+    The UUU puts the platform into fast boot mode and automatically flashes the target bootloader to QSPI. The command line and fast boot console is as shown in [Figure 2](#evkmimx8mn_COMMANDLINSEFASTBOOT).
 
-(COMMANDLINSEFASTBOOT)=
+(evkmimx8mn_COMMANDLINSEFASTBOOT)=
     |![](../images/figure_28.png "Command line and fast boot console output when
 											executing UUU")
 

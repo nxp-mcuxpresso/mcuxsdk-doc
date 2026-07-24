@@ -95,17 +95,13 @@ FreeMASTER
 NXP Wi-Fi
 =========
 
-:ref:`Wi-Fi`
+:ref:`wifi-bluetooth-802.15.4`
 
 FreeRTOS
 ========
 
 :ref:`freertos`
 
-Wireless EdgeFast Bluetooth PAL
-===============================
-
-:ref:`edgefast_bluetooth`
 
 lwIP
 ====

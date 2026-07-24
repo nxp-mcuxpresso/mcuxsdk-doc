@@ -8,10 +8,12 @@ To build an example application, follow these steps.
 
 2.  On the **Quickstart Panel**, click **Import SDK example\(s\)…**, as shown in [Figure 2](#fig_importsdk).
 
+    (fig_importsdk)=
     ![](../images/ide_import_sdk_example.jpeg "Import an SDK example")
 
 3.  In the window that appears, expand the **MIMXRT1060** folder and select **MIMXRT1062xxxxB**. Then, select **evkcmimxrt1060** and click **Next**, as shown in [Figure 3](#fig_selectrt1060evkc).
 
+    (fig_selectrt1060evkc)=
     ![](../images/ide_selecting_rt1060_evkc.png "Selecting MIMXRT1060-EVKC board")
 
 4.  Expand the `demo_apps` folder, select `hello_world`, and then click **Next**.
@@ -24,12 +26,14 @@ To build an example application, follow these steps.
 
     **Note:** If you want to use `semihost` to print log, first select the **Semihost** button when importing projects, as shown in [Figure 6](#fig_selectingsemihost).
 
+    (fig_selectingsemihost)=
     ![](../images/ide_selecting_semihost.png "Selecting Semihost")
 
     ![](../images/ide_setting_sdk_debug.png "Setting SDK_DEBUGCONSOLE")
 
 6.  On the **Quickstart Panel** tab, click **Build evkcmimxrt1060\_demo\_apps\_hello\_ world \[Debug\]**, as shown in [Figure 8](#fig_buildhelloworld).
 
+    (fig_buildhelloworld)=
     ![](../images/ide_building_hello_world_case.png "Building hello world case")
 
 

@@ -1,13 +1,13 @@
 # Compiler/Debugger
 
-The release supports building and debugging with the toolchains listed in [Table 1](compiler_debugger.md#TABLE_TOOLCHAININFO).
+The release supports building and debugging with the toolchains listed in [Table 1](#evk9mimx8ulp_TABLE_TOOLCHAININFO).
 
 You can choose the appropriate one for development.
 
 -   Arm GCC + SEGGER J-Link GDB Server. This is a command-line tool option and it supports both Windows OS and Linux OS.
 -   IAR Embedded Workbench for Arm and SEGGER J-Link software. The IAR Embedded Workbench is an IDE integrated with editor, compiler, debugger, and other components. The SEGGER J-Link software provides the driver for the J-Link Plus debug probe and supports the device to attach, debug, and download.
 
-(TABLE_TOOLCHAININFO)=
+(evk9mimx8ulp_TABLE_TOOLCHAININFO)=
 |Compiler/​Debugger|Supported host OS|Debug probe|Tool website|
 |------------------|-----------------|-----------|------------|
 |Arm GCC/​J-​Link GDB Server|Windows OS/​Linux OS|J-​Link Plus|[developer.​arm.​com/​open-​source/​gnu-​toolchain/​gnu-​rm](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm)

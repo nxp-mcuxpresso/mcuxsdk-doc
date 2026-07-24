@@ -1,11 +1,11 @@
 # Run a multicore example application
 
-The primary core debugger handles flashing of both the primary and the auxiliary core applications into the SoC flash memory. To download and run the multicore application, switch to the primary core application project and perform all steps as described in [Run an example application](ide_run_an_example_application.md). These steps are common for both single-core applications and the primary side of dual-core applications, ensuring both sides of the multicore application are properly loaded and started. However, there is one additional dialogue that is specific to multicore examples which requires selecting the target core. See [Figure 1](ide_run_a_multicore_example_application.md#FIG_DEBUGHELLOWORLD) to [Figure 3](ide_run_a_multicore_example_application.md#FIG_STOPPRIMARYCORE) as reference.
+The primary core debugger handles flashing of both the primary and the auxiliary core applications into the SoC flash memory. To download and run the multicore application, switch to the primary core application project and perform all steps as described in [Run an example application](ide_run_an_example_application.md). These steps are common for both single-core applications and the primary side of dual-core applications, ensuring both sides of the multicore application are properly loaded and started. However, there is one additional dialogue that is specific to multicore examples which requires selecting the target core. See [Figure 1](#evkbmimxrt1170_FIG_DEBUGHELLOWORLD) to [Figure 3](#evkbmimxrt1170_FIG_STOPPRIMARYCORE) as reference.
 
 **Note:** On MCUXpresso IDE, the feature to simultaneously debug two cores is only supported by CMSIS-DAP debugger.
 
-(FIG_STOPPRIMARYCORE)=
-(FIG_DEBUGHELLOWORLD)=
+(evkbmimxrt1170_FIG_STOPPRIMARYCORE)=
+(evkbmimxrt1170_FIG_DEBUGHELLOWORLD)=
 ![](../images/ide_multicore_debug_hello_world_cm7_case.png "Debug hello_world_cm7 case")
 
 ![](../images/ide_multicore_attached_probes.png "Attached Probes: debug emulator selection")

@@ -1,13 +1,13 @@
 # Compiler/Debugger
 
-The MCUXpresso SDK i.MX 8M Nano release supports building and debugging with the toolchains listed in [Table 1](compiler_debugger.md#TABLE_TOOLCHAININFO).
+The MCUXpresso SDK i.MX 8M Nano release supports building and debugging with the toolchains listed in [Table 1](#evkmimx8mn_TABLE_TOOLCHAININFO).
 
 The user can choose the appropriate one for development.
 
 -   Arm GCC + SEGGER J-Link GDB Server. This is a command line tool option and it supports both Windows OS and Linux OS.
 -   IAR Embedded Workbench for Arm and SEGGER J-Link software. The IAR Embedded Workbench is an IDE integrated with editor, compiler, debugger, and other components. The SEGGER J-Link software provides the driver for the J-Link Plus debugger probe and supports the device to attach, debug, and download.
 
-(TABLE_TOOLCHAININFO)=
+(evkmimx8mn_TABLE_TOOLCHAININFO)=
 |Compiler/Debugger|Supported host OS|Debug probe|Tool website|
 |-----------------|-----------------|-----------|------------|
 |ArmGCC/J-Link GDB server|Windows OS/Linux OS|J-Link Plus|[developer.arm.com/open-source/gnu-toolchain/gnu-rm](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm)

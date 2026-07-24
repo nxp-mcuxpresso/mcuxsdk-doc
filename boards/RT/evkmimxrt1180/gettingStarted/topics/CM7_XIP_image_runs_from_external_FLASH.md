@@ -4,9 +4,9 @@ Perform the following steps:
 
 1.  Prepare the `multicore_trigger_demo_cm33` ram image \(`debug` or `release` targets\) and specify it in `Source executable image`.
 2.  Specify the XMCD file if necessary, refer to [Use SPT tool to boot cm33 image](use_SPT_tool_to_boot_cm33_image.md).
-3.  Use `Additional images` to specify CM7 application image running from flash memory. See [Table 1](CM7_XIP_image_runs_from_external_FLASH.md#table_para) for how to fill in the necessary information for this additional image.
+3.  Use `Additional images` to specify CM7 application image running from flash memory. See [Table 1](#evkmimxrt1180_table_para) for how to fill in the necessary information for this additional image.
 
-(table_para)=
+<a id="evkmimxrt1180_table_para"></a>
     | Parameter    | Value        | Explanation                                                                                                                                                                                                                               |
     |--------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Image offset | `0x007FF000` | The offset in bytes from the beginning of the current container header to beginning of the image. In our case, the CM7 image is flashed to `0x2880_0000`. The container header is put to `0x2800_1000` and the yield offset = `0x7F_F000` |
