@@ -57,14 +57,22 @@ _ORPHAN_PATTERNS = (
     'gettingStarted/',
     # Board release notes
     'releaseNotes/',
-    # Examples: _boards and _common (examples/index.rst hidden toctrees)
-    'examples/_boards/',
-    'examples/_common/',
-    'examples/README',
+    # Examples: card-driven navigation (examples_catalog) — the examples
+    # index carries no toctree, so every example doc is a legitimate
+    # standalone page reached from the catalog cards.
+    'examples/',
     'example_board_readme',
     'examples_shared_readme',
     'board_readme',
     'readme_modules',
+    # Bifrost docs linked from bifrost/readme.md but not in a toctree
+    'bifrost/docs/',
+    # Files linked from READMEs/release notes but not in any toctree
+    'mcmgr/tests/test_heartbeat/',
+    'mcmgr/doxygen/porting_guide',
+    'freertos-kernel/CHANGELOG',
+    'executorch/docs/source/',
+    'lvgl/docs/src/details/debugging/',
     # Examples: display/lvgl readmes
     'lvgl_examples_readme',
     'lcdif_examples_readme',
@@ -89,6 +97,52 @@ _ORPHAN_PATTERNS = (
     # GSD common docs
     'gsd/package',
     'gsd/repo',
+    # Standalone middleware/firmware docs referenced from example readmes
+    'middleware/eiq/mpp/Build',
+    'firmware/edgelock/',
+    # Upstream TF-M excludes this key readme from its own build
+    'platform/cypress/psoc64/security/keys/readme',
+    # Wi-Fi API reference is linked (not toctree'd) from the wifi docs index
+    'middleware/wifi_nxp/docs/freertos/',
+    # --- MCUX-88966: remaining toctree-orphan sweep (2026-07 build) ---
+    # RT700 Xplorer getting-started topics (parallel of 'gettingStarted/';
+    # the Xplorer variant directory name does not match that pattern)
+    'gettingStartedXplorer/',
+    # Docs-repo standalone engineering notes linked from other guides
+    'develop/build_system/Best_Practice',
+    'develop/sdk/internal_example_device_board_definition',
+    # Edgefast user-guide trees copied by external_content, reached by links
+    'middleware/edgefast_open/docs/',
+    # eiq executorch NXP readme (source/ tree already covered above)
+    'executorch/docs/nxp/README',
+    # littlefs vendored auxiliary docs (README stays toctree'd)
+    'littlefs/DESIGN',
+    'littlefs/LICENSE',
+    'littlefs/SPEC',
+    # mcu_bootloader per-device flashloader / manufacturing guides
+    'iMXRT1050_Manufacturing_User_Guide/topics/',
+    'LPC540XX_Flashloader_Release_Notes/topics/',
+    'iMXRT1160_Flashloader_Release_Notes/',
+    # mcuboot / multicore vendored auxiliary docs
+    'mcuboot_opensource/CODE_OF_CONDUCT',
+    'middleware/multicore/README',
+    'erpc/CONTRIBUTING',
+    'erpc/doxygen/mainpage_',
+    'eRPC_GettingStarted/',
+    'rpmsg-lite/doxygen/',
+    # safety zephyr readmes (upstream-shipped)
+    'middleware/safety_iec60730b/zephyr/',
+    # vglite standalone topics linked from the vglite guide
+    'middleware/vglite/topics/',
+    # WiFi-BT-802.15.4 certification/legal topics reached via deep links
+    'middleware/wireless/WiFi-Bluetooth-802.15.4/topics/',
+    # BLE demo guide topic included via {include}
+    'Bluetooth Low Energy Demo Applications Users Guide/topics/switches_and_pins',
+    # Connectivity framework service readmes linked from the framework index
+    'framework/services/DBG/',
+    'framework/services/WorkQ/',
+    # 802.15.4 connectivity-test guide legal page
+    'connectivity_test/UG10204/topics/',
 )
 
 def patch_orphan_docs(app, docname, source):
@@ -220,14 +274,145 @@ class _CDomainParseErrorFilter:
         msg = record.getMessage() if hasattr(record, 'getMessage') else str(record.msg)
         return not any(p in msg for p in self._SUPPRESSED)
 
+class _ThirdPartyDocWarningFilter:
+    """Drop warnings that originate from unmodifiable third-party documents.
+
+    The paths below hold upstream documentation shipped verbatim (e.g. the
+    Mbed TLS design documents under middleware/mbedtls3x/docs).  Their
+    cross-references target the upstream project's own doc layout and cannot
+    be fixed without diverging from upstream, so warnings raised from these
+    sources are not actionable in this repository.
+    """
+    _PATHS = (
+        'middleware/mbedtls3x/docs/',
+        # ARM upstream psa-arch-tests tree: its READMEs link files/dirs that
+        # are not part of the SDK docs build (owned/fixed upstream)
+        'middleware/tfm/psa-arch-tests/',
+        # TF-M cross-project references (resolved via intersphinx in the
+        # upstream multi-project doc build; those projects are not part of
+        # the SDK docs)
+        "'TF-M-Tests:",
+        "'TF-M-Tools:",
+        "'TF-M-Extras:",
+        # TF-M's own cross-project doc references (same class as above:
+        # resolved by intersphinx in the upstream multi-project build)
+        "'TF-M:",
+        # littlefs is a vendored upstream tree; its README links repo files
+        # (bd/lfs_testbd.h) that no longer exist at the vendored revision and
+        # SPEC/DESIGN carry upstream-style transitions - fixed upstream only.
+        'middleware/littlefs/',
+    )
+
+    def filter(self, record):
+        import logging
+        if record.levelno < logging.WARNING:
+            return True
+        location = str(getattr(record, 'location', '') or '').replace('\\', '/')
+        msg = record.getMessage() if hasattr(record, 'getMessage') else str(record.msg)
+        msg = msg.replace('\\', '/')
+        return not any(p in location or p in msg for p in self._PATHS)
+
+def _install_third_party_warning_filter(app):
+    # Attach at handler level of the root "sphinx" logger so warnings from
+    # every sphinx.* child logger (myst xrefs, images, toctree, std domain)
+    # are filtered regardless of which module emits them.
+    import logging
+    tp_filter = _ThirdPartyDocWarningFilter()
+    for handler in logging.getLogger('sphinx').handlers:
+        handler.addFilter(tp_filter)
+
+# Standalone third-party doc trees whose doc-root-absolute references are
+# re-based by the subtree_docroot extension.
+subtree_docroots = [
+    'middleware/tfm/tf-m/docs',
+]
+
+# Doc trees whose raw-HTML anchors (<a name=...> in table cells, emitted by
+# Doxygen/DITA conversion) are registered as link targets (html_anchors ext).
+html_anchor_docroots = [
+    'middleware/eiq',
+    'middleware/wifi_nxp/docs',
+    'examples/_boards',
+    'middleware/edgefast_open/docs',
+    'middleware/mcu_bootloader/docs',
+    'boards/',
+    'middleware/wireless/bluetooth/doc',
+    'middleware/wireless/WiFi-Bluetooth-802.15.4',
+]
+
+# Source files exposed as syntax-highlighted viewer pages (source_pages ext).
+# Workspace-relative paths; links to these files from any document are
+# transparently redirected to the generated pages under _sources_view/.
+source_pages_files = [
+    # EdgeLock 2GO agent configuration headers and referenced sources
+    'middleware/nxp_iot_agent/inc/nxp_iot_agent_config.h',
+    'middleware/nxp_iot_agent/inc/nxp_iot_agent_config_credentials.h',
+    'middleware/nxp_iot_agent/ex/inc/iot_agent_demo_config.h',
+    'middleware/nxp_iot_agent/ex/src/network/iot_agent_network_lwip_wifi.c',
+    'middleware/nxp_iot_agent/ex/src/utils/iot_agent_claimcode_inject.c',
+    'middleware/nxp_iot_agent/ex/src/apps/el2go_claimcode_encryption.c',
+    'middleware/nxp_iot_agent/ex/src/apps/psa_examples/el2go_csr/pal/el2go_csr_console.h',
+    'middleware/nxp_iot_agent/tst/el2go_blob_test/scripts/requirements.txt',
+    # TF-M platform files referenced by el2go TrustZone examples
+    'middleware/tfm/tf-m/platform/ext/target/nxp/frdmrw612/config_tfm_target.h',
+    'middleware/tfm/tf-m/platform/ext/target/nxp/frdmrw612/partition/flash_layout.h',
+    'middleware/tfm/tf-m/platform/ext/target/nxp/frdmrw612/partition/region_defs.h',
+    # Components referenced by example readmes
+    'components/conn_fwloader/readme.txt',
+    'components/debug/coredump/scripts/coredump_gdbserver.py',
+    # Connectivity framework SecLib flavors and configuration
+    'middleware/wireless/framework/services/SecLib_RNG/SecLib.c',
+    'middleware/wireless/framework/services/SecLib_RNG/SecLib_sss.c',
+    'middleware/wireless/framework/services/SecLib_RNG/SecLib_psa.c',
+    'middleware/wireless/framework/services/SecLib_RNG/RNG.c',
+    'middleware/wireless/framework/services/SecLib_RNG/RNG_psa.c',
+    'middleware/wireless/framework/services/SecLib_RNG/CMakeLists.txt',
+    'middleware/wireless/framework/services/SecLib_RNG/Kconfig',
+    'middleware/wireless/framework/platform/wireless_mcu/configs/SecLib_psa_config.h',
+    # RT700 TrustZone example support files
+    'examples/_boards/mimxrt700evk/trustzone_examples/linkscripts/MIMXRT798Sxxxx_cm33_core0_flash_s.icf',
+    'examples/_boards/mimxrt700evk/trustzone_examples/linkscripts/MIMXRT798Sxxxx_cm33_core0_flash_ns.icf',
+    'examples/_boards/mimxrt700evk/trustzone_examples/hello_world/hello_world_s/cm33_core0/tzm_config.c',
+    'examples/_boards/mimxrt700evk/trustzone_examples/hello_world/hello_world_s/cm33_core0/reconfig.cmake',
+    'examples/_boards/mimxrt700evk/trustzone_examples/secure_gpio/secure_gpio_s/cm33_core0/tzm_config.c',
+    'examples/_boards/mimxrt700evk/trustzone_examples/secure_gpio/secure_gpio_s/cm33_core0/reconfig.cmake',
+    'examples/_boards/mimxrt700evk/trustzone_examples/secure_faults/secure_faults_s/cm33_core0/tzm_config.c',
+    'examples/_boards/mimxrt700evk/trustzone_examples/secure_faults/secure_faults_s/cm33_core0/reconfig.cmake',
+    'examples/_boards/mimxrt700evk/trustzone_examples/secure_gpio/secure_gpio_s/cm33_core0/tzm_config.c',
+    'examples/_boards/mimxrt700evk/trustzone_examples/secure_gpio/secure_gpio_s/cm33_core0/reconfig.cmake',
+    # SDK generator data schemas
+    'ecosystem/sdk_generator/lib/argparser/schemas/config_file_schema.json',
+    'ecosystem/sdk_generator/data/sdk_data_schema/v3/component_schema.json',
+    'ecosystem/sdk_generator/data/sdk_data_schema/v3/container_schema.json',
+    'ecosystem/sdk_generator/data/sdk_data_schema/v3/project_segment_schema.json',
+    'ecosystem/sdk_generator/data/sdk_data_schema/v3/project_schema.json',
+    'ecosystem/sdk_generator/data/sdk_data_schema/v3/license_schema.json',
+]
+
 def setup(app):
     app.connect('source-read', patch_orphan_docs)
     app.connect('source-read', patch_mcuboot_readme)
     app.connect('build-finished', validate_html_paths)
+    app.connect('builder-inited', _install_third_party_warning_filter)
 
     # Suppress C domain parse errors from breathe/doxygen
     import logging
     logging.getLogger('sphinx.domains.c').addFilter(_CDomainParseErrorFilter())
+
+    # Lexer aliases for code-fence languages Pygments doesn't know
+    # ("Pygments lexer name 'X' is not known" warnings). Registering aliases
+    # here resolves every occurrence build-wide without editing fences across
+    # owner repos, where vendored trees would regress on the next sync.
+    from pygments.lexers.shell import BashLexer, BatchLexer
+    from pygments.lexers.special import TextLexer
+    app.add_lexer('commandline', BashLexer)  # eiq/executorch shell commands
+    app.add_lexer('cmd', BatchLexer)         # bifrost Windows commands
+    app.add_lexer('txt', TextLexer)          # common alias authors reach for; Pygments only knows 'text'
+    app.add_lexer('ld', TextLexer)           # linker scripts (no Pygments lexer exists)
+    app.add_lexer('mermaid', TextLexer)      # PDF-build fallback: HTML builds render
+                                             # diagrams via sphinxmermaid + fence-as-
+                                             # directive (see extensions setup above)
+    app.add_lexer('Lowpower', TextLexer)     # examples fence-line banner typo (owner: examples repo)
 
 # Parse command line arguments
 args = get_parser().parse_args()
@@ -284,6 +469,14 @@ version = release
 extensions = mcux_config.get_extensions()
 if is_pdf_build:
     extensions.append('latex_writer')
+else:
+    # Render ```mermaid fences as diagrams (sphinx-mermaid from
+    # requirements.txt). HTML-only: sphinxmermaid registers no LaTeX visitor,
+    # so enabling it in PDF builds would fail on MermaidNode. In PDF builds
+    # the fences fall back to plain text via the 'mermaid' lexer alias in
+    # setup().
+    extensions.append('sphinxmermaid')
+    myst_fence_as_directive = ["mermaid"]
 source_suffix = mcux_config.get_source_suffix()
 
 # -- Options for rsvg-convert (SVG to PDF conversion) ---------------------
@@ -414,7 +607,17 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = [
+    # FreeMaster sub-files are {include}-only; only user_guide.md is a toctree source.
+    # Processing them standalone causes xref failures for labels defined across files.
+    'middleware/freemaster/doc/user_guide/[0-9]*.md',
+    'middleware/freemaster/doc/user_guide/api/**',
+    'middleware/freemaster/doc/user_guide/cfg/**',
+    'middleware/freemaster/doc/user_guide/tsa/**',
+    # erpc README uses GitHub root-relative paths (e.g. /erpc_c/transports) that
+    # Sphinx misinterprets as cross-references and cannot resolve.
+    'middleware/multicore/erpc/README.md',
+]
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -562,3 +765,36 @@ if mcux_config.has_doxygen_projects:
 logger.info(f"HTML Title: {html_title}")
 logger.info(f"Master Document: {master_doc}")
 logger.info(f"=====================================")
+
+# -- Linkcheck configuration --------------------------------------------------
+
+# nxp.com CDN returns HTTP 404 for browser-style User-Agents (any Mozilla/Chrome
+# UA) but 200 for non-browser UAs.  Override only for nxp.com subdomains so
+# real 404s on those hosts still surface.
+linkcheck_request_headers = {
+    "https://www.nxp.com/": {
+        "User-Agent": "Python-urllib/3.11",
+    },
+    "https://www.nxp.com.cn/": {
+        "User-Agent": "Python-urllib/3.11",
+    },
+    "https://mcuxpresso.nxp.com/": {
+        "User-Agent": "Python-urllib/3.11",
+    },
+    "https://docs.mcuxpresso.nxp.com/": {
+        "User-Agent": "Python-urllib/3.11",
+    },
+}
+
+# GitHub renders anchors via JavaScript; the static HTML returned to linkcheck
+# does not contain them.  Still check that the page itself exists (200).
+linkcheck_anchors_ignore_for_url = [
+    r"https://github\.com/.*",
+    r"https://gitlab\.com/.*",
+]
+
+# Login-gated links that always redirect to a sign-in page: confirmed valid,
+# but linkcheck cannot verify them without credentials.
+linkcheck_ignore = [
+    r"https://github\.com/.*/issues/new(/choose)?$",
+]

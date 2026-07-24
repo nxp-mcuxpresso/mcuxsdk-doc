@@ -14,6 +14,11 @@ extensions:
 - sphinxmermaid
 - sphinxcontrib.rsvgconverter
 - notfound.extension
+- source_pages
+- subtree_docroot
+- html_anchors
+- merge_example_readmes
+- examples_catalog
 source_suffix:
   .rst: restructuredtext
   .readme: markdown
@@ -97,11 +102,15 @@ modules:
     - root: .
       pattern: examples/README.md
     - root: .
+      pattern: firmware/edgelock/ELE_HSEB/README.md
+    - root: .
       pattern: examples/**/*.jpg
     - root: .
       pattern: examples/**/*.jpeg
     - root: .
       pattern: examples/**/*.png
+    - root: .
+      pattern: examples/**/*.PNG
     - root: .
       pattern: examples/**/*.svg
     - root: .
@@ -116,6 +125,20 @@ modules:
     external_contents:
     - root: ..
       pattern: bifrost/readme.md
+    - root: ..
+      pattern: bifrost/docs/ENVIRONMENT_VARIABLES.md
+    # Non-doc files linked from ENVIRONMENT_VARIABLES.md; present in the
+    # srcdir they render as download links instead of broken references.
+    - root: ..
+      pattern: bifrost/.env.example
+    - root: ..
+      pattern: bifrost/scripts/west_commands/mcux_bi_data.py
+    - root: ..
+      pattern: bifrost/scripts/west_commands/release_createbranch.py
+    - root: ..
+      pattern: bifrost/scripts/west_commands/release_syncgithub.py
+    - root: ..
+      pattern: bifrost/scripts/west_commands/mcux_test/mcux_test_parse_changes.py
   dev_architect:
     default: true
     external_contents:
@@ -190,7 +213,9 @@ modules:
     - root: docs
       pattern: middleware/lvgl/index.rst
     - root: .
-      pattern: middleware/lvgl/docs/integration/chip/nxp.rst
+      pattern: middleware/lvgl/docs/src/details/integration/chip_vendors/nxp/*
+    - root: .
+      pattern: middleware/lvgl/docs/src/details/debugging/vg_lite_tvg.rst
   mid_wifi_nxp:
     default: true
     external_contents:
@@ -259,6 +284,8 @@ modules:
       pattern: middleware/mbedtls3x/**/*.md
     - root: .
       pattern: middleware/mbedtls3x/docs/**/*.md
+    - root: .
+      pattern: middleware/mbedtls3x/docs/**/*.png
   mid_tfm:
     default: true
     external_contents:
@@ -270,42 +297,21 @@ modules:
       pattern: middleware/tfm/**/*.md
     - root: .
       pattern: middleware/tfm/tf-m/README.md
+    # Full upstream TF-M doc tree: the subtree_docroot extension re-bases
+    # its doc-root-absolute references so the standalone project builds
+    # inside the SDK doc tree without content changes.
     - root: .
-      pattern: middleware/tfm/tf-m/docs/index.rst
+      pattern: middleware/tfm/tf-m/docs/**/*.rst
     - root: .
-      pattern: middleware/tfm/tf-m/docs/design_docs/*.rst
-    - root: .
-      pattern: middleware/tfm/tf-m/docs/introduction/*.rst
-    - root: .
-      pattern: middleware/tfm/tf-m/docs/introduction/*.png
-    - root: .
-      pattern: middleware/tfm/tf-m/docs/configuration/profiles/*.rst
-    - root: .
-      pattern: middleware/tfm/tf-m/docs/configuration/header_file_system.rst
+      pattern: middleware/tfm/tf-m/docs/**/*.png
     - root: .
       pattern: middleware/tfm/tf-m/docs/**/*.svg
     - root: .
-      pattern: middleware/tfm/tf-m/docs/**/*.png
-    - root: middleware/tfm/tf-m/docs
-      pattern: design_docs/media/**/*.svg
-    - root: middleware/tfm/tf-m/docs
-      pattern: design_docs/media/**/*.png
+      pattern: middleware/tfm/tf-m/docs/**/*.txt
     - root: .
-      pattern: middleware/tfm/tf-m/docs/integration_guide/platform/*.rst
+      pattern: middleware/tfm/tf-m/dco.txt
     - root: .
-      pattern: middleware/tfm/tf-m/docs/integration_guide/services/*.rst
-    - root: .
-      pattern: middleware/tfm/tf-m/docs/integration_guide/source_structure/*.rst
-    - root: .
-      pattern: middleware/tfm/tf-m/docs/design_docs/**/*.rst
-    - root: .
-      pattern: middleware/tfm/tf-m/docs/security/**/*.rst
-    - root: .
-      pattern: middleware/tfm/tf-m/docs/security/threat_models/*.png
-    - root: .
-      pattern: middleware/tfm/tf-m/docs/releases/2*.rst
-    - root: .
-      pattern: middleware/tfm/tf-m/docs/releases/index.rst
+      pattern: middleware/tfm/tf-m/license.rst
     - root: .
       pattern: middleware/tfm/tf-m-tests/docs/*.rst
     - root: .
@@ -361,6 +367,8 @@ modules:
     - root: .
       pattern: middleware/multicore/mcmgr/*.md
     - root: .
+      pattern: middleware/multicore/mcmgr/tests/test_heartbeat/README.md
+    - root: .
       pattern: middleware/multicore/mcmgr/doc/*
     - root: .
       pattern: middleware/multicore/mcmgr/doxygen/*
@@ -398,6 +406,8 @@ modules:
       pattern: rtos/freertos/freertos-kernel/README_mcuxsdk.md
     - root: .
       pattern: rtos/freertos/freertos-kernel/CHANGELOG_mcuxsdk.md
+    - root: .
+      pattern: rtos/freertos/freertos-kernel/CHANGELOG.md
     - root: .
       pattern: rtos/freertos/freertos-kernel/mcuxsdk-doc/*.*
     - root: .
@@ -518,13 +528,13 @@ modules:
       pattern: middleware/connectivity.rst
     - root: .
       pattern: middleware/usb/docs/*
-  mid_edgefast_bluetooth:
-    default: true
-    external_contents:
-    - root: docs
-      pattern: middleware/wireless.rst
-    - root: .
-      pattern: middleware/edgefast_bluetooth/docs/*
+  # mid_edgefast_bluetooth:
+  #   default: true
+  #   external_contents:
+  #   - root: docs
+  #     pattern: middleware/wireless.rst
+  #   - root: .
+  #     pattern: middleware/edgefast_bluetooth/docs/*
   mid_edgefast_open:
     default: true
     external_contents:
@@ -558,6 +568,8 @@ modules:
     - root: docs
       pattern: middleware/eiq.rst
     - root: .
+      pattern: middleware/eiq/mpp/Build.md
+    - root: .
       pattern: middleware/eiq/docs/*
     - root: .
       pattern: middleware/eiq/tensorflow-lite/docs/*
@@ -565,6 +577,8 @@ modules:
       pattern: middleware/eiq/mpp/docs/*
     - root: .
       pattern: middleware/eiq/executorch/docs/nxp/*
+    - root: .
+      pattern: middleware/eiq/executorch/docs/source/backends/nxp/nxp-kernel-selection.md
   board_mc56f80000evk:
     default: true
     external_contents:
@@ -813,7 +827,28 @@ modules:
     - root: .
       pattern: drivers/iMX/iMX943/MIMX94398/index.rst
     - root: .
-      pattern: devices/iMX/iMX943/MIMX94398/drivers/**/ChangeLog_*.md
+      pattern: devices/i.MX/i.MX943/MIMX94398/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX94398
+      outdir: drivers/iMX/iMX943/MIMX94398
+  board_imx943_orangebox:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/i.MX/index.rst
+    - root: docs
+      pattern: boards/i.MX/imx943_orangebox/*
+    - root: .
+      pattern: examples/_boards/imx943_orangebox/**/*.md
+    - root: .
+      pattern: drivers/iMX/iMX943/MIMX94398/index.rst
+    - root: .
+      pattern: devices/i.MX/i.MX943/MIMX94398/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX94398
+      outdir: drivers/iMX/iMX943/MIMX94398
   board_frdmimx95:
     default: true
     external_contents:
@@ -897,13 +932,6 @@ modules:
       pattern: boards/i.MX/frdmimx937/*
     - root: .
       pattern: examples/_boards/frdmimx937/**/*.md
-    - root: .
-      pattern: drivers/iMX/MIMX9375/index.rst
-    - root: .
-      pattern: devices/iMX/MIMX9375/drivers/**/ChangeLog_*.md
-    doxygen_runner:
-      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMX9375
-      outdir: drivers/iMX/iMX937/MIMX9375
   board_mcimx93autoevk:
     default: true
     external_contents:
@@ -1531,6 +1559,22 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA266
       outdir: drivers/MCX/MCXA/MCXA266
+  board_frdmmcxa287:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/MCX/index.rst
+    - root: docs
+      pattern: boards/MCX/frdmmcxa287/*
+    - root: .
+      pattern: examples/_boards/frdmmcxa287/**/*.md
+    - root: .
+      pattern: drivers/MCX/MCXA/MCXA287/index.rst
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXA287
+      outdir: drivers/MCX/MCXA/MCXA287
   board_frdmmcxa344:
     default: true
     external_contents:
@@ -1711,6 +1755,13 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXN947
       outdir: drivers/MCX/MCXN/MCXN947
+  # frdmmcxn947t (947 board variant): no dedicated board page yet; the
+  # example readmes link its _boards content, so copy just that.
+  board_frdmmcxn947t:
+    default: true
+    external_contents:
+    - root: .
+      pattern: examples/_boards/frdmmcxn947t/**/*.md
   board_frdmmcxw23:
     default: true
     external_contents:
@@ -2053,6 +2104,17 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT1189
       outdir: drivers/RT/RT1180/MIMXRT1189
+  board_hvpmcxa346:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/MCX/index.rst
+    - root: docs
+      pattern: boards/MCX/hvpmcxa346/*
+    - root: .
+      pattern: examples/_boards/hvpmcxa346/**/*.md
   board_frdmimxrt1152:
     default: true
     external_contents:
@@ -2323,6 +2385,17 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXE31B
       outdir: drivers/MCX/MCXE/MCXE31B
+  board_frdmmcxe32b:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/MCX/index.rst
+    - root: docs
+      pattern: boards/MCX/frdmmcxe32b/*
+    - root: .
+      pattern: examples/_boards/frdmmcxe32b/**/*.md
   board_frdmmcxl255:
     default: true
     external_contents:
@@ -2403,9 +2476,9 @@ modules:
     - root: docs
       pattern: boards/MCX/index.rst
     - root: docs
-      pattern: boards/MCX/frdmkw43/*
+      pattern: boards/MCX/frdmmcxw70/*
     - root: .
-      pattern: examples/_boards/frdmkw43/**/*.md
+      pattern: examples/_boards/frdmmcxw70/**/*.md
     - root: .
       pattern: drivers/MCX/MCXW/MCXW70AC/index.rst
     - root: .

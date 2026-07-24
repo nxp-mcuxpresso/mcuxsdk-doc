@@ -1,0 +1,90 @@
+# Examples Catalog configuration (consumed by _extensions/examples_catalog.py).
+#
+# Middleware groups follow the manifest middleware division
+# (manifests/submanifests/middleware/*.yml). Non-middleware categories
+# (drivers / demos / RTOS / coprocessors) use their own groups.
+#
+# Group render order in the catalog page:
+group_order:
+  - Demos & Applications
+  - Peripherals & Drivers
+  - Connectivity
+  - Wireless & Bluetooth
+  - Security
+  - Multimedia
+  - Multicore
+  - File Systems
+  - eIQ Machine Learning
+  - Motor Control
+  - Boot
+  - Touch
+  - Cloud
+  - Coprocessors
+  - RTOS
+  - Components
+  - Other
+
+# Examples pinned to the top of their category (e.g. getting-started):
+pinned:
+  - hello_world
+  - led_blinky
+
+# example.yml top-level category -> [display label, group].
+# Keys are matched against the first path segment of the example's category.
+categories:
+  # --- non-middleware ---
+  driver_examples: [Peripheral Drivers, Peripherals & Drivers]
+  cmsis_driver_examples: [CMSIS Drivers, Peripherals & Drivers]
+  freertos_driver_examples: [RTOS Driver Examples, Peripherals & Drivers]
+  digital_encoder_examples: [Digital Encoder, Peripherals & Drivers]
+  demo_apps: [Demo Applications, Demos & Applications]
+  freertos_examples: [FreeRTOS, RTOS]
+  component_examples: [Components, Components]
+  ce_examples: [Compute Engine, Coprocessors]
+  ezhv_examples: [eZHV Coprocessor, Coprocessors]
+  # --- middleware: connectivity ---
+  usb_examples: [USB, Connectivity]
+  lwip_examples: [lwIP (TCP/IP), Connectivity]
+  soem_examples: [EtherCAT (SOEM), Connectivity]
+  ecat_examples: [EtherCAT, Connectivity]
+  modbus_examples: [Modbus, Connectivity]
+  canopennode_examples: [CANopen, Connectivity]
+  # --- middleware: wireless ---
+  wireless_examples: [Wireless Framework, Wireless & Bluetooth]
+  edgefast_bluetooth_examples: [Bluetooth (EdgeFast), Wireless & Bluetooth]
+  bt_ble_examples: [Bluetooth LE, Wireless & Bluetooth]
+  wifi_examples: [Wi-Fi, Wireless & Bluetooth]
+  coex_examples: [Coexistence, Wireless & Bluetooth]
+  ncp_examples: [Network Co-Processor, Wireless & Bluetooth]
+  # --- middleware: security ---
+  mbedtls_examples: [Mbed TLS, Security]
+  mbedtls3x_examples: [Mbed TLS 3.x, Security]
+  tfm_examples: [TF-M, Security]
+  els_pkc_examples: [ELS / PKC, Security]
+  sgi_pkc_examples: [SGI / PKC, Security]
+  ele_crypto: [EdgeLock Crypto, Security]
+  ele_hseb: [EdgeLock HSE-B, Security]
+  secure-subsystem_examples: [Secure Subsystem, Security]
+  el2go_examples: [EdgeLock 2GO, Security]
+  se_hostlib_examples: [Secure Element Host Lib, Security]
+  mmcau_examples: [MMCAU, Security]
+  trustzone_examples: [TrustZone, Security]
+  # --- middleware: multimedia ---
+  audio_examples: [Audio, Multimedia]
+  vglite_examples: [VGLite, Multimedia]
+  lvgl_examples: [LVGL, Multimedia]
+  display_examples: [Display, Multimedia]
+  openvg_examples: [OpenVG, Multimedia]
+  dsp_examples: [DSP (Cadence), Multimedia]
+  # --- middleware: multicore / filesystem / eiq / motor / boot / touch / cloud ---
+  multicore_examples: [Multicore, Multicore]
+  multiprocessor_examples: [Multiprocessor, Multicore]
+  fatfs_examples: [FatFs, File Systems]
+  sdmmc_examples: [SD / MMC, File Systems]
+  littlefs_examples: [LittleFS, File Systems]
+  eiq_examples: [eIQ, eIQ Machine Learning]
+  freemaster_examples: [FreeMASTER, Motor Control]
+  bootloader_examples: [Bootloader, Boot]
+  touch_examples: [Touch, Touch]
+  aws_examples: [AWS IoT, Cloud]
+  ota_examples: [OTA Updates, Cloud]
