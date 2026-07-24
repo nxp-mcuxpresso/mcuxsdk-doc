@@ -351,7 +351,7 @@ source_pages_files = [
     'middleware/nxp_iot_agent/ex/src/network/iot_agent_network_lwip_wifi.c',
     'middleware/nxp_iot_agent/ex/src/utils/iot_agent_claimcode_inject.c',
     'middleware/nxp_iot_agent/ex/src/apps/el2go_claimcode_encryption.c',
-    'middleware/nxp_iot_agent/ex/src/apps/psa_examples/el2go_csr/pal/el2go_csr_console.h',
+    'middleware/nxp_iot_agent/ex/src/apps/psa_examples/el2go_csr/pal/inc/el2go_csr_console.h',
     'middleware/nxp_iot_agent/tst/el2go_blob_test/scripts/requirements.txt',
     # TF-M platform files referenced by el2go TrustZone examples
     'middleware/tfm/tf-m/platform/ext/target/nxp/frdmrw612/config_tfm_target.h',
