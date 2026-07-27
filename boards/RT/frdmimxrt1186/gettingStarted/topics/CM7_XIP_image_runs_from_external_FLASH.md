@@ -6,7 +6,7 @@ Perform the following steps:
 2.  Specify the XMCD file if necessary, refer to [Use SPT tool to boot cm33 image](use_SPT_tool_to_boot_cm33_image.md).
 3.  Use `Additional images` to specify CM7 application image running from flash memory. See [Table 1](#frdmimxrt1186_table_para) for how to fill in the necessary information for this additional image.
 
-<a id="frdmimxrt1186_table_para"></a>
+    <a id="frdmimxrt1186_table_para"></a>
     | Parameter    | Value        | Explanation                                                                                                                                                                                                                               |
     |--------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Image offset | `0x007FF000` | The offset in bytes from the beginning of the current container header to beginning of the image. In our case, the CM7 image is flashed to `0x0480_0000`. The container header is put to `0x0400_1000` and the yield offset = `0x7F_F000` |

@@ -32,7 +32,7 @@ The steps are:
 
 7.  Verify once you select the firmware \(in this case J-Link\), MCU-Link. The console appears as shown in [Figure 4](#mimxrt700evk_JJEFJHWV).
 
-(mimxrt700evk_JJEFJHWV)=
+    (mimxrt700evk_JJEFJHWV)=
     |![](../images/image14.png "Console after selecting the firmware")
 
 |

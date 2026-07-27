@@ -8,17 +8,17 @@ To build an example application, follow these steps.
 
 2.  On the **Quickstart Panel**, click **Import SDK example\(s\)…**, as shwon in [Figure 2](#evkmimxrt1010_IMPORTANSDKEXAMPLE).
 
-(evkmimxrt1010_IMPORTANSDKEXAMPLE)=
+    (evkmimxrt1010_IMPORTANSDKEXAMPLE)=
     ![](../images/import_sdk_example.png "Import an SDK example")
 
 3.  In the window that appears, expand the **MIMXRT1011** folder and select **MIMXRT1011xxxxx**. Then, select **evkmimxrt1010** and click **Next**, as shown in [Figure 3](#evkmimxrt1010_SELECTBOARD).
 
-(evkmimxrt1010_SELECTBOARD)=
+    (evkmimxrt1010_SELECTBOARD)=
     ![](../images/select_evk-imxrt1015_board.png "Selecting MIMXRT1010-EVK board")
 
 4.  Expand the `demo_apps` folder, select `hello_world`, and then click **Next**, as shown in [\#SELECTHELLOWORLDCASE](#evkmimxrt1010_SELECTHELLOWORLDCASE).
 
-(evkmimxrt1010_SELECTHELLOWORLDCASE)=
+    (evkmimxrt1010_SELECTHELLOWORLDCASE)=
     ![](../images/figure_29_rt1010.png "Selecting hello_world")
 
 5.  Ensure the option **Redlib: Use floating point version of printf** is selected if the cases print floating point numbers on the terminal \(for demo applications such as `dac32_adc12`, `dac_adc`, `dac_cadc`, `ecompass`, `sai`, `coremark`, `mbedtls_benchmark`, `wolfssl_benchmark`, and for `mmcau_examples` such as `mmcau_api`\). Otherwise, there is no need to select it. Click **Finish**.
@@ -27,14 +27,14 @@ To build an example application, follow these steps.
 
     **Note:** If you want to use semihost to print log, first select the **Semihost** button when importing projects, as shown in [Figure 6](#evkmimxrt1010_FLOAATING).
 
-(evkmimxrt1010_FLOAATING)=
+    (evkmimxrt1010_FLOAATING)=
     ![](../images/select_semihost_rt1015.png "Selecting Semihost")
 
     ![](../images/sdk_debugconsole_rt1015.png "Setting SDK_DEBUGCONSOLE")
 
 6.  On the **Quickstart** panel, click **build `evkmimxrt1010\_demo\_apps\_hello\_world \[Debug\]`**, as shown in [Figure 8](#evkmimxrt1010_FSLOATINSG).
 
-(evkmimxrt1010_FSLOATINSG)=
+    (evkmimxrt1010_FSLOATINSG)=
     ![](../images/build_hello_world_case_rt1015.png "Building hello world case")
 
 

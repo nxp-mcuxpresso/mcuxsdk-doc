@@ -22,7 +22,7 @@ To build an example application, follow these steps.
 
 3.  Type `build_debug.bat` at the command-line or double-click the `build_debug.bat` file in Windows Explorer to perform the build. The output is as shown in [Figure 2](#evkmimx8ulp_HELLOWORLDBUILDSUCCESS).
 
-(evkmimx8ulp_HELLOWORLDBUILDSUCCESS)=
+    (evkmimx8ulp_HELLOWORLDBUILDSUCCESS)=
     |![](../images/hello_world_demo_build_successful_imx7ulpb0.png "hello_world demo build successful")
 
 |

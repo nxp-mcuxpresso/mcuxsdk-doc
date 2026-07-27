@@ -18,7 +18,7 @@ To download and run the application, perform these steps:
 
     **Note:** When debugging with jlink, it expects one jlinkscript file named JLinkSettings.JLinkScript in the folder where the uVision project files are located. For details, see Segger Wiki. For the contents in this JlinkSettings.JLinkScript, use contents in evkbmimxrt1060\_sdram\_init.jlinkscript.
 
-(evkbmimxrt1060_S1234098A702)=
+    (evkbmimxrt1060_S1234098A702)=
     |![](../images/stop_at_main_when_running_debugging_rt1020.png "Stop at main() when run
 											debugging")
 
@@ -26,14 +26,14 @@ To download and run the application, perform these steps:
 
 5.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](#evkbmimxrt1060_S12702).
 
-(evkbmimxrt1060_S12702)=
+    (evkbmimxrt1060_S12702)=
     |![](../images/go_button.png "Run button")
 
 |
 
     The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](#evkbmimxrt1060_S127DD02). If this is not true, check your terminal settings and connections.
 
-(evkbmimxrt1060_S127DD02)=
+    (evkbmimxrt1060_S127DD02)=
     |![](../images/hello_world_lowercase_001.png "Text display of the hello_world
 											demo")
 

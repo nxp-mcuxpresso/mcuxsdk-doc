@@ -8,17 +8,17 @@ To build an example application, follow these steps.
 
 2.  On the **Quickstart Panel**, click **Import SDK example\(s\)…**, as shwon in [Figure 2](#evkbimxrt1050_IMPORTANSDKEXAMPLE).
 
-(evkbimxrt1050_IMPORTANSDKEXAMPLE)=
+    (evkbimxrt1050_IMPORTANSDKEXAMPLE)=
     ![](../images/import_sdk_example.png "Import an SDK example")
 
 3.  In the window that appears, expand the **MIMXRT1050** folder and select **MIMXRT1052xxxxx**. Then, select **evkbimxrt1050** and click **Next**, as shown in [Figure 3](#evkbimxrt1050_SELECTBOARD).
 
-(evkbimxrt1050_SELECTBOARD)=
+    (evkbimxrt1050_SELECTBOARD)=
     ![](../images/select_evkb-imxrt1050_board.png "Selecting EVKB-IMXRT1050 board")
 
 4.  Expand the `demo_apps` folder, select `hello_world`, and then click **Next**, as shown in [Figure 4](#evkbimxrt1050_SELECTHELLOWORLDCASE).
 
-(evkbimxrt1050_SELECTHELLOWORLDCASE)=
+    (evkbimxrt1050_SELECTHELLOWORLDCASE)=
     ![](../images/select_hello_world_rt1050.png "Selecting hello_world")
 
 5.  Ensure the option **Redlib: Use floating point version of printf** is selected if the cases print floating point numbers on the terminal \(for demo applications such as `dac32_adc12`, `dac_adc`, `dac_cadc`, `ecompass`, `sai`, `coremark`, `mbedtls_benchmark`, `wolfssl_benchmark`, and for `mmcau_examples` such as `mmcau_api`\). Otherwise, there is no need to select it. Click **Finish**.

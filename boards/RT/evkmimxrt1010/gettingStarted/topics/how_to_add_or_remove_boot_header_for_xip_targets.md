@@ -8,7 +8,7 @@ The MCUXpresso SDK for i.MX RT1010 provides `flexspi_nor_debug` and `flexspi_nor
 
     ^
 
-(evkmimxrt1010_TABLE_SUPPORTINGXIP)=
+    (evkmimxrt1010_TABLE_SUPPORTINGXIP)=
     |**XIP\_EXTERNAL\_FLASH**|1: Exclude the code which will change the clock of flexspi.|
     |0: Make no changes.|
     |**XIP\_BOOT\_HEADER\_ENABLE**|1: Add FLEXSPI configuration block, image vector table, and boot data to the image by default.|
@@ -18,7 +18,7 @@ The MCUXpresso SDK for i.MX RT1010 provides `flexspi_nor_debug` and `flexspi_nor
 
     ^
 
-(evkmimxrt1010_TABLE_EFFECTSONBUILTIMAGE)=
+    (evkmimxrt1010_TABLE_EFFECTSONBUILTIMAGE)=
     |**XIP\_EXTERNAL\_FLASH=1**|**XIP\_BOOT\_HEADER\_ENABLE=1**|Can be programed to external flash by IDE and can run after POR reset if external flash is the boot source.|
     |**XIP\_BOOT\_HEADER\_ENABLE=0**|Can **NOT** run after POR reset if it is programed by IDE even if external flash is the boot source.|
     |**XIP\_EXTERNAL\_FLASH=0**|This image can **NOT** do XIP because when this macro is set to **1**, it will exclude the code which will change the clock of flexspi.|

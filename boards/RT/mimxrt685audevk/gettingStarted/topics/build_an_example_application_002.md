@@ -26,7 +26,7 @@ Do the following steps to build the `hello_world` example application.
 
 3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](#mimxrt685audevk_BUILDINGDEMOAPP).
 
-(mimxrt685audevk_BUILDINGDEMOAPP)=
+    (mimxrt685audevk_BUILDINGDEMOAPP)=
     |![](../images/fig22.png "Build the demo application")
 
 |

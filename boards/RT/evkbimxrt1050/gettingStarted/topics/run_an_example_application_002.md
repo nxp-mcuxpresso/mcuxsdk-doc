@@ -14,7 +14,7 @@ To download and run the application, perform these steps:
 
 4.  To debug the application, click **load** \(or press the F8 key\). Then, click the **Start/Stop Debug Session** button, highlighted in red in [Figure 2](#evkbimxrt1050_S1234098A702). If using **J-Link** as the debugger, click **Project option** \>**Debug** \>**Settings** \>**Debug** \>**Port**, and select **SW**.
 
-(evkbimxrt1050_S1234098A702)=
+    (evkbimxrt1050_S1234098A702)=
     ![](../images/stop_at_main_when_running_debugging_rt1050.png "Stop at main() when run debugging")
 
 5.  Run the code by clicking **Run** to start the application, as shown in [\#S12702](#evkbimxrt1050_S12702).
@@ -22,7 +22,7 @@ To download and run the application, perform these steps:
     The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 3](#evkbimxrt1050_S127DD02). If this is not true, check your terminal settings and connections.
 
 (evkbimxrt1050_S127DD02)=
-(evkbimxrt1050_S12702)=
+    (evkbimxrt1050_S12702)=
     ![](../images/hello_world_lowercase.png "Text display of the hello_world demo")
 
 

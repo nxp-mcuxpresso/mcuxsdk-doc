@@ -6,7 +6,7 @@ The MCUXpresso SDK for i.MX RT1150 provides `flexspi_nor_debug` and `flexspi_nor
 
 -   The following three macros are added in `flexspi_nor` targets to support XIP, as described in [Table 1](#frdmimxrt1152_TABLE_HBQ_GX5_5CB).
 
-(frdmimxrt1152_TABLE_HBQ_GX5_5CB)=
+    (frdmimxrt1152_TABLE_HBQ_GX5_5CB)=
     |**XIP\_​EXTERNAL\_​FLASH**|1: Exclude the code which changes the clock of FLEXSPI.​|
     |0: Make no changes.​|
     |**XIP\_​BOOT\_​HEADER\_​ENABLE**|1: Add FLEXSPI configuration block, image vector table, boot data, and device configuration data \(optional\) to the image by default.​|
@@ -16,7 +16,7 @@ The MCUXpresso SDK for i.MX RT1150 provides `flexspi_nor_debug` and `flexspi_nor
 
 -   [Table 2](#frdmimxrt1152_TABLE_YK2_PX5_5CB) shows the different effect on the built image with a different combination of these macros.
 
-(frdmimxrt1152_TABLE_YK2_PX5_5CB)=
+    (frdmimxrt1152_TABLE_YK2_PX5_5CB)=
     ||**XIP\_​BOOT\_​HEADER\_​DCD\_​ENABLE=1**|**XIP\_​BOOT\_​HEADER\_​DCD\_​ENABLE=0**|
     |--|----------------------------------------|----------------------------------------|
     |**XIP\_​EXTERNAL\_​FLASH=1**|**XIP\_​BOOT\_​HEADER\_​ENABLE=1**|    -   Can be programmed to `qspiflash` by IDE and can run after POR reset if `qspiflash` is the boot source.​

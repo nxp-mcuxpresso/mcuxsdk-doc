@@ -76,21 +76,21 @@ To run the ‘Hello World’ demo, import the SDK sources into the Xplorer IDE.
 
     **Note:** After initial configuration, it is possible to select the same debug configuration as in [Figure 8](#mimxrt685audevk_HVHWEG).
 
-(mimxrt685audevk_HVHWEG)=
+    (mimxrt685audevk_HVHWEG)=
     |![](../images/image29.png "Select debug configuration")
 
 |
 
     The **Debug** perspective appears as in [Figure 9](#mimxrt685audevk_GVDVWQC).
 
-(mimxrt685audevk_GVDVWQC)=
+    (mimxrt685audevk_GVDVWQC)=
     |![](../images/image30.svg "Debug perspective")
 
 |
 
     The program stops at the start of main\(\) function. To run the program, click the **Resume** or **Stepping through** icon button as shown in [Figure 10](#mimxrt685audevk_LKWEUGG).
 
-(mimxrt685audevk_LKWEUGG)=
+    (mimxrt685audevk_LKWEUGG)=
     |![](../images/image31.svg "Run the program")
 
 |

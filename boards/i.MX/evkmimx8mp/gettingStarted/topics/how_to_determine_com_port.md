@@ -4,7 +4,7 @@ This section describes the steps necessary to determine the debug COM port numbe
 
 1.  To determine the COM port, open the Windows operating system Device Manager. This can be achieved by going to the Windows operating system Start menu and typing **Device Manager** in the search bar, as shown in [Figure 1](#evkmimx8mp_DEVICEMANAGER).
 
-(evkmimx8mp_DEVICEMANAGER)=
+    (evkmimx8mp_DEVICEMANAGER)=
     |![](../images/device_manager.png "Device manager")
 
 |

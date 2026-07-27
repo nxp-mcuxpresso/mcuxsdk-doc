@@ -14,7 +14,7 @@
 
 2.  To build the demo project, select **Rebuild**, highlighted in red in [Figure 1](#evkmimxrt1040_FIG_BUILDTHEDEMO).
 
-(evkmimxrt1040_FIG_BUILDTHEDEMO)=
+    (evkmimxrt1040_FIG_BUILDTHEDEMO)=
     |![](../images/keil_build_the_demo.png "Build the demo")
 
 |

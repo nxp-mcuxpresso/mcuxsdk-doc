@@ -6,7 +6,7 @@ The board needs to be in Download Mode mode for UUU to download images:
 2.  Connect the development platform to your PC via USB cable between the SERIAL port and the PC USB connector. The SERIAL port is J301 on the base board.
 3.  The PC recognizes the i.MX 8M Nano device as \(VID:PID\)=\(1FC9:013E\), as shown in [Figure 1](#evkmimx8mn_DEVICEMANAGER).
 
-(evkmimx8mn_DEVICEMANAGER)=
+    (evkmimx8mn_DEVICEMANAGER)=
     |![](../images/figure23.png "Device as shown in Device Manager")
 
 |

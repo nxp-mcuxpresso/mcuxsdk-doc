@@ -42,7 +42,7 @@ Do the following steps to build the `hello_world` example application.
 
 3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](#evkmimxrt1024_BUILDINGDEMOAPP).
 
-(evkmimxrt1024_BUILDINGDEMOAPP)=
+    (evkmimxrt1024_BUILDINGDEMOAPP)=
     |![](../images/build_demo_application_rt1050.png "Build the demo application")
 
 |

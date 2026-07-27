@@ -7,7 +7,7 @@ The board needs to be in Download Mode mode for UUU to download images:
 3.  Connect J403 \(USB1\) to PC USB connector for downloading.
 4.  The PC recognizes the i.MX 93W device as \(VID:PID\)=\(1FC9:0146\), as shown in [Figure 1](#mcimx93wevk_DEVICEMANAGER).
 
-(mcimx93wevk_DEVICEMANAGER)=
+    (mcimx93wevk_DEVICEMANAGER)=
     |![](../images/device_shown_in_device_manager_download_mode_8mp.png "Device as shown in Device Manager")
 
 |

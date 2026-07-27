@@ -40,7 +40,7 @@ An MCUXpresso SDK build requires that some packages are installed on the host. D
 
         **Note:** If you have `C:\MinGW\msys\x.x\bin` in your `PATH` variable \(as required by Kinetis SDK v2.10.0\), remove it to ensure that the new GCC build system works correctly.
 
-(evkmimx8ulp_ADDINGPATH)=
+        (evkmimx8ulp_ADDINGPATH)=
         |![](../images/add_path_to_systems_environment.png "Add Path to systems environment")
 
 |

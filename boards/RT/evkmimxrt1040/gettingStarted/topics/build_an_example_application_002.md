@@ -10,14 +10,14 @@ To build an example application, follow these steps.
 
 2.  On the **Quickstart Panel**, click **Import SDK example\(s\)…**, as shown in [Figure 2](#evkmimxrt1040_FIG_IMPORTANSDKEXAMPLE).
 
-(evkmimxrt1040_FIG_IMPORTANSDKEXAMPLE)=
+    (evkmimxrt1040_FIG_IMPORTANSDKEXAMPLE)=
     |![](../images/ide_import_sdk_example.png "Import an SDK example")
 
 |
 
 3.  In the window that appears, expand the **MIMXRT1040** folder and select **MIMXRT1042xxxxx**. Then, select **evkmimxrt1040** and click **Next**, as shown in [Figure 3](#evkmimxrt1040_FIG_SELECTBOARD).
 
-(evkmimxrt1040_FIG_SELECTBOARD)=
+    (evkmimxrt1040_FIG_SELECTBOARD)=
     |![](../images/ide_select_evkb-imxrt1040_board.png "Select MIMXRT1040-EVK board")
 
 |
@@ -36,7 +36,7 @@ To build an example application, follow these steps.
 
     **Note:** If you want to use semihost to print log, first select the **Semihost** button when importing projects, as shown in [Figure 6](#evkmimxrt1040_FIG_SEMIHOST).
 
-(evkmimxrt1040_FIG_SEMIHOST)=
+    (evkmimxrt1040_FIG_SEMIHOST)=
     |![](../images/ide_select_semihost.png "Select Semihost")
 
 |
@@ -47,7 +47,7 @@ To build an example application, follow these steps.
 
 6.  On the **Quickstart** panel, click **build `evkmimxrt1040_demo_apps_hello_world [Debug]`**, as shown in [Figure 8](#evkmimxrt1040_FIG_BUILDHELLWORLD).
 
-(evkmimxrt1040_FIG_BUILDHELLWORLD)=
+    (evkmimxrt1040_FIG_BUILDHELLWORLD)=
     |![](../images/ide_build_hello_world_case.png "Build hello world case")
 
 |

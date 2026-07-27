@@ -5,7 +5,7 @@
 1.  Prepare the `multicore_trigger_demo_cm33` flash target image \(`flexspi_nor_debug` or `flexspi_nor_release`\) and specify it in `Source executable image`.
 2.  Use `Additional images` to specify CM7 application image running from ITCM memory. See [Table 1](#evkmimxrt1180_table_para) for how to fill in necessary information for this additional image.
 
-<a id="evkmimxrt1180_table_para"></a>
+    <a id="evkmimxrt1180_table_para"></a>
     | Parameter    | Value        | Explanation                                                                                                                                                                                                                                  |
     |--------------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Image offset | `0xFF000`    | The offset in bytes from the beginning of the current container header to beginning of the image. In our case, the CM7 TCM image is flashed to `0x2810_0000`. The container header is put to `0x2800_1000` and the yield offset = `0xF_F000` |
