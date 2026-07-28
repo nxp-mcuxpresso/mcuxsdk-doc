@@ -24,14 +24,14 @@ To build an example application, follow these steps.
 											floating-point
 											version of printf")
 
-    **Note:** If you want to use semihost to print log, first select the **Semihost** button when importing projects, as shown in [Figure 5](#evkmimxrt1024_FLOAATING).
+    **Note:** If you want to use semihost to print log, first select the **Semihost** button when importing projects, as shown in [Figure 5](#evkmimxrt1024_SELECTSEMIHOST).
 
-    (evkmimxrt1024_FLOAATING)=
+    (evkmimxrt1024_SELECTSEMIHOST)=
     ![](../images/import.png "Selecting Semihost")
 
-6.  On the **Quickstart** panel, click **build `evkmimxrt1024\_demo\_apps\_hello\_world \[Debug\]`**, as shown in [Figure 6](#evkmimxrt1024_FSLOATINSG).
+6.  On the **Quickstart** panel, click **build `evkmimxrt1024\_demo\_apps\_hello\_world \[Debug\]`**, as shown in [Figure 6](#evkmimxrt1024_BUILDHELLOWORLD).
 
-    (evkmimxrt1024_FSLOATINSG)=
+    (evkmimxrt1024_BUILDHELLOWORLD)=
     ![](../images/build_hello_world_case_rt1020.png "Building hello world case")
 
 

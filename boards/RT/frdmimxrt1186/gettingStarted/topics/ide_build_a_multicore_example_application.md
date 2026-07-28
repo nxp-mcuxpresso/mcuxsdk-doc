@@ -10,9 +10,9 @@ This section describes the steps required to configure MCUXpresso IDE to build, 
 
     ![](../images/ide_multicore_select_hello_world_core.png "Select the hello_world multicore example")
 
-3.  Now, two projects should be imported into the workspace. To start building the multicore application, highlight the `hello_world_primary_core` project \(multicore master project\) in the Project Explorer. Then choose the appropriate build target, **Debug** or **Release**, by clicking the downward facing arrow next to the hammer icon, as shown in [Figure 3](#frdmimxrt1186_FIG_TERMINALSSPUTTY). For this example, select **Debug**.
+3.  Now, two projects should be imported into the workspace. To start building the multicore application, highlight the `hello_world_primary_core` project \(multicore master project\) in the Project Explorer. Then choose the appropriate build target, **Debug** or **Release**, by clicking the downward facing arrow next to the hammer icon, as shown in [Figure 3](#frdmimxrt1186_FIG_SELECTBUILDTARGET). For this example, select **Debug**.
 
-    (frdmimxrt1186_FIG_TERMINALSSPUTTY)=
+    (frdmimxrt1186_FIG_SELECTBUILDTARGET)=
     ![](../images/ide_multicore_selection_of_build_target.png "Selection of the build target in MCUXpresso IDE")
 
 

@@ -18,9 +18,9 @@ The following steps guide you through opening the `hello_world` example applicat
 
     ![](../images/demo_build_target_selection_8mm.png "Demo build target selection")
 
-3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](#evkmimx8mn_DEVICEMANAGSER).
+3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](#evkmimx8mn_BUILDDEMOAPPLICATION).
 
-    (evkmimx8mn_DEVICEMANAGSER)=
+    (evkmimx8mn_BUILDDEMOAPPLICATION)=
     ![](../images/build_the_demo_application_8mm.png "Building the demo application")
 
 4.  The build completes without errors.

@@ -25,16 +25,16 @@ To build an example application, follow these steps.
 
     ![](../images/use_floating_print_version_printf_rt1020.png "Selecting User floating point version of printf")
 
-    **Note:** If you want to use semihost to print log, first select the **Semihost** button when importing projects, as shown in [Figure 6](#evkmimxrt1020_FLOAATING).
+    **Note:** If you want to use semihost to print log, first select the **Semihost** button when importing projects, as shown in [Figure 6](#evkmimxrt1020_SELECTSEMIHOST).
 
-    (evkmimxrt1020_FLOAATING)=
+    (evkmimxrt1020_SELECTSEMIHOST)=
     ![](../images/import.png "Selecting Semihost")
 
     ![](../images/properties.png "Setting SDK_DEBUGCONSOLE")
 
-6.  On the **Quickstart** panel, click **build `evkmimxrt1020\_demo\_apps\_hello\_world \[Debug\]`**, as shown in [Figure 8](#evkmimxrt1020_FSLOATINSG).
+6.  On the **Quickstart** panel, click **build `evkmimxrt1020\_demo\_apps\_hello\_world \[Debug\]`**, as shown in [Figure 8](#evkmimxrt1020_BUILDHELLOWORLD).
 
-    (evkmimxrt1020_FSLOATINSG)=
+    (evkmimxrt1020_BUILDHELLOWORLD)=
     ![](../images/build_hello_world_case_rt1020.png "Building hello world case")
 
 

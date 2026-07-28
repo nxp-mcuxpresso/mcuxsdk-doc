@@ -31,9 +31,9 @@ To build an example application, follow these steps.
 
     ![](../images/ide_set_sdk_debugconsole.png "Set SDK_DEBUGCONSOLE")
 
-6.  On the **Quickstart** panel, click **build `evkmimxrt1040_demo_apps_hello_world [Debug]`**, as shown in [Figure 8](#evkmimxrt1040_FIG_BUILDHELLWORLD).
+6.  On the **Quickstart** panel, click **build `evkmimxrt1040_demo_apps_hello_world [Debug]`**, as shown in [Figure 8](#evkmimxrt1040_FIG_BUILDHELLOWORLD).
 
-    (evkmimxrt1040_FIG_BUILDHELLWORLD)=
+    (evkmimxrt1040_FIG_BUILDHELLOWORLD)=
     ![](../images/ide_build_hello_world_case.png "Build hello world case")
 
 

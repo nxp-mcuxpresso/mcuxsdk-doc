@@ -32,9 +32,9 @@ To download and run the application via UUU, perform these steps:
    `uuu qspi_auto.sh`
 
     The UUU puts the platform into fast boot mode and automatically flashes the target bin to QSPI. The command line and fast boot console is as shown 
-	(run_an_example_application.md#COMMANDLINSEFASTBOOT).
+	(run_an_example_application.md#COMMANDLINEFASTBOOT).
 
-    (COMMANDLINSEFASTBOOT)=
+    (COMMANDLINEFASTBOOT)=
     ![](../images/command_line_fast_boot_console_output_executing_uu.png "Command line and fast boot console output when
 											executing UUU")
 

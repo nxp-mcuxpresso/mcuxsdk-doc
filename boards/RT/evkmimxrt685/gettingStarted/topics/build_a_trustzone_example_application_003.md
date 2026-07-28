@@ -11,9 +11,9 @@ This section describes the steps required to configure MCUXpresso IDE to build, 
     ![](../images/select_the_hello_world_trustzone_example_mimxrt600.jpg "Select the hello_world TrustZone
 											example")
 
-3.  Now, two projects should be imported into the workspace. To start building the TrustZone application, highlight the `evkmimxrt685\_hello\_world\_s` project \(TrustZone master project\) in the Project Explorer. Then, choose the appropriate build target, **Debug, or** **Release**, by clicking the downward facing arrow next to the hammer icon, as shown in [Figure 3](#evkmimxrt685_SELECTFRDMK64FBOARD). For this example, select the **Debug** target.
+3.  Now, two projects should be imported into the workspace. To start building the TrustZone application, highlight the `evkmimxrt685\_hello\_world\_s` project \(TrustZone master project\) in the Project Explorer. Then, choose the appropriate build target, **Debug, or** **Release**, by clicking the downward facing arrow next to the hammer icon, as shown in [Figure 3](#evkmimxrt685_SELECTBUILDTARGET). For this example, select the **Debug** target.
 
-    (evkmimxrt685_SELECTFRDMK64FBOARD)=
+    (evkmimxrt685_SELECTBUILDTARGET)=
     ![](../images/figure_16_rt600.png "Selection of the build target in MCUXpresso
 											IDE")
 

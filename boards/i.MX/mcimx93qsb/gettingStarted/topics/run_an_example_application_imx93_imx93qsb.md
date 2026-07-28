@@ -52,7 +52,7 @@ To download and run the application via UUU, perform these steps:
 
     `uuu -b sd <singleboot flash.bin> flash.bin (for lowpower boot on SD)`
 
-    The UUU puts the platform into fast boot mode and automatically flashes the target bootloader to emmc/sd. The command line and fast boot console is as shown in [Figure 2](#mcimx93qsb_COMMANDLINSEFASTBOOT).
+    The UUU puts the platform into fast boot mode and automatically flashes the target bootloader to emmc/sd. The command line and fast boot console is as shown in [Figure 2](#mcimx93qsb_COMMANDLINEFASTBOOT).
 
     ![](../images/command_line_fast_boot_console_output_executing_uu.png "Command line and fast boot console output when
 											executing UUU")
