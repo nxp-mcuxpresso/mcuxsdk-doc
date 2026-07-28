@@ -16,15 +16,11 @@ Perform the following steps to build the `hello_world` example application.
 
 2.  Select the desired build target from the drop-down menu. For this example, select the **hello\_world – debug** target.
 
-    |![](../images/demo_build_target_selection_20.jpg "Demo build target selection")
-
-|
+    ![](../images/demo_build_target_selection_20.jpg "Demo build target selection")
 
 3.  To build the demo application, click the **Make** button highlighted in red below.
 
-    |![](../images/build_the_demo_application_20.png "Building the demo application")
-
-|
+    ![](../images/build_the_demo_application_20.png "Building the demo application")
 
 4.  The build completes without errors.
 

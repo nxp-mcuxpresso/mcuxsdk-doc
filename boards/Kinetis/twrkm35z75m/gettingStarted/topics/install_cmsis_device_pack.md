@@ -4,9 +4,7 @@ After the MDK tools are installed, Cortex Microcontroller Software Interface Sta
 
 1.  Open the MDK IDE, which is called μVision. In the IDE, select the **Pack Installer** icon.
 
-    |![](../images/launch_pack_installer.png "Launch the Pack Installer")
-
-|
+    ![](../images/launch_pack_installer.png "Launch the Pack Installer")
 
 2.  After the installation finishes, close the Pack Installer window and return to the μVision IDE.
 

@@ -10,15 +10,11 @@ Take `hello_world` as an example:
 
 -   **IAR**
 
-    |![](../images/options_node_iar_rt1060.png "Options node IAR")
-
-|
+    ![](../images/options_node_iar_rt1060.png "Options node IAR")
 
 -   **MDK**
 
-    |![](../images/options_mdk-new.png "Options for target")
-
-|
+    ![](../images/options_mdk-new.png "Options for target")
 
 -   **ARMGCC**
 
@@ -26,8 +22,6 @@ Take `hello_world` as an example:
 
 -   **MCUX**
 
-    |![](../images/properties_for_evkbimxrt1060.png "Properties for evkmimxrt1060")
-
-|
+    ![](../images/properties_for_evkbimxrt1060.png "Properties for evkmimxrt1060")
 
 

@@ -5,15 +5,11 @@ The Xtensa Xplorer IDE tool can run software simulation and profile the applicat
 [Figure 1](#mimxrt685audevk_MJDHFVWC) shows profiling result of the helloworld program on simulation console.
 
 (mimxrt685audevk_MJDHFVWC)=
-|![](../images/image48.png "Profiling result of the helloworld program")
-
-|
+![](../images/image48.png "Profiling result of the helloworld program")
 
 [Figure 1](#mimxrt685audevk_MJDHFVWC) shows the profiling chart, partially.
 
-|![](../images/image49.png "Partial profiling chart")
-
-|
+![](../images/image49.png "Partial profiling chart")
 
 The generated license file only supports debug/run on the RT6xx device target. It does not support software simulation/Xplorer ISS. If there are special requirements to run the software simulations, contact Cadence directly.
 

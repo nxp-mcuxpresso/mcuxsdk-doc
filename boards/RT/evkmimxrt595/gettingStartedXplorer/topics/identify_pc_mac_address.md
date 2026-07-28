@@ -2,13 +2,9 @@
 
 To generate the correct license file, identify the appropriate MAC for the computer you plan to run Xtensa tools on. Remove ‘-‘ or ‘:’ symbols in the MAC address.
 
-|![](../images/image2.png "Windows")
+![](../images/image2.png "Windows")
 
-|
-
-|![](../images/image3.png "Linux")
-
-|
+![](../images/image3.png "Linux")
 
 **Note:** Linux NOTE MAC address MUST be associated with eth0 interface. If not, FLEXlm cannot perform the license checkout and you will not be able to compile or simulate you code. If your host has the MAC address associated with another interface. For example: em1, you may use the following approach, or another approach recommended by your IT team to rename the interface to eth0.
 

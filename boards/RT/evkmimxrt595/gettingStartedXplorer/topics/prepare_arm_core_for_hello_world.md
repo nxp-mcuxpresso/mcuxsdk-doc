@@ -15,11 +15,9 @@ Preparing an Arm core development environment is outside the scope of this docum
 **Note:** SEGGER J-Link software version \>= 6.46 is required for compatibility with RT500. MCUXpresso IDE may ship with an older version, which is customized as in [Figure 1](#CGSADGDAJ).
 
 (CGSADGDAJ)=
-|![](../images/fig11.png "Customize
+![](../images/fig11.png "Customize
 										MCUXpresso
 										IDE options")
-
-|
 
 **Parent topic:**[Run and Debug DSP Demo using Xplorer IDE](../topics/run_and_debug_dsp_demo_using_xplorer_ide.md)
 

@@ -10,32 +10,24 @@ To download and run the application, perform these steps:
     2.  No parity
     3.  8 data bits
     4.  1 stop bit
-    |![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configurations")
-
-|
+    ![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configurations")
 
 4.  To debug the application, click **load** \(or press the **F8** key\). Then, click the **Start/Stop Debug Session** button, highlighted in red in [Figure 2](#evkmimxrt1040_FIG_STOPATMAIN). If using **J-Link** as the debugger, click **Project option** \>**Debug** \>**Settings** \>**Debug** \>**Port**, and select **SW**.
 
     **Note:** When debugging with `jlink`, it expects one `jlinkscript` file named `JLinkSettings.JLinkScript` in the folder where the uVision project files are located. For details, see [SEGGER Wiki](https://wiki.segger.com/Main_Page). For the contents in this `JlinkSettings.JLinkScript`, use contents in `evkmimxrt1040_sdram_init.jlinkscript`.
 
     (evkmimxrt1040_FIG_STOPATMAIN)=
-    |![](../images/keil_stop_at_main_when_running_debugging.png "Stop at main() when run debugging")
-
-|
+    ![](../images/keil_stop_at_main_when_running_debugging.png "Stop at main() when run debugging")
 
 5.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](#evkmimxrt1040_FIG_RUNBUTTON).
 
     (evkmimxrt1040_FIG_RUNBUTTON)=
-    |![](../images/keil_run_button.jpg "Run button")
-
-|
+    ![](../images/keil_run_button.jpg "Run button")
 
     The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](#evkmimxrt1040_FIG_TEXTDISPLAY). If this is not true, check your terminal settings and connections.
 
     (evkmimxrt1040_FIG_TEXTDISPLAY)=
-    |![](../images/keil_text_display_of_the_hello_world_demo.png "Text display of the hello_world demo")
-
-|
+    ![](../images/keil_text_display_of_the_hello_world_demo.png "Text display of the hello_world demo")
 
 
 **Parent topic:**[Run a demo using Keil MDKVision](../topics/run_a_demo_using_keil_mdkvision.md)

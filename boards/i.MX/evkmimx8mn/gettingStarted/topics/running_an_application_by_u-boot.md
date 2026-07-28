@@ -5,9 +5,7 @@ This section describes the steps to write a bootable SDK bin file to TCM or DRAM
 1.  Connect the **DEBUG UART** slot on the board to your PC through the USB cable. The Windows OS installs the USB driver automatically, and the Ubuntu OS finds the serial devices as well.
 2.  On Windows OS, open the device manager, find **USB serial Port** in **Ports \(COM and LPT\)**. Assume that the ports are COM9 and COM10. One port is for the debug message from the Cortex-A53 and the other is for the Cortex-M7. The port number is allocated randomly, so opening both is beneficial for development. On Ubuntu OS, find the TTY device with name `/dev/ttyUSB*` to determine your debug port. Similar to Windows OS, opening both is beneficial for development.
 
-    |![](../images/determine_com_port_target_board.png "Determining the COM Port of target board")
-
-|
+    ![](../images/determine_com_port_target_board.png "Determining the COM Port of target board")
 
 3.  Build the application \(for example, `hello_world`\) to get the bin file \(`hello_world.bin`\).
 4.  Prepare an SD card with the prebuilt U-Boot image and copy bin file \(`hello_world.bin`\) into the SD card. Then, insert the SD card to the target board. Make sure to use the default boot SD slot and check the dipswitch configuration.
@@ -48,13 +46,9 @@ This section describes the steps to write a bootable SDK bin file to TCM or DRAM
 
     **Note:** For Linux release version L5.15.71-2.2.0 and later, the `run prepare_mcore` command must run before the `bootaux` command.
 
-    |![](../images/figure_21.png "U-Boot command to run application on TCM")
+    ![](../images/figure_21.png "U-Boot command to run application on TCM")
 
-|
-
-    |![](../images/figure_22.png "U-Boot command to run application on DRAM")
-
-|
+    ![](../images/figure_22.png "U-Boot command to run application on DRAM")
 
 7.  Open another terminal application on the PC, such as PuTTY and connect to the debug COM port \(to determine the COM port number, see [How to determine COM port](how_to_determine_com_port.md#)\). Configure the terminal with these settings:
     -   115200
@@ -63,8 +57,6 @@ This section describes the steps to write a bootable SDK bin file to TCM or DRAM
     -   1 stop bit
 8.  The `hello_world` application is now running and a banner is displayed on the terminal. If this is not true, check your terminal settings and connections.
 
-    |![](../images/hello_world_demo_running_on_cortex_m4_core.png "Hello world demo running on Cortex-M7 core")
-
-|
+    ![](../images/hello_world_demo_running_on_cortex_m4_core.png "Hello world demo running on Cortex-M7 core")
 
 

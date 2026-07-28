@@ -6,14 +6,10 @@ DSP sample applications are configured to link against one of these custom LSPs.
 
 You can see and change which LSP is being actively used by the project target in the Xplorer IDE in the Linker menu of the project.
 
-|![](../images/image17.png "Select
+![](../images/image17.png "Select
 										Build Properties")
 
-|
-
-|![](../images/image18.png "Build Properties")
-
-|
+![](../images/image18.png "Build Properties")
 
 The MCUXpresso SDK ships with other standard LSPs for RT500. For more information on using LSPs and how to create a custom memory map using Xtensa software tools, see the Cadence Linker Support Packages \(LSPs\) Reference Manual.
 

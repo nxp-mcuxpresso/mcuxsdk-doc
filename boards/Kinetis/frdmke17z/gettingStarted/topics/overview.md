@@ -6,7 +6,5 @@ For supported toolchain versions, see *MCUXpresso SDK Release Notes for FRDM-KE1
 
 For more details about MCUXpresso SDK, see [MCUXpresso Software Development Kit \(SDK\)](http://www.nxp.com/products/software-and-tools/run-time-software/mcuxpresso-software-and-tools/mcuxpresso-software-development-kit-sdk:MCUXpresso-SDK).
 
-|![](../images/ksdk_layers.svg "MCUXpresso SDK layers")
-
-|
+![](../images/ksdk_layers.svg "MCUXpresso SDK layers")
 

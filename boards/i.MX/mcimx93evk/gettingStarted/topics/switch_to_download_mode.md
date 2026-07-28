@@ -8,9 +8,7 @@ The board needs to be in Download Mode mode for UUU to download images:
 4.  The PC recognizes the i.MX 93 device as \(VID:PID\)=\(1FC9:0146\), as shown in [Figure 1](#mcimx93evk_DEVICEMANAGER).
 
     (mcimx93evk_DEVICEMANAGER)=
-    |![](../images/device_shown_in_device_manager_download_mode_8mp.png "Device as shown in Device Manager")
-
-|
+    ![](../images/device_shown_in_device_manager_download_mode_8mp.png "Device as shown in Device Manager")
 
 
 **Parent topic:**[Set up environment](../topics/set_up_environment.md)

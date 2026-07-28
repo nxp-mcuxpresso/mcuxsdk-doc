@@ -16,9 +16,7 @@ And it was built from:
 
 The load address can be identified by the linker file in the same folder. Such as <device\_name\>\_flash.ld.
 
-|![](../images/mem1.png "Memory layout in the linker")
-
-|
+![](../images/mem1.png "Memory layout in the linker")
 
 So, the load address for hello\_world.bin is 0x08000400.
 

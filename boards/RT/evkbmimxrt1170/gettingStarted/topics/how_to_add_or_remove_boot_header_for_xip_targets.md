@@ -23,11 +23,9 @@ The MCUXpresso SDK for i.MX RT1170 provides `flexspi_nor_debug` and `flexspi_nor
     -   SDRAM will be initialized.​
 |    -   Can be programmed to `qspiflash` by IDE, and can run after POR reset if `qspiflash` is the boot source.​
     -   SDRAM will **NOT** be initialized.​
-|
     |**XIP\_​BOOT\_​HEADER\_​ENABLE=0**|    -   **CANNOT** run after POR reset if it is programmed by IDE, even if `qspiflash` is the boot source.​
 |—|
     |**XIP\_​EXTERNAL\_​FLASH=0**|    -   This image **CANNOT** complete XIP because when this macro is set to 1, it excludes the code, which changes the clock for FLEXSPI.​
-|
 
 
 **Where to change the macros for each toolchain in MCUXpresso SDK?**

@@ -15,9 +15,7 @@
 2.  To build the demo project, select **Rebuild**, as shown in [Figure 1](#frdmke17z_FIG_BUILDTHEDEMO), highlighted in red.
 
     (frdmke17z_FIG_BUILDTHEDEMO)=
-    |![](../images/keil_build_the_demo.png "Build the demo")
-
-|
+    ![](../images/keil_build_the_demo.png "Build the demo")
 
 3.  The build completes without errors.
 

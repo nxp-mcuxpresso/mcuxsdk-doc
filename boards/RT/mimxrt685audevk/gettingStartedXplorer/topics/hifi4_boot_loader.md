@@ -73,9 +73,7 @@ DSP_Start();
 
 The post build scripts create the DSP images. For details, see Makefile.include in any DSP example. To reduce the image size and make image copy more efficient, they are split into SRAM part; TCM part, and uncached SRAM part. DSP images are set and linked into Cortex M33 side. For IAR, the linker is set in **Project Options \> Linker \> Extra Options**. For ArmGCC or Linux environment, set in any `DSP example\cm33\incbin_gcc.S`.
 
-|![](../images/image43.png "Linker options ")
-
-|
+![](../images/image43.png "Linker options ")
 
 **Parent topic:**[HiFi4 Boot Loader and Memory Map](../topics/hifi4_boot_loader_and_memory_map.md)
 

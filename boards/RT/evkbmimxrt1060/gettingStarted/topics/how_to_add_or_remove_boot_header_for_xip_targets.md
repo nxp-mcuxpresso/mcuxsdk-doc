@@ -10,28 +10,20 @@ Take `hello_world` as an example:
 
 -   **IAR**
 
-    |![](../images/options_node_iar_rt1060.png "Options node IAR")
-
-|
+    ![](../images/options_node_iar_rt1060.png "Options node IAR")
 
 -   **MDK**
 
-    |![](../images/options_mdk-new.png "Options for target")
-
-|
+    ![](../images/options_mdk-new.png "Options for target")
 
 -   **ARMGCC**
 
     Change the configuration in CMakeLists.txt.
 
-    |![](../images/change_config_cmakelists.png "Change configuration CMakeLists.txt")
-
-|
+    ![](../images/change_config_cmakelists.png "Change configuration CMakeLists.txt")
 
 -   **MCUX**
 
-    |![](../images/mcux_macro_rt1060evkb.png "Properties for evkbmimxrt1060")
-
-|
+    ![](../images/mcux_macro_rt1060evkb.png "Properties for evkbmimxrt1060")
 
 

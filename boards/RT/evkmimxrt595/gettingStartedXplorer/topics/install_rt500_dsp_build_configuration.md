@@ -6,13 +6,9 @@ The build configuration is provided by NXP as a binary file that can be imported
 
 The build configuration can be installed into the IDE using the ‘System Overview’ panel which is in the lower left corner by default. If this panel is not visible, it can be toggled using menu item **Window \> Show View - System Overview**.
 
-|![](../images/image9.png "System overview")
+![](../images/image9.png "System overview")
 
-|
-
-|![](../images/image10.png "Find and install a configuration build")
-
-|
+![](../images/image10.png "Find and install a configuration build")
 
 Select the directory and click **OK**.
 

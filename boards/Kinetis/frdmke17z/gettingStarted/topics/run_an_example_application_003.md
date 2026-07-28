@@ -13,33 +13,23 @@ To download and run the application, perform these steps:
     2.  No parity
     3.  8 data bits
     4.  1 stop bit
-    |![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configurations")
-
-|
+    ![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configurations")
 
 4.  In μVision, after the application is built, click the **Download** button to download the application to the target.
 
-    |![](../images/keil_download_button.png "Download button")
-
-|
+    ![](../images/keil_download_button.png "Download button")
 
 5.  After clicking the **Download** button, the application downloads to the target and is running. To debug the application, click the **Start/Stop Debug Session** button, highlighted in red.
 
-    |![](../images/keil_stop_at_main_running_debugging.png "Stop at main() when run debugging")
-
-|
+    ![](../images/keil_stop_at_main_running_debugging.png "Stop at main() when run debugging")
 
 6.  Run the code by clicking the **Run** button to start the application.
 
-    |![](../images/keil_go_button.png "Go button")
-
-|
+    ![](../images/keil_go_button.png "Go button")
 
     The `hello_world` application is now running and a banner is displayed on the terminal. If this does not appear, check your terminal settings and connections.
 
-    |![](../images/text_display_hello_world.png "Text display of the hello_world demo")
-
-|
+    ![](../images/text_display_hello_world.png "Text display of the hello_world demo")
 
 
 **Parent topic:**[Run a demo using Keil® MDK/μVision](../topics/run_a_demo_using_keil__mdk_vision.md)

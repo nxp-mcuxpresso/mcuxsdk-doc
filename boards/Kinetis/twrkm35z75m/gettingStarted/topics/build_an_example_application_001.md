@@ -14,9 +14,7 @@
 
 -   To build the demo project, select the **Rebuild** button, highlighted in red.
 
-    |![](../images/build_the_demo.png "Building the demo")
-
-|
+    ![](../images/build_the_demo.png "Building the demo")
 
 -   The build completes without errors.
 

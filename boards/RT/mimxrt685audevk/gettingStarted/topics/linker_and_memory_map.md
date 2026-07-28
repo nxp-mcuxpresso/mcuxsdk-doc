@@ -2,9 +2,7 @@
 
 When importing the SDK DSP examples, by default the mode is set as Release. The default mode means that the images must be built in Release mode with ‘min-rt’ Linker Support Package/ LSP. To double-check, open **SDK DSP examples \> Build Properties \> Linker**.
 
-|![](../images/image44.png "Linker option")
-
-|
+![](../images/image44.png "Linker option")
 
 SDK provides three different LSPs.
 

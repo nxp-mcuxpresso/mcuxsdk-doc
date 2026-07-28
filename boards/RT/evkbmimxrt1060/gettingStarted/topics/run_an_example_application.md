@@ -10,35 +10,25 @@ To download and run the application, perform these steps:
     3.  8 data bits
     4.  1 stop bit
 
-        |![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configuration")
-
-|
+        ![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configuration")
 
 4.  In IAR, click the **Download and Debug** button to download the application to the target.
 
-    |![](../images/download_and_debug_button_rt1050.png "Download and Debug button")
-
-|
+    ![](../images/download_and_debug_button_rt1050.png "Download and Debug button")
 
 5.  The application is then downloaded to the target and automatically runs to the `main()` function.
 
-    |![](../images/stop_at_main_running_debugging_rt1020.png "Stop at main() when running
+    ![](../images/stop_at_main_running_debugging_rt1020.png "Stop at main() when running
 											debugging")
-
-|
 
 6.  Run the code by clicking the **Go** button to start the application.
 
-    |![](../images/go_button_rt1050.png "Go button")
-
-|
+    ![](../images/go_button_rt1050.png "Go button")
 
 7.  The `hello_world` application is now running and a banner is displayed on the terminal. If this is not true, check your terminal settings and connections.
 
-    |![](../images/hello_world_lowercase.png "Text display of the hello_world
+    ![](../images/hello_world_lowercase.png "Text display of the hello_world
 											demo")
-
-|
 
 
 **Parent topic:**[Run a demo application using IAR](../topics/run_a_demo_application_using_iar.md)

@@ -26,15 +26,11 @@ An MCUXpresso SDK build requires that some packages are installed on the Host. D
 
     3.  Ensure that **mingw32-base** and **msys-base** are selected under **Basic Setup**.
 
-        |![](../images/setup_mingw_and_msys.png "Setup MinGW and MSYS")
-
-|
+        ![](../images/setup_mingw_and_msys.png "Setup MinGW and MSYS")
 
     4.  Click **Apply Changes** in the **Installation** menu and follow the remaining instructions to complete the installation.
 
-        |![](../images/complete_mingw_and_msys_installation.png "Complete MinGW and MSYS installation")
-
-|
+        ![](../images/complete_mingw_and_msys_installation.png "Complete MinGW and MSYS installation")
 
     5.  Add the appropriate item to the Windows operating system path environment variable. It can be found under **Control Panel**-\>**System and Security**-\>**System**-\>**Advanced System Settings** in the **Environment Variables...** section. The path is: `<mingw_install_dir>\bin`.
 
@@ -43,18 +39,14 @@ An MCUXpresso SDK build requires that some packages are installed on the Host. D
         **Note:** If you have `C:\MinGW\msys\x.x\bin` in your PATH variable \(as required by KSDK 1.0.0\), remove it to ensure that the new GCC build system works correctly.
 
         (imx95lpd5evk19_ADDINGPATH)=
-        |![](../images/add_path_to_systems_environment.png "Add Path to systems environment")
-
-|
+        ![](../images/add_path_to_systems_environment.png "Add Path to systems environment")
 
 -   Cmake
 
     1.  Download CMake 3.0.x from [www.cmake.org/cmake/resources/software.html](http://www.cmake.org/cmake/resources/software.html).
     2.  Install CMake, ensuring that the option **Add CMake to system PATH** is selected when installing. The user chooses to select whether it is installed into the PATH for all users or just the current user. In this example, it is installed for all users.
 
-        |![](../images/install_cmake.png "Install CMake")
-
-|
+        ![](../images/install_cmake.png "Install CMake")
 
     3.  Follow the remaining instructions of the installer.
     4.  You may need to reboot your system for the PATH changes to take effect.

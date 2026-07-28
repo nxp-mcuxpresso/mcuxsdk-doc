@@ -11,21 +11,15 @@ To run the ‘Hello World’ demo, first you must import SDK sources into Xplore
 
 1.  Use menu item **File \> Import \> Existing Projects into Workspace**.
 
-    |![](../images/image14.png "Import existing projects into workspace")
-
-|
+    ![](../images/image14.png "Import existing projects into workspace")
 
 2.  Select SDK directory `<SDK_ROOT>\boards\evkmimxrt595\dsp_examples\hello_world_usart \fusionf1\xtensa` as root directory and leave all other check boxes blank as default.
 
-    |![](../images/image15.png "Select root directory")
-
-|
+    ![](../images/image15.png "Select root directory")
 
 3.  Click **OK**.
 
-    |![](../images/image16.png "Import projects")
-
-|
+    ![](../images/image16.png "Import projects")
 
 4.  Click the **Finish** button.
 

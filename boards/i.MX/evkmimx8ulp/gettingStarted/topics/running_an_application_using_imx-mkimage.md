@@ -9,10 +9,8 @@ The following steps describe how to write container image \(flash.bin\):
 1.  Connect the DEBUG UART slot on the board to your PC through the USB cable. The Windows OS installs the USB driver automatically and the Ubuntu OS finds the serial devices as well.
 2.  On Windows OS, open the device manager, find **USB serial Port** in **Ports \(COM and LPT\)**. Assume that the ports are COM9 and COM10. One port is for the debug message from the Cortex-A35 and the other is for the Cortex-M33. The port number is allocated randomly, so opening both is beneficial for development. On Ubuntu OS, find the TTY device with name `/dev/ttyUSB*` to determine your debug port. Similar to Windows OS, opening both is beneficial for development.
 
-    |![](../images/determine_com_port_target_board.png "Determining the COM port of target
+    ![](../images/determine_com_port_target_board.png "Determining the COM port of target
 												board")
-
-|
 
 3.  Generate m33 firmware:
 
@@ -209,9 +207,7 @@ For Flash target: make SOC=iMX8ULP flash\_dualboot\_m33\_xip
 12. Power off and switch to low-power boot mode \(`sw5[8:1]=1000 0001`\), then repower the board.
 13. The `hello_world` application is now executed and a banner is displayed at the terminal. If this is not true, check your terminal settings and connections.
 
-    |![](../images/hello_world_demo_running_on_cortex_m4_core.png "Hello world demo running on Cortex-M33
+    ![](../images/hello_world_demo_running_on_cortex_m4_core.png "Hello world demo running on Cortex-M33
 												core")
-
-|
 
 

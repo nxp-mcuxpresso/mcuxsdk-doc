@@ -18,32 +18,22 @@ This section describes the steps necessary to determine the debug COM port numbe
 
     1.  **OpenSDA – CMSIS-DAP/mbed/DAPLink** interface:
 
-        |![](../images/opensda_cmsis_dap.png "OpenSDA – CMSIS-DAP/mbed/DAPLink interface")
-
-|
+        ![](../images/opensda_cmsis_dap.png "OpenSDA – CMSIS-DAP/mbed/DAPLink interface")
 
     2.  **OpenSDA – P&E Micro**:
 
-        |![](../images/opensda_pe_micro.png "OpenSDA – P&E Micro")
-
-|
+        ![](../images/opensda_pe_micro.png "OpenSDA – P&E Micro")
 
     3.  **OpenSDA – J-Link**:
 
-        |![](../images/opensda_jlink.png "OpenSDA – J-Link")
-
-|
+        ![](../images/opensda_jlink.png "OpenSDA – J-Link")
 
     4.  **P&E Micro OSJTAG**:
 
-        |![](../images/pe_micro_osjtag.png "P&E Micro OSJTAG")
-
-|
+        ![](../images/pe_micro_osjtag.png "P&E Micro OSJTAG")
 
     5.  **MRB-KW01**:
 
-        |![](../images/mrb_kw01.png "MRB-KW01")
-
-|
+        ![](../images/mrb_kw01.png "MRB-KW01")
 
 

@@ -6,7 +6,5 @@ For supported toolchain versions, see *MCUXpresso SDK Release Notes for MIMXRT10
 
 For more details about MCUXpresso SDK, see [MCUXpresso Software Development Kit \(SDK\)](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-software-development-kit-sdk:MCUXpresso-SDK?tid=vanMCUXPRESSO/SDK).
 
-|![](../images/mcuxpresso_sdk_layers.svg "MCUXpresso SDK layers")
-
-|
+![](../images/mcuxpresso_sdk_layers.svg "MCUXpresso SDK layers")
 

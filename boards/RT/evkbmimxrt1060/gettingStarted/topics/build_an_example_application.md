@@ -4,55 +4,39 @@ To build an example application, follow these steps.
 
 1.  Drag and drop the SDK zip file into the **Installed SDKs** view to install the MCUXpresso SDK. In the window that appears, click **OK** and wait until the import has finished.
 
-    |![](../images/install_an_sdk.png "Install an SDK")
-
-|
+    ![](../images/install_an_sdk.png "Install an SDK")
 
 2.  On the **Quickstart Panel**, click **Import SDK example\(s\)…**, as shown in [Figure 2](#evkbmimxrt1060_IMPORTANSDKEXAMPLE).
 
     (evkbmimxrt1060_IMPORTANSDKEXAMPLE)=
-    |![](../images/import_sdk_example.png "Import an SDK example")
-
-|
+    ![](../images/import_sdk_example.png "Import an SDK example")
 
 3.  In the window that appears, expand the **MIMXRT1060** folder and select. **** Then, select **evkbmimxrt1060** and click **Next**, as shown in [Figure 3](#evkbmimxrt1060_SELECTBOARD).
 
     (evkbmimxrt1060_SELECTBOARD)=
-    |![](../images/mcux_select_board_rt1960evkb.png "Selecting MIMXRT1060-EVKB board")
-
-|
+    ![](../images/mcux_select_board_rt1960evkb.png "Selecting MIMXRT1060-EVKB board")
 
 4.  Expand the `demo_apps` folder, select `hello_world`, and then click **Next**.
 
-    |![](../images/select_hello_world_rt1060evkb.png "Selecting hello_world")
-
-|
+    ![](../images/select_hello_world_rt1060evkb.png "Selecting hello_world")
 
 5.  Ensure the option **Redlib: Use floating-point version of printf** is selected if the cases print floating-point numbers on the terminal \(for demo applications such as `dac32_adc12`, `dac_adc`, `dac_cadc`, `ecompass`, `sai`, `coremark`, `mbedtls_benchmark`, `wolfssl_benchmark`, and for `mmcau_examples` such as `mmcau_api`\). Otherwise, there is no need to select it. Click **Finish**.
 
-    |![](../images/sdk_import_wizard_rt1060evkb.png "Selecting User
+    ![](../images/sdk_import_wizard_rt1060evkb.png "Selecting User
 											floating-point
 											version of printf")
-
-|
 
     **Note:** If you want to use semihost to print log, first select the **Semihost** button when importing projects, as shown in [Figure 6](#evkbmimxrt1060_FLOAATING).
 
     (evkbmimxrt1060_FLOAATING)=
-    |![](../images/semihost_rt1060evkb.png "Selecting Semihost")
+    ![](../images/semihost_rt1060evkb.png "Selecting Semihost")
 
-|
-
-    |![](../images/sdk_debugconsole_rt1060evkb.png "Setting SDK_DEBUGCONSOLE")
-
-|
+    ![](../images/sdk_debugconsole_rt1060evkb.png "Setting SDK_DEBUGCONSOLE")
 
 6.  On the **Quickstart** panel, click **build `evkbmimxrt1060\_demo\_apps\_hello\_world \[Debug\]`**, as shown in [Figure 8](#evkbmimxrt1060_FSLOATINSG).
 
     (evkbmimxrt1060_FSLOATINSG)=
-    |![](../images/mcux_build_rt1060evkb.png "Building hello world case")
-
-|
+    ![](../images/mcux_build_rt1060evkb.png "Building hello world case")
 
 
 **Parent topic:**[Run a demo using MCUXpresso IDE](../topics/run_a_demo_using_mcuxpresso_ide.md)

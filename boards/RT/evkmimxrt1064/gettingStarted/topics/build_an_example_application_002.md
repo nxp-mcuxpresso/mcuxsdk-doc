@@ -36,16 +36,12 @@ Do the following steps to build the `hello_world` example application.
 
     For this example, select **hello\_world** – **debug**.
 
-    |![](../images/demo_build_target_selection_rt1020.png "Demo build target selection")
-
-|
+    ![](../images/demo_build_target_selection_rt1020.png "Demo build target selection")
 
 3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](#evkmimxrt1064_BUILDINGDEMOAPP).
 
     (evkmimxrt1064_BUILDINGDEMOAPP)=
-    |![](../images/build_the_demo_application_rt1060.png "Build the demo application")
-
-|
+    ![](../images/build_the_demo_application_rt1060.png "Build the demo application")
 
 4.  The build completes without errors.
 

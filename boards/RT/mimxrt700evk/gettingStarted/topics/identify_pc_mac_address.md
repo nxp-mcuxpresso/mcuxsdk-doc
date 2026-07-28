@@ -4,15 +4,11 @@ To generate the correct license file, you should first identify the appropriate 
 
 **Windows:**
 
-|![](../images/image3.png "Physical Address for Windows")
-
-|
+![](../images/image3.png "Physical Address for Windows")
 
 **Linux:**
 
-|![](../images/image4.png "MAC address")
-
-|
+![](../images/image4.png "MAC address")
 
 **Note:** **For Linux**: MAC address must be associated with eth0 interface. If not, FLEXlm cannot perform the license checkout, compilation, or simulation of code is not possible. If the host has the MAC address associated with another interface, for example em1, the following approach may be used.
 

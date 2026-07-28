@@ -14,33 +14,23 @@ To download and run the application, perform these steps:
     2.  No parity
     3.  8 data bits
     4.  1 stop bit
-    |![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configuration")
-
-|
+    ![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configuration")
 
 4.  In IAR, click the **Download and Debug** button to download the application to the target.
 
-    |![](../images/iar_download_and_debug_button.png "Download and Debug button")
-
-|
+    ![](../images/iar_download_and_debug_button.png "Download and Debug button")
 
 5.  The application is then downloaded to the target and automatically runs to the `main()` function.
 
-    |![](../images/iar_stop_at_main_running_debugging.png "Stop at main() when running debugging")
-
-|
+    ![](../images/iar_stop_at_main_running_debugging.png "Stop at main() when running debugging")
 
 6.  Run the code by clicking the **Go** button.
 
-    |![](../images/iar_go_button.png "Go button")
-
-|
+    ![](../images/iar_go_button.png "Go button")
 
 7.  The `hello_world` application is now running and a banner is displayed on the terminal. If it does not appear, check your terminal settings and connections.
 
-    |![](../images/text_display_hello_world.png "Text display of the hello_world demo")
-
-|
+    ![](../images/text_display_hello_world.png "Text display of the hello_world demo")
 
 
 **Parent topic:**[Run a demo application using IAR](../topics/run_a_demo_application_using_iar.md)

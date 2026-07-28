@@ -5,10 +5,8 @@ This section describes the steps to write a bootable SDK image to QSPI flash wit
 1.  Connect the “DEBUG UART” slot on the board to your PC through the USB cable. The Windows OS installs the USB driver automatically, and the Ubuntu OS finds the serial devices as well.
 2.  On Windows OS, open the device manager, find “USB serial Port” in “Ports \(COM and LPT\)”. Assume that the ports are COM9 and COM10. One port is for the debug message from the Cortex-A7 and the other is for the Cortex-M4. The port number is allocated randomly, so opening both is beneficial for development. On Ubuntu OS, find the TTY device with name /dev/ttyUSB\* to determine your debug port. Similar to Windows OS, opening both is beneficial for development.
 
-    |![](../images/determine_com_port_target_board.png "Determining the COM port of target
+    ![](../images/determine_com_port_target_board.png "Determining the COM port of target
 												board")
-
-|
 
 3.  Build the application \(for example, hello\_world\) and copy the built binary \(sdk20-app.bin file\) to the *<install\_dir\>/tools/imgutil/evkmcimx7ulp* folder.
 4.  In the *<install\_dir\>/tools/imgutil/evkmcimx7ulp*p folder, run mkimg.sh in mingw32 shell to get bootable image file sdk20- app.img.
@@ -22,10 +20,8 @@ This section describes the steps to write a bootable SDK image to QSPI flash wit
     -   fatload mmc 0:1 0x62000000 sdk20-app.img.
     -   sf write 0x62000000 0x0 0x20000.
 
-        |![](../images/u_boot_cmd_run_application_qspi.png "U-Boot command to run application on
+        ![](../images/u_boot_cmd_run_application_qspi.png "U-Boot command to run application on
 												QSPI")
-
-|
 
 8.  Open another terminal application on the PC, such as PuTTY and connect to the debug COM port \(to determine the COM port number, see Appendix A\). Configure the terminal with these settings:
     -   115200
@@ -35,9 +31,7 @@ This section describes the steps to write a bootable SDK image to QSPI flash wit
 9.  Power off and repower on the board.
 10. The hello\_world application is now running and a banner is displayed on the terminal. If this is not true, check your terminal settings and connections.
 
-    |![](../images/hello_world_demo_running_on_cortex_m4_core.png "Hello world demo running on Cortex-M4
+    ![](../images/hello_world_demo_running_on_cortex_m4_core.png "Hello world demo running on Cortex-M4
 												core")
-
-|
 
 

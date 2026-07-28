@@ -10,9 +10,7 @@ To download and run the application via UUU, perform these steps:
     2.  No parity
     3.  8 data bits
     4.  1 stop bit
-    |![](../images/flash_xip_terminal_putty_configuration_8mm.png "Terminal (PuTTY) configuration")
-
-|
+    ![](../images/flash_xip_terminal_putty_configuration_8mm.png "Terminal (PuTTY) configuration")
 
 4.  Get the fspi version U-Boot image from release package and rename it to `uboot_flash.bin`.
 5.  In the command line, execute uuu with the *-b qspi* switch: `uuu -b qspi uboot_flash.bin m7_flash.bin` .
@@ -20,16 +18,12 @@ To download and run the application via UUU, perform these steps:
     The UUU puts the platform into fast boot mode and automatically flashes the target bootloader to QSPI. The command line and fast boot console is as shown in [Figure 2](#evkmimx8mnddr3l_COMMANDLINSEFASTBOOT).
 
     (evkmimx8mnddr3l_COMMANDLINSEFASTBOOT)=
-    |![](../images/figure_28.png "Command line and fast boot console output when executing
+    ![](../images/figure_28.png "Command line and fast boot console output when executing
             UUU")
-
-|
 
 6.  Then, power off the board and change the boot mode to `MicroSD Mode [SW1101:1100[1-4]]` , and power on the board again.
 
-    |![](../images/u-boot_and_m4_demo_output_8dxl.png "U-Boot and M4 demo output")
-
-|
+    ![](../images/u-boot_and_m4_demo_output_8dxl.png "U-Boot and M4 demo output")
 
 7.  Use following command in U-Boot to kickoff m7:
 
@@ -39,9 +33,7 @@ To download and run the application via UUU, perform these steps:
     bootaux 0x8000000
     ```
 
-    |![](../images/figure_29.png "Console output from QSPI Boot")
-
-|
+    ![](../images/figure_29.png "Console output from QSPI Boot")
 
 
 **Parent topic:**[Run a flash target demo by UUU](../topics/run_a_flash_target_demo_by_uuu.md)

@@ -6,7 +6,7 @@ Each `<board_name>` folder in the boards directory contains a comprehensive set 
 
 The `hello_world` application folder has the following contents:
 
-|![](../images/example_application.png "Application folder structure")
+![](../images/example_application.png "Application folder structure")
 
 
 All files in the application folder are specific to that example. Therefore, it is easy to copy and paste an existing example to start developing a custom application based on a project provided in the MCUXpresso SDK.

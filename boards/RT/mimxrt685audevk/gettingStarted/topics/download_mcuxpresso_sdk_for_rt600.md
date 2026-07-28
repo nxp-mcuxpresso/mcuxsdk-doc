@@ -9,9 +9,7 @@ Once logged in, perform the following steps to use the SDK builder.
 3.  From the search results, select *EVK-MIMXRT685*.
 4.  Click the **Build MCUXpresso SDK** button on the right panel.
 
-    |![](../images/image17.png "Select development board")
-
-|
+    ![](../images/image17.png "Select development board")
 
 5.  In the Build SDK for EVK-MIMXRT685 page, select the required environment settings.
 6.  Click the **Download SDK** button at the bottom of the page.

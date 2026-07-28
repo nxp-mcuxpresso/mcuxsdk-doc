@@ -3,9 +3,7 @@
 Boot from Flash is straight forward when using IAR environment. SDK provides either two or four different build configurations based on the project: debug \(from SRAM\)/ release \(from SRAM\)/ flash\_debug/ flash\_release. Flash configurations use different memory map in project linker options. For details, see [Figure 1](#JFEFH).
 
 (JFEFH)=
-|![](../images/image45.png "Linker settings")
-
-|
+![](../images/image45.png "Linker settings")
 
 To enable booting from flash, change the ISP mode/ SW5 switches on the EVK.
 
@@ -15,18 +13,14 @@ If using MCUXpresso/ armgcc build environment, note that by default build enviro
 2.  Import the SDK examples.
 3.  Once completed, double click the last file/ J-Link Debug.
 
-    |![](../images/image46.png "Double
+    ![](../images/image46.png "Double
 											click
 											J-Link Debug")
-
-|
 
 4.  Launch to modify J-Link debugger setting.
 5.  Make sure to deselect **Reset before running**. This helps the flash-based program get into main function.
 
-|![](../images/image47.png "Modify configuration")
-
-|
+![](../images/image47.png "Modify configuration")
 
 -   Make sure to:
     -   Modify DSP\_IMAGE\_COPY\_TO\_RAM and Define to 1 in **Project settings \> C/C++ General \> Paths and Symbols \> Symbols**.

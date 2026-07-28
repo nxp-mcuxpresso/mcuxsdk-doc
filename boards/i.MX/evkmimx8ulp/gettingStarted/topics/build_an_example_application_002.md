@@ -20,16 +20,12 @@ Perform the following steps to build the `hello_world` example application.
 
     For this example, select **hello\_world** – **Debug**.
 
-    |![](../images/demo_build_target_selection_20.jpg "Demo build target selection")
-
-|
+    ![](../images/demo_build_target_selection_20.jpg "Demo build target selection")
 
 3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](#evkmimx8ulp_BUILDINGDEMOAPP).
 
     (evkmimx8ulp_BUILDINGDEMOAPP)=
-    |![](../images/build_the_demo_application_20.png "Build the demo application")
-
-|
+    ![](../images/build_the_demo_application_20.png "Build the demo application")
 
 4.  The build completes without errors.
 

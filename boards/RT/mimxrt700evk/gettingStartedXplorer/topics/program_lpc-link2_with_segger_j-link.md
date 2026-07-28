@@ -24,31 +24,23 @@ The steps are:
 
 6.  In that command shell, run the program\_JLINK script to install the JLink debug firmware.
 
-    |![](../images/image13.png "Run program_JLINK")
-
-|
+    ![](../images/image13.png "Run program_JLINK")
 
     **Note:** File paths in this document use the Windows directory separator, on Linux or Mac OSX. The file paths must be replaced with ‘/.’ For Windows users, shortcuts to the scripts are available from the MCU-LInk entry on the Start menu.
 
 7.  Verify once you select the firmware \(in this case J-Link\), MCU-Link. The console appears as shown in [Figure 4](#mimxrt700evk_JJEFJHWV).
 
-    |![](../images/image14.png "Console after selecting the firmware")
-
-|
+    ![](../images/image14.png "Console after selecting the firmware")
 
 8.  Open/ Disconnect JP20 and power cycle the board. The onboard MCU-Link is ready to be used as SEGGER J-Link probe.
 
     Every EVK/ MCU-Link has a different J-Link S/N. Therefore, make sure to write down the S/N for xt-ocd and topology.xml as indicated in [Install Xtensa On Chip Debugger Daemon](install_xtensa_on_chip_debugger_daemon.md#).
 
-    |![](../images/image15.png "Select J-Link Commander")
-
-|
+    ![](../images/image15.png "Select J-Link Commander")
 
 9.  MCU-Link debug probe creates a virtual serial port over USB, so the extra UART2USB cable for debugging is not required.
 
-    |![](../images/image16.png "Select Port")
-
-|
+    ![](../images/image16.png "Select Port")
 
     The download link provides the document, demo videos and details on MCU-Link. If you have any questions, or have difficulties to program the probe, see [https://www.nxp.com/document/guide/getting-started-with-the-mcu-link:GS-MCU-LINK](https://www.nxp.com/document/guide/getting-started-with-the-mcu-link:GS-MCU-LINK).
 

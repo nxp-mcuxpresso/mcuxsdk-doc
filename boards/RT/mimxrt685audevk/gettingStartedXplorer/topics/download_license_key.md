@@ -6,23 +6,17 @@ To download the license key:
 
 2.  Click the button and get the license key for RT600 SDK.
 
-    |![](../images/image5.png "Get a license key for RT600 SDK")
-
-|
+    ![](../images/image5.png "Get a license key for RT600 SDK")
 
 3.  Provide the address.
 
-    |![](../images/image6.png "Provide the address")
-
-|
+    ![](../images/image6.png "Provide the address")
 
 4.  Once the license file has been generated and downloaded, open your recently installed Xplorer V10.1.11.
 5.  Select menu **Help \> Xplorer License Keys \> Install Software Keys**.
 6.  Select the license key file.
 
-    |![](../images/image7.png "Select the license key")
-
-|
+    ![](../images/image7.png "Select the license key")
 
 7.  Click the **Finish** button.
 

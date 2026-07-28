@@ -10,9 +10,7 @@ To download and run the application via UUU, perform these steps:
     2.  No parity
     3.  8 data bits
     4.  1 stop bit
-    |![](../images/flash_xip_terminal_putty_configuration_8mm.png "Terminal (PuTTY) configuration")
-
-|
+    ![](../images/flash_xip_terminal_putty_configuration_8mm.png "Terminal (PuTTY) configuration")
 
 4.  Get the boot images and the imx-mkimage source repository from corresponding Linux BSP release. The boot images required to be put into imx-mkimage/i.MX9 are:
 
@@ -56,10 +54,8 @@ To download and run the application via UUU, perform these steps:
 
     The UUU puts the platform into fast boot mode and automatically flashes the target bootloader to emmc/sd. The command line and fast boot console is as shown in [Figure 2](#mcimx93qsb_COMMANDLINSEFASTBOOT).
 
-    |![](../images/command_line_fast_boot_console_output_executing_uu.png "Command line and fast boot console output when
+    ![](../images/command_line_fast_boot_console_output_executing_uu.png "Command line and fast boot console output when
 											executing UUU")
-
-|
 
 9.  Then, power off the board and change the boot mode to the corresponding one.
     -   For single-boot mode:

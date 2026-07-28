@@ -6,7 +6,6 @@
 
 |Change details
 
-|
 |-------------|------|----------------|
 |RN00174 v.14.0|18 Sept 2025|-   [About this document](about_this_document.md): updated the SDK release version.
 
@@ -67,7 +66,6 @@
 -   [Firmware version: 18.99.5.p66 to 18.99.5.p76](firmware_version_18_99_5_p66_to_18_99_5_p76.md): added.
 -   [Known issues](known_issues_06.md): updated.
 
-|
 |-------------|------|----------------|
 |RN00174 v.13.0|25 June 2025|-   [About this document](about_this_document.md): updated the SDK release version.
 
@@ -122,7 +120,6 @@
 -   Known issues: updated.
 
  
-|
 |-------------|------|----------------|
 |RN00174 v.12.0|27 March 2025|-   [About this document](about_this_document.md): updated the SDK release version.
 
@@ -182,7 +179,6 @@
 -   Wi-Fi throughput: updated.
 -   Firmware version: From 14.91.36.p196 to 14.91.36.p197: added.
 
-|
 |-------------|------|----------------|
 |RN00174 v.11.0|6 January 2025|-   [About this document](about_this_document.md): updated the SDK release version.
 
@@ -242,7 +238,6 @@
 -   Wi-Fi throughput: updated.
 -   Firmware version: From 14.91.36.p192 to 14.91.36.p196: added.
 
-|
 |RN00174 v.10.0|24 September 2024|-   [About this document](about_this_document.md): updated the SDK release version.
 
  **Features**
@@ -298,7 +293,6 @@
 
  -   Package information: updated.
 
-|
 |RN00174 v.9.0
 
 |4 July 2024
@@ -316,7 +310,6 @@
 -   AW611 release notes: added.
 -   88W8801 release notes: updated the SDK and firmware versions.
 
-|
 |RN00174 v.8.0
 
 |15 April 2024
@@ -332,7 +325,6 @@
 -   [IW611/IW612 release notes](iw611-iw612-release-notes.md): updated the SDK version, firmware version, throughput numbers, fixes and known issues.
 -   [Known issues](known_issues_02.md): updated the SDK version.
 
-|
 |RN00174 v.7.0
 
 |10 January 2024
@@ -353,7 +345,6 @@
 -   [Bluetooth controller certification](bluetooth_controller_certification_02.md): added a note about QDID.
 -   [Known issues](known_issues_02.md): updated the SDK version, firmware version, and throughput numbers.
 
-|
 |RN00174 v.6.0
 
 |19 October 2023
@@ -371,7 +362,6 @@
     -   Added a note about Bluetooth LE audio.
     -   Updated the list of WFA certification cases.
 
-|
 |RN00174 v.5.0
 
 |1 August 2023
@@ -387,7 +377,6 @@
 -   [IW611/IW612 release notes](iw611-iw612-release-notes.md): added.
 -   [Known issues](known_issues_02.md): updated the SDK version, firmware version, iPerf version, and throughput numbers.
 
-|
 |RN00174 v.4.0
 
 |21 March 2023
@@ -418,7 +407,6 @@
 -   [Mobile AP throughput](mobile_ap_throughput_05.md): updated.
 -   [Bug fixes and/or feature enhancements](bug_fixes_andor_feature_enhancements_03.md): updated the firmware version and added details about the fixed issues
 
-|
 |RN00174 v.3.0
 
 |3 January 2023
@@ -432,7 +420,6 @@
 -   [STA throughput](sta_throughput_05.md): updated.
 -   [Mobile AP throughput](mobile_ap_throughput_05.md): updated.
 
-|
 |RN00174 v.2.0
 
 |15 September 2022
@@ -460,12 +447,9 @@
 -   [STA throughput](sta_throughput_05.md): updated the throughput numbers.
 -   [Mobile AP throughput](mobile_ap_throughput_05.md): updated the throughput numbers.
 
-|
 |RN00174 v.1.0
 
 |24 June 2022
 
 |Initial release
-
-|
 

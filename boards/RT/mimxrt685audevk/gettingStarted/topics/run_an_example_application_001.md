@@ -10,9 +10,7 @@ To download and run the application, perform these steps:
     2.  No parity
     3.  8 data bits
     4.  1 stop bit
-    |![](../images/terminal_putty_configuration_001.png "Terminal (PuTTY) configurations")
-
-|
+    ![](../images/terminal_putty_configuration_001.png "Terminal (PuTTY) configurations")
 
 4.  To debug the application, click **load** \(or press the F8 key\). Then, click the **Start/Stop Debug Session** button, highlighted in red in [Figure 2](#mimxrt685audevk_S1234098A702). If using **J-Link** as the debugger, click **Project option** \>**Debug** \>**Settings** \>**Debug** \>**Port**, and select **SW**.
 
@@ -21,25 +19,19 @@ To download and run the application, perform these steps:
     **Note:** Make sure that the board is set to FlexSPI flash boot mode \(ISP2: ISP1: ISP0 = ON, OFF, ON\) before using Keil debug.
 
     (mimxrt685audevk_S1234098A702)=
-    |![](../images/49_rt600.png "Stop at main() when run
+    ![](../images/49_rt600.png "Stop at main() when run
 											debugging")
-
-|
 
 5.  Run the code by clicking **Run** to start the application, as shown in [Figure 3](#mimxrt685audevk_S12702).
 
     (mimxrt685audevk_S12702)=
-    |![](../images/50_rt600.png "Run button")
-
-|
+    ![](../images/50_rt600.png "Run button")
 
     The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 4](#mimxrt685audevk_S127DD02). If this is not true, check your terminal settings and connections.
 
     (mimxrt685audevk_S127DD02)=
-    |![](../images/hello_world_lowercase.png "Text display of the hello_world
+    ![](../images/hello_world_lowercase.png "Text display of the hello_world
 											demo")
-
-|
 
 
 **Parent topic:**[Run a demo using Keil MDK/μVision](../topics/run_a_demo_using_keil__mdk_vision.md)

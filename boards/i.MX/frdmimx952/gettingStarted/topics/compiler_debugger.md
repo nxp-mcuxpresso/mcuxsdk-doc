@@ -16,12 +16,9 @@ For supported toolchain versions, see MCUXpresso SDK Release Notes.
 
  [www.segger.com](http://www.segger.com)
 
-|
 |IAR/J-Link|Windows OS|J-Link Plus|[www.iar.com](https://www.iar.com)
 
  [www.segger.com](http://www.segger.com)
-
-|
 
 Download the corresponding tools for the specific host OS from the website.
 

@@ -6,7 +6,5 @@ For supported toolchain versions, see *MCUXpresso SDK Release Notes for TWR-KM35
 
 For more details about MCUXpresso SDK, see the MCUXpresso SDK homepage [MCUXpresso-SDK: Software Development Kit for MCUXpresso](http://www.nxp.com/products/software-and-tools/run-time-software/mcuxpresso-software-and-tools/mcuxpresso-software-development-kit-sdk:MCUXpresso-SDK).
 
-|![](../images/ksdk_layers_20.svg "MCUXpresso SDK layers")
-
-|
+![](../images/ksdk_layers_20.svg "MCUXpresso SDK layers")
 

@@ -11,9 +11,7 @@ Log in to use the SDK builder. The steps are:
 3.  Select **EVK-MIMXRT595**.
 4.  Click **Build MCUXpresso SDK**.
 
-    |![](../images/image11.png "Select the development board")
-
-|
+    ![](../images/image11.png "Select the development board")
 
 
 **Parent topic:**[Install MCUXpresso SDK](../topics/install_mcuxpresso_sdk.md)

@@ -9,19 +9,13 @@ MCUXpresso Config Tools can help configure the processor and generate initializa
 |:---------:|-----------|:---:|
 |**Pins tool**|For configuration of pin routing and pin electrical properties.|![](../images/icon_pin.png)
 
-|
 |**Clock tool**|For system clock configuration|![](../images/icon_clock.png)
 
-|
 |**Peripherals tools**|For configuration of other peripherals|![](../images/icon_peripheral.png)
 
-|
 |**TEE tool**|Configures access policies for memory area and peripherals helping to protect and isolate sensitive parts of the application.|![](../images/icon_tee.png)
 
-|
 |**Device Configuration tool**|Configures Device Configuration Data \(DCD\) contained in the program image that the Boot ROM code interprets to setup various on-chip peripherals prior the program launch.|![](../images/icon_dcd.png)
-
-|
 
 MCUXpresso Config Tools can be accessed in the following products:
 

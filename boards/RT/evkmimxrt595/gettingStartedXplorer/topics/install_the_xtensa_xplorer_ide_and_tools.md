@@ -6,9 +6,7 @@ To install the Xtensa Xplorer IDE and tools:
 
     **Note:** Ensure to register, if you are accessing the page for the first time. You must use your corporate email address to register.
 
-    |![](../images/image1.png "Register to access")
-
-|
+    ![](../images/image1.png "Register to access")
 
 2.  You receive an email confirmation with an activation link from ‘**Tensilica Tools**’ [no-reply@tensilicatools.com](mailto:no-reply@tensilicatools.com).
 

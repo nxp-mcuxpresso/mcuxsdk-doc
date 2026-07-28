@@ -12,36 +12,26 @@ To download and run the application, perform these steps:
     3.  8 data bits
     4.  1 stop bit
 
-        |![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configuration")
-
-|
+        ![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configuration")
 
 6.  Power on the board.
 7.  In IAR, click **Download and Debug** to download the application to the target.
 
-    |![](../images/download_and_debug_button_imx8mq.png "Download and Debug button")
-
-|
+    ![](../images/download_and_debug_button_imx8mq.png "Download and Debug button")
 
 8.  The application then downloads to the target and automatically runs to the `main()` function.
 
-    |![](../images/stop_at_main_when_running_debugging_imx8mq.png "Stop at main() when running
+    ![](../images/stop_at_main_when_running_debugging_imx8mq.png "Stop at main() when running
 											debugging")
-
-|
 
 9.  Run the code by clicking **Go** to start the application.
 
-    |![](../images/go_button_imx8mq.png "Go button")
-
-|
+    ![](../images/go_button_imx8mq.png "Go button")
 
 10. The `hello_world` application is now running and a banner is displayed on the terminal. If the application does not run or the banner is not displayed, check your terminal settings and connections.
 
-    |![](../images/text_display_hello_world.png "Text display of the hello_world
+    ![](../images/text_display_hello_world.png "Text display of the hello_world
 											demo")
-
-|
 
     **Note:** If the software is already running on the M core, the debugger loading image into TCM may get HardFault or a data verification issue. NXP recommends you to follow the steps above to use the debugger. Repowering the board is required to restart the debugger.
 

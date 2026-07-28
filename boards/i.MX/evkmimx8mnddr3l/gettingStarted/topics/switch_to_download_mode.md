@@ -7,9 +7,7 @@ The board needs to be in Download Mode mode for UUU to download images:
 3.  The PC recognizes the i.MX 8M Nano device as \(VID:PID\)=\(1FC9:013E\), as shown in [Figure 1](#evkmimx8mnddr3l_DEVICEMANAGER).
 
     (evkmimx8mnddr3l_DEVICEMANAGER)=
-    |![](../images/figure23.png "Device as shown in Device Manager")
-
-|
+    ![](../images/figure23.png "Device as shown in Device Manager")
 
 
 **Parent topic:**[Set up environment](../topics/set_up_environment.md)

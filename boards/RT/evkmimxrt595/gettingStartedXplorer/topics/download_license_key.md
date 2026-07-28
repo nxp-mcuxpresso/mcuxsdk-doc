@@ -4,28 +4,20 @@ To download the license key:
 
 1.  Click the **CLICK TO GET A LICESNE KEY FOR RT500 SDK** button.
 
-    |![](../images/image4.png "Click CLICK TO GET A LICESNE KEY FOR RT500
+    ![](../images/image4.png "Click CLICK TO GET A LICESNE KEY FOR RT500
 												SDK")
-
-|
 
 2.  Click the **Accept** button.
 
-    |![](../images/image5.png)
-
-|
+    ![](../images/image5.png)
 
     The following message appears.
 
-    |![](../images/image6.png)
-
-|
+    ![](../images/image6.png)
 
 3.  Check the license in the user-profile or the email.
 
-    |![](../images/image7.png)
-
-|
+    ![](../images/image7.png)
 
     The license file gets generated.
 
@@ -34,10 +26,8 @@ To download the license key:
 6.  Select the license key file.
 7.  Click the **Finish** button.
 
-    |![](../images/image8.png "Install Xplorer and Xtensa tools license
+    ![](../images/image8.png "Install Xplorer and Xtensa tools license
 												keys")
-
-|
 
     **Note:** The generated license file only supports debug/run on the RT500 device target. It does not support software simulation/Xplorer ISS. Contact Cadence directly if you have special must run software simulations.
 

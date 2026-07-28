@@ -18,8 +18,6 @@ This section describes the steps necessary to determine the debug COM port numbe
 
     1.  **USB-UART** interface
 
-        |![](../images/usb_uart_interface_imx7ulp_b0.png "USB-UART interface")
-
-|
+        ![](../images/usb_uart_interface_imx7ulp_b0.png "USB-UART interface")
 
 

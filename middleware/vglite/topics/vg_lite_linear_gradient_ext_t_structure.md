@@ -17,7 +17,5 @@ Used in functions: `vg_lite_draw_linear_grad.`
 |`pre-multiplied`|`vg_lite_uint8_t`|If this value is set to 1, the color value of `color_ramp` will be multiplied by the alpha value of `color_ramp`.|
 |`spread_mode`|`vg_lite_radial_gradient_spreadmode_t`|The spread mode that is applied to the pixels out of the image after transformed.
 
-|
-
 **Parent topic:**[Draw and gradient structures](../topics/draw_and_gradient_structures.md)
 

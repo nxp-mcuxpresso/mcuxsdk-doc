@@ -14,15 +14,11 @@ This section describes the steps to determine the debug COM port number of your 
 
 2.  **Windows**: To determine the COM port, open **Device Manager**. Click the **Start** menu and type **Device Manager** in the search bar.
 
-    |![](../images/device_manager.png "Device Manager")
-
-|
+    ![](../images/device_manager.png "Device Manager")
 
 3.  In the **Device Manager**, expand the **Ports \(COM & LPT\)** section to view the available ports. The COM port names are different for all the NXP boards.
     1.  **USB-UART** interface
 
-        |![](../images/usb_uart_interface_imx7ulp_b0.png "USB-UART interface")
-
-|
+        ![](../images/usb_uart_interface_imx7ulp_b0.png "USB-UART interface")
 
 

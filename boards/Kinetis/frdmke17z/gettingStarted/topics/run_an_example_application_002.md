@@ -15,40 +15,28 @@ To download and run the application, perform the following steps:
     2.  No parity
     3.  8 data bits
     4.  1 stop bit
-    |![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configurations")
-
-|
+    ![](../images/terminal_putty_configuration.png "Terminal (PuTTY) configurations")
 
 4.  On the **Quickstart Panel**, click on **Debug `frdmke17z_demo_apps_hello_world [Debug]`** to launch the debug session.
 
-    |![](../images/ide_debug_hello_world_case.png "Debug hello_world case")
-
-|
+    ![](../images/ide_debug_hello_world_case.png "Debug hello_world case")
 
 5.  The first time you debug a project, the **Debug Emulator Selection** dialog is displayed, showing all supported probes that are attached to your computer. Select the probe through which you want to debug and click **OK**. \(For any future debug sessions, the stored probe selection is automatically used, unless the probe cannot be found.\)
 
-    |![](../images/ide_attached_probes_debug_emulator_selection.png "Attached Probes: debug emulator selection")
-
-|
+    ![](../images/ide_attached_probes_debug_emulator_selection.png "Attached Probes: debug emulator selection")
 
 6.  The application is downloaded to the target and automatically runs to `main()`.
 
-    |![](../images/ide_stop_at_main_when_running_debugging_mcuxpresso.png "Stop at main() when running debugging")
-
-|
+    ![](../images/ide_stop_at_main_when_running_debugging_mcuxpresso.png "Stop at main() when running debugging")
 
 7.  Start the application by clicking **Resume**.
 
-    |![](../images/ide_resume_button.png "Resume button")
-
-|
+    ![](../images/ide_resume_button.png "Resume button")
 
 
 The `hello_world` application is now running and a banner is displayed on the terminal. If this is not the case, check your terminal settings and connections.
 
-|![](../images/text_display_hello_world.png "Text display of the hello_world demo")
-
-|
+![](../images/text_display_hello_world.png "Text display of the hello_world demo")
 
 **Parent topic:**[Run a demo using MCUXpresso IDE](../topics/run_a_demo_using_mcuxpresso_ide.md)
 

@@ -10,9 +10,7 @@ To download and run the application via UUU, perform these steps:
     2.  No parity
     3.  8 data bits
     4.  1 stop bit
-    |![](../images/flash_xip_terminal_putty_configuration_8mm.png "Terminal (PuTTY) configuration")
-
-|
+    ![](../images/flash_xip_terminal_putty_configuration_8mm.png "Terminal (PuTTY) configuration")
 
 4.  Get the fspi version U-Boot image named **imx-boot-imx8mpevk-fspi.bin-flash\_evk\_flexspi** from the linux release package.
 5.  In the command line, execute uuu to get script for qspi: `uuu -bshow qspi > qspi_auto.sh`.
@@ -24,7 +22,7 @@ To download and run the application via UUU, perform these steps:
     with the below line:
 
    	`FB: ucmd setenv qspihdr_exist no`
-	|![](../images/qspi_auto_modification.png "Modify qspi_auto script")
+	![](../images/qspi_auto_modification.png "Modify qspi_auto script")
 6. rename file imx-boot-imx8mpevk-fspi.bin-flash_evk_flexspi with `_flexspi.bin`,
 
    rename hello_world.bin with `_image`
@@ -37,10 +35,8 @@ To download and run the application via UUU, perform these steps:
 	(run_an_example_application.md#COMMANDLINSEFASTBOOT).
 
     (COMMANDLINSEFASTBOOT)=
-    |![](../images/command_line_fast_boot_console_output_executing_uu.png "Command line and fast boot console output when
+    ![](../images/command_line_fast_boot_console_output_executing_uu.png "Command line and fast boot console output when
 											executing UUU")
-
-|
 
 8. Then, power off the board and change the boot mode to eMMC/SDHC3 [SW0010[1-4]], and power on the board again.
 

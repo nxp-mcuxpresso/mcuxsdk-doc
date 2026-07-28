@@ -8,39 +8,27 @@ To debug the audio demo, perform the following steps.
 
 1.  Install the MCUXpresso SDK for RT600 into the MCUXpresso IDE using the Installed SDK panel as shown in
 
-    |![](../images/image33.png "Install SDK")
-
-|
+    ![](../images/image33.png "Install SDK")
 
 2.  To import an example from the installed SDK., use the **Import SDK examples** link in the **Quickstart** panel on the lower left of the screen.
 
-    |![](../images/image34.svg "Import SDK examples")
-
-|
+    ![](../images/image34.svg "Import SDK examples")
 
 3.  Select the ‘*dsp\_xaf\_record\_cm33*’ example for Cortex-M33 core.
 
-    |![](../images/image35.png "Select example")
-
-|
+    ![](../images/image35.png "Select example")
 
 4.  Click the **Finish** button.
 
-    |![](../images/image36.png "Click Finish")
-
-|
+    ![](../images/image36.png "Click Finish")
 
 5.  Build the project and launch the debugger on success.
 
-    |![](../images/image37.svg "Build and debug the project")
-
-|
+    ![](../images/image37.svg "Build and debug the project")
 
 6.  Use the debug toolbar to resume the code execution.
 
-    |![](../images/image38.svg "Resume code execution")
-
-|
+    ![](../images/image38.svg "Resume code execution")
 
 7.  Observe serial terminal output with shell prompt.
 
@@ -74,21 +62,15 @@ To debug the audio demo, perform the following steps.
 
 10. The serial terminal shows the IPC communications to set up an audio device..
 
-    |![](../images/image39.png "Xplorer IDE console ")
-
-|
+    ![](../images/image39.png "Xplorer IDE console ")
 
     The VIT wake-word and supported commands appear in the serial console.
 
-    |![](../images/image40.png "VIT wake-word and supported commands")
-
-|
+    ![](../images/image40.png "VIT wake-word and supported commands")
 
     The serial console prints the detected wake-word and commands.
 
-    |![](../images/image41.png "Serial console output")
-
-|
+    ![](../images/image41.png "Serial console output")
 
     For more information on configuration and using the Audio Framework demo, see the file `<SDK_ROOT>\boards\evkmimxrt685\dsp_examples\xaf_record\cm33\readme.txt.`.
 

@@ -4,9 +4,7 @@ To build an example application, follow these steps.
 
 1.  Open the GCC Arm embedded toolchain command window. To launch the window on the Windows operating system, select **Start** -\> **Programs** -\> **GNU Tools ARM Embedded <version\>** -\> **GCC Command Prompt**.
 
-    |![](../images/launch_command_prompt_20.jpg "Launch GCC command prompt")
-
-|
+    ![](../images/launch_command_prompt_20.jpg "Launch GCC command prompt")
 
 2.  Change the directory to the example application project directory, which has a path similar to the following:
 
@@ -23,9 +21,7 @@ To build an example application, follow these steps.
 3.  Type `build_debug.bat` at the command-line or double-click the `build_debug.bat` file in Windows Explorer to perform the build. The output is as shown in [Figure 2](#evk9mimx8ulp_HELLOWORLDBUILDSUCCESS).
 
     (evk9mimx8ulp_HELLOWORLDBUILDSUCCESS)=
-    |![](../images/hello_world_demo_build_successful_imx7ulpb0.png "hello_world demo build successful")
-
-|
+    ![](../images/hello_world_demo_build_successful_imx7ulpb0.png "hello_world demo build successful")
 
 
 **Note:** To run the application, see the [Run an application using imx-mkimage](running_an_application_using_imx-mkimage.md).

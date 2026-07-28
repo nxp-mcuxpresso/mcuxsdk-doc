@@ -12,9 +12,7 @@ Perform the following steps to update the OpenSDA firmware on your board for Win
 2.  Press the **Reset** button on the board. While still holding the button, plug the USB cable back into the board.
 3.  When the board re-enumerates, it shows up as a disk drive called **MAINTENANCE**.
 
-    |![](../images/maintenance_drive.png "MAINTENANCE drive")
-
-|
+    ![](../images/maintenance_drive.png "MAINTENANCE drive")
 
 4.  Drag and drop the new firmware image onto the MAINTENANCE drive.
 

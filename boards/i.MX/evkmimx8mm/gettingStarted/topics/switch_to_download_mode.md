@@ -7,9 +7,7 @@ The board needs to be in Download Mode mode for UUU to download images:
 3.  The PC recognizes the i.MX 8M Mini device as \(VID:PID\)=\(1FC9:013E\), as shown in [Figure 1](#evkmimx8mm_DEVICEMANAGER).
 
     (evkmimx8mm_DEVICEMANAGER)=
-    |![](../images/device_shown_in_device_manager_download_mode_8mm.png "Device as shown in Device Manager")
-
-|
+    ![](../images/device_shown_in_device_manager_download_mode_8mm.png "Device as shown in Device Manager")
 
 
 **Parent topic:**[Set up environment](../topics/set_up_environment.md)
