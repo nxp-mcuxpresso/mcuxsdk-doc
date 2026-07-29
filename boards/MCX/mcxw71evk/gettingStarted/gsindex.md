@@ -5,7 +5,6 @@
 :maxdepth: 4
 :caption: Table of Contents
 
-topics/overview.md
 topics/mcuxpresso_sdk_board_support_package_folders.md
 topics/running_a_demo_application_using_iar.md
 topics/running_a_demo_using_mcuxpresso_ide.md

@@ -5,7 +5,6 @@
 :maxdepth: 4
 :caption: Table of Contents
 
-topics/overview.md
 topics/mcuxpresso_sdk_board_support_folders.md
 topics/toolchain_introduction.md
 topics/running_a_demo_application_using_arm_gcc.md
