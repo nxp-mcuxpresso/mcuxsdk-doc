@@ -40,7 +40,7 @@ To run the ‘Hello World’ demo, import the SDK sources into the Xplorer IDE.
 
 7.  Expand the **Xtensa On Chip Debug** tree option and select ‘*dsp\_hello\_world\_hifi4\_debug\_jlink*’.
 
-    (HVHWEG)=
+    (evkmimxrt685_SELECTDEBUGCONFIG)=
     ![](../images/image26.png "Select dsp_hello_world_hifi4_debug_jlink")
 
 8.  Click the **Debug** button. The actual debug on the chip initiates.
@@ -55,16 +55,18 @@ To run the ‘Hello World’ demo, import the SDK sources into the Xplorer IDE.
 
 10. The Xplorer IDE transitions to the **Debug** perspective after the binary download.
 
-    **Note:** After initial configuration, it is possible to select the same debug configuration as in [Figure 8](#HVHWEG).
+    **Note:** After initial configuration, it is possible to select the same debug configuration as in [Figure 8](#evkmimxrt685_SELECTDEBUGCONFIG).
 
     ![](../images/image29.png "Select debug configuration")
 
-    The **Debug** perspective appears as in [Figure 9](prepare_dsp_core_for_hello_world.md#GVDVWQC).
+    The **Debug** perspective appears as in [Figure 9](#evkmimxrt685_DEBUGPERSPECTIVE).
 
+    (evkmimxrt685_DEBUGPERSPECTIVE)=
     ![](../images/image30.svg "Debug perspective")
 
-    The program stops at the start of main\(\) function. To run the program, click the **Resume** or **Stepping through** icon button as shown in [Figure 10](prepare_dsp_core_for_hello_world.md#LKWEUGG).
+    The program stops at the start of main\(\) function. To run the program, click the **Resume** or **Stepping through** icon button as shown in [Figure 10](#evkmimxrt685_RUNPROGRAM).
 
+    (evkmimxrt685_RUNPROGRAM)=
     ![](../images/image31.svg "Run the program")
 
 11. After resuming / stepping through the ‘printf’ statement, the following output appears in the **Console** view of the IDE.

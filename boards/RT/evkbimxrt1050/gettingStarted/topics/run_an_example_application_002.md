@@ -21,7 +21,7 @@ To download and run the application, perform these steps:
 
     The `hello_world` application is now running and a banner is displayed on the terminal, as shown in [Figure 3](#evkbimxrt1050_S127DD02). If this is not true, check your terminal settings and connections.
 
-(evkbimxrt1050_S127DD02)=
+    (evkbimxrt1050_S127DD02)=
     (evkbimxrt1050_S12702)=
     ![](../images/hello_world_lowercase.png "Text display of the hello_world demo")
 
