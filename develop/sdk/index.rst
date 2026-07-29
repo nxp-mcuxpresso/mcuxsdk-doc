@@ -1,5 +1,5 @@
 Developing with MCUXpresso SDK
-=========================
+==============================
 
 As illustrated in previous chapters, MCUXpresso SDK is based on CMake and Kconfig to build. Please go through the `Build and Configuration System`_ before you start developing.
 

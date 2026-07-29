@@ -1,7 +1,7 @@
 .. _freertos-drivers:
 
 FreeRTOS drivers
-#############
+################
 
 This is set of NXP provided FreeRTOS reentrant bus drivers.
 
