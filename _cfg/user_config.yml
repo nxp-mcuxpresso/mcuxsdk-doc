@@ -19,6 +19,7 @@ extensions:
 - html_anchors
 - merge_example_readmes
 - examples_catalog
+- mcux_search
 source_suffix:
   .rst: restructuredtext
   .readme: markdown

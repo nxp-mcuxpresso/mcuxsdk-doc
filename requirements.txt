@@ -27,3 +27,6 @@ jsonschema
 
 # Customize 404 page
 sphinx-notfound-page
+# Static search index (mcux_search extension); base needs BOTH packages
+pagefind==1.5.2
+pagefind_bin==1.5.2

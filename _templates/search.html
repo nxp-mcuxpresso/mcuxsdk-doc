@@ -1,0 +1,106 @@
+{#- Pagefind-powered search page: replaces Sphinx's native search at the same
+    URL, so the theme search box (GET search.html?q=...) keeps working. Native
+    search remains available at search-native.html and is used as fallback when
+    the pagefind bundle is absent (e.g. local builds without the index step). -#}
+{% extends "layout.html" %}
+{% set title = _('Search') %}
+
+{%- block docs_body %}
+<style>
+  .pf-input { width:100%; padding:.65rem .9rem; font-size:1.05rem; box-sizing:border-box;
+              border:2px solid var(--pst-color-primary, #0a5aa5); border-radius:8px; }
+  .pf-count { color: var(--pst-color-text-muted, #5b6b7c); font-size:.9rem; margin:.8rem 0 .4rem; }
+  .pf-res { padding:.75rem 0; border-bottom:1px solid var(--pst-color-border, #e3e8ee); }
+  .pf-res a.pf-t { font-weight:700; text-decoration:none; font-size:1.02rem; }
+  .pf-res .pf-ex { font-size:.9rem; margin:.25rem 0; }
+  .pf-res .pf-ex mark { background:#fff2a8; }
+  .pf-res .pf-u { font-size:.75rem; color: var(--pst-color-text-muted, #7a8794);
+                  font-family: var(--pst-font-family-monospace, monospace); word-break:break-all; }
+</style>
+<h1>{{ _('Search') }}</h1>
+<input id="pf-q" class="pf-input" placeholder="Search the documentation…" autocomplete="off">
+<div id="pf-count" class="pf-count"></div>
+<div id="pf-results"></div>
+
+<script type="module">
+{#- dynamic import() rejects bare specifiers like "pagefind/pagefind.js";
+    resolve against the page URL so relative pathto output always works -#}
+const BUNDLE = new URL("{{ pathto('pagefind/pagefind.js', 1) }}", document.baseURI).href;
+const NATIVE = "{{ pathto('search-native.html', 1) }}";
+
+let pf;
+try {
+  pf = await import(BUNDLE);
+  await pf.options({ ranking: { pageLength: 0.1, termSimilarity: 3 } });
+  pf.init();
+} catch (e) {
+  // no pagefind bundle (e.g. local build without the index step) -> native search
+  location.replace(NATIVE + location.search);
+  throw e;
+}
+
+const $q = document.getElementById('pf-q'),
+      $r = document.getElementById('pf-results'),
+      $c = document.getElementById('pf-count');
+
+// --- phrase-aware re-ranking -------------------------------------------------
+// Pagefind matches stemmed / compound-split words (e.g. "GetProperty" indexes
+// as "get"+"property") and has no phrase proximity. Re-rank the top candidates
+// by what the page ACTUALLY contains:
+//   x3.0 exact query phrase in content or title
+//   x1.6 every query word present as a whole word in content
+//   x1.5 title carries all query words
+//   x5.0 title equals or starts with the query as a whole word
+//        (underscores kept intact: "lwip_httpsrv" does not count for "lwip")
+function rerankBonus(qnorm, terms, title, content) {
+  const t = (title || '').toLowerCase(), c = (content || '').toLowerCase();
+  let b = 1;
+  if (qnorm.length > 3 && (c.includes(qnorm) || t.includes(qnorm))) b *= 3;
+  else if (terms.length && terms.every(w =>
+      new RegExp('\\b' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b').test(c))) b *= 1.6;
+  if (terms.length > 1 && terms.every(w => t.includes(w))) b *= 1.5;
+  const tclean = t.replace(/[#¶]/g, '').replace(/\s+/g, ' ').trim();
+  const qclean = qnorm.trim();
+  // exact equality also folds _/- ("hello_world" title === "hello world" query);
+  // the prefix test stays strict so "lwip_httpsrv" never counts for "lwip".
+  const fold = (x) => x.replace(/[-_]/g, ' ').replace(/\s+/g, ' ');
+  if (qclean.length > 2 &&
+      (fold(tclean) === fold(qclean) || tclean.startsWith(qclean + ' '))) b *= 5;
+  return b;
+}
+
+let seq = 0;
+async function run() {
+  const q = $q.value.trim();
+  const my = ++seq;
+  if (!q) { $r.innerHTML = ''; $c.textContent = ''; return; }
+  const s = await pf.debouncedSearch(q, {}, 220);
+  if (!s || my !== seq) return;
+  const qnorm = q.toLowerCase().replace(/\s+/g, ' ');
+  const terms = qnorm.split(' ').filter(w => w.length > 1);
+  const top = s.results.slice(0, 100);
+  const datas = await Promise.all(top.map(r => r.data()));
+  const scored = top.map((r, i) => ({
+    d: datas[i],
+    score: r.score * rerankBonus(qnorm, terms,
+      datas[i].meta && datas[i].meta.title, datas[i].content)
+  })).sort((a, b) => b.score - a.score);
+  if (my !== seq) return;
+  $c.textContent = s.results.length + ' results for “' + q + '”';
+  const esc = (x) => x.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  $r.innerHTML = scored.slice(0, 20).map(({d}) => {
+    const href = "{{ pathto('', 1) }}" + d.url.replace(/^\//, '');
+    const title = esc((d.meta && d.meta.title) || d.url).replace(/[#¶]\s*$/, '');
+    return '<div class="pf-res"><a class="pf-t" href="' + href + '">' + title + '</a>' +
+           '<div class="pf-ex">' + (d.excerpt || '') + '</div>' +
+           '<div class="pf-u">' + esc(d.url) + '</div></div>';
+  }).join('');
+}
+$q.addEventListener('input', run);
+
+// honor the native search contract: theme search boxes submit ?q=
+const q0 = new URLSearchParams(location.search).get('q');
+if (q0) { $q.value = q0; run(); }
+$q.focus();
+</script>
+{%- endblock %}

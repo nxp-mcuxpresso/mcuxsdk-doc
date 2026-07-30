@@ -1,0 +1,66 @@
+# Search index configuration (consumed by _extensions/mcux_search.py).
+#
+# After the HTML build finishes, mcux_search annotates the OUTPUT tree with
+# Pagefind weight/alias attributes according to the rules below, then runs the
+# Pagefind indexer over it. All rules are data-driven: board tiers come from
+# MIR board_status, middleware landings from the manifest middleware division.
+
+# Pagefind indexer options
+root_selector: ".bd-article"   # index only article content (skips nav chrome)
+force_language: en
+
+# Path prefixes excluded from the search index entirely. These have their own
+# per-project search (device API docs) or are folded into merged pages
+# (per-board example copies).
+exclude_paths:
+  - examples/_boards
+  - api
+  - devices
+
+# Board pages (boards/<family>/<board>/...) — tier weights from MIR board_status.
+# All below the 1.0 default so general/shared content wins discovery queries;
+# tier order still ranks boards among themselves.
+board_weights:
+  NPI: "0.9"
+  Hero: "0.8"
+  Classic: "0.5"
+  Legacy: "0.2"          # also used for boards missing from MIR
+
+# Board LANDING pages (boards/<family>/<board>/index.html) get a boost instead:
+# searching a board name must return the board page first. A hidden alias span
+# (directory name + MIR marketing name) is injected so both name forms match.
+board_landing_weights:
+  NPI: "4.4"
+  Hero: "4"
+  Classic: "3"
+  Legacy: "2"
+
+# MIR release config carrying board_status (relative to SDK_BASE).
+mir_release_config: MIR/marketing_data/release_config/26_06_00_lts_cr1.yml
+
+# Middleware landing pages: components come from the manifest middleware
+# division (manifests/submanifests/middleware/*.yml, resolved relative to the
+# west workspace root = SDK_BASE/..). Each component's docs landing
+# (middleware/<name>/index.html) gets this weight + an alias span.
+middleware_landing_weight: "7"
+# extra landings living outside middleware/ or missing from the manifests:
+middleware_extras:
+  rtos/freertos/freertos-kernel/README.html: "freertos FreeRTOS kernel"
+  rtos/index.html: "rtos freertos RTOS"
+
+# Canonical hub pages boosted so discovery queries surface them
+# (weights tuned on the MCUX-88966 pilot build).
+hub_pages:
+  release/index.html: "8"        # Release Notes hub
+  introduction/README.html: "3"  # SDK overview
+  examples/index.html: "3"       # examples catalog
+  gsd/repo.html: "10"            # Getting Started (repository)
+  gsd/package.html: "10"         # Getting Started (package)
+  middleware/index.html: "2.5"
+  drivers/index.html: "2.5"
+  rtos/index.html: "2.5"
+
+# Subtrees of tiny reference/command pages that pollute discovery queries via
+# stemming/compound-splitting artifacts; exact-term queries still rank at 0.5.
+subtree_weights:
+  middleware/mcu_bootloader/docs: "0.5"

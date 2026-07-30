@@ -614,6 +614,11 @@ comments_config = {
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
+# The Pagefind-powered search page overrides search.html (see
+# _templates/search.html + _extensions/mcux_search.py). Keep the original
+# Sphinx search reachable as fallback for builds without a pagefind bundle.
+html_additional_pages = {"search-native": "search-native.html"}
+
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
