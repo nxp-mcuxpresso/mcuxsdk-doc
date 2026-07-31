@@ -1,28 +1,22 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.06.00\).
+The following updates were implemented with respect to the previous SDK release version \(26.09.00-pvw1\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
+    ### Added
+	-   Added `gSecEvt_SameConfirmValue_c` IDS event to detect Legacy Pairing Confirm Value replay attacks.
+
     ### Improved
-	-   Aligned wireless_uart preinclude settings across all platforms for consistency.
-	-   Updated ble_shell periodic advertising default interval set to 1 second for improved discoverability.
-	-   Increased host task stack size across multiple applications.
-	-   Extended ble_shell periodic advertising handling to support gPeriodicDeviceScannedV2_c event.
+	-   Advertising-set-related BLE Host storage is now allocated by the application and scales with the configurable `gMaxAdvSets_c`.
 
     ### Fixed
-	-   Fixed out-of-bounds access in gap.c.
-	-   HCI LE Read All Remote Features command is now issued if supported by the controller.
-	-   Power Control APIs now return gBleFeatureNotSupported_c if the controller does not indicate support.
-	-   Fixed array index overflow in application ranging_client.c.
-	-   Corrected bounds check for deviceId.
-	-   Fixed wireless_uart mAdvPending flag to prevent multiple advertising starts during multi-peer disconnect.
-	-   Fixed systick drift when PWR_DisallowDeviceToSleep() is active.
-	-   Miscellaneous MISRA fixes.
+	-   Fixed Insufficient Encryption returned instead of Insufficient Authentication.
+	-   Fixed mismatch between ExtendedFeatures from GAPInit and HCI LE Read All Remote Features Complete event.
+	-   Miscellaneous Sample Applications fixes.
 	-   Miscellaneous Coverity fixes.
+	-   Miscellaneous MISRA fixes.
 
-    ### Changed
-	-   Reverted incorrect connection handle handling for non-connection enhanced notification events.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
