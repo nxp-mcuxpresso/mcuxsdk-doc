@@ -6,7 +6,7 @@
 
     The workspace file is named as `<demo_name>.uvmpw`. For this specific example, the actual path is:
 
-    *<install\_dir\>/boards/frdmimxrt1152/demo\_apps/hello\_world/cm7/mdk/hello\_world\_demo\_cm7.uvmpw*
+    *<install\_dir\>/boards/frdmimxrt1152/demo\_apps/hello\_world/mdk/hello\_world.uvmpw*
 
 2.  To build the demo project, select **Rebuild**, highlighted in red.
 

@@ -4,11 +4,11 @@ Do the following steps to build the `hello_world` demo application.
 
 1.  Open the desired demo application workspace. Most example application workspace files can be located using the following path:
 
-    *<install\_dir\>/boards/<board\_name\>/<example\_type\>/<application\_name\>/<core\_type\>/iar*
+    *<install\_dir\>/boards/<board\_name\>/<example\_type\>/<application\_name\>/iar*
 
     Using the FRDM-IMXRT1152 hardware platform as an example, the `hello_world` workspace is located in:
 
-    *<install\_dir\>/boards/frdmimxrt1152/demo\_apps/hello\_world/cm7/iar/hello\_world\_demo\_cm7.eww*
+    *<install\_dir\>/boards/frdmimxrt1152/demo\_apps/hello\_world/iar/hello\_world.eww*
 
     Other example applications may have additional folders in their path.
 
