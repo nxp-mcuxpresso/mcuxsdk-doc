@@ -835,6 +835,9 @@ INPUT = @SDK_BASE@/drivers/aoi/doxygen/aoi.dox \
         @SDK_BASE@/drivers/wwdt/fsl_wwdt.h \
         @SDK_BASE@/drivers/cache/lpcac_n4a_mcxn/doxygen/cache_lpcac.dox \
         @SDK_BASE@/drivers/cache/lpcac_n4a_mcxn/fsl_cache_lpcac.h \
+        @SDK_BASE@/drivers/flexio/a-format/fsl_flexio_a-format.h \
+        @SDK_BASE@/drivers/flexio/camera/doxygen/flexio_camera.dox \
+        @SDK_BASE@/drivers/flexio/camera/fsl_flexio_camera.h \
         @SDK_BASE@/drivers/flexio/i2c/doxygen/flexio_i2c_master.dox \
         @SDK_BASE@/drivers/flexio/i2c/fsl_flexio_i2c_master.h \
         @SDK_BASE@/drivers/flexio/i2s/doxygen/flexio_i2s_edma.dox \
@@ -851,6 +854,7 @@ INPUT = @SDK_BASE@/drivers/aoi/doxygen/aoi.dox \
         @SDK_BASE@/drivers/flexio/spi/fsl_flexio_spi_edma.h \
         @SDK_BASE@/drivers/flexio/spi/doxygen/flexio_spi.dox \
         @SDK_BASE@/drivers/flexio/spi/fsl_flexio_spi.h \
+        @SDK_BASE@/drivers/flexio/t-format/fsl_flexio_t-format.h \
         @SDK_BASE@/drivers/flexio/uart/doxygen/flexio_uart_edma.dox \
         @SDK_BASE@/drivers/flexio/uart/fsl_flexio_uart_edma.h \
         @SDK_BASE@/drivers/flexio/uart/doxygen/flexio_uart.dox \
@@ -1005,10 +1009,13 @@ IMAGE_PATH = @SDK_BASE@/drivers/aoi/doxygen \
              @SDK_BASE@/drivers/wuu/doxygen \
              @SDK_BASE@/drivers/wwdt/doxygen \
              @SDK_BASE@/drivers/cache/lpcac_n4a_mcxn/doxygen \
+             @SDK_BASE@/drivers/flexio/a-format/doxygen \
+             @SDK_BASE@/drivers/flexio/camera/doxygen \
              @SDK_BASE@/drivers/flexio/i2c/doxygen \
              @SDK_BASE@/drivers/flexio/i2s/doxygen \
              @SDK_BASE@/drivers/flexio/mculcd/doxygen \
              @SDK_BASE@/drivers/flexio/spi/doxygen \
+             @SDK_BASE@/drivers/flexio/t-format/doxygen \
              @SDK_BASE@/drivers/flexio/uart/doxygen
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
@@ -2210,6 +2217,7 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_LPADC_HAS_CMDH_CMPEN = 1 \
              FSL_FEATURE_LPADC_HAS_CTRL_CALHS = 1 \
              FSL_FEATURE_LPADC_HAS_CFG2_JLEFT = 1 \
+             FSL_FEATURE_LPADC_TCTRL_COUNT = 4 \
              FSL_FEATURE_LPADC_HAS_INTERNAL_TEMP_SENSOR = 1 \
              FSL_FEATURE_LPADC_TEMP_SENS_BUFFER_SIZE = 2 \
              FSL_FEATURE_AOI_MODULE_INPUTS = 4 \
@@ -2424,6 +2432,7 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_LPUART_HAS_TIMEOUT = 0 \
              FSL_FEATURE_LPUART_HAS_CTRL_SWAP = 1 \
              FSL_FEATURE_LPUART_HAS_MODIR_RTSWATER = 1 \
+             FSL_FEATURE_MAU_INDIRECT_IS_LOW_ADDR = 0 \
              FSL_FEATURE_TRDC_PROCESSOR_MASTER_COUNT = 2 \
              FSL_FEATURE_TRDC_HAS_MBC = 1 \
              FSL_FEATURE_TRDC_HAS_MRC = 0 \
@@ -2555,6 +2564,21 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 2 \
              FSL_FEATURE_MCX_VBAT_HAS_CLKMON_REG = 0 \
              FSL_FEATURE_MCX_VBAT_HAS_OSCCTLA_FINE_AMP_GAIN_BIT = 0 \
              FSL_FEATURE_MCX_VBAT_HAS_B_SIDE_REG = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_OSCCTLA_MODE_EN_BIT = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_OSCCFGA_CMP_TRIM_BIT = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_OSCCFGA_DLY_TRIM_BIT = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_OSCCFGA_CAP_TRIM_BIT = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_STATUSA_WAKEUP_FLAG_BIT = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_STATUSA_TIMER0_FLAG_BIT = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_STATUSA_TIMER1_FLAG_BIT = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_STATUSA_LDO_RDY_BIT = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_STATUSA_IRQ0_DET_BIT = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_STATUSA_IRQ1_DET_BIT = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_STATUSA_IRQ2_DET_BIT = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_STATUSA_IRQ3_DET_BIT = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_WAKENA_REG = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_WAKECFG_REG = 0 \
+             FSL_FEATURE_MCX_VBAT_HAS_LOCKA_REG = 0 \
              FSL_FEATURE_WUU_HAS_MF = 0 \
              FSL_FEATURE_WWDT_HAS_NO_OSCILLATOR_LOCK = 0 \
              FSL_FEATURE_WWDT_HAS_NO_RESET = 1 \

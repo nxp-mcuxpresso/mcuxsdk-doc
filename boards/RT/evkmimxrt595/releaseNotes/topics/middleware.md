@@ -10,6 +10,10 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_edgefast_open.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_ethermind.md
 :heading-offset: 2
 ```

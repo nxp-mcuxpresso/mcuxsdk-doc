@@ -770,6 +770,8 @@ INPUT = @SDK_BASE@/devices/RT/RT1020/MIMXRT1024/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
         @SDK_BASE@/drivers/flexio/doxygen/flexio.dox \
         @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/flexpwm/doxygen/flexpwm.dox \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/flexram/doxygen/flexram.dox \
         @SDK_BASE@/drivers/flexram/fsl_flexram.h \
         @SDK_BASE@/drivers/flexspi/doxygen/flexspi_edma.dox \
@@ -975,6 +977,7 @@ IMAGE_PATH = @SDK_BASE@/devices/RT/RT1020/MIMXRT1024/drivers/doxygen \
              @SDK_BASE@/drivers/ewm/doxygen \
              @SDK_BASE@/drivers/flexcan/doxygen \
              @SDK_BASE@/drivers/flexio/doxygen \
+             @SDK_BASE@/drivers/flexpwm/doxygen \
              @SDK_BASE@/drivers/flexram/doxygen \
              @SDK_BASE@/drivers/flexspi/doxygen \
              @SDK_BASE@/drivers/gpc_1/doxygen \
@@ -2382,6 +2385,9 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 2 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELB = 1 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELX = 1 \
              FSL_FEATURE_PWM_HAS_ERRATA_51989 = 0 \
+             FSL_FEATURE_PWM_MASK_HAS_UPDATE_MASK_BITFIELD = 1 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_STRETCH_CNT_PRSC_BITFIELD = 0 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_WRPROT_BITFIELD = 0 \
              FSL_FEATURE_RTWDOG_HAS_WATCHDOG = 1 \
              FSL_FEATURE_RTWDOG_HAS_32BIT_ACCESS = 1 \
              FSL_FEATURE_SAI_MAX_WORDS_PER_FRAME = 32 \
