@@ -23,7 +23,7 @@ Both CMSIS-DAP and J-Link debugging interface is supported for MCUX IDE. When us
 :heading-offset: 1
 ```
 
-```{include} ../topics/ide_run_applications_via_JLink_debug_interface.md
+```{include} /gsd/package/topics/ide_run_applications_via_JLink_debug_interface.md
 :heading-offset: 1
 ```
 

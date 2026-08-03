@@ -7,7 +7,7 @@ The following sections provide steps to run a demo compiled with Arm GCC on Linu
 :heading-offset: 2
 ```
 
-```{include} ../topics/build_an_example_application_001.md
+```{include} /gsd/package/topics/build_an_example_application_001.md
 :heading-offset: 2
 ```
 

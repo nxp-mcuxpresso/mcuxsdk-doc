@@ -8,7 +8,7 @@
 :heading-offset: 1
 ```
 
-```{include} board_setup.md
+```{include} /gsd/package/topics/board_setup.md
 :heading-offset: 1
 ```
 

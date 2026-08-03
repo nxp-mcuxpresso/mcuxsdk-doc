@@ -7,7 +7,7 @@ This section contains the steps to install the necessary components required to 
 :heading-offset: 3
 ```
 
-```{include} ../topics/add_a_new_system_environment_variable_for_armgcc_d.md
+```{include} /gsd/package/topics/add_a_new_system_environment_variable_for_armgcc_d.md
 :heading-offset: 3
 ```
 

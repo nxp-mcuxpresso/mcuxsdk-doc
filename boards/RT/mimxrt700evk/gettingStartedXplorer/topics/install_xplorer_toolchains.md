@@ -10,7 +10,7 @@ This section provides information on [Xtensa Software Tools Platform Support](xt
 -   [Install Xtensa Software Tools without IDE](install_xtensa_software_tools_without_ide.md)
 
 
-```{include} ../topics/xtensa_software_tools_platform_support.md
+```{include} /gsd/package/topics/xtensa_software_tools_platform_support.md
 :heading-offset: 1
 ```
 

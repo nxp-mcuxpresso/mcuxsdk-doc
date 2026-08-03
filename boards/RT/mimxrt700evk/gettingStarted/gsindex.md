@@ -14,5 +14,5 @@ topics/build_and_run_the_ezhv_examples.md
 topics/how_to_determine_com_port.md
 topics/how_to_define_irq_handler_in_cpp_files.md
 topics/updating_debugger_firmware.md
-topics/note_source_code.md
+/gsd/package/topics/note_source_code.md
 ```

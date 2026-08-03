@@ -10,7 +10,7 @@ This section describes the steps required to configure MCUXpresso IDE to build, 
 :heading-offset: 1
 ```
 
-```{include} ../topics/ide_running_an_example_application.md
+```{include} /gsd/package/topics/ide_running_an_example_application.md
 :heading-offset: 1
 ```
 

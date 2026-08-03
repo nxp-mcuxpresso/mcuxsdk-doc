@@ -40,7 +40,7 @@ The following connectivity-supporting documentation is included with this releas
 -   *IEEE 802.15.4 Connectivity Test Application Command Line Interface User Guide*
 
 
-```{include} ../topics/bluetooth_le_host_stack_and_applications.md
+```{include} /release/commonrn/topics/bluetooth_le_host_stack_and_applications.md
 :heading-offset: 3
 ```
 

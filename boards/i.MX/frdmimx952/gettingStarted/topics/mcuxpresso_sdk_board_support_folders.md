@@ -13,7 +13,7 @@ MCUXpresso SDK board support provides example applications for NXP development a
 :heading-offset: 1
 ```
 
-```{include} ../topics/locating_example_application_source_files.md
+```{include} /gsd/package/topics/locating_example_application_source_files.md
 :heading-offset: 1
 ```
 

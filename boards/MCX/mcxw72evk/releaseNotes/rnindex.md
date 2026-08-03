@@ -20,7 +20,7 @@
 :heading-offset: 1
 ```
 
-```{include} topics/what_is_new.md
+```{include} /release/commonrn/topics/what_is_new.md
 :heading-offset: 1
 ```
 

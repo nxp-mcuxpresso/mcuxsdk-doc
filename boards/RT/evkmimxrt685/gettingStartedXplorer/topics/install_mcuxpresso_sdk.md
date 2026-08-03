@@ -8,19 +8,19 @@ This section list the steps to:
 -   [Link DSP Profiles](link_dsp_profiles.md)
 
 
-```{include} ../topics/download_mcuxpresso_sdk_for_rt600.md
+```{include} /gsd/package/topics/download_mcuxpresso_sdk_for_rt600.md
 :heading-offset: 1
 ```
 
-```{include} ../topics/enable_mcuxpresso_sdk_dsp.md
+```{include} /gsd/package/topics/enable_mcuxpresso_sdk_dsp.md
 :heading-offset: 1
 ```
 
-```{include} ../topics/initialize_dsp_core.md
+```{include} /gsd/package/topics/initialize_dsp_core.md
 :heading-offset: 1
 ```
 
-```{include} ../topics/link_dsp_profiles.md
+```{include} /gsd/package/topics/link_dsp_profiles.md
 :heading-offset: 1
 ```
 

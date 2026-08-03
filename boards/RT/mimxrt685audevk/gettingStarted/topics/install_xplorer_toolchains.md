@@ -10,11 +10,11 @@ This section provides information on [Xtensa Software Tools Platform Support](xt
 -   [Install Xtensa Software Tools without IDE](install_xtensa_software_tools_without_ide.md)
 
 
-```{include} ../topics/xtensa_software_tools_platform_support.md
+```{include} /gsd/package/topics/xtensa_software_tools_platform_support.md
 :heading-offset: 1
 ```
 
-```{include} ../topics/install_the_xtensa_xplorer_ide_and_tools.md
+```{include} /gsd/package/topics/install_the_xtensa_xplorer_ide_and_tools.md
 :heading-offset: 1
 ```
 
@@ -22,11 +22,11 @@ This section provides information on [Xtensa Software Tools Platform Support](xt
 :heading-offset: 1
 ```
 
-```{include} ../topics/install_rt600_dsp_build_configuration.md
+```{include} /gsd/package/topics/install_rt600_dsp_build_configuration.md
 :heading-offset: 1
 ```
 
-```{include} ../topics/install_xtensa_on_chip_debugger_daemon.md
+```{include} /gsd/package/topics/install_xtensa_on_chip_debugger_daemon.md
 :heading-offset: 1
 ```
 
@@ -34,7 +34,7 @@ This section provides information on [Xtensa Software Tools Platform Support](xt
 :heading-offset: 1
 ```
 
-```{include} ../topics/install_xtensa_software_tools_without_ide.md
+```{include} /gsd/package/topics/install_xtensa_software_tools_without_ide.md
 :heading-offset: 1
 ```
 

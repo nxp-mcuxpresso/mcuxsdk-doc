@@ -8,7 +8,7 @@ MCUXpresso SDK board support package provides example applications for NXP devel
 -   `rtos_examples`: Basic FreeRTOSTM OS examples that show the use of various RTOS objects \(semaphores, queues, and so on\) and interfaces with the MCUXpresso SDK’s RTOS drivers
 
 
-```{include} ../topics/example_application_structure.md
+```{include} /gsd/package/topics/example_application_structure.md
 :heading-offset: 1
 ```
 

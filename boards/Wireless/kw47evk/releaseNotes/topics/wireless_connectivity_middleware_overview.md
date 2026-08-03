@@ -32,7 +32,7 @@ The following connectivity-supporting documentation is included with this releas
 -   *Low Power Connectivity Reference Design User's Guide*
 
 
-```{include} ../topics/bluetooth_le_host_stack_and_applications.md
+```{include} /release/commonrn/topics/bluetooth_le_host_stack_and_applications.md
 :heading-offset: 3
 ```
 

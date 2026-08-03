@@ -11,7 +11,7 @@ MCUXpresso SDK board support package provides example applications for NXP devel
 -   `usb_dongle_examples`: Simple applications to be used on the PCB2459-2 JN5189 USB DONGLE.
 
 
-```{include} ../topics/example_application_structure.md
+```{include} /gsd/package/topics/example_application_structure.md
 :heading-offset: 1
 ```
 

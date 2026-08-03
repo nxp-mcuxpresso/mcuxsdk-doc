@@ -7,7 +7,7 @@ This section describes the steps required to build, run, and debug example appli
 :heading-offset: 1
 ```
 
-```{include} ../topics/iar_running_an_example_application.md
+```{include} /gsd/package/topics/iar_running_an_example_application.md
 :heading-offset: 1
 ```
 

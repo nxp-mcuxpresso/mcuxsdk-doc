@@ -15,11 +15,11 @@ This section describes the steps required to build, run, and debug example appli
 :heading-offset: 1
 ```
 
-```{include} ../topics/build_a_trustzone_example_application_002.md
+```{include} /gsd/package/topics/build_a_trustzone_example_application_002.md
 :heading-offset: 1
 ```
 
-```{include} ../topics/run_a_trustzone_example_application_002.md
+```{include} /gsd/package/topics/run_a_trustzone_example_application_002.md
 :heading-offset: 1
 ```
 

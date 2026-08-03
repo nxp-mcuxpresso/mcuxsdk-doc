@@ -13,7 +13,7 @@ topics/run_a_demo_using_keil__mdk_vision.md
 topics/run_a_demo_using_the_prebuilt_binary.md
 topics/mcuxpresso_ide_new_project_wizard.md
 topics/how_to_determine_com_port.md
-topics/how_to_define_irq_handler_in_cpp_files.md
+/gsd/package/topics/how_to_define_irq_handler_in_cpp_files.md
 topics/default_debug_interfaces.md
 topics/updating_debugger_firmware.md
 ```

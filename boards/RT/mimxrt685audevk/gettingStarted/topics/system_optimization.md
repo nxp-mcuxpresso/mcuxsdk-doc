@@ -7,11 +7,11 @@ Performance and power efficiency are key for embedded systems. The following sec
 :heading-offset: 2
 ```
 
-```{include} ../topics/using_local_memories.md
+```{include} /gsd/package/topics/using_local_memories.md
 :heading-offset: 2
 ```
 
-```{include} ../topics/power_efficiency.md
+```{include} /gsd/package/topics/power_efficiency.md
 :heading-offset: 2
 ```
 

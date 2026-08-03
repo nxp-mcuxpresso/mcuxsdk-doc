@@ -8,7 +8,7 @@ MCUXpresso SDK board support package provides example applications for NXP devel
 -   `wireless_examples`: Applications that use the Zigbee and OpenThread stacks.
 
 
-```{include} ../topics/example_application_structure.md
+```{include} /gsd/package/topics/example_application_structure.md
 :heading-offset: 1
 ```
 

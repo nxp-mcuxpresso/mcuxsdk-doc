@@ -9,11 +9,11 @@ This section describes the steps required to configure MCUXpresso IDE to build, 
 :heading-offset: 1
 ```
 
-```{include} ../topics/build_an_example_application.md
+```{include} /gsd/package/topics/build_an_example_application.md
 :heading-offset: 1
 ```
 
-```{include} ../topics/run_an_example_application.md
+```{include} /gsd/package/topics/run_an_example_application.md
 :heading-offset: 1
 ```
 
@@ -21,7 +21,7 @@ This section describes the steps required to configure MCUXpresso IDE to build, 
 :heading-offset: 1
 ```
 
-```{include} ../topics/run_a_trustzone_example_application.md
+```{include} /gsd/package/topics/run_a_trustzone_example_application.md
 :heading-offset: 1
 ```
 

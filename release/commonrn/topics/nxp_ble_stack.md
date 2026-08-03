@@ -34,6 +34,3 @@ Main features supported:
   **Note:** The CDE(Complex-domain Distance Estimation) algorithm is an experimental feature intended only for testing purposes. It is not maintained and must not be included in production environments.
 
   
-
-  **Parent topic:**[Wireless connectivity middleware overview](/boards/MCX/mcxw72evk/releaseNotes/topics/wireless_connectivity_middleware_overview.md)
-

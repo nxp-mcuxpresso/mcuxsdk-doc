@@ -21,11 +21,11 @@ Specifically for RT6xx, the user manual and the data sheet are the most importan
 :heading-offset: 1
 ```
 
-```{include} ../topics/messaging_unit_semaphore_and_ipc.md
+```{include} /gsd/package/topics/messaging_unit_semaphore_and_ipc.md
 :heading-offset: 1
 ```
 
-```{include} ../topics/naturedsp_library.md
+```{include} /gsd/package/topics/naturedsp_library.md
 :heading-offset: 1
 ```
 

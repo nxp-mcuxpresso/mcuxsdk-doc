@@ -12,5 +12,5 @@ topics/run_a_demo_using_keil__mdk_vision.md
 topics/run_a_demo_using_arm__gcc.md
 topics/mcuxpresso_config_tools.md
 topics/mcuxpresso_ide_new_project_wizard.md
-topics/how_to_define_irq_handler_in_cpp_files.md
+/gsd/package/topics/how_to_define_irq_handler_in_cpp_files.md
 ```

@@ -14,5 +14,5 @@ topics/bootable_image_generation.md
 topics/mcuxpresso_config_tools.md
 topics/how_to_determine_com_port.md
 topics/default_debug_interfaces.md
-topics/note_source_code.md
+/gsd/package/topics/note_source_code.md
 ```

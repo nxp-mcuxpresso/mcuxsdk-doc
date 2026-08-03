@@ -11,6 +11,6 @@ topics/run_a_demo_using_keil__mdk_vision.md
 topics/run_a_demo_using_arm__gcc.md
 topics/run_a_demo_using_mcuxpresso_ide.md
 topics/how_to_determine_com_port.md
-topics/how_to_define_irq_handler_in_cpp_files.md
+/gsd/package/topics/how_to_define_irq_handler_in_cpp_files.md
 topics/how_to_add_or_remove_boot_header_for_xip_targets.md
 ```

@@ -5,11 +5,11 @@ Xtensa development tools use FLEXlm for license management. FLEXlm licensing is 
 Currently RT600 supports node-locked license for Xtensa tools. A node-locked license permits tools to run on a specific computer, tied to the MAC address of the primary network interface permanently attached to the machine.
 
 
-```{include} ../topics/identify_pc_mac_address.md
+```{include} /gsd/package/topics/identify_pc_mac_address.md
 :heading-offset: 2
 ```
 
-```{include} ../topics/download_license_key.md
+```{include} /gsd/package/topics/download_license_key.md
 :heading-offset: 2
 ```
 

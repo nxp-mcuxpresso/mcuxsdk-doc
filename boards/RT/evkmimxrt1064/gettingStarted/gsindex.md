@@ -13,6 +13,6 @@ topics/run_a_demo_using_mcuxpresso_ide.md
 topics/mcuxpresso_config_tools.md
 topics/mcuxpresso_ide_new_project_wizard.md
 topics/how_to_determine_com_port.md
-topics/how_to_define_irq_handler_in_cpp_files.md
+/gsd/package/topics/how_to_define_irq_handler_in_cpp_files.md
 topics/how_to_add_or_remove_boot_header_for_xip_targets.md
 ```

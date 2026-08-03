@@ -9,11 +9,11 @@ This section lists the steps to:
 -   [Launch DSP Application from Arm Core](launch_dsp_application_from_arm_core.md)
 
 
-```{include} ../topics/prepare_arm_core_for_hello_world.md
+```{include} /gsd/package/topics/prepare_arm_core_for_hello_world.md
 :heading-offset: 1
 ```
 
-```{include} ../topics/start_xtensa_debugger_daemon.md
+```{include} /gsd/package/topics/start_xtensa_debugger_daemon.md
 :heading-offset: 1
 ```
 
@@ -25,7 +25,7 @@ This section lists the steps to:
 :heading-offset: 1
 ```
 
-```{include} ../topics/launch_dsp_application_from_arm_core.md
+```{include} /gsd/package/topics/launch_dsp_application_from_arm_core.md
 :heading-offset: 1
 ```
 

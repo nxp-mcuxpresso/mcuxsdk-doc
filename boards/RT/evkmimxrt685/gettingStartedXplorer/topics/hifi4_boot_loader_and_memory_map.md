@@ -8,15 +8,15 @@ This section provides an overview of:
 -   [Boot or Run from Flash](boot_or_run_from_flash.md)
 
 
-```{include} ../topics/hifi4_boot_loader.md
+```{include} /gsd/package/topics/hifi4_boot_loader.md
 :heading-offset: 2
 ```
 
-```{include} ../topics/linker_and_memory_map.md
+```{include} /gsd/package/topics/linker_and_memory_map.md
 :heading-offset: 2
 ```
 
-```{include} ../topics/cache_and_data_exchange_memory_partitions.md
+```{include} /gsd/package/topics/cache_and_data_exchange_memory_partitions.md
 :heading-offset: 2
 ```
 
