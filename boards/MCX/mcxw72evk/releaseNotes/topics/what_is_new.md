@@ -40,24 +40,7 @@ The following updates were implemented with respect to the previous SDK release 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE Controller**
-    -   Added check to ensure LL_LENGTH_RSP from peer with invalid parameter are ignored (LL/CON/CEN/BI-24-C to BI-26-C, LL/CON/PER/BI-31-C to BI-33-C).
-    -   Fixed issue where central is unable to establish the twenty-first connection.
-  Channel Sounding:
-    -   Improved CS/CS/CONN collision management.
-    -   Fixed autonomous feature exchange for CS Create Config (LL/CON/CEN/BV-109-C, LL/CON/CEN/BV-110-C, LL/CON/CEN/BV-163-C, LL/CON/PER/BV-113-C, LL/CON/PER/BV-163-C).
-    -   Fixed crash seen on Moreph (RFPHY/TRM-RCV/CS/BV-24-C).
-    -   Added a default PCT rotation value to compensate for internal delays.
-    -   Added check to reject consecutive LE_CS_Test with COMMAND_DISALLOWED.
-    -   Fixed RTT_PHY field for V1 PDU (LL/CS/CEN/BV-01-C, LL/CS/CEN/INI/BV-03-C, LL/CS/CEN/INI/BV-27-C, LL/CS/CEN/REF/BV-03-C, LL/CS/PER/BV-01-C, LL/CS/PER/INI/BV-02-C, LL/CS/PER/REF/BV-02-C).
-    -   Fixed T_SW_IPT checking (GAP/CS/BV-01-C, GAP/CS/BV-02-C, GAP/SEC/SEM/BV-68-C to BV-75-C).
-  Periodic Advertising:
-    -   Fixed sync info packet offset and Offset Adjust handling (LL/CON/PER/BV-161-C, LL/DDI/ADV/BI-11-C).
-  Periodic Advertising with Response:
-    -   Added mechanism to detect window widening overlap with PAwR skip (LL/CON/PER/BV-168-C).
-  Decision Based Advertising Filtering:
-    -   Fixed failure seen on EBQ (HCI/CCO/BI-73-C).
-  LL Extended Feature Set:
-    -   Fixed Extended Feature Set failures seen on EBQ (HCI/CIN/BV-15-C, LL/CON/CEN/BV-164-C to BV-166-C, LL/CON/PER/BV-168-C to BV-170-C).
+    -   Fixed default local SCA to 500 ppm.
 
 -   **Transceiver drivers (XCVR)**
     -   Added support for Bluetooth LE Channel Sounding.

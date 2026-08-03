@@ -27,17 +27,7 @@ The following updates were implemented with respect to the previous SDK release 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE Controller**
--   Fixed incorrect SCA value (always 500 ppm) reported in LE connection complete event.
-    -   Added check to ensure LL_LENGTH_RSP from peer with invalid parameter are ignored (LL/CON/CEN/BI-24-C to BI-26-C, LL/CON/PER/BI-31-C to BI-33-C).
-    -   Fixed issue where central is unable to establish the twenty-first connection.
-  Periodic Advertising:
-    -   Fixed sync info packet offset and Offset Adjust handling (LL/CON/PER/BV-161-C, LL/DDI/ADV/BI-11-C).
-  Periodic Advertising with Response:
-    -   Added mechanism to detect window widening overlap with PAwR skip (LL/CON/PER/BV-168-C).
-  Decision Based Advertising Filtering:
-    -   Fixed failure seen on EBQ (HCI/CCO/BI-73-C).
-  LL Extended Feature Set:
-    -   Fixed Extended Feature Set failures seen on EBQ (HCI/CIN/BV-15-C, LL/CON/CEN/BV-164-C to BV-166-C, LL/CON/PER/BV-168-C to BV-170-C).
+    -   Fixed default local SCA to 500 ppm.
 
 -   **Transceiver Drivers (XCVR)**
     -   Added API to control Power Amplifier (PA) ramp type and duration.

@@ -4,18 +4,24 @@ Most sensor applications have pairing and bonding disabled to allow a faster int
 
 #   Bluetooth LE controller:
 
--   The maximum Advertising data length is limited to 800 bytes.
+-   The maximum Advertising data length is limited to:
+    - 800 bytes for KW45/KW47
+    - 31 bytes for KW43.
 -   The scanner may sporadically miss some chained packets.
--   When fro32k is used, the define BOARD_32KHZ_SRC_CLK_ACCURACY shall be set in application (#define BOARD_32KHZ_SRC_CLK_ACCURACY 0).
 
 Periodic Advertising with Responses (PAwR):
 -   Periodic Advertising with Response (PAwR) is not supported with the configuration "Subevent Interval = Number of Response Slots x Response Slot Spacing with Response Slot Spacing = 0x2".
 -   The feature is not functional with the Free-Running Oscillator (FRO32K); it requires a 32 KHz Crystal Oscillator with accuracy less than 50 ppm.
 
-KW45/MCXW71:
+KW43:
+-   CS testmode does not work.
+-   CS works only over 1M ACL connection.
+-   CS performances are not yet guaranteed.
+
+KW45 / MCXW 71:
 No specific issues.
 
-KW47/MCXW72:
+KW47 / MCX W72:
 Channel Sounding (CS):
 Information:
 -   RF Bandwidth Occupancy and Connections/Channel Sounding Activities:

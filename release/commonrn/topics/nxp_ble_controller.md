@@ -27,7 +27,7 @@
     -   24 connections as a peripheral role
     -   Any combination of central and peripheral roles \(24 connections maximum\)
     -   8 connections with a 7.5 ms connection interval
-    -   Two advertising sets in parallel (\Five adv set as Early Access Release\).
+    -   Five advertising sets in parallel.
     -   26 Accept List entries
     -   36 Resolvable Private Address \(RPA\) entries
     -   Up to two Chain Packets per Extended Advertising set
@@ -53,7 +53,7 @@
           - T_FCS=120, 100, 60
     -   LE Power Control (\LEPC\).
 
-    Additional features supported as EAR (\Early Access Release\) in the KW45/KW47 experimental builds:
+    Additional features supported as EAR (\Early Access Release\) in the KW45 / KW47 experimental builds:
     -   LE Test Mode Enhancement (\UTP/OTA\).
     -   LL Extended Feature Set
     -   Monitoring Advertisers
