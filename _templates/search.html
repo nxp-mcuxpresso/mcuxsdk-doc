@@ -27,6 +27,16 @@
     resolve against the page URL so relative pathto output always works -#}
 const BUNDLE = new URL("{{ pathto('pagefind/pagefind.js', 1) }}", document.baseURI).href;
 const NATIVE = "{{ pathto('search-native.html', 1) }}";
+{#- Absolute URL of the html/ output root. Pagefind result URLs (d.url) are
+    site-root-relative with a leading slash (e.g. "/examples/x/index.html");
+    resolving them against this base yields correct links regardless of the
+    hosting subpath. Derived from the known-good bundle path rather than
+    pathto('', 1), which renders as "#" on the root search page and would turn
+    every result href into a dead in-page fragment. -#}
+const ROOT_URL = new URL(
+  "{{ pathto('pagefind/pagefind.js', 1) }}".replace(/pagefind\/pagefind\.js.*$/, ''),
+  document.baseURI);
+
 
 let pf;
 try {
@@ -89,7 +99,7 @@ async function run() {
   $c.textContent = s.results.length + ' results for “' + q + '”';
   const esc = (x) => x.replace(/&/g,'&amp;').replace(/</g,'&lt;');
   $r.innerHTML = scored.slice(0, 20).map(({d}) => {
-    const href = "{{ pathto('', 1) }}" + d.url.replace(/^\//, '');
+    const href = new URL(d.url.replace(/^\//, ''), ROOT_URL).href;
     const title = esc((d.meta && d.meta.title) || d.url).replace(/[#¶]\s*$/, '');
     return '<div class="pf-res"><a class="pf-t" href="' + href + '">' + title + '</a>' +
            '<div class="pf-ex">' + (d.excerpt || '') + '</div>' +
