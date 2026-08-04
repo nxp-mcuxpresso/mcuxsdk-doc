@@ -1,4 +1,4 @@
-# MCUXpresso SDK Release Notes for EVK9-MIMX8ULP
+# Getting Started with Package
 
 
 ```{tocTree}
@@ -7,7 +7,7 @@
 
 topics/mcuxpresso_sdk_board_support_folders.md
 topics/toolchain_introduction.md
-topics/running_a_demo_application_using_arm_gcc.md
+/gsd/package/run_a_demo_using_arm__gcc.md
 topics/running_a_demo_application_using_iar.md
 /gsd/package/topics/running_an_application_using_imx-mkimage.md
 /gsd/package/topics/memory_attribution_map_after_doing_handshake.md
