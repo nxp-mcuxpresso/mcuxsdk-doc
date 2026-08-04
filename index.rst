@@ -20,7 +20,7 @@ SBOM file with license information. We provide a west extension `sbom_collect` t
    https://github.com/nxp-mcuxpresso/mcuxsdk-core/blob/main/COPYING-BSD-3
 
 .. _LA_OPT_Online_Code_Hosting:
-   https://github.com/nxp-mcuxpresso/mcuxsdk-manifests/blob/main/LICENSE
+   https://github.com/nxp-mcuxpresso/mcuxsdk-manifests/blob/main/licenses/LICENSE
 
 .. _GitHub repo: https://github.com/nxp-mcuxpresso/mcuxsdk-core
 
