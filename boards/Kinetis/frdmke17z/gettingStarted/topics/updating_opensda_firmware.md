@@ -3,7 +3,7 @@
 Any NXP hardware platform that comes with an OpenSDA-compatible debug interface has the ability to update the OpenSDA firmware. This typically means switching from the default application \(either CMSIS-DAP/mbed/DAPLink or P&E Micro\) to a SEGGER J-Link. This section contains the steps to switch the OpenSDA firmware to a J-Link interface. However, the steps can be applied to restoring the original image also. For reference, OpenSDA firmware files can be found at the links below:
 
 -   J-Link: Download appropriate image from [OpenSDA/OpenSDA V2 Firmware](http://www.segger.com/opensda.html). Choose the appropriate J-Link binary based on [Table 1](#frdmke17z_TABLE_HARDWAREPLATFORM). Any OpenSDA v1.0 interface should use the standard OpenSDA download \(in other words, the one with no version\). For OpenSDA 2.0 or 2.1, select the corresponding binary.
--   CMSIS-DAP/mbed/DAPLink: DAPLink OpenSDA firmware is available at [OpenSDA Serial and Debug Adapter](http://www.nxp.com/opensda).
+-   CMSIS-DAP/mbed/DAPLink: DAPLink OpenSDA firmware is available at [OpenSDA Serial and Debug Adapter](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/opensda-serial-and-debug-adapter:OPENSDA).
 -   P&E Micro: Downloading P&E Micro OpenSDA firmware images requires registration with [P&E Micro](http://www.pemicro.com/opensda/index.cfm).
 
 Perform the following steps to update the OpenSDA firmware on your board for Windows and Linux OS users:

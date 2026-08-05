@@ -223,9 +223,12 @@ endif()
 #-------------------------------------------------------------------------------
 # Add link-check target
 
+# Set SPHINX_TARGET=linkcheck so conf.py can skip Doxygen generation.
+# Doxygen takes significant time and is not needed for link checking --
+# any links into the API docs are already suppressed by linkcheck_ignore.
 add_doc_target(
   linkcheck
-  COMMAND ${CMAKE_COMMAND} -E env ${SPHINX_ENV}
+  COMMAND ${CMAKE_COMMAND} -E env ${SPHINX_ENV} SPHINX_TARGET=linkcheck
   ${SPHINXBUILD}
     -b linkcheck
     -c ${DOCS_CFG_DIR}

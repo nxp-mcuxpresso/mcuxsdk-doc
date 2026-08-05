@@ -112,7 +112,7 @@ be generated from the GitHub SDK CMake examples using a
 ## Repository Architecture
 
 The SDK uses a multi-repository structure on GitHub managed by the
-[Zephyr West Tool](https://docs.zephyrproject.org/latest/guides/west/index.html),
+[Zephyr West Tool](https://docs.zephyrproject.org/latest/develop/west/index.html),
 enabling:
 
 - **Modular Organization**: Drivers, RTOS, middleware, and examples in

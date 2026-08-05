@@ -40,7 +40,7 @@ MCUXpresso configuration tools can help configure the processor and generate ini
 MCUXpresso configuration tools can be accessed in the following products:
 
 -   **Integrated** in the MCUXpresso IDE. Configuration tools are integrated with both compiler and debugger which makes it the easiest way to begin the development.
--   **Standalone version** available for download from [www.nxp.com/mcuxpresso](http://www.nxp.com/mcuxpresso). Recommended for customers using IAR Embedded Workbench, Keil MDK µVision, or Arm GCC.
+-   **Standalone version** available for download from [www.nxp.com/mcuxpresso](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-:MCUXPRESSO). Recommended for customers using IAR Embedded Workbench, Keil MDK µVision, or Arm GCC.
 -   **Online version** available on [mcuxpresso.nxp.com](http://mcuxpresso.nxp.com/). Recommended doing a quick evaluation of the processor or use the tool without installation.
 
 Each version of the product contains a specific *Quick Start Guide* document MCUXpresso IDE Configuration Tools installation folder that can help start your work.

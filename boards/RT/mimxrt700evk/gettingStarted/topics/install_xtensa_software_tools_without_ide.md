@@ -4,7 +4,7 @@ The Xtensa Software Tools can also be installed without the use of the IDE. The 
 
 The command-line tools package is available as a redistributable zip file that is extracted with an Xplorer IDE install. To gain access to the tools package, the IDE must be installed once in the organization. The tools package is available at: `~/xtensa/XtDevTools/downloads/RI-2023.11/tools/XtensaTools_RI_2023_11_linux.tgz.`.
 
-With the tools package and the DSP Build Configuration package available from the [Tensilica Tools download site](https://tensilicatools.com/download/rt700-download-page/), the toolchain can be set up as follows:
+With the tools package and the DSP Build Configuration package available from the [Tensilica Tools download site](https://www.cadence.com/en_US/home/tools/ip/tensilica-ip/hifi-dsps/hifi-5.html), the toolchain can be set up as follows:
 
 ```
 # Create Xtensa install root

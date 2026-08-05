@@ -4,9 +4,9 @@ The LPCXpresso hardware platform comes with a CMSIS-DAP-compatible debug interfa
 
 **Note:** If MCUXpresso IDE is used and the jumper making DFUlink is installed on the board \(JP5 on some boards, but consult the board user manual or schematic for specific jumper number\), LPC-Link2 debug probe boots to DFU mode, and MCUXpresso IDE automatically downloads the CMSIS-DAP firmware to the probe before flash memory programming \(after clicking **Debug**\). Using DFU mode ensures that most up-to-date/compatible firmware is used with MCUXpresso IDE.
 
-NXP provides the LPCScrypt utility, which is the recommended tool for programming the latest versions of CMSIS-DAP and J-Link firmware onto LPC-Link2 or LPCXpresso boards. The utility can be downloaded from [www.nxp.com/lpcutilities](http://www.nxp.com/lpcutilities).
+NXP provides the LPCScrypt utility, which is the recommended tool for programming the latest versions of CMSIS-DAP and J-Link firmware onto LPC-Link2 or LPCXpresso boards. The utility can be downloaded from [www.nxp.com/lpcutilities](https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/general-purpose-mcus/lpcscrypt:LPCSCRYPT).
 
-These steps show how to update the debugger firmware on your board for Windows operating system. For Linux OS, follow the instructions described in LPCScrypt user guide \([www.nxp.com/lpcutilities](http://www.nxp.com/lpcutilities), select **LPCScrypt**, and then the documentation tab\).
+These steps show how to update the debugger firmware on your board for Windows operating system. For Linux OS, follow the instructions described in LPCScrypt user guide \([www.nxp.com/lpcutilities](https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/general-purpose-mcus/lpcscrypt:LPCSCRYPT), select **LPCScrypt**, and then the documentation tab\).
 
 1.  Install the LPCScript utility.
 2.  Unplug the board's USB cable.

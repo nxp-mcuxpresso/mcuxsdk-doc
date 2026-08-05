@@ -2,7 +2,7 @@
 
 ‘*Build Configuration*’ is a term that describes all parameters and necessary build includes for the Tensilica processor implementation for development. It is mandatory to install a specific build configuration before starting development on RT700.
 
-The build configuration is provided by NXP as a binary file and is imported into the Xplorer IDE. The binary file for the OS is available at the Tensilica URL: [https://tensilicatools.com/download/rt700-download-page/](https://tensilicatools.com/download/rt700-download-page/).
+The build configuration is provided by NXP as a binary file and is imported into the Xplorer IDE. The binary file for the OS is available at the Tensilica URL: [https://www.cadence.com/en_US/home/tools/ip/tensilica-ip/hifi-dsps/hifi-5.html](https://www.cadence.com/en_US/home/tools/ip/tensilica-ip/hifi-dsps/hifi-5.html).
 
 ![](../images/image8.png "DSP
 									build

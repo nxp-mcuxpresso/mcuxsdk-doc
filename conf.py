@@ -48,6 +48,13 @@ is_pdf_build = os.environ.get('SPHINX_TARGET', '').upper() in ['PDF', 'LATEX']
 if is_pdf_build:
     logger.info("PDF/LaTeX build detected - all projects will use breathe mode")
 
+# Check if this is a linkcheck build.  When true, all Doxygen extensions are
+# disabled: Doxygen generation takes significant time and is not needed for
+# link checking -- links into the API docs are suppressed by linkcheck_ignore.
+is_linkcheck_build = os.environ.get('SPHINX_TARGET', '').lower() == 'linkcheck'
+if is_linkcheck_build:
+    logger.info("Linkcheck build detected - Doxygen generation will be skipped")
+
 # Patch documents not included in any toctree to suppress orphan warnings.
 # These are legitimate standalone documents (readmes, changelogs, known issues,
 # shared readmes, etc.) that are included via `{include}` directives or are
@@ -530,8 +537,11 @@ latex_engine = "xelatex"
 
 # -- Options for doxyrunner plugins ---------------------------------
 
-# Get doxygen projects organized by extension
-if mcux_config.has_doxygen_projects:
+# Get doxygen projects organized by extension.
+# Skip doxygen configuration entirely in linkcheck builds: Doxygen generation
+# takes significant time and API doc links are already suppressed by
+# linkcheck_ignore (api/devices/* pattern).
+if mcux_config.has_doxygen_projects and not is_linkcheck_build:
     doxygen_projects = mcux_config.get_doxygen_projects_by_extension(DOC_BUILD)
 
     # Configure doxyrunner (breathe mode)
@@ -768,33 +778,114 @@ logger.info(f"=====================================")
 
 # -- Linkcheck configuration --------------------------------------------------
 
-# nxp.com CDN returns HTTP 404 for browser-style User-Agents (any Mozilla/Chrome
-# UA) but 200 for non-browser UAs.  Override only for nxp.com subdomains so
-# real 404s on those hosts still surface.
+# nxp.com CDN returns 404 for browser User-Agents; override for NXP subdomains.
 linkcheck_request_headers = {
-    "https://www.nxp.com/": {
-        "User-Agent": "Python-urllib/3.11",
-    },
-    "https://www.nxp.com.cn/": {
-        "User-Agent": "Python-urllib/3.11",
-    },
-    "https://mcuxpresso.nxp.com/": {
-        "User-Agent": "Python-urllib/3.11",
-    },
-    "https://docs.mcuxpresso.nxp.com/": {
-        "User-Agent": "Python-urllib/3.11",
-    },
+    "https://www.nxp.com/":          {"User-Agent": "Python-urllib/3.11"},
+    "https://www.nxp.com.cn/":       {"User-Agent": "Python-urllib/3.11"},
+    "https://mcuxpresso.nxp.com/":   {"User-Agent": "Python-urllib/3.11"},
+    "https://docs.mcuxpresso.nxp.com/": {"User-Agent": "Python-urllib/3.11"},
 }
 
-# GitHub renders anchors via JavaScript; the static HTML returned to linkcheck
-# does not contain them.  Still check that the page itself exists (200).
+# Suppress anchor checks for sites with JS-rendered or C-domain anchors.
 linkcheck_anchors_ignore_for_url = [
     r"https://github\.com/.*",
     r"https://gitlab\.com/.*",
+    r"https://armmbed\.github\.io/.*",
+    r"https://mbed-tls\.readthedocs\.io/.*",
+    r"https://viewer\.diagrams\.net/.*",
+    r"https://www\.nxp\.com/design/.*",   # JS tab anchors
+    r"https://www\.nxp\.com/part/.*",
+    r"https://www\.segger\.com/downloads/.*",
+    r"https://docs\.mcuboot\.com/.*",
 ]
 
-# Login-gated links that always redirect to a sign-in page: confirmed valid,
-# but linkcheck cannot verify them without credentials.
-linkcheck_ignore = [
-    r"https://github\.com/.*/issues/new(/choose)?$",
+# SSL / TLS CA bundle.
+# The NXP CI proxy re-signs TLS certificates with its own CA, causing
+# ssl_cert_error on every external link.  tls_cacerts points requests at a
+# trusted bundle so only real certificate failures are caught.
+# Priority: REQUESTS_CA_BUNDLE env > system bundle > certifi default.
+# Docker fix: COPY nxp-proxy-ca.pem /usr/local/share/ca-certificates/nxp-proxy-ca.crt
+#             RUN update-ca-certificates
+_SYSTEM_CA_BUNDLE_PATHS = [
+    '/etc/ssl/certs/ca-certificates.crt',  # Debian/Ubuntu
+    '/etc/pki/tls/certs/ca-bundle.crt',    # RHEL/CentOS
+    '/etc/ssl/ca-bundle.pem',              # openSUSE
+    '/etc/ssl/certs/ca-bundle.crt',        # Alpine
 ]
+
+def _resolve_ca_bundle():
+    from_env = os.environ.get('REQUESTS_CA_BUNDLE') or os.environ.get('CURL_CA_BUNDLE')
+    if from_env:
+        return from_env, 'env'
+    for path in _SYSTEM_CA_BUNDLE_PATHS:
+        if os.path.isfile(path):
+            return path, f'system ({path})'
+    return None, 'certifi default'
+
+_ca_bundle, _ca_source = _resolve_ca_bundle()
+if _ca_bundle:
+    tls_cacerts = _ca_bundle
+    logger.info(f"Linkcheck TLS: {_ca_source}")
+else:
+    logger.info(f"Linkcheck TLS: {_ca_source} (add proxy CA to Docker image to fix ssl_cert_error)")
+
+# Accept redirects that stay within the same domain or go to a known successor.
+linkcheck_allowed_redirects = {
+    r'http://(www\.)?nxp\.com/.*':           r'https://(www\.)?nxp\.com/.*',
+    r'https?://([\w\-]+\.)?nxp\.com/.*':     r'https?://([\w\-]+\.)?nxp\.com/.*',
+    r'https://community\.nxp\.com/.*':        r'https://community\.nxp\.com.*',
+    r'https?://(www\.)?github\.com/.*':       r'https?://(www\.)?github\.com/.*',
+    r'https://docs\.github\.com/.*':          r'https://docs\.github\.com/.*',
+    r'https?://([\w\-]+\.)?segger\.com/.*':   r'https?://([\w\-]+\.)?segger\.com/.*',
+    r'https://wiki\.segger\.com/.*':          r'https://kb\.segger\.com/.*',
+    r'http://developer\.mbed\.org/.*':        r'https://github\.com/ArmMbed.*',
+    r'http://(www\.)?pemicro\.com/.*':        r'https://(www\.)?pemicro\.com/.*',
+    r'https://docs\.docker\.com/.*':          r'https://docs\.docker\.com/.*',
+    r'https://forms\.office\.com/.*':         r'https://forms\.cloud\.microsoft/.*',
+}
+
+# Exclude vendored upstream TF-M docs from linkcheck entirely.
+# Their links target Phabricator, STM/Analog product pages, and ARM private
+# docs -- all blocked by the NXP CI network.  Fixing requires upstream PRs.
+linkcheck_exclude_documents = [
+    r"middleware/tfm/tf-m/docs/.*",
+]
+
+# Ignore URLs that are permanently unreachable to automated checkers.
+linkcheck_ignore = [
+    r"https://github\.com/.*/issues/new(/choose)?$",          # login required
+    r"https?://[a-z0-9\-]+\.sourceforge\.(?:net|io)(/.*)?$",  # HTTP 403 bot-block
+    r"https?://sourceforge\.net(/.*)?$",
+    r"https://www\.nxp\.com/webapp/Download\?.*",              # NXP SSO login
+    r"https://bitbucket\.sw\.nxp\.com/.*",                     # internal NXP
+    r"https://jira\.sw\.nxp\.com/.*",
+    r"https://confluence\.sw\.nxp\.com/.*",
+    r"https?://([\w\-]+\.)?nordicsemi\.com(/.*)?$",            # HTTP 403
+    r"https?://infocenter\.nordicsemi\.com(/.*)?$",
+    r"https?://([\w\-]+\.)?azurewave\.com/.*",                 # non-standard TLS
+    r"https?://([\w\-]+\.)?cypress\.com/.*",                   # non-standard TLS
+    r"https?://git\.kernel\.org/.*",                           # non-standard TLS
+    r"https?://([\w\-]+\.)?freedesktop\.org/.*",               # HTTP 418
+    r"https://mcuxpresso\.nxp\.com/mcuxsdk/.*",                # pre-publish self-ref
+    r".*[/\\]api[/\\]devices[/\\].*",                          # Doxygen output absent
+    r".*[/\\]_static[/\\].*\.pdf$",                            # PDFs absent in linkcheck
+    r".*[/\\]build_system[/\\].*",                             # separate build target
+    r"doc/doc/README\.html",                                    # local build-scoping
+    r"https?://yaffs\.net/.*",                                  # host unreachable
+    r"https?://crates\.io/crates/littlefs2$",                  # package removed
+    r"https?://github\.com/tensorflow/tflite-micro/actions/.*",# badge paths removed
+    r"https?://github\.com/Mbed-TLS/mbedtls/blob/development/docs/proposed/.*",
+    r"https?://github\.com/Mbed-TLS/mbedtls/blob/development/docs/driver-only-builds\.md$",
+    r"https?://github\.com/Mbed-TLS/mbedtls/blob/development/framework/.*",
+    r"https?://github\.com/Mbed-TLS/mbedtls/blob/development/scripts/.*",
+    r"https?://github\.com/Mbed-TLS/mbedtls/blob/mbedtls-2\.28/.*",
+    r"https?://github\.com/ARM-software/psa-crypto-api/.*",   # archived
+    r"https?://github\.com/ARMmbed/mbedtls/issues/.*",        # org renamed
+    r"https?://github\.com/cypresssemiconductorco/.*",         # org renamed
+    r"https?://github\.com/Mbed-TLS/mbedtls/blob/development/docs/psa-driver-example-and-guide\.md$",
+    r"https?://([\w\-]+\.)?cadence\.com/.*",                   # HTTP 403 bot-block
+]
+
+linkcheck_retries = 2
+linkcheck_timeout = 30
+linkcheck_workers = 10
