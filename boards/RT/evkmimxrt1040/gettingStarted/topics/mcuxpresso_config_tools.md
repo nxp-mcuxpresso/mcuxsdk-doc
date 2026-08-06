@@ -5,6 +5,7 @@ MCUXpresso Config Tools can help configure the processor and generate initializa
 [Table 1](#evkmimxrt1040_TABLE_CONFIGTOOL) describes the tools included in the MCUXpresso Config Tools.
 
 (evkmimxrt1040_TABLE_CONFIGTOOL)=
+
 |Config Tool|Description|Image|
 |:---------:|-----------|:---:|
 |**Pins tool**|For configuration of pin routing and pin electrical properties.|![](../images/icon_pin.png)

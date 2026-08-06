@@ -5,6 +5,7 @@ MCUXpresso configuration tools can help configure the processor and generate ini
 [Table 1](#evkcmimxrt1060_table_configtool) describes the tools included in the MCUXpresso configuration tools.
 
 (evkcmimxrt1060_table_configtool)=
+
 |Configuration tool|Description|Image|
 |------------------|-----------|:---:|
 |**Pins tool**
