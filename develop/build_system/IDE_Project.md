@@ -634,6 +634,20 @@ Supported option for IAR are:
     ```
     ![suppress_download](./_doc/ide_option_iar_suppress_download.png)
 
+- Restore breakpoint
+
+    If you want to restore software breakpoints at a specific location when the debugger starts, set `restore_breakpoint` to the target symbol name. This applies to both J-Link and CMSIS-DAP debuggers. For example:
+
+    ```yaml
+    iar:
+      config:
+        __common__:
+          debugger_setting:
+            restore_breakpoint: _call_main
+    ```
+
+    ![restore_breakpoint](./_doc/ide_option_iar_restore_breakpoint.png)
+
 #### CodeWarrior
 
 Supported options for CodeWarrior are:
