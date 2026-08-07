@@ -328,6 +328,34 @@ TrustZone feature is enabled by compiler flags. It may be different for each too
   mcux_add_armgcc_configuration(CC "-mcmse")
   ```
 
+#### MVE (Helium / "Advanced SIMD")
+
+MVE (M-Profile Vector Extension, also known as Helium) is available on Cortex-M55 and Cortex-M85. It is enabled by default and controlled through compiler flags, which differ per toolchain. On IAR the feature is subtracted from the core name with a `.no_mve` suffix; on Keil MDK and ARMGCC it is subtracted with a `+nomve` suffix on `-mcpu`.
+
+> **Note:** The core `-mcpu` / `--cpu` flag is already set by the core project segment, so remove the default flag with `mcux_remove_<toolchain>_configuration` before adding the modified one.
+
+- IAR
+
+  ```cmake
+  mcux_add_iar_configuration(CC "--cpu=Cortex-M55.no_mve")
+  ```
+- Keil MDK
+
+  ```cmake
+  mcux_add_mdk_configuration(CC "-mcpu=cortex-m55+nomve")
+  ```
+- ARMGCC
+
+  ```cmake
+  mcux_add_armgcc_configuration(CC "-mcpu=cortex-m55+nomve")
+  ```
+
+To disable only the MVE floating-point support while keeping integer MVE, use `+nomve.fp` (Keil MDK / ARMGCC):
+
+```cmake
+mcux_add_armgcc_configuration(CC "-mcpu=cortex-m55+nomve.fp")
+```
+
 #### Multi-projects in one workspace
 
 This feature is used in GUI project generation to put multiple projects into one workspace and is only supported on IAR and KEIL toolchains now. You can use `shared-workspace` filed to name the workspace file, and list the path of the other projects in `sharing-workspace`.
