@@ -20,6 +20,7 @@ skipped with a warning and the search page falls back to native search.
 """
 from __future__ import annotations
 
+import json
 import re
 import shutil
 import subprocess
@@ -50,6 +51,35 @@ def _aliases(n: str):
         if n.endswith(p):
             out.add(p + n[:-len(p)])
     return out
+
+
+def _mir_release_config(confdir: Path, sdk_base: Path) -> Path | None:
+    """Resolve the MIR config matching the newest documented SDK version."""
+    versions_file = confdir / "versions.json"
+    release_dir = sdk_base / "MIR" / "marketing_data" / "release_config"
+    try:
+        versions = json.loads(versions_file.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        logger.warning("mcux_search: cannot read doc versions (%s)", exc)
+        return None
+
+    version = next((str(item) for item in versions if str(item).lower() != "latest"), None)
+    if not version:
+        logger.warning("mcux_search: no release version found in %s", versions_file)
+        return None
+
+    release_stem = re.sub(r"[^A-Za-z0-9]+", "_", version).strip("_")
+    exact = release_dir / f"{release_stem}.yml"
+    if exact.is_file():
+        return exact
+
+    matches = sorted(release_dir.glob(f"{release_stem}_*.yml"),
+                     key=lambda path: path.name.lower())
+    if matches:
+        return matches[-1]
+
+    logger.warning("mcux_search: no MIR config matches doc version %s", version)
+    return None
 
 
 def _annotate(page: Path, weight: str | None = None, ignore: bool = False,
@@ -111,7 +141,7 @@ def _mw_components(mdir: Path):
     return out
 
 
-def _annotate_tree(out: Path, cfg: dict, sdk_base: Path) -> None:
+def _annotate_tree(out: Path, cfg: dict, sdk_base: Path, confdir: Path) -> None:
     stats: Dict[str, int] = {}
 
     # 1. excluded path prefixes
@@ -125,11 +155,12 @@ def _annotate_tree(out: Path, cfg: dict, sdk_base: Path) -> None:
 
     # 2. board pages (tiers + landing boosts + aliases from MIR)
     tiers, names = {}, {}
-    mir = sdk_base / cfg.get("mir_release_config", "")
-    if mir.is_file():
+    mir = _mir_release_config(confdir, sdk_base)
+    if mir:
+        logger.info("mcux_search: using MIR config %s", mir.name)
         tiers, names = _board_status(mir)
     else:
-        logger.warning("mcux_search: MIR config not found (%s); board weights use Legacy", mir)
+        logger.warning("mcux_search: MIR config not found; board weights use Legacy")
     bw = cfg.get("board_weights", {})
     lw = cfg.get("board_landing_weights", {})
     n = 0
@@ -170,10 +201,15 @@ def _annotate_tree(out: Path, cfg: dict, sdk_base: Path) -> None:
 
     # 4. hub pages and down-weighted subtrees
     n = 0
-    for rel, w in (cfg.get("hub_pages") or {}).items():
+    for rel, rule in (cfg.get("hub_pages") or {}).items():
         page = out / rel
         if page.is_file():
-            n += _annotate(page, weight=str(w))
+            if isinstance(rule, dict):
+                weight = str(rule.get("weight", "1"))
+                alias = str(rule.get("aliases", "")) or None
+            else:
+                weight, alias = str(rule), None
+            n += _annotate(page, weight=weight, alias=alias)
     stats["hubs"] = n
     n = 0
     for prefix, w in (cfg.get("subtree_weights") or {}).items():
@@ -200,7 +236,7 @@ def build_search_index(app: Sphinx, exception) -> None:
     out = Path(app.outdir)
     sdk_base = confdir.parent
 
-    _annotate_tree(out, cfg, sdk_base)
+    _annotate_tree(out, cfg, sdk_base, confdir)
 
     bundle = out / "pagefind"
     if bundle.is_dir():

@@ -14,6 +14,7 @@ force_language: en
 # (per-board example copies).
 exclude_paths:
   - examples/_boards
+  - _sources_view
   - api
   - devices
 
@@ -35,9 +36,6 @@ board_landing_weights:
   Classic: "3"
   Legacy: "2"
 
-# MIR release config carrying board_status (relative to SDK_BASE).
-mir_release_config: MIR/marketing_data/release_config/26_06_00_lts_cr1.yml
-
 # Middleware landing pages: components come from the manifest middleware
 # division (manifests/submanifests/middleware/*.yml, resolved relative to the
 # west workspace root = SDK_BASE/..). Each component's docs landing
@@ -51,14 +49,28 @@ middleware_extras:
 # Canonical hub pages boosted so discovery queries surface them
 # (weights tuned on the MCUX-88966 pilot build).
 hub_pages:
-  release/index.html: "8"        # Release Notes hub
+  release/index.html:
+    weight: "8"
+    aliases: "release notes changelog whats new"
   introduction/README.html: "3"  # SDK overview
-  examples/index.html: "3"       # examples catalog
-  gsd/repo.html: "10"            # Getting Started (repository)
-  gsd/package.html: "10"         # Getting Started (package)
-  middleware/index.html: "2.5"
-  drivers/index.html: "2.5"
-  rtos/index.html: "2.5"
+  examples/index.html:
+    weight: "3"
+    aliases: "demos samples application catalog"
+  gsd/repo.html:
+    weight: "10"
+    aliases: "quickstart installation setup repository"
+  gsd/package.html:
+    weight: "10"
+    aliases: "quickstart installation setup package zip"
+  middleware/index.html:
+    weight: "2.5"
+    aliases: "software components libraries"
+  drivers/index.html:
+    weight: "2.5"
+    aliases: "peripheral api reference"
+  rtos/index.html:
+    weight: "2.5"
+    aliases: "real time operating system freertos kernel"
 
 # Subtrees of tiny reference/command pages that pollute discovery queries via
 # stemming/compound-splitting artifacts; exact-term queries still rank at 0.5.

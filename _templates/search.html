@@ -18,9 +18,11 @@
                   font-family: var(--pst-font-family-monospace, monospace); word-break:break-all; }
 </style>
 <h1>{{ _('Search') }}</h1>
-<input id="pf-q" class="pf-input" placeholder="Search the documentation…" autocomplete="off">
-<div id="pf-count" class="pf-count"></div>
-<div id="pf-results"></div>
+<label class="visually-hidden" for="pf-q">Search the documentation</label>
+<input id="pf-q" class="pf-input" placeholder="Search the documentation…" autocomplete="off"
+  type="search" aria-controls="pf-results" aria-describedby="pf-count">
+<div id="pf-count" class="pf-count" role="status" aria-live="polite"></div>
+<div id="pf-results" aria-live="polite"></div>
 
 <script type="module">
 {#- dynamic import() rejects bare specifiers like "pagefind/pagefind.js";
@@ -69,6 +71,31 @@ function rerankBonus(qnorm, terms, title, content) {
   return b;
 }
 
+// Route explicit query intents toward the corresponding canonical section.
+// These remain modest multipliers so strong phrase/title matches still win.
+const INTENTS = [
+  { query: /\b(?:getting started|quick ?start|setup|installation?)\b/,
+    path: /\/gsd(?:\/|$)/, bonus: 2.2 },
+  { query: /\b(?:release notes?|changelog|what(?:'s| is) new)\b/,
+    path: /\/release(?:\/|$)/, bonus: 1.8 },
+  { query: /\b(?:examples?|demos?|samples?)\b/,
+    path: /\/examples(?:\/|$)/, bonus: 1.8 },
+  { query: /\b(?:drivers?|peripherals?|api reference)\b/,
+    path: /\/drivers(?:\/|$)/, bonus: 1.6 },
+  { query: /\b(?:boards?|frdm[-_]?\w+|\w*evk\w*|lpcxpresso\w*)\b/,
+    path: /\/boards(?:\/|$)/, bonus: 1.8 },
+  { query: /\b(?:middleware|component)\b/,
+    path: /\/middleware(?:\/|$)/, bonus: 1.5 },
+  { query: /\b(?:rtos|freertos|freertos kernel)\b/,
+    path: /\/rtos(?:\/|$)/, bonus: 1.5 }
+];
+
+function intentBonus(query, url) {
+  const path = new URL(url, location.origin).pathname.toLowerCase();
+  return INTENTS.reduce((bonus, intent) =>
+    intent.query.test(query) && intent.path.test(path) ? bonus * intent.bonus : bonus, 1);
+}
+
 let seq = 0;
 async function run() {
   const q = $q.value.trim();
@@ -83,7 +110,8 @@ async function run() {
   const scored = top.map((r, i) => ({
     d: datas[i],
     score: r.score * rerankBonus(qnorm, terms,
-      datas[i].meta && datas[i].meta.title, datas[i].content)
+      datas[i].meta && datas[i].meta.title, datas[i].content) *
+      intentBonus(qnorm, datas[i].url)
   })).sort((a, b) => b.score - a.score);
   if (my !== seq) return;
   $c.textContent = s.results.length + ' results for “' + q + '”';
