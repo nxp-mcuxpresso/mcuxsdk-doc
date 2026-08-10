@@ -10,6 +10,7 @@ MCUXpresso SDK board support package provides example applications for NXP devel
 
 ```{include} /gsd/package/topics/example_application_structure.md
 :heading-offset: 1
+:relative-images:
 ```
 
 ```{include} ../topics/locating_example_application_source_files.md

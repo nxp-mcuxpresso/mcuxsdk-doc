@@ -11,10 +11,12 @@ This section describes the steps required to configure MCUXpresso IDE to build, 
 
 ```{include} /gsd/package/topics/build_an_example_application.md
 :heading-offset: 1
+:relative-images:
 ```
 
 ```{include} /gsd/package/topics/run_an_example_application.md
 :heading-offset: 1
+:relative-images:
 ```
 
 ```{include} ../topics/build_a_trustzone_example_application_003.md
@@ -23,5 +25,6 @@ This section describes the steps required to configure MCUXpresso IDE to build, 
 
 ```{include} /gsd/package/topics/run_a_trustzone_example_application.md
 :heading-offset: 1
+:relative-images:
 ```
 

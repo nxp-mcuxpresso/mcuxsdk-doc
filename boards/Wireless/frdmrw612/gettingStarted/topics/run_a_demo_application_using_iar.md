@@ -15,5 +15,6 @@ This section describes the steps required to build, run, and debug example appli
 
 ```{include} /gsd/package/topics/iar_ram_debugging_notes.md
 :heading-offset: 1
+:relative-images:
 ```
 

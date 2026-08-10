@@ -25,5 +25,6 @@ Both CMSIS‑DAP and J‑Link debugging interfaces are supported in the MCUX IDE
 
 ```{include} /gsd/package/topics/ide_run_applications_via_JLink_debug_interface.md
 :heading-offset: 1
+:relative-images:
 ```
 

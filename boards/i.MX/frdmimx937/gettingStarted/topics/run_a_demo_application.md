@@ -13,4 +13,5 @@ This section describes the steps to download the flash.bin to sd and emmc, run t
 
 ```{include} /gsd/package/topics/debug_an_example_application_with_iar.md
 :heading-offset: 1
+:relative-images:
 ```

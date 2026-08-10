@@ -27,5 +27,6 @@ This section lists the steps to:
 
 ```{include} /gsd/package/topics/launch_dsp_application_from_arm_core.md
 :heading-offset: 1
+:relative-images:
 ```
 

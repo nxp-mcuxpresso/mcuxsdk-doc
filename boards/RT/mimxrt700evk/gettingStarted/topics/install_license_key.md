@@ -7,6 +7,7 @@ Currently RT700 supports node-locked license for Xtensa tools. A node-locked lic
 
 ```{include} /gsd/package/topics/identify_pc_mac_address.md
 :heading-offset: 2
+:relative-images:
 ```
 
 ```{include} ../topics/download_license_key.md

@@ -10,6 +10,7 @@ This section list the steps to:
 
 ```{include} /gsd/package/topics/download_mcuxpresso_sdk_for_rt600.md
 :heading-offset: 1
+:relative-images:
 ```
 
 ```{include} /gsd/package/topics/enable_mcuxpresso_sdk_dsp.md
@@ -22,5 +23,6 @@ This section list the steps to:
 
 ```{include} /gsd/package/topics/link_dsp_profiles.md
 :heading-offset: 1
+:relative-images:
 ```
 

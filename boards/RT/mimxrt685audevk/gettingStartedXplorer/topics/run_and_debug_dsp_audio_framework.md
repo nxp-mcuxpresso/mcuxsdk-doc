@@ -9,6 +9,7 @@ The DSP audio framework demo consists of separate applications that run on the A
 
 ```{include} /gsd/package/topics/debug_audio_demo.md
 :heading-offset: 2
+:relative-images:
 ```
 
 **Parent topic:**[Run and Debug DSP Demo using Xplorer IDE](../topics/run_and_debug_dsp_demo_using_xplorer_ide.md)

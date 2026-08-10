@@ -7,10 +7,12 @@ Currently RT600 supports node-locked license for Xtensa tools. A node-locked lic
 
 ```{include} /gsd/package/topics/identify_pc_mac_address.md
 :heading-offset: 2
+:relative-images:
 ```
 
 ```{include} /gsd/package/topics/download_license_key.md
 :heading-offset: 2
+:relative-images:
 ```
 
 **Parent topic:**[Install Xplorer Toolchains](../topics/install_xplorer_toolchains.md)

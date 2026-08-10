@@ -10,10 +10,12 @@ This section provides an overview of:
 
 ```{include} /gsd/package/topics/hifi4_boot_loader.md
 :heading-offset: 2
+:relative-images:
 ```
 
 ```{include} /gsd/package/topics/linker_and_memory_map.md
 :heading-offset: 2
+:relative-images:
 ```
 
 ```{include} /gsd/package/topics/cache_and_data_exchange_memory_partitions.md

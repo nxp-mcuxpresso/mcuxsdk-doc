@@ -16,6 +16,7 @@ This section provides information on [Xtensa Software Tools Platform Support](xt
 
 ```{include} /gsd/package/topics/install_the_xtensa_xplorer_ide_and_tools.md
 :heading-offset: 1
+:relative-images:
 ```
 
 ```{include} ../topics/install_license_key.md
@@ -24,6 +25,7 @@ This section provides information on [Xtensa Software Tools Platform Support](xt
 
 ```{include} /gsd/package/topics/install_rt600_dsp_build_configuration.md
 :heading-offset: 1
+:relative-images:
 ```
 
 ```{include} /gsd/package/topics/install_xtensa_on_chip_debugger_daemon.md

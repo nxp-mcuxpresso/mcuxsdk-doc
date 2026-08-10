@@ -12,5 +12,6 @@ This section describes the steps required to configure MCUXpresso IDE to build, 
 
 ```{include} /gsd/package/topics/ide_running_an_example_application.md
 :heading-offset: 1
+:relative-images:
 ```
 

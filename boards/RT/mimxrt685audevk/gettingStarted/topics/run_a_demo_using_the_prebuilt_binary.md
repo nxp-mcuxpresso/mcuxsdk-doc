@@ -7,6 +7,7 @@ This section describes the steps to write a prebuilt binary in the SDK package t
 
 ```{include} /gsd/package/topics/identify_the_load_address_of_the_binary.md
 :heading-offset: 1
+:relative-images:
 ```
 
 ```{include} /gsd/package/topics/write_the_binary_to_external_flash.md
