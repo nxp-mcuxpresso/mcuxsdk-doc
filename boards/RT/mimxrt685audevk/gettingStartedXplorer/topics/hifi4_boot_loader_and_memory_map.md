@@ -2,9 +2,9 @@
 
 This section provides an overview of:
 
--   [HiFi4 Boot Loader](hifi4_boot_loader.md)
--   [Linker and Memory Map](linker_and_memory_map.md)
--   [Cache and Data Exchange Memory Partitions](cache_and_data_exchange_memory_partitions.md)
+-   [HiFi4 Boot Loader](../../../../../gsd/package/topics/hifi4_boot_loader.md)
+-   [Linker and Memory Map](../../../../../gsd/package/topics/linker_and_memory_map.md)
+-   [Cache and Data Exchange Memory Partitions](../../../../../gsd/package/topics/cache_and_data_exchange_memory_partitions.md)
 -   [Boot or Run from Flash](boot_or_run_from_flash.md)
 
 

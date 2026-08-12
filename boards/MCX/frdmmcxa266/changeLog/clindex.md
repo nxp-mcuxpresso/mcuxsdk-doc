@@ -1,8 +1,5 @@
 # MCUXpresso SDK Changelog
 
-```{include} /examples/_boards/frdmmcxa266/ChangeLog_board.md
-:heading-offset: 2
-```
 ```{include} /drivers/aoi/doxygen/ChangeLog_aoi.md
 :heading-offset: 2
 ```

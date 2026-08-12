@@ -32,7 +32,7 @@ The steps are:
 
 9.  Open/ Disconnect JP1 and power cycle the board. The onboard LPC-Link2 is ready to be used as SEGGER J-Link probe.
 
-    Every EVK/ LPC-Link2 has a different J-Link S/N. Therefore, make sure to write down the S/N for xt-ocd and topology.xml as indicated in [Install Xtensa On Chip Debugger Daemon](install_xtensa_on_chip_debugger_daemon.md#).
+    Every EVK/ LPC-Link2 has a different J-Link S/N. Therefore, make sure to write down the S/N for xt-ocd and topology.xml as indicated in [Install Xtensa On Chip Debugger Daemon](../../../../../gsd/package/topics/install_xtensa_on_chip_debugger_daemon.md#).
 
     ![](../images/image15.png "Select J-Link Commander")
 

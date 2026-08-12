@@ -29,7 +29,7 @@ Perform the following steps to build the `hello_world` example application.
 
 4.  The build completes without errors.
 
-**Note:** To run the application, see the [Run an application using imx-mkimage](running_an_application_using_imx-mkimage.md).
+**Note:** To run the application, see the [Run an application using imx-mkimage](../../../../../gsd/package/topics/running_an_application_using_imx-mkimage.md).
 
 **Parent topic:**[Running a demo application using IAR](../topics/running_a_demo_application_using_iar.md)
 

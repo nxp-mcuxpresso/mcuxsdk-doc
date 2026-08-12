@@ -150,6 +150,11 @@ _ORPHAN_PATTERNS = (
     'framework/services/WorkQ/',
     # 802.15.4 connectivity-test guide legal page
     'connectivity_test/UG10204/topics/',
+    # board_index.rst is a standalone generated index (linked, not toctree'd)
+    'board_index',
+    # Wireless framework AI/review files picked up by external_content
+    'middleware/wireless/framework/AGENTS',
+    'middleware/wireless/framework/REVIEW',
 )
 
 def patch_orphan_docs(app, docname, source):

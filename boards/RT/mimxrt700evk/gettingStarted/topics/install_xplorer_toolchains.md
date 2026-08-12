@@ -1,6 +1,6 @@
 # Install Xplorer Toolchains
 
-This section provides information on [Xtensa Software Tools Platform Support](xtensa_software_tools_platform_support.md) and steps to:
+This section provides information on [Xtensa Software Tools Platform Support](../../../../../gsd/package/topics/xtensa_software_tools_platform_support.md) and steps to:
 
 -   [Install the Xtensa Xplorer IDE and Tools](install_the_xtensa_xplorer_ide_and_tools.md)
 -   [Install License Key](install_license_key.md)

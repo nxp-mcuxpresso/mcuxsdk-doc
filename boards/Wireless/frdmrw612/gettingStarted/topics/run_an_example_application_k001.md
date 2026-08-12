@@ -4,7 +4,7 @@ To download and run the application, perform these steps:
 
 1.  Reference the table in [Default debug interfaces](default_debug_interfaces.md) to determine the debug interface that comes loaded on your specific hardware platform.
 2.  Connect the development platform to your PC via USB cable.
-3.  Open the terminal application on the PC, such as PuTTY or TeraTerm, and connect to the debug serial port number \(to determine the COM port number, see [How to determine COM port](how_to_determine_com_port.md)\). Configure the terminal with these settings:
+3.  Open the terminal application on the PC, such as PuTTY or TeraTerm, and connect to the debug serial port number \(to determine the COM port number, see [How to determine COM port](../../../../../gsd/package/topics/how_to_determine_com_port.md)\). Configure the terminal with these settings:
 
     1.  115200 or 9600 baud rate, depending on your board \(reference `BOARD_DEBUG_UART_BAUDRATE` variable in the `board.h` file\)
     2.  No parity

@@ -51,7 +51,7 @@ IAR needs a special setting to achieve the plain load feature as follows:
 
     ![](../images/image5.png "New RAM range ")
 
-10. Follow the instructions in [Run an example application](run_an_example_application.md) and now it is safe to debug the RAM application. As a result, the downloaded RAM application can also boot on reset.
+10. Follow the instructions in [Run an example application](../../../../../gsd/package/topics/run_an_example_application.md) and now it is safe to debug the RAM application. As a result, the downloaded RAM application can also boot on reset.
 
 **Parent topic:**[Run a demo application using IAR](../topics/run_a_demo_application_using_iar.md)
 

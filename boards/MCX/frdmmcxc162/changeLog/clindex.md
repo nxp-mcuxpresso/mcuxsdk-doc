@@ -1,8 +1,5 @@
 # MCUXpresso SDK Changelog
 
-```{include} /examples/_boards/frdmmcxc162/ChangeLog_board.md
-:heading-offset: 2
-```
 ```{include} /devices/MCX/MCXC/MCXC162/drivers/doxygen/ChangeLog_clock.md
 :heading-offset: 2
 ```
