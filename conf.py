@@ -708,18 +708,18 @@ is_internal_doc = mcux_config.is_internal_doc
 with open(DOC_BASE / "versions.json", "r", encoding="utf-8") as f:
     versions_data = json.load(f)
 if is_internal_doc:
-    version_list = [(version, f"/mcuxsdk-internal/{('release-' + version.removesuffix('-lts')) if version != 'latest' else version}/html/") for version in versions_data]
+    version_list = [(version, f"/mcuxsdk-internal/{('release-' + version.removesuffix('-lts')) if version != 'latest' else version}") for version in versions_data]
 else:
-    version_list = [(version, f"/mcuxsdk/{version.removesuffix('-lts')}/html/") for version in versions_data]
+    version_list = [(version, f"/mcuxsdk/{version.removesuffix('-lts')}") for version in versions_data]
 
 html_context["versions"] = tuple(version_list)
 
 
 # -- Options for notfound.extension ---------------------------------------
 if is_internal_doc:
-    notfound_urls_prefix = f"/mcuxsdk-internal/release-{version.removesuffix('-lts')}/html/" if is_release else "/mcuxsdk-internal/main/html/"
+    notfound_urls_prefix = f"/mcuxsdk-internal/release-{version.removesuffix('-lts')}/" if is_release else "/mcuxsdk-internal/main/"
 else:
-    notfound_urls_prefix =  f"/mcuxsdk/{version.removesuffix('-lts')}/html/" if is_release else "/mcuxsdk/latest/html/"
+    notfound_urls_prefix =  f"/mcuxsdk/{version.removesuffix('-lts')}/" if is_release else "/mcuxsdk/latest/"
 
 # -- Options for vcs_link ------------------------------------------
 if 'mcux_book_theme.extensions.vcs_link' in extensions or 'vcs_link' in extensions:
