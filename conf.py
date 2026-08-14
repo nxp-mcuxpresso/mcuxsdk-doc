@@ -1,7 +1,7 @@
 # Unless otherwise indicated, all code in the Sphinx project is licenced under the two clause BSD licence below.
 #
 # Copyright (c) 2007-2024 by the Sphinx team (see AUTHORS file). All rights reserved.
-# Copyright 2024-2025 NXP
+# Copyright 2024-2026 NXP
 #
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 #
@@ -31,7 +31,6 @@ import textwrap
 import yaml
 import json
 from sphinx.cmd.build import get_parser
-import sphinx_book_theme
 from sphinx.util import logging
 
 # -- MCUXpresso SDK Configuration Data ----------------------------------------
@@ -616,8 +615,9 @@ comments_config = {
    "dokieli": True
 }
 
-# Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+# Templates - mcux_book_theme provides standard templates, but we still
+# need local search overrides (search.html/search-native.html).
+templates_path = ["_templates"]
 
 # The Pagefind-powered search page overrides search.html (see
 # _templates/search.html + _extensions/mcux_search.py). Keep the original
@@ -642,25 +642,18 @@ exclude_patterns = [
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.
-html_theme = 'sphinx_book_theme'
+html_theme = 'mcux_book_theme'
 
-
-# Updated theme options for sphinx_book_theme
+# Theme options - mcux_book_theme inherits sphinx_book_theme options
 html_theme_options = {
-    "repository_url": "https://github.com/nxp-mcuxpresso/mcuxsdk-doc",  # Update with your actual repo
-    "use_repository_button": False,
-    "use_issues_button": False,
-    "use_edit_page_button": False,
-    "use_download_button": False,
+    "repository_url": "https://github.com/nxp-mcuxpresso/mcuxsdk-doc",
     "show_toc_level": 2,
     "collapse_navigation": True,
     "navigation_with_keys": True,
     "show_navbar_depth": 1,
     "navigation_depth": 3,
     "use_sidenotes": True,
-    "announcement": None,  # Can be used for announcements
     "home_page_in_toc": True,
-    "use_fullscreen_button": False,
 }
 
 # Keep your existing configuration
@@ -686,10 +679,9 @@ html_show_sphinx = False
 docgen_branch = os.getenv("DOCGEN_BRANCH")
 docgen_rev = os.getenv("DOCGEN_REV")
 
-# Add CSS files for customization
-html_css_files = [
-    'book_theme_custom.css',  # New CSS file for book theme customizations
-]
+# CSS files - book_theme_custom.css is now provided by mcux_book_theme
+# Only list project-specific CSS here if needed.
+html_css_files = ["css/sdk_overrides.css"]
 
 is_release = tags.has("release")  # pylint: disable=undefined-variable
 reference_prefix = DOC_BUILD
@@ -728,9 +720,19 @@ else:
     notfound_urls_prefix =  f"/mcuxsdk/{version.removesuffix('-lts')}/html/" if is_release else "/mcuxsdk/latest/html/"
 
 # -- Options for vcs_link ------------------------------------------
-if 'vcs_link' in extensions:
+if 'mcux_book_theme.extensions.vcs_link' in extensions or 'vcs_link' in extensions:
     vcs_link_prefixes = mcux_config.get_vcs_links()
     vcs_link_version = f"release/{version.removesuffix('-lts')}" if is_release else "main"
+
+# -- Options for downloads_index -----------------------------------
+if 'mcux_book_theme.extensions.downloads_index' in extensions:
+    downloads_index_docname = 'downloads'
+    downloads_index_title = 'Downloads'
+    downloads_index_metadata_keys = ['pdf-download']
+    downloads_index_auto_toctree = True
+    downloads_index_auto_page = True
+    downloads_index_group_depth = 1
+    downloads_index_ungrouped_label = 'General'
 
 # -- Options for external_content ----------------------------------
 if 'external_content' in extensions:

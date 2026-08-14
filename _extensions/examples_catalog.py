@@ -1,6 +1,9 @@
 """
 examples_catalog — build-time filterable Examples Catalog.
 
+Copyright 2026 NXP
+SPDX-License-Identifier: Apache-2.0
+
 On builder-inited (after external_content copies sources), this extension:
   1. reads every common example.yml under <SDK_BASE>/examples (name, brief,
      category, boards),
@@ -14,6 +17,7 @@ On builder-inited (after external_content copies sources), this extension:
 
 Enable: add "examples_catalog" to the extensions list.
 """
+
 from __future__ import annotations
 import json
 import re

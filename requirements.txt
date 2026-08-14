@@ -2,7 +2,6 @@
 
 breathe>=4.34
 sphinx~=7.1.0
-sphinx_book_theme
 sphinx-tabs
 sphinxcontrib-svg2pdfconverter
 pygments>=2.9
@@ -25,8 +24,9 @@ doxmlparser
 chardet
 jsonschema
 
-# Customize 404 page
-sphinx-notfound-page
 # Static search index (mcux_search extension); base needs BOTH packages
 pagefind==1.5.2
 pagefind_bin==1.5.2
+
+# customized theme (internal index, pinned)
+-r requirements_theme.txt

@@ -4,9 +4,8 @@ author: NXP
 extensions:
 - sphinx_book_theme
 - sphinx.ext.extlinks
-- vcs_link
+- mcux_book_theme.extensions.vcs_link
 - sphinx.ext.todo
-- sphinx.ext.extlinks
 - myst_parser
 - external_content
 - sphinx.ext.graphviz
@@ -20,6 +19,7 @@ extensions:
 - merge_example_readmes
 - examples_catalog
 - mcux_search
+- mcux_book_theme.extensions.downloads_index
 source_suffix:
   .rst: restructuredtext
   .readme: markdown

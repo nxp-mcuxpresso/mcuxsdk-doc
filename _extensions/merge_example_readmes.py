@@ -1,6 +1,9 @@
 """
 merge_example_readmes — post-copy Sphinx extension.
 
+Copyright 2026 NXP
+SPDX-License-Identifier: Apache-2.0
+
 After external_content copies example readmes into the Sphinx source tree (it
 connects `sync_contents` to `builder-inited`), this runs on the same event at a
 LOWER priority (higher number => later) and merges, per example:
@@ -21,6 +24,7 @@ touched.
 
 Enable: add "merge_example_readmes" to the extensions list.
 """
+
 from __future__ import annotations
 import os
 import re
