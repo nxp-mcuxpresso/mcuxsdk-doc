@@ -2,7 +2,7 @@
 
 Any NXP hardware platform that comes with an OpenSDA-compatible debug interface has the ability to update the OpenSDA firmware. For reference, OpenSDA firmware files can be found at the links below:
 
--   J-Link: Download appropriate image from [www.segger.com/opensda.html](http://www.segger.com/opensda.html). Choose the appropriate J-Link binary based on the table in [Default debug interfaces](default_debug_interfaces.md). Any OpenSDA v1.0 interface should use the standard OpenSDA download \(in other words, the one with no version\). For OpenSDA 2.0 or 2.1, select the corresponding binary.
+-   J-Link: Download appropriate image from [www.segger.com/opensda.html](http://www.segger.com/opensda.html). Choose the appropriate J-Link binary based on the table in [Default debug interfaces](../default_debug_interfaces.md). Any OpenSDA v1.0 interface should use the standard OpenSDA download \(in other words, the one with no version\). For OpenSDA 2.0 or 2.1, select the corresponding binary.
 -   P&E Micro: Downloading P&E Micro OpenSDA firmware images requires registration with P&E Micro \([www.pemicro.com](http://www.pemicro.com/opensda/index.cfm)\).
 
 Perform the following steps to update the OpenSDA firmware on your board for Windows and Linux OS users:

@@ -1,6 +1,6 @@
 # Build and Debug DSP Application
 
-The Xtensa command-line toolchain is installed as part of the Xplorer IDE. The tools can be optionally installed on a new Windows or Linux system without the IDE using the redistributable compressed file found at: `<XTENSA_ROOT>/XtDevTools/downloads/RI-2023.11/tools/`. For more information, see [Install Xtensa On Chip Debugger Daemon](install_xtensa_on_chip_debugger_daemon.md).
+The Xtensa command-line toolchain is installed as part of the Xplorer IDE. The tools can be optionally installed on a new Windows or Linux system without the IDE using the redistributable compressed file found at: `<XTENSA_ROOT>/XtDevTools/downloads/RI-2023.11/tools/`. For more information, see [Install Xtensa On Chip Debugger Daemon](./install_xtensa_on_chip_debugger_daemon.md).
 
 In order to use the command-line tools, some environment variables must be set up for use with the cmake build scripts:
 

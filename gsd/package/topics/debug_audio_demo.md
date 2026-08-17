@@ -44,7 +44,7 @@ To debug the audio demo, perform the following steps.
     >>
     ```
 
-8.  Using the Xplorer IDE, load and execute `xaf_record` using the steps described in [Prepare DSP Core for ‘Hello World’](prepare_dsp_core_for_hello_world.md).
+8.  Using the Xplorer IDE, load and execute `xaf_record` using the steps described in [Prepare DSP Core for 'Hello World'](./prepare_dsp_core_for_hello_world.md).
 9.  After the DSP application runs, use the serial shell to invoke the ‘`record_dmic [language]`’ command.For information on the supported languages, check VIT ReleaseNotes.txt. Using the serial shell creates an audio pipeline that captures microphone audio, perform voice recognition \(VIT\), and playback via the codec speaker line out \(J4 on the EVK\).
 
     ```

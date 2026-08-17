@@ -2,7 +2,7 @@
 
 The secure project is configured to download both secure and non-secure output files so debugging can be fully managed from the secure project.
 
-To download and run the TrustZone application, switch to the secure application project and perform steps as described in [Run a TrustZone example application](run_a_trustzone_example_application_002.md#). These steps are common for single core, dual-core, and TrustZone applications in μVision. After clicking **Download and Debug**, both the secure and non-secure images are loaded into the device flash memory, and the secure application is executed. It stops at the `main()` function.
+To download and run the TrustZone application, switch to the secure application project and perform steps as described in [Run a TrustZone example application](./run_a_trustzone_example_application.md). These steps are common for single core, dual-core, and TrustZone applications in μVision. After clicking **Download and Debug**, both the secure and non-secure images are loaded into the device flash memory, and the secure application is executed. It stops at the `main()` function.
 
 ![](images/49_rt600.png "Stop at main() when running
 									debugging")

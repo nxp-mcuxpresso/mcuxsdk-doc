@@ -19,5 +19,5 @@ To install the Xtends Xplorer IDE and tools, perform the following steps:
     								see the material available for download")
 
     1.  Download and install the **Xplorer IDE V10.1.11** for your operating system \(Windows or Linux\).
-    2.  Download the **DSP Configuration** for your operating system – installed later through the IDE, see [Install RT600 DSP Build Configuration](install_rt600_dsp_build_configuration.md).
+    2.  Download the **DSP Configuration** for your operating system – installed later through the IDE, see [Install RT600 DSP Build Configuration](./install_rt600_dsp_build_configuration.md).
     **Note:** NXP recommends version **10.1.11** of the Xtensa Xplorer IDE and tools for use with the RT600 DSP.

@@ -51,7 +51,7 @@ For SDK DSP examples, split the DSP images into three parts.
 
 One is for vectors and critical sections sitting on TCM/ DSP local memories. The second one is for normal code and data sections sitting on SRAM, and the final is for non-cached DSP initialized data in SRAM.
 
-Here, Cortex M33 load those binaries to its destination. When the DSP program is debugged, it is possible to load DSP binaries from the Xtensa Xplorer IDE, as described in [Prepare DSP Core for ‘Hello World’](prepare_dsp_core_for_hello_world.md). To load binaries, remove the DSP\_IMAGE\_COPY\_TO\_RAM compilation flag or set it to 0. By default, the compilation flag is set to 1 and always load the DSP images.
+Here, Cortex M33 load those binaries to its destination. When the DSP program is debugged, it is possible to load DSP binaries from the Xtensa Xplorer IDE, as described in [Prepare DSP Core for 'Hello World'](prepare_dsp_core_for_hello_world.md). To load binaries, remove the DSP\_IMAGE\_COPY\_TO\_RAM compilation flag or set it to 0. By default, the compilation flag is set to 1 and always load the DSP images.
 
 ```
 #if DSP_IMAGE_COPY_TO_RAM

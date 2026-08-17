@@ -14,7 +14,7 @@ When this macro is set to ‘1’/TRUE \(default value\), it instructs the DSP d
 
 **Note:** When modifying the Arm project, make sure to supply the global preprocessor macro to both the C compiler and assembler.
 
-To build the DSP application image for the Arm application, select the **Release** target option in the Xplorer IDE. For more information on building with min-rt LSP, see section [Link DSP Profiles](link_dsp_profiles.md).
+To build the DSP application image for the Arm application, select the **Release** target option in the Xplorer IDE. For more information on building with min-rt LSP, see section [Link DSP Profiles](./link_dsp_profiles.md).
 
 ![](images/image42.svg "Select the Release target")
 

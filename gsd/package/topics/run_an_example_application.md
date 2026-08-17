@@ -4,7 +4,7 @@ For more information on debug probe support in the MCUXpresso IDE, see [communit
 
 To download and run the application, perform the following steps:
 
-1.  See the table in [Default debug interfaces](default_debug_interfaces.md) to determine the debug interface that comes loaded on your specific hardware platform.
+1.  See the table in [Default debug interfaces](../default_debug_interfaces.md) to determine the debug interface that comes loaded on your specific hardware platform.
     -   For boards with CMSIS-DAP/mbed/DAPLink interfaces, visit [developer.mbed.org/handbook/Windows-serial-configuration](http://developer.mbed.org/handbook/Windows-serial-configuration) and follow the instructions to install the Windows operating system serial driver. If running on Linux OS, this step is not required.
     -   For boards with a P&E Micro interface, see [PE micro](http://www.pemicro.com/support/downloads_find.cfm) to download and install the P&E Micro Hardware Interface Drivers package.
 2.  Connect the development platform to your PC via a USB cable.

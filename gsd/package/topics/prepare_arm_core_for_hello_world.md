@@ -1,6 +1,6 @@
 # Prepare Arm Core for ‘Hello World’
 
-Each of the DSP demos included in the MCUXpresso SDK consists of two separate applications that run on the Arm core and DSP core. The Arm core application initializes the DSP core in the manner described in [Initialize DSP Core](initialize_dsp_core.md) and executes other application-specific functionality.
+Each of the DSP demos included in the MCUXpresso SDK consists of two separate applications that run on the Arm core and DSP core. The Arm core application initializes the DSP core in the manner described in [Initialize DSP Core](./initialize_dsp_core.md) and executes other application-specific functionality.
 
 To debug the ‘Hello World’ DSP application, you must first set up and execute the Arm application using an environment of your choice.
 

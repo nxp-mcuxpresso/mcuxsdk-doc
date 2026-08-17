@@ -30,4 +30,4 @@ Initialize XDM driver
 Warning: Warning: DAP Reset request failed! Ignoring...
 ```
 
-**Note:** Some warning messages are expected and can be ignored. If you receive an error initializing the XDM driver, initialize and start the DSP core before debugging. For details on initializing and debugging, see [Initialize DSP Core](initialize_dsp_core.md) and [Link DSP Profiles](link_dsp_profiles.md). For details on xt-ocd runtime options and configuration, see Chapter 7 of the Xtensa Debug Guide, available in **Help \> PDF Documentation**.
+**Note:** Some warning messages are expected and can be ignored. If you receive an error initializing the XDM driver, initialize and start the DSP core before debugging. For details on initializing and debugging, see [Initialize DSP Core](./initialize_dsp_core.md) and [Link DSP Profiles](./link_dsp_profiles.md). For details on xt-ocd runtime options and configuration, see Chapter 7 of the Xtensa Debug Guide, available in **Help \> PDF Documentation**.
