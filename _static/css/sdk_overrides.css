@@ -127,8 +127,6 @@ html[data-theme="light"] {
     .bd-footer-content div.revision  { float: right; }
     .bd-footer-content p.last-updated { display: none !important; }
 
-    h1:first-of-type { display: inline !important; }
-
     #pst-back-to-top,
     #searchbox,
     #print-main-content,
