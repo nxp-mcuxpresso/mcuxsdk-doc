@@ -131,6 +131,8 @@ modules:
     # Non-doc files linked from ENVIRONMENT_VARIABLES.md; present in the
     # srcdir they render as download links instead of broken references.
     - root: ..
+      pattern: bifrost/docs/CONFIG_TOOLS_TEST.md
+    - root: ..
       pattern: bifrost/.env.example
     - root: ..
       pattern: bifrost/scripts/west_commands/mcux_bi_data.py
