@@ -51,6 +51,7 @@ The MCUXpresso SDK supports various hardware platforms that come loaded with var
 |FRDM-KW43|CMSIS-DAP|MCU-Link|
 |FRDM-MCXW70|CMSIS-DAP|MCU-Link|
 |KW43-LOC|CMSIS-DAP|MCU-Link|
+|MCXW70-LOC|CMSIS-DAP|MCU-Link|
 |IMX943-EVK|N/A|N/A|
 |IMX95LP4XEVK-15|N/A|N/A|
 |IMX95LPD5EVK-19|N/A|N/A|

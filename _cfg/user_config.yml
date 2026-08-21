@@ -2505,3 +2505,21 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_KW43B43ZC7
       outdir: drivers/Wireless/KW/KW43B43ZC7
+  board_mcxw70loc:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/Wireless/index.rst
+    - root: docs
+      pattern: boards/Wireless/mcxw70loc/*
+    - root: .
+      pattern: examples/_boards/mcxw70loc/**/*.md
+    - root: .
+      pattern: drivers/Wireless/KW/MCXW70AC/index.rst
+    - root: .
+      pattern: devices/Wireless/KW/MCXW70AC/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXW70AC
+      outdir: drivers/Wireless/KW/MCXW70AC
