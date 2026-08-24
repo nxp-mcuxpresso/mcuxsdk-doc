@@ -20,8 +20,13 @@ Power Mode. This avoids event triggering and keeps data acquisition to extremely
 The board is compatible with Arduino boards (Arduino UNO R3 and Arduino A4/A5), Mikroe click boards, 
 and Pmod boards.
 
-For debugging the MCXA276 MCU, the FRDM-MCXL255 board uses an onboard (OB) debug probe, MCU-Link lite
+For debugging the MCXL255 MCU, the FRDM-MCXL255 board uses an onboard (OB) debug probe, MCU-Link lite
 OB, which is based on another NXP MCU: LPC55S16
+
+.. image:: ./frdmmcxl255.png
+   :width: 240px
+   :align: center
+   :alt: FRDM-MCXL255
 
 MCU device and part on board is shown below:
 

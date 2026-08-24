@@ -45,4 +45,3 @@
 ```{include} /release/commonrn/topics/christopher_haster_littlefs.md
 :heading-offset: 2
 ```
-
