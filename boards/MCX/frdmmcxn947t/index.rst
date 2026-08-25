@@ -1,0 +1,122 @@
+:pdf-download: ../../../_assets/boards/frdmmcxn947t/mcuxsdk-frdmmcxn947t.pdf
+
+.. _frdmmcxn947t:
+
+FRDM-MCXN947T
+####################
+
+Overview
+********
+
+| The NXP FRDM-MCXN947T is a development board for the N94xT 150 MHz Arm Cortex-M33 TrustZone microcontroller, which is for Industrial and Consumer IoT Applications.
+
+.. image:: ./frdmmcxn947t.png
+   :width: 240px
+   :align: center
+   :alt: FRDM-MCXN947T
+
+MCU device and part on board is shown below:
+
+ - Device: MCXN947T
+ - PartNumber: MCXN947TVDF
+
+SDK Introduction
+*******************
+
+.. only:: html
+
+   For an introduction to the MCUXpresso SDK, see :doc:`MCUXpresso Software Development Kit (SDK) </introduction/README>`.
+
+.. only:: latex
+
+   .. toctree::
+      :maxdepth: 1
+
+      /introduction/README
+
+Getting Started with MCUXpresso SDK Package
+*******************************************
+.. toctree::
+   :maxdepth: 1
+
+   ../../../gsd/package.rst
+
+Getting Started with MCUXpresso SDK GitHub
+*******************************************
+.. toctree::
+   :maxdepth: 1
+
+   ../../../gsd/repo.rst
+
+
+Release Notes
+*******************************************
+.. toctree::
+   :maxdepth: 1
+
+   releaseNotes/rnindex.md
+
+ChangeLog
+*******************************************
+.. toctree::
+   :maxdepth: 1
+
+   changeLog/clindex.md
+
+Driver API Reference Manual
+****************************
+
+This section provides a link to the Driver API RM, detailing available drivers and their usage to help you integrate hardware efficiently.
+
+:ref:`MCXN947T_drivers`
+
+Middleware Documentation
+*****************************
+
+Find links to detailed middleware documentation for key components. While not all onboard middleware is covered, this serves as a useful reference for configuration and development.
+
+
+Multicore
+=========
+
+:ref:`multicore`
+
+MCU Boot
+========
+
+:doc:`mcuboot_opensource<../../../middleware/mcuboot_opensource/README>`
+
+eIQ
+===
+
+:ref:`eiq`
+
+FreeMASTER
+==========
+
+:doc:`freemaster <../../../middleware/freemaster/doc/index>`
+
+NXP Wi-Fi
+=========
+
+:ref:`wifi-bluetooth-802.15.4`
+
+FreeRTOS
+========
+
+:ref:`freertos`
+
+lwIP
+====
+
+:ref:`lwip`
+
+File systemFatfs
+================
+
+:ref:`fatfs`
+
+Trusted-Frimware-M
+==================
+
+:ref:`tfm`

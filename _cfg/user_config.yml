@@ -1758,13 +1758,24 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXN947
       outdir: drivers/MCX/MCXN/MCXN947
-  # frdmmcxn947t (947 board variant): no dedicated board page yet; the
-  # example readmes link its _boards content, so copy just that.
   board_frdmmcxn947t:
     default: true
     external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/MCX/index.rst
+    - root: docs
+      pattern: boards/MCX/frdmmcxn947t/*
     - root: .
       pattern: examples/_boards/frdmmcxn947t/**/*.md
+    - root: .
+      pattern: drivers/MCX/MCXN/MCXN947T/index.rst
+    - root: .
+      pattern: devices/MCX/MCXN/MCXN947/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MCXN947T
+      outdir: drivers/MCX/MCXN/MCXN947T
   board_frdmmcxw23:
     default: true
     external_contents:
