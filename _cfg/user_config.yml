@@ -66,6 +66,8 @@ modules:
     external_contents:
     - root: docs
       pattern: introduction/*
+    - root: ..
+      pattern: manifests/scripts/**/*.md
   gsd:
     default: true
     external_contents:

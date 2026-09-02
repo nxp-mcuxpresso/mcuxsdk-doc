@@ -154,6 +154,8 @@ _ORPHAN_PATTERNS = (
     # Wireless framework AI/review files picked up by external_content
     'middleware/wireless/framework/AGENTS',
     'middleware/wireless/framework/REVIEW',
+    # Manifest doc is standalone doc set
+    'manifests/',
 )
 
 def patch_orphan_docs(app, docname, source):

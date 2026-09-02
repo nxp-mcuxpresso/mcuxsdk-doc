@@ -14,7 +14,7 @@ the LA_OPT_Online_Code_Hosting.txt file in the project's `GitHub repo`_). The mc
 core project, is the fundamental project of whole MCUXpresso SDK delivery. It is under the
 `BSD-3-Clause`_ (as found in the COPYING-BSD-3.txt file in the project's `GitHub repo`_) which is quite a
 permissive license. Other MCUXpresso SDK projects may use different licenses. Each repository includes a 
-SBOM file with license information. We provide a west extension `sbom_collect` to merge SBOM files across all SDK repositories.
+SBOM file with license information. We provide a west extension :doc:`sbom_collect <manifests/scripts/west_commands/sbom_collect>` to merge SBOM files across all SDK repositories.
 
 .. _BSD-3-Clause:
    https://github.com/nxp-mcuxpresso/mcuxsdk-core/blob/main/COPYING-BSD-3
