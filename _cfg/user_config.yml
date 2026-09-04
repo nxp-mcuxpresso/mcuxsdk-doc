@@ -2203,6 +2203,24 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT685S
       outdir: drivers/RT/RT600/MIMXRT685S
+  board_mimxrt2660evk:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/RT/index.rst
+    - root: docs
+      pattern: boards/RT/mimxrt2660evk/*
+    - root: .
+      pattern: examples/_boards/mimxrt2660evk/**/*.md
+    - root: .
+      pattern: drivers/RT/RT2660/MIMXRT2663/index.rst
+    - root: .
+      pattern: devices/RT/RT2660/MIMXRT2663/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_MIMXRT2663
+      outdir: drivers/RT/RT2660/MIMXRT2663
   board_mimxrt685audevk:
     default: true
     external_contents:
