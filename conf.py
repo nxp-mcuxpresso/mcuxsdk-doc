@@ -639,6 +639,9 @@ exclude_patterns = [
     # erpc README uses GitHub root-relative paths (e.g. /erpc_c/transports) that
     # Sphinx misinterprets as cross-references and cannot resolve.
     'middleware/multicore/erpc/README.md',
+    # Template for a board repo-zip gsindex page (see file header) — copied per
+    # board, not built as a page itself.
+    'gsd/package/repozip_gsindex_template.md',
 ]
 
 # -- Options for HTML output -------------------------------------------------

@@ -128,16 +128,13 @@ west debug -r linkserver
 
 ## IDE Project Generation
 
-Generate IDE project files for traditional IDEs:
+To use a traditional IDE instead of the command line or VS Code, generate an IDE
+project from the CMake build with `-t guiproject`:
 
-```bash
-# Generate IAR project
-west build -b evkbmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug -p always -t guiproject
-```
+- [Run a demo using IAR](run_a_demo_using_iar.md)
+- [Run a demo using MDK](run_a_demo_using_mdk.md)
 
-IDE project files are generated in `mcuxsdk/build/<toolchain>` folder.
-
-**Note**: Ruby installation is required for IDE project generation. See [Installation Guide](/gsd/installation.md#ruby---ide-project-generation-optional) for setup instructions.
+Both guides cover the Ruby dependency required for IDE project generation.
 
 ## Troubleshooting
 

@@ -10,7 +10,19 @@ This guide explains how to build and run your first SDK example project using th
 
 ## Understanding Board Support
 
-Use the west extension to discover available examples for your board:
+Before building, check whether your board is single-core or multicore, and which core
+IDs it supports:
+
+```bash
+west boards -b your_board
+```
+
+This prints the resolved device and, for multicore boards, the list of valid
+`core_ids` you'll need for the build command below. For a single-core board, no core
+ID is needed.
+
+If you want to see every supported build configuration (toolchain/config combination)
+for a specific example instead, use:
 
 ```bash
 west list_project -p examples/demo_apps/hello_world
@@ -21,6 +33,11 @@ This shows all supported build configurations. You can filter by toolchain:
 ```bash
 west list_project -p examples/demo_apps/hello_world -t armgcc
 ```
+
+`west list_project` is the most complete way to discover build commands across all
+boards and targets, but `west boards -b your_board` is the quicker way to look up just
+the board/core information you need once you already know which example you want to
+build.
 
 ## Basic Build Process
 
@@ -55,11 +72,20 @@ west build -b your_board examples/demo_apps/hello_world --toolchain iar
 
 ## Multicore Applications
 
-For multicore devices, specify the core ID:
+For multicore devices, `west boards -b your_board` (above) tells you which core IDs
+are valid. Specify the core either with `-Dcore_id=`:
 
 ```bash
 west build -b evkbmimxrt1170 examples/demo_apps/hello_world --toolchain iar -Dcore_id=cm7 --config flexspi_nor_debug
 ```
+
+or more concisely by appending `@<core_id>` to the board name:
+
+```bash
+west build -b evkbmimxrt1170@cm7 examples/demo_apps/hello_world --toolchain iar --config flexspi_nor_debug
+```
+
+Single-core boards don't need a core ID at all.
 
 For multicore projects using sysbuild:
 

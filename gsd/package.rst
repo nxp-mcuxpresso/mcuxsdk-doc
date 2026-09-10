@@ -34,12 +34,4 @@ Classic SDK Package
 Repository-Layout SDK Package
 ------------------------------
 
-.. toctree::
-   :maxdepth: 1
-
-   installation
-   first_build
-   run_a_demo_using_mcuxvsc
-   run_project
-   explore_sdk
-   prebuilt_blobs
+.. include:: repozip.rst

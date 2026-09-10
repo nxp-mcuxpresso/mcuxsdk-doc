@@ -33,6 +33,7 @@ Follow these steps to prepare your development environment:
 
    installation
    repo_setup
+   prebuilt_blobs
 
 
 .. only:: internal_doc
