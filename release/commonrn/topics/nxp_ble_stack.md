@@ -27,10 +27,13 @@ Main features supported:
 * Advertising Coding Selection (ACS)
 * Periodic Advertising with Responses (PAwR)
 * Encrypted Advertising Data (EAD)
-* Monitoring Advertisers - Experimental feature
+* Monitoring Advertisers
 * Randomized RPA - Experimental feature
 * Intrusion Detection System (IDS) - Experimental feature
 
   **Note:** The CDE(Complex-domain Distance Estimation) algorithm is an experimental feature intended only for testing purposes. It is not maintained and must not be included in production environments.
 
-  
+  **Note:** “RADE (Ranging Distance Estimation) is NXP’s embedded Channel Sounding (CS) ranging algorithm. RADE is intended for non-U.S. markets and should not be used in U.S. market deployments. RADEX is the U.S.-market variant of the RADE algorithm.”
+
+
+

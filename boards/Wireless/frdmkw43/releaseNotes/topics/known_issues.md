@@ -21,5 +21,5 @@ This section lists the known issues, limitations, and/or workarounds.
 -   KW43 and MCXW70 are in early enablement. Most Bluetooth LE features are available with limited validation. Full feature robustness will be achieved in upcoming releases.
 -   The wireless_ranging and localization applications have limitations in executing Channel Sounding scenarios.
 -   Other Bluetooth applications available in the package (bare-metal and Arm GCC versions) have not been validated.
--   The KW47 wireless_ranging_host application shall be used for KW43 and MCXW70 and will be updated in future releases.
--   Only the RADE1 software algorithm is currently enabled. RADE2 with LCE support is under development and will be enabled in upcoming releases.
+-   Features not supported: TF-M for Advanced Secure Mode, OTA Support, Low Power, Concurrent Mode, FRO32K, Limited Payload 30 30 Bytes for Extended Advertising
+
