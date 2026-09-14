@@ -1,24 +1,14 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.09.00-pvw2\).
+The following changes have been implemented compared to the previous SDK release version \(25.12.00-pvw2\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Added NBU core-dump packet reception support in the wireless_uart application, controlled by `gEnableCoredumpPackets`.
+	-   'Monitoring Advertisers' support in the 'fsci_black_box' and 'ble_shell' applications
 
     ### Fixed
-	-   Fixed a mismatch between the ExtendedFeatures reported by GAPInit and the HCI LE Read All Remote Features Complete event.
-	-   Fixed an out-of-bounds read in `IsEnhncdChanReconfInProgress()` in the Enhanced ATT (EATT) module.
-	-   Fixed `GattDbDynamic_AddCharServiceChanged` using the Notify property instead of the Indicate property.
-	-   Fixed `ShellGap_ConnectFromPawr` setting the success status incorrectly.
-	-   Miscellaneous Coverity fixes.
-	-   Miscellaneous CERT-C fixes.
-	-   Miscellaneous MISRA fixes.
-
-    ### Changed
-	-   Bluetooth 6.3 compliance: removed Data Signing (LE Security Mode 2).
-
+	-   Missing handler for Version2 of the Set RPA Timeout command
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

@@ -1,30 +1,26 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.09.00-pvw2\).
+The following updates were implemented with respect to the previous SDK release version \(26.09.00-pvw1\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Added NBU core-dump packet reception support in the wireless_uart application, controlled by `gEnableCoredumpPackets`.
+	-   Added `gSecEvt_SameConfirmValue_c` IDS event to detect Legacy Pairing Confirm Value replay attacks.
 
     ### Improved
-	-   Added `MinimalHeapSize_c` to the localization applications, scaled for the RADE2 algorithm and the number of connections.
-	-   Optimized the memory buffer values in the loc_reader Channel Sounding application.
-	-   Reworked the `setcsconfig` and `setcsproc` shell commands to allow per-parameter updates in the localization applications.
-	-   Updated the wireless ranging Python host application setup documentation (Python 3.12 and later is now supported).
+	-   Replaced mode assert with graceful drop and cleanup in localization applications.
+	-   RAS/RAP: handle case where MTU size reduction forces use of more segments than predefined `gRASMaxNoOfSegments_c`.
+	-   Advertising-set-related BLE Host storage is now allocated by the application and scales with the configurable `gMaxAdvSets_c`.
 
     ### Fixed
-	-   Fixed a mismatch between the ExtendedFeatures reported by GAPInit and the HCI LE Read All Remote Features Complete event.
-	-   Fixed an out-of-bounds read in `IsEnhncdChanReconfInProgress()` in the Enhanced ATT (EATT) module.
-	-   Fixed the Channel Sounding ranging procedure counter wrapping past `0xFFFF` in the CCC Digital Key demo.
-	-   Fixed `GattDbDynamic_AddCharServiceChanged` using the Notify property instead of the Indicate property.
-	-   Fixed `ShellGap_ConnectFromPawr` setting the success status incorrectly.
+	-   Fixed CS measurement not starting after handover in digital_key_car_anchor_cs.
+	-   Fixed Insufficient Encryption returned instead of Insufficient Authentication.
+	-   Fixed RSSI filter not excluding invalid RSSI values in CCC monitoring.
+	-   Fixed missing CCC characteristics in digital_key_car_anchor_cs example.
+	-   Fixed mismatch between ExtendedFeatures from GAPInit and HCI LE Read All Remote Features Complete event.
+	-   Miscellaneous Sample Applications fixes.
 	-   Miscellaneous Coverity fixes.
-	-   Miscellaneous CERT-C fixes.
 	-   Miscellaneous MISRA fixes.
-
-    ### Changed
-	-   Bluetooth 6.3 compliance: removed Data Signing (LE Security Mode 2).
 
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.

@@ -1,26 +1,21 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.09.00-pvw2\).
+The following updates were implemented with respect to the previous SDK release version \(26.09.00-pvw1\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Added
-	-   Added NBU core-dump packet reception support in the wireless_uart application, controlled by `gEnableCoredumpPackets`.
+	-   Added `gSecEvt_SameConfirmValue_c` IDS event to detect Legacy Pairing Confirm Value replay attacks.
 
     ### Improved
-	-   Updated the connection handover description in the CCC Digital Key R3 Application Note.
+	-   Advertising-set-related BLE Host storage is now allocated by the application and scales with the configurable `gMaxAdvSets_c`.
 
     ### Fixed
-	-   Fixed a mismatch between the ExtendedFeatures reported by GAPInit and the HCI LE Read All Remote Features Complete event.
-	-   Fixed an out-of-bounds read in `IsEnhncdChanReconfInProgress()` in the Enhanced ATT (EATT) module.
-	-   Fixed `GattDbDynamic_AddCharServiceChanged` using the Notify property instead of the Indicate property.
-	-   Fixed `ShellGap_ConnectFromPawr` setting the success status incorrectly.
+	-   Fixed Insufficient Encryption returned instead of Insufficient Authentication.
+	-   Fixed mismatch between ExtendedFeatures from GAPInit and HCI LE Read All Remote Features Complete event.
+	-   Miscellaneous Sample Applications fixes.
 	-   Miscellaneous Coverity fixes.
-	-   Miscellaneous CERT-C fixes.
 	-   Miscellaneous MISRA fixes.
-
-    ### Changed
-	-   Bluetooth 6.3 compliance: removed Data Signing (LE Security Mode 2).
 
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
