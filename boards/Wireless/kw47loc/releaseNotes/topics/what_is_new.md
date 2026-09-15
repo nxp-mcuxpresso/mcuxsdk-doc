@@ -4,7 +4,7 @@ The following updates were implemented with respect to the previous SDK release 
 
 -   **Bluetooth LE Host Stack and Applications**
 
-    ### Note: Version 1.10.23 is the first NXP Bluetooth LE Host release officially certified according to the Bluetooth® Core Specification Version 6.3.
+    ### Note: Version 1.10.23 is the first NXP Bluetooth LE Host release officially certified according to the BluetoothÂ® Core Specification Version 6.3.
 
 
     ### Improved
@@ -12,10 +12,10 @@ The following updates were implemented with respect to the previous SDK release 
 	-   Optimized memory buffer values in the loc_reader Channel Sounding application.
 	-   Reworked `setcsconfig` and `setcsproc` shell commands for per-parameter updates in localization applications.
 	-   Updated wireless ranging Python host application setup documentation (Python 3.12+ supported).
-	-   Updated CCC Digital Key R3 Application Note connection handover features.
+	-   Updated CCC Digital Key R3 Sample Applications connection handover features.
 
     ### Fixed
-	-   Fixed ExtendedFeatures mismatch between GAPInit and HCI LE Read All Remote Features Complete event.
+	-   Fixed ExtendedFeatures mismatch between GAPInit and the `HCILEReadAllRemoteFeaturesCompleteevent`.
 	-   Fixed EATT out-of-bounds read in `IsEnhncdChanReconfInProgress()`.
 	-   Fixed CCC demo CS ranging procedure counter wrapping past 0xFFFF.
 	-   Fixed `GattDbDynamic_AddCharServiceChanged` using Notify instead of Indicate property.

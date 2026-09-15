@@ -21,5 +21,5 @@ This section lists the known issues, limitations, and/or workarounds.
 -   KW43 and MCXW70 are in early enablement. Most Bluetooth LE features are available with limited validation. Full feature robustness will be achieved in upcoming releases.
 -   The wireless_ranging and localization applications have limitations in executing Channel Sounding scenarios.
 -   Other Bluetooth applications available in the package (bare-metal and Arm GCC versions) have not been validated.
--   Features not supported: TF-M for Advanced Secure Mode, OTA Support, Low Power, Concurrent Mode, FRO32K, Limited Payload 30 30 Bytes for Extended Advertising
+-   Features not supported: Trusted Firmware-M (TF-M) for Advanced Secure mode, OTA support, low power, Concurrent mode, FRO32K, limited the payload for Extended Advertising to 30 Bytes.
 

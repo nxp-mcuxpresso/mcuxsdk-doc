@@ -4,14 +4,14 @@ The following updates were implemented with respect to the previous SDK release 
 
 -   **Bluetooth LE Host Stack and Applications**
 
-    ### Note: Version 1.10.23 is the first NXP Bluetooth LE Host release officially certified according to the Bluetooth® Core Specification Version 6.3.
+    ### Note: Version 1.10.23 is the first NXP Bluetooth LE Host release officially certified according to the BluetoothÂ® Core Specification Version 6.3.
 
     ### Added
-	-   Support in Wireless Uart for NBU core-dump packet reception (`gEnableCoredumpPackets`).
+	-   Added Wireless UART support for NBU core-dump packet reception (`gEnableCoredumpPackets`).
 
 
     ### Fixed
-	-   Fixed ExtendedFeatures mismatch between GAPInit and HCI LE Read All Remote Features Complete event.
+	-   Fixed ExtendedFeatures mismatch between GAPInit and the `HCILEReadAllRemoteFeaturesCompleteevent`.
 	-   Fixed EATT out-of-bounds read in `IsEnhncdChanReconfInProgress()`.
 	-   Fixed `GattDbDynamic_AddCharServiceChanged` using Notify instead of Indicate property.
 	-   Fixed `ShellGap_ConnectFromPawr` setting the success status incorrectly.
