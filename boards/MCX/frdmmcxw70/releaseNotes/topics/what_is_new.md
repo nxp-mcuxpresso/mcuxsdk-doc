@@ -39,37 +39,40 @@ The following updates were implemented with respect to the previous SDK release 
 -   **Connectivity framework**
 
     - **Major Changes**
-        - [NVM] Enhanced robustness of NVM MIT (Meta Information Tag) operations with improved validation and error handling. Added checksum validation feature controlled by `gNvmMetaCheckSum_d` compilation switch. Systematically validates MIT fields before use and triggers page switch if corruption detected. Fixed `mNvTableSizeInFlash` tracking when table entries are modified. Refactored `NvWriteRecord()` and added `NvModuleSwitchPage()` for better ECC fault handling. Added `NvSetChecksumEnable()` API to control feature at runtime. The feature is disabled by default.
-        - [SecLib_RNG] Refactored SecLib mutex declaration and made Lock/Unlock functions public. Changed return type from `osa_status_t` to `secResultType_t` for SecLib mutex functions and moved mutex Lock/Unlock function declarations to SecLib.h.
-        - [SecLib_RNG][PSA] Activated PSA opaque execution with s200 and its secure key storage. Switched from PSA transparent mode to opaque mode for all functions except `CMAC_LsbFirstInput()` which is currently not supported in opaque version. Optimized `SecLib_psa_config` to fully accelerate all `PSA_WANT_KEY_TYPE_ECC_KEY_PAIR` functions.
+        - [platform][DBG] Moved the NBU software watchdog (handshake based NBU stuck detection) into the common platform_dbg sources, making the feature available on both KW43/MCXW70 and KW47/MCXW72 without additional files.
+        - [NVM] Refactored NVM handling to centralize address computation using offset-based flash access helpers (`*_AtOffset`) instead of stored flash addresses, reducing unsafe pointer arithmetic. `NvUpdateSize()` now returns `uint16_t`, added `NV_PartitionBlankCheckAtOffset()`, and deprecated `NvIsMemoryAreaBlank()`. Also fixed a data integrity issue in `NvSaveAllDataSetEntry()` and various Coverity/CERT-C findings.
+        - [platform] IFR BLE BD address is now reversed to match the BLE Host stack expectation. The `PLATFORM_IFR_BD_ADDR_IS_MSB_FIRST` option was removed with the reverse loop reworked accordingly.
+        - [SecLib_RNG] Enabled PSA by default on KW43/MCXW70 platforms.
+        - [OTA] Introduced `gOtaEraseWholePartitionOnInit_d` option (KW43 only, disabled by default) to erase the whole OTA partition at start of image transfer.
+        - [wireless_mcu] Replaced the critical section in `PLATFORM_RemoteActiveReq()` and `PLATFORM_RemoteActiveRel()` with a shared mutex to reduce critical section duration. These APIs must not be called from ISR anymore.
+        - [wireless_nbu] Updated the low power callback to check for pending RPMSG buffers so the NBU enters WFI only when a Tx message is pending, reducing main core latency.
 
     - **Minor Changes**
-        - [wireless_mcu][ble] Refactored `PLATFORM_SetBleMaxTxPower()` API moved from platform file to `fwk_platform_ble.c` for Zephyr compatibility.
-        - [wireless_mcu] Modified `PLATFORM_GetBDAddr()` to return consistent address across calls when `gPlatformUseHwParameter_d` is disabled.
-        - [platform] Added `FRDM-KW43` to supported platform families
-        - [Common] Enhanced external flash API with C++ compatibility by adding extern "C" guards.
-        - [kw43_mcxw70] Relocated `PLATFORM_TM_CLK_SELECT` macro to fwk_platform_definitions.h for platform-specific configuration.
-        - [kw43_mcxw70][sensors] Adapted temperature measurement to use FIFO0 instead of FIFO1 as only single FIFO available on this platform.
-        - [kw43_mcxw70] Updated framework component selections in configuration files.
-        - [wireless_nbu] Replaced `FPGA_TARGET` guard with `FWK_KW43_MCXW70_NBU_FAMILIES` for CPU clock configuration to better reflect target family.
-        - [kw43_mcxw70] Updated RF switch control and debug signal configurations for bringup support.
-        - [kw43_mcxw70] Hardware parameters placement switched to IFR mode. Compilation macro `gHwParamsProdDataPlacement_c` changed from `gHwParamsProdDataMainFlash2IfrMode_c` to `gHwParamsProdDataIfrMode_c`.
-        - [kw43_mcxw70_nbu] Enabled NBU Deep Sleep support. Removed `PLATFORM_RemoteActiveReq()` and `PLATFORM_RemoteActiveRel()` implementations as they are not required for this platform.
-        - [kw43_mcxw70] Enabled TRNG support on kw43_mcxw70 platform.
-        - [SecLib_RNG] Renamed `TRNG_ISR` to `RNG_TrngIrqHandler()` and mapped IRQ handler for platforms using TRNG to this implementation.
-        - [DBG] Disabled DTEST signals and GPIO debug for debug target to prevent significant low power current consumption degradation.
-        - [platform] Added platform abstraction macros `PLATFORM_GET_IPSR`, `PLATFORM_SET_INT_MASK`, and `PLATFORM_CLEAR_INT_MASK` to allow platform-specific customization of IPSR read and interrupt mask functions while maintaining backward compatibility.
-        - [kw43_mcxw70][NVM] Added flash ECC option support for KW43 platforms.
+        - [wireless_mcu][wireless_nbu][kw43_mcxw70] Moved P256 public key generation and ECDH DH key computation from the NBU controller to the host. Added two ICS message types (ReadP256PublicKey/GenerateDHKey) with their host and NBU handlers, the new `PLATFORM_ReadLocalP256PublicKey()` and `PLATFORM_GenerateDHKey()` APIs, and the new `gPlatformIcsDeferDHKeyToHost_d` feature flag gating all host side DH key code. APIs are kept but empty when the flag is disabled so callers can keep the call unconditional. `gPlatformIcsDeferDHKeyToHost_d` is disabled by default on the host; applications requiring this feature (e.g. hci_bb controller qualification) must explicitly build with `-DgPlatformIcsDeferDHKeyToHost_d=1`.
+        - [platform][zephyr] Zephyr feature flag overrides are now owned by the framework repo in a per platform `configs/fwk_config_zephyr.h`, included at the top of `fwk_config.h` under `__ZEPHYR__`, removing the dual maintenance with the Zephyr integration. Platforms: kw43_mcxw70, kw45_k32w1_mcxw71, kw47_mcxw72, mcxw23, rw61x.
+        - [wireless_mcu][kw43_mcxw70] Added `gPlatformNbuDebugGpioDAccessEnabled_d` support on kw43_mcxw70 to grant the NBU access to all GPIOs managed by GPIOD, through the new `PLATFORM_InitNbuSpecific()` API performing the NBU platform specific initialization.
+        - [DBG] The NBU debug path now preserves the first fault/assert information: `NBUDBG_StateCheck()` no longer consumes the NBU debug state before a consumer callback is registered, the `sys_debug_panic_triggered` guard is hoisted in the hard fault handler so capture, host indication and coredump only run for the first fault, and only the first fault/assert is recorded through the new `NBUDBG_RECORD_CLAIMED()` macro.
+        - [DBG] Added host-triggered NBU force fault for coredump capture through new `PLATFORM_ForceNbuFault()` and `NBUDBG_ForceNbuFault()` APIs, signaled to the NBU over MCMGR.
+        - [DBG] Deferred the stall HCI event out of `NBUDBG_StateCheck()`, which now only sets the halted state and notifies the callback. Added new `NBUDBG_SendStallEvent()` API to emit the stall vendor event on demand.
+        - [DBG] Integrated Zephyr coredump capture into the app-core fault handler under `CONFIG_DEBUG_COREDUMP`.
+        - [KW43-LOC][lcl] Updated `PLATFORM_InitLcl()` to support antenna diversity on the KW43-LOC board.
+        - [NVS] Replaced `memcpy()` by `HAL_FlashRead()` for internal flash reads so that HAL checks and Async Flash mode synchronization are not bypassed.
+        - [kw43_mcxw70] `SecLib_psa_config.h` is now only added to the build when the PSA SecLib port is selected, aligned with kw45_k32w1_mcxw71 and kw47_mcxw72.
+        - [wireless_mcu] Added the missing `fwk_config.h` as first include in the kw43_mcxw70, kw45_k32w1_mcxw71 and kw47_mcxw72 platform files so that feature flag overrides are taken into account.
+        - [kw43_mcxw70] Removed the usage of the `m_lowpower_flag_(start|size|end)` linker symbols.
+        - [kw43_mcxw70] Added `PLATFORM_ReinitCrypto()` function for low power support with PSA.
+        - [settings] Added IAR compiler support for iterable sections and disabled the `SETTINGS_NAME_END` IAR warning.
+        - [SecLib_RNG] Added to `RNG_psa.c` seed support including WorkQueue-based automatic reseeding `gRngEnableAutoReseed_d`, NBU seed forwarding via `PLATFORM_SendRngSeed()`, reseed counter logic `gRngMaxRequests_d`, and new APIs `RNG_NotifyReseedNeeded()` and `RNG_IsReseedNeeded()`.
+        - [OTA] Added a blank check of the OTA partition to avoid unnecessary erase operations and refactored `OTA_MakeHeadRoom()`.
 
     - **Bug Fixes**
-        - [kw43_mcxw70] Enabled `gPlatformUseHwParameter_d` to prevent generation of a new Bluetooth device address at each reset.
-        - [kw43_mcxw70] Added `gPlatformHasNbu_d` compile flag to KW43 platform configuration to declare NBU domain presence.
-        - [OTA][Coverity] Sanitized the `pImageOffset` parameter in OTA functions to avoid possible overflow.
-        - [SecLib] Fixed multiplication buffer pointer initialization for segmented ECDH operations. Fixed EC P256 multistep operations using SW legacy library. Fixed `ECDH_P256_ComputeDhKeySeg()` and `ECDH_P256_GenerateKeysSeg()` argument checking across SecLib variants. Fixed `SecLib_AES_CMAC_PRF_128()` behavior for SecLib sss variant that tolerated VK length to be 0. Removed unreachable code from `SecLib_HMAC_SHA256_Finish()`.
-        - [Platform] Fixed TSTMR timestamp 64 bit read compilation failure when `gPlatformTstmr32Bit_d` is undefined.
-        - [NVM] Fixed initialization procedure in `InitNVMConfig()` to validate `start_addr` and `partition_size`.
-        - [wireless_nbu] Fixed resource access issue by reverting TSTMR read restriction on NBU as underlying issue has been resolved.
-        - [wireless_mcu][wireless_nbu] Fixed timestamp initialization to ensure a defined value when the `tstmrId` is out of range.
-        - [SecLib_RNG] Corrected copyright header in `seclib.c`.
-        - [MISRA] Various MISRA and CERT-C compliance fixes in NVM module.
-
+        - [WorkQ] Increased the default `FWK_SYSWORKQ_STACK_SIZE` from 608 to 640 bytes to fix a stack overflow on the system work queue thread.
+        - [platform][TSTMR] Fixed the 56 bit version of the timestamp, now reading the TSTMR instance base and testing only the base pointer validity.
+        - [wireless_mcu] Fixed FRO6M calibration by replacing `FWK_MRCC_TSTMR0_CC`/`FWK_MRCC_TSTMR0_MUX` macros with `MRCC_CC`/`MRCC_MUX` from `fsl_clock.h` and preserving the MUX clock selection in `PLATFORM_StartFro6MCalibration()`.
+        - [PSA] Fixed Kconfig warning by adding KW43 support in crypto Kconfig.
+        - [DBG] Guarded FreeRTOS `sys_dump_callstack_ext()` with `INCLUDE_xTaskGetHandle` to fix `-Werror=unused-function` build failures.
+        - [zephyr][lib][crc] Fixed build conflict with EdgeFast OPN CRC by guarding CRC sources with the Zephyr common framework component check to avoid symbol redefinition.
+        - [NVM] Fixed offset validation in `NvGetEntryFromDataPtr()` and corrected the bottom record address calculation in `NvGetPageFreeSpace()` when `gUnmirroredFeatureSet_d` is undefined.
+        - [docs] Fixed Sphinx/docutils warnings and errors in the framework documentation.
+        - [Coverity] Various Coverity compliance fixes in SecLib (DHKey handling in `SecLib_GenerateBluetoothF5KeysSecure()`) and OTA (replaced union with structure for callback/argument passing in message buffer).
+        - [MISRA][CERT-C] Various MISRA, CERT-C and Coverity compliance fixes gathered across platform, LowPower, ICS (wireless_mcu and wireless_nbu), OTA, FSCI, SFC, SecLib and NVM modules.
