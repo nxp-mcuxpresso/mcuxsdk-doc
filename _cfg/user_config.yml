@@ -156,6 +156,12 @@ modules:
       pattern: develop/sdk/*
     - root: docs
       pattern: _static/build_system/*
+    - root: .
+      pattern: scripts/mcuxsdk_explore/README.md
+    - root: .
+      pattern: scripts/mcuxsdk_explore/resources/*.gif
+    - root: .
+      pattern: scripts/mcuxsdk_explore/resources/*.png
   dev_build_system:
     default: true
     external_contents:

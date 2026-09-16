@@ -288,3 +288,14 @@ archived or shared without requiring network access.
 
 See ``scripts/dashboard/README.md`` for the list of Python dependencies
 and more details on the supported pages and customization.
+
+
+.. _sdk_explorer:
+
+SDK Explorer
+************
+
+.. toctree::
+   :maxdepth: 1
+
+   SDK Explorer <../../scripts/mcuxsdk_explore/README.md>
