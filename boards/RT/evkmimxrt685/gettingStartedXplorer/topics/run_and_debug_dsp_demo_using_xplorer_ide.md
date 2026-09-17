@@ -11,10 +11,12 @@ This section lists the steps to:
 
 ```{include} /gsd/package/topics/prepare_arm_core_for_hello_world.md
 :heading-offset: 1
+:relative-docs: ./
 ```
 
 ```{include} /gsd/package/topics/start_xtensa_debugger_daemon.md
 :heading-offset: 1
+:relative-docs: ./
 ```
 
 ```{include} ../topics/prepare_dsp_core_for_hello_world.md
@@ -28,5 +30,6 @@ This section lists the steps to:
 ```{include} /gsd/package/topics/launch_dsp_application_from_arm_core.md
 :heading-offset: 1
 :relative-images:
+:relative-docs: ./
 ```
 

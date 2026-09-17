@@ -17,6 +17,7 @@ This section provides information on [Xtensa Software Tools Platform Support](..
 ```{include} /gsd/package/topics/install_the_xtensa_xplorer_ide_and_tools.md
 :heading-offset: 1
 :relative-images:
+:relative-docs: ./
 ```
 
 ```{include} ../topics/install_license_key.md

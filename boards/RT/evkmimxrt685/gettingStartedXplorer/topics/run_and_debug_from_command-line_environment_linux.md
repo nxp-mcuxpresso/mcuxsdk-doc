@@ -9,5 +9,6 @@ RT600 SDK has been configured to be as flexible to support multiple toolchains, 
 
 ```{include} /gsd/package/topics/build_and_debug_dsp_application.md
 :heading-offset: 1
+:relative-docs: ./
 ```
 
