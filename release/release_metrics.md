@@ -9,7 +9,7 @@ The MCUXpresso SDK provides the following summary of Coverity Static Analysis to
 This enables customers to make informed decisions and meet their own compliance requirements.
 The tabulated results cover findings that are classified as issues.
 
-|Development boards|HIGH IMPACT|Memory Leaks|CWE|CCM > 20|
+|Component name|HIGH IMPACT|Memory Leaks|CWE|CCM > 20|
 |:--               |:--    |:--    |:--    |:--    |
 |[Arch_ARM](# "arch\/arm\/.*")|0|0|0|0|
 |[Arch_xtensa](# "arch\/xtensa\/.*")|0|0|0|0|
