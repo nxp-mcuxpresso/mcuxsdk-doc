@@ -38,12 +38,12 @@ SDK Introduction
 
       /introduction/README
 
-Getting Started with MCUXpresso SDK Package
+Getting Started with Repository-Layout SDK Package
 *******************************************
 .. toctree::
    :maxdepth: 1
 
-   gettingStarted/gsindex.md
+   gettingStarted/gsindex_repozip.md
 
 Getting Started with MCUXpresso SDK GitHub
 *******************************************
@@ -54,8 +54,6 @@ Getting Started with MCUXpresso SDK GitHub
 
 Release Notes
 *******************************************
-
-**This is an early adopter release provided as preview for development with pre-production devices.**
 
 .. toctree::
    :maxdepth: 1
