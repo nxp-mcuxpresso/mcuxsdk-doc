@@ -16,7 +16,6 @@
     -   HCI Test Interface
     -   UART Test Interface
     -   Randomized Advertising Channel Indexing
-    -   Sleep Clock Accuracy Update - Mechanism
     -   ADI Field in Scan Response Data
     -   HCI Support for Debug Keys in LE - Secure Connections
 -   Main capabilities supported:
@@ -41,24 +40,24 @@
     -   Periodic Advertising with Responses \(PAwR\)
     Additional features supported for KW47 and MCX W72 devices:
     -   Channel Sounding
-    Additional features supported as EAR (\Early Access Release\) in the KW47 experimental build:
-    -   Inline PCT Transfer (IPT)
-    -   RTT_PHY capability
-    -   Channel Sounding Enhancement 1
-    -   Channel Sounding TX/SNR (18dB, 21 dB, 24 dB and 27dB)
-    -   Channel Sounding PHY 2Mbps BT2.0
-    -   Channel Sounding additional supported timings:
+      -   RTT_PHY capability
+      -   Channel Sounding Enhancement 1
+      -   Channel Sounding TX/SNR (18dB, 21dB, 24dB and 27dB)
+      -   Channel Sounding PHY 2Mbps BT2.0
+      -   Channel Sounding additional supported timings:
           - T_PM=10us
           - T_IP1/T_IP2=60, 50, 30
           - T_FCS=120, 100, 60
-    -   LE Power Control (\LEPC\).
-
-    Additional features supported as EAR (\Early Access Release\) in the KW45 / KW47 experimental builds:
-    -   LE Test Mode Enhancement (\UTP/OTA\).
     -   LL Extended Feature Set
     -   Monitoring Advertisers
     -   Randomized Resolvable Private Address (\RPA\)
     -   LE Enhanced Connection Update
+    Additional features supported as EAR (\Early Access Release\) in the KW47 experimental build:
+    -   Inline PCT Transfer (\IPT\)
+    Additional features supported as EAR (\Early Access Release\) in the KW45/KW47 experimental builds:
+    -   LE Test Mode Enhancement (\UTP/OTA\).
+    -   LE Power Control (\LEPC\).
+
 
         
         **Note:**

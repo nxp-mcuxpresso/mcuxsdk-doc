@@ -14,8 +14,6 @@ Periodic Advertising with Responses (PAwR):
 -   The feature is not functional with the Free-Running Oscillator (FRO32K); it requires a 32 KHz Crystal Oscillator with accuracy less than 50 ppm.
 
 KW43:
--   CS testmode does not work.
--   CS works only over 1M ACL connection.
 -   CS performances are not yet guaranteed.
 
 KW45 / MCXW 71:
