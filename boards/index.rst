@@ -2,7 +2,7 @@
 
 Supported Boards
 =================
-The MCUXpresso SDK provides comprehensive support for development boards, enabling optimized prototyping across a wide range of embedded applications. For ease of navigation, these boards are categorized by processor families briefly described as below:
+The MCUXpresso SDK provides comprehensive support for development boards, enabling optimized prototyping across a wide range of embedded applications. Boards are organized by processor family, with detailed information including overviews, getting started guides, and board-specific documentation available for each category.
 
 **DSC (Digital Signal Controllers) Series**: Features NXP DSC development boards like the MC56F80000 EVK, optimized for real-time control, motor control, and power conversion applications.
 
@@ -18,8 +18,6 @@ The MCUXpresso SDK provides comprehensive support for development boards, enabli
 
 **Wireless Series**: Includes K32W, KW, and RW series development kits, such as the KW45 EVK/LOC, and RW612 BGA/FRDM, supporting Bluetooth, Zigbee, Thread, and Wi-Fi for secure IoT connectivity.
 
-To explore boards tailored to your needs, click the corresponding processor family link below. An Overview, Getting Started guide, and Release Notes are made available for each board.
-
 .. toctree::
    :maxdepth: 1
 
@@ -30,3 +28,21 @@ To explore boards tailored to your needs, click the corresponding processor fami
    LPC/index
    MCX/index
    Wireless/index
+
+Development Systems and Quality
+================================
+
+The following table summarizes the supported development boards and their quality classification for this release, including device variants, supported development tools, and quality status.
+
+Quality Levels
+--------------
+
+- **RFP** - Release for Production. Fully functional and tested for production use.
+- **EAR** - Early Access Release. Available for evaluation and early adoption; may have limited feature support.
+- **PVW** - Preview. Snapshot of upcoming features and patches provided for evaluation only.
+
+Supported Boards by Quality
+----------------------------
+
+.. include:: ../release/release_quality.md
+   :parser: myst_parser.sphinx_

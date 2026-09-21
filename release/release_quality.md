@@ -1,9 +1,3 @@
-# Development Systems and Quality
-
-- **RFP** - Fully functional and tested.
-- **EAR** - Early access release for evaluation only.
-- **PVW** - Preview snapshot of upcoming features and patches. For evaluation only.
-
 |Development boards|<span style="display: inline-block; width:100px">MCU Devices</span>|Quality|Supported IDE|
 |:--               |:--        |:--    |:--           |
 |[**EVK-MCIMX7ULP**](/boards/i.MX/evkmcimx7ulp/releaseNotes/rnindex.md)|MCIMX7U3CVP06, MCIMX7U3DVK07,<br/> MCIMX7U5CVP06, MCIMX7U5DVK07,<br/> **MCIMX7U5DVP07**|Release for Production (RFP)|MCUXpresso for VS Code, Arm GCC<br/>IAR|
