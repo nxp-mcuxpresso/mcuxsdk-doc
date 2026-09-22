@@ -23,18 +23,18 @@ The following changes have been implemented compared to the previous SDK release
     [6.1] Randomized Resolvable Private Address 
     [6.2] LE Test Mode Enhancements/OTA Control of LE Test Modes
 
-    - Fixed issue where gNotifConnEventOver_c Enhanced Notification Event is not reported by device under certain circumstances.
-    - Fixed issue where minimum output power setting was wrong (remove the support of PA index 0).
-    - Fixed issue where device crashed due to false positive memory leak detection (do not send encryption change event when HCI reset occurs during encryption procedure).
-    - Fixed issue where device was resetting due to memory corruption.
+    - Fixed the issue where the gNotifConnEventOver_c Enhanced Notification Event was not reported by the device under certain circumstances.
+    - Fixed the issue where the minimum output power setting was wrong (removed the support of PA index 0).
+    - Fixed the issue where the device crashed due to false positive memory leak detection (an encryption change event is not sent when an HCI reset occurs during the encryption procedure).
+    - Fixed the issue where a device was reset due to memory corruption.
     - Fixed EBQ certification subrating test LL/CON/CEN/BV-145 (inconclusive EBQ status).
-    - Enhancement: introduced the antenna diversity for BLE connection.
-    - Enhancement: increase DCOC calibration retries from 2 to 4.
+    - Enhancement: introduced the antenna diversity for Bluetooth LE connection.
+    - Enhancement: increased DC Offset Correction (DCOC) calibration retries from 2 to 4.
     PAwR:
     - Fixed issue where periodic advertising interval was reported as 0 in the LE Periodic Avertising Report event (when Sync Info offset was equal to 0). 
     Handover:
     - Fixed issue where connection anchor start time computation for small connection intervals (at connection parameter update procedure during RSSI monitoring) was not correct.
-    - Enhancement: remove one extra RX window in some cases during RSSI monitoring to save power.
+    - Enhancement: removed one extra RX window in some cases during RSSI monitoring to save power.
     - Enhancement: updated handover anchor search command to reduce the HCI traffic and apply RX latency during RSSI monitoring for low power.
     Genfsk:
     - Fixed issue where timestamp was invalid after running over 72 minutes.

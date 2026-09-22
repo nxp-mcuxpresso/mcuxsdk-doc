@@ -46,22 +46,22 @@ The following updates were implemented with respect to the previous SDK release 
     [6.0] CS New timings T_IP1 30/50/60 µs, T_IP2 30/50/60 µs, T_PM 10 µs 
     [6.0] 2M BT=2
 
-    - Fixed issue where gNotifConnEventOver_c Enhanced Notification Event is not reported by device under certain circumstances.
-    - Fixed issue where minimum output power setting was wrong (remove the support of PA index 0).
-    - Fixed issue where device crashed due to false positive memory leak detection (do not send encryption change event when HCI reset occurs during encryption procedure).
-    - Fixed issue where device was resetting due to memory corruption.
+    - Fixed the issue where the gNotifConnEventOver_c Enhanced Notification Event was not reported by the device under certain circumstances.
+    - Fixed the issue where the minimum output power setting was wrong (removed the support of PA index 0).
+    - Fixed the issue where the device crashed due to false positive memory leak detection (an encryption change event is not sent when an HCI reset occurs during the encryption procedure).
+    - Fixed the issue where a device was reset due to memory corruption.
     - Fixed EBQ certification subrating test LL/CON/CEN/BV-145 (inconclusive EBQ status).
-    - Enhancement: introduced the antenna diversity for BLE connection.
-    - Enhancement: increase DCOC calibration retries from 2 to 4.
+    - Enhancement: introduced the antenna diversity for Bluetooth LE connection.
+    - Enhancement: increased DC Offset Correction (DCOC) calibration retries from 2 to 4.
     PAwR:
     - Fixed issue where periodic advertising interval was reported as 0 in the LE Periodic Avertising Report event (when Sync Info offset was equal to 0). 
     Handover:
     - Fixed issue where connection anchor start time computation for small connection intervals (at connection parameter update procedure during RSSI monitoring) was not correct.
-    - Enhancement: remove one extra RX window in some cases during RSSI monitoring to save power.
+    - Enhancement: removed one extra RX window in some cases during RSSI monitoring to save power.
     - Enhancement: updated handover anchor search command to reduce the HCI traffic and apply RX latency during RSSI monitoring for low power.
     Channel Sounding:
     - Fixed issue where Initiator did not transmit CS-SYNC on different antennas as requested and wrongly reported antenna identifier to Host.
-    - Fixed issue where CS activity cannot be scheduled when high value of subrate factor and latency is used.
+    - Fixed the issue where CS activity could not be scheduled when high value of subrate factor and latency was used.
     Genfsk:
     - Fixed issue where timestamp was invalid after running over 72 minutes.
 

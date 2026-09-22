@@ -32,6 +32,7 @@ Limitations:
 -   Maximum 6 Channel Sounding procedures are supported in parallel.
 -   Phase measurement bias is within certification range (<1.7x2πns) with KW47 EVK board. However, if different PCB or antenna matching is used, some bias may appear due to increased delay.
 -   For experimental feature IPT(Inline PCT Transfer), only 1x1 configuration is supported.
+-   Channel Sounding Channel Map Update procedure may not function when high value of subrate factor and latency is used.
 
 Known issues:
 -   When CS Subevents are configured very close from each other (<700us), some Subevents may be aborted with reason 0x3.

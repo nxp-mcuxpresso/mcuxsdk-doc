@@ -42,8 +42,8 @@
     -   Channel Sounding
       -   RTT_PHY capability
       -   Channel Sounding Enhancement 1
-      -   Channel Sounding TX/SNR (18dB, 21dB, 24dB and 27dB)
-      -   Channel Sounding PHY 2Mbps BT2.0
+      -   Channel Sounding TX/SNR (18 dB, 21 dB, 24 dB and 27 dB)
+      -   Channel Sounding PHY 2 Mbit/s BT 2.0
       -   Channel Sounding additional supported timings:
           - T_PM=10us
           - T_IP1/T_IP2=60, 50, 30
