@@ -401,7 +401,6 @@ This section contains the API reference documentation for the {device_name} devi
     :project: {project_name}
     :content-only:
     :members:
-    :no-link:
 
 """
     else:

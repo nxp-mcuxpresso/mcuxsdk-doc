@@ -14,8 +14,7 @@
     :project: {{parameters.prj_name}}
     :content-only:
     :members:
-    :no-link:
-    
+
 
 {% endfor %}
 
