@@ -1,6 +1,6 @@
 # TrustZone related examples run fails
 
-The TrustZone related examples run fails. Impacted examples are `freertos_examples/freertos_mpu` and `trustzone_examples`. Impacted toolchains are all.
+The TrustZone related examples run fails. Impacted examples are `freertos_examples/freertos_mpu` and `trustzone_examples`. All toolchains are impacted.
 
 Workaround:
 
