@@ -73,6 +73,11 @@ Comprehensive bounds-checking and input-validation fixes across USB host class d
     CERT-C/MISRA quality fixes, improved NBU fault diagnostics, KW43-LOC antenna diversity
     support, and Zephyr configuration management improvements.
 
+11. **IEEE 802.15.4 MAC/PHY Software** — 
+  - Fixed a heap-corruption issue that could occur in the MAC PHY message dispatcher under certain multi-instance conditions.
+  - Improved MAC initialization on RPMSG-based multicore platforms: the MAC instance is now created and bound only when it is actually needed, rather than unconditionally at startup.
+  - Removed pre-built MAC/PHY binaries and libraries for the MCXW71 platform, which is no longer supported on this branch.
+
 ## Manifest & Repository Changes
 
 ### Summary
@@ -141,6 +146,7 @@ What's New
   Sphinx search that produced excessive per-board duplicate results.
 - **SBOM collection documentation** — New `sbom_collect` documentation integrated into
   the SDK documentation set.
+
 
 #### Security
 
@@ -385,6 +391,7 @@ What's New
   IW610 2LL set as default for FRDM-MCXN947, FRDM-MCXN947T, MCXNxxEVK boards.
 - **edgefast_open L2CAP race condition** — BR/EDR config response race condition fixed;
   channel state transition moved to config-response-sent callback.
+- **On-demand MAC initialization for RPMSG-based multicore platforms** — The MAC RPMSG interface no longer creates and binds a MAC instance during generic initialization. Instead, initialization now occurs only when a bind request is actually received. This reduces unnecessary resource setup during boot on multicore configurations where the MAC service is not always used.
 
 ### ML / DSP / Multimedia
 
@@ -466,6 +473,7 @@ What's New
 - **MCXN556S ROM API context** — Undersized reserved field in `api_core_context_t`
   fixed to match the 512-byte `flexspi_nor_config_t`-sized slot expected by ROM API_Init.
 
+
 ### Security
 
 - **SGI CCM tampered multipart AEAD** — Tampered multipart AEAD CCM decrypt now
@@ -507,6 +515,7 @@ What's New
   corrected.
 - **RW61x RTOS heap exhaustion** — Heap space exhaustion when performing repeated
   `bt init → bt disable` cycles on RW61x fixed.
+- **Fixed a heap-corruption defect in the MAC message dispatched** — Fixed a MAC/PHY dispatcher issue that could route a message to multiple MAC instances, causing heap corruption and instability.
 
 ### Filesystem
 
@@ -553,6 +562,7 @@ What's New
 | 4 | **`edma4` Kconfig replaced by `edma_unified` on i.MX 937 and RT2660** | Projects selecting `MCUX_COMPONENT_driver.edma4` on i.MX 937 or RT2660 will not resolve the eDMA driver. | Replace `MCUX_COMPONENT_driver.edma4` with `MCUX_COMPONENT_driver.edma_unified` in project Kconfig or CMakeLists.txt. |
 | 5 | **TF-PSA-Crypto updated to v1.2.0 (removes `ecp_curves_new.c`)** | Projects with explicit CMake references to `drivers/builtin/src/ecp_curves_new.c` will fail to build. | Remove the explicit reference; the file was removed upstream in v1.2.0. The `psa_crypto_driver` CMake has been updated accordingly. |
 | 6 | **MCXW70AA part number removed** | Any project or configuration referencing the `MCXW70AA` part number will not find a matching device definition. | Use the remaining MCXW70 part numbers. `MCXW70AA` is no longer a productized part number. |
+| 7 | **MCXW71 pre-built MAC/PHY binaries and libraries removed** | Builds targeting MCXW71 will no longer find the required binaries/libraries in this release. | Continue using a prior release for MCXW71 designs, or migrate to a currently supported platform. |
 
 ---
 
