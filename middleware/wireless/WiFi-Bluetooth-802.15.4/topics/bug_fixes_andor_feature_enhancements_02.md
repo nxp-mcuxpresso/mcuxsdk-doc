@@ -47,5 +47,7 @@
 ```{include} ../topics/firmware_version_18_99_8_p10_to_18_99_8_p68_02.md
 :heading-offset: 2
 ```
-
-**Parent topic:**[IW611/IW612 release notes](../topics/iw611-iw612-release-notes.md)
+```{include} ../topics/firmware_version_18_99_8_p68_to_18_99_8_p141_02.md
+:heading-offset: 2
+```
+**Parent topic:** [IW611/IW612 release notes](../topics/iw611-iw612-release-notes.md)

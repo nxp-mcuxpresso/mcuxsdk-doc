@@ -4,5 +4,5 @@
 |-----------|-------------|
 |Wi-Fi|<ul><li>Fails to encrypt and decrypt data with ccmp 128 and 256 using CLI crypto commands.</li></ul>|
 
-**Parent topic:**[Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements.md)
+**Parent topic:** [Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements.md)
 

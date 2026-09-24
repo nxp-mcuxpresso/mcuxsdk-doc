@@ -92,7 +92,7 @@ Details of the tested Bluetooth coexistence \(Bluetooth + Bluetooth LE Audio\) u
 -   A2DP + Bluetooth LE Audio bridging support
 -   A2DP sink link \(central\) -\> LEA 2-CIS \(SDU Int: 10ms only \| A2DP only with SBC Codec \| PHY: 2M\)
 
-**Parent topic:**[Bluetooth radio](../topics/bluetooth_radio.md)
+**Parent topic:** [Bluetooth radio](../topics/bluetooth_radio.md)
 
 [1] Experimental feature intended for evaluation/early development only and not production. Incomplete mandatory certification.
 

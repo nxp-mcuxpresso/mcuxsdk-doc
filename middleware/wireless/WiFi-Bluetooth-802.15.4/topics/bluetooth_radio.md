@@ -9,5 +9,5 @@
 :heading-offset: 2
 ```
 
-**Parent topic:**[Features](../topics/features.md)
+**Parent topic:** [Features](../topics/features.md)
 

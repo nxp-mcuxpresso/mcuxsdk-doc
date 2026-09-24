@@ -7,5 +7,4 @@
 -   Test tools
     -   iPerf \(version 2.1.9\)
 
-**Parent topic:**[IW416 release notes](../topics/iw416-release-notes.md)
-
+**Parent topic:** [IW416 release notes](../topics/iw416-release-notes.md)

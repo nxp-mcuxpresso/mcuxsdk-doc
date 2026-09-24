@@ -4,12 +4,13 @@
 -   STA \| PMF
 -   STA \| FFD
 -   STA \| SVD
--   STA \| WPA3 SAE \(R3\)
+-   STA \| WPA2
+-   STA \| WPA3
 -   STA \| QTT
 
 Refer to [6](references.md#item_tn00066).
 
 **Note:** This release supports STAUT only certifications.
 
-**Parent topic:**[Wi-Fi and Bluetooth certification](../topics/wi-fi_and_bluetooth_certification_01.md)
+**Parent topic:** [Wi-Fi and Bluetooth certification](../topics/wi-fi_and_bluetooth_certification_01.md)
 

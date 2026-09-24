@@ -4,5 +4,5 @@
 |-----------|-------------|
 |Wi-Fi|NA|
 
-**Parent topic:**[Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_01.md)
+**Parent topic:** [Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_01.md)
 

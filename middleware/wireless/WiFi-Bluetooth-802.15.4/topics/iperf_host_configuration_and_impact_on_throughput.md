@@ -1,4 +1,4 @@
-# iPerf host configuration and impact on throughput {#iperf_host_configuration_and_impact_on_throughput}
+# iPerf host configuration and impact on throughput
 
 To get the highest throughput, the throughput values shown in [STA throughput](sta_throughput_02.md) and [Mobile AP throughput](mobile_ap_throughput_02.md) are measured with the maximum values of the default host configuration macros. [STA and AP throughput captured with the minimum values of the host configuration macros](sta_and_ap_throughput_captured_with_the_minimum_values_of_the_host_configuration_macros.md) shows the throughput numbers obtained when using the minimum values of the host configuration macros. The macro values are defined in *lwipopts.h* file.
 
@@ -27,5 +27,5 @@ The table below lists the minimum and maximum values of the host configuration m
 :heading-offset: 3
 ```
 
-**Parent topic:**[Wi-Fi throughput](../topics/wi-fi_throughput_02.md)
+**Parent topic:** [Wi-Fi throughput](../topics/wi-fi_throughput_02.md)
 

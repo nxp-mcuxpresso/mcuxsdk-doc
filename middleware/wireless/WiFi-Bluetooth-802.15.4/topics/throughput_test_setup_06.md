@@ -38,5 +38,5 @@ iperf -s -u -B <local_ip>
 
 **Note:** Read more about the throughput test setup and topology in [3](references.md#item_um11799).
 
-**Parent topic:**[Wi-Fi throughput](../topics/wi-fi_throughput_06.md)
+**Parent topic:** [Wi-Fi throughput](../topics/wi-fi_throughput_06.md)
 

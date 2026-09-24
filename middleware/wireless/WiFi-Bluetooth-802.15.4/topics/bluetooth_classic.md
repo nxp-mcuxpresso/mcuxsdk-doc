@@ -26,7 +26,7 @@
 |Bluetooth audio features|PCM NBS central/peripheral|Y|Y|Y|N|N|Y|
 |Bluetooth audio features|PCM WBS central/peripheral|Y|Y|Y|N|N|Y|
 
-**Parent topic:**[Bluetooth radio](../topics/bluetooth_radio.md)
+**Parent topic:** [Bluetooth radio](../topics/bluetooth_radio.md)
 
 [1] Experimental feature intended for evaluation/early development only and not production. Incomplete mandatory certification.
 

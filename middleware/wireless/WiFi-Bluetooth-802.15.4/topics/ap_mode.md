@@ -65,8 +65,9 @@
 |General features|Hidden SSID \(broadcast SSID disabled\)|Y|Y|Y|Y|Y|Y|
 |General features|MAC address filter|N|N|N|Y|Y|N|
 |General features|Multiple external STA support|Y|Y|Y|Y|Y|Y|
+|General features|WPA3 Transition Disable|Y|Y|Y|Y|Y|Y|
 
-**Parent topic:**[Wi-Fi radio](../topics/wi-fi_radio.md)
+**Parent topic:** [Wi-Fi radio](../topics/wi-fi_radio.md)
 
 [1] Feature not enabled by default in the SDK. Refer to [Feature enable and memory impact](feature_enable_and_memory_impact.md) for the macro to enable the feature and the impact on the memory.
 [2] Read more about NCP feature in [References](references.md#item_um12133).

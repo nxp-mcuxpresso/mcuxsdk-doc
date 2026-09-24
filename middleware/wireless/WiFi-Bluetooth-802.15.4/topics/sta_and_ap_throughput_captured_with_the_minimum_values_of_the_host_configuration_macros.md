@@ -1,4 +1,4 @@
-# STA and AP throughput captured with the minimum values of the host configuration macros {#sta_and_ap_throughput_captured_with_the_minimum_values_of_the_host_configuration_macros}
+# STA and AP throughput captured with the minimum values of the host configuration macros
 
 **STA mode throughput - HE Mode | 5 GHz Band | 80 MHz**
 
@@ -18,5 +18,5 @@
 |WPA2-AES|2|19|105|126|
 |WPA3-SAE|2|19|104|132|
 
-**Parent topic:**[iPerf host configuration and impact on throughput](../topics/iperf_host_configuration_and_impact_on_throughput.md)
+**Parent topic:** [iPerf host configuration and impact on throughput](../topics/iperf_host_configuration_and_impact_on_throughput.md)
 

@@ -5,6 +5,6 @@
 |Simultaneous AP-STA operation \(same channel\)|AP-STA functionality|Y|Y|Y|Y|Y|Y|
 |SAD|Software antenna diversity<sup>1</sup>|Y|Y|Y|Y|Y|Y|
 
-**Parent topic:**[Wi-Fi radio](../topics/wi-fi_radio.md)
+**Parent topic:** [Wi-Fi radio](../topics/wi-fi_radio.md)
 
 [1] Feature not enabled by default in the SDK. Refer to [Feature enable and memory impact](feature_enable_and_memory_impact.md) for the macro to enable the feature and the impact on the memory when enabling the feature.

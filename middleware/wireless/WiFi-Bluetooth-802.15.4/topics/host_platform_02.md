@@ -1,6 +1,6 @@
 # Host platform
 
--   i.MX RT1170 EVKB and i.MX RT1060 EVKC Platforms running FreeRTOS
+-   All i.MX RT platforms running FreeRTOS except i.MX RT1060 EVKA and i.MX RT1064 EVK
 -   Host interfaces
     -   Wi-Fi over SDIO \(SDIO 2.0 support, SDIO clock frequency: 50 MHz\)
     -   Bluetooth/Bluetooth LE over UART
@@ -8,5 +8,5 @@
 -   Test tools
     -   iPerf \(version 2.1.9\)
 
-**Parent topic:**[IW611/IW612 release notes](../topics/iw611-iw612-release-notes.md)
+**Parent topic:** [IW611/IW612 release notes](../topics/iw611-iw612-release-notes.md)
 

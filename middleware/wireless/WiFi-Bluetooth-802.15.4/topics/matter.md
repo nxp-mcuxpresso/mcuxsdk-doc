@@ -16,5 +16,5 @@ Device type: Root Node, Thermostat
 
 Transport: Matter over Wi-Fi and Matter over Thread
 
-**Parent topic:**[Wireless certification](../topics/wireless_certification.md)
+**Parent topic:** [Wireless certification](../topics/wireless_certification.md)
 

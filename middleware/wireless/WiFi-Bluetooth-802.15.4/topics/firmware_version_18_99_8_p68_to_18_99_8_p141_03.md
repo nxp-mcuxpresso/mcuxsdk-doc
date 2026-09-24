@@ -1,0 +1,9 @@
+# Firmware version: 18.99.8.p68 to 18.99.8.p141
+
+|Component|Description|
+|-----------|-------------|
+|Wi-Fi|<ul><li>Fixed Wi-Fi RF Test Mode continuous-wave tone transmission stopping when run for a long duration (30 seconds to 15 minutes).</li></ul><ul><li>Fixed an issue where DHCP renewal was not triggered when roaming between independent APs sharing the same SSID.</li></ul><ul><li>Fixed an issue where EAP-TLS authentication failed with TLSv1.2 in the wpa_supplicant example.</li></ul><ul><li>Fixed an issue where wlan-scan-opt parameters incorrectly applied to subsequent normal scans.</li></ul><ul><li>Fixed an issue where the ip_addr_t type field was left uninitialized in net_configure_dns() when IPv6 was enabled.</li></ul><ul><li>Fixed an issue where Wi-Fi ceased to function after receiving an 802.11k RRM beacon request for a 5 GHz channel when CONFIG_5GHz_SUPPORT=0.</li></ul><ul><li>Fixed an issue where the DUT failed to fall back to legacy roaming after 802.11k/11v roaming returned no usable target AP.</li></ul>|
+|Bluetooth LE|<ul><li>Fixed an issue where BLE TX power set above 10 dBm via vendor command 0xFC87 was reset to the OTP/calibration default (~8.3 dBm) upon BLE connection establishment.</li></ul><ul><li>Fixed an issue where all Bluetooth commands became unresponsive while Wi-Fi continued to function normally after approximately 3–4 hours of Wi-Fi/BT coexistence testing.</li></ul><ul><li>Fixed an issue where both Wi-Fi and the DUT hung up after approximately 50 iterations of a concurrent Wi-Fi connect/ping/disconnect and BLE init/advertise/disable loop stress test.</li></ul><ul><li>Fixed an issue where BLE advertising and scanning failed after repeated bt init / bt disable stress cycles (~600 out of 1000 iterations).</li></ul>|
+
+**Parent topic:** [Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_03.md)
+

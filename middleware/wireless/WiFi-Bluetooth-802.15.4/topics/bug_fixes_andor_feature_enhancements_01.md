@@ -46,6 +46,8 @@
 ```{include} ../topics/firmware_version_from_16_92_21_p155_2_to_16_92_21_p161_01.md
 :heading-offset: 2
 ```
-
-**Parent topic:**[IW416 release notes](../topics/iw416-release-notes.md)
+```{include} ../topics/firmware_version_from_16_92_21_p161_to_16_92_21_p166_01.md
+:heading-offset: 2
+```
+**Parent topic:** [IW416 release notes](../topics/iw416-release-notes.md)
 

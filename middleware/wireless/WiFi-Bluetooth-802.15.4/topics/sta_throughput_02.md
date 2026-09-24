@@ -7,109 +7,109 @@ External AP: Asus AX88u
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|Open Security|49|47|60|61|
-|WPA2-AES|49|43|60|58|
-|WPA3-SAE|49|43|60|58|
+|Open Security|46|46|53|62|
+|WPA2-AES|54|55|70|72|
+|WPA3-SAE|53|55|70|72|
 
 **STA mode throughput - BGN Mode | 2.4 GHz Band | 40 MHz**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|Open Security|79|85|118|131|
-|WPA2-AES|78|84|118|129|
-|WPA3-SAE|78|83|118|130|
+|Open Security|77|77|130|131|
+|WPA2-AES|80|79|130|129|
+|WPA3-SAE|80|79|130|129|
 
 **STA mode throughput - AN Mode | 5 GHz Band | 20 MHz (HT)**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|Open Security|50|52|63|64|
-|WPA2-AES|49|51|63|62|
-|WPA3-SAE|49|51|63|64|
+|Open Security|41|48|63|64|
+|WPA2-AES|56|58|71|75|
+|WPA3-SAE|56|58|71|75|
 
 **STA mode throughput - AN Mode | 5 GHz Band | 40 MHz (HT)**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|Open Security|78|86|127|130|
-|WPA2-AES|78|85|127|130|
-|WPA3-SAE|76|86|126|120|
+|Open Security|78|81|129|134|
+|WPA2-AES|78|80|129|133|
+|WPA3-SAE|77|80|129|133|
 
 **STA mode throughput - VHT Mode | 5 GHz Band | 20 MHz (VHT)**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|Open Security|50|51|63|64|
-|WPA2-AES|50|51|63|64|
-|WPA3-SAE|50|51|63|64|
+|Open Security|45|54|71|76|
+|WPA2-AES|56|58|71|75|
+|WPA3-SAE|56|58|71|75|
 
 **STA mode throughput - VHT Mode | 5 GHz Band | 40 MHz (VHT)**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|Open Security|78|79|127|131|
-|WPA2-AES|78|79|127|130|
-|WPA3-SAE|78|79|127|130|
+|Open Security|92|86|153|157|
+|WPA2-AES|89|91|153|157|
+|WPA3-SAE|90|87|153|156|
 
 **STA mode throughput - VHT Mode | 5 GHz Band | 80 MHz (VHT)**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|Open Security|88|94|221|196|
-|WPA2-AES|87|95|219|194|
-|WPA3-SAE|89|95|219|195|
+|Open Security|120|93|233|226|
+|WPA2-AES|114|104|233|226|
+|WPA3-SAE|113|104|233|226|
 
 **STA mode throughput - HE Mode | 2.4 GHz Band | 20 MHz (HE)**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|Open Security|78|64|117|105|
-|WPA2-AES|78|67|117|104|
-|WPA3-SAE|79|65|117|97|
+|Open Security|69|53|95|102|
+|WPA2-AES|63|65|93|95|
+|WPA3-SAE|66|68|101|99|
 
 **STA mode throughput - HE Mode | 2.4 GHz Band | 40 MHz (HE)**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|Open Security|95|91|118|199|
-|WPA2-AES|93|90|118|200|
-|WPA3-SAE|91|87|118|199|
+|Open Security|97|88|214|210|
+|WPA2-AES|99|88|204|209|
+|WPA3-SAE|95|86|216|210|
 
 **STA mode throughput - HE Mode | 5 GHz Band | 20 MHz (HE)**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|Open security|76|66|118|127|
-|WPA2-AES|75|68|118|125|
-|WPA3-SAE|75|68|118|126|
+|Open Security|59|51|93|127|
+|WPA2-AES|60|51|91|126|
+|WPA3-SAE|60|51|91|127|
 
 **STA mode throughput - HE Mode | 5 GHz Band | 40 MHz (HE)**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|Open Security|102|66|228|233|
-|WPA2-AES|102|66|228|233|
-|WPA3-SAE|102|66|228|233|
+|Open Security|103|90|185|228|
+|WPA2-AES|102|91|180|228|
+|WPA3-SAE|101|88|180|228|
 
 **STA mode throughput - HE Mode | 5 GHz Band | 80 MHz (HE)**
 
 |Protocol|TCP \(Mbit/s\)|TCP \(Mbit/s\)|UDP \(Mbit/s\)|UDP \(Mbit/s\)|
 |--------|--------------|--------------|--------------|--------------|
 |Direction|TX|RX|TX|RX|
-|Open Security|118|71|228|227|
-|WPA2-AES|118|71|228|227|
-|WPA3-SAE|118|71|228|227|
+|Open Security|123|97|233|226|
+|WPA2-AES|123|70|233|225|
+|WPA3-SAE|126|70|233|225|
 
 
-**Parent topic:**[Wi-Fi throughput](../topics/wi-fi_throughput_02.md)
+**Parent topic:** [Wi-Fi throughput](../topics/wi-fi_throughput_02.md)
 

@@ -4,5 +4,5 @@
 |-----------|-------------|
 |Wi-Fi|<ul><li>Added P2P Persistance and P2P Invitation</li></ul>|
 
-**Parent topic:**[Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements.md)
+**Parent topic:** [Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements.md)
 

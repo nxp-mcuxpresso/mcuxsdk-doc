@@ -5,5 +5,5 @@
 |Wi-Fi|Fixed roaming failure (RRM-NEIGHBOR-REP-REQUEST-FAILED) when DUT roams between APs on different 5 GHz channels on i.MXRT685 platform.|
 |Bluetooth|Fixed same EN_RAND value being generated on every AES-CCM encryption, causing predictable random number in BT pairing.|
 
-**Parent topic:**[Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements.md)
+**Parent topic:** [Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements.md)
 

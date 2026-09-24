@@ -7,5 +7,5 @@ The Wi-Fi and Bluetooth certification is obtained with the following combination
 :heading-offset: 2
 ```
 
-**Parent topic:**AW611 release notes
+**Parent topic:** AW611 release notes
 

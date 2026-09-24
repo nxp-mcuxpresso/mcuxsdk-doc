@@ -15,4 +15,7 @@
 ```{include} ../topics/firmware_version_18_99_8_p10_to_18_99_8_p68_06.md
 :heading-offset: 2
 ```
-**Parent topic:**[IW610 release notes](../topics/iw610-release-notes.md)
+```{include} ../topics/firmware_version_18_99_8_p68_to_18_99_8_p141_06.md
+:heading-offset: 2
+```
+**Parent topic:** [IW610 release notes](../topics/iw610-release-notes.md)

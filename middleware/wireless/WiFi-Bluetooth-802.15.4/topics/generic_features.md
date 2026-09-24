@@ -12,7 +12,7 @@
 |Generic|In-Channel Net Monitor mode|N|N|N|N|N|N|
 
 
-**Parent topic:**[Wi-Fi radio](../topics/wi-fi_radio.md)
+**Parent topic:** [Wi-Fi radio](../topics/wi-fi_radio.md)
 
 [1] Feature not enabled by default in the SDK. Refer to [Feature enable and memory impact](feature_enable_and_memory_impact.md) for the macro to enable the feature and the impact on the memory when enabling the feature.
 [2] The feature is used to compress the Wi-Fi Bluetooth firmware and optimize the flashing of the host

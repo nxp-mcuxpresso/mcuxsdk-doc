@@ -14,7 +14,7 @@
 |P2P basic functionality<sup>1</sup>|P2P same channel simultaneous GO + uAP|Y|Y|Y|Y|Y|Y|
 
 
-**Parent topic:**[Wi-Fi radio](../topics/wi-fi_radio.md)
+**Parent topic:** [Wi-Fi radio](../topics/wi-fi_radio.md)
 
 [1] Feature not enabled by default in the SDK. Refer to [Feature enable and memory impact](feature_enable_and_memory_impact.md) for the macro to enable the feature and the impact on the memory when enabling the feature.
 [2] This is an experimental software release for this feature for IW416.

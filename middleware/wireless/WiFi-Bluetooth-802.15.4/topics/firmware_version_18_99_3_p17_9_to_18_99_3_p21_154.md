@@ -5,5 +5,5 @@
 |Wi-Fi|<ul><li>STAUT fail to ping AP backend machine when connected with DFS channel and DUTSTA went in bad state.</li></ul>|
 |Bluetooth|<ul><li>CIS Sink frequently fails to acknowledge CIS Source TX PDU.</li></ul>|
 
-**Parent topic:**[Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_02.md)
+**Parent topic:** [Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_02.md)
 

@@ -8,5 +8,5 @@ Thread version: V1.3.0
 
 CID \#: 13A109
 
-**Parent topic:**[Wireless certification](../topics/wireless_certification.md)
+**Parent topic:** [Wireless certification](../topics/wireless_certification.md)
 

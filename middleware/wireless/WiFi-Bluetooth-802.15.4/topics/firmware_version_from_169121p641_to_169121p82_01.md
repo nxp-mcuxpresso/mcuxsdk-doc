@@ -4,5 +4,5 @@
 |-----------|-------------|
 |Wi-Fi|<ul><li>WPA3-R3 enabled APUT beacons does not have RSNXE when configured in H2E mode</li></ul>|
 
-**Parent topic:**[Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_01.md)
+**Parent topic:** [Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_01.md)
 

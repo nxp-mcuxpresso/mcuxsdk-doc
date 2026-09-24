@@ -41,5 +41,5 @@ iperf -s -u -B <local_ip>
 
 The throughput numbers are captured with default configurations using *wifi\_wpa\_supplicant* sample application.
 
-**Parent topic:**[Wi-Fi throughput](../topics/wi-fi_throughput_02.md)
+**Parent topic:** [Wi-Fi throughput](../topics/wi-fi_throughput_02.md)
 

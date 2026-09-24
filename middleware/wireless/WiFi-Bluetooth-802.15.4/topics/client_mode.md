@@ -57,7 +57,7 @@
 |802.11i security|WPA2+WPA3 PSK Mixed Mode \(WPA3 Transition Mode\) \| WPA Supplicant|Y|Y|Y|Y|Y|Y|
 |802.11i security|Wi-Fi Enhanced Open - OWE \(Opportunistic Wireless Encryption\) \| WPA Supplicant|Y|Y|Y|Y|Y|Y|
 |802.11i security|802.1x EAP Authentication Methods<sup>3</sup> \| WPA Supplicant|Y|Y|Y|Y|Y|Y|
-|802.11i security|WPA2-Enterprise Mixed Mode<sup>3</sup> \| WPA Supplicant|N|N|N|Y|Y|N|
+|802.11i security|WPA2-Enterprise Mixed Mode \| WPA Supplicant|N|N|N|Y|Y|N|
 |802.11i security|WPA3-Enterprise<sup>3</sup> \(Suite-B\) \|National Security Algorithm \(CSNA\) \| WPA Supplicant|Y|N|Y|Y|Y|Y|
 |802.11i security|802.11w - PMF \(Protected Management Frames\) \| WPA Supplicant|Y|Y|Y|Y|Y|Y|
 |802.11i security|Embedded Supplicant Support|Y|Y|Y|Y|Y|Y|
@@ -66,7 +66,7 @@
 |802.11i security|WPA3-SAE \(Simultaneous Authentication of Equals\) \| Embedded Supplicant|Y|Y|Y|Y|Y|Y|
 |802.11i security|802.11w - PMF \(Protected Management Frames\) \| Embedded Supplicant|Y|Y|Y|Y|Y|Y|
 |802.11i security|Wi-Fi Roaming|Y|Y|Y|Y|Y|Y|
-|802.11i security|WPA3 Enterprise<sup>3</sup>|Y|Y|Y|YY||Y|
+|802.11i security|WPA3 Enterprise<sup>3</sup>|Y|Y|Y|Y|Y|Y|
 |Power save mode|Deep sleep|Y|Y|Y|Y|Y|Y|
 |Power save mode|IEEE power save|Y|Y|Y|Y|Y|Y|
 |Power save mode|Host sleep/WoWLAN \(inband\)<sup>3</sup>|N|N|N|Y|Y|N|
@@ -97,7 +97,7 @@
 |General features|UNII-4 channel support|N|N|Y|Y|Y|Y|
 |General features|ClockSync using TSF|N|N|Y|N|N|Y|
 |General features|Auto reconnect|Y|Y|N|N|N|N|
-|General features|CSI \(channel state information\)<sup>3</sup>|Y|N|Y|Y|Y|Y|
+|General features|CSI \(channel state information\)|Y<sup>3</sup>|N|Y<sup>3</sup>|Y|Y<sup>3</sup>|Y<sup>3</sup>|
 |General features|Ambient Motion Index \(AMI\)<sup>3</sup>|N|N|Y|Y|Y|Y|
 |General features|Independent reset \(in-band\)<sup>3</sup>|Y|Y|Y|Y|Y|Y|
 |General features|Independent reset \(out-band\)<sup>3</sup>|Y|Y|Y|N|N|Y|
@@ -105,8 +105,9 @@
 |General features|Network co-processor \(NCP\) mode|N|N|N|Y<sup>4</sup>|N|N|
 |General features|802.11mc - WLS \(Wi-Fi location service\)<sup>3</sup>|N|N|Y|N|N|Y|
 |General features|802.11az<sup>3</sup>|N|N|Y|N|N|Y|
+|General features|WPA3 Transition Disable|Y|Y|Y|Y|Y|Y|
 
-**Parent topic:**[Wi-Fi radio](../topics/wi-fi_radio.md)
+**Parent topic:** [Wi-Fi radio](../topics/wi-fi_radio.md)
 
 [1] As per Wi-Fi specification, connecting in TKIP security in non 802.11n mode is allowed.
 

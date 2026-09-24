@@ -7,4 +7,4 @@
 -   Test tools
     -   iPerf \(version 2.1.9\)
 
-**Parent topic:**[AW611 release notes](../topics/AW611-release-notes.md)
+**Parent topic:** [AW611 release notes](../topics/AW611-release-notes.md)

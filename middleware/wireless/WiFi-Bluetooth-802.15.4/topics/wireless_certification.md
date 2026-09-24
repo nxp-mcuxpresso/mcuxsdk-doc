@@ -19,5 +19,5 @@ The Wi-Fi and Bluetooth certification is obtained with the following combination
 :heading-offset: 2
 ```
 
-**Parent topic:**[RW610/RW612 release notes](../topics/rw610-rw612-release-notes.md)
+**Parent topic:** [RW610/RW612 release notes](../topics/rw610-rw612-release-notes.md)
 

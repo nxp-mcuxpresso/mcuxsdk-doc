@@ -6,5 +6,5 @@
 |BLuetooth|<ul><li>Implementation of PaWR (Periodic Advertisement with response) feature</ul></li>|
 |Coexistance|<ul><li>Fixed driver assert issue when wake up wifi cpu1</ul></li><ul><li>Wi-Fi throughput drops to 0 when Wi-Fi and OT traffic run concurrently on non-overlapping channels at an RSSI of -80 dBm.</ul></li><ul><li>Fixed high PING latency (up to ~1876 ms average ~397 ms) and packet loss observed with external FEM in Wi-Fi + Thread coexistence mode. RF control lines were switching excessively between Wi-Fi and Narrowband, disrupting Wi-Fi PSM operation and degrading throughput/latency.</ul></li> |
 
-**Parent topic:**[Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_03.md)
+**Parent topic:** [Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_03.md)
 

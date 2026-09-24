@@ -4,5 +4,5 @@
 |-----------|-------------|
 |Wi-Fi|<ul><li>Enabled mbedtls 3.x</ul></li>|
 
-**Parent topic:**[Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements.md)
+**Parent topic:** [Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements.md)
 

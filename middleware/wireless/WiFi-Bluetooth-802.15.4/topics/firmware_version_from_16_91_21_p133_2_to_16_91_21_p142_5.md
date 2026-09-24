@@ -5,5 +5,5 @@
 |Wi-Fi|<ul><li>DUT fails to reconnect after the configured auto-reconnect time interval.</li></ul>|
 |Coex|<ul><li>During HFP call, TX side noise is observed with coex CLI</li></ul>|
 
-**Parent topic:**[Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_01.md)
+**Parent topic:** [Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_01.md)
 

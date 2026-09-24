@@ -4,5 +4,5 @@
 |-----------|-------------|
 |Bluetooth|Packet lost observed in CIS case, which causes audio noise.|
 
-**Parent topic:**[Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_02.md)
+**Parent topic:** [Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_02.md)
 

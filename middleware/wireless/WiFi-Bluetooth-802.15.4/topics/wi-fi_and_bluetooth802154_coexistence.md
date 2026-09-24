@@ -16,7 +16,7 @@
 |BCA\_TDM separate antenna<sup>1</sup> \(lower and higher isolation\) 1x1 Wi-Fi, \(Bluetooth and 802.15.4 shared\)|Single antenna configuration|Y|Y|Y|
 |BCA\_TDM separate antenna<sup>1</sup> \(lower and higher isolation\) 1x1 Wi-Fi, \(Bluetooth and 802.15.4 shared\)|External Coexistence PTA|N|Y|Y|
 
-**Parent topic:**[Coexistence](../topics/coexistence.md)
+**Parent topic:** [Coexistence](../topics/coexistence.md)
 
 [1] Experimental feature intended for evaluation/early development only and not production. Incomplete mandatory certification.
 

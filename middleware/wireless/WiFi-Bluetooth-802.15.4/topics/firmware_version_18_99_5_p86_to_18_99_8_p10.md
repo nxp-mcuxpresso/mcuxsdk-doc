@@ -4,4 +4,4 @@
 |-----------|-------------|
 |Wi-Fi|<ul><li>Enabled mbedtls 3.x</ul></li> <ul><li>Fail to set band to 2.4G in wifi_test_mode application </ul></li>|
 
-**Parent topic:**[Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_06.md)
+**Parent topic:** [Bug fixes and/or feature enhancements](../topics/bug_fixes_andor_feature_enhancements_06.md)

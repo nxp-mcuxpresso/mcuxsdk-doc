@@ -11,5 +11,5 @@ The Wi-Fi and Bluetooth certification is obtained with the following combination
 :heading-offset: 2
 ```
 
-**Parent topic:**[IW416 release notes](../topics/iw416-release-notes.md)
+**Parent topic:** [IW416 release notes](../topics/iw416-release-notes.md)
 
