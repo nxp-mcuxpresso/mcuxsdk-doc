@@ -10,12 +10,21 @@
   .pf-input { width:100%; padding:.65rem .9rem; font-size:1.05rem; box-sizing:border-box;
               border:2px solid var(--pst-color-primary, #0a5aa5); border-radius:8px; }
   .pf-count { color: var(--pst-color-text-muted, #5b6b7c); font-size:.9rem; margin:.8rem 0 .4rem; }
-  .pf-res { padding:.75rem 0; border-bottom:1px solid var(--pst-color-border, #e3e8ee); }
+  /* Reduced vertical padding (was .75rem) to keep results compact. */
+  .pf-res { padding:.5rem 0; border-bottom:1px solid var(--pst-color-border, #e3e8ee); }
   .pf-res a.pf-t { font-weight:700; text-decoration:none; font-size:1.02rem; }
-  .pf-res .pf-ex { font-size:.9rem; margin:.25rem 0; }
+  .pf-res .pf-ex { font-size:.9rem; margin:.2rem 0; }
   .pf-res .pf-ex mark { background:#fff2a8; }
-  .pf-res .pf-u { font-size:.75rem; color: var(--pst-color-text-muted, #7a8794);
-                  font-family: var(--pst-font-family-monospace, monospace); word-break:break-all; }
+  /* .pf-dir replaces .pf-u: shows only the directory path, not the full URL. */
+  .pf-res .pf-dir { font-size:.72rem; color: var(--pst-color-text-muted, #7a8794);
+                    font-family: var(--pst-font-family-monospace, monospace); }
+  /* "N more from same section" toggle link. */
+  .pf-more { margin-top:.25rem; font-size:.78rem; }
+  .pf-more-toggle { color: var(--pst-color-primary, #0a5aa5); cursor:pointer; }
+  .pf-more-toggle:hover { text-decoration:underline; }
+  .pf-more-list { display:none; margin-top:.25rem; padding-left:.75rem;
+                  border-left:2px solid var(--pst-color-border, #e3e8ee); }
+  .pf-more-list a { display:block; font-size:.88rem; margin:.15rem 0; }
 </style>
 <h1>{{ _('Search') }}</h1>
 <label class="visually-hidden" for="pf-q">Search the documentation</label>
@@ -96,6 +105,51 @@ function intentBonus(query, url) {
     intent.query.test(query) && intent.path.test(path) ? bonus * intent.bonus : bonus, 1);
 }
 
+// --- directory-level deduplication -------------------------------------------
+// After score-sorting, keep at most maxPerDir results from the same directory.
+// The best result for each directory is shown directly; additional results from
+// the same directory are collected in the `hidden` array and rendered as a
+// collapsible "N more from same section" block beneath the primary result.
+// This prevents a single board's release-notes tree from flooding the list.
+function dedup(scored, maxPerDir) {
+  const dirCount = new Map();
+  const out = [];
+  for (const item of scored) {
+    // Derive the directory by stripping the filename from the URL path.
+    const dir = item.d.url.replace(/\/[^/?#]+(\?.*)?$/, '');
+    const cnt = dirCount.get(dir) || 0;
+    if (cnt === 0) {
+      // First result from this directory: show it as the primary entry.
+      out.push({ ...item, hidden: [] });
+      dirCount.set(dir, 1);
+    } else if (cnt < maxPerDir) {
+      // Subsequent results within the limit: attach to the primary entry.
+      out[out.length - 1].hidden.push(item.d);
+      dirCount.set(dir, cnt + 1);
+    }
+    // Results beyond maxPerDir are silently dropped.
+  }
+  return out;
+}
+
+// Render a collapsible "N more from same section" block for hidden results.
+function renderMore(hidden, esc) {
+  if (!hidden || !hidden.length) return '';
+  const id = 'pf-more-' + Math.random().toString(36).slice(2, 9);
+  const links = hidden.map(d => {
+    const href = new URL(d.url, location.origin).href;
+    const t = esc((d.meta && d.meta.title) || d.url).replace(/[#¶]\s*$/, '');
+    return '<a href="' + href + '">' + t + '</a>';
+  }).join('');
+  return '<div class="pf-more">'
+    + '<span class="pf-more-toggle" role="button" tabindex="0" '
+    + 'onclick="var el=document.getElementById(\'' + id + '\');'
+    + 'el.style.display=\'block\';this.style.display=\'none\'">'
+    + '+ ' + hidden.length + ' more from same section</span>'
+    + '<div id="' + id + '" class="pf-more-list">' + links + '</div>'
+    + '</div>';
+}
+
 let seq = 0;
 async function run() {
   const q = $q.value.trim();
@@ -114,17 +168,30 @@ async function run() {
       intentBonus(qnorm, datas[i].url)
   })).sort((a, b) => b.score - a.score);
   if (my !== seq) return;
-  $c.textContent = s.results.length + ' results for “' + q + '”';
+  $c.textContent = s.results.length + ' results for "' + q + '"';
   const esc = (x) => x.replace(/&/g,'&amp;').replace(/</g,'&lt;');
-  $r.innerHTML = scored.slice(0, 20).map(({d}) => {
+
+  // Deduplicate: max 3 results per directory, extras collapsed under primary.
+  const display = dedup(scored, 3);
+
+  $r.innerHTML = display.slice(0, 20).map(({d, hidden}) => {
     // d.url is the canonical path from the server root (e.g.
     // "/subpath/html/examples/x/index.html" when Sphinx html_baseurl is set).
     // Resolve against location.origin to get a correct absolute link.
     const href = new URL(d.url, location.origin).href;
     const title = esc((d.meta && d.meta.title) || d.url).replace(/[#¶]\s*$/, '');
-    return '<div class="pf-res"><a class="pf-t" href="' + href + '">' + title + '</a>' +
-           '<div class="pf-ex">' + (d.excerpt || '') + '</div>' +
-           '<div class="pf-u">' + esc(d.url) + '</div></div>';
+    // Show only the directory portion of the URL (strip filename and server
+    // prefix) to keep each result compact — avoids the long per-board paths
+    // that previously made results hard to scan.
+    const dir = d.url.replace(/\/[^/?#]+(\?.*)?$/, '')
+                     .replace(/^.*?\/html\//, '')
+                     .replace(/^\/+/, '');
+    return '<div class="pf-res">'
+      + '<a class="pf-t" href="' + href + '">' + title + '</a>'
+      + '<div class="pf-ex">' + (d.excerpt || '') + '</div>'
+      + '<div class="pf-dir">' + esc(dir) + '</div>'
+      + renderMore(hidden, esc)
+      + '</div>';
   }).join('');
 }
 $q.addEventListener('input', run);
