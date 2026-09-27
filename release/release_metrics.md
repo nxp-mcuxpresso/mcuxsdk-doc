@@ -523,7 +523,7 @@ The tabulated results cover findings that are classified as issues.
 |[midware_eiq_int](# "middleware\/eiq_int\/.*")|0|0|0|0|
 |[middleware_wireless/framework](# "middleware\/wireless\/framework\/.*; examples\/frdmmcxw72\/wireless_examples\/linker\/.*; examples\/frdmmcxw71\/wireless_examples\/linker\/.*; examples\/mcxw72evk\/wireless_examples\/linker\/.*")|0|0|2|1|
 |[middleware_wireless/ethermind](# "middleware\/wireless\/ethermind\/.*")|0|0|0|0|
-|[middleware_wireless/bluetooth](# "middleware\/wireless\/bluetooth\/.*")|0|0|137|1|
+|[middleware_wireless/bluetooth](# "middleware\/wireless\/bluetooth\/.*")|0|0|133|1|
 |[middleware_wireless/XCVR](# "middleware\/wireless\/XCVR\/.*")|0|0|0|0|
 |[middleware_wireless/ble_controller](# "middleware\/wireless\/ble_controller\/.*; middleware\/wireless\/fw_v19_nb\/.*")|0|0|1|0|
 |[middleware_wireless/genfsk](# "middleware\/wireless\/genfsk\/.*")|0|0|0|0|
@@ -563,7 +563,7 @@ The tabulated results cover findings that are classified as issues.
 |[midware_se_hostlib](# "middleware\/se_hostlib\/.*")|0|0|0|0|
 |[midware_secure-subsystem](# "middleware\/secure-subsystem\/.*")|0|0|0|0|
 |[midware_touch](# "middleware\/touch\/.*")|0|0|4|12|
-|[midware_usb](# "middleware\/usb\/.*; ecosystem\/middleware\/usb\/.*")|0|0|1|42|
+|[midware_usb](# "middleware\/usb\/.*; ecosystem\/middleware\/usb\/.*")|0|0|0|42|
 |[midware_voice_seeker](# "middleware\/audio_voice\/components\/voice_seeker\/.*")|0|0|0|0|
 |[midware_voice_spot](# "middleware\/audio_voice\/components\/voice_spot\/.*")|0|0|0|0|
 |[midware_vit](# "middleware\/audio_voice\/components\/vit\/.*")|0|0|0|0|
@@ -712,7 +712,7 @@ The tabulated results cover findings that are classified as issues.
 |[components/memfault_integration](# "components\/debug\/memfault\/sdk_port\/.*; components\/debug\/memfault\/Kconfig; components\/debug\/memfault\/CMakeLists.txt")|0|0|0|0|
 |[components/unity](# "components\/unity\/.*")|0|0|0|0|
 |[components/wifi_bt_module](# "components\/wifi_bt_module\/.*")|0|0|0|0|
-|[components/coredump](# "components\/debug\/coredump\/.*; examples\/component_examples\/coredump_fault\/.*; examples\/_boards\/.*\/component_examples\/coredump_fault\/.*")|0|0|1|0|
+|[components/coredump](# "components\/debug\/coredump\/.*; examples\/component_examples\/coredump_fault\/.*; examples\/_boards\/.*\/component_examples\/coredump_fault\/.*")|0|0|0|0|
 |[components/gen_hal](# "components\/gen_hal\/.*")|0|0|0|0|
 |[components/semihost](# "components\/semihost\/.*; examples\/component_examples\/semihost\/.*; examples\/_boards\/.*\/component_examples\/semihost\/.*")|0|0|0|0|
 |[components](# "components\/.*")|0|0|0|0|
