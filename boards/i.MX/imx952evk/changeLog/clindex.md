@@ -24,7 +24,7 @@
 ```{include} /drivers/dpu_1/doxygen/ChangeLog_dpu.md
 :heading-offset: 2
 ```
-```{include} /drivers/edma4/doxygen/ChangeLog_edma.md
+```{include} /drivers/edma_unified/doxygen/ChangeLog_edma.md
 :heading-offset: 2
 ```
 ```{include} /drivers/eim/doxygen/ChangeLog_eim.md
@@ -139,9 +139,6 @@
 :heading-offset: 2
 ```
 ```{include} /drivers/tpm/doxygen/ChangeLog_tpm.md
-:heading-offset: 2
-```
-```{include} /drivers/trdc_1/doxygen/ChangeLog_trdc.md
 :heading-offset: 2
 ```
 ```{include} /drivers/tstmr/doxygen/ChangeLog_tstmr.md

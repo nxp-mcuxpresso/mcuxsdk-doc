@@ -81,6 +81,9 @@
 ```{include} /drivers/flexio/uart/doxygen/ChangeLog_flexio_uart_edma.md
 :heading-offset: 2
 ```
+```{include} /drivers/flexpwm/doxygen/ChangeLog_flexpwm.md
+:heading-offset: 2
+```
 ```{include} /drivers/flexram/doxygen/ChangeLog_flexram.md
 :heading-offset: 2
 ```

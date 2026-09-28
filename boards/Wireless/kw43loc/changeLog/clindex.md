@@ -1,8 +1,5 @@
 # MCUXpresso SDK Changelog
 
-```{include} /examples/_boards/kw43loc/ChangeLog_board.md
-:heading-offset: 2
-```
 ```{include} /drivers/aoi/doxygen/ChangeLog_aoi.md
 :heading-offset: 2
 ```
@@ -43,9 +40,6 @@
 :heading-offset: 2
 ```
 ```{include} /drivers/gdet/doxygen/ChangeLog_gdet.md
-:heading-offset: 2
-```
-```{include} /drivers/glikey/doxygen/ChangeLog_glikey.md
 :heading-offset: 2
 ```
 ```{include} /drivers/gpio/doxygen/ChangeLog_gpio.md

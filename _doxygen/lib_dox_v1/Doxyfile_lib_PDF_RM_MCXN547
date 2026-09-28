@@ -744,9 +744,10 @@ INPUT = @SDK_BASE@/drivers/cdog/doxygen/cdog.dox \
         @SDK_BASE@/drivers/ctimer/fsl_ctimer.h \
         @SDK_BASE@/drivers/dac_1/doxygen/dac.dox \
         @SDK_BASE@/drivers/dac_1/fsl_dac.h \
-        @SDK_BASE@/drivers/edma4/doxygen/edma.dox \
-        @SDK_BASE@/drivers/edma4/fsl_edma.h \
-        @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
+        @SDK_BASE@/drivers/edma4/fsl_edma_compat.h \
+        @SDK_BASE@/drivers/edma_unified/doxygen/edma.dox \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma.h \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma_core.h \
         @SDK_BASE@/drivers/eim/doxygen/eim.dox \
         @SDK_BASE@/drivers/eim/fsl_eim.h \
         @SDK_BASE@/drivers/eim/eim_channel_word.h \
@@ -912,8 +913,9 @@ INPUT = @SDK_BASE@/drivers/cdog/doxygen/cdog.dox \
         @SDK_BASE@/drivers/crc/fsl_crc.h \
         @SDK_BASE@/drivers/ctimer/fsl_ctimer.h \
         @SDK_BASE@/drivers/dac_1/fsl_dac.h \
-        @SDK_BASE@/drivers/edma4/fsl_edma.h \
-        @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
+        @SDK_BASE@/drivers/edma4/fsl_edma_compat.h \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma.h \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma_core.h \
         @SDK_BASE@/drivers/eim/fsl_eim.h \
         @SDK_BASE@/drivers/eim/eim_channel_word.h \
         @SDK_BASE@/drivers/erm/fsl_erm.h \
@@ -1109,6 +1111,7 @@ IMAGE_PATH = @SDK_BASE@/drivers/cdog/doxygen \
              @SDK_BASE@/drivers/ctimer/doxygen \
              @SDK_BASE@/drivers/dac_1/doxygen \
              @SDK_BASE@/drivers/edma4/doxygen \
+             @SDK_BASE@/drivers/edma_unified/doxygen \
              @SDK_BASE@/drivers/eim/doxygen \
              @SDK_BASE@/drivers/erm/doxygen \
              @SDK_BASE@/drivers/evtg/doxygen \
@@ -2435,6 +2438,7 @@ PREDEFINED = FSL_FEATURE_SOC_CACHE64_CTRL_COUNT = 1 \
              FSL_FEATURE_MCX_CMC_HAS_BLR_REG = 1 \
              FSL_FEATURE_MCX_CMC_HAS_NO_FLASHCR_WAKE = 1 \
              FSL_FEATURE_MCX_CMC_HAS_BSR_SCR_BIT = 0 \
+             FSL_FEATURE_MCX_CMC_HAS_DBGCTL_REG = 1 \
              FSL_FEATURE_LPCMP_HAS_CCR1_FUNC_CLK_SEL = 1 \
              FSL_FEATURE_LPCMP_HAS_IER_RRF_IE = 1 \
              FSL_FEATURE_LPCMP_HAS_CSR_RRF = 1 \
@@ -2616,7 +2620,7 @@ PREDEFINED = FSL_FEATURE_SOC_CACHE64_CTRL_COUNT = 1 \
              FSL_FEATURE_LPUART_HAS_TIMEOUT = 1 \
              FSL_FEATURE_LPUART_HAS_CTRL_SWAP = 0 \
              FSL_FEATURE_LPUART_HAS_MODIR_RTSWATER = 1 \
-             FSL_FEATURE_MAILBOX_SIDE_A = 1 \
+             FSL_FEATURE_MAILBOX_SIDE_B = 1 \
              FSL_FEATURE_MRT_NUMBER_OF_CHANNELS = 4 \
              FSL_FEATURE_OSTIMER_HAS_BINARY_ENCODED_COUNTER = 0 \
              FSL_FEATURE_PDM_FIFO_OFFSET = 4 \
@@ -2747,6 +2751,8 @@ PREDEFINED = FSL_FEATURE_SOC_CACHE64_CTRL_COUNT = 1 \
              FSL_FEATURE_MCX_SPC_HAS_SRAMCTL_REG = 1 \
              FSL_FEATURE_MCX_SPC_HAS_PD_STATUS_REG = 1 \
              FSL_FEATURE_MCX_SPC_HAS_SRAMRETLDO_REFTRIM_REG = 0 \
+             FSL_FEATURE_MCX_SPC_HAS_VD_IO_CFG_LVSEL = 1 \
+             FSL_FEATURE_MCX_SPC_HAS_IOVDD_HVD = 1 \
              FSL_FEATURE_SYSCON_FLASH_PAGE_SIZE_BYTES = 128 \
              FSL_FEATURE_SYSCON_FLASH_SECTOR_SIZE_BYTES = 8192 \
              FSL_FEATURE_SYSCON_FLASH_SIZE_BYTES = 2097152 \
@@ -2755,8 +2761,6 @@ PREDEFINED = FSL_FEATURE_SOC_CACHE64_CTRL_COUNT = 1 \
              FSL_FEATURE_POWERLIB_EXTEND = 1 \
              FSL_FEATURE_SYSCON_HAS_LPCAC_CTRL_PARITY_MISS_EN_BIT = 1 \
              FSL_FEATURE_SYSCON_HAS_LPCAC_CTRL_PARITY_FAULT_EN_BIT = 1 \
-             FSL_FEATURE_SYSTICK_HAS_EXT_REF = 0 \
-             FSL_FEATURE_SYSTICK_EXT_REF_CORE_DIV = 0 \
              FSL_FEATURE_TRDC_PROCESSOR_MASTER_COUNT = 2 \
              FSL_FEATURE_TRDC_HAS_MBC = 1 \
              FSL_FEATURE_TRDC_HAS_MRC = 0 \
@@ -2764,6 +2768,7 @@ PREDEFINED = FSL_FEATURE_SOC_CACHE64_CTRL_COUNT = 1 \
              FSL_FEATURE_TRDC_HAS_DOMAIN_ASSIGNMENT = 0 \
              FSL_FEATURE_TRDC_HAS_DOMAIN_ERROR = 0 \
              FSL_FEATURE_TRDC_HAS_FLW = 0 \
+             FSL_FEATURE_TRDC_DERRLOC_MBCINST_FLAT_ENCODING = 0 \
              FSL_FEATURE_TSI_VERSION = 6 \
              FSL_FEATURE_TSI_HAS_CHANNEL_SEL = 0 \
              FSL_FEATURE_TSI_HAS_SELF_SEL = 0 \
@@ -2848,7 +2853,9 @@ PREDEFINED = FSL_FEATURE_SOC_CACHE64_CTRL_COUNT = 1 \
              FSL_FEATURE_WWDT_HAS_NO_RESET = 1 \
              FSL_FEATURE_WWDT_HAS_LPOSC_CLOCK_SOURCE = 0 \
              FSL_FEATURE_WWDT_WDTRESET_FROM_PMC = 0 \
-             FSL_FEATURE_MAILBOX_SIDE_B = 1
+             FSL_FEATURE_MAILBOX_SIDE_A = 1 \
+             FSL_FEATURE_SYSTICK_HAS_EXT_REF = 0 \
+             FSL_FEATURE_SYSTICK_EXT_REF_CORE_DIV = 0
 
 PREDEFINED += DOXYGEN_OUTPUT=1
 

@@ -748,9 +748,10 @@ INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/common/fsl_common_arm.h \
         @SDK_BASE@/drivers/dac12/doxygen/dac12.dox \
         @SDK_BASE@/drivers/dac12/fsl_dac12.h \
-        @SDK_BASE@/drivers/edma4/doxygen/edma.dox \
-        @SDK_BASE@/drivers/edma4/fsl_edma.h \
-        @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
+        @SDK_BASE@/drivers/edma4/fsl_edma_compat.h \
+        @SDK_BASE@/drivers/edma_unified/doxygen/edma.dox \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma.h \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma_core.h \
         @SDK_BASE@/drivers/eqdc/doxygen/eqdc.dox \
         @SDK_BASE@/drivers/eqdc/fsl_eqdc.h \
         @SDK_BASE@/drivers/ewm/doxygen/ewm.dox \
@@ -761,6 +762,8 @@ INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
         @SDK_BASE@/drivers/flexio/doxygen/flexio.dox \
         @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/flexpwm/doxygen/flexpwm.dox \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/flexspi/doxygen/flexspi_edma.dox \
         @SDK_BASE@/drivers/flexspi/fsl_flexspi_edma.h \
         @SDK_BASE@/drivers/flexspi/doxygen/flexspi.dox \
@@ -888,13 +891,15 @@ INPUT = @SDK_BASE@/drivers/acmp/doxygen/acmp.dox \
         @SDK_BASE@/drivers/common/fsl_common.h \
         @SDK_BASE@/drivers/common/fsl_common_arm.h \
         @SDK_BASE@/drivers/dac12/fsl_dac12.h \
-        @SDK_BASE@/drivers/edma4/fsl_edma.h \
-        @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
+        @SDK_BASE@/drivers/edma4/fsl_edma_compat.h \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma.h \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma_core.h \
         @SDK_BASE@/drivers/eqdc/fsl_eqdc.h \
         @SDK_BASE@/drivers/ewm/fsl_ewm.h \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan_edma.h \
         @SDK_BASE@/drivers/flexcan/fsl_flexcan.h \
         @SDK_BASE@/drivers/flexio/fsl_flexio.h \
+        @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/flexspi/fsl_flexspi_edma.h \
         @SDK_BASE@/drivers/flexspi/fsl_flexspi.h \
         @SDK_BASE@/drivers/flexspi_flr/fsl_flexspi_flr.h \
@@ -1075,10 +1080,12 @@ IMAGE_PATH = @SDK_BASE@/drivers/acmp/doxygen \
              @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/dac12/doxygen \
              @SDK_BASE@/drivers/edma4/doxygen \
+             @SDK_BASE@/drivers/edma_unified/doxygen \
              @SDK_BASE@/drivers/eqdc/doxygen \
              @SDK_BASE@/drivers/ewm/doxygen \
              @SDK_BASE@/drivers/flexcan/doxygen \
              @SDK_BASE@/drivers/flexio/doxygen \
+             @SDK_BASE@/drivers/flexpwm/doxygen \
              @SDK_BASE@/drivers/flexspi/doxygen \
              @SDK_BASE@/drivers/flexspi_flr/doxygen \
              @SDK_BASE@/drivers/gpt/doxygen \
@@ -2297,7 +2304,6 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 4 \
              FSL_FEATURE_SOC_USDHC_COUNT = 2 \
              FSL_FEATURE_SOC_VREF_COUNT = 1 \
              FSL_FEATURE_SOC_XBAR_DSC_COUNT = 3 \
-             FSL_FEATURE_SOC_XCACHE_COUNT = 2 \
              FSL_FEATURE_BOOT_ROM_HAS_ROMAPI = 1 \
              FSL_FEATURE_LPADC_FIFO_COUNT = 2 \
              FSL_FEATURE_LPADC_HAS_NO_TCTRL_FIFO_SEL_B = 0 \
@@ -2337,6 +2343,7 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 4 \
              FSL_FEATURE_LPADC_HAS_CMDH_CMPEN = 1 \
              FSL_FEATURE_LPADC_HAS_CTRL_CALHS = 0 \
              FSL_FEATURE_LPADC_HAS_CFG2_JLEFT = 1 \
+             FSL_FEATURE_LPADC_TCTRL_COUNT = 8 \
              FSL_FEATURE_LPADC_TEMP_SENS_BUFFER_SIZE = 2 \
              FSL_FEATURE_LPADC_TEMP_PARAMETER_SLOP = 789.2 \
              FSL_FEATURE_LPADC_TEMP_PARAMETER_OFFSET = 319.2 \
@@ -2388,6 +2395,7 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 4 \
              FSL_FEATURE_ACMP_HAS_NO_FILTER_MODE = 0 \
              FSL_FEATURE_ACMP_HAS_NO_C0_SE_BIT = 0 \
              FSL_FEATURE_ACMP_HAS_C3_RDIVE_BIT = 1 \
+             FSL_FEATURE_ACMP_HAS_CONTINUOUS_MODE = 1 \
              FSL_FEATURE_DAC12_HAS_NO_ITRM_REGISTER = 1 \
              FSL_FEATURE_DAC12_HAS_HW_TRIGGER = 1 \
              FSL_FEATURE_DCDC_HAS_CTRL_REG = 1 \
@@ -2540,7 +2548,7 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 4 \
              FSL_FEATURE_SYSPM_PMCR_COUNT = 1 \
              FSL_FEATURE_SYSPM_HAS_PMICTR = 1 \
              FSL_FEATURE_MEMORY_HAS_ADDRESS_OFFSET = 1 \
-             FSL_FEATURE_MU_SIDE_A = 1 \
+             FSL_FEATURE_MU_SIDE_B = 1 \
              FSL_FEATURE_MU_HAS_RESET_ASSERT_INT = 0 \
              FSL_FEATURE_MU_HAS_RESET_DEASSERT_INT = 0 \
              FSL_FEATURE_MU_NO_CORE_STATUS = 1 \
@@ -2625,6 +2633,9 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 4 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELB = 1 \
              FSL_FEATURE_PWM_HAS_CAPTURE_ON_CHANNELX = 1 \
              FSL_FEATURE_PWM_HAS_ERRATA_51989 = 1 \
+             FSL_FEATURE_PWM_MASK_HAS_UPDATE_MASK_BITFIELD = 0 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_STRETCH_CNT_PRSC_BITFIELD = 0 \
+             FSL_FEATURE_PWM_MCTRL2_HAS_WRPROT_BITFIELD = 1 \
              FSL_FEATURE_RGPIO_HAS_ATTRIBUTE_CHECKER = 0 \
              FSL_FEATURE_RGPIO_HAS_IRQ_CONFIG = 1 \
              FSL_FEATURE_RGPIO_HAS_PORT_INPUT_DISABLE = 1 \
@@ -2691,6 +2702,7 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 4 \
              FSL_FEATURE_TPM_HAS_GLOBAL_TIME_BASE_EN = 1 \
              FSL_FEATURE_TPM_HAS_GLOBAL_TIME_BASE_SYNC = 1 \
              FSL_FEATURE_TPM_HAS_ERRATA_050050 = 0 \
+             FSL_FEATURE_TPM_HAS_NO_SC_CPWMS = 0 \
              FSL_FEATURE_TRDC_PROCESSOR_MASTER_COUNT = 2 \
              FSL_FEATURE_TRDC_DOMAIN_COUNT = 16 \
              FSL_FEATURE_TRDC_HAS_MBC = 1 \
@@ -2719,9 +2731,10 @@ PREDEFINED = FSL_FEATURE_SOC_ACMP_COUNT = 4 \
              FSL_FEATURE_VREF_HAS_TRIM0_REG = 1 \
              FSL_FEATURE_XBAR_DSC_REG_WIDTH = 16 \
              FSL_FEATURE_XBAR_DSC_HAS_REG_WP = 0 \
+             FSL_FEATURE_SOC_XCACHE_COUNT = 2 \
+             FSL_FEATURE_MU_SIDE_A = 1 \
              FSL_FEATURE_XCACHE_LINESIZE_BYTE = 16 \
-             FSL_FEATURE_XCACHE_HAS_NO_WRITE_BUF = 1 \
-             FSL_FEATURE_MU_SIDE_B = 1
+             FSL_FEATURE_XCACHE_HAS_NO_WRITE_BUF = 1
 
 PREDEFINED += DOXYGEN_OUTPUT=1
 

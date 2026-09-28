@@ -9,7 +9,7 @@
 ```{include} /drivers/common/doxygen/ChangeLog_common.md
 :heading-offset: 2
 ```
-```{include} /drivers/edma4/doxygen/ChangeLog_edma.md
+```{include} /drivers/edma_unified/doxygen/ChangeLog_edma.md
 :heading-offset: 2
 ```
 ```{include} /drivers/enet/doxygen/ChangeLog_enet.md

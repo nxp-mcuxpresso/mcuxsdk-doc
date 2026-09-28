@@ -39,7 +39,7 @@
 ```{include} /drivers/ecat/doxygen/ChangeLog_ecat.md
 :heading-offset: 2
 ```
-```{include} /drivers/edma4/doxygen/ChangeLog_edma.md
+```{include} /drivers/edma_unified/doxygen/ChangeLog_edma.md
 :heading-offset: 2
 ```
 ```{include} /devices/RT/RT1180/MIMXRT1189/drivers/doxygen/ChangeLog_ele_base_api.md

@@ -22,3 +22,7 @@ This section lists the known issues, limitations, and/or workarounds.
 ```{include} /release/known_issues/tf-m_secure_and_el2go_examples_incorrect_path_in_download_extra_image_with_iar_and_mdk_ides_with_kex_package.md
 :heading-offset: 1
 ```
+
+```{include} /release/known_issues/MCUX-90675.md
+:heading-offset: 1
+```

@@ -9,6 +9,9 @@
 ```{include} /drivers/cdog/doxygen/ChangeLog_cdog.md
 :heading-offset: 2
 ```
+```{include} /devices/MCX/MCXA/MCXA346/drivers/doxygen/ChangeLog_clock.md
+:heading-offset: 2
+```
 ```{include} /drivers/mcx_cmc/doxygen/ChangeLog_cmc.md
 :heading-offset: 2
 ```
@@ -19,6 +22,9 @@
 :heading-offset: 2
 ```
 ```{include} /drivers/ctimer/doxygen/ChangeLog_ctimer.md
+:heading-offset: 2
+```
+```{include} /drivers/dac_1/doxygen/ChangeLog_dac.md
 :heading-offset: 2
 ```
 ```{include} /drivers/edma_unified/doxygen/ChangeLog_edma.md
@@ -81,6 +87,9 @@
 ```{include} /drivers/lpuart/doxygen/ChangeLog_lpuart_edma.md
 :heading-offset: 2
 ```
+```{include} /drivers/mau/doxygen/ChangeLog_mau.md
+:heading-offset: 2
+```
 ```{include} /drivers/opamp_fast/doxygen/ChangeLog_opamp.md
 :heading-offset: 2
 ```
@@ -93,6 +102,9 @@
 ```{include} /drivers/pwm/doxygen/ChangeLog_pwm.md
 :heading-offset: 2
 ```
+```{include} /devices/MCX/MCXA/MCXA346/drivers/doxygen/ChangeLog_reset.md
+:heading-offset: 2
+```
 ```{include} /devices/MCX/MCXA/MCXA153/drivers/doxygen/ChangeLog_romapi.md
 :heading-offset: 2
 ```
@@ -103,6 +115,9 @@
 :heading-offset: 2
 ```
 ```{include} /drivers/mcx_spc/doxygen/ChangeLog_spc.md
+:heading-offset: 2
+```
+```{include} /drivers/tdet/doxygen/ChangeLog_tdet.md
 :heading-offset: 2
 ```
 ```{include} /drivers/trdc_1/doxygen/ChangeLog_trdc.md

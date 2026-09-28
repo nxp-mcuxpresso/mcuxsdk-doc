@@ -42,9 +42,6 @@
 ```{include} /drivers/gdet/doxygen/ChangeLog_gdet.md
 :heading-offset: 2
 ```
-```{include} /drivers/glikey/doxygen/ChangeLog_glikey.md
-:heading-offset: 2
-```
 ```{include} /drivers/gpio/doxygen/ChangeLog_gpio.md
 :heading-offset: 2
 ```

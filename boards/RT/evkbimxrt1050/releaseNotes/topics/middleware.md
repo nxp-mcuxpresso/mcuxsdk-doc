@@ -14,7 +14,7 @@
 :heading-offset: 2
 ```
 
-```{include} /release/commonrn/topics/nxp_edgefast_bluetooth_pal.md
+```{include} /release/commonrn/topics/nxp_edgefast_open.md
 :heading-offset: 2
 ```
 

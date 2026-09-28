@@ -30,7 +30,7 @@
 ```{include} /drivers/ecat/doxygen/ChangeLog_ecat.md
 :heading-offset: 2
 ```
-```{include} /drivers/edma4/doxygen/ChangeLog_edma.md
+```{include} /drivers/edma_unified/doxygen/ChangeLog_edma.md
 :heading-offset: 2
 ```
 ```{include} /drivers/endat2p2/doxygen/ChangeLog_endat2p2.md

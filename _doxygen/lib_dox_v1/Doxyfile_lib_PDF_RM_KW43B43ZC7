@@ -774,8 +774,6 @@ INPUT = @SDK_BASE@/devices/Wireless/KW/KW43B43ZC7/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/flexpwm/fsl_flexpwm.h \
         @SDK_BASE@/drivers/gdet/doxygen/gdet.dox \
         @SDK_BASE@/drivers/gdet/fsl_gdet.h \
-        @SDK_BASE@/drivers/glikey/doxygen/glikey.dox \
-        @SDK_BASE@/drivers/glikey/fsl_glikey.h \
         @SDK_BASE@/drivers/gpio/doxygen/gpio.dox \
         @SDK_BASE@/drivers/gpio/fsl_gpio.h \
         @SDK_BASE@/drivers/intm/doxygen/intm.dox \
@@ -967,7 +965,6 @@ IMAGE_PATH = @SDK_BASE@/devices/Wireless/KW/KW43B43ZC7/drivers/doxygen \
              @SDK_BASE@/drivers/flexcan/doxygen \
              @SDK_BASE@/drivers/flexpwm/doxygen \
              @SDK_BASE@/drivers/gdet/doxygen \
-             @SDK_BASE@/drivers/glikey/doxygen \
              @SDK_BASE@/drivers/gpio/doxygen \
              @SDK_BASE@/drivers/intm/doxygen \
              @SDK_BASE@/drivers/itrc/doxygen \
@@ -2123,7 +2120,7 @@ INCLUDE_FILE_PATTERNS  =
 PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_SOC_ATX_COUNT = 1 \
              FSL_FEATURE_SOC_AXBS_COUNT = 2 \
-             FSL_FEATURE_SOC_BLE2_REG_COUNT = 2 \
+             FSL_FEATURE_SOC_BLE2_REG_COUNT = 1 \
              FSL_FEATURE_SOC_BRIC_COUNT = 1 \
              FSL_FEATURE_SOC_BTRTU1_COUNT = 1 \
              FSL_FEATURE_SOC_BTU2_REG_COUNT = 1 \
@@ -2163,9 +2160,6 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_SOC_TSTMR_COUNT = 3 \
              FSL_FEATURE_SOC_WDOG_COUNT = 2 \
              FSL_FEATURE_SOC_WUU_COUNT = 1 \
-             FSL_FEATURE_CCM32K_HAS_FINE_AMP_GAIN = 0 \
-             FSL_FEATURE_CCM32K_HAS_CGC32K = 1 \
-             FSL_FEATURE_CCM32K_HAS_CLKMON_CTRL = 1 \
              FSL_FEATURE_AOI_MODULE_INPUTS = 4 \
              FSL_FEATURE_AOI_EVENT_COUNT = 4 \
              FSL_FEATURE_FLEXCAN_HAS_DOZE_MODE_SUPPORT = 1 \
@@ -2195,6 +2189,9 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_FLEXCAN_HAS_ERRATA_8341 = 0 \
              FSL_FEATURE_FLEXCAN_HAS_ERRATA_050443 = 0 \
              FSL_FEATURE_FLEXCAN_HAS_MEMORY_ERROR_INTERRUPT = 0 \
+             FSL_FEATURE_CCM32K_HAS_FINE_AMP_GAIN = 0 \
+             FSL_FEATURE_CCM32K_HAS_CGC32K = 1 \
+             FSL_FEATURE_CCM32K_HAS_CLKMON_CTRL = 1 \
              FSL_FEATURE_CDOG_HAS_NO_RESET = 1 \
              FSL_FEATURE_CDOG_NEED_LOAD_DEFAULT_CONF = 0 \
              FSL_FEATURE_CMC_HAS_TCMC0 = 0 \
@@ -2391,6 +2388,7 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_MU_HAS_MUR = 1 \
              FSL_FEATURE_MU_HAS_HR = 0 \
              FSL_FEATURE_MU_GPI_COUNT = 4 \
+             FSL_FEATURE_MU_NO_CIER0_REG = 1 \
              FSL_FEATURE_PORT_HAS_PIN_CONTROL_LOCK = 1 \
              FSL_FEATURE_PORT_HAS_OPEN_DRAIN = 1 \
              FSL_FEATURE_PORT_HAS_DIGITAL_FILTER = 0 \
@@ -2490,6 +2488,7 @@ PREDEFINED = FSL_FEATURE_SOC_AOI_COUNT = 1 \
              FSL_FEATURE_TPM_HAS_GLOBAL_TIME_BASE_EN = 1 \
              FSL_FEATURE_TPM_HAS_GLOBAL_TIME_BASE_SYNC = 1 \
              FSL_FEATURE_TPM_HAS_ERRATA_050050 = 0 \
+             FSL_FEATURE_TPM_HAS_NO_SC_CPWMS = 0 \
              FSL_FEATURE_TRDC_PROCESSOR_MASTER_COUNT = 1 \
              FSL_FEATURE_TRDC_DOMAIN_COUNT = 2 \
              FSL_FEATURE_TRDC_HAS_MBC = 1 \

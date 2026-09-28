@@ -756,9 +756,10 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX937/MIMX9375/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/common/fsl_common.h \
         @SDK_BASE@/drivers/common/fsl_common_arm.h \
         @SDK_BASE@/drivers/dpu_1/fsl_dpu.h \
-        @SDK_BASE@/drivers/edma4/doxygen/edma.dox \
-        @SDK_BASE@/drivers/edma4/fsl_edma.h \
-        @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
+        @SDK_BASE@/drivers/edma4/fsl_edma_compat.h \
+        @SDK_BASE@/drivers/edma_unified/doxygen/edma.dox \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma.h \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma_core.h \
         @SDK_BASE@/drivers/eim/doxygen/eim.dox \
         @SDK_BASE@/drivers/eim/fsl_eim.h \
         @SDK_BASE@/drivers/eim/eim_channel_word.h \
@@ -839,9 +840,6 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX937/MIMX9375/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/sema42/fsl_sema42.h \
         @SDK_BASE@/drivers/tpm/doxygen/tpm.dox \
         @SDK_BASE@/drivers/tpm/fsl_tpm.h \
-        @SDK_BASE@/drivers/trdc_1/doxygen/trdc.dox \
-        @SDK_BASE@/drivers/trdc_1/fsl_trdc.h \
-        @SDK_BASE@/drivers/trdc_1/fsl_trdc_core.h \
         @SDK_BASE@/drivers/tstmr/doxygen/tstmr.dox \
         @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
         @SDK_BASE@/drivers/xspi/doxygen/xspi_edma.dox \
@@ -879,8 +877,9 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX937/MIMX9375/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/common/fsl_common.h \
         @SDK_BASE@/drivers/common/fsl_common_arm.h \
         @SDK_BASE@/drivers/dpu_1/fsl_dpu.h \
-        @SDK_BASE@/drivers/edma4/fsl_edma.h \
-        @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
+        @SDK_BASE@/drivers/edma4/fsl_edma_compat.h \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma.h \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma_core.h \
         @SDK_BASE@/drivers/eim/fsl_eim.h \
         @SDK_BASE@/drivers/eim/eim_channel_word.h \
         @SDK_BASE@/drivers/erm/fsl_erm.h \
@@ -928,8 +927,6 @@ INPUT = @SDK_BASE@/devices/i.MX/i.MX937/MIMX9375/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/sar_adc/fsl_sar_adc.h \
         @SDK_BASE@/drivers/sema42/fsl_sema42.h \
         @SDK_BASE@/drivers/tpm/fsl_tpm.h \
-        @SDK_BASE@/drivers/trdc_1/fsl_trdc.h \
-        @SDK_BASE@/drivers/trdc_1/fsl_trdc_core.h \
         @SDK_BASE@/drivers/tstmr/fsl_tstmr.h \
         @SDK_BASE@/drivers/xspi/fsl_xspi_edma.h \
         @SDK_BASE@/drivers/xspi/fsl_xspi.h \
@@ -1055,6 +1052,7 @@ IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX937/MIMX9375/drivers/doxygen \
              @SDK_BASE@/drivers/common/doxygen \
              @SDK_BASE@/drivers/dpu_1/doxygen \
              @SDK_BASE@/drivers/edma4/doxygen \
+             @SDK_BASE@/drivers/edma_unified/doxygen \
              @SDK_BASE@/drivers/eim/doxygen \
              @SDK_BASE@/drivers/erm/doxygen \
              @SDK_BASE@/drivers/flexcan/doxygen \
@@ -1083,7 +1081,6 @@ IMAGE_PATH = @SDK_BASE@/devices/i.MX/i.MX937/MIMX9375/drivers/doxygen \
              @SDK_BASE@/drivers/sar_adc/doxygen \
              @SDK_BASE@/drivers/sema42/doxygen \
              @SDK_BASE@/drivers/tpm/doxygen \
-             @SDK_BASE@/drivers/trdc_1/doxygen \
              @SDK_BASE@/drivers/tstmr/doxygen \
              @SDK_BASE@/drivers/xspi/doxygen \
              @SDK_BASE@/drivers/cache/armv7-m7/doxygen \
@@ -2222,6 +2219,7 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_SOC_EDMA_COUNT = 3 \
              FSL_FEATURE_SOC_FLEXCAN_COUNT = 3 \
              FSL_FEATURE_SOC_FLEXIO_COUNT = 2 \
+             FSL_FEATURE_SOC_FRACT_PLL_COUNT = 7 \
              FSL_FEATURE_SOC_GPC_COUNT = 7 \
              FSL_FEATURE_SOC_GPT_COUNT = 4 \
              FSL_FEATURE_SOC_I3C_COUNT = 2 \
@@ -2253,6 +2251,7 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_ADC_CHANNEL_GROUPS_COUNT = 2 \
              FSL_FEATURE_ADC_THRESHOLDS_COUNT = 8 \
              FSL_FEATURE_ADC_SELF_TEST_THRESHOLDS_COUNT = 6 \
+             FSL_FEATURE_ADC_HAS_EXTERNAL_TRIGGER = 0 \
              FSL_FEATURE_CRC_HAS_CRC_REG = 0 \
              FSL_FEATURE_INTM_MONITOR_COUNT = 4 \
              FSL_FEATURE_SYSPM_HAS_PMCR_DCIFSH = 1 \
@@ -2531,14 +2530,6 @@ PREDEFINED = FSL_FEATURE_SOC_ADC_COUNT = 1 \
              FSL_FEATURE_USDHC_HAS_NO_VOLTAGE_SELECT = 0 \
              FSL_FEATURE_USDHC_HAS_NO_VS18 = 0 \
              FSL_FEATURE_GPT_HAS_ERRATA_3777 = 0 \
-             FSL_FEATURE_TRDC_PROCESSOR_MASTER_COUNT = 2 \
-             FSL_FEATURE_TRDC_DOMAIN_COUNT = 16 \
-             FSL_FEATURE_TRDC_HAS_MBC = 1 \
-             FSL_FEATURE_TRDC_HAS_MRC = 1 \
-             FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG = 1 \
-             FSL_FEATURE_TRDC_HAS_DOMAIN_ASSIGNMENT = 1 \
-             FSL_FEATURE_TRDC_HAS_DOMAIN_ERROR = 1 \
-             FSL_FEATURE_TRDC_HAS_FLW = 1 \
              FSL_FEATURE_WDOG_HAS_WATCHDOG = 1 \
              FSL_FEATURE_WDOG_HAS_32BIT_ACCESS = 1 \
              FSL_FEATURE_XSPI_DLL_REF_VALUE_DDR_DELAY_TAP_NUM = 4 \

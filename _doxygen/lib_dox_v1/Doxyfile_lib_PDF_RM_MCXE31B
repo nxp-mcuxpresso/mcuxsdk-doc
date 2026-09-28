@@ -757,9 +757,10 @@ INPUT = @SDK_BASE@/devices/MCX/MCXE/MCXE31B/drivers/doxygen/clock.dox \
         @SDK_BASE@/drivers/crc/fsl_crc.h \
         @SDK_BASE@/drivers/dmamux/doxygen/dmamux.dox \
         @SDK_BASE@/drivers/dmamux/fsl_dmamux.h \
-        @SDK_BASE@/drivers/edma4/doxygen/edma.dox \
-        @SDK_BASE@/drivers/edma4/fsl_edma.h \
-        @SDK_BASE@/drivers/edma4/fsl_edma_core.h \
+        @SDK_BASE@/drivers/edma4/fsl_edma_compat.h \
+        @SDK_BASE@/drivers/edma_unified/doxygen/edma.dox \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma.h \
+        @SDK_BASE@/drivers/edma_unified/fsl_edma_core.h \
         @SDK_BASE@/drivers/emios/doxygen/emios.dox \
         @SDK_BASE@/drivers/emios/fsl_emios.h \
         @SDK_BASE@/drivers/enet_qos/doxygen/enet_qos.dox \
@@ -964,6 +965,7 @@ IMAGE_PATH = @SDK_BASE@/devices/MCX/MCXE/MCXE31B/drivers/doxygen \
              @SDK_BASE@/drivers/crc/doxygen \
              @SDK_BASE@/drivers/dmamux/doxygen \
              @SDK_BASE@/drivers/edma4/doxygen \
+             @SDK_BASE@/drivers/edma_unified/doxygen \
              @SDK_BASE@/drivers/emios/doxygen \
              @SDK_BASE@/drivers/enet_qos/doxygen \
              @SDK_BASE@/drivers/flash_c40/doxygen \

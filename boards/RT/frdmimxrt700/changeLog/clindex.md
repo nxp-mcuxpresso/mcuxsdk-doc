@@ -27,7 +27,7 @@
 ```{include} /drivers/ctimer/doxygen/ChangeLog_ctimer.md
 :heading-offset: 2
 ```
-```{include} /drivers/edma4/doxygen/ChangeLog_edma.md
+```{include} /drivers/edma_unified/doxygen/ChangeLog_edma.md
 :heading-offset: 2
 ```
 ```{include} /devices/RT/RT700/MIMXRT798S/drivers/doxygen/ChangeLog_ezhv.md

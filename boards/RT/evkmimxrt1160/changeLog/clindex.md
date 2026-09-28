@@ -24,10 +24,10 @@
 ```{include} /drivers/caam/doxygen/ChangeLog_caam.md
 :heading-offset: 2
 ```
-```{include} /drivers/cache/armv7-m7/doxygen/ChangeLog_cache.md
+```{include} /drivers/cache/lmem/doxygen/ChangeLog_cache.md
 :heading-offset: 2
 ```
-```{include} /drivers/cache/lmem/doxygen/ChangeLog_cache.md
+```{include} /drivers/cache/armv7-m7/doxygen/ChangeLog_cache.md
 :heading-offset: 2
 ```
 ```{include} /drivers/cdog/doxygen/ChangeLog_cdog.md
