@@ -73,10 +73,7 @@ Comprehensive bounds-checking and input-validation fixes across USB host class d
     CERT-C/MISRA quality fixes, improved NBU fault diagnostics, KW43-LOC antenna diversity
     support, and Zephyr configuration management improvements.
 
-11. **IEEE 802.15.4 MAC/PHY Software** — 
-  - Fixed a heap-corruption issue that could occur in the MAC PHY message dispatcher under certain multi-instance conditions.
-  - Improved MAC initialization on RPMSG-based multicore platforms: the MAC instance is now created and bound only when it is actually needed, rather than unconditionally at startup.
-  - Removed pre-built MAC/PHY binaries and libraries for the MCXW71 platform, which is no longer supported on this branch.
+11. **IEEE 802.15.4 MAC/PHY Software** — Fixed MAC dispatcher heap corruption, enabled on-demand RPMSG MAC init, removed MCXW71 MAC/PHY binaries, and cleaned repository metadata.   
 
 ## Manifest & Repository Changes
 
@@ -256,9 +253,6 @@ What's New
   fixes for HVP-MCXA346 PMSM encoder example; FRDM-MCXE32B appconfig path updated.
 
 #### Safety
-
-- **IEC 60730B safety library updated** — `safety_iec60730b` updated for 26.09.00
-  release scope.
 
 ### New Platform / Device Support
 
@@ -515,7 +509,7 @@ What's New
   corrected.
 - **RW61x RTOS heap exhaustion** — Heap space exhaustion when performing repeated
   `bt init → bt disable` cycles on RW61x fixed.
-- **Fixed a heap-corruption defect in the MAC message dispatched** — Fixed a MAC/PHY dispatcher issue that could route a message to multiple MAC instances, causing heap corruption and instability.
+- **Fixed a heap-corruption defect in the MAC message dispatched** — Fixed a MAC/PHY dispatcher issue that could route a message to multiple MAC instances, causing heap corruption and instability. Optimized RPMSG multicore support by enabling on-demand MAC initialization and removing obsolete MCXW71 prebuilt MAC/PHY binaries and libraries.
 
 ### Filesystem
 
