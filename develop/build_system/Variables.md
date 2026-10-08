@@ -45,6 +45,31 @@ Here is the cmake files stored variable table:
 
 The above variables shall anyway be provided in CMake because they are used by Kconfig process.
 
+## Object File Path Length
+
+`CMAKE_OBJECT_PATH_MAX` specifies the maximum full object-file path length
+supported by the native build tools. CMake attempts to shorten longer object
+paths using a hash.
+
+The SDK does not increase CMake's platform-specific default. An application or
+toolchain may set its own limit. This setting is available in repository and
+freestanding builds.
+
+To override the default, pass `-DCMAKE_OBJECT_PATH_MAX=<length>` during CMake
+configuration. For sysbuild, a value in the top-level CMake cache is forwarded to
+all images. An image-specific `-D<image>_CMAKE_OBJECT_PATH_MAX=<length>` takes
+precedence for that image. The value must be an integer no less than `128`.
+
+Increasing this value can prevent CMake from shortening paths that it previously
+hashed. It does not enable long-path support in Windows or the build tools, so a
+previously working build may fail. Only increase the budget after verifying that
+the compiler, linker, and build tool support the resulting paths. Otherwise,
+use a shorter SDK location or build directory.
+
+CMake caches configured values, including values from earlier builds. When
+returning to platform defaults, use a fresh build directory or a pristine build
+to clear overrides in both the top-level and image caches.
+
 ## Customized Variables
 
 Besides above variables, you can set your own variables in CMake to facilitate your data record with extension `mcux_set_variable`.
