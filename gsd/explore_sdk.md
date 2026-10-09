@@ -95,7 +95,7 @@ SDK documentation is distributed across multiple locations:
 - Component repositories - API documentation and integration guides
 - Board directories - Hardware-specific setup instructions
 
-For complete documentation, refer to the [online documentation](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/).
+For complete documentation, refer to the [online documentation](https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/).
 
 ## Understanding Example Structure
 

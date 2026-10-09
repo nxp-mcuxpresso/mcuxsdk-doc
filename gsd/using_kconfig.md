@@ -481,7 +481,7 @@ Now the Serial Monitor will display the newly added Shell terminal.
 You may enter the same commands from the Shell example. However, now the valid use case is only for `led on 1` due to the simplified commands.
 
 ## Additional Resources
--	[Configuration System Based on Kconfig](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Configuration_System.html#configuration-system-based-on-kconfig)
--	[Kconfig interactive tools: guiconfig and menuconfig](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Configuration_System.html#kconfig-usage)
--	[MCUXpresso SDK Customized Kconfig Rules](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Configuration_System.html#mcuxpresso-sdk-customized-kconfig-rules)
--   [MCUXpresso FAQs on Kconfig](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Frequently_Asked_Questions.html#kconfig)
+-	[Configuration System Based on Kconfig](https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/develop/build_system/Configuration_System.html#configuration-system-based-on-kconfig)
+-	[Kconfig interactive tools: guiconfig and menuconfig](https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/develop/build_system/Configuration_System.html#kconfig-usage)
+-	[MCUXpresso SDK Customized Kconfig Rules](https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/develop/build_system/Configuration_System.html#mcuxpresso-sdk-customized-kconfig-rules)
+-   [MCUXpresso FAQs on Kconfig](https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/develop/build_system/Frequently_Asked_Questions.html#kconfig)

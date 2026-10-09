@@ -130,7 +130,7 @@ enabling:
 - [MCUXpresso Software and Tools Forum](https://community.nxp.com/t5/MCUXpresso-Software-and-Tools/ct-p/mcuxpresso)
 
 ### Documentation
-- Comprehensive guides and API documentation [online](https://mcuxpresso.nxp.com/mcuxsdk/latest/html/index.html)
+- Comprehensive guides and API documentation [online](https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/index.html)
 
 ### Technical Support
 - [NXP Support](https://www.nxp.com/support/support:SUPPORTHOME) for

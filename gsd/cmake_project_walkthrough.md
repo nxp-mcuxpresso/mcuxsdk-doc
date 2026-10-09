@@ -260,8 +260,8 @@ include(
       #    Ref: Example Development -> Kconfig/prj.conf merge and project customization
       #         (the project macro triggers Kconfig and merges prj.conf with board/device)
       #         [Docs] Build System / Example Development
-      #         https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/sdk/example_development.html
-      #         https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Build_System.html
+      #         https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/develop/sdk/example_development.html
+      #         https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/develop/build_system/Build_System.html
       # ────────────────────────────────────────────────────────────────────────────────
       cmake_minimum_required(VERSION 3.22.0)
       cmake_path(APPEND conf_file_path ${CMAKE_CURRENT_LIST_DIR} ${board}_${core_id} prj.conf)
@@ -273,7 +273,7 @@ include(
       #    It *prepares* the environment so that the customized `project(...)` macro
       #    can run Kconfig in the next step.
       #    Ref: Build System Based on CMake (mcux.cmake responsibilities)
-      #         https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Build_System.html
+      #         https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/develop/build_system/Build_System.html
       # ────────────────────────────────────────────────────────────────────────────────
       include(
           ${SdkRootDirPath}/cmake/extension/mcux.cmake
@@ -296,7 +296,7 @@ include(
       #
       #    Ref: Build System Based on CMake (steps inside project)
       #         "Execute Kconfig process to get .config and config headers"
-      #         https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Build_System.html
+      #         https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/develop/build_system/Build_System.html
       # ────────────────────────────────────────────────────────────────────────────────
       project(
           hello_world
@@ -320,8 +320,8 @@ include(
       #    component guard evaluates true here.
       #
       #    Ref: Build System "assembly point" description; Software Component guard pattern
-      #         https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Build_System.html
-      #         https://mcuxpresso.nxp.com/mcuxsdk/25.03.00/html/develop/sdk/component_development.html
+      #         https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/develop/build_system/Build_System.html
+      #         https://docs.mcuxpresso.nxp.com/mcuxsdk/25.03.00/develop/sdk/component_development.html
       # ────────────────────────────────────────────────────────────────────────────────
       include(
           ${SdkRootDirPath}/CMakeLists.txt
@@ -347,7 +347,7 @@ include(
       #    still depends on the Kconfig symbol set during `project(...)`.
       #
       #    Ref: Software Component CMakeLists pattern (mcux_add_source / mcux_add_include)
-      #         https://mcuxpresso.nxp.com/mcuxsdk/25.03.00/html/develop/sdk/component_development.html
+      #         https://docs.mcuxpresso.nxp.com/mcuxsdk/25.03.00/develop/sdk/component_development.html
       # ────────────────────────────────────────────────────────────────────────────────
       mcux_add_include(
           BASE_PATH ${CMAKE_CURRENT_LIST_DIR}/include
@@ -361,8 +361,8 @@ include(
       #    or configuration.
       #
       #    Ref: Example Development & Build System notes on reconfig.cmake
-      #         https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/sdk/example_development.html
-      #         https://mcuxpresso.nxp.com/mcuxsdk/latest/html/develop/build_system/Build_System.html
+      #         https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/develop/sdk/example_development.html
+      #         https://docs.mcuxpresso.nxp.com/mcuxsdk/latest/develop/build_system/Build_System.html
       # ────────────────────────────────────────────────────────────────────────────────
       # processed ${SdkRootDirPath}/${board_root}/${board}/demo_apps/hello_world/reconfig.cmake
       mcux_convert_binary(BINARY ${APPLICATION_BINARY_DIR}/${MCUX_SDK_PROJECT_NAME}.bin)
