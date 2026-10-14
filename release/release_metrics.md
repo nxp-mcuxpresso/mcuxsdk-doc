@@ -62,7 +62,7 @@ The tabulated results cover findings that are classified as issues.
 |[devices_RT/RT500](# "devices\/RT\/RT500\/.*")|0|0|0|0|
 |[devices_RT/RT600](# "devices\/RT\/RT600\/.*")|0|0|0|0|
 |[devices_RT/RT700](# "devices\/RT\/RT700\/.*")|0|0|0|4|
-|[devices_RT](# "(devices&#124;devices_int)\/RT\/.*")|0|0|0|0|
+|[devices_RT](# "(devices&#124;devices_int)\/RT\/.*")|0|0|6|1|
 |[devices_Wireless/KW](# "devices\/Wireless\/KW\/.*")|0|0|4|0|
 |[devices_Wireless/RW](# "devices\/Wireless\/RW\/(?!.*\/fsl_iped\.[ch]$&#124;.*\/drivers\/romapi\/.*$).*$")|0|0|0|0|
 |[devices_Wireless/RW_iped](# "devices\/Wireless\/RW\/.*\/fsl_iped\.[ch]$")|0|0|0|0|
@@ -81,7 +81,7 @@ The tabulated results cover findings that are classified as issues.
 |[drivers/sbom](# "SBOM\.spdx\.json; SBOM.spdx.json")|0|0|0|0|
 |[drivers/biss](# "drivers\/biss\/.*")|0|0|0|0|
 |[drivers/endat2](# "drivers\/endat2p2\/.*")|0|0|0|0|
-|[drivers/endat3](# "drivers\/endat3\/.*")|0|0|3|2|
+|[drivers/endat3](# "drivers\/endat3\/.*")|0|0|2|2|
 |[drivers/hiperface](# "drivers\/hiperface\/.*")|0|0|0|0|
 |[drivers/acmp](# "drivers\/acmp\/.*")|0|0|0|0|
 |[drivers/acmp_1](# "drivers\/acmp_1\/.*")|0|0|0|0|
@@ -143,7 +143,7 @@ The tabulated results cover findings that are classified as issues.
 |[drivers/dcdc_1](# "drivers\/dcdc_1\/.*")|0|0|0|0|
 |[drivers/dcic](# "drivers\/dcic\/.*")|0|0|0|0|
 |[drivers/dcif](# "drivers\/dcif\/.*")|0|0|0|0|
-|[drivers/dcif_1](# "drivers\/dcif_1\/.*")|0|0|0|0|
+|[drivers/dcif_1](# "drivers\/dcif_1\/.*")|0|0|3|0|
 |[drivers/dcp](# "drivers\/dcp\/.*")|0|0|0|0|
 |[drivers/dma](# "drivers\/dma\/.*")|0|0|0|0|
 |[drivers/dma3](# "drivers\/dma3\/.*")|0|0|0|1|
@@ -220,7 +220,7 @@ The tabulated results cover findings that are classified as issues.
 |[drivers/ewm](# "drivers\/ewm\/.*; examples\/driver_examples\/ewm\/.*")|0|0|0|0|
 |[drivers/flash](# "drivers\/flash\/.*")|0|0|0|0|
 |[drivers/flash_ftmr](# "drivers\/flash_ftmr\/.*")|0|0|0|0|
-|[drivers/flash_k4](# "drivers\/flash_k4\/.*")|0|0|0|0|
+|[drivers/flash_k4](# "drivers\/flash_k4\/.*")|0|0|1|1|
 |[drivers/flash_k4_iap](# "drivers\/flash_k4_iap\/.*")|0|0|0|0|
 |[drivers/flashiap](# "drivers\/flashiap\/.*")|0|0|0|0|
 |[drivers/flash_c40](# "drivers\/flash_c40\/.*")|0|0|0|0|
@@ -236,8 +236,8 @@ The tabulated results cover findings that are classified as issues.
 |[drivers/flexio_camera](# "drivers\/flexio\/camera\/.*")|0|0|0|0|
 |[drivers/flexio_i2c](# "drivers\/flexio\/i2c\/.*")|0|0|0|0|
 |[drivers/flexio_mculcd](# "drivers\/flexio\/mculcd\/.*")|0|0|0|0|
-|[drivers/flexio_spi](# "drivers\/flexio\/spi\/.*")|0|0|0|1|
-|[drivers/flexio_uart](# "drivers\/flexio\/uart\/.*")|0|0|0|1|
+|[drivers/flexio_spi](# "drivers\/flexio\/spi\/.*")|0|0|0|0|
+|[drivers/flexio_uart](# "drivers\/flexio\/uart\/.*")|0|0|0|0|
 |[drivers/flexio_trigger](# "drivers\/flexio\/.*")|0|0|0|2|
 |[drivers/flexpwm](# "drivers\/flexpwm\/.*")|0|0|0|0|
 |[drivers/flexram](# "drivers\/flexram\/.*")|0|0|0|0|
@@ -247,7 +247,7 @@ The tabulated results cover findings that are classified as issues.
 |[drivers/fmeas](# "drivers\/fmeas\/.*")|0|0|0|0|
 |[drivers/fract_pll](# "drivers\/fract_pll\/.*")|0|0|0|0|
 |[drivers/ftm](# "drivers\/ftm\/.*")|0|0|0|0|
-|[drivers/gdet](# "drivers\/gdet\/.*")|0|0|0|0|
+|[drivers/gdet](# "drivers\/gdet\/.*")|0|0|2|0|
 |[drivers/gdma](# "drivers\/gdma\/.*")|0|0|0|0|
 |[drivers/gint](# "drivers\/gint\/.*")|0|0|0|0|
 |[drivers/glikey](# "drivers\/glikey\/.*")|0|0|0|0|
@@ -328,7 +328,7 @@ The tabulated results cover findings that are classified as issues.
 |[drivers/lpit](# "drivers\/lpit\/.*")|0|0|0|0|
 |[drivers/lpit_trigger](# "drivers\/lpit\/.*")|0|0|0|0|
 |[drivers/lpsci](# "drivers\/lpsci\/.*")|0|0|0|0|
-|[drivers/lpspi](# "drivers\/lpspi\/.*")|0|0|5|0|
+|[drivers/lpspi](# "drivers\/lpspi\/.*")|0|0|2|0|
 |[drivers/lpspi_trigger](# "drivers\/lpspi\/.*")|0|0|0|0|
 |[drivers/lptmr](# "drivers\/lptmr\/.*")|0|0|0|0|
 |[drivers/lptmr_trigger](# "drivers\/lptmr\/.*")|0|0|0|0|
@@ -449,8 +449,8 @@ The tabulated results cover findings that are classified as issues.
 |[drivers/snvs_lp](# "drivers\/snvs_lp\/.*")|0|0|0|0|
 |[drivers/software_i2s](# "drivers\/software_i2s\/.*")|0|0|0|0|
 |[drivers/spc](# "drivers\/spc\/.*")|0|0|0|0|
-|[drivers/spdif](# "drivers\/spdif\/.*")|0|0|2|1|
-|[drivers/spi](# "drivers\/spi\/.*")|0|0|0|1|
+|[drivers/spdif](# "drivers\/spdif\/.*")|0|0|0|1|
+|[drivers/spi](# "drivers\/spi\/.*")|0|0|0|0|
 |[drivers/spifi](# "drivers\/spifi\/.*")|0|0|0|0|
 |[drivers/spm](# "drivers\/spm\/.*")|0|0|0|0|
 |[drivers/sramc](# "drivers\/sramc\/.*")|0|0|0|0|
@@ -475,7 +475,7 @@ The tabulated results cover findings that are classified as issues.
 |[drivers/tmu_1](# "drivers\/tmu_1\/.*")|0|0|0|0|
 |[drivers/tmu_2](# "drivers\/tmu_2\/.*")|0|0|0|0|
 |[drivers/tmu_3](# "drivers\/tmu_3\/.*")|0|0|0|0|
-|[drivers/tpm](# "drivers\/tpm\/.*")|0|0|0|3|
+|[drivers/tpm](# "drivers\/tpm\/.*")|0|0|8|3|
 |[drivers/tpm_trigger](# "drivers\/tpm\/.*")|0|0|0|0|
 |[drivers/trdc](# "drivers\/trdc\/.*")|0|0|0|0|
 |[drivers/trdc_1](# "drivers\/trdc_1\/.*")|0|0|0|0|
@@ -514,16 +514,16 @@ The tabulated results cover findings that are classified as issues.
 |[drivers/xrdc](# "drivers\/xrdc\/.*")|0|0|0|0|
 |[drivers/xrdc2](# "drivers\/xrdc2\/.*")|0|0|0|0|
 |[drivers/xspi](# "drivers\/xspi\/.*")|0|0|0|2|
-|[drivers](# "drivers\/.*")|0|0|0|16|
+|[drivers](# "drivers\/.*")|0|0|1|16|
 |[midware_coex](# "middleware\/wireless\/coex\/.*")|0|0|1|2|
 |[midware_audio_voice_components](# "middleware\/audio_voice\/components\/.*")|0|0|0|0|
 |[midware_edgefast_bluetooth](# "middleware\/edgefast_bluetooth\/.*")|0|0|0|0|
-|[midware_edgefast_open](# "middleware\/edgefast_open\/(?!examples\/).*")|0|0|0|160|
+|[midware_edgefast_open](# "middleware\/edgefast_open\/(?!examples\/).*")|0|0|0|64|
 |[midware_eiq](# "middleware\/eiq\/.*")|0|0|12|33|
 |[midware_eiq_int](# "middleware\/eiq_int\/.*")|0|0|0|0|
-|[middleware_wireless/framework](# "middleware\/wireless\/framework\/.*; examples\/frdmmcxw72\/wireless_examples\/linker\/.*; examples\/frdmmcxw71\/wireless_examples\/linker\/.*; examples\/mcxw72evk\/wireless_examples\/linker\/.*")|0|0|2|1|
+|[middleware_wireless/framework](# "middleware\/wireless\/framework\/.*; examples\/frdmmcxw72\/wireless_examples\/linker\/.*; examples\/frdmmcxw71\/wireless_examples\/linker\/.*; examples\/mcxw72evk\/wireless_examples\/linker\/.*")|0|0|10|1|
 |[middleware_wireless/ethermind](# "middleware\/wireless\/ethermind\/.*")|0|0|0|0|
-|[middleware_wireless/bluetooth](# "middleware\/wireless\/bluetooth\/.*")|0|0|133|1|
+|[middleware_wireless/bluetooth](# "middleware\/wireless\/bluetooth\/.*")|0|0|4|1|
 |[middleware_wireless/XCVR](# "middleware\/wireless\/XCVR\/.*")|0|0|0|0|
 |[middleware_wireless/ble_controller](# "middleware\/wireless\/ble_controller\/.*; middleware\/wireless\/fw_v19_nb\/.*")|0|0|1|0|
 |[middleware_wireless/genfsk](# "middleware\/wireless\/genfsk\/.*")|0|0|0|0|
@@ -543,7 +543,7 @@ The tabulated results cover findings that are classified as issues.
 |[midware_soem](# "middleware\/soem\/.*")|0|0|0|0|
 |[midware_freemodbus](# "middleware\/freemodbus\/.*")|0|0|0|0|
 |[midware_canopennode](# "middleware\/canopennode\/.*")|0|0|0|17|
-|[midware_maestro](# "middleware\/audio_voice\/maestro\/.*")|0|0|1|29|
+|[midware_maestro](# "middleware\/audio_voice\/maestro\/.*")|0|0|1|35|
 |[midware_mbed-crypto](# "middleware\/mbed-crypto\/.*")|0|0|0|0|
 |[midware_mbedtls](# "middleware\/mbedtls\/.*")|0|0|0|8|
 |[midware_mflash](# "middleware\/mflash\/.*")|0|0|0|0|
@@ -552,7 +552,7 @@ The tabulated results cover findings that are classified as issues.
 |[midware_metering](# "middleware\/metering\/.*")|0|0|2|0|
 |[midware_multicore/erpc](# "middleware\/multicore\/erpc\/.*")|0|0|0|0|
 |[midware_multicore/mcmgr](# "middleware\/multicore\/mcmgr\/.*")|0|0|0|0|
-|[midware_multicore/rpmsg](# "middleware\/multicore\/rpmsg-lite\/.*")|0|0|1|0|
+|[midware_multicore/rpmsg](# "middleware\/multicore\/rpmsg-lite\/.*")|0|0|0|0|
 |[midware_multicore](# "middleware\/multicore\/.*")|0|0|0|0|
 |[midware_neo_isp](# "middleware\/neo_isp\/.*; examples\/demo_apps\/isp_ccl\/.*; examples\/.*\/demo_apps\/isp_ccl\/.*")|0|0|1|1|
 |[midware_ntag_i2c_plus](# "middleware\/ntag_i2c_plus\/.*")|0|0|0|0|
@@ -563,11 +563,11 @@ The tabulated results cover findings that are classified as issues.
 |[midware_se_hostlib](# "middleware\/se_hostlib\/.*")|0|0|0|0|
 |[midware_secure-subsystem](# "middleware\/secure-subsystem\/.*")|0|0|0|0|
 |[midware_touch](# "middleware\/touch\/.*")|0|0|4|12|
-|[midware_usb](# "middleware\/usb\/.*; ecosystem\/middleware\/usb\/.*")|0|0|0|42|
+|[midware_usb](# "middleware\/usb\/.*; ecosystem\/middleware\/usb\/.*")|0|0|1|40|
 |[midware_voice_seeker](# "middleware\/audio_voice\/components\/voice_seeker\/.*")|0|0|0|0|
 |[midware_voice_spot](# "middleware\/audio_voice\/components\/voice_spot\/.*")|0|0|0|0|
 |[midware_vit](# "middleware\/audio_voice\/components\/vit\/.*")|0|0|0|0|
-|[midware_wifi](# "middleware\/wifi_nxp\/.*")|0|1|11|99|
+|[midware_wifi](# "middleware\/wifi_nxp\/.*")|0|1|13|100|
 |[multicore_examples/rpmsg_lite_pingpong_rtos_linux](# "examples\/multicore_examples\/rpmsg_lite_pingpong_rtos_linux\/.*")|0|0|0|0|
 |[multicore_examples/rpmsg_lite_pingpong_rtos_no_mcmgr](# "examples\/multicore_examples\/rpmsg_lite_pingpong_rtos_no_mcmgr\/.*")|0|0|0|0|
 |[multicore_examples/rpmsg_lite_str_echo_rtos](# "examples\/multicore_examples\/rpmsg_lite_str_echo_rtos\/.*")|0|0|0|0|
@@ -591,6 +591,7 @@ The tabulated results cover findings that are classified as issues.
 |[mcuxsdk_license](# "MCUX_VERSION; tool.yml; LA_OPT_NXP_Software_License.htm; LA_OPT_NXP_Software_License.txt; COPYING-BSD-3; SCR.txt")|0|0|0|0|
 |[conn_prebuild_generated](# "_build\/pdum_gen\.(c&#124;h); _build\/zps_gen\.(c&#124;h)")|0|0|0|0|
 |[components/sbom](# "components\/SBOM\.spdx\.json")|0|0|0|0|
+|[components/adc_sensor](# "components\/adc_sensor\/.*")|0|0|0|0|
 |[components/adp5585](# "components\/expander\/adp5585\/.*")|0|0|0|0|
 |[components/assert](# "components\/assert\/.*")|0|0|0|0|
 |[components/audio](# "components\/audio\/.*")|0|0|0|2|
@@ -628,7 +629,8 @@ The tabulated results cover findings that are classified as issues.
 |[components/edgefast_wifi](# "components\/edgefast_wifi\/.*")|0|0|0|1|
 |[components/ele_base_api](# "components\/ele_base_api\/.*")|0|0|0|0|
 |[components/v2x_base](# "components\/v2x_base\/.*; examples\/v2x_base_examples\/.*")|0|0|0|0|
-|[components/v2x_fce](# "components\/v2x_fce\/.*; examples\/v2x_fce_examples\/.*")|0|0|0|1|
+|[components/v2x_fce](# "components\/v2x_fce\/.*; examples\/v2x_fce_examples\/.*")|0|0|0|2|
+|[components/serial_mux](# "components\/serial_mux\/.*; examples\/serial_mux_examples\/.*")|0|0|0|0|
 |[components/ele_crypto](# "components\/ele_crypto\/.*; examples\/ele_crypto\/.*")|0|0|0|0|
 |[components/ele_hseb](# "components\/ele_hseb\/.*")|0|0|0|4|
 |[components/crypto_benchmark](# "components\/crypto_benchmark\/.*")|0|0|0|0|
@@ -674,8 +676,8 @@ The tabulated results cover findings that are classified as issues.
 |[components/pmic_pca9420](# "components\/pmic\/pca9420\/.*")|0|0|0|0|
 |[components/pmic_pf9453](# "components\/pmic\/pf9453\/.*; examples\/component_examples\/pmic/pf9453\/.*")|0|0|0|0|
 |[components/power](# "components\/power\/.*")|0|0|0|0|
-|[components/power_manager](# "components\/power_manager\/.*; examples\/demo_apps\/(power_manager(_[a-zA-Z0-9]*)?)\/.*; examples\/_boards\/.*\/demo_apps\/(power_manager(_[a-zA-Z0-9]*)?)\/.*")|0|0|0|1|
-|[components/psa_crypto_driver](# "components\/psa_crypto_driver\/.*")|0|1|1|48|
+|[components/power_manager](# "components\/power_manager\/.*; examples\/demo_apps\/(power_manager(_[a-zA-Z0-9]*)?)\/.*; examples\/_boards\/.*\/demo_apps\/(power_manager(_[a-zA-Z0-9]*)?)\/.*")|0|0|0|0|
+|[components/psa_crypto_driver](# "components\/psa_crypto_driver\/.*")|0|1|1|54|
 |[components/pwm](# "components\/pwm\/.*")|0|0|0|0|
 |[components/reset](# "components\/reset\/.*")|0|0|0|0|
 |[components/reset1](# "components\/reset\/.*")|0|0|0|0|
