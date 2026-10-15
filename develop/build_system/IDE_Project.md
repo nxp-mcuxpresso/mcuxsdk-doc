@@ -29,9 +29,57 @@ After the command runs, the project files are generated into the compilation dir
 
 ![gui_project](./_doc/gui_project.gif)
 
+### Target IAR version
+
+Most project templates in `mcuxsdk/scripts/guigenerator/templates/iar/` were last saved with IAR 9.60. The `guiproject` target copies these templates without modifying the project file version. Therefore, by default, generated projects retain the version compatibility of the original template.
+
+For example, a template saved with IAR 9.60 can be opened with IAR 9.60 or a later release. When you open the project with an older IAR version, IAR reports an error similar to the following:
+
+```text
+The project file '...\hello_world.ewp' was created by a newer version of the product and can not be opened.
+```
+
+To generate a project compatible with an older IAR release, specify the installed IAR version using `--toolchain-version`:
+
+```console
+west build -b frdmk22f examples/demo_apps/hello_world \
+  --toolchain iar --toolchain-version 9.32 -t guiproject
+```
+
+The following IAR versions are supported:
+
+```text
+9.10, 9.20, 9.32, 9.40, 9.50, 9.60, 9.70, 10.10
+```
+
+Specify the version reported by your IAR installation. The generator maps the specified version to the closest supported project format within the corresponding IAR version family.
+
+IAR does not change the project file schema between releases in the same version family. Therefore, one supported project format can cover multiple IAR releases. For example:
+
+- `9.30`, `9.30.2`, `9.31`, and `9.32.1` map to `9.32`.
+- `9.70.4` maps to `9.70`.
+
+If the specified version does not belong to a supported version family, for example `9.80`, the command fails and displays the list of supported versions.
+
+The `--toolchain-version` option is supported by both the `guiproject` and `standalone_project` targets, including when they are used with `--sysbuild`.
+
+If you omit `--toolchain-version`, the generator does not modify the project file version. Specify this option only when you need to generate a project for an older IAR release. In general, a project generated for version `V` requires IAR `V` or later because older IAR releases do not support project settings that reference a newer project file format.
+
+> **Note:**
+>
+> - IAR is currently the only supported toolchain that embeds a version identifier in its project files and prevents projects created with newer releases from being opened with older releases. Therefore, `--toolchain-version` is supported only with `--toolchain iar`. The option is rejected for other toolchains. Support for additional toolchains can be added if a similar compatibility requirement is identified.
+>
+> - Changing the project file version affects only the **project format**. It does not add device definitions to the target IAR installation. The target IAR version must support the SoC used by the generated project.
+>
+>   The generated project selects the target device by name. If the target device is not available in the IAR device database, the compiler does not receive the required `--cpu` option, and the build can fail with an error such as:
+>
+>   ```text
+>   cmsis_compiler.h(66) : Fatal Error[Pe035]: #error directive: "Unknown Arm architecture profile"
+>   ```
+
 ### Standalone Example
 
-Please refer [Standalone Example](./../sdk/example_development.md#standalone-examples) chapter.
+Refer to the [Standalone Example](./../sdk/example_development.md#standalone-examples) chapter.
 
 ## IDE Setting Data
 
