@@ -1,4 +1,8 @@
 """
+
+Copyright 2026 NXP
+SPDX-License-Identifier: Apache-2.0
+
 mcux_search — build-time search index generation (Pagefind).
 
 On build-finished (html builder only), this extension:
