@@ -30,38 +30,16 @@ The following updates were implemented with respect to the previous SDK release 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE Controller**
-    KW47 controller cert listing (Q393205):
-    Core Spec version: 6.3
-    TCRL version: pkg104
-    [5.2] LE Power Control
-    [5.3] Enhanced Conn Update (Connection Subrating) 
-    [6.0] LL Extended Feature Set 
-    [6.0] Monitoring Advertisers 
-    [6.1] Randomized Resolvable Private Address 
-    [6.2] LE Test Mode Enhancements/OTA Control of LE Test Modes
-    [6.3] RTT_N
-    [6.0] TX/SNR 
-    [6.0] CS New timings T_IP1 30/50/60 µs, T_IP2 30/50/60 µs, T_PM 10 µs 
-    [6.0] 2M BT=2
-
-    - Fixed the issue where the gNotifConnEventOver_c Enhanced Notification Event was not reported by the device under certain circumstances.
-    - Fixed the issue where the minimum output power setting was wrong (removed the support of PA index 0).
-    - Fixed the issue where the device crashed due to false positive memory leak detection (an encryption change event is not sent when an HCI reset occurs during the encryption procedure).
-    - Fixed the issue where a device was reset due to memory corruption.
-    - Fixed EBQ certification subrating test LL/CON/CEN/BV-145 (inconclusive EBQ status).
-    - Enhancement: introduced the antenna diversity for Bluetooth LE connection.
-    - Enhancement: increased DC Offset Correction (DCOC) calibration retries from 2 to 4.
+    - Fixed EBQ failure — packet time restrictions not applied after LL_PHY_RSP (LL/CON/PER/BV-53-C).
     PAwR:
-    - Fixed issue where periodic advertising interval was reported as 0 in the LE Periodic Avertising Report event (when Sync Info offset was equal to 0). 
+    - Fixed memory leak in PAWR.
     Handover:
-    - Fixed issue where connection anchor start time computation for small connection intervals (at connection parameter update procedure during RSSI monitoring) was not correct.
-    - Enhancement: removed one extra RX window in some cases during RSSI monitoring to save power.
-    - Enhancement: updated handover anchor search command to reduce the HCI traffic and apply RX latency during RSSI monitoring for low power.
+    - Fixed an issue where after connection handover the connection update procedure causes a disconnection.
+    LEPC:
+    - Fixed EBQ LEPC coded phy tests (LL/PCL/CEN/BV-36-C, LL/PCL/CEN/BV-40-C, LL/PCL/PER/BV-29-C, LL/PCL/PER/BV-40-C).
     Channel Sounding:
-    - Fixed issue where Initiator did not transmit CS-SYNC on different antennas as requested and wrongly reported antenna identifier to Host.
-    - Fixed the issue where CS activity could not be scheduled when high value of subrate factor and latency was used.
-    Genfsk:
-    - Fixed issue where timestamp was invalid after running over 72 minutes.
+    - Fixed incorrect reporting of mode0 step quality in case of CS sniffer mode.
+    - Fixed and issue where BT SIG CS sniffing demo may crash in NBU when environment is noisy.
 
 -   **Transceiver drivers (XCVR)**
     -   Added support for Bluetooth LE Channel Sounding.
