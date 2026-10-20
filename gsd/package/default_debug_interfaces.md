@@ -1,6 +1,7 @@
 # Default debug interfaces
 
-The MCUXpresso SDK supports various hardware platforms that come loaded with various factory programmed debug interface configurations. The following table lists the hardware platforms supported by the MCUXpresso SDK, their default debug firmware, and any version information that helps differentiate a specific interface configuration.
+The MCUXpresso SDK supports various hardware platforms that come loaded with various factory-programmed debug interface configurations. The following table lists the hardware platforms supported by the MCUXpresso SDK, their default debug firmware, and any version information that helps differentiate a specific interface configuration.
+
 
 |Hardware platform|Default debugger firmware|On-board debugger probe|
 |-----------------|-------------------------|-----------------------|
@@ -50,6 +51,7 @@ The MCUXpresso SDK supports various hardware platforms that come loaded with var
 |FRDM-MCXW71|CMSIS-DAP|MCU-Link|
 |FRDM-MCXW72|CMSIS-DAP|MCU-Link|
 |FRDM-RW612|CMSIS-DAP|MCU-Link|
+|FRDM-RW610FML|J-Link|MCU-Link|
 |FRDM-KW43|CMSIS-DAP|MCU-Link|
 |FRDM-MCXW70|CMSIS-DAP|MCU-Link|
 |KW43-LOC|CMSIS-DAP|MCU-Link|

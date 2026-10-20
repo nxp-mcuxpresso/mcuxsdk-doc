@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2985"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   width="638"
+   height="302"
+   sodipodi:docname="ksdk_layers_20.pdf"
+   inkscape:export-filename="D:\oowork\N\freescale\201604\0405-Vicky-201404_grahic project\ksdk_layers_20.png"
+   inkscape:export-xdpi="100"
+   inkscape:export-ydpi="100">
+  <metadata
+     id="metadata2991">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2989">
+    <linearGradient
+       id="linearGradient3949"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;"
+         offset="0"
+         id="stop3951" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3943"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;"
+         offset="0"
+         id="stop3945" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1680"
+     inkscape:window-height="988"
+     id="namedview2987"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="2.2453835"
+     inkscape:cx="492.374"
+     inkscape:cy="72.26695"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer3">
+    <sodipodi:guide
+       orientation="0,1"
+       position="461.55552,234.43261"
+       id="guide3955" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="465.47143,181.17621"
+       id="guide3957" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="3.1327298,198.92834"
+       id="guide4119" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="628.8955,56.389136"
+       id="guide4121" />
+  </sodipodi:namedview>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="层#2"
+     style="display:inline">
+    <rect
+       style="fill:#ffffff;stroke:#030000;stroke-width:3.14255905;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4104"
+       width="628.73682"
+       height="283.76727"
+       x="1.8833978"
+       y="11.416499" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="层#1"
+     style="display:inline">
+    <rect
+       style="fill:#6f34a0;stroke:none"
+       id="rect3173"
+       width="152.19846"
+       height="52.995346"
+       x="319.27737"
+       y="67.567383" />
+    <rect
+       style="fill:#d4510b;stroke:none"
+       id="rect3173-1"
+       width="152.19846"
+       height="52.995346"
+       x="477.17117"
+       y="67.567383" />
+    <rect
+       style="fill:#00af50;stroke:none"
+       id="rect3173-1-1"
+       width="397.34442"
+       height="52.995346"
+       x="231.95251"
+       y="125.65343" />
+    <rect
+       style="fill:#ffc000;stroke:none"
+       id="rect3173-1-5"
+       width="152.19846"
+       height="52.995346"
+       x="74.57766"
+       y="125.65343" />
+    <rect
+       style="fill:#7f7f7f;stroke:none"
+       id="rect3173-1-5-2"
+       width="625.76282"
+       height="51.167919"
+       x="3.4230978"
+       y="243.11673" />
+    <rect
+       style="fill:#595959;stroke:none"
+       id="rect3173-1-5-2-7"
+       width="625.99219"
+       height="51.167919"
+       x="3.213495"
+       y="12.350492" />
+    <rect
+       style="fill:#595959;stroke:none"
+       id="rect3173-1-5-2-7-6"
+       width="309.88419"
+       height="60.397812"
+       x="3.2899578"
+       y="60.425983" />
+    <rect
+       style="fill:#3889ca;stroke:none;display:inline"
+       id="rect3173-1-1-1"
+       width="617.47784"
+       height="50.78017"
+       x="11.819085"
+       y="184.98822" />
+    <rect
+       style="fill:#3889ca;stroke:none;display:inline"
+       id="rect3173-1-5-4"
+       width="65.386459"
+       height="109.9066"
+       x="3.1785717"
+       y="126.13734" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="txt"
+     style="display:inline">
+    <text
+       xml:space="preserve"
+       style="font-size:13.15075874px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ff4444;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Arial Unicode MS;"
+       x="266.89566"
+       y="41.119339"
+       id="text3015"
+       sodipodi:linespacing="125%"
+       transform="scale(0.9996248,1.0003753)"><tspan
+         sodipodi:role="line"
+         id="tspan3017"
+         x="266.89566"
+         y="41.119339"
+         style="fill:#ffffff">Application Code</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.30986404px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:120.00000477%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ff4444;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Arial Unicode MS;"
+       x="381.44641"
+       y="87.456863"
+       id="text3015-1"
+       sodipodi:linespacing="120%"
+       transform="scale(1.0365623,0.96472736)"><tspan
+         sodipodi:role="line"
+         x="381.44641"
+         y="87.456863"
+         style="font-size:12.51163292px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:120.00000477%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Arial Unicode MS;"
+         id="tspan3042">Stacks and Middleware</tspan><tspan
+         sodipodi:role="line"
+         x="381.44641"
+         y="102.47083"
+         style="font-size:12.51163292px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:120.00000477%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Arial Unicode MS;"
+         id="tspan3050">(Connectivity, Security,</tspan><tspan
+         sodipodi:role="line"
+         x="381.44641"
+         y="117.48479"
+         style="font-size:12.51163292px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:120.00000477%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Arial Unicode MS;"
+         id="tspan3046">DMA, Filesystem, etc,)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.30986404px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:129.99999523%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ff4444;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Arial Unicode MS;"
+       x="534.5824"
+       y="102.2677"
+       id="text3015-1-4"
+       sodipodi:linespacing="130%"
+       transform="scale(1.0365623,0.96472735)"><tspan
+         sodipodi:role="line"
+         x="534.5824"
+         y="102.2677"
+         style="font-size:12.51163292px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:120.00000477%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Arial Unicode MS;"
+         id="tspan3046-4">Board Support</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.30986404px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:129.99999523%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ff4444;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Arial Unicode MS;"
+       x="416.3103"
+       y="162.12411"
+       id="text3015-1-4-8"
+       sodipodi:linespacing="130%"
+       transform="scale(1.0365623,0.96472735)"><tspan
+         sodipodi:role="line"
+         x="416.3103"
+         y="162.12411"
+         style="font-size:12.51163292px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:120.00000477%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Arial Unicode MS;"
+         id="tspan3046-4-8">Peripheral Drivers</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.30986404px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:129.99999523%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ff4444;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Arial Unicode MS;"
+       x="145.79277"
+       y="153.62846"
+       id="text3015-1-4-8-2"
+       sodipodi:linespacing="130%"
+       transform="scale(1.0365623,0.96472735)"><tspan
+         sodipodi:role="line"
+         x="145.79277"
+         y="153.62846"
+         style="font-size:12.51163292px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:120.00000477%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Arial Unicode MS;"
+         id="tspan3046-4-8-4">Real Time Kernel</tspan><tspan
+         sodipodi:role="line"
+         x="145.79277"
+         y="168.64243"
+         style="font-size:12.51163292px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:120.00000477%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Arial Unicode MS;"
+         id="tspan3126">(FreeRTOS)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.30986404px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:120.00000477%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ff4444;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Arial Unicode MS;"
+       x="306.07071"
+       y="215.62495"
+       id="text3015-1-4-8-5"
+       sodipodi:linespacing="120%"
+       transform="scale(1.0365623,0.96472735)"><tspan
+         sodipodi:role="line"
+         x="306.07071"
+         y="215.62495"
+         style="font-size:12.51163292px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:120.00000477%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Arial Unicode MS;"
+         id="tspan3046-4-8-5">CMSIS-CORE and CMSIS-DSP</tspan><tspan
+         sodipodi:role="line"
+         x="306.07071"
+         y="229.40648"
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:120.00000477%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Arial Unicode MS;"
+         id="tspan3149">(Device Header Files: Core Access Functions, Intrinsics, Peripheral &amp; Interrupt Definitions, DSP Library)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.30986404px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:129.99999523%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ff4444;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Arial Unicode MS;"
+       x="304.54956"
+       y="282.11624"
+       id="text3015-1-4-8-1"
+       sodipodi:linespacing="130%"
+       transform="scale(1.0365623,0.96472735)"><tspan
+         sodipodi:role="line"
+         x="304.54956"
+         y="282.11624"
+         style="font-size:12.51163292px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:120.00000477%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Arial Unicode MS;"
+         id="tspan3046-4-8-7">Microcontroller Hardware</tspan></text>
+  </g>
+</svg>

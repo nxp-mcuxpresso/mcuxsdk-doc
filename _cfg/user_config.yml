@@ -2317,6 +2317,24 @@ modules:
     doxygen_runner:
       doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_RW612
       outdir: drivers/Wireless/RW/RW612
+  board_frdmrw610fml:
+    default: true
+    external_contents:
+    - root: docs
+      pattern: boards/index.rst
+    - root: docs
+      pattern: boards/Wireless/index.rst
+    - root: docs
+      pattern: boards/Wireless/frdmrw610fml/*
+    - root: .
+      pattern: examples/_boards/frdmrw610fml/**/*.md
+    - root: .
+      pattern: drivers/Wireless/RW/RW610/index.rst
+    - root: .
+      pattern: devices/Wireless/RW/RW610/drivers/**/ChangeLog_*.md
+    doxygen_runner:
+      doxyfile: docs/_doxygen/lib_dox_v1/Doxyfile_lib_PDF_RM_RW610
+      outdir: drivers/Wireless/RW/RW610
   board_kw45b41zevk:
     default: true
     external_contents:
