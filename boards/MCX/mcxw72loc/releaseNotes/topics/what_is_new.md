@@ -7,23 +7,23 @@ The following updates were implemented with respect to the previous SDK release 
     ### Note: Version 1.10.23 is the first NXP Bluetooth LE Host release officially certified according to the Bluetooth® Core Specification Version 6.3.
 
     ### Added
-	-   LE Power Control can now be enabled/disabled at application level via `gHostInclusionLePowerControl_d`.
+	-   Low Energy (LE) Power Control can now be enabled/disabled at application level via `gHostInclusionLePowerControl_d`.
 
     ### Improved
 	-   Ranging algorithm productization: added logging module and result streaming.
 
     ### Fixed
-	-   Fixed Host Privacy scan response data length mismatch (31 vs 17 bytes).
+	-   Fixed Host Privacy scan response data length mismatch (31 versus 17 bytes).
 	-   Fixed BusFault in the RADE algorithm caused by invalid buffer pointers.
 	-   Fixed distance measurement accuracy (~0.5 m double-correction) and refined phase correction.
-	-   Ensured `csAlgoBuf` is the last member in its structure.
+	-   Ensured that `csAlgoBuf` is the last member in its structure.
 	-   Miscellaneous Coverity fixes.
 	-   Miscellaneous CERT-C fixes.
 	-   Miscellaneous MISRA fixes.
 	-   Miscellaneous MSG fixes.
 
     ### Changed
-	-  Added application-level mitigation for BLERP forced re-pairing attacks.
+	-  Added application-level mitigation for Bluetooth Low Energy Re-Pairing (BLERP) forced re-pairing attacks.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
@@ -32,6 +32,9 @@ The following updates were implemented with respect to the previous SDK release 
     PAwR:
     - Fixed memory leak in PAWR.
     Handover:
+    - Fixed issue where connection anchor start time computation for small connection intervals (at connection parameter update procedure during Received Signal Strength Indicator (RSSI) monitoring) was not correct.
+    - Enhancement: removed one extra RX window in some cases during RSSI monitoring to save power.
+    - Enhancement: updated handover anchor search command to reduce the HCI traffic and apply RX latency during RSSI monitoring for low power.
     - Fixed an issue where after connection handover the connection update procedure causes a disconnection.
     LEPC:
     - Fixed EBQ LEPC coded phy tests (LL/PCL/CEN/BV-36-C, LL/PCL/CEN/BV-40-C, LL/PCL/PER/BV-29-C, LL/PCL/PER/BV-40-C).

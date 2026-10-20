@@ -7,34 +7,34 @@ The following updates were implemented with respect to the previous SDK release 
     ### Note: Version 1.10.23 is the first NXP Bluetooth LE Host release officially certified according to the Bluetooth® Core Specification Version 6.3.
 
     ### Added
-	-   LE Power Control can now be enabled/disabled at application level via `gHostInclusionLePowerControl_d`.
+	-   Low Energy (LE) Power Control can now be enabled/disabled at application level via `gHostInclusionLePowerControl_d`.
 
     ### Improved
-	-   PSA integration: optimized BLE Host stack size per application for KW43/MCXW70.
+	-   Platform Security Architecture (PSA) integration: optimized BLE Host stack size per application for KW43/MCXW70.
 	-   Reduced anchor monitoring current consumption by lowering the monitoring rate.
-	-   Anchor Monitor: added RSSI value display.
+	-   Anchor Monitor: added Received Signal Strength Indicator (RSSI) value display.
 	-   KW43 BLE Host memory review and optimization.
 	-   Handover time synchronization optimization.
 	-   Ranging algorithm productization: added logging module and result streaming.
 
     ### Fixed
-	-   Fixed BTCS server corrupting L2CAP segments when a subevent's step data spans a segment boundary.
+	-   Fixed Bluetooth Channel Sounding (BTCS) server corrupting L2CAP segments when the step data of a subevent spans a segment boundary.
 	-   Handover: added API to set the LL CS context by monitored connection handle, fixing `Gap_HandoverSetCsLlContext` after handover in the KW47 CS CCC demo.
 	-   Handover: correctly handle `gHandoverAnchorSearchStartLl_c` on supervision timeout.
-	-   Fixed Host Privacy scan response data length mismatch (31 vs 17 bytes).
+	-   Fixed Host Privacy scan response data length mismatch (31 versus 17 bytes).
 	-   Fixed BusFault in the RADE algorithm caused by invalid buffer pointers.
 	-   Fixed digital_key CS and localization application failures on frdmkw43/kw43loc.
 	-   Prevented out-of-bounds array access and enforced NULL pointer detection in sample applications.
 	-   Fixed KW43-LOC RF switch control.
 	-   Fixed distance measurement accuracy (~0.5 m double-correction) and refined phase correction.
-	-   Ensured `csAlgoBuf` is the last member in its structure.
+	-   Ensured that `csAlgoBuf` is the last member in its structure.
 	-   Miscellaneous Coverity fixes.
 	-   Miscellaneous CERT-C fixes.
 	-   Miscellaneous MISRA fixes.
 	-   Miscellaneous MSG fixes.
 
     ### Changed
-	-  Added application-level mitigation for BLERP forced re-pairing attacks.
+	-  Added application-level mitigation for Bluetooth Low Energy Re-Pairing (BLERP) forced re-pairing attacks.
 	-  Removed dead reassembly code from the BTCS client.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
