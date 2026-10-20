@@ -1,26 +1,23 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.09.00-pvw2\).
+The following updates were implemented with respect to the previous SDK release version \(26.09.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Note: Version 1.10.23 is the first NXP Bluetooth LE Host release officially certified according to the Bluetooth® Core Specification Version 6.3.
 
     ### Added
-	-   Added Wireless UART support for NBU core-dump packet reception (`gEnableCoredumpPackets`).
-
+	-   LE Power Control can now be enabled/disabled at application level via `gHostInclusionLePowerControl_d`.
 
     ### Fixed
-	-   Fixed ExtendedFeatures mismatch between GAPInit and the `HCILEReadAllRemoteFeaturesCompleteevent`.
-	-   Fixed EATT out-of-bounds read in `IsEnhncdChanReconfInProgress()`.
-	-   Fixed `GattDbDynamic_AddCharServiceChanged` using Notify instead of Indicate property.
-	-   Fixed `ShellGap_ConnectFromPawr` setting the success status incorrectly.
+	-   Fixed Host Privacy scan response data length mismatch (31 vs 17 bytes).
 	-   Miscellaneous Coverity fixes.
 	-   Miscellaneous CERT-C fixes.
 	-   Miscellaneous MISRA fixes.
+	-   Miscellaneous MSG fixes.
 
     ### Changed
-	-   Bluetooth 6.3 Compliance: removed Data Signing (LE Security Mode 2).
+	-  Added application-level mitigation for BLERP forced re-pairing attacks.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

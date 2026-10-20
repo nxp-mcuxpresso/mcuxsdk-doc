@@ -1,28 +1,29 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.09.00-pvw2\).
+The following updates were implemented with respect to the previous SDK release version \(26.09.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Note: Version 1.10.23 is the first NXP Bluetooth LE Host release officially certified according to the Bluetooth® Core Specification Version 6.3.
 
+    ### Added
+	-   LE Power Control can now be enabled/disabled at application level via `gHostInclusionLePowerControl_d`.
+
     ### Improved
-	-   Optimized stack sizes for the PSA module (MCX W70/KW43).
-	-   Added `MinimalHeapSize_c` to all localization applications, scaled for RADE2 and number of connections.
-	-   Optimized memory buffer values in the loc_reader Channel Sounding application.
-	-   Updated wireless ranging Python host application setup documentation (Python 3.12+ supported).
+	-   Ranging algorithm productization: added logging module and result streaming.
 
     ### Fixed
-	-   Fixed ExtendedFeatures mismatch between GAPInit and the `HCILEReadAllRemoteFeaturesCompleteevent`.
-	-   Fixed EATT out-of-bounds read in `IsEnhncdChanReconfInProgress()`.
-	-   Fixed `GattDbDynamic_AddCharServiceChanged` using Notify instead of Indicate property.
-	-   Fixed `ShellGap_ConnectFromPawr` setting the success status incorrectly.
+	-   Fixed Host Privacy scan response data length mismatch (31 vs 17 bytes).
+	-   Fixed BusFault in the RADE algorithm caused by invalid buffer pointers.
+	-   Fixed distance measurement accuracy (~0.5 m double-correction) and refined phase correction.
+	-   Ensured `csAlgoBuf` is the last member in its structure.
 	-   Miscellaneous Coverity fixes.
 	-   Miscellaneous CERT-C fixes.
 	-   Miscellaneous MISRA fixes.
+	-   Miscellaneous MSG fixes.
 
     ### Changed
-	-   Bluetooth 6.3 Compliance: removed Data Signing (LE Security Mode 2).
+	-  Added application-level mitigation for BLERP forced re-pairing attacks.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

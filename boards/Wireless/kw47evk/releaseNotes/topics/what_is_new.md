@@ -1,33 +1,37 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.09.00-pvw2\).
+The following updates were implemented with respect to the previous SDK release version \(26.09.00\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Note: Version 1.10.23 is the first NXP Bluetooth LE Host release officially certified according to the Bluetooth® Core Specification Version 6.3.
 
     ### Added
-	-   Added Wireless UART support for NBU core-dump packet reception (`gEnableCoredumpPackets`).
+	-   LE Power Control can now be enabled/disabled at application level via `gHostInclusionLePowerControl_d`.
 
     ### Improved
-	-   Added `MinimalHeapSize_c` to all localization applications, scaled for RADE2 and number of connections.
-	-   Optimized memory buffer values in the loc_reader Channel Sounding application.
-	-   Reworked `setcsconfig` and `setcsproc` shell commands for per-parameter updates in localization applications.
-	-   Updated wireless ranging Python host application setup documentation (Python 3.12+ supported).
-	-   Updated CCC Digital Key R3 Sample Applications connection handover features.
+	-   Reduced anchor monitoring current consumption by lowering the monitoring rate.
+	-   Anchor Monitor: added RSSI value display.
+	-   Handover time synchronization optimization.
+	-   Ranging algorithm productization: added logging module and result streaming.
 
     ### Fixed
-	-   Fixed ExtendedFeatures mismatch between GAPInit and the `HCILEReadAllRemoteFeaturesCompleteevent`.
-	-   Fixed EATT out-of-bounds read in `IsEnhncdChanReconfInProgress()`.
-	-   Fixed CCC demo CS ranging procedure counter wrapping past 0xFFFF.
-	-   Fixed `GattDbDynamic_AddCharServiceChanged` using Notify instead of Indicate property.
-	-   Fixed `ShellGap_ConnectFromPawr` setting the success status incorrectly.
+	-   Fixed BTCS server corrupting L2CAP segments when a subevent's step data spans a segment boundary.
+	-   Handover: added API to set the LL CS context by monitored connection handle, fixing `Gap_HandoverSetCsLlContext` after handover in the KW47 CS CCC demo.
+	-   Handover: correctly handle `gHandoverAnchorSearchStartLl_c` on supervision timeout.
+	-   Fixed Host Privacy scan response data length mismatch (31 vs 17 bytes).
+	-   Fixed BusFault in the RADE algorithm caused by invalid buffer pointers.
+	-   Prevented out-of-bounds array access and enforced NULL pointer detection in sample applications.
+	-   Fixed distance measurement accuracy (~0.5 m double-correction) and refined phase correction.
+	-   Ensured `csAlgoBuf` is the last member in its structure.
 	-   Miscellaneous Coverity fixes.
 	-   Miscellaneous CERT-C fixes.
 	-   Miscellaneous MISRA fixes.
+	-   Miscellaneous MSG fixes.
 
     ### Changed
-	-   Bluetooth 6.3 Compliance: removed Data Signing (LE Security Mode 2).
+	-  Added application-level mitigation for BLERP forced re-pairing attacks.
+	-  Removed dead reassembly code from the BTCS client.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
