@@ -16,9 +16,8 @@ This release spans **72 updated sub-repositories**, **3 newly added components**
   RW610/IW610 p141; Bluetooth host v1.10.23; edgefast_open migration complete;
   new MSTP library added.
 - **ML / AI:** ExecuTorch upgraded to v1.4.1; Neutron NPU SDK updated to v3.2.2;
-  MPP updated to v4.4.0.
-- **RTOS:** FreeRTOS-Plus-TCP updated to V4.4.1. 
-- **Boot:** MCUboot updated to v2.4.0.
+  MPP updated to v4.4.0; new Neo ISP component added.
+- **RTOS:** FreeRTOS kernel and FreeRTOS-Plus-TCP updated; MCUboot updated to v2.4.0.
 - **Toolchain:** Xtensa toolchain updated to RJ2026_6 across all DSP-capable devices.
 
 ## Release Highlights
@@ -43,17 +42,8 @@ This release spans **72 updated sub-repositories**, **3 newly added components**
    upgraded to ExecuTorch v1.4.1 with Neutron SDK 3.2.2, adding RT700 support and
    `softmax` operator acceleration on the Neutron NPU.
 
-6. **USB Stack** — The version is updated to **2.13.0**.
-      - Fixed memory leaks, improved host stack robustness and security, and enhanced MCX ENET adapter functionality with MII support.
-    - Fixed two vulnerability issues (CVEs are pending).
-      - A missing bounds check on a host-controlled field in the RNDIS device class driver of the NXP MCUXpresso SDK USB middleware up to releases **26.06.00-lts** and **26.09.00-pvw2** allowed a malicious USB host to read arbitrary memory from the connected device. All software versions starting from **26.06.01-lts** and **26.09.00** have fixed this issue.
-
-        *Acknowledgment: NXP would like to thank dread (d7ead) for the responsible disclosure.*
-      - A missing bounds check on a device-controlled field in the USB host video, audio, and CDC class drivers of the NXP MCUXpresso SDK USB middleware up to releases **26.06.00-lts** and **26.09.00-pvw2** allowed a malicious USB device to trigger a heap buffer overflow when connected to an affected host, potentially leading to memory corruption and loss of device availability. All software versions starting from **26.06.01-lts** and **26.09.00** have fixed this issue.
-
-        *Acknowledgment: NXP would like to thank dread (d7ead) for the responsible disclosure.*
-
-Comprehensive bounds-checking and input-validation fixes across USB host class drivers (RNDIS, CDC-ECM, Audio, Video, PHDC, MSC, MTP,
+6. **USB Stack Security Hardening** — Comprehensive bounds-checking and input-validation
+   fixes across USB host class drivers (RNDIS, CDC-ECM, Audio, Video, PHDC, MSC, MTP,
    CCID) addressing potential out-of-bounds reads from malformed USB descriptors.
 
 7. **Wi-Fi Firmware and Driver Updates** — Wi-Fi firmware refreshed to latest patch levels
@@ -73,8 +63,6 @@ Comprehensive bounds-checking and input-validation fixes across USB host class d
     CERT-C/MISRA quality fixes, improved NBU fault diagnostics, KW43-LOC antenna diversity
     support, and Zephyr configuration management improvements.
 
-11. **IEEE 802.15.4 MAC/PHY Software** — Fixed MAC dispatcher heap corruption, enabled on-demand RPMSG MAC init, removed MCXW71 MAC/PHY binaries, and cleaned repository metadata.   
-
 ## Manifest & Repository Changes
 
 ### Summary
@@ -91,7 +79,7 @@ Comprehensive bounds-checking and input-validation fixes across USB host class d
 |------------------|--------------------------|--------------------------------------------------------------|
 | `ele_hseb`       | Security                 | New EdgeLock HSEB (Hardware Security Engine B) PSA driver component, enabling opaque asymmetric key operations on supported devices. |
 | `mstp-lib`       | Connectivity & Wireless  | New MSTP (Master-Slave Token Passing) library for BACnet/MS-TP connectivity support. |
-| `neo_isp`        | ML / DSP / Multimedia    | New Neo ISP (Image Signal Processor) middleware component for i.MX 95 camera pipeline support. |
+| `neo_isp`        | ML / DSP / Multimedia    | New Neo ISP (Image Signal Processor) middleware component for i.MX 937 camera pipeline support. |
 
 ### Removed Repositories
 
@@ -143,7 +131,6 @@ What's New
   Sphinx search that produced excessive per-board duplicate results.
 - **SBOM collection documentation** — New `sbom_collect` documentation integrated into
   the SDK documentation set.
-
 
 #### Security
 
@@ -219,7 +206,7 @@ What's New
 - **Ethos-U85 512 NPU support (RT700E)** — New example added for Ethos-U85 512 NPU
   with Cortex-M55 core on i.MX RT700E; IAR toolchain hang fix for Ethos-U driver in
   release mode.
-- **Neo ISP component** — New `neo_isp` middleware component for i.MX 95 Image Signal
+- **Neo ISP component** — New `neo_isp` middleware component for i.MX 937 Image Signal
   Processor camera pipeline support.
 - **Xtensa toolchain updated to RJ2026_6** — DSP codec libraries, XAF (v3.8), HiFi NN
   Library (v5.0.0 API 2.0), and NatureDSP rebuilt with the RJ2026_6 Xtensa toolchain
@@ -231,14 +218,16 @@ What's New
 
 #### RTOS
 
-- **Boot** — Open-source secure bootloader updated to upstream v2.4.0 with
+- **MCUboot v2.4.0** — Open-source secure bootloader updated to upstream v2.4.0 with
   OTFAD encrypted XIP support for i.MX RT1152/1160/1170, improved PSA Crypto
   integration, and Zephyr compatibility fixes.
-- **Multicore** — 
-  - RPMsg-Lite v5.5.0 updated with MCXE32B dual Cortex-M7 support, FRDM-IMXRT700 and FRDM-MCXN947T board support, new `rpmsg_lite_are_all_buffers_consumed()` API,
+- **RPMsg-Lite v5.5.0** — Updated with MCXE32B dual Cortex-M7 support, FRDM-IMXRT700
+  and FRDM-MCXN947T board support, new `rpmsg_lite_are_all_buffers_consumed()` API,
   CERT INT31-C/ARR38-C fixes, and Zephyr `hal_nxp` integration.
-  - MCMGR v5.3.0, multicore manager updated with MCXE32B dual Cortex-M7 support, FRDM-IMXRT700 and FRDM-MCXN947T board support, KW43 ICS init-handshake fix, and MISRA compliance improvements.
-  - eRPC Zephyr improvements, `CONFIG_ERPC_ENDPOINT_NAME` Kconfig option added;
+- **MCMGR v5.3.0** — Multicore Manager updated with MCXE32B dual Cortex-M7 support,
+  FRDM-IMXRT700 and FRDM-MCXN947T board support, KW43 ICS init-handshake fix, and
+  MISRA compliance improvements.
+- **eRPC Zephyr improvements** — `CONFIG_ERPC_ENDPOINT_NAME` Kconfig option added;
   RPMsg-Lite set as default IPC service backend with multi-backend support.
 
 #### Boot
@@ -253,6 +242,9 @@ What's New
   fixes for HVP-MCXA346 PMSM encoder example; FRDM-MCXE32B appconfig path updated.
 
 #### Safety
+
+- **IEC 60730B safety library updated** — `safety_iec60730b` updated for 26.09.00
+  release scope.
 
 ### New Platform / Device Support
 
@@ -383,9 +375,10 @@ What's New
   leak, power-save mode RRM beacon handling, wowlan STA+UAP coexistence.
 - **IW612 default module update** — Default Wi-Fi module updated to IW612 for RT boards;
   IW610 2LL set as default for FRDM-MCXN947, FRDM-MCXN947T, MCXNxxEVK boards.
+- **EtherMind L2CAP fix** — Incorrect inclusion of LE fixed channels in BR/EDR
+  Information Response corrected.
 - **edgefast_open L2CAP race condition** — BR/EDR config response race condition fixed;
   channel state transition moved to config-response-sent callback.
-- **On-demand MAC initialization for RPMSG-based multicore platforms** — The MAC RPMSG interface no longer creates and binds a MAC instance during generic initialization. Instead, initialization now occurs only when a bind request is actually received. This reduces unnecessary resource setup during boot on multicore configurations where the MAC service is not always used.
 
 ### ML / DSP / Multimedia
 
@@ -405,9 +398,7 @@ What's New
 - **LittleFS CERT INT30-C fix** — Unsigned wrap guards added in `lfs_mflash.c`.
 - **SDMMC SD voltage switch** — Voltage switch workflow updated: DAT line low is
   retried multiple times after CMD11 for improved reliability.
-- **SDMMC SDIO over SPI** — Added SDIO over SPI support.
-- **SDMMC FreeRTOS** — Converted to use Kconfig generated FreeRTOSConfig_Gen.h.
-   
+
 ### Multicore
 
 - **RPMsg-Lite virtqueue NUL-termination** — `virtqueue_create[_static]` now
@@ -467,7 +458,6 @@ What's New
 - **MCXN556S ROM API context** — Undersized reserved field in `api_core_context_t`
   fixed to match the 512-byte `flexspi_nor_config_t`-sized slot expected by ROM API_Init.
 
-
 ### Security
 
 - **SGI CCM tampered multipart AEAD** — Tampered multipart AEAD CCM decrypt now
@@ -509,7 +499,6 @@ What's New
   corrected.
 - **RW61x RTOS heap exhaustion** — Heap space exhaustion when performing repeated
   `bt init → bt disable` cycles on RW61x fixed.
-- **Fixed a heap-corruption defect in the MAC message dispatched** — Fixed a MAC/PHY dispatcher issue that could route a message to multiple MAC instances, causing heap corruption and instability. Optimized RPMSG multicore support by enabling on-demand MAC initialization and removing obsolete MCXW71 prebuilt MAC/PHY binaries and libraries.
 
 ### Filesystem
 
@@ -556,7 +545,6 @@ What's New
 | 4 | **`edma4` Kconfig replaced by `edma_unified` on i.MX 937 and RT2660** | Projects selecting `MCUX_COMPONENT_driver.edma4` on i.MX 937 or RT2660 will not resolve the eDMA driver. | Replace `MCUX_COMPONENT_driver.edma4` with `MCUX_COMPONENT_driver.edma_unified` in project Kconfig or CMakeLists.txt. |
 | 5 | **TF-PSA-Crypto updated to v1.2.0 (removes `ecp_curves_new.c`)** | Projects with explicit CMake references to `drivers/builtin/src/ecp_curves_new.c` will fail to build. | Remove the explicit reference; the file was removed upstream in v1.2.0. The `psa_crypto_driver` CMake has been updated accordingly. |
 | 6 | **MCXW70AA part number removed** | Any project or configuration referencing the `MCXW70AA` part number will not find a matching device definition. | Use the remaining MCXW70 part numbers. `MCXW70AA` is no longer a productized part number. |
-| 7 | **MCXW71 pre-built MAC/PHY binaries and libraries removed** | Builds targeting MCXW71 will no longer find the required binaries/libraries in this release. | Continue using a prior release for MCXW71 designs, or migrate to a currently supported platform. |
 
 ---
 
