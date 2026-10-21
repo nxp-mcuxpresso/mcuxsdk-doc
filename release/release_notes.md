@@ -1,67 +1,84 @@
 ## Overview
 
-MCUXpresso SDK 26.09.00 is the September 2026 quarterly release, delivering new device and
-platform enablement, significant security library upgrades, expanded wireless connectivity
-support, and broad quality improvements across drivers, middleware, and examples.
+MCUXpresso SDK 26.12.00-pvw1 is the first preview of the December 2026 release. It adds:
 
-This release spans **72 updated sub-repositories**, **3 newly added components**, and
-**1 removed component** relative to the 26.06.00 baseline. Key themes include:
+- New device and platform enablement, and much wider i.MX RT2660 ecosystem support.
+- A unified ELE S1xx/S4xx PSA crypto driver.
+- Bluetooth LE Channel Sounding upgrades.
+- FreeRTOS-Kernel V11.3.1.
+- Security hardening across drivers, middleware and examples.
 
-- **New silicon support:** MCXE327, MCXN556S (123-WLCSP), MCXN947T, MCXC352/353,
-  MCXA556/557 (WLCSP), i.MX RT2660 (public), i.MX 93 CA55, i.MX 8M Mini CA53,
-  i.MX 95 CA55, FRDM-IMXRT1152, FRDM-MCXE32B, KW43-LOC, MCXW70-LOC.
-- **Security upgrades:** Mbed TLS updated to v4.2.0 (LTS) and v3.6.7; ELS_PKC v5.0.0;
-  SGI_PKC v4.3.0; TF-M updated; new EdgeLock ELE S100 firmware; new `ele_hseb` component.
-- **Wireless:** Wi-Fi firmware updated to IW612 18.99.8.p141, IW416 16.92.21.p166,
-  RW610/IW610 p141; Bluetooth host v1.10.23; edgefast_open migration complete;
-  new MSTP library added.
-- **ML / AI:** ExecuTorch upgraded to v1.4.1; Neutron NPU SDK updated to v3.2.2;
-  MPP updated to v4.4.0; new Neo ISP component added.
-- **RTOS:** FreeRTOS kernel and FreeRTOS-Plus-TCP updated; MCUboot updated to v2.4.0.
-- **Toolchain:** Xtensa toolchain updated to RJ2026_6 across all DSP-capable devices.
+This release spans **68 updated sub-repositories**, **0 newly added components**, and **0 removed components** relative to the 26.09.00 baseline. Key themes include:
+
+- **New silicon support:**
+  - MIMX8ML8 Cortex-A53 core, new RT1184 parts, and MCXA577VAPR / MCXA287VAPR / MCXA286VAPR (80-pin WLCSP).
+  - RW610FML (FRDM-RW610FML), KW43 multicore, and MCXC352/353 in the public device repository.
+  - SVD files for RT2660, RT1184 and MCXC454.
+- **Security upgrades:**
+  - The unified ELE S1xx/S4xx PSA driver now covers ELE S100.
+  - HSEB opaque AES ciphers.
+  - EdgeLock 2GO agent v6.5.2 on TF-M 2.3.
+  - EdgeLock V2X FCE AES-CBC/HMAC/SHA-2.
+- **Wireless:**
+  - Wi-Fi firmware: IW612 18.99.8.p150, IW416 16.92.21.p168, 88W8987 16.92.21.p156.4, IW610/RW610 p150.
+  - Stacks: Wi-Fi driver v1.3.r49.p12, Bluetooth LE Host v1.10.24, Connectivity Framework v7.5.1.
+  - About 37 EdgeFast Bluetooth examples plus LE Audio on MIMXRT2660-EVK.
+- **ML / AI:** Ethos-U85 support for i.MX RTL375, ExecuTorch large-model PSRAM loading, and Cortex-M85 audio codec libraries.
+- **RTOS:** FreeRTOS-Kernel updated to V11.3.1, with Armv8-M SMP and the new `xTaskPeriodicDelay()` API.
+- **Boot:** MCUboot adds FRDM-RW610FML support (serial recovery, encrypted XIP) and moves to IPED contexts 14/15.
+- **Toolchain:** New `west blobs` command, Kconfig control of hex/bin output, and a `--gdb-init` runner option.
 
 ## Release Highlights
 
-1. **i.MX RT2660 Public Enablement** — Full device support for the i.MX RT2660 SoC
-   (clock, power, eDMA, LLC, TRDC, USB) moved from pre-silicon to public availability,
-   including Neutron NPU firmware for IAR and GCC toolchains.
+1. **New Device Enablement** — MIMX8ML8 Cortex-A53 core with a per-core device layout, and new RT1184 parts with an internal-flash flashloader. Also added: the MCXA577VAPR/MCXA287VAPR/MCXA286VAPR WLCSP80 parts, RW610FML (including TF-M and MCUboot ports) and KW43 multicore. MCXC352/MCXC353 move to the public device repository.
 
-2. **Mbed TLS 4.2.0 and 3.6.7 Upgrades** — The SDK now ships both the LTS Mbed TLS 4.2.0
-   branch and the 3.6.7 maintenance update, incorporating upstream security fixes and
-   NXP hardware-acceleration extensions (CASPER ECDH, HSEB opaque key operations,
-   PKC transparent key export).
+2. **i.MX RT2660 Ecosystem Expansion** —
+   - **Power:** a reworked power driver adds `POWER_Init`, `POWER_EnterRunMode` and `POWER_EnterLowPowerMode`, PMIC-independent regulator hooks and OTP body-bias trim. A new Power Manager port covers WFI through Deep Power Down, with a `power_manager_test` demo.
+   - **Examples:** Maestro audio, USB low-power/OTG, MbedTLS 4.x PSA, and a DCIF camera-to-display demo with no frame-buffer copy.
+   - **Bluetooth:** about 37 EdgeFast Bluetooth examples and a full LE Audio suite.
 
-3. **MCUboot v2.4.0** — The open-source secure bootloader is updated to upstream v2.4.0,
-   adding OTFAD encrypted XIP support for i.MX RT1152/1160/1170 and improved PSA Crypto
-   integration.
+3. **Bluetooth LE Channel Sounding Upgrades** —
+   - **Inline PCT Transfer (IPT)** on KW43 (multi-antenna) and KW47 (1x1).
+   - **Antenna handling:** hardware RX phase compensation, runtime antenna configuration, and Bluetooth 6.3 CS-SYNC antenna selection.
+   - **Accuracy:** a double phase correction is removed, fixing a ≈0.5 m distance error.
+   - **Handover:** a GAP central using Channel Sounding can now take part in connection handover.
 
-4. **New MCXE327 Device Support** — Full SDK enablement for the MCXE327 MCU including
-   device headers, Kconfig, startup files, QSPI driver adaptation, and errata workarounds.
+   Bluetooth LE Host is updated to v1.10.24.
 
-5. **ExecuTorch v1.4.1 with Neutron 3.2.2** — The on-device ML inference framework is
-   upgraded to ExecuTorch v1.4.1 with Neutron SDK 3.2.2, adding RT700 support and
-   `softmax` operator acceleration on the Neutron NPU.
+4. **Unified ELE S1xx/S4xx PSA Crypto Driver** — One driver now supports ELE S100 and ELE S400 across `psa_crypto_driver`, `mbedtls3x` and `tf-psa-crypto`. It is enabled by default when Mbed TLS or TF-PSA-Crypto is used. HSEB adds opaque AES ciphers, key-store hardening, and re-sync of the NVM key catalog after power-on reset.
 
-6. **USB Stack Security Hardening** — Comprehensive bounds-checking and input-validation
-   fixes across USB host class drivers (RNDIS, CDC-ECM, Audio, Video, PHDC, MSC, MTP,
-   CCID) addressing potential out-of-bounds reads from malformed USB descriptors.
+5. **FreeRTOS-Kernel V11.3.1** — SMP on all Armv8-M ports, new `xTaskPeriodicDelay()` and `uxTaskCallForEachTask()` APIs, and new Cortex-M52, Cortex-R82 and Arm China STAR-MC3 ports. Also hardens the TrustZone secure context and MPU privilege checks.
 
-7. **Wi-Fi Firmware and Driver Updates** — Wi-Fi firmware refreshed to latest patch levels
-   for IW612, IW416, RW610, and IW610; Wi-Fi driver updated to v1.3.r49.p10 with
-   SD8978/SD9177 compressed TX power table support, VDLL firmware download, and
-   multiple stability fixes.
+6. **Multi-Core Console over a Single UART** — The new `serial_mux` component and HAL UART `muxuart` adapter carry several logical console/data channels over one physical UART. The `console_mux` demo and PC host tools are provided for i.MX943 EVK.
 
-8. **Cortex-A Core Enablement for i.MX Devices** — CA55 (AArch64) device files added for
-   i.MX 93 (MIMX9352), i.MX 95 (MIMX9596), and i.MX 8M Mini (MIMX8MM6); CA53 support
-   added for i.MX 8M Mini.
+7. **EdgeLock V2X FCE Crypto Services** — `v2x_fce` adds AES-CBC, HMAC generate/verify and SHA-256/384/512, with zero-copy buffers and linker-placed scratch memory. New `v2x_fce_hash`, `v2x_fce_aes_cbc` and `v2x_fce_hmac` examples ship for i.MX943 EVK.
 
-9. **ELS_PKC v5.0.0 and SGI_PKC v4.3.0** — Cryptographic accelerator libraries updated
-   with expanded platform support (MCXN, RT700, MCXL, MCXW Zephyr), new PQC add-on
-   v4.3.0, and improved PSA driver integration.
+8. **USB, lwIP and Wi-Fi Security Hardening** — These fixes protect devices from malicious USB hosts/devices, PD partners and APs:
+   - **USB:** bounded parsing for USB-PD (PTN5110) extended messages and vendor VDMs, and for RNDIS, MTP, CCID, MSC and hub descriptors.
+   - **lwIP:** fixes for USB-Ethernet pbuf overflow and ENET QoS TX overflow.
+   - **Wi-Fi:** hardened parsing of malformed RSN IE, HE Capability IE and RX A-MSDU.
 
-10. **Connectivity Framework v7.4.3** — Updated wireless MCU connectivity framework with
-    CERT-C/MISRA quality fixes, improved NBU fault diagnostics, KW43-LOC antenna diversity
-    support, and Zephyr configuration management improvements.
+9. **Bluetooth LE and HAL Security Fixes** —
+   - **Bluetooth LE:** new forced re-pairing (BLERP) mitigation.
+   - **Timer HAL:** handle-size overflow on 64-bit cores fixed (reported through NXP PSIRT).
+   - **Other overflows:** fixed in RPMsg-Lite name-service, 802.15.4 FSCI beacon handling and EtherCAT.
+
+10. **Connectivity Framework v7.5.1** — New Device Manager (DEVMGR) APIs give one interface for BD/802.15.4 addresses and crystal trims. Also new: KW43/MCXW70 low-power enablement, an NCO32K clock on the NBU, a MIMXRT685S low-power platform layer, and PSA-based `SecLib_HMAC_SHA256`.
+
+11. **Reliable Multicore Event Delivery** — MCMGR now queues forced MU events instead of overwriting unread messages, and the queue depth is configurable. This fixes silently lost RPMsg doorbells on RT1160/1170/1180, RT700, K32L3A6, KW43B43, MCXW70, MCXL20 and MCXE32B.
+
+12. **Security Updates for TrustZone-M NSC Veneers**
+  - TrustZone-M NSC veneer hardening** - Improper handling of non-secure-world input in NSC veneer functions of NXP MCUXpresso SDK TrustZone-M examples (trustzone_examples), affecting versions through 26.06.00-lts and 26.09.00-pvw2, may allow a non-secure caller to supply unvalidated pointers or untrusted data, causing a timing side-channel, TOCTOU condition, or format-string misuse, potentially resulting in secure-world memory disclosure or denial of service. All software versions starting from 26.06.01-lts and 26.09.00 have fixed this issue. 
+
+    *Acknowledgment: NXP would like to thank Tijs Bellefroid, Antonis Louka, Marton Bognar, and Jo Van Bulck (DistriNet, KU Leuven) for the responsible disclosure.*
+
+  - **RPMsg-Lite TrustZone-M NSC veneer input validation** - Improper input validation in non-secure-callable (NSC) veneer functions of the NXP MCUXpresso SDK rpmsg-lite multicore example (multicore_examples/rpmsg_lite_pingpong_tzm) up to releases 26.06.00-lts and 26.09.00 may allow a non-secure caller to supply unvalidated pointers and size values, potentially resulting in disclosure of secure-world memory to the non-secure domain, or denial of service. All software versions starting from 26.06.01-lts and 26.12.00-pvw1 have fixed this issue. 
+
+    *Acknowledgment: NXP would like to thank Tijs Bellefroid, Antonis Louka, Marton Bognar, and Jo Van Bulck (DistriNet, KU Leuven) for the responsible disclosure.*
+
+  - **TF-M Initial Attestation SHA-384 Hash Label Correction** - Corrected a logic error in the TF-M Initial Attestation component that could cause valid SHA-384 measurement hashes to be rejected during attestation verification. The fix has been backported from upstream TF-M. The affected code path is disabled by default and is not used in standard NXP TF-M example applications.
+
+    *Acknowledgment: NXP would like to thank Siril Ganjai and Ajesh Koyatan Chathoth for the responsible disclosure.*
 
 ## Manifest & Repository Changes
 
@@ -69,30 +86,21 @@ This release spans **72 updated sub-repositories**, **3 newly added components**
 
 | Category  | Count |
 |-----------|------:|
-| Changed   | 91    |
-| Added     | 3 (customer-facing) |
-| Removed   | 1 (customer-facing) |
+| Changed   | 68    |
+| Added     | 0     |
+| Removed   | 0     |
 
 ### Added Repositories
 
-| Repository       | Functional Area          | Description                                                  |
-|------------------|--------------------------|--------------------------------------------------------------|
-| `ele_hseb`       | Security                 | New EdgeLock HSEB (Hardware Security Engine B) PSA driver component, enabling opaque asymmetric key operations on supported devices. |
-| `mstp-lib`       | Connectivity & Wireless  | New MSTP (Master-Slave Token Passing) library for BACnet/MS-TP connectivity support. |
-| `neo_isp`        | ML / DSP / Multimedia    | New Neo ISP (Image Signal Processor) middleware component for i.MX 937 camera pipeline support. |
+No repositories were added in this release.
 
 ### Removed Repositories
 
-| Repository         | Functional Area         | Impact                                                       |
-|--------------------|-------------------------|--------------------------------------------------------------|
-| `edgefast_bt_ble`  | Connectivity & Wireless | Removed legacy EtherMind-based Bluetooth stack. Applications should migrate to `edgefast_open`, which is the unified Bluetooth stack going forward. See Breaking Changes section. |
+No repositories were removed in this release.
 
 ### Impact on `west update`
 
-Running `west update` against `release/26.09.00` will fetch updated revisions for all 91
-changed repositories. The three newly added repositories (`ele_hseb`, `mstp-lib`, `neo_isp`)
-will be cloned for the first time. The removed `edgefast_bt_ble` repository will no longer
-be checked out; any project referencing it directly must migrate to `edgefast_open`.
+Running `west update` against `release/26.12.00-pvw1` fetches updated revisions for all 68 changed repositories. The project list is unchanged, so no repositories are newly cloned or dropped, and existing group filters keep working. The new `west blobs` command can now manage out-of-tree prebuilt binaries; if a build reports a missing prebuilt library after updating, run `west blobs fetch`.
 
 ---
 
@@ -103,167 +111,132 @@ What's New
 
 #### Fundamental
 
-- **Phase Detector (PHD) driver** — New peripheral driver for the Phase Detector IP,
-  providing initialization, deinitialization, and configurable operation modes.
-- **eDMA software workaround for errata ERR052315** — The eDMA driver now applies an
-  automatic software workaround for affected eDMA instances where certain TCD
-  configuration errors could cause subsequent DMA requests to stall.
-- **SDMA SPBA count derived from array size** — `SDMA_IsPeripheralInSPBA()` now derives
-  the SPBA instance count from `SPBA_BASE_PTRS` array size rather than a fixed feature
-  macro, improving portability across SoC variants.
-- **ELE S100 firmware and crypto support** — EdgeLock ELE S100 firmware added to the
-  `edgelock` repository; `mcu-sdk-components` extended with ELE S100 support in the
-  ELE Crypto component for i.MX RT2660.
-- **EdgeLock V2X FCE AES-GCM service** — New `v2x_fce` component providing EdgeLock V2X
-  Fast Crypto Engine AES-GCM firmware service for i.MX 943 CM33.
-- **EdgeLock V2X base service driver** — New `v2x_base` component providing the EdgeLock
-  V2X base (debug) service driver and `ele_base_api` helper layer for i.MX 943 CM33.
-- **CMSIS Cortex-M55 core header support** — CMSIS CMakeLists.txt and Kconfig updated to
-  include Cortex-M55 (ARMv8.1-M) core headers, enabling projects targeting CM55 cores.
-- **Kconfig EDMA selector project segment** — New `module.driver.edma_selector` Kconfig
-  project segment allows enabling the eDMA selector driver from `prj.conf`.
-- **MVE (Helium) compile flag documentation** — New documentation section covering how to
-  disable MVE on Cortex-M55/M85 across IAR, Keil MDK, and ARMGCC toolchains.
-- **IAR `restore_breakpoint` option** — New `restore_breakpoint` key documented under
-  `debugger_setting` in IDE.yml for IAR GUI project generation.
-- **Pagefind-based documentation search** — SDK documentation now includes a
-  Pagefind-powered search engine with improved relevance ranking, replacing the previous
-  Sphinx search that produced excessive per-board duplicate results.
-- **SBOM collection documentation** — New `sbom_collect` documentation integrated into
-  the SDK documentation set.
+- **Multi-core serial multiplexer (`serial_mux`)** — New component that carries several logical console/data channels over one physical UART. It uses COBS framing and cache-coherent shared-memory rings, with the layout set in Kconfig.
+- **HAL UART `muxuart` adapter** — New client-only adapter that routes `HAL_Uart*` calls through `serial_mux`. Cores without a physical UART can then use the standard debug console.
+- **EdgeLock V2X FCE AES-CBC / HMAC / SHA-2** — `v2x_fce` adds AES-CBC encrypt/decrypt, HMAC generate/verify and SHA-256/384/512. Caller buffers are passed straight through, TCM addresses are translated automatically, and the linker places the scratch memory.
+- **DualADC direct result access and DMA** — New `DUALADC_GetConversionResult32/Low/High()` read A-side and B-side results directly, and new `enableDmaA`/`enableDmaB` fields set up DMA in `DUALADC_Init()`.
+- **GPIO per-pin interrupt callbacks** — New handle-based API (`GPIO_CreateHandle`, `GPIO_SetPinCallback`, `GPIO_ClearPinCallback`) with a shared IRQ dispatcher, so applications no longer need their own dispatch code.
+- **PINT multi-instance support** — The driver handles several PINT/SECPINT instances with different interrupt counts. `PINT_USE_LEGACY_CALLBACK` still works.
+- **I3C driver for DSC MC56F85000** — New I3C driver ported from the mainline driver. Its overflow checks avoid 64-bit types, so it builds with CodeWarrior.
+- **I3C underrun reporting and extended read-terminate (RT2660)** — Under-run errors are reported as `kStatus_I3C_UnderrunError`, and read-terminate sizes go up to 2047 bytes.
+- **PWM trigger stretch prescaler** — New `PWM_SetTriggerStretchPrescaler()` sets the trigger stretch count prescaler (x1/x2/x4/x8).
+- **SPC single-write regulator control** — New `SPC_EnableRegulators()`/`SPC_DisableRegulators()` set the Core LDO, System LDO and DCDC in one `CNTRL` write. This is required on KW45/KW47-class devices.
+- **FlexIO timer-status DMA** — New `FLEXIO_EnableTimerStatusDMA()` enables or disables timer-status DMA requests.
+- **Compile-time assertion macro** — New portable `MCUX_BUILD_ASSERT(cond, msg)` in `fsl_common.h`.
+- **`west blobs` command** — New West extension to fetch, check, list, update and regenerate out-of-tree prebuilt SDK binaries.
+- **Hex/Bin build output control** — New Kconfig options `MCUX_BUILD_OUTPUT_HEX` (default `y`) and `MCUX_BUILD_OUTPUT_BIN` (default `n`). `.bin` conversion now works on every toolchain, and `runners.yaml` lists only the artifacts that are actually built.
+- **`--gdb-init` runner option** — Adds custom GDB commands to `west debug` / `west attach` for J-Link and LinkServer. The commands run after the runner's final reset.
+- **`ram_only` / `psram_only` build targets** — New build targets with matching linker files, first enabled for `hello_world` on MIMXRT2660-EVK.
+- **Power Manager RT2660 port** — Power Manager supports MIMXRT2660/2661/2662/2663 in WFI, Sleep, Deep Sleep, Power Down and Deep Power Down.
+- **RW610FML component support** — Wi-Fi/BT module, mflash and an MDK toolchain template for FRDM-RW610FML.
+- **New V2X/FCE crypto examples** — `v2x_fce_hash`, `v2x_fce_aes_cbc` and `v2x_fce_hmac` for i.MX943 EVK (cm33_core1, cm7_core0, cm7_core1), checked against NIST/RFC known-answer vectors.
+- **`console_mux` demo and host tools** — Runs the consoles of all three i.MX943 cores over a single UART. Ships with PC host tools: virtual serial ports, a Linux PTY hub, a GUI terminal and a loopback self-test.
+- **TrustZone examples for RT1180 family** — `secure_faults_trdc` and TrustZone `hello_world` for FRDM-IMXRT1186 and EVK-RT1180.
+- **MIMXRT2660-EVK example expansion** — New examples and board support:
+  - Maestro playback, record, usb_mic and usb_speaker.
+  - `power_manager_test`.
+  - USB suspend/resume, LPM and OTG pin-detect examples.
+  - DCIF PDI camera-to-display demo.
+  - IO expander and MbedTLS 4.x PSA examples.
+  - Board support for the W35T51NW octal flash, uSDHC boot headers and an optional PF9453 PMIC supply (`MCUX_BOARD_USE_PF9453`).
+- **Additional board/example enablement** —
+  - `freertos_hello` on the evkmimx8mp Cortex-A53 core.
+  - `openvg_tiger_freertos` on FRDM-IMXRT1152.
+  - Coex A2DP sink/source on EVKB-MIMXRT1170.
+  - MCUXpresso IDE support for coex examples on RT1170/RT1060.
+  - Wi-Fi host-sleep with WoWLAN wake on FRDM-IMXRT700.
+- **SVD files for new devices** — New SVDs for RT2660, RT1184, MCXC454 and the MCXA286VAPR/MCXA287VAPR WLCSP80 parts.
+
+#### Device Support
+
+- **MIMX8ML8 Cortex-A53 support** — A53 headers, system and startup files, and a DDR linker script are added. The device configuration is split per core (`cm7` + `ca53`).
+- **RT2660 power APIs** — New `POWER_Init`, `POWER_EnterRunMode` and `POWER_EnterLowPowerMode` for explicit power-mode transitions. Boards register an external-regulator hook (`power_ext_regulator_hooks_t`) for core-voltage scaling.
+- **RT2660 OTP body-bias trim** — FBB N-well/P-well codes are read from fuses, with a reference fallback when the fuses are blank. This is opt-in through `PMU_DRIVER_UPDATE_TRIM_VALUE`.
+- **RT1184 internal-flash flashloader** — Flashloader added for RT1184 internal flash, and the RT1183 linker flash window updated.
+- **KW43 multicore** — Multicore support is enabled on KW43.
+- **OSTIMER 32 kHz clock source (MCX)** — New `kCLK_32K_to_OSTIMER`; `CLOCK_GetOstimerClkFreq()` reports the frequency correctly.
 
 #### Security
 
-- **Mbed TLS 4.2.0 (LTS)** — The `mbedtls` repository is updated to Mbed TLS v4.2.0,
-  incorporating upstream security fixes, TLS 1.3 record boundary alignment improvements,
-  and DTLS-SRTP session reset fixes.
-- **Mbed TLS 3.6.7** — The `mbedtls3x` NXP fork is rebased onto upstream Mbed TLS v3.6.7,
-  adding NXP hardware-acceleration extensions: CASPER ECDH PSA wrappers, HSEB opaque
-  asymmetric sign/verify, and PKC transparent public-key export.
-- **ELS_PKC v5.0.0** — Updated to v5.0.0 with MCXN and RT700 (MIMXRT7xx) ELS/PKC
-  integration, MCXN526T device support, and improved device-header portability.
-- **SGI_PKC v4.3.0 + PQC add-on v4.3.0** — SGI_PKC updated to v4.3.0 with Zephyr support
-  for MCXL and MCXW platforms; new PQC (Post-Quantum Cryptography) add-on v4.3.0 included.
-- **TF-PSA-Crypto updated to v1.2.0** — `tf-psa-crypto` updated from v1.1.0 to v1.2.0
-  with ML-DSA builtin implementation and updated driver wrapper templates.
-- **PSA crypto driver hardening** — Comprehensive CERT-C integer-overflow and pointer
-  safety fixes across CAAM, DCP, ELE HSEB, ELS_PKC, SGI, and ele_s4xx PSA drivers;
-  oversized key rejection on SGI import; tampered multipart AEAD CCM decrypt rejection.
-- **HSEB opaque key operations** — New opaque key generation, import, export, and
-  asymmetric sign/verify operations via the HSEB PSA driver.
-- **EL2GO agent: PSA key ID export API** — New
-  `iot_agent_utils_psa_import_blobs_from_flash_exp_key_id()` API exports PSA key IDs of
-  imported EL2GO blobs, enabling downstream key usage without re-importing.
-- **EL2GO CSR application expanded** — `el2go_csr` application enabled on additional
-  platforms: MCXE31B (opaque keys), KW43 (without TF-M), A20 boards, and MCXL20.
-- **Secure subsystem Zephyr support** — KW45/W71 SW session tracking and Zephyr Kconfig/
-  CMakeLists added to the secure subsystem component.
-- **TF-M updated** — Trusted Firmware-M updated to align with TF-M 2.3, including
-  adjusted binary location for signed secure images.
-- **ELE FW header representation** — Centralized ELE firmware header with CMake and
-  Kconfig integration, enabling dynamic and non-exclusive FW inclusion in C builds.
+- **ELE S100 support through the reworked S1xx/S4xx driver** — One PSA driver covers ELE S100 and S400 and is enabled by default with Mbed TLS or TF-PSA-Crypto. The Mbed TLS 4 wrappers follow the updated PSA driver API.
+- **HSEB opaque AES ciphers** — Opaque-key AES cipher support, using the same handle model as the asymmetric driver. Matching cipher wrappers are added in `mbedtls3x` and an opaque cipher context in `tf-psa-crypto`.
+- **HSEB NVM key sync after power-on reset** — The runtime key catalog is rebuilt from the internal NVM key store after a power-on reset.
+- **SGI/PKC session helpers** — New `mcux_psa_sgi_session_helper.h` macros make sure the mutex is released and the session destroyed on every error path.
+- **EdgeLock 2GO agent v6.5.2** — The agent is upgraded to v6.5.2, and EL2GO applications now build and run on TF-M 2.3.
+- **Opaque keys in `el2go_csr` on L20 / A2TS** — The CSR application can use hardware-protected opaque keys.
+- **TF-M FRDM-RW610FML platform** — New TF-M platform port based on FRDM-RW612, with a flash driver shared by RW610 and RW612.
+- **ELE HSEB firmware for MCXE327** — EdgeLock HSEB firmware binaries added for MCXE327.
 
 #### Connectivity & Wireless
 
-- **Wi-Fi secure enterprise example with opaque keys** — New `wifi_secure_enterprise`
-  example demonstrating WPA2/WPA3 Enterprise authentication using opaque (hardware-
-  protected) private keys via the PSA Crypto API.
-- **SDIO over SPI host driver** — New SPI host driver added to the SDMMC middleware,
-  enabling SDIO connectivity over SPI interface.
-- **LE Power Control via vendor HCI command** — Bluetooth host updated with a dedicated
-  vendor HCI command to enable LE Power Control on KW45/KW47 platforms.
-- **BLE Direct Test Mode (DTM) shell commands** — New NXP-specific DTM shell commands
-  added to `edgefast_open` for RF testing on FRDM-RW612 and RD-RW612-BGA.
-- **RFCOMM Remote Line Status (RLS) support** — `edgefast_open` now supports sending
-  RFCOMM Remote Line Status commands to report line errors to remote devices.
-- **Coex FRDM-IMXRT1152 support** — Wi-Fi + Bluetooth coexistence example
-  (`coex_wifi_edgefast`) enabled on the FRDM-IMXRT1152 board.
-- **Coex RT1060EVKC support** — Coexistence example support added for the
-  evkcmimxrt1060 board with edgefast_open middleware.
-- **Narrow-band firmware UART download** — Coex applications gain support for
-  downloading narrow-band (BT/OT) firmware over UART for UART-based BT firmware
-  bootstrap platforms.
-- **KW43-LOC antenna diversity** — Connectivity framework updated to enable antenna
-  diversity on the KW43-LOC board via `PLATFORM_InitLcl()`.
-- **MSTP library** — New `mstp-lib` component added for BACnet MS-TP connectivity.
-- **lwIP updated to 2.2.2** — lwIP NXP fork updated to version 2.2.2_rev2, syncing with
-  upstream master (3d896ba0) and including IPv6 ND6 option parsing improvements,
-  ENET_QOS flexible configuration hook, and multiple security/stability fixes.
-- **USB Zephyr host controller driver support** — Zephyr USB host controller drivers
-  aligned with SDK; EHCI host support extended to i.MX 952x devices.
-- **SDIO SPI mode support** — SDIO middleware updated to support SPI mode operation.
+- **Channel Sounding connection handover** — New `Gap_HandoverSetCsLlContextByConnHandle` lets a GAP central that uses Channel Sounding take part in connection handover.
+- **Forced re-pairing (BLERP) mitigation** — The connection manager rejects pairing that would weaken an existing bond and reports a forced re-pairing security event.
+- **Inline PCT Transfer (IPT)** — Enabled on KW43 (including multi-antenna) and on KW47 1x1 configurations.
+- **Hardware RX phase compensation for CS** — Channel Sounding now uses hardware RX phase compensation.
+- **Runtime CS antenna configuration** — `BLE_HADM_SetAntennaType()` also takes the antenna-path count and switch time (`t_sw`), and reported capabilities update at runtime.
+- **Non-CS antenna switching APIs** — New controller APIs switch antennas outside Channel Sounding.
+- **Localization data export and Anchor Monitor** — CDE distance results are added to the localization export, and the Anchor Monitor displays RSSI.
+- **EdgeFast Bluetooth on MIMXRT2660-EVK** — About 37 BLE and Bluetooth Classic examples, including `wifi_cli_over_ble_wu`, with GCC/IAR targets and LittleFS settings storage.
+- **LE Audio on MIMXRT2660-EVK** —
+  - Broadcast and unicast media sender/receiver, including 4-BIS/4-CIS variants.
+  - Call gateway and call terminal.
+  - `ums_microphone`.
+  - The `umr2bms` and `a2dp_bridge` bridges.
+- **EdgeFast Bluetooth on FRDM-RW610 and EVK-MIMXRT685** — RW610 is enabled, and RT685 gets low-power HT examples with the Murata 2EL module.
+- **Device Manager (DEVMGR) APIs** — One API for BD/802.15.4 addresses and 32 MHz/32 kHz trims across HwParameter, FFR and NMPA. It can also derive an address from the UID or generate a random one, and a CFPA backend is provided on KW43/MCXW70.
+- **KW43/MCXW70 low-power enablement** — Connectivity Framework support for KW43/MCXW70:
+  - Build support.
+  - LPTMR wake-up sources.
+  - SRAM retention map.
+  - SPC trims.
+  - NCO32K clock source on the NBU.
+- **MIMXRT685S low-power platform layer** — New Connectivity Framework platform module with an OSTIMER timestamp and Power Manager integration.
+- **`SecLib_HMAC_SHA256` on PSA** — HMAC-SHA256 through the PSA API, hardware-accelerated where available.
+- **Pluggable fault-report output** — New `FWK_FaultHandlerSetOutput()` sends fault dumps to a coredump port or any other output.
+- **Wi-Fi gateway probe on same-SSID roaming** — After a same-SSID roam, the driver ARP-probes the gateway and re-runs DHCP if needed, so IP connectivity is kept.
+- **Wi-Fi external antenna gain in 0.25 dB steps** — `wlan-set-ant-gain` accepts [-127, 127], which is -31.75 to +31.75 dBi.
+- **Wi-Fi worldwide Tx power default and country CLI** — The worldwide table is used when no region matches. `wlan-set-country` is now available on SD9177 (IW611/IW612) and SD8978.
+- **MII support in MCX ENET USB adapter** — New `EXAMPLE_PHY_INTERFACE_MII` option, and the adapter MAC address can be overridden.
 
 #### ML / DSP / Multimedia
 
-- **ExecuTorch v1.4.1** — On-device ML inference framework upgraded to v1.4.1 with
-  Neutron SDK 3.2.2, RT700 board support, `softmax` operator acceleration on Neutron NPU,
-  and simplified OSS native runtime build method.
-- **Neutron NPU SDK 3.2.2** — Neutron software SDK updated to v3.2.2 across eIQ
-  middleware and ExecuTorch; IAR toolchain firmware added for RT2660.
-- **MPP v4.4.0** — Media Processing Pipeline updated to v4.4.0 with RTSP/RTP streaming
-  support, FRDM-IMXRT1152 board support, camera gesture recognition example, and
-  all NPU models rebuilt with Neutron compiler 3.2.2.
-- **Ethos-U85 512 NPU support (RT700E)** — New example added for Ethos-U85 512 NPU
-  with Cortex-M55 core on i.MX RT700E; IAR toolchain hang fix for Ethos-U driver in
-  release mode.
-- **Neo ISP component** — New `neo_isp` middleware component for i.MX 937 Image Signal
-  Processor camera pipeline support.
-- **Xtensa toolchain updated to RJ2026_6** — DSP codec libraries, XAF (v3.8), HiFi NN
-  Library (v5.0.0 API 2.0), and NatureDSP rebuilt with the RJ2026_6 Xtensa toolchain
-  across RT500, RT600, RT700, and i.MX 8ULP DSP variants.
-- **FRDM-IMXRT700 DSP examples** — NatureDSP, VIT, nnlib, XAF (xaf_playback,
-  xaf_record, xaf_usb_demo), and Cadence codec examples enabled on FRDM-IMXRT700.
-- **MCXN947T Neutron NPU support** — MCXN947T device added to Neutron NPU DEVICE_IDS
-  in the eIQ middleware.
+- **Cortex-M85 audio codec libraries** — AAC, FLAC, MP3, WAV and SSRC prebuilt libraries for Cortex-M85 (armgcc, IAR), selectable in Maestro on CM85 cores.
+- **Ethos-U85 support for i.MX RTL375** — Ethos-U85 NPU components support IMXRTL3759MCA.
+- **ExecuTorch large-model support** — The model runner copies large models from PSRAM into SRAM and loads bytecode and weights with eDMA.
 
 #### RTOS
 
-- **MCUboot v2.4.0** — Open-source secure bootloader updated to upstream v2.4.0 with
-  OTFAD encrypted XIP support for i.MX RT1152/1160/1170, improved PSA Crypto
-  integration, and Zephyr compatibility fixes.
-- **RPMsg-Lite v5.5.0** — Updated with MCXE32B dual Cortex-M7 support, FRDM-IMXRT700
-  and FRDM-MCXN947T board support, new `rpmsg_lite_are_all_buffers_consumed()` API,
-  CERT INT31-C/ARR38-C fixes, and Zephyr `hal_nxp` integration.
-- **MCMGR v5.3.0** — Multicore Manager updated with MCXE32B dual Cortex-M7 support,
-  FRDM-IMXRT700 and FRDM-MCXN947T board support, KW43 ICS init-handshake fix, and
-  MISRA compliance improvements.
-- **eRPC Zephyr improvements** — `CONFIG_ERPC_ENDPOINT_NAME` Kconfig option added;
-  RPMsg-Lite set as default IPC service backend with multi-backend support.
+- **FreeRTOS-Kernel V11.3.1** — The NXP kernel moves to upstream V11.3.1.
+- **`xTaskPeriodicDelay()` and `uxTaskCallForEachTask()`** — `xTaskPeriodicDelay()` replaces `xTaskDelayUntil()`: it catches up on skipped periods and returns how many were skipped. `uxTaskCallForEachTask()` runs a callback for every task.
+- **SMP on Armv8-M** — Symmetric multiprocessing on all Armv8-M ports (GCC, ArmClang, IAR), with IDLE-task core affinity.
+- **New FreeRTOS ports** — Cortex-M52 (secure and NTZ), Arm China STAR-MC3, and Cortex-R82 (AArch64, MPU and non-MPU). The RISC-V port now saves FPU and vector context.
 
 #### Boot
 
-- **RT1150 flashloader support** — NXP MCU bootloader updated with RT1150 flashloader
-  support and SPI communication fix for RT1186.
-
-#### Motor Control
-
-- **FreeMASTER updated** — FreeMASTER tool updated for 26.09.00 release scope.
-- **Motor control examples** — Overcurrent fault, encoder speed, and motor configuration
-  fixes for HVP-MCXA346 PMSM encoder example; FRDM-MCXE32B appconfig path updated.
+- **MCUboot FRDM-RW610FML support** — RW610 is treated like RW612, which enables serial recovery, encrypted XIP and the remap boot modes.
 
 #### Safety
 
-- **IEC 60730B safety library updated** — `safety_iec60730b` updated for 26.09.00
-  release scope.
+- **IEC 60730B Zephyr HAL analog I/O test** — New Zephyr AIO test with LPADC and DTS bandgap configuration for FRDM-MCXA153, A156, A266 and A344.
+- **"Skip and Continue" error action** — New `APP_SAFETY_ERROR_ACTION_CONTINUE` option.
 
 ### New Platform / Device Support
 
-| Device / Board          | Family      | Notes                                                        |
-|-------------------------|-------------|--------------------------------------------------------------|
-| MCXE327                 | MCX E-series | Full SDK enablement: device headers, Kconfig, startup, QSPI adaptation, errata ERR050705 and ERR052460 workarounds |
-| MCXN556S (123-WLCSP)   | MCX N-series | New 123-ball WLCSP package variants: MCXN556TVAB, MCXN556TCAB, MCXN557TVAB, MCXN557TCAB |
-| MCXN947T                | MCX N-series | New FRDM-MCXN947T board documentation, mcmgr/rpmsg-lite/eIQ support |
-| MCXC352 / MCXC353       | MCX C-series | SVD files added; Keil flash loader updated with data flash and chip-erase support |
-| MCXA556 / MCXA557 (WLCSP) | MCX A-series | WLCSP package SVD support added |
-| i.MX RT2660             | i.MX RT     | Full public enablement: clock, power, eDMA, LLC, TRDC, USB, Neutron NPU firmware |
-| i.MX RT1150 / RT1152    | i.MX RT     | RT1150 flashloader; FRDM-IMXRT1152 coex and MPP board support |
-| i.MX 93 CA55 (MIMX9352) | i.MX        | AArch64 CA55 device files, startup, linker scripts, CMake/Kconfig |
-| i.MX 95 CA55 (MIMX9596) | i.MX        | CA55 core definition, source code, and linker scripts        |
-| i.MX 8M Mini CA53/CA55 (MIMX8MM6) | i.MX | Cortex-A53 core support files; multi-core device layer refactored |
-| i.MX 943 V2X (MIMX94398) | i.MX       | ELE V2X firmware bring-up enabled; V2X FCE and base service drivers |
-| KW43-LOC                | Wireless    | Flash support, documentation, antenna diversity, KW43-LOC board examples |
-| MCXW70-LOC              | Wireless    | Flash support, documentation, release notes and getting-started pages |
-| FRDM-MCXE32B            | MCX E-series | MDK flash programming fix for multicore; mcmgr/rpmsg-lite support |
+| Device / Board | Family | Notes |
+|----------------|--------|-------|
+| MIMX8ML8 Cortex-A53 (evkmimx8mp `ca53`) | i.MX | A53 headers, startup, DDR linker script, per-core device layout; `freertos_hello` example |
+| RT1184 (new parts) | i.MX RT | New part headers, internal-flash flashloader, NETC part support, SVD files |
+| RT1183 / RT118D / RT118E | i.MX RT | NETC driver part support; RT1183 internal-flash linker window updated |
+| MCXA577VAPR | MCX A-series | New 80-pin WLCSP part: CPU macro guard, part list, Kconfig/MDK identifiers |
+| MCXA287VAPR / MCXA286VAPR | MCX A-series | New 80-pin WLCSP parts with SVD and SMARTDMA interrupt |
+| MCXC352 / MCXC353 | MCX C-series | Device support moved to the public device repository; FRDM-MCXC353 examples enabled |
+| MCXC454 | MCX C-series | SVD files added |
+| RW610FML (FRDM-RW610FML) | Wireless | Part headers, Wi-Fi/BT module, mflash, MDK template, TF-M and MCUboot ports |
+| KW43 (multicore) | Wireless | Multicore support, low-power enablement, DEVMGR CFPA backend |
+| i.MX RT2660 (MIMXRT2660-EVK) | i.MX RT | Power driver rework, Power Manager port, SVD files, broad example and Bluetooth expansion |
+| MIMXRT685S | i.MX RT | Connectivity Framework low-power platform; EdgeFast BLE low power |
+| i.MX RTL375 (IMXRTL3759MCA) | i.MX RT | Ethos-U85 eIQ support; LPADC driver and port file |
+| MC56F85000 | DSC | New I3C driver; DAC driver update |
 
 ---
 
@@ -271,140 +244,115 @@ What's New
 
 ### Fundamental
 
-- **Driver quality improvements (Coverity / CERT-C / MISRA)** — Systematic resolution of
-  static-analysis findings across core peripheral drivers including NETC, USDHC, I3C,
-  SCTimer, QSPI, RCM, LIN, LCDIC, Hiperface DSL, and eDMA. Fixes address CERT ARR30-C
-  bounds violations, CERT INT30-C integer wraps, UNUSED_VALUE dead stores, and
-  INCONSISTENT_UNION_ACCESS type-punning issues.
-- **Include-guard macro standardization** — Leading underscores stripped from include-
-  guard macros across all driver headers to comply with C reserved-identifier rules.
-- **LPADC feature macro correction** — Feature macro renamed from
-  `FSL_FEATURE_LPADC_ADC_TCTRL_COUNT` to `FSL_FEATURE_LPADC_TCTRL_COUNT` across RT,
-  LPC, Kinetis, and Wireless device families.
-- **eDMA unified driver migration** — `driver.edma4` references replaced with
-  `driver.edma_unified` across i.MX 937, i.MX RT2660, and related device Kconfigs.
-- **Kconfig edgefast_open centralization** — `edgefast_open` Kconfig is now sourced once
-  from the top-level `Kconfig.mcuxpresso` instead of per-example, eliminating duplicate
-  sourcing warnings.
-- **Component quality fixes** — Coverity findings resolved in coredump, gen_hal,
-  flash_nand_semc, flash_nor_spifi, UART DMA, I3C, RPMsg, and string formatter
-  components.
-- **Wi-Fi TX power table improvements** — Per-region compressed TX power tables added for
-  AzureWave, Murata 1XK, Murata 2EL, Quectel, SD8978, and SD9177 modules; 40 MHz
-  support on 2.4 GHz band edge channels for Murata 2EL.
-- **CMSIS LPSPI driver improvements** — Instance configuration extracted outside
-  functions; additional peripheral instances configured; build issue fixed.
-- **SVD file updates** — SVD files refreshed for MCXN, MCXC, MCXA, MCXE32, RT1150,
-  KW43/MCXW70 (CRR 1.41/1.42).
-- **Documentation search and navigation** — Pagefind search integrated; shared topic
-  deduplication across board getting-started guides; documentation URL path corrections.
+- **ENET init sequence and SMII delay** — The init sequence is corrected in `mcx_enet`, `lpc_enet` and `enet_qos`. The SMII delay can now be set through Kconfig.
+- **LLC maintenance timeout** — The poll budget now scales with cache size and can be overridden with `LLC_MAINTENANCE_TIMEOUT`. A `kStatus_Timeout` result now means the cache actually stalled.
+- **SINC doze-mode guard** — Doze-mode handling is guarded by `FSL_FEATURE_SINC_MCR_HAS_DOZEN`, so SINC works on devices that have no DOZEN bit.
+- **DCIF and BiSS improvements** — DCIF gamma configuration now uses the real register macros, and the PDI defaults are updated. BiSS bit reversal is now branchless and faster.
+- **Static-analysis hardening** — MISRA/CERT-C/Coverity fixes are applied to these drivers: SAI, PDM, SPDIF, EASRC, eDMA, FlexCAN, MSCAN, NETC, I2C, SPI, FlexIO, LPADC, SFA, TSI, flash_ftmr, DPU/MIPI-DSI and the motor-encoder drivers. Audio IRQ paths also get runtime NULL guards.
+- **mflash for the new RT2660 QSPI flash** — mflash supports the new QSPI flash on the board and still works with W25Q512. The SFP setting must now be passed explicitly in the FRAD config.
+- **Wi-Fi TX power tables** — AzureWave tables are updated with 2.4 GHz BW40 limits. Murata 2EL band-edge channels now allow 40 MHz. RW612 worldwide tables are refreshed.
+- **I3C driver auto-selection** — Kconfig now picks the `i3c` or `dsc_i3c` driver from the SoC IP type, so per-board `prj.conf` overrides are no longer needed.
+- **Default Wi-Fi modules in examples** — The default modules are now:
+  - IW61x (Murata 2EL) on RT1050/1060/1160/595/685/1180.
+  - 88W8987 (1ZM) on RT1064.
+  - IW610 (Murata 2LL) on the MCXN boards and mimxrt685audevk.
+- **SLIM `wifi_cli` profile** — A low-memory profile is added for MCXN5xx-EVK and MCXN9xx-EVK.
+- **Wireless MCU app defaults (KW43/MCXW70)** — Async flash and Deep Sleep are on by default. Fault output goes through the debug log engine. Host coredump is enabled in debug builds and disabled in release builds.
+- **eIQ model runners** — The model runners now use eDMA-based copy/wait hooks. The TFLM and HiFi4 runners share code, and the runners print the SDK version.
+- **Board files** — Updates in this release:
+  - The RT2660 pin mux is exported from Config Tools.
+  - The MCXA `board.h` has `extern "C"` guards.
+  - RT700 LVGL examples run at 325 MHz.
+  - MPU regions are adjusted for FreeRTOS 11.3.1.
+- **PSA driver auto-selection in examples** — The ELE S400/S100 PSA driver is chosen by device, so it no longer needs to be listed in `prj.conf`.
+- **MCXA SVD re-sync** — SVD files are re-synchronized for MCXA456/457/536/537/556/557/566/567/577.
+- **Build documentation** — `CMAKE_OBJECT_PATH_MAX` and how to override it for sysbuild are now documented. Documentation links point to `https://docs.mcuxpresso.nxp.com/mcuxsdk/<version>/`.
 
 ### Device Support
 
-- **i.MX RT2660 clock driver** — Clock root shutdown during reconfiguration, clock root
-  and gate index validation, new `CLOCK_MeasureRootClockFreq()` and
-  `CLOCK_MeasureClockSourceFreq()` APIs, USB FS clock configuration improvements.
-- **i.MX RT2660 power driver** — `POWER_Init` renamed to `POWER_SetPolicy`; topology
-  config renamed to handshake routing; `POWER_ApplyWakeupSources` made public.
-- **i.MX RT2660 LLC configuration** — Cache topology and physical-memory alias metadata
-  exposed for the generic LLC driver.
-- **i.MX RT DSP Xtensa core update** — Default `XTENSA_CORE` updated to `RJ26_6_newlib`
-  for RT500 FusionF1, RT600 HiFi4, and RT700 HiFi1/HiFi4 variants.
-- **RT700 DSP_Init reset fix** — `DSP_Init()` now asserts the HiFi1 reset before
-  releasing it, preventing stale state from the always-on SENSE power domain.
-- **i.MX RT FRO tuner rework** — `CLOCK_TrimUsbFroClock` replaced with
-  `CLOCK_EnableFroTuner` using per-reference parameter tables for improved accuracy.
-- **ARM PLL postDiv=3 fix** — Corrected ARM PLL post-divider value for `POST_DIV_SEL=0b11`
-  (should be ÷1, not ÷8) on affected i.MX RT devices.
-- **MCXL20 power driver** — `Power_LowPowerBoot()` updated with reset-reason check;
-  `Power_ApplyDcdcMainDriveErrata053099()` added for PMU ERR053099 DCDC workaround;
-  VDD CORE main trim low-power read functions added.
-- **MCXW70 clock driver** — Updated per rev.1 Reference Manual with implementation
-  corrections and missing features; KW43B43ZC7 clock driver similarly updated.
-- **KW43 GCC AlwaysOnData section placement** — Linker script corrected to properly
-  place `.AlwaysOnData.init` and related sections in GCC builds.
-- **RW61x GDET disableCount fix** — PM3 entry failure no longer corrupts the GDET
-  sensor context `disableCount`, preventing subsequent GDET disable/enable imbalance.
-- **i.MX 8M Mini SDMA clock array** — `SDMA_CLOCKS` made 1-based to match instance
-  indexing; NonCacheable region moved out of read-only MPU region.
-- **i.MX 952 XSPI DDR mode** — DDR mode support added with improved DLL reference
-  counter and autoupdate resolution settings.
-- **MCXE32x errata ERR052460** — Startup file workaround added for MCXE31/MCXE32.
-- **MCXN947T TF-M ROM API** — Bug fix for FSL driver fetch when TF-M ROM API Kconfig
-  is disabled; Flash API proxy layer added for TF-M IOCTL service.
+- **RT2660 memory sleep-mode rework** — Memory blocks are identified by enum values. New functions `POWER_SetMemBlockSleepMode()` and `POWER_ForceAllDomainsToHwTrigger()` are added. Memory slices are reset to Active when entering Sleep.
+- **RT2660 platform additions** — Adds a GPIO interrupt handler and the feature macros `FSL_FEATURE_ISI_SUPPORT_DEST` and `FSL_FEATURE_SINC_MCR_HAS_DOZEN`.
+- **PINT per-instance feature macros** — New macros `FSL_FEATURE_PINT_NUMBER_OF_INSTANCE` and `FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTSn(x)` are added for LPC, MCX, RT and Wireless devices. PINT clocks are added for LPC800, LPC55S06/S16/S36/S69 and RW610/RW612.
+- **CMSIS `RTE_Device.h` templates** — Templates are added for 30 MCXA/MCXC/MCXE/MCXW devices and 19 KW43/KW47 devices, so `device.RTE` and CMSIS-Driver builds succeed.
+- **MCXA577 clock attach IDs** — New attach enumerators for FlexCAN, ADC and eSPI. The old names are kept for compatibility.
+- **Glitch detection disabled at boot** — `SystemInit()` now disables glitch detection on MCXW70 and KW43, as on KW47/MCXW72.
+- **RT700 USB LPM macros and RT1180 headers** — RT700 gets `USBHS_`-prefixed LPM macros. RT1180 headers now match the latest reference manual.
+- **MCXE32B EMAC errata macro** — `FSL_FEATURE_EMAC_HAS_ERRATA_050595` is added on both CM7 cores.
 
 ### Security
 
-- **PSA CASPER ECDH acceleration** — CASPER hardware accelerator now supports ECDH key
-  agreement; PSA entry points added in `psa_crypto_driver` and `mbedtls3x`.
-- **SGI AES-192 key support** — AES-192 key size handling added to the SGI PSA driver,
-  guarded by `MCUXCL_FEATURE_AES192`, for MCXW/KW platforms.
-- **ELS_PKC device-header portability** — Hardcoded `MCXN947_cm33_core0.h` include
-  replaced with `fsl_device_registers.h`; MCXN547 include path corrected.
-- **Secure storage MDK compatibility** — `psa_status_t` typedef redefinition error with
-  MDK compiler resolved; `MIN` macro redefinition guard added.
-- **ELE session state tracking** — `ELE_TRACK_SESSION_STATE` made toggleable via Kconfig
-  for KW45 platform.
+- **SGI key-locations sub-component** — `mcux_psa_sgi_opaque_key_locations.h` is now part of SGI common as its own component, so TF-M non-secure applications can select it without the full opaque driver.
+- **Unified secure-subsystem session ID** — SSSAPI session init uses `CONFIG_MCUX_SECURE_SUBSYSTEM_SESSION_ID` everywhere. `ELEMU_loadFw()` moved into SSSAPI to match Zephyr upstream.
+- **ELE S100 entropy in Mbed TLS 3.x** — The ELE S400 entropy entry points also work with ELE S100.
+- **EL2GO key-store recovery (MCXE31B)** — EL2GO now recovers when PSA ITS and the HSEB key store are out of sync.
+- **SGI/PKC RAM execute permission** — XEN is set for every RAM bank in both `SRAM_XEN` and its Glikey-protected duplicate.
+- **Prefixed Kconfig helper symbols** — The device-family helper symbols in `els_pkc`, `sgi_pkc` and `sgi_pkc_pqc` now carry a prefix to avoid name collisions.
+- **Secure storage API cleanup** — The non-standard offset APIs are removed. LittleFS globals are now `static`.
 
 ### Connectivity & Wireless
 
-- **Bluetooth host v1.10.23** — Updated with EATT/L2CAP storage size improvements,
-  LE Power Control vendor HCI command, CS algorithm buffer alignment fix, and
-  comprehensive CERT-C integer-overflow fixes in ranging service and connection manager.
-- **BLE controller updates** — Link layer libraries updated with CS sniffer antenna
-  switching fix, HW PCT rotation for IPT, GFSK clock enablement ordering fix, and
-  HADM antenna diversity improvements.
-- **XCVR NBU library updates** — Multiple NBU library refreshes with MISRA/CERT-C
-  static-analysis fixes for overflow and type-casting issues.
-- **IEEE 802.15.4 updates** — SW Rx address filtering for Multipurpose frames added;
-  MCXW72 MAC single-instance configuration; device filtering fix for blacklist-only
-  configuration.
-- **Connectivity framework v7.4.3** — CERT-C/MISRA fixes across OTA, FSCI, SecLib,
-  SFC, ICS, NVM, and LowPower modules; NBU fault/assert state preservation; TSTMR
-  56-bit timestamp fix; RW61x RTOS heap exhaustion fix on repeated BT init.
-- **lwIP TLS/HTTPS fixes** — `altcp_tls` RX window stall on large TLS records fixed;
-  client TLS config auto-free on dealloc corrected; RNDIS/CDC-ECM buffer bounds hardened.
-- **USB host stack security** — Descriptor length and bounds validation added across
-  audio, CDC, video, PHDC, MSC, MTP, and CCID class drivers; RNDIS message builder
-  buffer bounds fixed; CCID bulk-out integer overflow fixed.
-- **wpa_supplicant-rtos** — Network selection based on reliability added; uAP EAP
-  SIM/AKA memory leak fixed; early STA removal due to missing DEAUTH_TX_STATUS fixed;
-  EAP-WSC source files guarded with preprocessor conditionals.
-- **Wi-Fi driver stability** — Multiple fixes: RSN IE out-of-bounds HardFault, CMD 0x24
-  response timeout hang during WPA3 SAE, uAP channel 165 start failure, roaming state
-  leak, power-save mode RRM beacon handling, wowlan STA+UAP coexistence.
-- **IW612 default module update** — Default Wi-Fi module updated to IW612 for RT boards;
-  IW610 2LL set as default for FRDM-MCXN947, FRDM-MCXN947T, MCXNxxEVK boards.
-- **EtherMind L2CAP fix** — Incorrect inclusion of LE fixed channels in BR/EDR
-  Information Response corrected.
-- **edgefast_open L2CAP race condition** — BR/EDR config response race condition fixed;
-  channel state transition moved to config-response-sent callback.
+- **Bluetooth LE Host v1.10.24** — Changes in this version:
+  - Connection Subrating uses less flash.
+  - Anchor monitoring draws less current.
+  - BD address and crystal trim are handled through DEVMGR.
+  - Host task stacks are sized per application.
+  - IPT no longer requires experimental features.
+- **BLE controller DCOC calibration** — DCOC calibration state is now tracked per PHY, so an HCI Reset skips calibrations that are already complete. Up to 4 retries are allowed.
+- **BLE controller HADM init** — `BLE_HADM_Init()` now distinguishes a cold boot from an HCI Reset. Controller headers have `extern "C"` guards.
+- **EdgeFast Bluetooth crypto migration** — RT2660 and FRDM-MIMXRT1152 examples move to Mbed TLS 4.x / TF-PSA-Crypto. Bluetooth crypto now goes through PSA.
+- **EdgeFast Bluetooth Matter integration** — `CONFIG_ARM=1` is now provided, and macro conflicts with `wifi_config.h` are resolved.
+- **Connectivity Framework v7.5.1** — Changes in this version:
+  - Mutex-free RemoteActive APIs for use in low-power callbacks.
+  - The power-down handshake can be compiled out per platform.
+  - NVS/Settings is aligned with Zephyr v4.4.1 and can coexist with EdgeFast in the same image.
+  - KW43 RTT trim values are forwarded to the NBU.
+  - The SPC wake-up delay is tuned.
+- **Wi-Fi driver v1.3.r49.p12** — SDIO CMD53 reads now retry with IO_ABORT recovery. uAP link-local IPv6 addresses now reach the Preferred state. The lwIP ND6 queue size is bounded.
+- **Wi-Fi/BT firmware** — Updated firmware versions:
+  - IW612 18.99.8.p150
+  - IW416 16.92.21.p168
+  - 88W8987 16.92.21.p156.4
+  - IW610/RW610 p150
+- **Coex RPMSG shared memory** — `RPMSG_SHMEM_SIZE` can be overridden on EVKB-MIMXRT1170. The A2DP sink example uses 128 KB.
+- **IEEE 802.15.4 SMAC** — SMAC updates from the Zephyr enablement work are included, and the NBU libraries are refreshed.
+- **SOEM NETC handles** — NETC interface handles are now pointer types. Prebuilt WinPcap libraries are no longer shipped.
+- **wpa_supplicant NAN USD** — NAN USD is aligned with upstream hostap.
 
 ### ML / DSP / Multimedia
 
-- **OpenVG stability** — Multiple Coverity fixes: null pointer dereference guards,
-  signed-to-unsigned cast guards, overflow guards; mutex pointer cleared after delete;
-  vertical flip revert; EGL display free on OS_DestroyDisplay.
-- **OpenH264 type consistency** — Fixed-width `uint32_t` used in public headers instead
-  of `unsigned int` for cross-platform compatibility.
-- **VGLite RT1150/RT1152 buffer address** — Starting address offset corrected for
-  `tiled_freertos` example on RT1150 and RT1152.
+- **TensorFlow Lite Micro overridable hooks** — The copy/wait functions are now weak symbols, so applications can supply eDMA-based versions.
+- **OpenVG SDK build integration** — Adds Kconfig and `mcux.cmake` support for OpenVG, with a declared dependency on VGLite.
 
-### Filesystem
+### RTOS
 
-- **FatFS integer overflow fixes** — Sector+count bounds checks added in USB disk
-  read/write; GET_SECTOR_SIZE ioctl signed-shift fixed; RAM disk pointer arithmetic
-  cast to `size_t`.
-- **LittleFS CERT INT30-C fix** — Unsigned wrap guards added in `lfs_mflash.c`.
-- **SDMMC SD voltage switch** — Voltage switch workflow updated: DAT line low is
-  retried multiple times after CMD11 for improved reliability.
+- **FreeRTOS secure-context and privilege hardening** — Changes in this version:
+  - Armv8-M `SecureContext_AllocateContext` rejects secure stacks that are too small.
+  - The start-scheduler and free-secure-context SVCs can only be called from privileged code.
+  - MPU wrappers v2 refuse unprivileged critical sections.
+- **FreeRTOS API input validation** — Stricter checks are added for timer command IDs, queue sets, recursive-mutex counters and task stack sizes.
+
+### Boot
+
+- **MCUboot IPED region change** — MCUboot now uses IPED contexts 14 and 15 for execution areas. This avoids clashes with regions 0–3, which applications or ROM may configure.
 
 ### Multicore
 
-- **RPMsg-Lite virtqueue NUL-termination** — `virtqueue_create[_static]` now
-  NUL-terminates `vq_name` after `env_strncpy` to prevent potential overread.
-- **MCMGR initialization guard** — All public MCMGR API functions now return
-  `kStatus_MCMGR_NotReady` before `MCMGR_Init()` completes, preventing race conditions.
+- **MCMGR forced-event queue** — Forced MU events now go into an ordered per-MU queue that is drained from the TX-empty interrupt, instead of overwriting unread messages. Queue sizes are set with `MCMGR_MU_RPMSG_DOORBELL_SLOTS` and `MCMGR_MU_FORCED_QUEUE_SIZE`.
+- **MCMGR blocking send** — The blocking send now writes with interrupts disabled. It returns `kStatus_MCMGR_Error` when `MCMGR_BUSY_POLL_COUNT` runs out.
+- **RPMsg-Lite Zephyr module conventions** — Adds an SPDX header and requires CMake ≥ 3.20.0.
+
+### Filesystem
+
+- **SDMMC cache control** — A new Kconfig option forces cache maintenance on platforms with an external cache controller. The uSDHC host now uses `SDMMCHOST_ENABLE_CACHE_CONTROL`.
+
+### Motor Control
+
+- **FreeMASTER automatic platform selection** — FreeMASTER now selects the target platform automatically, with no manual configuration.
+- **Motor control speed loop and MCAT** — The speed loop now takes a frequency parameter instead of `SpeedLoopTs`. Also adds MCAT support for MCXC162, an updated sensorless state machine, and updated MCXC162 appconfigs.
+
+### Safety
+
+- **Simpler IEC 60730B AIO API** — `iec60730b_test_aio()` now runs the whole test sequence. Channel tables can be `const` and stay in flash.
 
 ---
 
@@ -412,126 +360,172 @@ What's New
 
 ### Fundamental
 
-- **NETC EP_Down crash on errata path** — Fixed crash in `EP_Down()` when
-  `FSL_FEATURE_NETC_HAS_ERRATA_050543` is active for pseudo Endpoint ports.
-- **LPADC feature macro name** — Corrected `FSL_FEATURE_LPADC_ADC_TCTRL_COUNT` to
-  `FSL_FEATURE_LPADC_TCTRL_COUNT` (affected LPADC trigger control count queries).
-- **SCTimer Coverity ARR30-C** — Match-register indices decoded from event CTRL
-  registers are now bounds-checked before use as `MATCH[]` subscripts.
-- **QSPI MCXE327 RXBRD handling** — QSPI driver updated to read Rx data from ARDB on
-  MCXE327 which lacks the RXBRD bitfield in the RBCT register.
-- **DSC EVTG FORCE_BYPASS macro** — Mismatched parentheses in `EVTG_Init` fixed;
-  flags cast to `uint16_t` to resolve CodeWarrior compiler errors.
-- **RT2K PMU `PMU_ConfigLfro1M` removal** — Removed deleted API and associated struct
-  that referenced a non-existent CCUPMHI FREERUN bitfield.
-- **I3C driver Coverity unused value** — Dead assignment of `instance` variable in
-  `I3C_MasterSetTxDMA` DDR branch removed.
-- **i.MX 8M Mini QSPI read** — Fixed QSPI read issue on i.MX 8MQ: Rx buffer set to
-  RBDR instead of default ARDB for IP read operations.
-- **RT1180 NVIC_SystemReset include-order hazard** — Include-order dependency in
-  `system_MIMXRT*_cmXX.h` headers that could silently override `NVIC_SystemReset()`
-  resolved.
-- **MCXE32x MDK flash programming** — Keil uVision CMSIS-DAP multicore flash
-  programming fixed; MDK CPU identifier corrected.
-- **MCXW70 EMVSIM TX_CNT mask** — `EMVSIM_TX_STATUS_TX_CNT_MASK` corrected from 4-bit
-  to 5-bit width per design confirmation.
-- **MCXN947/MCXN236 clock Coverity** — Dead `mMult` initializer removed from
-  `findPllMMult()` and related functions across MCX, LPC, and RT device families.
-- **RT2660 TRDC MEDIA master mapping** — MEDIA-domain master table corrected to match
-  the RT2660 reference-manual master-assignment table (was missing entries).
-- **RT2660 InputMux/clock connections** — Wrong `main_freq` and `comm_freq` connections
-  corrected; USB taps and FREQEAS TAR 21 added for `comm_freq`.
-- **RT2660 linker file typo** — Typo in GCC linker file corrected; `__heap_noncacheable__`
-  symbol now works correctly.
-- **RT2660 USBPHY DCD** — Disabled `FSL_FEATURE_USBPHY_HAS_DCD_ANALOG` macro re-enabled
-  to fix DCD analog module recognition on mimxrt2660evk.
-- **KW43 IAR startup vector table** — `m_image_length` restored in IAR vector table
-  at offset 0x20 after incorrect removal.
-- **KW43 AHB timeout** — CPU1 AHB timeout counter increased from 2 to 3 cycles to fix
-  HardFault observed on NBU when accessing TSTMR.
-- **KW43 CTCM1 ECC initialization** — Removed incorrect ECC RAM initialization of
-  CTCM1 (which does not support ECC) in KW47/MCXW72 startup.
-- **TrustZone NSC veneer hardening** — NSC veneer functions hardened against
-  TrustZone-M confused-deputy attacks (Arm PSIRT ARMSEC-559, NXP PSIRT).
-- **MCXC data flash Keil flashloader** — Data flash range (0x1c000–0x1ffff, 16 KB)
-  added to Keil flashloader for MCXC devices.
-- **MCXN556S ROM API context** — Undersized reserved field in `api_core_context_t`
-  fixed to match the 512-byte `flexspi_nor_config_t`-sized slot expected by ROM API_Init.
+- **Timer HAL handle overflow on 64-bit cores (security)** — On 64-bit cores such as the MIMX9596 Cortex-A55, `HAL_TIMER_HANDLE_SIZE` was too small and the driver overwrote adjacent memory. The handle size now depends on pointer width. Reported through NXP PSIRT.
+- **TrustZone NSC veneer hardening (security)** — Cortex-M33 example veneers now validate non-secure buffers, copy them into secure memory, and format strings with `"%s"`. This fixes confused-deputy, timing side-channel, TOCTOU and format-string issues reported through Arm and NXP PSIRT.
+- **TrustZone NSC veneer hardening** - NSC veneer functions hardened against TrustZone-M confused-deputy attacks (Arm PSIRT ARMSEC-559, NXP PSIRT).
+- **USB example bounds checks (security)** — The USB examples now bound descriptor, packet and payload lengths, so malicious peers cannot cause overflows or hangs. This covers:
+  - Host class examples: HID, Audio, Video, Printer, MSD, PHDC.
+  - Device class examples: MSC, RNDIS, DFU, MTP, CDC, UVC.
+  - USB-PD examples.
+- **SAI eDMA multi-channel RX** — RX previously used the TX enum by mistake, which silently selected write-combine mode. It now uses `kSAI_RXFifoCombineModeEnabledOnRead`.
+- **DualADC calibration** — `GAIN_CAL` is now sign-extended correctly; the old handling could double conversion results. The driver also supports the 17-bit `GAIN_CAL` field and waits the required delay after `CAL_RDY`.
+- **ENET_QoS MCXE32B errata** — Adds workarounds for:
+  - ERR050707: the DMA bus error is now reported as `kENET_QOS_DmaBusErrEvent`.
+  - ERR050597.
+  - ERR051222.
+  - ERR050595.
+- **FlexCAN bus-off workaround** — The ERR009595 workaround no longer leaves Freeze mode early, and IMASK2 is always preserved.
+- **PWM ERR051989 workaround** — The workaround now follows the latest errata guidance and sets only `SMxPHASEDLY=1`.
+- **SCTimer 0 % duty glitch** — A one-tick output glitch on edge-aligned PWM at 0 % duty is removed.
+- **LLC maintenance serialization** — The driver now waits for `MNTOPACTV` to go idle around each maintenance operation. This fixes false timeouts during a full flush on MIMXRT2660-EVK.
+- **MIPI-DSI command corruption** — Video mode is now turned off during APB command-mode transfers and restored afterwards.
+- **PMU body-bias trim** — `PMU_ConfigBodyBias()` now does a read-modify-write and keeps the ROM-owned NWELL/PWELL trim.
+- **RPMsg HAL handshake** — Fixes init/deinit hangs and lost-READY races. Compatibility with remote cores running 26.06.00 is restored.
+- **USART DMA adapter RX loss** — Fixes occasional data loss when bytes arrive between reading the count and aborting DMA.
+- **mflash RT700 / ARB_WIN** — The read LUTs now follow XSPI errata ERR052528, and the `ERRSTAT.ARB_WIN` init hang is fixed.
+- **Component fixes** — Fixes in several components:
+  - `HASH_CTX_SIZE_SHA256` is restored to 112.
+  - SerialManager deletes the timer task before its mutex.
+  - The codec adapters, WM8524 and WM8962 now check for NULL at runtime.
+- **SDMA / PDM / CAAM** — The SDMA SPBA range check is fixed. The PDM build on i.MX95V is fixed. CAAM entropy descriptors are placed in non-cacheable memory.
+- **LinkServer RAM image loading** — LinkServer now resets the target before loading and turns off the GDB memory-map check, so images that run from RAM load completely.
+- **West tooling** — Fixes three issues:
+  - A `west build` crash in device-only builds with `-p auto`.
+  - Relative-path handling in `west list_project`.
+  - A crash in `west blobs regen --init`.
+- **Project generation** — Fixes three issues:
+  - RISC-V LLVM projects can be generated without `RISCVLLVM_DIR` set.
+  - Standalone `-include` paths are corrected.
+  - CodeWarrior projects generate when the install path contains spaces.
+- **USB with FreeRTOS** — The USB stack now starts after `vTaskStartScheduler()`, so an early interrupt can no longer touch kernel objects before they exist.
+- **RT2660 example fixes** — Fixes in the RT2660 examples:
+  - XBAR pad direction (eqdc/evtg/qtmr).
+  - ASRC master clock.
+  - Codec I2C baud rate.
+  - LLC PSRAM bring-up.
+  - A GCC 14.2 checksum miscompile in lwIP.
+  - ENET PHY init.
+  - SD power-rail settling time.
+  - MCUboot XIP pin re-init.
+- **Clock-enable ordering** — On MCXW70-LOC, FRDM-KW43 and FRDM-MCXW70, the FRO HF divider is now enabled before the clock source is selected. This fixes the TPM image mismatch and the silent LIN slave output.
+- **Wireless low-power resets** — The 2.4 GHz radio low-power request is now always released on KW43/MCXW70/KW47, so waking up no longer causes unexpected resets.
+- **Wireless app stability** — Stack overflows are fixed, LPUART is re-initialized after Deep Sleep, and the `m_shared_data` section is NOLOAD so `.bin` images stay small.
+- **Other example fixes** — Fixes in several examples:
+  - Overcurrent routing in `pmsm_enc` on HVP-MCXA346.
+  - EtherCAT shared-lock corruption.
+  - An MDK hardfault in LVGL.
+  - Model-runner hangs on scalar tensors.
+  - Several IAR/MDK build errors.
+- **RT2660 repository package** — The repo-zip packaging failure for RT2660 is fixed.
+
+### Device Support
+
+- **MCXN556S / MCXN947T ROM API overflow** — `api_core_context_t` now reserves the full 512-byte slot. Previously, `API_Init()` overwrote application globals and broke `printf`.
+- **MCXE31 FXOSC bypass mode** — Bypass now sets `OSC_BYP` only and configures the oscillator while it is disabled. `CLOCK_GetFxoscFreq()` now returns the configured frequency.
+- **MCXE31B LPSPI clock array** — The clock array was selected by the wrong instance-count guard, so Lpspi4/Lpspi5 were missing. All six LPSPI instances are now included.
+- **MCXA536 / MCXA537 build** — References to `USBHS1_PHY` in the shared clock driver are now guarded, so builds for these parts succeed.
+- **MCXC353 RAM size** — The linker files now use a RAM size of 0x4000.
+- **KW43 / MCXW70 LPTMR clock option** — The unsupported FRO6M prescaler clock option is removed.
+- **i.MX937 part-number builds** — Driver paths for MIMX9371/9373 are fixed, and EIM/ERM driver types are removed because these parts don't have those IPs.
+- **i.MX943 logical machine** — An earlier change is reverted, so the A55 LMM remains the default.
+- **RT118x USBPHY2 / RT2660 AVPLL** — USBPHY2 support is excluded on the new parts that lack it. RT2660 AVPLL bitfields are cleared before configuration, and an unnecessary XSPI LLC address translation is removed.
 
 ### Security
 
-- **SGI CCM tampered multipart AEAD** — Tampered multipart AEAD CCM decrypt now
-  correctly rejected; CCM context initialized in `sgi_aead_set_nonce()` instead of
-  deferred to `sgi_aead_update_ad()`.
-- **SGI oversized key rejection** — Raw HMAC keys exceeding `PSA_MAX_KEY_BITS` now
-  rejected on SGI import (previously accepted up to 65536 bits).
-- **Secure storage MDK `psa_status_t` redefinition** — Typedef conflict between
-  `mbedtls3x` PSA Crypto and `secure_storage` headers resolved.
-- **ELS_PKC MCXN547 include path** — Missing MCXN947 drivers include path for MCXN547
-  added to `McuxElsPkc` CMake target.
+- **HSEB orphaned persistent keys** — The driver now checks PSA ITS for an existing persistent key ID before generating or importing a key, so the original key is no longer orphaned.
+- **HSEB cipher bounds and key-size checks** — `cipher_update` now has a bounds check, and cipher keys with an invalid bit size are rejected.
+- **EdgeLock 2GO agent vulnerability fixes** — Vulnerabilities and bugs found in the agent code, including through AI-assisted code scanning, are fixed. Updating is recommended.
+- **ELE S100 ECDH** — ECDH acceleration on ELE S100 is temporarily disabled; ECDH uses the software implementation for now.
+- **ELS/PKC device header and HMAC-DRBG** — MCXN947/MCXN547 CPU1 builds now pick the correct core header. The HMAC-DRBG source is now compiled, which fixes deterministic ECDSA linking on RT700.
+- **PSA driver build fixes** — Fixes three build issues:
+  - The unreachable-loop error in AEAD builds that have neither GCM nor CCM.
+  - The missing SGI key-locations include path.
+  - A header missing after TF-PSA-Crypto 1.2.0.
+- **PSA ITS (FatFS)** — The FatFS backend is fixed after the ELE driver header was renamed.
+- **TF-M packaging and L20/A2TS** — The TF-M secure libraries are now packaged for FRDM-MCXN947T, so `_s`/`_ns` examples link. The L20/A2TS non-secure RAM size and the PKC + eDMA anti-pole configuration are corrected.
+- **SGI/PKC MCXW70 and MCXA5xx builds** — Glikey is no longer enabled in TF-M on MCXW70. The missing MCXA5xx platform header is added.
+- **Secure storage** — Building alongside EdgeFast Bluetooth is fixed. CERT EXP33-C, INT30-C, ERR33-C and POS54-C findings are resolved.
 
 ### Connectivity & Wireless
 
-- **Wi-Fi RSN IE OOB HardFault** — Out-of-bounds memory access in `process_rsn_ie()`
-  triggered by malformed RSN IE after wlan-reset fixed.
-- **Wi-Fi CMD 0x24 hang** — Host hang on CMD 0x24 DEAUTHENTICATE response timeout
-  during WPA3 SAE handshake when `wlan_reset()` is called shortly after connect fixed.
-- **Wi-Fi uAP channel 165** — uAP start failure on channel 165 with WPA supplicant
-  fixed by correcting secondary channel offset in embedded supplicant path.
-- **Wi-Fi power save RRM** — Wi-Fi ceasing to function during power save mode when
-  receiving 802.11k RRM Beacon Request targeting 5 GHz channel fixed.
-- **Wi-Fi wowlan STA+UAP** — WoWLAN failed to wake host when STA and UAP coexist fixed.
-- **Wi-Fi enterprise cert memory leak** — Memory leak of enterprise certificate on
-  `wlan-reset` with opaque keys fixed.
-- **Wi-Fi roaming state leak** — Roaming state not reset when neighbor list report
-  arrives in IDLE state fixed.
-- **wpa_supplicant early STA removal** — STA removed too early due to missing
-  `DEAUTH_TX_STATUS` flag fixed.
-- **Coex PM3 hang** — UART entering PM3 causing coex hang fixed; LPUART DMA cache
-  coherency issue on evkbmimxrt1170 resolved.
-- **edgefast_open audio frame length** — Incorrect audio frame length for 88W8987
-  modules on evkmimxrt595 corrected.
-- **LIN slave no output** — LIN stack slave example produced no serial output on
-  FRDM-KW43 and FRDM-MCXW70 due to FRO HF div not enabled before clock source
-  selection; fixed.
-- **Connectivity framework HCI packet length** — HCI RX/TX length checks incorrectly
-  clamped to 255 bytes (UINT8_MAX) by MCSE-1743, rejecting valid HCI/ACL packets;
-  corrected.
-- **RW61x RTOS heap exhaustion** — Heap space exhaustion when performing repeated
-  `bt init → bt disable` cycles on RW61x fixed.
-
-### Filesystem
-
-- **FatFS USB disk sector wrap** — Sector+index wrap in USB disk read/write guarded
-  against integer overflow.
-- **SDMMC CMD53 multiblock read** — Stop command no longer sent for CMD53 multiblock
-  read (fixed block count); SPI zippack build error fixed.
-
-### Boot
-
-- **MCUboot PSA Crypto init** — PSA Crypto initialization issue in MCUboot fixed.
-- **MCUboot `boot_copy_region_pre_hook`** — Prototype reworked to use bootloader state
-  only; implementation adjusted in `bootutil_hooks.c`.
-- **RT1186 SPI flashloader** — Communication failure with RT1186 flashloader via SPI
-  fixed.
-- **RT117x fuse write on macOS** — Fuses not correctly written on macOS fixed.
-
-### Multicore
-
-- **MCMGR KW43 ICS init-handshake hang** — `MCMGR_CHECK_INIT()` returning
-  `kStatus_MCMGR_NotReady` during `MCMGR_Init()` caused KW43 ICS init-handshake to
-  hang; fixed with correct initialization ordering.
-- **MCMGR CERT EXP33-C** — Uninitialized `target_core` variable in all mcmgr platform
-  files fixed.
-- **RPMsg-Lite IMU_Deinit guard** — `IMU_Deinit` in `platform_deinit` now guarded with
-  `RL_USE_MCMGR_IPC_ISR_HANDLER` to prevent double-deinit when MCMGR owns the IMU link.
+- **CS distance accuracy** — The controller's per-antenna-path phase correction was applied twice, causing about 0.5 m of distance error. The double correction is removed, and a remaining ~3.5 cm offset is tuned out.
+- **BTCS segmentation corruption** — L2CAP corruption when CS subevent data crossed a segment boundary is fixed. This includes a `uint16_t` underflow that produced a wild pointer.
+- **CS-SYNC antenna selection** — The antenna lookup-table index for ACI 7 is fixed, and the Bluetooth 6.3 value `0xFD` for `CS_SYNC_Antenna_Selection` is now accepted.
+- **NBU HardFault without antenna configuration** — If the Host does not configure the supported antenna count, it now defaults to 1 instead of causing a HardFault.
+- **KW43-LOC RF switch and handover timeout** — The antenna switch pins PTA20/PTA21 are corrected. The anchor-search-start event is now handled correctly on supervision timeout.
+- **GAP default connection parameters macro** — The missing comma and the missing `usePeerIdentityAddress` field are added, so the macro works as a brace initializer.
+- **EdgeFast SMP entropy (security)** — RT2660 SMP pairing used an unseeded `rand()`, so every board generated the same P-256 keys. Entropy now comes from the ELE hardware TRNG.
+- **EdgeFast L2CAP BR/EDR configuration race** — The channel now stays in the `CONFIG` state until the configuration response has been sent, so peer data arriving in that window is no longer dropped.
+- **EdgeFast RT2660 audio and build** — Audio fixes for SAI MCLK, eDMA handle alignment, PLL clocking and ring-tone pitch. Also fixes GCC ITCM overflow, the IAR section selectors, liblc3 at -O3, and the M.2 SDIO port and reset timing.
+- **IEEE 802.15.4 FSCI beacon overflow (security)** — The FSCI beacon-notify buffer now accounts for the pending address list, which closes a heap overflow of up to 70 bytes.
+- **IEEE 802.15.4 dual-PAN rx-after-poll** — Transmit requests that arrived during rx-after-poll with dual-PAN enabled (a Matter use case) are no longer lost.
+- **IEEE 802.15.4 ED scan and ASP CW** — Energy detect no longer reports `0xFF`, and the hard fault after an ASP continuous-wave test is fixed.
+- **USB stack security** — Bounds and length checks are added across the USB stack:
+  - USB-PD (PTN5110) extended messages and vendor VDMs.
+  - RNDIS device commands and host message builders.
+  - MTP parameter and event counts.
+  - CCID bulk-out length.
+  - MSC LBA range.
+  - Hub descriptors.
+  - Runt-frame dropping in the Ethernet adapter.
+- **USB MCX ENET Rx buffer table** — The Rx buffer table moved off the stack, because `ENET_Init()` keeps the pointer after the call returns.
+- **lwIP security** — Fixes in the lwIP network interfaces:
+  - USB CDC-ECM/RNDIS pbuf overflow, fixed by copying with `pbuf_take()`.
+  - ENET QoS TX overflow with chained pbufs.
+  - Hosts no longer adopt a stale or incomplete MAC address.
+  - Device-reported MTU and segment size are clamped.
+- **Wi-Fi security** — An AP sending a malformed RSN/RSNO IE can no longer cause a HardFault, and the HE Capability IE copy and RX A-MSDU handling are now bounds-checked.
+- **Wi-Fi stability** — Fixes in the Wi-Fi driver:
+  - A WPA3-SAE reset hang.
+  - Corrupt BSSID/SSID after a roaming scan.
+  - The uAP secondary channel offset and channel-165 bandwidth.
+  - Honoring a requested passive scan.
+  - Memory leaks of enterprise certificates and RX net_buf.
+- **Wi-Fi CSI HT40 distance** — `libcsi.a` is rebuilt for all toolchains and cores, which fixes a 2× distance error on HT40.
+- **Connectivity Framework** — Fixes in the Connectivity Framework:
+  - Valid HCI packets longer than 255 bytes are accepted again.
+  - KW43/MCXW70 low-power register fixes (RF_CMC RAM power, MU wake-up, PMPROT).
+  - OTA reads see pending async-flash operations.
+  - WorkQ stack overflow.
+  - `US_TO_TICK` now saturates instead of truncating.
+- **wpa_supplicant** — The `mbedtls_ms_time` ALT implementation is now guarded by `MBEDTLS_PLATFORM_MS_TIME_ALT`.
 
 ### ML / DSP / Multimedia
 
-- **Ethos-U IAR release mode hang** — Ethos-U driver hang in IAR release mode on
-  i.MX RT700E (imxrtl375) fixed.
-- **XAF FRDM-IMXRT700 codec I2C routing** — Codec I2C routing fix propagated to
-  `xaf_playback`, `xaf_record`, and `xaf_usb_demo` CM33 core0 ports.
+- **OPUS decoder NULL handling** — `OggOPUSInit`, `OggOPUSDecode` and `OggOPUSSeek` validate their pointers and return an error instead of dereferencing NULL.
+- **Maestro AAC start delay** — The delay before AAC playback started in `maestro_playback` is fixed.
+- **ExecuTorch cross-compilation** — A stale host `libflatccrt.a` is removed before the target rebuild, which fixes cross-builds including HiFi4 profiling builds.
+- **XAF USB speaker distortion** — `flash_debug` builds on FRDM-IMXRT700 and RT685-AUD-EVK are now built at `-O2`, so the CM33 USB real-time path meets its deadline.
+- **VGLite MDK hardfault** — VGLite MDK projects now link with microlib. Previously, semihosting initialization caused a hardfault at reset when no debugger was attached.
+
+### RTOS
+
+- **FreeRTOS `vTaskListTasks()` TOCTOU (security)** — A race that could under-size the allocation and overflow the buffer in `uxTaskGetSystemState()` is fixed.
+- **FreeRTOS kernel object fixes** — Fixes in kernel objects:
+  - Batching stream buffers now trigger at the correct level.
+  - heap_5 no longer asserts falsely on out-of-memory.
+  - Priority disinheritance after a timeout is correct.
+  - `xTimerDelete` no longer leaks an MPU wrappers v2 object-pool entry.
+- **FreeRTOS RISC-V context** — Context restore now uses the saved `mstatus` to decide the FPU/VPU state, and the FPU register offsets are corrected.
+
+### Boot
+
+- **MCU bootloader ecosystem paths** — The `system_MIMXRT*.h` paths in the ecosystem metadata are corrected, so generated packages are complete.
+
+### Multicore
+
+- **RPMsg-Lite name-service overflow (security)** — `rpmsg_ns_announce` now copies at most `RL_NS_NAME_SIZE - 1` bytes and always NUL-terminates the endpoint name.
+- **RPMsg-Lite TrustZone NSC veneer hardening** - Improved validation of non-secure pointers and size values in the rpmsg_lite_pingpong_tzm example to prevent secure-world memory disclosure or denial of service.
+- **RPMsg-Lite MISRA C-2012** — Rules 10.3, 14.4, 8.4 and 5.8 are fixed with no API change.
+- **MCMGR KW43 release build** — The failing KW43 release targets are fixed.
+
+### Filesystem
+
+- **FatFs sector-size truncation** — `GET_SECTOR_SIZE` now returns `RES_PARERR` when `blockSize` exceeds 0xFFFF, instead of silently truncating it.
+
+### Motor Control
+
+- **Sensorless speed catch-up** — Merging speed catch-up no longer runs twice in the sensorless start-up sequence.
 
 ---
 
@@ -539,76 +533,100 @@ What's New
 
 | # | Description | Impact | Required Action |
 |---|-------------|--------|-----------------|
-| 1 | **`edgefast_bt_ble` (EtherMind Bluetooth stack) removed** | Applications using the legacy `edgefast_bt_ble` middleware component will fail to build after updating to 26.09.00. | Migrate to `edgefast_open`. The `edgefast_open` repository provides a unified Bluetooth stack with equivalent functionality. Update CMakeLists.txt, Kconfig, and include paths accordingly. Refer to the EdgeFast Open migration guide in the SDK documentation. |
-| 2 | **`POWER_Init` renamed to `POWER_SetPolicy` on i.MX RT2660** | Code calling `POWER_Init()` or `POWER_GetDefaultInitConfig()` on RT2660 will not compile. | Replace `POWER_Init()` with `POWER_SetPolicy()` and `POWER_GetDefaultInitConfig()` with `POWER_GetDefaultPolicyConfig()`. |
-| 3 | **`PMU_ConfigLfro1M` API removed on RT2K** | Code calling `PMU_ConfigLfro1M()` or referencing `pmu_lfro1m_config_t` will not compile. | Remove calls to `PMU_ConfigLfro1M()`. The LFRO 1M configuration is no longer supported via this API. |
-| 4 | **`edma4` Kconfig replaced by `edma_unified` on i.MX 937 and RT2660** | Projects selecting `MCUX_COMPONENT_driver.edma4` on i.MX 937 or RT2660 will not resolve the eDMA driver. | Replace `MCUX_COMPONENT_driver.edma4` with `MCUX_COMPONENT_driver.edma_unified` in project Kconfig or CMakeLists.txt. |
-| 5 | **TF-PSA-Crypto updated to v1.2.0 (removes `ecp_curves_new.c`)** | Projects with explicit CMake references to `drivers/builtin/src/ecp_curves_new.c` will fail to build. | Remove the explicit reference; the file was removed upstream in v1.2.0. The `psa_crypto_driver` CMake has been updated accordingly. |
-| 6 | **MCXW70AA part number removed** | Any project or configuration referencing the `MCXW70AA` part number will not find a matching device definition. | Use the remaining MCXW70 part numbers. `MCXW70AA` is no longer a productized part number. |
+| 1 | **RT2660 power driver API rework** | `POWER_SetPolicy` is split into `POWER_Init` + `POWER_SetPolicy`. `POWER_LoadBodyBiasFuse` is renamed to `POWER_InitBodyBiasConfig` and `POWER_ApplyZbb` to `POWER_ApplyZeroBodyBias`. The `POWER_SetMemSlicesSleepMode()` parameter order is now (mems, count, mode). `MCUX_POWER_PF9453_SUPPLY` is removed. | Call `POWER_Init()`, update the renamed APIs and the parameter order, and register `power_ext_regulator_hooks_t` callbacks (or enable `MCUX_BOARD_USE_PF9453`) on PF9453-based boards. |
+| 2 | **PINT feature macro replaced by a per-instance macro** | Code that uses `FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS` fails to build on LPC, MCX, RT and Wireless devices. | Use `FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTSn(x)` and `FSL_FEATURE_PINT_NUMBER_OF_INSTANCE`. |
+| 3 | **SAI eDMA multi-channel RX requires the RX combine enum** | Passing `kSAI_FifoCombineModeEnabledOnRead` to `SAI_TransferRxSetConfigEDMA` asserts in debug builds. | Use `kSAI_RXFifoCombineModeEnabledOnRead`. |
+| 4 | **DualADC API and config changes** | The `DUALADC_CalculateGainResult()` parameter is now `uint32_t`, and `dadc_config_t` has new `enableDmaA`/`enableDmaB` fields. | Update call sites, and start from the default config or initialize the new fields. |
+| 5 | **PMU body-bias trim not written by default** | `PMU_ConfigBodyBias()` no longer writes NWELL/PWELL trim. | Enable `PMU_DRIVER_UPDATE_TRIM_VALUE` if your software supplies the trim. |
+| 6 | **`.bin` output disabled by default** | Flows that expect `.bin` artifacts fail, because `MCUX_BUILD_OUTPUT_BIN` defaults to `n`. | Set `MCUX_BUILD_OUTPUT_BIN=y` in `prj.conf`. |
+| 7 | **V2X FCE scratch configuration** | `V2X_FCE_DDR_SCRATCH_BASE` is removed, and the scratch area is now placed by the linker. | Use `V2X_FCE_SCRATCH_PAYLOAD_SIZE` and place the scratch section in the application linker script. |
+| 8 | **HAL UART adapter selection with `muxuart`** | When `muxuart` is enabled, the LPUART adapter is no longer selected automatically, and only one UART adapter can be linked per image. | Choose the adapter explicitly for each core. |
+| 9 | **`DbgConsole_Printf_NSE()` signature** | TrustZone non-secure callers fail to build, because the function now takes a `size_t length` argument. | Pass the buffer length. |
+| 10 | **MCXE31 FXOSC bypass value** | `kFXOSC_ModeBypass` changed from 0x81000000 to 0x80000000, and bypass mode no longer waits on `OSC_STAT`. | Review code that stores or compares the raw value or relies on the wait. |
+| 11 | **MIMX8ML8 per-core layout** | Device and board files moved to per-core folders, and the board ID is now `evkmimx8mp@cm7`. | Update custom build scripts and the board qualifier. |
+| 12 | **BLE controller HADM API changes** | `BLE_HADM_Init()` takes a new `bReset` argument. `BLE_HADM_SetAntennaType()` takes `num_ap` and `t_sw`. | Update custom integration call sites. |
+| 13 | **BLE hardware-parameter access via DEVMGR** | The HWParameter / `PLATFORM_GetBdAddr` path is replaced. `gGapDefaultConnectionRequestParameters_d` gains the `usePeerIdentityAddress` field. | Migrate to the `DEVMGR_*` APIs and update positional initializers. |
+| 14 | **Connectivity Framework KW43 IFR and fault output** | The KW43 default IFR layout is now CFPA 0x170. The DEVMGR types header is merged into `fwk_platform_devmgr.h`. Fault reports are dropped if no output is registered. | Define `KW43_A0_0` for A.0.0 silicon, update includes, and call `FWK_FaultHandlerSetOutput()`. |
+| 15 | **Wi-Fi external antenna gain units** | Values are now interpreted in 0.25 dB steps, so existing settings apply a quarter of the intended gain. | Multiply existing values by 4. |
+| 16 | **EdgeFast Bluetooth Mbed TLS 4.x migration (RT2660/RT1152)** | `mbedtls3x` is replaced by TF-PSA-Crypto. The user config file is renamed, and `mbedtls_hardware_poll()` is replaced by `mbedtls_platform_get_entropy()`. | Rename to `tf_psa_crypto_user_config.h` / `TF_PSA_CRYPTO_USER_CONFIG_FILE` and implement `mbedtls_platform_get_entropy()`. |
+| 17 | **ELE S400 driver reworked as S1xx/S4xx** | The header is renamed, and the driver is now enabled by default with Mbed TLS / TF-PSA-Crypto. | Update includes and review the driver selection in `prj.conf`. |
+| 18 | **Secure storage offset APIs removed** | Callers of `its_get_from_offset()` / `its_set_at_offset()` fail to link. | Use the standard PSA ITS APIs. |
+| 19 | **Crypto library Kconfig helper symbols renamed** | Custom Kconfig/CMake that references the old unprefixed symbols in `els_pkc`, `sgi_pkc` or `sgi_pkc_pqc` breaks. | Update to the prefixed symbol names. |
+| 20 | **MCMGR forced-event queue** | `MCMGR_TriggerEventForce()` can return `kStatus_MCMGR_Error` when the queue is full. | Check the return value or increase `MCMGR_MU_FORCED_QUEUE_SIZE`. |
+| 21 | **MCUboot IPED contexts moved to 14/15** | Applications that use IPED contexts 14/15 conflict with MCUboot. | Move application IPED regions to other contexts. |
+| 22 | **IEC 60730B AIO API** | `iec60730b_aio_test_init()` is removed, and the layout of `struct iec60730b_adc_channel` changed. | Call `iec60730b_test_aio()` only and update the channel tables. |
+| 23 | **Motor control speed-loop parameter** | `SpeedLoopTs` is replaced by a frequency parameter. | Convert existing sample-time settings to frequency. |
+| 24 | **FreeRTOS V11.3.1 MPU/RISC-V changes** | `configALLOW_UNPRIVILEGED_CRITICAL_SECTIONS=1` is a compile error under MPU wrappers v2. The RISC-V context layout changed. | Remove unprivileged critical sections and update custom context-switch assembly or debugger scripts. |
+| 25 | **SOEM NETC handles and WinPcap** | NETC `if_port` handle members are now pointers, and the WinPcap libraries are no longer shipped. | Update application code and install the WinPcap/Npcap SDK for Windows host builds. |
+| 26 | **Removed examples / toolchains** | These are removed: XAF examples on EVK-MIMXRT595/685, i.MX93 I3C component examples, RW612 NCP socket commands, and MDK for OpenVG on FRDM-IMXRT1152. | Use the 26.09.00 release, or a supported board/toolchain. |
 
 ---
 
 ## Known Issues
 
-- **IAR Embedded Workbench 9.70.4 on FRDM-IMXRT700** — When using IAR Embedded
-  Workbench for Arm 9.70.4 with the FRDM-IMXRT700 board, users must install a patch
-  from IAR. Refer to the FRDM-IMXRT700 release notes known issues section in the SDK
-  documentation for the download link.
-- **`cube_freertos` IAR build disabled on FRDM-IMXRT700** — The IAR debug/release
-  configurations for `cube_freertos` on `frdmimxrt700@cm33_core0` are disabled in this
-  release as the example did not reach quality targets. GCC and MDK builds are unaffected.
-- **FRDM-MCXA287 / FRDM-MCXA577 `hello_world_qspi_xip` ISP programming** — Programming
-  via blhost ISP may fail or leave the device in an unresponsive state if CMPA/ISP
-  configuration is not cleared first. A debug-mailbox mass-erase step is required before
-  ISP programming. Refer to the example documentation for the updated programming sequence.
-- **FRDM-MCXN947T `mcxn_encrypted_xip`** — The encrypted XIP build project for
-  FRDM-MCXN947T depends on the SEC tool and is disabled in this release. It will be
-  re-enabled in a future release.
-- **edgefast_open K32W061 transceiver** — K32W061 transceiver support has been removed
-  from `evkmimxrt595`, `evkmimxrt685`, and `evkbimxrt1050` EdgeFast Open examples.
-  Applications requiring K32W061 on these boards should use the previous release or
-  contact NXP support.
-- **MCUXpresso IDE toolchain** — MCUXpresso IDE toolchain support has been removed from
-  wireless board examples. Use IAR, Keil MDK, or ARMGCC for wireless examples.
+- **ELE S100 ECDH acceleration** — ECDH hardware acceleration is temporarily disabled on ELE S100, and ECDH falls back to the software implementation.
+- **MIMXRT2660-EVK Bluetooth module support** —
+  - LE Audio works only with the Murata 2EL / W9177 modules, and the 4-BIS/4-CIS examples support only the 2EL M.2 module.
+  - Bluetooth Classic examples do not support the 2LL module.
+- **MIMXRT2660-EVK board rework** —
+  - The Bluetooth UART needs board rework (remove R553/R554).
+  - Depending on the example, codec, sync and handsfree signals also need rework. See the example readme files.
+- **KW47 Inline PCT Transfer** — IPT is disabled by default and is enabled only when one antenna and one antenna path are configured.
+- **FRDM-MCXA577 (A0 silicon) USB Ethernet** — Because of ENET RMII receive erratum ERR053383, the CDC-VNIC/ECM examples use MII. The debug console moves to LPUART2, and board rework is required.
+- **KW43 OTA write verification** — OTA write verification is disabled because it is not compatible with async flash operations.
+- **KW43/MCXW70 DEVMGR platform backend** — The DEVMGR platform backend is not enabled by default in this preview.
+- **Murata 1XK (IW416) HT40** — HT40 on 2.4 GHz is not supported, so uAP is forced to 20 MHz.
+- **Temporarily disabled builds** —
+  - `lpspi_loopback` on FRDM-MCXC353.
+  - `mcxn_encrypted_xip` on FRDM-MCXN947T.
+  - Coex EdgeFast FlexSPI builds on FRDM-IMXRT1152.
+  - MCUXpresso IDE builds of coex A2DP on EVKB-MIMXRT1170.
+  - The `tfm_regression_s` MDK debug build.
+  - Selected MCXL SLCD/USB targets.
+- **Wi-Fi/BT firmware validation** — Full regression testing of the updated firmware binaries is still in progress for this preview.
 
 ---
 
 ## Toolchain & Environment Support
 
-The following toolchain versions are documented for this release. Version information is
-transcribed from the `release/26.09.00` branch of `mcu-sdk-doc`; label as
-**"Documented for this release"**.
+The following toolchain versions are documented for this release. Version information is transcribed from the `mcu-sdk-doc` release documentation of the `release/26.12.00-pvw1` revision; label as **"Documented for this release"**.
 
-| Toolchain                          | Version        | Notes                                                        |
-|------------------------------------|----------------|--------------------------------------------------------------|
-| MCUXpresso for VS Code       | v26.09 | Default toolchain for all device families. Refer to SDK Getting Started guide for the recommended version. |
-| Arm GNU Toolchain (armgcc)         | 14.2.x |  |
-| IAR Embedded Workbench for Arm     | 9.70.4         | Patch required for FRDM-IMXRT700. See Known Issues.          |
-| Keil MDK (µVision)                 | 5.43a | Supported for MCX, Kinetis, LPC, and i.MX RT families.      |
-| Xtensa C/C++ Compiler (XCC)        | RJ2026_6       | Required for DSP examples on RT500, RT600, RT700, i.MX 8ULP. Updated in this release. |
-| MCUXpresso IDE                     |25.06.xx | Removed from wireless board examples in this release. |
+| Toolchain | Version | Notes |
+|-----------|---------|-------|
+| MCUXpresso for VS Code | v26.06 | Default IDE experience for all device families |
+| Arm GNU Toolchain (armgcc) | 14.2.x | Command line / `west build` |
+| IAR Embedded Workbench for Arm | 9.70.4 | |
+| Keil MDK (µVision) | 5.43a | |
+| MCUXpresso IDE | 25.06.xx | |
+| CodeWarrior Development Studio | v11.2 with CodeWarrior for DSC v11.2 SP1 | DSC devices |
+| RISC-V LLVM | 19.1.7 | RISC-V cores |
+| Xtensa Xplorer | 12.0.6 | DSP examples |
+| Xtensa C/C++ Compiler (XCC) | RJ-2026.6 | DSP examples |
 
-> **Note:** Firm toolchain version numbers for armgcc and Keil MDK could not be verified
-> from the available commit log. Refer to the SDK documentation
-> (`mcuxsdk/docs/release/commonrn/topics/development_tools_*.md`) on the
-> `release/26.09.00` branch for the authoritative toolchain matrix.
+> **Note:** At this revision, the documented MCUXpresso for VS Code (v26.06) and MCUXpresso IDE (25.06.xx) versions have not yet been refreshed for the December 2026 release. Refer to the final release documentation for the authoritative toolchain matrix.
 
 ---
 
 ## Final Release Summary
 
-MCUXpresso SDK 26.09.00 (September 2026, implied) represents a significant quarterly
-advancement across the full breadth of the NXP MCUXpresso SDK ecosystem. This release
-delivers production-ready support for the i.MX RT2660 SoC, full enablement of the MCXE327
-MCU, and expanded Cortex-A core support for i.MX 93, i.MX 95, and i.MX 8M Mini devices.
-The security posture of the SDK is substantially strengthened through the upgrade to
-Mbed TLS 4.2.0 (LTS) and 3.6.7, ELS_PKC v5.0.0, SGI_PKC v4.3.0 with PQC add-on, and
-comprehensive hardening of USB host class drivers and PSA crypto drivers against
-malformed-input attacks. The wireless ecosystem benefits from refreshed Wi-Fi firmware
-across all supported modules, Bluetooth host v1.10.23, the completed migration to the
-unified `edgefast_open` Bluetooth stack, and the addition of the MSTP library for BACnet
-connectivity. On the ML/AI front, ExecuTorch v1.4.1 with Neutron SDK 3.2.2 and MPP v4.4.0
-bring expanded model support and new board enablement. MCUboot v2.4.0 adds OTFAD encrypted
-XIP for i.MX RT1152/1160/1170. Across all functional areas, this release incorporates
-extensive CERT-C, MISRA, and Coverity quality improvements, making 26.09.00 a high-quality
-foundation for production embedded software development on NXP MCU and MPU platforms.
+MCUXpresso SDK 26.12.00-pvw1 (December 2026, implied) is the first preview of the December quarterly release.
+
+- **New devices:** the MIMX8ML8 Cortex-A53 core, new RT1184 parts, MCXA WLCSP80 parts, RW610FML and KW43 multicore. MCXC352/MCXC353 are now in the public SDK.
+- **i.MX RT2660:** much wider support, covering power management, audio, USB, display, Bluetooth and LE Audio.
+- **Security:** a single ELE S1xx/S4xx PSA driver that supports ELE S100, HSEB opaque AES ciphers, EdgeLock 2GO agent v6.5.2, and new EdgeLock V2X FCE crypto services.
+- **Wireless:**
+  - Bluetooth LE Channel Sounding gains Inline PCT Transfer and better distance accuracy.
+  - Updated stacks: Bluetooth LE Host v1.10.24, Connectivity Framework v7.5.1 and Wi-Fi driver v1.3.r49.p12.
+  - Refreshed Wi-Fi firmware for IW612, IW416, 88W8987 and IW610/RW610.
+- **RTOS and multicore:** FreeRTOS-Kernel V11.3.1 adds Armv8-M SMP, the new `serial_mux` component shares one UART console across cores, and MCMGR event delivery is more reliable.
+- **Hardening:** USB, lwIP, Wi-Fi, TrustZone examples, RPMsg-Lite and the HAL layer.
+
+Before migrating, review the Breaking Changes section, in particular:
+
+- the RT2660 power API;
+- the PINT feature macros;
+- the build-output defaults;
+- the Mbed TLS 4.x / TF-PSA-Crypto migration;
+- the Bluetooth controller API updates.
+
+Then run `west update` to sync the workspace.
