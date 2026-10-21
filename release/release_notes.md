@@ -149,7 +149,7 @@ What's New
 
 #### Device Support
 
-- **MIMX8ML8 Cortex-A53 support** — A53 headers, system and startup files, and a DDR linker script are added. The device configuration is split per core (`cm7` + `ca53`).
+- **MIMX8ML8 Cortex-A53 support** — Cortex-A53 headers, system and startup files, and a DDR linker script are added. The device configuration is split per core (Cortex-M7 + Cortex-A53).
 - **RT2660 power APIs** — New `POWER_Init`, `POWER_EnterRunMode` and `POWER_EnterLowPowerMode` for explicit power-mode transitions. Boards register an external-regulator hook (`power_ext_regulator_hooks_t`) for core-voltage scaling.
 - **RT2660 OTP body-bias trim** — FBB N-well/P-well codes are read from fuses, with a reference fallback when the fuses are blank. This is opt-in through `PMU_DRIVER_UPDATE_TRIM_VALUE`.
 - **RT1184 internal-flash flashloader** — Flashloader added for RT1184 internal flash, and the RT1183 linker flash window updated.
@@ -200,7 +200,7 @@ What's New
 
 #### ML / DSP / Multimedia
 
-- **Cortex-M85 audio codec libraries** — AAC, FLAC, MP3, WAV and SSRC prebuilt libraries for Cortex-M85 (armgcc, IAR), selectable in Maestro on CM85 cores.
+- **Cortex-M85 audio codec libraries** — AAC, FLAC, MP3, WAV and SSRC prebuilt libraries for Cortex-M85 (armgcc, IAR), selectable in Maestro on Cortex-M85 cores.
 - **Ethos-U85 support for i.MX RTL375** — Ethos-U85 NPU components support IMXRTL3759MCA.
 - **ExecuTorch large-model support** — The model runner copies large models from PSRAM into SRAM and loads bytecode and weights with eDMA.
 
@@ -224,7 +224,7 @@ What's New
 
 | Device / Board | Family | Notes |
 |----------------|--------|-------|
-| MIMX8ML8 Cortex-A53 (evkmimx8mp `ca53`) | i.MX | A53 headers, startup, DDR linker script, per-core device layout; `freertos_hello` example |
+| MIMX8ML8 Cortex-A53 (evkmimx8mp) | i.MX | Cortex-A53 headers, startup, DDR linker script, per-core device layout; `freertos_hello` example |
 | RT1184 (new parts) | i.MX RT | New part headers, internal-flash flashloader, NETC part support, SVD files |
 | RT1183 / RT118D / RT118E | i.MX RT | NETC driver part support; RT1183 internal-flash linker window updated |
 | MCXA577VAPR | MCX A-series | New 80-pin WLCSP part: CPU macro guard, part list, Kconfig/MDK identifiers |
@@ -277,7 +277,7 @@ What's New
 - **MCXA577 clock attach IDs** — New attach enumerators for FlexCAN, ADC and eSPI. The old names are kept for compatibility.
 - **Glitch detection disabled at boot** — `SystemInit()` now disables glitch detection on MCXW70 and KW43, as on KW47/MCXW72.
 - **RT700 USB LPM macros and RT1180 headers** — RT700 gets `USBHS_`-prefixed LPM macros. RT1180 headers now match the latest reference manual.
-- **MCXE32B EMAC errata macro** — `FSL_FEATURE_EMAC_HAS_ERRATA_050595` is added on both CM7 cores.
+- **MCXE32B EMAC errata macro** — `FSL_FEATURE_EMAC_HAS_ERRATA_050595` is added on both Cortex-M7 cores.
 
 ### Security
 
@@ -427,7 +427,7 @@ What's New
 - **MCXC353 RAM size** — The linker files now use a RAM size of 0x4000.
 - **KW43 / MCXW70 LPTMR clock option** — The unsupported FRO6M prescaler clock option is removed.
 - **i.MX937 part-number builds** — Driver paths for MIMX9371/9373 are fixed, and EIM/ERM driver types are removed because these parts don't have those IPs.
-- **i.MX943 logical machine** — An earlier change is reverted, so the A55 LMM remains the default.
+- **i.MX943 logical machine** — An earlier change is reverted, so the Cortex-A55 LMM remains the default.
 - **RT118x USBPHY2 / RT2660 AVPLL** — USBPHY2 support is excluded on the new parts that lack it. RT2660 AVPLL bitfields are cleared before configuration, and an unnecessary XSPI LLC address translation is removed.
 
 ### Security
@@ -495,7 +495,7 @@ What's New
 - **OPUS decoder NULL handling** — `OggOPUSInit`, `OggOPUSDecode` and `OggOPUSSeek` validate their pointers and return an error instead of dereferencing NULL.
 - **Maestro AAC start delay** — The delay before AAC playback started in `maestro_playback` is fixed.
 - **ExecuTorch cross-compilation** — A stale host `libflatccrt.a` is removed before the target rebuild, which fixes cross-builds including HiFi4 profiling builds.
-- **XAF USB speaker distortion** — `flash_debug` builds on FRDM-IMXRT700 and RT685-AUD-EVK are now built at `-O2`, so the CM33 USB real-time path meets its deadline.
+- **XAF USB speaker distortion** — `flash_debug` builds on FRDM-IMXRT700 and RT685-AUD-EVK are now built at `-O2`, so the Cortex-M33 USB real-time path meets its deadline.
 - **VGLite MDK hardfault** — VGLite MDK projects now link with microlib. Previously, semihosting initialization caused a hardfault at reset when no debugger was attached.
 
 ### RTOS
