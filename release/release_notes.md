@@ -54,6 +54,11 @@ Running `west update` against `release/26.12.00-pvw1` fetches updated revisions 
   - Host class examples: HID, Audio, Video, Printer, MSD, PHDC.
   - Device class examples: MSC, RNDIS, DFU, MTP, CDC, UVC.
   - USB-PD examples.
+
+- **USB Host Audio Recorder example bounds checks (security)** — Fixed a DMA out-of-bounds write vulnerability in the MCUXpresso SDK usb_host_audio_recorder example by clamping the USB descriptor-derived packet size to the stream buffer capacity; resolved in 26.06.01-lts and 26.12.00-pvw1.
+
+  *Acknowledgment: NXP would like to thank Puda Zhao for the responsible disclosure.*
+
 - **SAI eDMA multichannel RX** — RX previously used the TX enum by mistake, which silently selected write-combine mode. It now uses `kSAI_RXFifoCombineModeEnabledOnRead`.
 - **DualADC calibration** — `GAIN_CAL` is now sign-extended correctly; the old handling could double conversion results. The driver also supports the 17-bit `GAIN_CAL` field and waits the required delay after `CAL_RDY`.
 - **ENET_QoS MCXE32B errata** — Adds workarounds for:
@@ -86,14 +91,14 @@ Running `west update` against `release/26.12.00-pvw1` fetches updated revisions 
   - CodeWarrior projects generate when the install path contains spaces.
 - **RT2660 example fixes** — Fixes in the RT2660 examples:
   - XBAR pad direction (eqdc/evtg/qtmr).
-  - ASRC master clock.
+  - ASRC reference clock.
   - Codec I2C baud rate.
   - LLC PSRAM bring-up.
   - A GCC 14.2 checksum miscompiles in lwIP.
   - ENET PHY init.
   - SD power-rail settling time.
   - MCUboot XIP pin re-init.
-- **Clock-enable ordering** — On MCXW70-LOC, FRDM-KW43, and FRDM-MCXW70, the FRO HF divider is now enabled before the clock source is selected. This fixes the TPM image mismatch and the silent LIN slave output.
+- **Clock-enable ordering** — On MCXW70-LOC, FRDM-KW43, and FRDM-MCXW70, the FRO HF divider is now enabled before the clock source is selected. This fixes the TPM image mismatch and the silent Lin responder output.
 - **Wireless low-power resets** — The 2.4 GHz radio low-power request is now always released on KW43/MCXW70/KW47, so waking up no longer causes unexpected resets.
 - **Wireless app stability** — Stack overflows are fixed, LPUART is reinitialized after Deep Sleep, and the `m_shared_data` section is NOLOAD so `.bin` images stay small.
 - **Other example fixes** — Fixes in several examples:
@@ -105,9 +110,18 @@ Running `west update` against `release/26.12.00-pvw1` fetches updated revisions 
 - **RT2660 repository package** — The repo-zip packaging failure for RT2660 is fixed.
 - **USB with FreeRTOS** — The USB stack now starts after `vTaskStartScheduler()`, so an early interrupt can no longer touch kernel objects before they exist.
 - **USB Stack** — The version is updated to 2.13.1.
-  - Fixed memory leaks, improved host stack robustness, and security.
+  - Fixed memory leaks, improved host stack robustness and security.
+  - Fixed two vulnerability issues:
+    - CVE-2026-89311: A missing bounds check on a host-controlled field in the RNDIS device class driver of the NXP MCUXpresso SDK USB middleware up to releases 26.06.00-lts and 26.09.00-pvw2 allowed a malicious USB host to read arbitrary memory from the connected device. All software versions starting from 26.06.01-lts and 26.09.00 have fixed this issue.
+
+      *Acknowledgment: NXP would like to thank dread (d7ead) for the responsible disclosure.*
+
+    - CVE-2026-93503: A missing bounds check on a device-controlled field in the USB host video, audio, and CDC class drivers of the NXP MCUXpresso SDK USB middleware up to releases 26.06.00-lts and 26.09.00-pvw2 allowed a malicious USB device to trigger a heap buffer overflow when connected to an affected host, potentially leading to memory corruption and loss of device availability. All software versions starting from 26.06.01-lts and 26.09.00 have fixed this issue.
+
+      *Acknowledgment: NXP would like to thank dread (d7ead) for the responsible disclosure.*
+
   - Fixed a DMA out-of-bounds write vulnerability in the MCUXpresso SDK usb_host_audio_recorder example by clamping the USB descriptor-derived packet size to the stream buffer capacity; resolved in 26.06.01-lts and 26.12.00-pvw1.
-  *Acknowledgment: NXP would like to thank Puda Zhao for the responsible disclosure.*
+    *Acknowledgment: NXP would like to thank Puda Zhao for the responsible disclosure.*
 
 ### Device Support
 
