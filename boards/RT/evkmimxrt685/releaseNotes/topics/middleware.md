@@ -6,6 +6,10 @@
 
 # Middleware
 
+```{include} /release/commonrn/topics/nxp_conn_fwk.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_edgefast_open.md
 :heading-offset: 2
 ```

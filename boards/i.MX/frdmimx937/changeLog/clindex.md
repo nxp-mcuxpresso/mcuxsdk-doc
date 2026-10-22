@@ -27,12 +27,6 @@
 ```{include} /drivers/edma_unified/doxygen/ChangeLog_edma.md
 :heading-offset: 2
 ```
-```{include} /drivers/eim/doxygen/ChangeLog_eim.md
-:heading-offset: 2
-```
-```{include} /drivers/erm/doxygen/ChangeLog_erm.md
-:heading-offset: 2
-```
 ```{include} /drivers/flexcan/doxygen/ChangeLog_flexcan.md
 :heading-offset: 2
 ```
@@ -52,6 +46,9 @@
 :heading-offset: 2
 ```
 ```{include} /drivers/flexio/spi/doxygen/ChangeLog_flexio_spi.md
+:heading-offset: 2
+```
+```{include} /drivers/flexio/spi/doxygen/ChangeLog_flexio_spi_edma.md
 :heading-offset: 2
 ```
 ```{include} /drivers/flexio/uart/doxygen/ChangeLog_flexio_uart.md

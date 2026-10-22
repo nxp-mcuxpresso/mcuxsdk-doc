@@ -26,6 +26,10 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/arm_mbedtls.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/adam_dunkels_lwip.md
 :heading-offset: 2
 ```

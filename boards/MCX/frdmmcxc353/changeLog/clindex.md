@@ -1,9 +1,9 @@
 # MCUXpresso SDK Changelog
 
-```{include} /devices/MCX/MCXC/MCXC353/drivers/doxygen/ChangeLog_clock.md
+```{include} /drivers/aoi/doxygen/ChangeLog_aoi.md
 :heading-offset: 2
 ```
-```{include} /drivers/aoi/doxygen/ChangeLog_aoi.md
+```{include} /devices/MCX/MCXC/MCXC353/drivers/doxygen/ChangeLog_clock.md
 :heading-offset: 2
 ```
 ```{include} /drivers/mcx_cmc/doxygen/ChangeLog_cmc.md
@@ -18,7 +18,7 @@
 ```{include} /drivers/dual_adc/doxygen/ChangeLog_dual_adc.md
 :heading-offset: 2
 ```
-```{include} /drivers/edma4/doxygen/ChangeLog_edma.md
+```{include} /drivers/edma_unified/doxygen/ChangeLog_edma.md
 :heading-offset: 2
 ```
 ```{include} /drivers/eim/doxygen/ChangeLog_eim.md

@@ -14,6 +14,14 @@
 :heading-offset: 2
 ```
 
+```{include} /release/commonrn/topics/nxp_wifi_wpa_supplicant.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_edgefast_open.md
+:heading-offset: 2
+```
+
 ```{include} /release/commonrn/topics/nxp_ethermind.md
 :heading-offset: 2
 ```
@@ -39,6 +47,10 @@
 ```
 
 ```{include} /release/commonrn/topics/amazon_backoffalgorithm.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_wifi.md
 :heading-offset: 2
 ```
 
@@ -91,6 +103,14 @@
 ```
 
 ```{include} /release/commonrn/topics/arm_mbedtls.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_audio_voice_components.md
+:heading-offset: 2
+```
+
+```{include} /release/commonrn/topics/nxp_maestro_audio_framework.md
 :heading-offset: 2
 ```
 

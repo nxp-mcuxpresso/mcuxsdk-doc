@@ -75,6 +75,9 @@
 ```{include} /drivers/flexio/spi/doxygen/ChangeLog_flexio_spi.md
 :heading-offset: 2
 ```
+```{include} /drivers/flexio/spi/doxygen/ChangeLog_flexio_spi_edma.md
+:heading-offset: 2
+```
 ```{include} /drivers/flexio/uart/doxygen/ChangeLog_flexio_uart.md
 :heading-offset: 2
 ```

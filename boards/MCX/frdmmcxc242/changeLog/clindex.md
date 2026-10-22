@@ -54,6 +54,9 @@
 ```{include} /drivers/i2c/doxygen/ChangeLog_i2c.md
 :heading-offset: 2
 ```
+```{include} /drivers/i2c/doxygen/ChangeLog_i2c_dma.md
+:heading-offset: 2
+```
 ```{include} /drivers/llwu/doxygen/ChangeLog_llwu.md
 :heading-offset: 2
 ```
