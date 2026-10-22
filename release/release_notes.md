@@ -119,10 +119,7 @@ Running `west update` against `release/26.12.00-pvw1` fetches updated revisions 
     - CVE-2026-93503: A missing bounds check on a device-controlled field in the USB host video, audio, and CDC class drivers of the NXP MCUXpresso SDK USB middleware up to releases 26.06.00-lts and 26.09.00-pvw2 allowed a malicious USB device to trigger a heap buffer overflow when connected to an affected host, potentially leading to memory corruption and loss of device availability. All software versions starting from 26.06.01-lts and 26.09.00 have fixed this issue.
 
       *Acknowledgment: NXP would like to thank dread (d7ead) for the responsible disclosure.*
-
-  - Fixed a DMA out-of-bounds write vulnerability in the MCUXpresso SDK usb_host_audio_recorder example by clamping the USB descriptor-derived packet size to the stream buffer capacity; resolved in 26.06.01-lts and 26.12.00-pvw1.
-    *Acknowledgment: NXP would like to thank Puda Zhao for the responsible disclosure.*
-
+      
 ### Device Support
 
 - **MCXN556S / MCXN947T ROM API overflow** — `api_core_context_t` now reserves the full 512-byte slot. Previously, `API_Init()` overwrote application globals and broke `printf`.
