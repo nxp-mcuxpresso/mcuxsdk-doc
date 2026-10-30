@@ -1,7 +1,6 @@
 # Installing 3rd Party Patch
 
-Official 3rd Party Support from Segger and IAR is not available at this moment. Please use the 3rd party patch provided by NXP
-which get deployed on [Link](https://www.google.com/)
+Official 3rd Party Support from Segger and IAR is not available at this moment. Please contact NXP to get 3rd party patch download link.
 
 The RT2660 debug patch is now a **combined IAR + J-Link patch**, shipped as `iar_segger_support_patch_rt2660_vX.Y.zip`.
 
