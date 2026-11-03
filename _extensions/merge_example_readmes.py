@@ -17,8 +17,10 @@ to 100+ boards (e.g. hello_world has ~91). The standalone per-board readme files
 are removed from the (generated) source tree so they are not built as separate
 pages — collapsing the per-board flood.
 
-Merge key: the common readme's "Supported Boards" section links to each board's
-example_board_readme.md. Everything happens in the build src dir (DOCS_SRC_DIR);
+Merge key: every entry in the common readme's "Supported Boards" section,
+with optional links to example_board_readme.md. Entries without links use the
+common instructions; missing linked files remain visible with a warning.
+Everything happens in the build src dir (DOCS_SRC_DIR);
 the original mcuxsdk/examples sources and the standalone SDK package are never
 touched.
 
@@ -30,15 +32,28 @@ import os
 import re
 import shutil
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, Iterable
 
 from sphinx.application import Sphinx
+from sphinx.util import logging
+
+from board_names import aliases, normalize
+
+logger = logging.getLogger(__name__)
 
 _BOARD_LINK = re.compile(
     r"\[([^\]]+)\]\(([^)]*_boards/([^/]+)/[^)]*example_board_readme\.md)\)")
 _SUPPORTED_HDR = re.compile(r"^\s{0,3}#{1,6}\s*Supported\s+Boards\s*$", re.I | re.M)
 _ATX = re.compile(r"^(#{1,6})(\s+.*)$", re.M)
 _MD_IMG = re.compile(r"(!\[[^\]]*\]\()([^)]+?)(\s+\"[^\"]*\")?\)")
+_BOARD_ENTRY = re.compile(r"^\s{0,3}(?:[-+*]|\d+[.)])\s+(.+?)\s*$", re.M)
+_HEADING = re.compile(r"^\s{0,3}(#{1,6})\s+\S.*$", re.M)
+_BOARD_TITLE = re.compile(r"^([^\n]+)\n[#+=*~-]{3,}[ \t]*$", re.M)
+_NO_SETUP = ("No additional board-specific setup is provided. "
+             "Follow the common instructions above.")
+_MISSING_SETUP = ("Board-specific setup is unavailable: the linked setup "
+                  "README could not be found. Follow the common instructions "
+                  "above and verify the board-specific requirements.")
 
 # Injected once per page (no-op where there is no .board-selector). Builds a
 # <select> from the board setups, shows one at a time.
@@ -209,47 +224,114 @@ def _example_of_board_md(rel: str) -> str:
     return "/".join(parts[i + 2: -1])
 
 
+def _board_ids(ex_root: Path, doc_roots: Iterable[Path] = ()) -> dict[str, set[str]]:
+    """Resolve display names against actual directories and board-page titles."""
+    names: dict[str, set[str]] = {}
+
+    def add(name: str, directory: str):
+        for alias in aliases(normalize(name)):
+            names.setdefault(alias, set()).add(directory)
+
+    for board in (ex_root / "_boards").glob("*"):
+        if board.is_dir():
+            add(board.name, board.name)
+    for root in doc_roots:
+        for index in (root / "boards").glob("*/*/index.rst"):
+            directory = index.parent.name
+            add(directory, directory)
+            title = _BOARD_TITLE.search(index.read_text(encoding="utf-8"))
+            if title:
+                add(title.group(1), directory)
+    return names
+
+
 def _merge_one(readme: Path, ex_root: Path, to_delete: set,
-               srcdir: Path = None, sdk_base: Path = None):
+               srcdir: Path = None, sdk_base: Path = None,
+               board_ids: dict[str, set[str]] | None = None):
     text = readme.read_text(encoding="utf-8", errors="ignore")
     m = _SUPPORTED_HDR.search(text)
     if not m:
         return False, 0
     head = text[: m.start()].rstrip()
-    links = _BOARD_LINK.findall(text[m.start():])
-    if not links:
+    level = len(m.group(0).strip().split()[0])
+    end = next((heading.start() for heading in _HEADING.finditer(text, m.end())
+                if len(heading.group(1)) <= level), len(text))
+    section = text[m.end():end]
+    entries = _BOARD_ENTRY.findall(section)
+    if not entries:
         return False, 0
 
     common_dir = readme.parent
     own_example = readme.parent.relative_to(ex_root).as_posix()
-    boards = []
+    if board_ids is None:
+        roots = [ex_root.parent]
+        if srcdir is not None:
+            roots.append(srcdir)
+        board_ids = _board_ids(ex_root, roots)
+        if sdk_base is not None:
+            for alias, directories in _board_ids(
+                    sdk_base / "examples", [sdk_base / "docs"]).items():
+                board_ids.setdefault(alias, set()).update(directories)
+    # Explicit links are authoritative, even if their target is unavailable.
+    board_ids = {alias: set(directories) for alias, directories in board_ids.items()}
+    linked_ids: dict[str, set[str]] = {}
+    for name, _, directory in _BOARD_LINK.findall(section):
+        linked_ids.setdefault(normalize(name), set()).add(directory)
+    board_ids.update(linked_ids)
+    boards: list[tuple[list[str], str, str]] = []
     removed = 0
-    seen_boards = set()
-    for name, rel, bdir in links:
-        board_md = (common_dir / rel).resolve()
-        if not board_md.is_file():
-            continue                    # board filtered out of this build
+    seen_boards: dict[tuple[str, Path | None], int] = {}
+    for entry in entries:
+        link = _BOARD_LINK.search(entry)
+        board_md = None
+        if link:
+            name, rel, slug = link.groups()
+            board_md = (common_dir / rel).resolve()
+        else:
+            name = entry
+            directories = board_ids.get(normalize(name), set())
+            if len(directories) == 1:
+                slug = next(iter(directories))
+            else:
+                slug = "unresolved-" + (normalize(name) or "board")
+                logger.warning(
+                    "Cannot resolve supported board %r to a unique board directory "
+                    "in %s (candidates: %s); retaining the entry without catalog "
+                    "preselection", name, readme, sorted(directories))
         # Key the board section by the board DIRECTORY (e.g. "frdmk22f") so it
         # matches the persisted selection from the Examples Catalog.
-        slug = bdir.strip()
+        slug = slug.strip()
         # Board variants (e.g. IMX952LPD5EVK-19 / -15) may list the same
-        # board readme more than once; merge each unique file once, or the
-        # repeated ":name: board-<slug>" containers emit docutils
+        # board readme more than once; retain their labels but merge each
+        # unique file once, or repeated ":name: board-<slug>" containers emit docutils
         # "Duplicate explicit target name" warnings.
-        if (slug, board_md) in seen_boards:
+        key = (slug, board_md)
+        if key in seen_boards:
+            index = seen_boards[key]
+            if name not in boards[index][0]:
+                boards[index][0].append(name)
             continue
-        seen_boards.add((slug, board_md))
-        body = board_md.read_text(encoding="utf-8", errors="ignore").strip()
-        body = _rewrite_images(body, board_md, common_dir, slug)
-        body = _rewrite_links(body, board_md, common_dir, srcdir, sdk_base)
-        boards.append((name, slug, _demote_headings(body)))
+        seen_boards[key] = len(boards)
+        if board_md is None:
+            body = _NO_SETUP
+        elif not board_md.is_file():
+            logger.warning("Missing board-specific setup README for %s in %s: %s",
+                           name, readme, board_md)
+            body = _MISSING_SETUP
+        else:
+            body = board_md.read_text(encoding="utf-8", errors="ignore").strip()
+            body = _rewrite_images(body, board_md, common_dir, slug)
+            body = _rewrite_links(body, board_md, common_dir, srcdir, sdk_base)
+            body = _demote_headings(body)
+        boards.append(([name], slug, body))
         # Only the OWNING example's board readme is deleted, and deletion is
         # deferred until every readme has merged (merges only read _boards
         # files, so readme writes never interfere). Cross-example consumers
         # (variant examples reusing another example's board readme, or several
         # examples sharing one board file) merge a copy and leave the file, so
         # plain links from readmes that never merge still resolve.
-        if _example_of_board_md(rel) == own_example:
+        if (board_md is not None and board_md.is_file()
+                and _example_of_board_md(rel) == own_example):
             to_delete.add(board_md); removed += 1
     if not boards:
         return False, 0
@@ -265,7 +347,7 @@ def _merge_one(readme: Path, ex_root: Path, to_delete: set,
     parts = [head, "", "## Supported Boards", "",
              f"{outer}{{container}} board-selector", ""]
     slug_counts: dict = {}
-    for name, slug, body in boards:
+    for names, slug, body in boards:
         # Same board with several core/variant readmes (e.g. imx943evk
         # cm33_core1/cm7_core0/...): container names must stay unique per
         # document or docutils warns "Duplicate explicit target name".
@@ -276,14 +358,14 @@ def _merge_one(readme: Path, ex_root: Path, to_delete: set,
             f"{inner}{{container}} board-setup",
             f":name: {anchor}",
             "",
-            f"##### {name}",
+            f"##### {' / '.join(names)}",
             "",
             body,
             "",
             inner,
             "",
         ]
-    parts += [outer, ""]
+    parts += [outer, "", text[end:].lstrip("\r\n")]
     readme.write_text("\n".join(parts) + "\n", encoding="utf-8")
     return True, removed
 
@@ -296,12 +378,16 @@ def merge_examples(app: Sphinx) -> None:
         return
     merged, removed = 0, 0
     to_delete: set = set()
+    sdk_base = Path(app.confdir).parents[0]
+    board_ids = _board_ids(ex_root, [Path(app.confdir), Path(app.srcdir)])
+    for alias, directories in _board_ids(sdk_base / "examples").items():
+        board_ids.setdefault(alias, set()).update(directories)
     for readme in ex_root.rglob("readme.md"):
         if "_boards" in readme.parts:
             continue
         did, r = _merge_one(readme, ex_root, to_delete,
                             srcdir=Path(app.srcdir),
-                            sdk_base=Path(app.confdir).parents[0])
+                            sdk_base=sdk_base, board_ids=board_ids)
         if did:
             merged += 1; removed += r
     for board_md in to_delete:
@@ -317,4 +403,4 @@ def setup(app: Sphinx) -> Dict[str, Any]:
     app.add_config_value("merge_example_readmes", True, "env")
     app.connect("builder-inited", merge_examples, priority=900)
     app.add_js_file(None, body=_SELECTOR_JS)
-    return {"version": "0.3", "parallel_read_safe": True, "parallel_write_safe": True}
+    return {"version": "0.4", "parallel_read_safe": True, "parallel_write_safe": True}

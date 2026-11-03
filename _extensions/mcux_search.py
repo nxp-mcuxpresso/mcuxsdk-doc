@@ -36,25 +36,13 @@ import yaml
 from sphinx.application import Sphinx
 from sphinx.util import logging
 
+from board_names import aliases as _aliases, normalize as _norm
+
 logger = logging.getLogger(__name__)
 
 ART_OPEN = re.compile(r'(<article\b[^>]*class="[^"]*bd-article[^"]*"[^>]*?)(>)', re.I)
 _W_ATTR = re.compile(r'\s*data-pagefind-(?:weight="[0-9.]+"|ignore)')
 _ALIAS = re.compile(r'<span class="pf-alias"[^>]*>.*?</span>', re.S)
-
-
-def _norm(s: str) -> str:
-    return re.sub(r"[^a-z0-9]", "", s.lower())
-
-
-def _aliases(n: str):
-    out = {n}
-    for p in ("evkb", "evkc", "evk9", "evk"):
-        if n.startswith(p):
-            out.add(n[len(p):] + p)
-        if n.endswith(p):
-            out.add(p + n[:-len(p)])
-    return out
 
 
 def _mir_release_config(confdir: Path, sdk_base: Path) -> Path | None:

@@ -120,6 +120,25 @@ This command identifies all modules relevant to the specified board and includes
 
 > **Note:** Replace `html` with `pdf` in the above commands to generate PDF output instead of HTML.
 
+## Example board-selector regression tests
+
+The `merge_example_readmes` extension retains every supported-board list entry.
+Linked setup READMEs are folded into the example page; entries without links
+display the common-instructions fallback. Missing linked files remain in the
+selector with an unavailable-setup message and produce a Sphinx warning.
+Board-page titles and actual board directories resolve plain display names to
+the directory IDs used by the Examples Catalog.
+
+Run the focused regression suite from this repository with the documentation
+Python dependencies and Node.js installed:
+
+```bash
+python -m unittest discover -s tests -p "test_merge_example_readmes.py"
+```
+
+The suite uses temporary fixtures, including a small Sphinx HTML build and a
+Node.js selector check; it does not require or modify an SDK checkout.
+
 ## Project Structure
 
 ```
