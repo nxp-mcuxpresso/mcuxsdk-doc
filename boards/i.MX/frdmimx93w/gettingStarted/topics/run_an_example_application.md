@@ -14,9 +14,9 @@ To download and run the application via UUU, perform these steps:
 
 4.  Get the boot images and the imx-mkimage source repository from corresponding Linux BSP release. The boot images required to be put into imx-mkimage/i.MX9 are:
 
-    `- u-boot-imx93w-14x12-lpddr4x-evk.bin-sd (rename to u-boot.bin)`
+    `- u-boot-imx93w-14x12-lpddr4x-frdm.bin-sd (rename to u-boot.bin)`
 
-    `- u-boot-spl.bin-imx93w-14x12-lpddr4x-evk-sd (rename to u-boot-spl.bin)`
+    `- u-boot-spl.bin-imx93w-14x12-lpddr4x-frdm-sd (rename to u-boot-spl.bin)`
 
     `- bl31-imx93.bin (rename to bl31.bin)`
 
@@ -50,9 +50,9 @@ To download and run the application via UUU, perform these steps:
 
     `uuu -b sd <singleboot flash.bin> flash.bin (for lowpower boot on SD)`
 
-    The UUU puts the platform into fast boot mode and automatically flashes the target bootloader to emmc/sd. The command line and fast boot console is as shown in [Figure 2](#mcimx93wevk_COMMANDLINEFASTBOOT).
+    The UUU puts the platform into fast boot mode and automatically flashes the target bootloader to emmc/sd. The command line and fast boot console is as shown in [Figure 2](#frdmimx93w_COMMANDLINEFASTBOOT).
 
-    (mcimx93wevk_COMMANDLINEFASTBOOT)=
+    (frdmimx93w_COMMANDLINEFASTBOOT)=
     ![](../images/command_line_fast_boot_console_output_executing_uu.png "Command line and fast boot console output when
 											executing UUU")
 

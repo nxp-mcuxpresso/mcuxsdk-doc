@@ -8,10 +8,10 @@ The following steps guide you through opening the `hello_world` example applicat
     <install_dir>/boards/<board_name>/<example_type>/<application_name>/iar
     ```
 
-    Using the i.MX 93W EVK board as an example, the workspace is located in:
+    Using the FRDM-IMX93W board as an example, the workspace is located in:
 
     ```
-    <install_dir>/boards/mcimx93wevk/demo_apps/hello_world/iar/hello_world.eww
+    <install_dir>/boards/frdmimx93w/demo_apps/hello_world/iar/hello_world.eww
     ```
 
 2.  Select the desired build target from the drop-down. For this example, select **hello\_world – debug**.

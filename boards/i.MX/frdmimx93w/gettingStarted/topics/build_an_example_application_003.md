@@ -8,10 +8,10 @@ Perform the following steps to build the `hello_world` example application.
     <install_dir>/boards/<board_name>/<example_type>/<application_name>/iar
     ```
 
-    Using the i.MX 93W EVK hardware platform as an example, the `hello_world` workspace is located in:
+    Using the FRDM-IMX93W hardware platform as an example, the `hello_world` workspace is located in:
 
     ```
-    <install_dir>/boards/mcimx93wevk/demo_apps/hello_world/iar/hello_world.eww
+    <install_dir>/boards/frdmimx93w/demo_apps/hello_world/iar/hello_world.eww
     ```
 
     Other example applications may have additional folders in their path.
@@ -22,9 +22,9 @@ Perform the following steps to build the `hello_world` example application.
 
     ![](../images/demo_build_target_selection_imx8mq.png "Demo build target selection")
 
-3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](#mcimx93wevk_BUILDINGDEMOAPP).
+3.  To build the demo application, click **Make**, highlighted in red in [Figure 2](#frdmimx93w_BUILDINGDEMOAPP).
 
-    (mcimx93wevk_BUILDINGDEMOAPP)=
+    (frdmimx93w_BUILDINGDEMOAPP)=
     ![](../images/build_demo_application_imx8mq.png "Build the demo application")
 
 4.  The build completes without errors.

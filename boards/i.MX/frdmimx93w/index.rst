@@ -1,18 +1,18 @@
-:pdf-download: ../../../_assets/boards/mcimx93wevk/mcuxsdk-mcimx93wevk.pdf
+:pdf-download: ../../../_assets/boards/frdmimx93w/mcuxsdk-frdmimx93w.pdf
 
-.. _mcimx93wevk:
+.. _frdmimx93w:
 
-MCIMX93W-EVK
+FRDM-IMX93W
 ############
 
 Overview
 ********
 
 
-.. image:: ./mcimx93wevk.jpg
+.. image:: ./frdmimx93w.jpg
    :width: 240px
    :align: center
-   :alt: MCIMX93W-EVK
+   :alt: FRDM-IMX93W
 
 MCU device and part on board is shown below:
 
