@@ -1,6 +1,6 @@
 # Bluetooth LE Host Stack and Applications
 
-The Bluetooth LE Host Stack component provides an implementation for a Bluetooth 6.0 mandatory and some optional, proprietary, and experimental features. The Bluetooth LE Host Stack component provides application examples, services, and profiles.
+The Bluetooth LE Host Stack component provides an implementation for a Bluetooth 6.3 mandatory and some optional, proprietary, and experimental features. The Bluetooth LE Host Stack component provides application examples, services, and profiles.
 
 Main features supported:
 
@@ -29,11 +29,10 @@ Main features supported:
 * Encrypted Advertising Data (EAD)
 * Monitoring Advertisers
 * Randomized RPA - Experimental feature
-* Intrusion Detection System (IDS) - Experimental feature
+* Transient Application Key - Experimental feature
+* Intrusion Detection System (IDS)
 
   **Note:** The CDE(Complex-domain Distance Estimation) algorithm is an experimental feature intended only for testing purposes. It is not maintained and must not be included in production environments.
 
   **Note:** “RADE (Ranging Distance Estimation) is NXP’s embedded Channel Sounding (CS) ranging algorithm. RADE is intended for non-U.S. markets and should not be used in U.S. market deployments. RADEX is the U.S.-market variant of the RADE algorithm.”
-
-
 
