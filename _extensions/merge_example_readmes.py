@@ -96,7 +96,16 @@ _SELECTOR_JS = r"""
       label.className = 'board-select-label';
       label.textContent = 'Board setup for: ';
       label.appendChild(sel);
-      group.insertBefore(label, group.firstChild);
+      var picker = document.querySelector('.board-picker');
+      if (picker) {
+        picker.appendChild(label);
+        picker.parentElement.querySelectorAll('a[href^="#board-"]').forEach(function (link) {
+          link.addEventListener('click', function () {
+            sel.value = link.getAttribute('href').slice(1);
+            sel.dispatchEvent(new Event('change'));
+          });
+        });
+      } else group.insertBefore(label, group.firstChild);
     });
   }
   if (document.readyState !== 'loading') init();
@@ -245,6 +254,19 @@ def _board_ids(ex_root: Path, doc_roots: Iterable[Path] = ()) -> dict[str, set[s
     return names
 
 
+def _after_overview(text: str) -> int:
+    """Keep the title and introductory overview before board navigation."""
+    headings = list(_HEADING.finditer(text))
+    for heading in headings:
+        if len(heading.group(1)) == 1:
+            continue
+        title = heading.group(0).strip().lstrip("#").strip().lower()
+        if title in ("overview", "example overview", "description"):
+            continue
+        return heading.start()
+    return len(text)
+
+
 def _merge_one(readme: Path, ex_root: Path, to_delete: set,
                srcdir: Path = None, sdk_base: Path = None,
                board_ids: dict[str, set[str]] | None = None):
@@ -344,8 +366,12 @@ def _merge_one(readme: Path, ex_root: Path, to_delete: set,
     # (#supported-boards) is a common self-link target in readme prose, and
     # heading slugs don't register global labels (a "(supported-boards)="
     # target here would duplicate across every merged readme).
-    parts = [head, "", "## Supported Boards", "",
+    parts = ["## Board-Specific Setup", "",
              f"{outer}{{container}} board-selector", ""]
+    navigation = ["## Supported Boards", "",
+                  "```{container} board-picker",
+                  "Choose a board below to view its setup after the common instructions.",
+                  "```", ""]
     slug_counts: dict = {}
     for names, slug, body in boards:
         # Same board with several core/variant readmes (e.g. imx943evk
@@ -354,6 +380,7 @@ def _merge_one(readme: Path, ex_root: Path, to_delete: set,
         n = slug_counts.get(slug, 0) + 1
         slug_counts[slug] = n
         anchor = f"board-{slug}" if n == 1 else f"board-{slug}-{n}"
+        navigation.append(f"- [{' / '.join(names)}](#{anchor})")
         parts += [
             f"{inner}{{container}} board-setup",
             f":name: {anchor}",
@@ -366,7 +393,10 @@ def _merge_one(readme: Path, ex_root: Path, to_delete: set,
             "",
         ]
     parts += [outer, "", text[end:].lstrip("\r\n")]
-    readme.write_text("\n".join(parts) + "\n", encoding="utf-8")
+    split = _after_overview(head)
+    output = [head[:split].rstrip(), "", "\n".join(navigation), "",
+              head[split:].strip(), "", "\n".join(parts)]
+    readme.write_text("\n".join(output) + "\n", encoding="utf-8")
     return True, removed
 
 
@@ -403,4 +433,4 @@ def setup(app: Sphinx) -> Dict[str, Any]:
     app.add_config_value("merge_example_readmes", True, "env")
     app.connect("builder-inited", merge_examples, priority=900)
     app.add_js_file(None, body=_SELECTOR_JS)
-    return {"version": "0.4", "parallel_read_safe": True, "parallel_write_safe": True}
+    return {"version": "0.5", "parallel_read_safe": True, "parallel_write_safe": True}

@@ -151,6 +151,21 @@ class MergeReadmesTests(unittest.TestCase):
         self.assertIn(tail.strip(), text)
         self.assertEqual(text.count("{container} board-setup"), 1)
 
+    def test_board_navigation_follows_overview_before_common_instructions(self):
+        self.board("frdmk22f")
+        self.readme.write_text(
+            "# CDC\n\nIntroduction.\n\n## Overview\n\nEcho characters.\n\n"
+            "## Build and Run\n\nCommon build instructions.\n\n"
+            "## Supported Boards\n- FRDM-K22F\n", encoding="utf-8")
+        _, text = self.run_merge()
+        self.assertLess(text.index("Echo characters."), text.index("## Supported Boards"))
+        self.assertLess(text.index("## Supported Boards"), text.index("## Build and Run"))
+        self.assertLess(text.index("Common build instructions."),
+                        text.index("## Board-Specific Setup"))
+        self.assertIn("- [FRDM-K22F](#board-frdmk22f)", text)
+        self.assertEqual(text.count("## Supported Boards"), 1)
+        self.assertIn(merge._NO_SETUP, text)
+
     def test_nonstandard_heading_level_and_list_markers(self):
         self.board("frdmk22f")
         self.readme.write_text(
@@ -291,6 +306,10 @@ class MergeReadmesTests(unittest.TestCase):
         self.assertIn(merge._NO_SETUP, html)
         self.assertIn(merge._MISSING_SETUP, html)
         self.assertIn('id="running"', html)
+        self.assertLess(html.index('id="supported-boards"'),
+                        html.index('id="board-specific-setup"'))
+        self.assertIn('href="#board-evkbmimxrt1170"', html)
+        self.assertIn('class="board-picker', html)
         self.assertIn("localStorage.getItem('mcux_board')", html)
         self.assertIn("Missing board-specific setup README", warnings.getvalue())
         self.assertIn("mimxrt2660evk", warnings.getvalue())
@@ -314,11 +333,23 @@ const setups = ids.map((id, i) => {
   return {id, style: {}, querySelector: () => heading};
 });
 const group = {querySelectorAll: () => setups, insertBefore(label) {this.label = label}};
+const picker = element();
+const boardLink = element();
+boardLink.getAttribute = () => '#board-lpcxpresso55s16';
+picker.parentElement = {querySelectorAll: () => [boardLink]};
+global.Event = function (type) {this.type = type};
+const createElement = () => {
+  const node = element();
+  node.dispatchEvent = () => node.change();
+  return node;
+};
 global.document = {readyState: 'complete', head: element(), createElement: element,
-                   querySelectorAll: () => [group]};
+                   querySelectorAll: () => [group], querySelector: () => picker};
+document.createElement = createElement;
 """
         checks = r"""
-const select = group.label.children[0];
+assert.equal(group.label, undefined);
+const select = picker.children[0].children[0];
 assert.equal(select.selectedIndex, 0);
 assert.equal(setups[0].style.display, 'block');
 assert.equal(setups[1].style.display, 'none');
@@ -333,11 +364,21 @@ select.change();
 assert.equal(setups[3].style.display, 'block');
 assert.equal(setups[1].style.display, 'none');
 assert.equal(stored, 'lpcxpresso55s16-2');
+boardLink.change();
+assert.equal(setups[1].style.display, 'block');
+assert.equal(setups[3].style.display, 'none');
+assert.equal(stored, 'lpcxpresso55s16');
 """
         completed = subprocess.run(
             ["node", "-e", javascript + merge._SELECTOR_JS + checks],
             capture_output=True, text=True)
         self.assertEqual(completed.returncode, 0, completed.stderr)
+        legacy = subprocess.run(
+            ["node", "-e", javascript + "\ndocument.querySelector = () => null;\n" +
+             merge._SELECTOR_JS +
+             "\nassert.equal(group.label.children[0].children.length, 4);\n"],
+            capture_output=True, text=True)
+        self.assertEqual(legacy.returncode, 0, legacy.stderr)
 
 
 if __name__ == "__main__":
