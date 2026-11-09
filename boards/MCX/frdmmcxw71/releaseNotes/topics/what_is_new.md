@@ -1,23 +1,27 @@
 # What is new 
 
-The following updates were implemented with respect to the previous SDK release version \(26.09.00\).
+The following updates were implemented with respect to the previous SDK release version \(26.12.00-pvw1\).
 
 -   **Bluetooth LE Host Stack and Applications**
 
     ### Note: Version 1.10.23 is the first NXP Bluetooth LE Host release officially certified according to the Bluetooth® Core Specification Version 6.3.
 
     ### Added
-	-   Low Energy (LE) Power Control can now be enabled/disabled at application level via `gHostInclusionLePowerControl_d`.
+	-   loc_reader Localization Data Export now outputs CDE (Channel Distance Estimate) distance results.
+
+    ### Improved
+	-   Flash/RAM optimization for the Connection Subrating feature.
+	-   Simplified Inline PCT Transfer (IPT) configuration (no longer requires enabling LL Experimental Features).
 
     ### Fixed
-	-   Fixed Host Privacy scan response data length mismatch (31 versus 17 bytes).
+	-   NVM: replaced direct flash reads with the FlashRead API for async flash driver consistency.
+	-   Fixed missing comma in `gGapDefaultConnectionRequestParameters_d` (gap_types.h).
 	-   Miscellaneous Coverity fixes.
-	-   Miscellaneous CERT-C fixes.
 	-   Miscellaneous MISRA fixes.
 	-   Miscellaneous MSG fixes.
 
     ### Changed
-	-  Added application-level mitigation for Bluetooth Low Energy Re-Pairing (BLERP) forced re-pairing attacks.
+	-   Removed unused BLE_HCI.xml package descriptor.
 
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 

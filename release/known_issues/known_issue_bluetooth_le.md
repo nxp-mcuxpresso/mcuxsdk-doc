@@ -38,7 +38,5 @@ Known issues:
 -   When CS Subevents are configured very close from each other (<700us), some Subevents may be aborted with reason 0x3.
 -   When CS offset is configured too close from ACL anchor point, the anchor point may not be served (TX on central or RX on peripheral will not happen). Ideally, CS Offset should be configured greater than 1ms.
 -   RTT bias compensation:
-    - For parts not properly configured at production (IFR blank), RTT bias is not compensated properly. Consequently, an inaccuracy of +/-2m can be observed.
--   Pairing procedure fails to complete after connection is established. Affects **digital_key** sample applications. Increase `gHost_TaskStackSize_c` to `1900U`.
--   Channel Sounding measurement cannot start after handover. Affects **digital_key** sample applications.
--   For the digital_key_car_anchor_cs and digital_key_device_cs BM applications on KW47EVK and KW47LOC, and the loc_reader BM application on KW47EVK, MCXW72EVK, and FRDMMCXW72, increase __stack_size__ in board_reconfig.cmake from 0x0CE4 to 0x1194 (4500 bytes). This change is required to avoid runtime stack overflow that can lead to a HardFault.
+-   For parts not properly configured at production (IFR blank), RTT bias is not compensated properly. Consequently, an inaccuracy of +/-2m can be observed.
+
