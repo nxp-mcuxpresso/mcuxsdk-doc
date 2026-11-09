@@ -50,10 +50,10 @@ _BOARD_ENTRY = re.compile(r"^\s{0,3}(?:[-+*]|\d+[.)])\s+(.+?)\s*$", re.M)
 _HEADING = re.compile(r"^\s{0,3}(#{1,6})\s+\S.*$", re.M)
 _BOARD_TITLE = re.compile(r"^([^\n]+)\n[#+=*~-]{3,}[ \t]*$", re.M)
 _NO_SETUP = ("No additional board-specific setup is provided. "
-             "Follow the common instructions above.")
+             "Follow the common instructions below.")
 _MISSING_SETUP = ("Board-specific setup is unavailable: the linked setup "
                   "README could not be found. Follow the common instructions "
-                  "above and verify the board-specific requirements.")
+                  "below and verify the board-specific requirements.")
 
 # Injected once per page (no-op where there is no .board-selector). Builds a
 # <select> from the board setups, shows one at a time.
@@ -96,16 +96,7 @@ _SELECTOR_JS = r"""
       label.className = 'board-select-label';
       label.textContent = 'Board setup for: ';
       label.appendChild(sel);
-      var picker = document.querySelector('.board-picker');
-      if (picker) {
-        picker.appendChild(label);
-        picker.parentElement.querySelectorAll('a[href^="#board-"]').forEach(function (link) {
-          link.addEventListener('click', function () {
-            sel.value = link.getAttribute('href').slice(1);
-            sel.dispatchEvent(new Event('change'));
-          });
-        });
-      } else group.insertBefore(label, group.firstChild);
+      group.insertBefore(label, group.firstChild);
     });
   }
   if (document.readyState !== 'loading') init();
@@ -255,7 +246,7 @@ def _board_ids(ex_root: Path, doc_roots: Iterable[Path] = ()) -> dict[str, set[s
 
 
 def _after_overview(text: str) -> int:
-    """Keep the title and introductory overview before board navigation."""
+    """Keep the title and introductory overview before embedded board setups."""
     headings = list(_HEADING.finditer(text))
     for heading in headings:
         if len(heading.group(1)) == 1:
@@ -366,12 +357,8 @@ def _merge_one(readme: Path, ex_root: Path, to_delete: set,
     # (#supported-boards) is a common self-link target in readme prose, and
     # heading slugs don't register global labels (a "(supported-boards)="
     # target here would duplicate across every merged readme).
-    parts = ["## Board-Specific Setup", "",
+    parts = ["## Supported Boards", "",
              f"{outer}{{container}} board-selector", ""]
-    navigation = ["## Supported Boards", "",
-                  "```{container} board-picker",
-                  "Choose a board below to view its setup after the common instructions.",
-                  "```", ""]
     slug_counts: dict = {}
     for names, slug, body in boards:
         # Same board with several core/variant readmes (e.g. imx943evk
@@ -380,7 +367,6 @@ def _merge_one(readme: Path, ex_root: Path, to_delete: set,
         n = slug_counts.get(slug, 0) + 1
         slug_counts[slug] = n
         anchor = f"board-{slug}" if n == 1 else f"board-{slug}-{n}"
-        navigation.append(f"- [{' / '.join(names)}](#{anchor})")
         parts += [
             f"{inner}{{container}} board-setup",
             f":name: {anchor}",
@@ -392,10 +378,10 @@ def _merge_one(readme: Path, ex_root: Path, to_delete: set,
             inner,
             "",
         ]
-    parts += [outer, "", text[end:].lstrip("\r\n")]
+    parts += [outer, ""]
     split = _after_overview(head)
-    output = [head[:split].rstrip(), "", "\n".join(navigation), "",
-              head[split:].strip(), "", "\n".join(parts)]
+    output = [head[:split].rstrip(), "", "\n".join(parts), "",
+              head[split:].strip(), "", text[end:].lstrip("\r\n")]
     readme.write_text("\n".join(output) + "\n", encoding="utf-8")
     return True, removed
 
@@ -433,4 +419,4 @@ def setup(app: Sphinx) -> Dict[str, Any]:
     app.add_config_value("merge_example_readmes", True, "env")
     app.connect("builder-inited", merge_examples, priority=900)
     app.add_js_file(None, body=_SELECTOR_JS)
-    return {"version": "0.5", "parallel_read_safe": True, "parallel_write_safe": True}
+    return {"version": "0.6", "parallel_read_safe": True, "parallel_write_safe": True}

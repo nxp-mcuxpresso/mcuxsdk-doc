@@ -128,9 +128,10 @@ display the common-instructions fallback. Missing linked files remain in the
 selector with an unavailable-setup message and produce a Sphinx warning.
 Board-page titles and actual board directories resolve plain display names to
 the directory IDs used by the Examples Catalog.
-The supported-board list and selector appear after the overview, before common
-build/run instructions. Board-specific setup remains after those instructions;
-the board list also links to each setup for readers without JavaScript.
+The Supported Boards section appears after the overview, before common build/run
+instructions. The dropdown displays the selected board's setup embedded directly
+below it, without a separate board-link list or a jump to another section.
+Without JavaScript, all board setups remain visible in that same section.
 
 Run the focused regression suite from this repository with the documentation
 Python dependencies and Node.js installed:
