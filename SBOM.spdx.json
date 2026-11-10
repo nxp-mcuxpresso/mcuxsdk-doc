@@ -2,20 +2,20 @@
   "SPDXID": "SPDXRef-DOCUMENT",
   "spdxVersion": "SPDX-2.3",
   "creationInfo": {
-    "created": "2025-09-02T06:42:54Z",
+    "created": "2026-11-10T02:26:21Z",
     "creators": [
       "Organization: NXP"
     ],
-    "licenseListVersion": "3.20"
+    "licenseListVersion": "3.28"
   },
-  "name": "mcuxsdk-doc-v25.09.00",
+  "name": "mcuxsdk-doc-v26.12.00",
   "dataLicense": "CC0-1.0",
-  "documentNamespace": "https://nxp.com/spdx/c14d6653-c700-4d61-9b06-475e971adfd1",
+  "documentNamespace": "https://nxp.com/spdx/f6035ec4-8fc9-4c60-b855-beb12f198650",
   "packages": [
     {
-      "SPDXID": "SPDXRef-package-c14d6653-c700-4d61-9b06-475e971adfd1",
+      "SPDXID": "SPDXRef-package-f6035ec4-8fc9-4c60-b855-beb12f198650",
       "name": "mcuxsdk-doc",
-      "versionInfo": "v25.09.00",
+      "versionInfo": "v26.12.00",
       "licenseConcluded": "(BSD-3-Clause)",
       "licenseDeclared": "(BSD-3-Clause)",
       "downloadLocation": "https://github.com/nxp-mcuxpresso/mcuxsdk-doc",
@@ -25,45 +25,35 @@
       "filesAnalyzed": false
     },
     {
-      "SPDXID": "SPDXRef-package-090a8a48-6b72-44ed-add9-17eaf9f57e57",
-      "name": "zephyr",
-      "versionInfo": "v3.7.0",
+      "SPDXID": "SPDXRef-package-7955dd48-6c8f-4be2-838f-095d113d324a",
+      "name": "zephyrproject-rtos/zephyr",
+      "versionInfo": "v4.4.0",
       "licenseConcluded": "Apache-2.0",
       "licenseDeclared": "Apache-2.0",
-      "homepage": "https://zephyrproject.org/doc",
-      "downloadLocation": "https://github.com/zephyrproject-rtos/zephyr/releases/tag/v3.7.0",
-      "originator": "Organization: zephyrproject-rtos",
+      "homepage": "https://github.com/zephyrproject-rtos",
+      "downloadLocation": "NOASSERTION",
+      "originator": "Organization: unknown",
       "supplier": "NOASSERTION",
       "externalRefs": [
         {
           "referenceCategory": "SECURITY",
-          "referenceLocator": "cpe:2.3:a:zephyrproject_rtos:zephyr:3.7.0:*:*:*:*:*:*:*",
+          "referenceLocator": "cpe:2.3:a:zephyrproject:zephyr:4.4.0:*:*:*:*:*:*:*",
           "referenceType": "cpe23Type"
         },
         {
           "referenceCategory": "SECURITY",
-          "referenceLocator": "cpe:2.3:a:zephyrproject:zephyr:3.7.0:*:*:*:*:*:*:*",
+          "referenceLocator": "cpe:2.3:a:zephyrproject_rtos:zephyr:4.4.0:*:*:*:*:*:*:*",
           "referenceType": "cpe23Type"
         },
         {
           "referenceCategory": "SECURITY",
-          "referenceLocator": "cpe:2.3:o:zephyrproject:zephyr:3.7.0:*:*:*:*:*:*:*",
+          "referenceLocator": "cpe:2.3:o:zephyrproject:zephyr:4.4.0:*:*:*:*:*:*:*",
           "referenceType": "cpe23Type"
         },
         {
           "referenceCategory": "SECURITY",
-          "referenceLocator": "cpe:2.3:o:zephyrproject:zephyr:3.7.0:-:*:*:*:*:*:*",
+          "referenceLocator": "cpe:2.3:o:zephyrproject:zephyr:4.4.0:-:*:*:*:*:*:*",
           "referenceType": "cpe23Type"
-        },
-        {
-          "referenceCategory": "PACKAGE-MANAGER",
-          "referenceLocator": "pkg:github/zephyrproject-rtos/zephyr@v3.7.0",
-          "referenceType": "purl"
-        },
-        {
-          "referenceCategory": "OTHER",
-          "referenceLocator": "60a2e717-5c7a-47eb-894d-14bf4fe39556",
-          "referenceType": "BlackDuck-ComponentOrigin"
         }
       ],
       "filesAnalyzed": false
@@ -73,12 +63,17 @@
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
       "relationshipType": "DESCRIBES",
-      "relatedSpdxElement": "SPDXRef-package-c14d6653-c700-4d61-9b06-475e971adfd1"
+      "relatedSpdxElement": "SPDXRef-package-f6035ec4-8fc9-4c60-b855-beb12f198650"
     },
     {
-      "spdxElementId": "SPDXRef-package-c14d6653-c700-4d61-9b06-475e971adfd1",
+      "spdxElementId": "SPDXRef-package-f6035ec4-8fc9-4c60-b855-beb12f198650",
       "relationshipType": "CONTAINS",
-      "relatedSpdxElement": "SPDXRef-package-090a8a48-6b72-44ed-add9-17eaf9f57e57"
+      "relatedSpdxElement": "SPDXRef-package-7955dd48-6c8f-4be2-838f-095d113d324a"
+    },
+    {
+      "spdxElementId": "SPDXRef-package-f6035ec4-8fc9-4c60-b855-beb12f198650",
+      "relationshipType": "DYNAMIC_LINK",
+      "relatedSpdxElement": "SPDXRef-package-7955dd48-6c8f-4be2-838f-095d113d324a"
     }
   ]
 }
