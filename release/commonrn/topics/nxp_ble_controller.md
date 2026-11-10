@@ -53,7 +53,7 @@
     -   Randomized Resolvable Private Address (\RPA\)
     -   LE Enhanced Connection Update
     Additional features supported as EAR (\Early Access Release\) in the KW47 experimental build:
-    -   Inline PCT Transfer (\IPT\)
+    -   Inline PCT Transfer (\IPT\) reflector 1x1
     Additional features supported as EAR (\Early Access Release\) in the KW45/KW47 experimental builds:
     -   LE Test Mode Enhancement (\UTP/OTA\).
     -   LE Power Control (\LEPC\).

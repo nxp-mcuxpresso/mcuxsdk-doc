@@ -13,13 +13,7 @@ The following changes have been implemented compared to the previous SDK release
     -   Details can be found in github repository **nxp-mcuxpresso/mcuxsdk-middleware-bluetooth-host/CHANGELOG.md**.
 
 -   **Bluetooth LE Controller**
-    - Fixed EBQ failure — packet time restrictions not applied after LL_PHY_RSP (LL/CON/PER/BV-53-C).
-    PAwR:
-    - Fixed memory leak in PAWR.
-    Handover:
-    - Fixed an issue where after connection handover the connection update procedure causes a disconnection.
-    LEPC:
-    - Fixed EBQ LEPC coded phy tests (LL/PCL/CEN/BV-36-C, LL/PCL/CEN/BV-40-C, LL/PCL/PER/BV-29-C, LL/PCL/PER/BV-40-C).
+    No major update.
 
 -   **Transceiver Drivers (XCVR)**
     -   Added API to control Power Amplifier (PA) ramp type and duration.
