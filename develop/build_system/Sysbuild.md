@@ -67,58 +67,6 @@ mcux_add_iar_configuration(
 )
 ```
 
-### Binary input dependencies
-
-Build ordering alone does not make an object or executable out of date when an
-embedded image changes. Declare the input at its consumer with
-`mcux_add_binary_dependency`:
-
-```cmake
-# In the primary application's CMakeLists.txt, after creating the target.
-mcux_add_binary_dependency(
-    BINARY ${APPLICATION_BINARY_DIR}/../hello_world_secondary_core/${CONFIG_TOOLCHAIN}/core1_image.bin
-    SOURCES ${SdkRootDirPath}/components/misc_utilities/fsl_incbin.S
-)
-```
-
-`BINARY` is one file, resolved relative to the current binary directory when it
-is not absolute. `SOURCES` is optional and lists the source files that embed that
-binary, resolved relative to the current source directory. The command appends
-`OBJECT_DEPENDS` for those sources in the target's directory and `LINK_DEPENDS`
-for the target, preserving existing dependencies. `TARGET` optionally selects a
-target other than `${MCUX_SDK_PROJECT_NAME}`. Call the command again for each
-additional input. For linker-only inputs, such as IAR `--image_input`, omit
-`SOURCES`; a source not compiled by the selected toolchain has no object to
-rebuild.
-
-The same declaration works with armgcc, mcux, mdk, iar, riscvllvm, xtensa and
-codewarrior: it uses CMake file dependencies, without compiler-specific switches,
-assembly scanning or a Python compile wrapper. This does not add toolchain
-support to an application that does not already have it. These dependency
-properties are supported by Ninja and Makefile generators; IDE-native
-incremental builds need their own dependency declarations.
-
-Keep the existing image build ordering (`add_dependencies`), linker input
-options and assembler include directories. This command neither selects nor
-produces the binary and does not discover undeclared inputs. The declared file
-must be the one actually consumed, including any include-path overrides.
-For non-sysbuild consumers, arrange production of the input before building the
-consumer.
-
-The multicore `hello_world`, `multicore_manager`, `freertos_message_buffers`,
-`rpmsg_lite_pingpong`, `rpmsg_lite_pingpong_rtos`, `rpmsg_lite_pingpong_dsp`
-and `rpmsg_lite_pingpong_tzm` examples declare their secondary image inputs.
-The DSP example also declares the HiFi image segments at the board-level ARM
-consumers. On boards that embed a secondary Non-secure image, the TrustZone
-example declares that input in the board's Secure application configuration;
-boards without that image do not acquire a dependency on it.
-Other applications must declare their own binary inputs.
-
-The objcopy-based `mcux_convert_binary` path also declares its output as a CMake
-byproduct, allowing Ninja to regenerate a missing image. Custom conversion
-commands and CodeWarrior's linker-driven conversion need their own output
-declarations.
-
 ## Application configuration files
 
 Within the main application's directory, create a subdirectory named `sysbuild`. This directory serves as the configuration directory for the application. Based on the naming convention, configuration files placed in this directory are automatically loaded by Sysbuild for each project it manages.
